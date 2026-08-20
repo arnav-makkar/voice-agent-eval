@@ -1,0 +1,21 @@
+{
+  "adapter": "sarvam-conv-ai-sdk==1.0.21/CALL",
+  "aggregate": {
+    "average_experience_score": 0.8,
+    "failure_counts": {
+      "disposition": 1
+    },
+    "invalid_simulations": 0,
+    "records": 1,
+    "task_success_rate": 0.0,
+    "task_successes": 0,
+    "valid_records": 1
+  },
+  "candidate_id": "indus-v12",
+  "claim_boundary": "Live Indus runtime. Text messages sent through CALL mode do not validate STT input; audio output events and bot transcripts validate runtime integration, not a matched voice-quality result.",
+  "interaction_ids": [
+    "20260819/6f9254b5-03:09:31-0a8560ba"
+  ],
+  "scenario_count": 1,
+  "schema_version": "indus-chat-suite.v1"
+}

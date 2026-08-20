@@ -1,0 +1,154 @@
+{
+  "schema_version": "eva-emi-voice-suite.v1",
+  "status": "frozen_before_matched_live_execution",
+  "records": [
+    {
+      "record_id": "EMI-VOICE-001",
+      "source_id": "EMI-DYN-001",
+      "suite": "core",
+      "scenario_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-VOICE-001.json"
+    },
+    {
+      "record_id": "EMI-VOICE-002",
+      "source_id": "EMI-DYN-003",
+      "suite": "core",
+      "scenario_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-VOICE-002.json"
+    },
+    {
+      "record_id": "EMI-VOICE-003",
+      "source_id": "EMI-DYN-005",
+      "suite": "core",
+      "scenario_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-VOICE-003.json"
+    },
+    {
+      "record_id": "EMI-VOICE-004",
+      "source_id": "EMI-DYN-006",
+      "suite": "core",
+      "scenario_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-VOICE-004.json"
+    },
+    {
+      "record_id": "EMI-VOICE-005",
+      "source_id": "EMI-DYN-007",
+      "suite": "core",
+      "scenario_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-VOICE-005.json"
+    },
+    {
+      "record_id": "EMI-VOICE-006",
+      "source_id": "EMI-DYN-008",
+      "suite": "core",
+      "scenario_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-VOICE-006.json"
+    },
+    {
+      "record_id": "EMI-VOICE-007",
+      "source_id": "EMI-DYN-009",
+      "suite": "core",
+      "scenario_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-VOICE-007.json"
+    },
+    {
+      "record_id": "EMI-VOICE-008",
+      "source_id": "EMI-DYN-012",
+      "suite": "core",
+      "scenario_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-VOICE-008.json"
+    },
+    {
+      "record_id": "EMI-VOICE-009",
+      "source_id": "EMI-DYN-013",
+      "suite": "core",
+      "scenario_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-VOICE-009.json"
+    },
+    {
+      "record_id": "EMI-VOICE-010",
+      "source_id": "EMI-DYN-014",
+      "suite": "core",
+      "scenario_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-VOICE-010.json"
+    },
+    {
+      "record_id": "EMI-VOICE-011",
+      "source_id": "EMI-DYN-025",
+      "suite": "core",
+      "scenario_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-VOICE-011.json"
+    },
+    {
+      "record_id": "EMI-VOICE-012",
+      "source_id": "EMI-DYN-028",
+      "suite": "core",
+      "scenario_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-VOICE-012.json"
+    },
+    {
+      "record_id": "EMI-VOICE-013",
+      "source_id": "EMI-DYN-001",
+      "suite": "acoustic",
+      "perturbation": {
+        "kind": "background_noise",
+        "snr_db": 12,
+        "seed": 1301
+      },
+      "scenario_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-VOICE-013.json"
+    },
+    {
+      "record_id": "EMI-VOICE-014",
+      "source_id": "EMI-DYN-001",
+      "suite": "acoustic",
+      "perturbation": {
+        "kind": "low_gain",
+        "gain": 0.4,
+        "seed": 1302
+      },
+      "scenario_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-VOICE-014.json"
+    },
+    {
+      "record_id": "EMI-VOICE-015",
+      "source_id": "EMI-DYN-001",
+      "suite": "acoustic",
+      "perturbation": {
+        "kind": "packet_loss",
+        "probability": 0.08,
+        "seed": 1303
+      },
+      "scenario_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-VOICE-015.json"
+    },
+    {
+      "record_id": "EMI-VOICE-016",
+      "source_id": "EMI-DYN-028",
+      "suite": "acoustic",
+      "perturbation": {
+        "kind": "jitter",
+        "max_delay_ms": 80,
+        "seed": 1304
+      },
+      "scenario_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-VOICE-016.json"
+    },
+    {
+      "record_id": "EMI-VOICE-017",
+      "source_id": "EMI-DYN-012",
+      "suite": "acoustic",
+      "perturbation": {
+        "kind": "background_noise",
+        "snr_db": 15,
+        "seed": 1305
+      },
+      "scenario_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-VOICE-017.json"
+    },
+    {
+      "record_id": "EMI-VOICE-018",
+      "source_id": "EMI-DYN-013",
+      "suite": "acoustic",
+      "perturbation": {
+        "kind": "low_gain",
+        "gain": 0.55,
+        "seed": 1306
+      },
+      "scenario_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-VOICE-018.json"
+    }
+  ],
+  "core_count": 12,
+  "acoustic_count": 6,
+  "dataset_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_dataset.json",
+  "dataset_sha256": "99d6f0f37bba3595a6f3498b48f7dfee751d004af7980835725adb1612710f48",
+  "source_files": {
+    "development.jsonl": "e7efa22dc34310fcd22bdc575c9f0f4dfe10d686b4368ef7b7042cc753bc18de",
+    "validation.jsonl": "5358c2a6d5eac6eec9799d4c137e0892f554a4044953e83a087665582b8e6012",
+    "regression.jsonl": "b0b341debafe74adda48086c7163cef9919cbc0fa2cf133b05d8b3939412b385"
+  },
+  "claim_boundary": "Prospective matched live suite. No result exists until both frozen Indus versions run identical record IDs and trial counts."
+}

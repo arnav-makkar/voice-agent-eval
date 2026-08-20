@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Kripya EasyCredit app se hi payment karein. Kya aap app restart karke abhi try kar sakte hain?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4675.5,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "ba74606d0dbad7ae31c8a97fdf3c26379034a5a7a1b87cb42a56e50269ab734d",
+    "response_hash": "11003cbd085f44642ea5d734dc650bf593c06074d529aa0bfc630987b46bc32c",
+    "usage": {
+      "candidatesTokenCount": 49,
+      "promptTokenCount": 1470,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1470
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 544,
+      "totalTokenCount": 2063
+    }
+  }
+}

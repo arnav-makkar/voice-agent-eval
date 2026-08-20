@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "wrong_number",
+    "should_end_call": true,
+    "spoken_response": "Aapka shukriya, galat number par call karne ke liye maafi chahta hoon. Main call samapt kar raha hoon.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "wrong_number"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4103.4,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "011b8388b475ee1997d5ae32c03569304ac05e43d9f370ae4c0fdca23eedb9f0",
+    "response_hash": "c562d78e734af8bb329a44aaa52049b018862ebea1203fbde5236d39f3f19d30",
+    "usage": {
+      "candidatesTokenCount": 71,
+      "promptTokenCount": 1547,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1547
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 511,
+      "totalTokenCount": 2129
+    }
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-ANCHOR-FAIL-01",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "धन्यवाद, कृपया ऑफिशियल ऐप से अभी भुगतान कर दीजिए।",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-ANCHOR-FAIL-02",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "कोई बात नहीं, आप आज किस समय तक ऐप से भुगतान कर सकते हैं?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-ANCHOR-FAIL-03",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "धन्यवाद, कृपया ऑफिशियल ऐप से अभी भुगतान कर दीजिए।",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-ANCHOR-FAIL-04",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "अगर आपने यह लोन नहीं लिया है, तो आप हमारी कस्टमर केयर टीम से संपर्क कर सकते हैं। धन्यवाद।",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-ANCHOR-FAIL-05",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "धन्यवाद, कृपया ऑफिशियल ऐप से अभी भुगतान कर दीजिए।",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-ANCHOR-FAIL-06",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ठीक है, हमारी टीम से बात करने के लिए आप हमारे कस्टमर केयर नंबर पर संपर्क कर सकते हैं। धन्यवाद।",
+        "terminal_state": "escalation"
+      },
+      {
+        "case_id": "EMI-ANCHOR-FAIL-07",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ठीक है, आप ऐप पर चेक करके भुगतान कर दीजिए। धन्यवाद।",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-ANCHOR-FAIL-08",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "I am Shubh, an AI voice assistant for EasyCredit Finance. You can open the official app to verify your account. Can you pay now through the app?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-ANCHOR-FAIL-09",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "धन्यवाद, कृपया ऑफिशियल ऐप से अभी भुगतान कर दीजिए।",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-ANCHOR-FAIL-10",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "धन्यवाद, कृपया ऑफिशियल ऐप से अभी भुगतान कर दीजिए।",
+        "terminal_state": "payment_ready"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 37484.5,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "d7d24898706ebcc7e2610ac7c3a840f76cbc9f078240d4958b948d4b1be80006",
+    "response_hash": "fb77353d26cd748533f8055462600274f7d4124bcc06bbe0bf9c56bf6c128fc8",
+    "usage": {
+      "candidatesTokenCount": 578,
+      "promptTokenCount": 4865,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 4865
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 7607,
+      "totalTokenCount": 13050
+    }
+  }
+}

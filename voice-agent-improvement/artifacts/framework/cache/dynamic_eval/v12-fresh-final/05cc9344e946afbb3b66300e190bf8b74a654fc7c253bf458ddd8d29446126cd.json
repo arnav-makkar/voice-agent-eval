@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "rtp",
+    "should_end_call": true,
+    "spoken_response": "Theek hai Kabir ji, main aapki baat samajh gaya. Aap official app par details check kar sakte hain. Dhanyawad.",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 10028.8,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "05cc9344e946afbb3b66300e190bf8b74a654fc7c253bf458ddd8d29446126cd",
+    "response_hash": "7032fb7355e9812c2b0fa5ed32e249e45f60a4080558bdd902b2d4a4d274d3cb",
+    "usage": {
+      "candidatesTokenCount": 54,
+      "promptTokenCount": 1566,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1566
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1648,
+      "totalTokenCount": 3268
+    }
+  }
+}

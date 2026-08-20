@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "acknowledged",
+    "should_end_call": true,
+    "spoken_response": "Thik hai Mehak ji, aap official EasyCredit app se verify karke payment kar sakte hain. Dhanyawad.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "acknowledged"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5281.1,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "847ae00df2533ea067e78e95a810a58e751b5e930b252c1c2e15a9c7aaa6b804",
+    "response_hash": "40f9e443968480a4491f8574f0ab10b24c6cc9fa071a374395de1a062293c8f3",
+    "usage": {
+      "candidatesTokenCount": 66,
+      "promptTokenCount": 1898,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1898
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 764,
+      "totalTokenCount": 2728
+    }
+  }
+}

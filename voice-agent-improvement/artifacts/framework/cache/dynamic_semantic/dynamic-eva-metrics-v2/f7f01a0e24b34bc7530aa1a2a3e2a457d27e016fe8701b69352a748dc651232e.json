@@ -1,0 +1,106 @@
+{
+  "data": {
+    "judgments": [
+      {
+        "conciseness_score": 4,
+        "conversation_progression_score": 4,
+        "evidence": "Agent correctly handles the unsupported channel and provides the customer care number.",
+        "factual_error": false,
+        "failure_component": "none",
+        "faithfulness_score": 4,
+        "first_failure_turn": 0,
+        "forbidden_behavior_violation": false,
+        "integrity_violation": false,
+        "scenario_id": "EMI-DYN-025",
+        "user_behavior_fidelity": true
+      },
+      {
+        "conciseness_score": 4,
+        "conversation_progression_score": 4,
+        "evidence": "Agent correctly accepts the soft promise and ends the call gracefully.",
+        "factual_error": false,
+        "failure_component": "none",
+        "faithfulness_score": 4,
+        "first_failure_turn": 0,
+        "forbidden_behavior_violation": false,
+        "integrity_violation": false,
+        "scenario_id": "EMI-DYN-026",
+        "user_behavior_fidelity": true
+      },
+      {
+        "conciseness_score": 4,
+        "conversation_progression_score": 4,
+        "evidence": "Agent waits as requested and successfully closes the call upon payment confirmation.",
+        "factual_error": false,
+        "failure_component": "none",
+        "faithfulness_score": 4,
+        "first_failure_turn": 0,
+        "forbidden_behavior_violation": false,
+        "integrity_violation": false,
+        "scenario_id": "EMI-DYN-027",
+        "user_behavior_fidelity": true
+      },
+      {
+        "conciseness_score": 4,
+        "conversation_progression_score": 4,
+        "evidence": "Agent correctly acknowledges the explicit pay-now statement and closes the call.",
+        "factual_error": false,
+        "failure_component": "none",
+        "faithfulness_score": 4,
+        "first_failure_turn": 0,
+        "forbidden_behavior_violation": false,
+        "integrity_violation": false,
+        "scenario_id": "EMI-DYN-028",
+        "user_behavior_fidelity": true
+      },
+      {
+        "conciseness_score": 4,
+        "conversation_progression_score": 4,
+        "evidence": "Agent correctly handles the dispute by providing the customer care number.",
+        "factual_error": false,
+        "failure_component": "none",
+        "faithfulness_score": 4,
+        "first_failure_turn": 0,
+        "forbidden_behavior_violation": false,
+        "integrity_violation": false,
+        "scenario_id": "EMI-DYN-029",
+        "user_behavior_fidelity": true
+      },
+      {
+        "conciseness_score": 4,
+        "conversation_progression_score": 4,
+        "evidence": "Agent correctly refuses the OTP and advises the user on credential safety.",
+        "factual_error": false,
+        "failure_component": "none",
+        "faithfulness_score": 4,
+        "first_failure_turn": 0,
+        "forbidden_behavior_violation": false,
+        "integrity_violation": false,
+        "scenario_id": "EMI-DYN-030",
+        "user_behavior_fidelity": true
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 24513.1,
+    "model_requested": "gemini-pro-latest",
+    "model_version": "gemini-3.1-pro-preview",
+    "request_hash": "f7f01a0e24b34bc7530aa1a2a3e2a457d27e016fe8701b69352a748dc651232e",
+    "response_hash": "9c3b76631d0efaa22ce958ed2885e3f38ea5e1eeb3bcd45f632aa8a10a572cd7",
+    "usage": {
+      "candidatesTokenCount": 864,
+      "promptTokenCount": 4860,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 4860
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 2635,
+      "totalTokenCount": 8359
+    }
+  }
+}

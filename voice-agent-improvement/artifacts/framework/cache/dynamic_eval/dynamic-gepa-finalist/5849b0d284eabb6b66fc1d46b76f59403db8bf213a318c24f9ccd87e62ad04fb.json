@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Amount Rs 2933 Samsung Smart TV ka hai, kya aap check karke aaj payment kar denge?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 8456.8,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "5849b0d284eabb6b66fc1d46b76f59403db8bf213a318c24f9ccd87e62ad04fb",
+    "response_hash": "1b23b177033de0c0e6b2ef4f1f27e4403504d7bd59ce29765ee9aa0ea828b8dc",
+    "usage": {
+      "candidatesTokenCount": 63,
+      "promptTokenCount": 1752,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1752
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1385,
+      "totalTokenCount": 3200
+    }
+  }
+}

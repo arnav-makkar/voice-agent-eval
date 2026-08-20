@@ -1,0 +1,44 @@
+{
+  "data": {
+    "disposition": "callback",
+    "should_end_call": true,
+    "spoken_response": "Theek hai, 18 August ko shaam 5 se 6 baje ke beech call karenge.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "date": "18-08-2026",
+          "time_window": "5:00 PM - 6:00 PM IST"
+        },
+        "name": "schedule_callback"
+      },
+      {
+        "arguments": {
+          "disposition": "callback"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 9748.0,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "e31cd3ef7dbfc3218e9e2028c18b0ae6521d2e3dc9f2183dfc31999d18bf746e",
+    "response_hash": "81cfcae25bcf209533bac4b9b27a1d53a03ae91fa585f5ff67c10a2b6592a3c3",
+    "usage": {
+      "candidatesTokenCount": 102,
+      "promptTokenCount": 1754,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1754
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1725,
+      "totalTokenCount": 3581
+    }
+  }
+}

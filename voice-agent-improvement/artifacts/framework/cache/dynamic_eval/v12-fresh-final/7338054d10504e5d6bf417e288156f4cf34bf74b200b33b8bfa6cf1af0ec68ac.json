@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Samajhta hoon, par Rs 4769 ki EMI overdue hai. Kya aap abhi EasyCredit app se payment kar sakte hain?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5525.8,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "7338054d10504e5d6bf417e288156f4cf34bf74b200b33b8bfa6cf1af0ec68ac",
+    "response_hash": "564711b49e3e938f9e9bf12227e6183adeff667a29b4e4c8469b309f411f8087",
+    "usage": {
+      "candidatesTokenCount": 69,
+      "promptTokenCount": 1476,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1476
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 759,
+      "totalTokenCount": 2304
+    }
+  }
+}

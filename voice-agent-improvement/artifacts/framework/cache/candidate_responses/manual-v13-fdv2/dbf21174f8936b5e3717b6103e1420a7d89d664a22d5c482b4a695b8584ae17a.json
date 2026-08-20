@@ -1,0 +1,98 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-FACT-01",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "असुविधा के लिए क्षमा करें। किसी भी शिकायत या सहायता के लिए कृपया हमारे कस्टमर केयर नंबर 1800-123-4567 पर संपर्क करें।",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-FD1-FACT-02",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Dhanyawad. Kripya payment ke liye sirf EasyCredit official app ka hi istemaal karein.",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-FACT-03",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thank you. Please make sure to pay using only the official EasyCredit app.",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-FACT-04",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "ਕੋਈ ਗੱਲ ਨਹੀਂ ਜੀ, ਤੁਸੀਂ ਕਿਸ ਤਾਰੀਖ ਤੱਕ ਭੁਗਤਾਨ ਕਰ ਸਕੋਗੇ?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-FACT-05",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Dhanyawad Vikas ji, 19 August ki taareekh note kar li hai. Kripya EasyCredit official app se hi payment karein.",
+        "terminal_state": "fptp"
+      },
+      {
+        "case_id": "EMI-FD1-FACT-06",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "असुविधा के लिए खेद है। कृपया इस मामले की जानकारी के लिए हमारे कस्टमर केयर 1800-123-4567 पर संपर्क करें।",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-FD1-FACT-07",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Aapki baat ka dhyan rakhte hue, kripya aage ki jaankari ke liye hamare customer care number 1800-123-4567 par call karein.",
+        "terminal_state": "escalation"
+      },
+      {
+        "case_id": "EMI-FD1-FACT-08",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thank you. Please ensure you make the payment through the official EasyCredit app only.",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-FACT-09",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਧੰਨਵਾਦ ਜੀ। ਭੁਗਤਾਨ ਕਰਨ ਲਈ ਕਿਰਪਾ ਕਰਕੇ ਸਿਰਫ਼ EasyCredit ਦੀ ਸਰਕਾਰੀ ਐਪ ਦੀ ਵਰਤੋਂ ਕਰੋ।",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-FACT-10",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "3,850 rupees mein 250 rupees late charges pehle se shaamil hain. Aap kis taareekh tak payment kar payenge?",
+        "terminal_state": "acknowledged"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 37662.4,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "dbf21174f8936b5e3717b6103e1420a7d89d664a22d5c482b4a695b8584ae17a",
+    "response_hash": "cd9c4702d59be5be0808d794fe637fe3191d6bead20d71c7ed0e54814acd3f86",
+    "usage": {
+      "candidatesTokenCount": 794,
+      "promptTokenCount": 4867,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 4867
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 6851,
+      "totalTokenCount": 12512
+    }
+  }
+}

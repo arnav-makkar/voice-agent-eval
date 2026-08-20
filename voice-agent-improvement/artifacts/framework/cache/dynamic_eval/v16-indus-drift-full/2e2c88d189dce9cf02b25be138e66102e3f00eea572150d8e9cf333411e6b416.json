@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "dispute",
+    "should_end_call": true,
+    "spoken_response": "What is incorrect with the amount? Please contact customer care at 1800-500-4444 to resolve this dispute.",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 7879.1,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "2e2c88d189dce9cf02b25be138e66102e3f00eea572150d8e9cf333411e6b416",
+    "response_hash": "7c0740f29acacf840b7a3b7457369b5fc9a86427ffda42c7a1e038763a232d4a",
+    "usage": {
+      "candidatesTokenCount": 56,
+      "promptTokenCount": 1937,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1937
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1308,
+      "totalTokenCount": 3301
+    }
+  }
+}

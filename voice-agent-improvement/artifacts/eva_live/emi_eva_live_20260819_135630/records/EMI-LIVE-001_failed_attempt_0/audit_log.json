@@ -1,0 +1,79 @@
+{
+  "transcript": [
+    {
+      "value": "हाँ, अर्णव बोल रहा हूँ। बोलिए, क्या बात है?",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787128002578",
+      "message_type": "user"
+    },
+    {
+      "value": "नमस्ते अर्णव जी, मैं EasyCredit Consumer EMI से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की तीन हज़ार छियासठ रुपये की EMI overdue है। क्या आप अभी official app से payment कर सकते हैं?",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787128004712",
+      "message_type": "assistant"
+    },
+    {
+      "value": "ठीक है, मैं अभी ईज़ी क्रेडिट ऐप खोल के पेमेंट कर देता हूँ।",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787128017970",
+      "message_type": "user"
+    },
+    {
+      "value": "अरे वाह, शुक्रिया! तो क्या आप अभी app से payment कर रहे हैं?",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787128023572",
+      "message_type": "assistant"
+    },
+    {
+      "value": "हाँ, मैं अभी कर रहा हूँ। गुड बाय।",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787128031404",
+      "message_type": "user"
+    },
+    {
+      "value": "अरे वाह, बहुत शुक्रिया Arnav जी। आपका payment ready है, तो मैं call end कर रहा हूँ। आपका दिन शुभ हो!",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787128034790",
+      "message_type": "assistant"
+    }
+  ],
+  "llm_prompts": [],
+  "conversation_messages": [
+    {
+      "role": "user",
+      "content": "हाँ, अर्णव बोल रहा हूँ। बोलिए, क्या बात है?"
+    },
+    {
+      "role": "assistant",
+      "content": "नमस्ते अर्णव जी, मैं EasyCredit Consumer EMI से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की तीन हज़ार छियासठ रुपये की EMI overdue है। क्या आप अभी official app से payment कर सकते हैं?"
+    },
+    {
+      "role": "user",
+      "content": "ठीक है, मैं अभी ईज़ी क्रेडिट ऐप खोल के पेमेंट कर देता हूँ।"
+    },
+    {
+      "role": "assistant",
+      "content": "अरे वाह, शुक्रिया! तो क्या आप अभी app से payment कर रहे हैं?"
+    },
+    {
+      "role": "user",
+      "content": "हाँ, मैं अभी कर रहा हूँ। गुड बाय।"
+    },
+    {
+      "role": "assistant",
+      "content": "अरे वाह, बहुत शुक्रिया Arnav जी। आपका payment ready है, तो मैं call end कर रहा हूँ। आपका दिन शुभ हो!"
+    }
+  ]
+}

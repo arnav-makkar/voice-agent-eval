@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "acknowledged",
+    "should_end_call": true,
+    "spoken_response": "Okay Mehak ji, please check the details in the official EasyCredit app. Thank you.",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 7555.2,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "0f658043c78073a3cd47ed79f88bd829415fc1d968c6060d670e476eca43c476",
+    "response_hash": "132d714cf81d05e67ef04dae369a00999041f36adf878e4ba1b81ed5a18eb0c8",
+    "usage": {
+      "candidatesTokenCount": 44,
+      "promptTokenCount": 2005,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 2005
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1224,
+      "totalTokenCount": 3273
+    }
+  }
+}

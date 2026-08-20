@@ -1,0 +1,98 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-TREF-11",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thik hai, main samajh gaya. Dhanyavaad.",
+        "terminal_state": "rtp"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-12",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "Payment sirf official EasyCredit app se hi hoti hai. Aap kis tareekh tak payment kar paayengi?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-13",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "I understand. You can contact our customer support team for assistance. Thank you.",
+        "terminal_state": "escalation"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-14",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thik hai ji, main samajh gaya. Dhanvaad.",
+        "terminal_state": "rtp"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-15",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "Payment sirf official EasyCredit app se hi hoti hai. Aap kis tareekh tak payment kar sakengi?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-16",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Main samajh sakta hoon, aap hamaare customer care se sampark kar sakti hain. Dhanyavaad.",
+        "terminal_state": "escalation"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-17",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "Main samajh gaya. Aap kis tareekh tak payment kar payenge?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-18",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "Payment is only available through the official EasyCredit app. By what date will you be able to pay?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-19",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Main samajh sakda haan, tusi saade customer care naal sampark kar sakde ho. Dhanvaad.",
+        "terminal_state": "escalation"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-20",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thik hai, main samajh gaya. Dhanyavaad.",
+        "terminal_state": "rtp"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 75324.9,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "6f54e7cc9091b51426e33f92a66d433feb5dbcde44fcc91ae21b79b55dbcd95c",
+    "response_hash": "24fb3c6429978562fd7365c0954f16d472817c0a507dde68fe1cda6674a1a615",
+    "usage": {
+      "candidatesTokenCount": 833,
+      "promptTokenCount": 4560,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 4560
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 13863,
+      "totalTokenCount": 19256
+    }
+  }
+}

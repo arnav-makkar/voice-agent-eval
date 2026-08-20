@@ -1,0 +1,35 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-COND-21",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "ठीक है। आप यह पेमेंट कब तक कर पाएंगे?",
+        "terminal_state": ""
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 9234.3,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "e53cc9e2aa9176cca421daff812761176f3a27f0ee3fa1446c46303d60d1c915",
+    "response_hash": "48d62ff34db9fbaa4185247a187fbad96d59d1d606cfad28bf09b0c2a69d1b1d",
+    "usage": {
+      "candidatesTokenCount": 51,
+      "promptTokenCount": 1467,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1467
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1483,
+      "totalTokenCount": 3001
+    }
+  }
+}

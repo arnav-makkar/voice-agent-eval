@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Theek hai, kya aap 22 August 2026 ko pakka payment kar denge?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 8806.3,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "f9dfe7b5102616bd9eda6ec4a6b9a26898f9925d21a6afd89aab08fcacca43a2",
+    "response_hash": "34a322b3fcd64620c306118877a852149d942bef33a7763021ea07bb92ac5ac3",
+    "usage": {
+      "candidatesTokenCount": 62,
+      "promptTokenCount": 1748,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1748
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1478,
+      "totalTokenCount": 3288
+    }
+  }
+}

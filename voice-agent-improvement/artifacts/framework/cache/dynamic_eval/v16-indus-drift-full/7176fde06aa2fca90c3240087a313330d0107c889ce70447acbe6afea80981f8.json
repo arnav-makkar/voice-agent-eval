@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Koi pareshani hai kya? Aap sabse jaldi kab tak EMI pay kar payenge?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 6108.6,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "7176fde06aa2fca90c3240087a313330d0107c889ce70447acbe6afea80981f8",
+    "response_hash": "e76b796a5f65dbd55dbc869130b814358d417772ee8bc704078dda0f2be04c4f",
+    "usage": {
+      "candidatesTokenCount": 44,
+      "promptTokenCount": 1937,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1937
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 638,
+      "totalTokenCount": 2619
+    }
+  }
+}

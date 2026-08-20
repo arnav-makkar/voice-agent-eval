@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "escalation",
+    "should_end_call": true,
+    "spoken_response": "Aapki baat samajh gaya. Madad ke liye 1800-500-4444 par call karein. Dhanyawad.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "escalation"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 6020.4,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "a301952f3c7a751ffb9b189b520abf8fcbb374c97aad7191c65f87b07e49cd1d",
+    "response_hash": "ec128c0a1201fff1a14b97b844be6e698672126643be02e93dc2c87977bf774a",
+    "usage": {
+      "candidatesTokenCount": 76,
+      "promptTokenCount": 1748,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1748
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 960,
+      "totalTokenCount": 2784
+    }
+  }
+}

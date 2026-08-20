@@ -1,0 +1,43 @@
+{
+  "data": {
+    "disposition": "fptp",
+    "should_end_call": true,
+    "spoken_response": "Dhanyawad Mehak ji, maine 20 August 2026 ki payment date record kar li hai. Aapka din shubh ho!",
+    "tool_calls": [
+      {
+        "arguments": {
+          "date": "20-08-2026"
+        },
+        "name": "record_promise_to_pay"
+      },
+      {
+        "arguments": {
+          "disposition": "fptp"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5590.8,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "dfe01694072ea76a2a7af8fb6b4c5b800fb27a02e1e947275af18e651413f367",
+    "response_hash": "1b20b741bade05a119a44d85b805dbbee0cbd13be959394f3c077171d952d352",
+    "usage": {
+      "candidatesTokenCount": 102,
+      "promptTokenCount": 1816,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1816
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 829,
+      "totalTokenCount": 2747
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Main EasyCredit se Shubh, TV ki Rs 3154 overdue EMI kya aap abhi EasyCredit app se pay karenge?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 6322.9,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "61ca6a401d7ab8cdba07c421e17cfcc7dd54ef6ddea649714cd8426dca507c58",
+    "response_hash": "25d9a16414d528c79d0e78b48a83607d05fe434e761f1de3e7dd7352d28edbe0",
+    "usage": {
+      "candidatesTokenCount": 67,
+      "promptTokenCount": 1686,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1686
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1104,
+      "totalTokenCount": 2857
+    }
+  }
+}

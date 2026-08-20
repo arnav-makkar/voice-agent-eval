@@ -1,0 +1,98 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-DISP-01",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "समझ गया। फ्रॉड क्लेम की जांच के लिए कृपया कस्टमर केयर से संपर्क करें।",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-02",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Samajh gaya. Live verification abhi available nahi hai, kripya customer care se contact karein.",
+        "terminal_state": "already_paid"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-03",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Understood. Live verification is unavailable, so please contact customer care regarding this return dispute.",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-04",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਮੈਂ ਸਮਝ ਗਿਆ। ਧੋਖਾਧੜੀ ਦੀ ਜਾਂਚ ਲਈ ਕਿਰਪਾ ਕਰਕੇ ਕਸਟਮਰ ਕੇਅਰ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-05",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Samajh gaya. Live verification available nahi hai, kripya confirmation ke liye customer care se baat karein.",
+        "terminal_state": "already_paid"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-06",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "समझ गया। इस मर्चेंट विवाद के समाधान के लिए कृपया कस्टमर केयर से संपर्क करें।",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-07",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Samajh gaya. Fake loan aur identity fraud ki inquiry ke liye kripya customer care se contact karein.",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-08",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Understood. Live verification is currently unavailable, so please contact customer care to update your account.",
+        "terminal_state": "already_paid"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-09",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਜੀ ਸਮਝ ਗਿਆ। ਆਰਡਰ ਕੈਂਸਲੇਸ਼ਨ ਦੇ ਡਿਸਪਿਊਟ ਲਈ ਕਿਰਪਾ ਕਰਕੇ ਕਸਟਮਰ ਕੇਅਰ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-10",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Samajh gaya. Fraud aur fake loan dispute ke liye kripya customer care se contact karein.",
+        "terminal_state": "dispute"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 21202.2,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "e1befddc2c467d4763e34a199e5a77502e0804ad75feca786a81faecbfbe94e7",
+    "response_hash": "8c89da0cd57985c000205d2b77bec257ddf78f39a2dc7d23daf4bf4a984bdab5",
+    "usage": {
+      "candidatesTokenCount": 669,
+      "promptTokenCount": 4488,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 4488
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 3598,
+      "totalTokenCount": 8755
+    }
+  }
+}

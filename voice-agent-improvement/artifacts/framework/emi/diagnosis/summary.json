@@ -1,0 +1,23 @@
+{
+  "artifact": {
+    "bytes": 8533,
+    "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/diagnosis/failure_episodes.provisional.jsonl",
+    "records": 15,
+    "sha256": "dbb529b22fe90a5366975d945002e797e5064687ce1b9cc0183cefd3b6b754a9"
+  },
+  "claim_boundary": "This routes failures; it does not prove the proposed repair will improve outcomes.",
+  "episodes": 15,
+  "method": "first observable breaking event + component owner + isolated repair route",
+  "owner_counts": {
+    "agent_prompt": 12,
+    "mixed": 2,
+    "output_extractor": 1
+  },
+  "primary_engine_counts": {
+    "extractor_config": 1,
+    "manual_prompt": 12,
+    "triage_ablation": 2
+  },
+  "review_status": "provisional",
+  "schema_version": "diagnosis-summary.v1"
+}

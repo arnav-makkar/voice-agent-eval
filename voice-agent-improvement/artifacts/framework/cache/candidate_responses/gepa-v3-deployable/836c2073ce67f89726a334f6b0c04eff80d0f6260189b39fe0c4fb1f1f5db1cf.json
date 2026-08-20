@@ -1,0 +1,98 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-COND-01",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ठीक है, आप ऐप में चेक कर लीजिए और जल्द से जल्द भुगतान कर दीजिए। धन्यवाद।",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-COND-02",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Ji thik hai, aap app mein check karke payment clear kar dijiye. Dhanyawad.",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-COND-03",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thank you, please complete the payment tomorrow morning through the app.",
+        "terminal_state": "fptp"
+      },
+      {
+        "case_id": "EMI-FD1-COND-04",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਜੀ ਠੀਕ ਹੈ, ਕਿਰਪਾ ਕਰਕੇ 22 ਅਗਸਤ ਨੂੰ ਐਪ ਰਾਹੀਂ ਭੁਗਤਾਨ ਕਰ ਦੇਣਾ। ਧੰਨਵਾਦ।",
+        "terminal_state": "fptp"
+      },
+      {
+        "case_id": "EMI-FD1-COND-05",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thik hai, aap app mein details check kar lijiye aur payment kar dijiye. Dhanyawad.",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-COND-06",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "धन्यवाद, कृपया ऐप से भुगतान पूरा कर लें।",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-COND-07",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thik hai, hum aapko aaj shaam ko call kar lenge. Dhanyawad.",
+        "terminal_state": "callback"
+      },
+      {
+        "case_id": "EMI-FD1-COND-08",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Alright, please check the app and clear your payment as soon as possible. Thank you.",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-COND-09",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਜੀ ਠੀਕ ਹੈ, ਅਸੀਂ ਤੁਹਾਨੂੰ ਅੱਜ 2 ਵਜੇ ਕਾਲ ਕਰ ਲਵਾਂਗੇ। ਧੰਨਵਾਦ।",
+        "terminal_state": "callback"
+      },
+      {
+        "case_id": "EMI-FD1-COND-10",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thik hai, aap app mein check kar lijiye aur jald se jald payment kar dijiye. Dhanyawad.",
+        "terminal_state": "acknowledged"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 26145.9,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "836c2073ce67f89726a334f6b0c04eff80d0f6260189b39fe0c4fb1f1f5db1cf",
+    "response_hash": "91311fcf63e1ecd8652759a1a499202545164841e00ba71d6f2cfeb1f07fc308",
+    "usage": {
+      "candidatesTokenCount": 872,
+      "promptTokenCount": 4459,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 4459
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 4832,
+      "totalTokenCount": 10163
+    }
+  }
+}

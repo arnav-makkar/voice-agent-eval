@@ -1,0 +1,38 @@
+[
+  {
+    "event": "samvaad_connected",
+    "timestamp_ms": "1787126395179",
+    "interaction_id": null
+  },
+  {
+    "event": "twilio_start",
+    "timestamp_ms": "1787126395179",
+    "stream_sid": "EMI-LIVE-001"
+  },
+  {
+    "event": "user_audio_start",
+    "timestamp_ms": "1787126396601",
+    "source_timestamp_ms": "1787126396600"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787126396789",
+    "type": "server.action.interaction_connected",
+    "interaction_id": "20260819/c3c104b0-13:29:55-93c0e08e"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787126397196",
+    "sample_rate": 16000
+  },
+  {
+    "event": "conversation_ending",
+    "timestamp_ms": "1787126397618",
+    "reason": "session_ended"
+  },
+  {
+    "event": "samvaad_disconnected",
+    "timestamp_ms": "1787126397688",
+    "interaction_id": "20260819/c3c104b0-13:29:55-93c0e08e"
+  }
+]

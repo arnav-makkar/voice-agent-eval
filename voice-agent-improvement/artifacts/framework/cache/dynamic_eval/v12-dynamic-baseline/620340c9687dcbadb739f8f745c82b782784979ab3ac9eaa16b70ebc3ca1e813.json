@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Nahi, OTP kisi ko mat dijiye. Kya aap EasyCredit app se abhi khud payment kar sakte hain?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4286.7,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "620340c9687dcbadb739f8f745c82b782784979ab3ac9eaa16b70ebc3ca1e813",
+    "response_hash": "aae7788e2be15fd086bc6e61f030309c85dd440be83494f373e0e52cf8692fe0",
+    "usage": {
+      "candidatesTokenCount": 64,
+      "promptTokenCount": 1470,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1470
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 456,
+      "totalTokenCount": 1990
+    }
+  }
+}

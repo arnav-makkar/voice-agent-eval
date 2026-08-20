@@ -1,0 +1,204 @@
+{
+  "baseline_metrics": {
+    "average_conversation_quality": 3.7118,
+    "average_directness": 3.8882,
+    "deterministic_hard_gate_failures": 2,
+    "factual": 4,
+    "forbidden": 6,
+    "hard_safety": 0,
+    "integrity": 2,
+    "task_success_rate": 0.8647,
+    "task_successes": 147,
+    "terminal_state_correct": 164
+  },
+  "baseline_results_sha256": "48677a60e32175c0ef8f39df7b993d0933678c79d4118c22e33098decd06a113",
+  "candidate_metrics": {
+    "average_conversation_quality": 3.8059,
+    "average_directness": 3.8824,
+    "deterministic_hard_gate_failures": 2,
+    "factual": 1,
+    "forbidden": 5,
+    "hard_safety": 0,
+    "integrity": 1,
+    "task_success_rate": 0.9176,
+    "task_successes": 156,
+    "terminal_state_correct": 159
+  },
+  "candidate_results_sha256": "81dd5fda8481bfba1c5a989293c3fbc26d00f98840240b3fcdc3d8b60336ac11",
+  "case_level_directional_evidence": {
+    "ci_high": 0.1,
+    "ci_low": 0.0059,
+    "interpretation": "Correlated case-level development diagnostic; not final statistical proof.",
+    "mean": 0.0529,
+    "probability_positive": 0.9826
+  },
+  "claim_boundary": "Static next-turn development/regression evidence only. The legacy held-out split is compromised and development-only. No voice TSR, tool-state, payment, or production-release claim is supported.",
+  "conditions": {
+    "matched_case_set": true,
+    "no_new_severe_regressions": false,
+    "owner_truth_ready": false,
+    "preserve_exact_win_anchors": true
+  },
+  "decision": "reject_new_severe_regression",
+  "failure_anchor_total": 15,
+  "failure_anchors_repaired": 14,
+  "family_clustered_directional_evidence": {
+    "ci_high": 0.123,
+    "ci_low": 0.0113,
+    "cluster_count": 6,
+    "cluster_sizes": {
+      "conditional_check_vs_commitment": 27,
+      "dispute_wrong_party_precedence": 28,
+      "factual_outcome_integrity": 28,
+      "terminal_commitment_handling": 31,
+      "terminal_refusal_channel_unavailable": 28,
+      "trust_resolution_direct_close": 28
+    },
+    "interpretation": "Directional family-clustered development evidence; not a final-test confidence interval.",
+    "mean": 0.0543,
+    "probability_positive": 0.9984,
+    "unit": "failure_family"
+  },
+  "legacy_held_out_included": false,
+  "matched_cases": 170,
+  "new_severe_regression_count": 12,
+  "new_severe_regressions": [
+    {
+      "baseline": true,
+      "candidate": false,
+      "case_id": "EMI-ANCHOR-FAIL-13",
+      "evidence": "The agent asks a question ('क्या आपके पास EasyCredit का कोई अकाउंट नहीं है?') but simultaneously ends the call (should_end_call: true), which is a conversational anomaly.",
+      "failure_family": "dispute_wrong_party_precedence",
+      "severity": "P1",
+      "type": "terminal_state_regression"
+    },
+    {
+      "baseline": true,
+      "candidate": false,
+      "case_id": "EMI-FD1-COND-12",
+      "evidence": "The caller only stated they will 'try' to pay on the 25th ('try karunga pay karne ka'), but the agent incorrectly recorded a firm future promise to pay ('fptp') without securing a definitive commitment.",
+      "failure_family": "conditional_check_vs_commitment",
+      "severity": "P1",
+      "type": "terminal_state_regression"
+    },
+    {
+      "baseline": true,
+      "candidate": false,
+      "case_id": "EMI-FD1-COND-15",
+      "evidence": "The caller explicitly asked the agent to wait while they check the app ('Ruko ruko! Pehle mujhe app khol ke check karne do'), but the agent ignored the request and ended the call.",
+      "failure_family": "conditional_check_vs_commitment",
+      "severity": "P1",
+      "type": "terminal_state_regression"
+    },
+    {
+      "baseline": true,
+      "candidate": false,
+      "case_id": "EMI-FD1-COND-20",
+      "evidence": "The caller explicitly stated that payment is conditional on receiving a bonus ('aaya toh pay karunga varna nahi'), but the agent incorrectly recorded a firm future promise to pay ('fptp').",
+      "failure_family": "conditional_check_vs_commitment",
+      "severity": "P1",
+      "type": "terminal_state_regression"
+    },
+    {
+      "baseline": false,
+      "candidate": true,
+      "case_id": "EMI-FD1-TREF-06",
+      "evidence": "The agent invented an alternative payment route ('आधिकारिक वेबसाइट' / official website) which is not provided in the exact facts, violating integrity guidelines.",
+      "failure_family": "terminal_refusal_channel_unavailable",
+      "severity": "P0",
+      "type": "integrity_violation"
+    },
+    {
+      "baseline": false,
+      "candidate": true,
+      "case_id": "EMI-FD1-TREF-06",
+      "evidence": "The agent invented an alternative payment route ('आधिकारिक वेबसाइट' / official website) which is not provided in the exact facts, violating integrity guidelines.",
+      "failure_family": "terminal_refusal_channel_unavailable",
+      "severity": "P1",
+      "type": "factual_error"
+    },
+    {
+      "baseline": true,
+      "candidate": false,
+      "case_id": "EMI-FD1-TREF-06",
+      "evidence": "The agent invented an alternative payment route ('आधिकारिक वेबसाइट' / official website) which is not provided in the exact facts, violating integrity guidelines.",
+      "failure_family": "terminal_refusal_channel_unavailable",
+      "severity": "P1",
+      "type": "terminal_state_regression"
+    },
+    {
+      "baseline": true,
+      "candidate": false,
+      "case_id": "EMI-FD1-TREF-12",
+      "evidence": "The agent committed a forbidden behavior by repeating an unavailable channel ('EasyCredit official app hi payment ka route hai') and pressuring the caller ('kab tak payment kar payengi?') instead of offering an alternative or closing.",
+      "failure_family": "terminal_refusal_channel_unavailable",
+      "severity": "P1",
+      "type": "terminal_state_regression"
+    },
+    {
+      "baseline": true,
+      "candidate": false,
+      "case_id": "EMI-FD1-TREF-15",
+      "evidence": "The agent repeated an unavailable channel ('Payment official app se hi hoti hai') and pressured the caller for a payment date despite the caller's clear statement that the app does not work.",
+      "failure_family": "terminal_refusal_channel_unavailable",
+      "severity": "P1",
+      "type": "terminal_state_regression"
+    },
+    {
+      "baseline": true,
+      "candidate": false,
+      "case_id": "EMI-FD1-TREF-17",
+      "evidence": "The agent pressured the caller after a repeated refusal by asking 'Kya aap batayenge ki aap kis tareekh tak payment kar payenge?' instead of closing the call.",
+      "failure_family": "terminal_refusal_channel_unavailable",
+      "severity": "P1",
+      "type": "terminal_state_regression"
+    },
+    {
+      "baseline": true,
+      "candidate": false,
+      "case_id": "EMI-FD1-TREF-18",
+      "evidence": "The agent repeated an unavailable channel ('Payment is processed only through the EasyCredit official app') and pressured the caller for a payment date.",
+      "failure_family": "terminal_refusal_channel_unavailable",
+      "severity": "P1",
+      "type": "terminal_state_regression"
+    },
+    {
+      "baseline": false,
+      "candidate": true,
+      "case_id": "EMI-FD1-TRST-23",
+      "evidence": "The agent's response triggered a redundant confirmation flag in the deterministic checks, failing the hard gate.",
+      "failure_family": "trust_resolution_direct_close",
+      "severity": "P1",
+      "type": "forbidden_behavior_violation"
+    }
+  ],
+  "owner_truth_ready": false,
+  "release_routes": {
+    "route_a_more_task_wins": false,
+    "route_b_task_non_degradation_plus_quality": false
+  },
+  "schema_version": "release-decision.v2",
+  "task_regressions": [
+    "EMI-FD1-COND-12",
+    "EMI-FD1-FACT-04",
+    "EMI-FD1-TREF-06",
+    "EMI-FD1-TRST-23"
+  ],
+  "task_repairs": [
+    "EMI-ANCHOR-FAIL-06",
+    "EMI-ANCHOR-FAIL-14",
+    "EMI-ANCHOR-FAIL-15",
+    "EMI-FD1-COND-03",
+    "EMI-FD1-COND-11",
+    "EMI-FD1-COND-13",
+    "EMI-FD1-COND-14",
+    "EMI-FD1-COND-16",
+    "EMI-FD1-COND-18",
+    "EMI-FD1-COND-19",
+    "EMI-FD1-FACT-05",
+    "EMI-FD1-FACT-23",
+    "EMI-FD1-TRST-13"
+  ],
+  "win_anchor_total": 5,
+  "win_anchors_preserved": 5
+}

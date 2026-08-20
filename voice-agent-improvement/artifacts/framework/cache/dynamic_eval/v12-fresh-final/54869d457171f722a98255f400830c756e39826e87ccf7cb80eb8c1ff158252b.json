@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "ptp_today",
+    "should_end_call": true,
+    "spoken_response": "Bahut dhanyawad Riya ji. Main note kar leta hoon ki aap aaj shaam tak payment kar denge.",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5156.0,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "54869d457171f722a98255f400830c756e39826e87ccf7cb80eb8c1ff158252b",
+    "response_hash": "9ada343287da71c22c8fe6ed0af831cff989ccb3d7fe6782339f4f47fee89ce2",
+    "usage": {
+      "candidatesTokenCount": 53,
+      "promptTokenCount": 1563,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1563
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 769,
+      "totalTokenCount": 2385
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-TRST-22",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "Main Shubh hoon, EasyCredit Finance ka AI assistant. Aap khud official EasyCredit app kholkar payment kar sakte hain, kya aap abhi pay karenge?",
+        "terminal_state": "acknowledged"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 28443.0,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "81a78ad39b3d57936d6f0795daaa0c361bc2ff9fca569e3249781788ea318d6d",
+    "response_hash": "124ae1f7e76b0d1881fbc9b3fa48db8be783a06d0815d56826bae0859394814a",
+    "usage": {
+      "candidatesTokenCount": 84,
+      "promptTokenCount": 1456,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1456
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 5083,
+      "totalTokenCount": 6623
+    }
+  }
+}

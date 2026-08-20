@@ -1,0 +1,31 @@
+{
+  "data": {
+    "action": "speak",
+    "delay_ms": 0,
+    "policy_node": "step-1",
+    "rationale": "Initial response to start the conversation in Hinglish as per planned step 1.",
+    "text": "Haan hello, boliye?"
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 7441.9,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "c9ec6ac25584c6726ff096b582193a3ccc145fb81314e7d6baaaaccbc5df2b8d",
+    "response_hash": "152b8a9c5a8a25c0507a93d3800d1076a42c4457bc39c58417bf49641fecf09e",
+    "usage": {
+      "candidatesTokenCount": 48,
+      "promptTokenCount": 349,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 349
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 423,
+      "totalTokenCount": 820
+    }
+  }
+}

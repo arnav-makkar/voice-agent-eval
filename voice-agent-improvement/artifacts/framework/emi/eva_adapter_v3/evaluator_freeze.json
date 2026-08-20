@@ -1,0 +1,115 @@
+{
+  "bundle_sha256": "ede5650112e5da117e117cb2bb8bb0d66caf2ab1adcd0add40aaad318a2fc7c0",
+  "claim_boundary": "This freezes the next-loop evaluator implementation. Historical results remain under their original evaluator version and must not be relabelled as voice evidence.",
+  "components": {
+    "evaluator_files": [
+      {
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/framework/adapters/gemini.py",
+        "sha256": "89f32e876af1cb005999283dcfdcf313c042396c7c96ab09ebfcb30d3c4be43e"
+      },
+      {
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/framework/evaluation/contracts.py",
+        "sha256": "9cf518e34e2610f37383484d9b5ee8d5424ab0bb5980e55428f0d3d5ff1cacfd"
+      },
+      {
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/framework/evaluation/environment.py",
+        "sha256": "55842c91c7f771f8b6e4b220056d0e7d24933b6572adb72e70a891f64ee3861f"
+      },
+      {
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/framework/evaluation/metrics.py",
+        "sha256": "20ed11ce0e569aa3f0eda8e02b817958440b2e6c6645d4701f6ddc5b9d516158"
+      },
+      {
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/framework/evaluation/semantic_metrics.py",
+        "sha256": "1225ce608051e89be366d9504f580f89e5bc47bec8470b53b9d18d8ca758fc8e"
+      },
+      {
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/framework/evaluation/adaptive_caller.py",
+        "sha256": "4016c979e234ef0fd8a63c386bc207762a173134112e2212652cfa7df1b9cdbf"
+      },
+      {
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/framework/evaluation/live_budget.py",
+        "sha256": "8270863e53e623f4edeb461082340fd0429e6e470fb7c7df31264897bf328d6b"
+      },
+      {
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/framework/evaluation/adapters/indus.py",
+        "sha256": "c097e465d37e79f298431c2164dca51d43345e80e5452f6f234aa12be5082f37"
+      },
+      {
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/framework/evaluation/adapters/sarvam_speech.py",
+        "sha256": "3a16b335eb8ff6baa81ab9bdf0fdae2781694b0a54b1b62ea604c78c33dbc9f9"
+      }
+    ],
+    "scenario_suite": [
+      {
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/dynamic_scenarios_v1/development.jsonl",
+        "sha256": "e7efa22dc34310fcd22bdc575c9f0f4dfe10d686b4368ef7b7042cc753bc18de"
+      },
+      {
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/dynamic_scenarios_v1/validation.jsonl",
+        "sha256": "5358c2a6d5eac6eec9799d4c137e0892f554a4044953e83a087665582b8e6012"
+      },
+      {
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/dynamic_scenarios_v1/regression.jsonl",
+        "sha256": "b0b341debafe74adda48086c7163cef9919cbc0fa2cf133b05d8b3939412b385"
+      },
+      {
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/dynamic_scenarios_v1/manifest.json",
+        "sha256": "12e7345f72080e918a7ff6c6397e4b0803db29bb7599d11a7f0694dfe02c562f"
+      },
+      {
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/dynamic_scenarios_v1/validation.json",
+        "sha256": "de6ba04af594a2835099f8260bb6765335ecfeb1239a01f32f527481fead4ec3"
+      }
+    ]
+  },
+  "evaluator_version": "evaluation-metrics.v3/loopline-eva-adapter.v1/samvaad-duplex.v3",
+  "frozen_at": "2026-08-19T07:13:51.233827+00:00",
+  "release_rules": {
+    "deterministic_execution_truth_is_primary": true,
+    "improvement_cannot_mutate_evaluator": true,
+    "llm_judges_are_secondary": true,
+    "missing_voice_evidence_is_not_a_pass": true,
+    "validation_before_scoring": true
+  },
+  "schema_version": "evaluator-freeze.v1",
+  "source_attribution": {
+    "eva": {
+      "commit": "16d4a1ca5701d5f541f2b1d5276c281a5bd39b19",
+      "license": "MIT",
+      "use": "metric taxonomy and evaluation architecture"
+    },
+    "implementation": "independent project-owned Indus adapter; no upstream source file copied",
+    "tau": {
+      "commit": "a2c024725189473d2d7cea3a5cfdbcc67478e41f",
+      "license": "MIT",
+      "use": "state/action assertions and simulator concepts"
+    }
+  },
+  "status": "frozen_for_next_loop",
+  "supersedes": "eva_adapter_v2: CALL sessions returned agent audio without provider transcripts. V3 controls the adaptive caller from Samvaad audio directly, restores VAD-closing caller silence, normalizes mixed sample rates, and labels Gemini transcription as simulator-side audit evidence.",
+  "taxonomy": {
+    "accuracy": [
+      "task_completion",
+      "faithfulness",
+      "agent_speech_fidelity"
+    ],
+    "diagnostic": [
+      "tool_call_validity",
+      "response_speed",
+      "stt_wer",
+      "speakability",
+      "transcription_accuracy_key_entities"
+    ],
+    "experience": [
+      "conciseness",
+      "conversation_progression",
+      "turn_taking"
+    ],
+    "validation": [
+      "conversation_finished",
+      "user_behavioral_fidelity",
+      "user_speech_fidelity"
+    ]
+  }
+}

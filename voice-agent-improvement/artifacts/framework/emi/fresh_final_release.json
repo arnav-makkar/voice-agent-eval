@@ -1,0 +1,38 @@
+{
+  "baseline_experience": 1.0,
+  "baseline_task_successes": 5,
+  "candidate_experience": 0.9375,
+  "candidate_task_successes": 9,
+  "claim_boundary": "Paired development/validation/regression decision. The exact p-value is diagnostic and does not replace fresh final or matched voice evidence.",
+  "conditions": {
+    "all_baseline_task_wins_preserved": true,
+    "experience_drop_within_10pp": true,
+    "zero_new_severe_regressions": true
+  },
+  "decision": "eligible_for_fresh_final_test",
+  "matched_scenarios": 12,
+  "next_gate": "fresh_group_separated_final_test",
+  "paired_task_evidence": {
+    "discordant_pairs": 4,
+    "exact_two_sided_p": 0.125,
+    "interpretation": "Exact paired task-outcome diagnostic; promotion still depends on per-case gates and the fresh final test.",
+    "repairs": 4,
+    "task_regressions": 0
+  },
+  "regressions": [],
+  "repairs": [
+    "EMI-FINAL-003",
+    "EMI-FINAL-004",
+    "EMI-FINAL-008",
+    "EMI-FINAL-011"
+  ],
+  "routes": {
+    "more_task_wins": true,
+    "task_non_degradation_plus_experience": false
+  },
+  "schema_version": "dynamic-release-decision.v1",
+  "task_regressions": [],
+  "thresholds": {
+    "maximum_experience_drop": 0.1
+  }
+}

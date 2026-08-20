@@ -1,0 +1,404 @@
+{
+  "candidate_count": 3,
+  "candidate_scores": [
+    {
+      "candidate_sha256": "3d95098db8b459b955bf703d166884a2a03477155940dea6e57013356b28c9c1",
+      "cases": [
+        {
+          "diagnostic": {
+            "forbidden_present": [],
+            "missing": [
+              "do not ask another confirmation",
+              "never thank the customer for a completed payment"
+            ],
+            "policy_case": "terminal_commitment",
+            "source": "real-voice failure cluster or frozen safety guardrail"
+          },
+          "id": "terminal_commitment",
+          "score": 0.0
+        },
+        {
+          "diagnostic": {
+            "forbidden_present": [],
+            "missing": [
+              "`wrong_number` applies only",
+              "use `dispute`"
+            ],
+            "policy_case": "dispute_precedence",
+            "source": "real-voice failure cluster or frozen safety guardrail"
+          },
+          "id": "dispute_precedence",
+          "score": 0.0
+        },
+        {
+          "diagnostic": {
+            "forbidden_present": [],
+            "missing": [
+              "never claim that you updated"
+            ],
+            "policy_case": "no_unsupported_actions",
+            "source": "real-voice failure cluster or frozen safety guardrail"
+          },
+          "id": "no_unsupported_actions",
+          "score": 0.0
+        },
+        {
+          "diagnostic": {
+            "forbidden_present": [],
+            "missing": [
+              "verify the outstanding amount",
+              "if it matches"
+            ],
+            "policy_case": "trust_micro_close",
+            "source": "real-voice failure cluster or frozen safety guardrail"
+          },
+          "id": "trust_micro_close",
+          "score": 0.0
+        },
+        {
+          "diagnostic": {
+            "forbidden_present": [],
+            "missing": [
+              "app is unavailable",
+              "do not repeat download instructions"
+            ],
+            "policy_case": "channel_fallback",
+            "source": "real-voice failure cluster or frozen safety guardrail"
+          },
+          "id": "channel_fallback",
+          "score": 0.0
+        },
+        {
+          "diagnostic": {
+            "forbidden_present": [],
+            "missing": [
+              "refuses to continue with an ai",
+              "human support route"
+            ],
+            "policy_case": "ai_refusal",
+            "source": "real-voice failure cluster or frozen safety guardrail"
+          },
+          "id": "ai_refusal",
+          "score": 0.0
+        },
+        {
+          "diagnostic": {
+            "forbidden_present": [],
+            "missing": [
+              "already includes",
+              "late charge may apply"
+            ],
+            "policy_case": "ledger_accuracy",
+            "source": "real-voice failure cluster or frozen safety guardrail"
+          },
+          "id": "ledger_accuracy",
+          "score": 0.0
+        },
+        {
+          "diagnostic": {
+            "forbidden_present": [],
+            "missing": [],
+            "policy_case": "credentials",
+            "source": "real-voice failure cluster or frozen safety guardrail"
+          },
+          "id": "credentials",
+          "score": 1.0
+        },
+        {
+          "diagnostic": {
+            "forbidden_present": [],
+            "missing": [],
+            "policy_case": "language_switch",
+            "source": "real-voice failure cluster or frozen safety guardrail"
+          },
+          "id": "language_switch",
+          "score": 1.0
+        },
+        {
+          "diagnostic": {
+            "forbidden_present": [
+              "today is 17-08-2026"
+            ],
+            "missing": [
+              "`currentDate`",
+              "`tomorrowDate`"
+            ],
+            "policy_case": "runtime_dates",
+            "source": "real-voice failure cluster or frozen safety guardrail"
+          },
+          "id": "runtime_dates",
+          "score": 0.0
+        }
+      ],
+      "index": 0,
+      "is_selected": true,
+      "policy_score": 0.2
+    },
+    {
+      "candidate_sha256": "51f1228756a0d3e03e71625130d96617e0180d5549ad10ebb26bb5c2e9c08449",
+      "cases": [
+        {
+          "diagnostic": {
+            "forbidden_present": [],
+            "missing": [
+              "never thank the customer for a completed payment"
+            ],
+            "policy_case": "terminal_commitment",
+            "source": "real-voice failure cluster or frozen safety guardrail"
+          },
+          "id": "terminal_commitment",
+          "score": 0.0
+        },
+        {
+          "diagnostic": {
+            "forbidden_present": [],
+            "missing": [
+              "`wrong_number` applies only",
+              "use `dispute`"
+            ],
+            "policy_case": "dispute_precedence",
+            "source": "real-voice failure cluster or frozen safety guardrail"
+          },
+          "id": "dispute_precedence",
+          "score": 0.0
+        },
+        {
+          "diagnostic": {
+            "forbidden_present": [],
+            "missing": [],
+            "policy_case": "no_unsupported_actions",
+            "source": "real-voice failure cluster or frozen safety guardrail"
+          },
+          "id": "no_unsupported_actions",
+          "score": 1.0
+        },
+        {
+          "diagnostic": {
+            "forbidden_present": [],
+            "missing": [
+              "verify the outstanding amount",
+              "if it matches"
+            ],
+            "policy_case": "trust_micro_close",
+            "source": "real-voice failure cluster or frozen safety guardrail"
+          },
+          "id": "trust_micro_close",
+          "score": 0.0
+        },
+        {
+          "diagnostic": {
+            "forbidden_present": [],
+            "missing": [
+              "app is unavailable",
+              "do not repeat download instructions"
+            ],
+            "policy_case": "channel_fallback",
+            "source": "real-voice failure cluster or frozen safety guardrail"
+          },
+          "id": "channel_fallback",
+          "score": 0.0
+        },
+        {
+          "diagnostic": {
+            "forbidden_present": [],
+            "missing": [
+              "refuses to continue with an ai",
+              "human support route"
+            ],
+            "policy_case": "ai_refusal",
+            "source": "real-voice failure cluster or frozen safety guardrail"
+          },
+          "id": "ai_refusal",
+          "score": 0.0
+        },
+        {
+          "diagnostic": {
+            "forbidden_present": [],
+            "missing": [
+              "already includes",
+              "late charge may apply"
+            ],
+            "policy_case": "ledger_accuracy",
+            "source": "real-voice failure cluster or frozen safety guardrail"
+          },
+          "id": "ledger_accuracy",
+          "score": 0.0
+        },
+        {
+          "diagnostic": {
+            "forbidden_present": [],
+            "missing": [],
+            "policy_case": "credentials",
+            "source": "real-voice failure cluster or frozen safety guardrail"
+          },
+          "id": "credentials",
+          "score": 1.0
+        },
+        {
+          "diagnostic": {
+            "forbidden_present": [],
+            "missing": [],
+            "policy_case": "language_switch",
+            "source": "real-voice failure cluster or frozen safety guardrail"
+          },
+          "id": "language_switch",
+          "score": 1.0
+        },
+        {
+          "diagnostic": {
+            "forbidden_present": [
+              "today is 17-08-2026"
+            ],
+            "missing": [
+              "`currentDate`",
+              "`tomorrowDate`"
+            ],
+            "policy_case": "runtime_dates",
+            "source": "real-voice failure cluster or frozen safety guardrail"
+          },
+          "id": "runtime_dates",
+          "score": 0.0
+        }
+      ],
+      "index": 1,
+      "is_selected": false,
+      "policy_score": 0.3
+    },
+    {
+      "candidate_sha256": "51f1228756a0d3e03e71625130d96617e0180d5549ad10ebb26bb5c2e9c08449",
+      "cases": [
+        {
+          "diagnostic": {
+            "forbidden_present": [],
+            "missing": [
+              "never thank the customer for a completed payment"
+            ],
+            "policy_case": "terminal_commitment",
+            "source": "real-voice failure cluster or frozen safety guardrail"
+          },
+          "id": "terminal_commitment",
+          "score": 0.0
+        },
+        {
+          "diagnostic": {
+            "forbidden_present": [],
+            "missing": [
+              "`wrong_number` applies only",
+              "use `dispute`"
+            ],
+            "policy_case": "dispute_precedence",
+            "source": "real-voice failure cluster or frozen safety guardrail"
+          },
+          "id": "dispute_precedence",
+          "score": 0.0
+        },
+        {
+          "diagnostic": {
+            "forbidden_present": [],
+            "missing": [],
+            "policy_case": "no_unsupported_actions",
+            "source": "real-voice failure cluster or frozen safety guardrail"
+          },
+          "id": "no_unsupported_actions",
+          "score": 1.0
+        },
+        {
+          "diagnostic": {
+            "forbidden_present": [],
+            "missing": [
+              "verify the outstanding amount",
+              "if it matches"
+            ],
+            "policy_case": "trust_micro_close",
+            "source": "real-voice failure cluster or frozen safety guardrail"
+          },
+          "id": "trust_micro_close",
+          "score": 0.0
+        },
+        {
+          "diagnostic": {
+            "forbidden_present": [],
+            "missing": [
+              "app is unavailable",
+              "do not repeat download instructions"
+            ],
+            "policy_case": "channel_fallback",
+            "source": "real-voice failure cluster or frozen safety guardrail"
+          },
+          "id": "channel_fallback",
+          "score": 0.0
+        },
+        {
+          "diagnostic": {
+            "forbidden_present": [],
+            "missing": [
+              "refuses to continue with an ai",
+              "human support route"
+            ],
+            "policy_case": "ai_refusal",
+            "source": "real-voice failure cluster or frozen safety guardrail"
+          },
+          "id": "ai_refusal",
+          "score": 0.0
+        },
+        {
+          "diagnostic": {
+            "forbidden_present": [],
+            "missing": [
+              "already includes",
+              "late charge may apply"
+            ],
+            "policy_case": "ledger_accuracy",
+            "source": "real-voice failure cluster or frozen safety guardrail"
+          },
+          "id": "ledger_accuracy",
+          "score": 0.0
+        },
+        {
+          "diagnostic": {
+            "forbidden_present": [],
+            "missing": [],
+            "policy_case": "credentials",
+            "source": "real-voice failure cluster or frozen safety guardrail"
+          },
+          "id": "credentials",
+          "score": 1.0
+        },
+        {
+          "diagnostic": {
+            "forbidden_present": [],
+            "missing": [],
+            "policy_case": "language_switch",
+            "source": "real-voice failure cluster or frozen safety guardrail"
+          },
+          "id": "language_switch",
+          "score": 1.0
+        },
+        {
+          "diagnostic": {
+            "forbidden_present": [
+              "today is 17-08-2026"
+            ],
+            "missing": [
+              "`currentDate`",
+              "`tomorrowDate`"
+            ],
+            "policy_case": "runtime_dates",
+            "source": "real-voice failure cluster or frozen safety guardrail"
+          },
+          "id": "runtime_dates",
+          "score": 0.0
+        }
+      ],
+      "index": 2,
+      "is_selected": false,
+      "policy_score": 0.3
+    }
+  ],
+  "claim_boundary": "offline prompt policy-contract optimization; not a voice TSR result",
+  "optimizer": "GEPA 0.1.4 with deterministic evidence proposer",
+  "schema_version": "prompt-optimization-lineage.v1",
+  "seed_sha256": "3d95098db8b459b955bf703d166884a2a03477155940dea6e57013356b28c9c1",
+  "selected_index": 0,
+  "selected_sha256": "3d95098db8b459b955bf703d166884a2a03477155940dea6e57013356b28c9c1"
+}

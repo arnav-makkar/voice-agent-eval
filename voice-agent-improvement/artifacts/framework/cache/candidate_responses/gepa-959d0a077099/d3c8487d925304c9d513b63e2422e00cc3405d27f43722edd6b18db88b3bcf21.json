@@ -1,0 +1,35 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-TREF-22",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Ji samajh gaya Priya ji, aap customer care par sampark kar sakte hain. Main call end kar raha hu.",
+        "terminal_state": "escalation"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 8139.6,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "d3c8487d925304c9d513b63e2422e00cc3405d27f43722edd6b18db88b3bcf21",
+    "response_hash": "4c35108bfd307d147edcbeb483cab1acc8622dd42e3e9baa4367ce2f2baee85c",
+    "usage": {
+      "candidatesTokenCount": 68,
+      "promptTokenCount": 1483,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1483
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1091,
+      "totalTokenCount": 2642
+    }
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-TRST-11",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "मैं EasyCredit Finance का AI असिस्टेंट शुभ हूँ। आप सीधे EasyCredit ऐप खोलकर ₹4500 का भुगतान कर सकते हैं, क्या आप अभी पेमेंट करेंगे?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-TRST-12",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "Aap EasyCredit ke official app se safe payment kar sakte hain. Kya aap abhi app open karke ₹5200 pay karenge?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-TRST-13",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "Yes, you can open the official EasyCredit app directly to pay Rs 3800 safely. Will you pay now?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-TRST-14",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "ਮੈਂ EasyCredit Finance ਤੋਂ AI ਵੌਇਸ ਅਸਿਸਟੈਂਟ ਸ਼ੁਭ ਹਾਂ। ਤੁਸੀਂ ਸਿੱਧਾ EasyCredit ਐਪ ਤੋਂ ₹6100 ਭਰ ਸਕਦੇ ਹੋ, ਕੀ ਤੁਸੀਂ ਹੁਣੇ ਪੇਅ ਕਰੋਗੇ?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-TRST-15",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "Main EasyCredit Finance se AI voice assistant Shubh hoon. Aap direct EasyCredit app se ₹4200 pay kar sakte hain, kya aap abhi pay karenge?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-TRST-16",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "जी हाँ, आप सीधे EasyCredit ऐप खोलकर ₹3400 का सुरक्षित भुगतान कर सकते हैं। क्या आप अभी पेमेंट करेंगे?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-TRST-17",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "Aap kisi link ki bajaye direct EasyCredit app open karke ₹4800 pay kar sakte hain. Kya aap abhi payment karenge?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-TRST-18",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "I am Shubh, an AI voice assistant for EasyCredit Finance. You can pay Rs 5500 directly in the official EasyCredit app, will you pay now?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-TRST-19",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "ਜੀ ਠੀਕ ਹੈ, ਤੁਸੀਂ EasyCredit ਐਪ ਤੋਂ ₹4100 ਦਾ ਭੁਗਤਾਨ ਕਰ ਸਕਦੇ ਹੋ। ਕੀ ਤੁਸੀਂ ਹੁਣੇ ਪੇਅ ਕਰ ਦੇਵੋਗੇ?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-TRST-20",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "Ji haan, aap direct official EasyCredit app se ₹3900 pay kar sakte hain. Kya aap abhi payment karenge?",
+        "terminal_state": "acknowledged"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 27063.0,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "844284593cf84ebe00da30f794caf2ae2d024ae068d224efd98e08dd1dc67124",
+    "response_hash": "c2adff3926e8fccc13976474a75e5424957fbe61a1ea9df0b7195a56f9e8ad23",
+    "usage": {
+      "candidatesTokenCount": 991,
+      "promptTokenCount": 4082,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 4082
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 4868,
+      "totalTokenCount": 9941
+    }
+  }
+}

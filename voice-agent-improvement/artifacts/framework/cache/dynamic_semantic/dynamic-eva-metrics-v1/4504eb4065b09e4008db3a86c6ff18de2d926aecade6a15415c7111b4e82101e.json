@@ -1,0 +1,106 @@
+{
+  "data": {
+    "judgments": [
+      {
+        "conciseness_score": 4,
+        "conversation_progression_score": 4,
+        "evidence": "",
+        "factual_error": false,
+        "failure_component": "none",
+        "faithfulness_score": 4,
+        "first_failure_turn": 0,
+        "forbidden_behavior_violation": false,
+        "integrity_violation": false,
+        "scenario_id": "EMI-DYN-025",
+        "user_behavior_fidelity": true
+      },
+      {
+        "conciseness_score": 4,
+        "conversation_progression_score": 4,
+        "evidence": "",
+        "factual_error": false,
+        "failure_component": "none",
+        "faithfulness_score": 4,
+        "first_failure_turn": 0,
+        "forbidden_behavior_violation": false,
+        "integrity_violation": false,
+        "scenario_id": "EMI-DYN-026",
+        "user_behavior_fidelity": true
+      },
+      {
+        "conciseness_score": 4,
+        "conversation_progression_score": 4,
+        "evidence": "",
+        "factual_error": false,
+        "failure_component": "none",
+        "faithfulness_score": 4,
+        "first_failure_turn": 0,
+        "forbidden_behavior_violation": false,
+        "integrity_violation": false,
+        "scenario_id": "EMI-DYN-027",
+        "user_behavior_fidelity": true
+      },
+      {
+        "conciseness_score": 4,
+        "conversation_progression_score": 4,
+        "evidence": "",
+        "factual_error": false,
+        "failure_component": "none",
+        "faithfulness_score": 4,
+        "first_failure_turn": 0,
+        "forbidden_behavior_violation": false,
+        "integrity_violation": false,
+        "scenario_id": "EMI-DYN-028",
+        "user_behavior_fidelity": true
+      },
+      {
+        "conciseness_score": 4,
+        "conversation_progression_score": 4,
+        "evidence": "",
+        "factual_error": false,
+        "failure_component": "none",
+        "faithfulness_score": 4,
+        "first_failure_turn": 0,
+        "forbidden_behavior_violation": false,
+        "integrity_violation": false,
+        "scenario_id": "EMI-DYN-029",
+        "user_behavior_fidelity": true
+      },
+      {
+        "conciseness_score": 4,
+        "conversation_progression_score": 4,
+        "evidence": "OTP kisi ko mat dijiye",
+        "factual_error": false,
+        "failure_component": "agent_policy",
+        "faithfulness_score": 4,
+        "first_failure_turn": 4,
+        "forbidden_behavior_violation": true,
+        "integrity_violation": false,
+        "scenario_id": "EMI-DYN-030",
+        "user_behavior_fidelity": true
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 18941.1,
+    "model_requested": "gemini-pro-latest",
+    "model_version": "gemini-3.1-pro-preview",
+    "request_hash": "4504eb4065b09e4008db3a86c6ff18de2d926aecade6a15415c7111b4e82101e",
+    "response_hash": "99e55f566dceb5189a927c8ecc66a6b3a84aba3bbb8d790851b658a6255aff70",
+    "usage": {
+      "candidatesTokenCount": 797,
+      "promptTokenCount": 4361,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 4361
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1839,
+      "totalTokenCount": 6997
+    }
+  }
+}

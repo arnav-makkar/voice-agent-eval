@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "rtp",
+    "should_end_call": true,
+    "spoken_response": "Samajh gaya Riya ji. Main aapka response note kar leta hoon. Dhanyavaad.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "rtp"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 3849.8,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "3b2df2f380d7b0a79b83191e63343b443b01b7cf5b5d5b70999f7666fb3ed21f",
+    "response_hash": "7d7e543fc6ddf604f441abccc8a7b7b05bb15bd87554f3cf76f8e38460bbdf1c",
+    "usage": {
+      "candidatesTokenCount": 62,
+      "promptTokenCount": 1760,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1760
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 416,
+      "totalTokenCount": 2238
+    }
+  }
+}

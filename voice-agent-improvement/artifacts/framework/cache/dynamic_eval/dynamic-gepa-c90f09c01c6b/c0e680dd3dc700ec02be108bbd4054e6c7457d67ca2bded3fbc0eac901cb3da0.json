@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "acknowledged",
+    "should_end_call": true,
+    "spoken_response": "Koi baat nahi Riya ji, aap app issue ke liye humare customer care number 1800-500-4444 par baat kar sakte hain. Dhanyawad.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "acknowledged"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 3988.3,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "c0e680dd3dc700ec02be108bbd4054e6c7457d67ca2bded3fbc0eac901cb3da0",
+    "response_hash": "0a55c1e523d2c9a7805bb6e66bf8cce83092ea9fb4cfed978c9a9043e5c07efb",
+    "usage": {
+      "candidatesTokenCount": 82,
+      "promptTokenCount": 1760,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1760
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 503,
+      "totalTokenCount": 2345
+    }
+  }
+}

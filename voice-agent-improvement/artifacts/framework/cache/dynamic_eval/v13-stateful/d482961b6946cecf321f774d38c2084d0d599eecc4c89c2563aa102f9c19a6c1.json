@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Sure Mehak ji, aap official app mein check kar lijiye. Aap kab tak payment kar payenge?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 6165.7,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "d482961b6946cecf321f774d38c2084d0d599eecc4c89c2563aa102f9c19a6c1",
+    "response_hash": "8e115ac5166fbc4f98db22a34f9b88cb96d22df1f0b4b5d1af650683239f7829",
+    "usage": {
+      "candidatesTokenCount": 48,
+      "promptTokenCount": 1676,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1676
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 827,
+      "totalTokenCount": 2551
+    }
+  }
+}

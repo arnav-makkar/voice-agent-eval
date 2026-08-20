@@ -1,0 +1,43 @@
+{
+  "data": {
+    "disposition": "fptp",
+    "should_end_call": true,
+    "spoken_response": "Thik hai, main 18 August 2026 ki payment date note kar raha hoon. Shukriya.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "date": "18-08-2026"
+        },
+        "name": "record_promise_to_pay"
+      },
+      {
+        "arguments": {
+          "disposition": "fptp"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 17710.5,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "07383612b76f5f70cad3ed0a11ad9a4ed47480c3791aa79c9800bd5e211bbc5b",
+    "response_hash": "1f822906c35f2988e96e8cbf4d8b999ab0867634814a1a0c0c6e92ab2ce491c6",
+    "usage": {
+      "candidatesTokenCount": 94,
+      "promptTokenCount": 1540,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1540
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 3292,
+      "totalTokenCount": 4926
+    }
+  }
+}

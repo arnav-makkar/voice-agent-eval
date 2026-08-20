@@ -1,0 +1,44 @@
+{
+  "data": {
+    "disposition": "callback",
+    "should_end_call": true,
+    "spoken_response": "Theek hai, 18 August ko subah 10 se 11 baje callback arrange kar diya hai. Dhanyawad.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "date": "18-08-2026",
+          "time_window": "10:00 AM - 11:00 AM IST"
+        },
+        "name": "schedule_callback"
+      },
+      {
+        "arguments": {
+          "disposition": "callback"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 15166.5,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "d3014301bb487148c221db0bd4f1b81389eabc8b6cff96c2e29f645d01dd8beb",
+    "response_hash": "e5ea7a0382a89d2e38dc61fa81b3cba0e02887af1d56ad2dfa4258e5b22d269c",
+    "usage": {
+      "candidatesTokenCount": 112,
+      "promptTokenCount": 1751,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1751
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 2962,
+      "totalTokenCount": 4825
+    }
+  }
+}

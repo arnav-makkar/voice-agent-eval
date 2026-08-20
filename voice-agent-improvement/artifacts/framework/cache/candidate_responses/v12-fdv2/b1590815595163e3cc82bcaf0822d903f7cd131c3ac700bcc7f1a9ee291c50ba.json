@@ -1,0 +1,98 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-TREF-21",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "समझ गया राजेश जी। आप किस तारीख तक भुगतान कर पाएंगे?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-22",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Theek hai Priya ji, main call end kar raha hoon. Kisi bhi sahayata ke liye customer care se sampark karein.",
+        "terminal_state": "escalation"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-23",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thank you Amit, I have noted that you will pay on 25th August 2026.",
+        "terminal_state": "fptp"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-24",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "ਸਮਝ ਗਿਆ ਗੁਰਪ੍ਰੀਤ ਜੀ। ਤੁਸੀਂ ਕਿਸ ਮਿਤੀ ਤੱਕ ਭੁਗਤਾਨ ਕਰ ਸਕਦੇ ਹੋ?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-25",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Theek hai Vikram ji, main call end kar raha hoon.",
+        "terminal_state": "escalation"
+      },
+      {
+        "case_id": "EMI-FD1-FACT-21",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "धन्यवाद राहुल जी, कृपया EasyCredit ऐप से भुगतान पूरा करें।",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-FACT-22",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "Samajh gaya Ankit ji, aap kis date tak payment kar payenge?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-FACT-23",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thank you Priya, I have noted your promise to pay on 18-08-2026.",
+        "terminal_state": "fptp"
+      },
+      {
+        "case_id": "EMI-FD1-FACT-24",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਸਮਝ ਗਿਆ ਗੁਰਪ੍ਰੀਤ ਜੀ, ਕਿਰਪਾ ਕਰਕੇ ਇਸ ਵਿਵਾਦ ਲਈ ਸਾਡੇ ਕਸਟਮਰ ਕੇਅਰ ਨੰਬਰ 'ਤੇ ਸੰਪਰਕ ਕਰੋ।",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-FD1-FACT-25",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Samajh gaya Vikram ji, aap is shikayat ke liye humari customer care helpline par sampark kar sakte hain.",
+        "terminal_state": "escalation"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 36698.7,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "b1590815595163e3cc82bcaf0822d903f7cd131c3ac700bcc7f1a9ee291c50ba",
+    "response_hash": "a115228127099a4573971d8096b2ec6f6276a1269a0365239dec18aad5100e7e",
+    "usage": {
+      "candidatesTokenCount": 874,
+      "promptTokenCount": 4481,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 4481
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 6375,
+      "totalTokenCount": 11730
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Maaf kijiyega. Aap yeh EMI payment kis tarikh tak kar denge?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 6553.4,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "55e6d7cb0472646319c0fd60f6c98f72d0d82a61ceb938d6f7d481bd53acb8ee",
+    "response_hash": "500bff91a1737a9d56717f211184936dbcd73ed0060608ae3bbd4cea2e996d68",
+    "usage": {
+      "candidatesTokenCount": 42,
+      "promptTokenCount": 1478,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1478
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 929,
+      "totalTokenCount": 2449
+    }
+  }
+}

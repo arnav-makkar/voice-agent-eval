@@ -1,0 +1,19 @@
+{"timestamp": 1787127432809, "sequence": 1, "type": "connection_state", "data": {"state": "connected", "details": {"server_url": "ws://localhost:10000/ws"}}, "provider": "elevenlabs"}
+{"timestamp": 1787127433382, "sequence": 2, "type": "connection_state", "data": {"state": "session_started", "details": {}}, "provider": "elevenlabs"}
+{"timestamp": 1787127433610, "sequence": 3, "event_type": "audio_start", "user": "assistant", "audio_timestamp": 1787127433.610938, "provider": "elevenlabs"}
+{"timestamp": 1787127434508, "sequence": 4, "event_type": "audio_start", "user": "simulated_user", "audio_timestamp": 1787127434.507614, "provider": "elevenlabs"}
+{"timestamp": 1787127440282, "sequence": 5, "event_type": "audio_end", "user": "simulated_user", "audio_timestamp": 1787127440.281569, "provider": "elevenlabs"}
+{"timestamp": 1787127440402, "sequence": 6, "event_type": "audio_start", "user": "simulated_user", "audio_timestamp": 1787127440.402754, "provider": "elevenlabs"}
+{"timestamp": 1787127442544, "sequence": 7, "event_type": "audio_end", "user": "simulated_user", "audio_timestamp": 1787127441.9450243, "provider": "elevenlabs"}
+{"timestamp": 1787127456489, "sequence": 8, "event_type": "audio_start", "user": "simulated_user", "audio_timestamp": 1787127456.489398, "provider": "elevenlabs"}
+{"timestamp": 1787127466309, "sequence": 9, "event_type": "audio_end", "user": "simulated_user", "audio_timestamp": 1787127466.3070972, "provider": "elevenlabs"}
+{"timestamp": 1787127466463, "sequence": 10, "event_type": "audio_start", "user": "simulated_user", "audio_timestamp": 1787127466.462968, "provider": "elevenlabs"}
+{"timestamp": 1787127469325, "sequence": 11, "event_type": "audio_end", "user": "simulated_user", "audio_timestamp": 1787127468.7263334, "provider": "elevenlabs"}
+{"timestamp": 1787127476326, "sequence": 12, "event_type": "audio_start", "user": "simulated_user", "audio_timestamp": 1787127476.3263261, "provider": "elevenlabs"}
+{"timestamp": 1787127488454, "sequence": 13, "event_type": "audio_end", "user": "simulated_user", "audio_timestamp": 1787127488.452508, "provider": "elevenlabs"}
+{"timestamp": 1787127488559, "sequence": 14, "event_type": "audio_start", "user": "simulated_user", "audio_timestamp": 1787127488.5594199, "provider": "elevenlabs"}
+{"timestamp": 1787127490619, "sequence": 15, "event_type": "audio_end", "user": "assistant", "audio_timestamp": 1787127490.3092318, "provider": "elevenlabs"}
+{"timestamp": 1787127490625, "sequence": 16, "event_type": "audio_start", "user": "assistant", "audio_timestamp": 1787127490.625939, "provider": "elevenlabs"}
+{"timestamp": 1787127491421, "sequence": 17, "event_type": "audio_end", "user": "simulated_user", "audio_timestamp": 1787127490.8231285, "provider": "elevenlabs"}
+{"timestamp": 1787127497355, "sequence": 18, "event_type": "audio_end", "user": "assistant", "audio_timestamp": 1787127497.0027425, "provider": "elevenlabs"}
+{"timestamp": 1787127513701, "sequence": 19, "type": "connection_state", "data": {"state": "session_ended", "details": {"reason": "elevenlabs_disconnect"}}, "provider": "elevenlabs"}

@@ -1,0 +1,106 @@
+{
+  "data": {
+    "judgments": [
+      {
+        "conciseness_score": 4,
+        "conversation_progression_score": 4,
+        "evidence": "No failure exists.",
+        "factual_error": false,
+        "failure_component": "none",
+        "faithfulness_score": 4,
+        "first_failure_turn": 0,
+        "forbidden_behavior_violation": false,
+        "integrity_violation": false,
+        "scenario_id": "EMI-DYN-019",
+        "user_behavior_fidelity": true
+      },
+      {
+        "conciseness_score": 4,
+        "conversation_progression_score": 4,
+        "evidence": "No failure exists.",
+        "factual_error": false,
+        "failure_component": "none",
+        "faithfulness_score": 4,
+        "first_failure_turn": 0,
+        "forbidden_behavior_violation": false,
+        "integrity_violation": false,
+        "scenario_id": "EMI-DYN-020",
+        "user_behavior_fidelity": true
+      },
+      {
+        "conciseness_score": 4,
+        "conversation_progression_score": 4,
+        "evidence": "No failure exists.",
+        "factual_error": false,
+        "failure_component": "none",
+        "faithfulness_score": 4,
+        "first_failure_turn": 0,
+        "forbidden_behavior_violation": false,
+        "integrity_violation": false,
+        "scenario_id": "EMI-DYN-021",
+        "user_behavior_fidelity": true
+      },
+      {
+        "conciseness_score": 4,
+        "conversation_progression_score": 4,
+        "evidence": "Arnav is not available",
+        "factual_error": false,
+        "failure_component": "simulator",
+        "faithfulness_score": 4,
+        "first_failure_turn": 1,
+        "forbidden_behavior_violation": false,
+        "integrity_violation": false,
+        "scenario_id": "EMI-DYN-022",
+        "user_behavior_fidelity": false
+      },
+      {
+        "conciseness_score": 4,
+        "conversation_progression_score": 4,
+        "evidence": "No failure exists.",
+        "factual_error": false,
+        "failure_component": "none",
+        "faithfulness_score": 4,
+        "first_failure_turn": 0,
+        "forbidden_behavior_violation": false,
+        "integrity_violation": false,
+        "scenario_id": "EMI-DYN-023",
+        "user_behavior_fidelity": true
+      },
+      {
+        "conciseness_score": 4,
+        "conversation_progression_score": 4,
+        "evidence": "No failure exists.",
+        "factual_error": false,
+        "failure_component": "none",
+        "faithfulness_score": 4,
+        "first_failure_turn": 0,
+        "forbidden_behavior_violation": false,
+        "integrity_violation": false,
+        "scenario_id": "EMI-DYN-024",
+        "user_behavior_fidelity": true
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 24162.3,
+    "model_requested": "gemini-pro-latest",
+    "model_version": "gemini-3.1-pro-preview",
+    "request_hash": "79e4b4cb41eb9a203f66d6a7a2fc6cb54ab0b8b9e75c1a341ea7313e788cb27b",
+    "response_hash": "1442298aee4a488baacfe67e7dad4eae670b36f304cac461b6b7b258d1148969",
+    "usage": {
+      "candidatesTokenCount": 813,
+      "promptTokenCount": 4368,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 4368
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 2510,
+      "totalTokenCount": 7691
+    }
+  }
+}

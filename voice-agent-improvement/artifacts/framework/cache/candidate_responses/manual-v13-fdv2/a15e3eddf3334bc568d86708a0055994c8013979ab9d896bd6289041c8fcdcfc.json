@@ -1,0 +1,98 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-TREF-11",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Main aapki baat samajh gaya hoon. Main ise note kar leta hoon, dhanyavaad.",
+        "terminal_state": "rtp"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-12",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "Main samajh sakta hoon. Aap kis taareekh tak payment kar sakengi?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-13",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "You can reach our human support team on our official customer care number. Thank you.",
+        "terminal_state": "escalation"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-14",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Main samajh gaya haan, main tuhada jawab note kar lainda haan. Dhanvaad.",
+        "terminal_state": "rtp"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-15",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "Main samajh gaya. Aap kis taareekh tak payment kar sakengi?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-16",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Aap humare official customer care number par call karke humare representative se baat kar sakti hain. Dhanyavaad.",
+        "terminal_state": "escalation"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-17",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "Samajh gaya. Aap kis date tak payment kar payenge?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-18",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "I understand. What is the earliest date you can make the payment?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-19",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Tusi saade official customer care number te call karke human representative naal gal kar sakde ho. Dhanvaad.",
+        "terminal_state": "escalation"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-20",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Aapki baat samajh gaya hoon, main ise note kar leta hoon. Dhanyavaad.",
+        "terminal_state": "rtp"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 42000.4,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "a15e3eddf3334bc568d86708a0055994c8013979ab9d896bd6289041c8fcdcfc",
+    "response_hash": "5b15c553174c6ece66f14ee5173884222c6512e94361678cafa905336c6b8d86",
+    "usage": {
+      "candidatesTokenCount": 609,
+      "promptTokenCount": 4850,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 4850
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 7855,
+      "totalTokenCount": 13314
+    }
+  }
+}

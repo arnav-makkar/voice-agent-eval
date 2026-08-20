@@ -1,0 +1,35 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-DISP-22",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Samajh gaya Rohan ji. Aap kripya is fraud issue ki report hamare customer care helpline 1800-123-4567 par karein.",
+        "terminal_state": "escalation"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 8904.1,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "8355316707e69ae758dda6a1820cf99cadbef8e59f368c3fd877e482349a61ba",
+    "response_hash": "60e7efa2b928975dea2ea0898275e6b28f3155034c29716325ff1bb3aa38bccc",
+    "usage": {
+      "candidatesTokenCount": 83,
+      "promptTokenCount": 1530,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1530
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1360,
+      "totalTokenCount": 2973
+    }
+  }
+}

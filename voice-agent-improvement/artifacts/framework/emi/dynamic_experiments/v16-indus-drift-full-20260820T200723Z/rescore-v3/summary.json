@@ -1,0 +1,20 @@
+{
+  "aggregate": {
+    "average_experience_score": 0.995,
+    "failure_counts": {
+      "disposition": 7,
+      "required_actions": 1
+    },
+    "invalid_simulations": 0,
+    "records": 30,
+    "task_success_rate": 0.7333,
+    "task_successes": 22,
+    "valid_records": 30
+  },
+  "claim_boundary": "Deterministic rescore of immutable episode traces; it does not rerun the agent or simulator.",
+  "evaluator_sha256": "bf8ee7c518309e94fd0721946d12957e95976a0de9f96d11ddbb390ca0267a3d",
+  "evaluator_version": "evaluation-metrics.v3/loopline-eva-adapter.v1",
+  "schema_version": "deterministic-rescore.v1",
+  "source_runs": "artifacts/framework/emi/dynamic_experiments/v16-indus-drift-full-20260820T200723Z/runs.jsonl",
+  "source_runs_sha256": "7704c00f809debe3fa51c3d30b270a278005a91f28f8bdb76e1889af05970779"
+}

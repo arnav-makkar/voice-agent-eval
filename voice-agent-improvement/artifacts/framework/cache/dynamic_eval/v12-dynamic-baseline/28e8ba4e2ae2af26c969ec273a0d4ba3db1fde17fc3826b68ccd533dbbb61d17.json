@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Koi baat nahi. Kya main aapke liye kisi specific date aur time par callback schedule kar doon?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 7268.7,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "28e8ba4e2ae2af26c969ec273a0d4ba3db1fde17fc3826b68ccd533dbbb61d17",
+    "response_hash": "d0ca0cadbbdb2335503625b0cbe1b8ce92ddc6461b7ff88fd964db20ce95b026",
+    "usage": {
+      "candidatesTokenCount": 45,
+      "promptTokenCount": 1531,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1531
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1140,
+      "totalTokenCount": 2716
+    }
+  }
+}

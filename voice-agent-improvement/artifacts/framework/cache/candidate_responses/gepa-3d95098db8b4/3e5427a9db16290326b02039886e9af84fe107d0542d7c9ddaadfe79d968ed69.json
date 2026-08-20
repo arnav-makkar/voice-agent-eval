@@ -1,0 +1,35 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-FACT-03",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thank you, Priya. Please log in to the EasyCredit app and complete your payment now.",
+        "terminal_state": "payment_ready"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4424.1,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "3e5427a9db16290326b02039886e9af84fe107d0542d7c9ddaadfe79d968ed69",
+    "response_hash": "73f5813e98c51aac975107ab7fae22eb789cda7836e343dffbf8fd94fb83e5b0",
+    "usage": {
+      "candidatesTokenCount": 63,
+      "promptTokenCount": 1509,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1509
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 636,
+      "totalTokenCount": 2208
+    }
+  }
+}

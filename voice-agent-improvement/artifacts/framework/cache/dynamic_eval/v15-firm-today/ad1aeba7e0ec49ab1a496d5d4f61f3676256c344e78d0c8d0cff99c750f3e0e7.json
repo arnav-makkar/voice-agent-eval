@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "rtp",
+    "should_end_call": true,
+    "spoken_response": "Theek hai Riya ji, main aapka refusal record kar raha hoon. Dhanyawad.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "rtp"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 3332.1,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "ad1aeba7e0ec49ab1a496d5d4f61f3676256c344e78d0c8d0cff99c750f3e0e7",
+    "response_hash": "475f8e870adc58d35d76ffb573fbd7e6ae6bfe837d0bdb71f2b5b0dce2b39390",
+    "usage": {
+      "candidatesTokenCount": 100,
+      "promptTokenCount": 1822,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1822
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 342,
+      "totalTokenCount": 2264
+    }
+  }
+}

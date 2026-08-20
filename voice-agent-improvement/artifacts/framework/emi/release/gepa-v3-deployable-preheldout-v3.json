@@ -1,0 +1,45 @@
+{
+  "baseline_guardrails": {
+    "deterministic_hard_gate_failures": 2,
+    "factual": 4,
+    "forbidden": 6,
+    "hard_safety": 0,
+    "integrity": 2
+  },
+  "baseline_results_sha256": "48677a60e32175c0ef8f39df7b993d0933678c79d4118c22e33098decd06a113",
+  "candidate_guardrails": {
+    "deterministic_hard_gate_failures": 2,
+    "factual": 1,
+    "forbidden": 5,
+    "hard_safety": 0,
+    "integrity": 1
+  },
+  "candidate_results_sha256": "81dd5fda8481bfba1c5a989293c3fbc26d00f98840240b3fcdc3d8b60336ac11",
+  "claim_boundary": "Pre-held-out decision only; promotion means eligible for owner review and one sealed held-out evaluation, not voice release.",
+  "conditions": {
+    "matched_case_set": true,
+    "no_deterministic_hard_gate_regression": true,
+    "no_factual_regression": true,
+    "no_forbidden_behavior_regression": true,
+    "no_hard_safety_violation": true,
+    "no_integrity_regression": true,
+    "positive_task_delta": true,
+    "preserve_exact_win_anchors": true,
+    "repair_at_least_one_failure_anchor": true,
+    "statistical_confidence": true
+  },
+  "decision": "promote_to_owner_review_and_held_out",
+  "failure_anchor_total": 15,
+  "failure_anchors_repaired": 14,
+  "held_out_included": false,
+  "matched_cases": 170,
+  "paired_task_evidence": {
+    "ci_high": 0.1,
+    "ci_low": 0.0059,
+    "mean": 0.0529,
+    "probability_positive": 0.9826
+  },
+  "schema_version": "release-decision.v1",
+  "win_anchor_total": 5,
+  "win_anchors_preserved": 5
+}

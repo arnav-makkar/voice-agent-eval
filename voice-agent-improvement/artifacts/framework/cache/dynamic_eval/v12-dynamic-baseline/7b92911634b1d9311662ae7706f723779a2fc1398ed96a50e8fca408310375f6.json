@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Thik hai. Support se baat karne ke baad, kya main aapke liye callback schedule kar doon?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 6188.0,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "7b92911634b1d9311662ae7706f723779a2fc1398ed96a50e8fca408310375f6",
+    "response_hash": "4106a4335bd526c569c115a2fc3055f0686e42cb7ef00c4a1e262b8b3b659e31",
+    "usage": {
+      "candidatesTokenCount": 46,
+      "promptTokenCount": 1533,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1533
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 895,
+      "totalTokenCount": 2474
+    }
+  }
+}

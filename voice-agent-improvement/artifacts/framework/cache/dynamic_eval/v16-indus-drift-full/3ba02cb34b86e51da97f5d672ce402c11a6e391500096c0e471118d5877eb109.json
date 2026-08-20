@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "dispute",
+    "should_end_call": true,
+    "spoken_response": "Aapne is baare mein pehle koi complaint ki hai? Kripya EasyCredit customer care number 1800-500-4444 par sampark karein.",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 6502.0,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "3ba02cb34b86e51da97f5d672ce402c11a6e391500096c0e471118d5877eb109",
+    "response_hash": "eedf3fe6aa0100d1acf02d18f75721e97db5b612bc0ecc9e5648ad2e6d978bc2",
+    "usage": {
+      "candidatesTokenCount": 67,
+      "promptTokenCount": 1939,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1939
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 991,
+      "totalTokenCount": 2997
+    }
+  }
+}

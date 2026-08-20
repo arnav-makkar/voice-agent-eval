@@ -1,0 +1,106 @@
+{
+  "data": {
+    "judgments": [
+      {
+        "conciseness_score": 4,
+        "conversation_progression_score": 2,
+        "evidence": "Kya aap EasyCredit app se abhi pay kar sakte hain?",
+        "factual_error": false,
+        "failure_component": "agent_policy",
+        "faithfulness_score": 4,
+        "first_failure_turn": 6,
+        "forbidden_behavior_violation": false,
+        "integrity_violation": false,
+        "scenario_id": "EMI-FINAL-001",
+        "user_behavior_fidelity": true
+      },
+      {
+        "conciseness_score": 4,
+        "conversation_progression_score": 4,
+        "evidence": "callback preference note kar laya hai",
+        "factual_error": false,
+        "failure_component": "none",
+        "faithfulness_score": 4,
+        "first_failure_turn": 0,
+        "forbidden_behavior_violation": false,
+        "integrity_violation": false,
+        "scenario_id": "EMI-FINAL-002",
+        "user_behavior_fidelity": true
+      },
+      {
+        "conciseness_score": 4,
+        "conversation_progression_score": 4,
+        "evidence": "20 August 2026 ki date note kar leta hoon",
+        "factual_error": false,
+        "failure_component": "none",
+        "faithfulness_score": 4,
+        "first_failure_turn": 0,
+        "forbidden_behavior_violation": false,
+        "integrity_violation": false,
+        "scenario_id": "EMI-FINAL-003",
+        "user_behavior_fidelity": true
+      },
+      {
+        "conciseness_score": 4,
+        "conversation_progression_score": 4,
+        "evidence": "18 August 2026 ki payment date note kar raha hoon",
+        "factual_error": false,
+        "failure_component": "agent_policy",
+        "faithfulness_score": 2,
+        "first_failure_turn": 6,
+        "forbidden_behavior_violation": false,
+        "integrity_violation": false,
+        "scenario_id": "EMI-FINAL-004",
+        "user_behavior_fidelity": true
+      },
+      {
+        "conciseness_score": 4,
+        "conversation_progression_score": 4,
+        "evidence": "galat number lag gaya",
+        "factual_error": false,
+        "failure_component": "none",
+        "faithfulness_score": 4,
+        "first_failure_turn": 0,
+        "forbidden_behavior_violation": false,
+        "integrity_violation": false,
+        "scenario_id": "EMI-FINAL-005",
+        "user_behavior_fidelity": true
+      },
+      {
+        "conciseness_score": 4,
+        "conversation_progression_score": 4,
+        "evidence": "customer care number 1800-500-4444 par call kar sakti hain",
+        "factual_error": false,
+        "failure_component": "none",
+        "faithfulness_score": 4,
+        "first_failure_turn": 0,
+        "forbidden_behavior_violation": false,
+        "integrity_violation": false,
+        "scenario_id": "EMI-FINAL-006",
+        "user_behavior_fidelity": true
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 26439.5,
+    "model_requested": "gemini-3.1-pro-preview",
+    "model_version": "gemini-3.1-pro-preview",
+    "request_hash": "a0fee0d2aab92ba8b015475c3e0a299c57f254afe8c0ee22bc0eb56867a4aa4d",
+    "response_hash": "d2b0dafc5f26da0c622dcc2e3b69911d0305c0d0cb7c2f6f0479e95af88d3c0a",
+    "usage": {
+      "candidatesTokenCount": 867,
+      "promptTokenCount": 5238,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 5238
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 2925,
+      "totalTokenCount": 9030
+    }
+  }
+}

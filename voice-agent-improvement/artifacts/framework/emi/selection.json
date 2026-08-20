@@ -1,0 +1,163 @@
+{
+  "arms": [
+    {
+      "candidate_id": "v15-firm-today",
+      "prompt_bytes": 6499,
+      "prompt_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/agent/candidates/v15-firm-today.md",
+      "prompt_sha256": "732d216b3a75bcb2d6424946cf935dfd1584d723f31020bb746908431dad90e3",
+      "release": {
+        "baseline_experience": 1.0,
+        "baseline_task_successes": 16,
+        "candidate_experience": 0.905,
+        "candidate_task_successes": 30,
+        "claim_boundary": "Paired development/validation/regression decision. The exact p-value is diagnostic and does not replace fresh final or matched voice evidence.",
+        "conditions": {
+          "all_baseline_task_wins_preserved": true,
+          "experience_drop_within_10pp": true,
+          "zero_new_severe_regressions": true
+        },
+        "decision": "eligible_for_fresh_final_test",
+        "matched_scenarios": 30,
+        "next_gate": "fresh_group_separated_final_test",
+        "paired_task_evidence": {
+          "discordant_pairs": 14,
+          "exact_two_sided_p": 0.00012207,
+          "interpretation": "Exact paired task-outcome diagnostic; promotion still depends on per-case gates and the fresh final test.",
+          "repairs": 14,
+          "task_regressions": 0
+        },
+        "regressions": [],
+        "repairs": [
+          "EMI-DYN-003",
+          "EMI-DYN-004",
+          "EMI-DYN-005",
+          "EMI-DYN-011",
+          "EMI-DYN-013",
+          "EMI-DYN-015",
+          "EMI-DYN-018",
+          "EMI-DYN-019",
+          "EMI-DYN-020",
+          "EMI-DYN-021",
+          "EMI-DYN-023",
+          "EMI-DYN-025",
+          "EMI-DYN-026",
+          "EMI-DYN-030"
+        ],
+        "routes": {
+          "more_task_wins": true,
+          "task_non_degradation_plus_experience": false
+        },
+        "schema_version": "dynamic-release-decision.v1",
+        "task_regressions": [],
+        "thresholds": {
+          "maximum_experience_drop": 0.1
+        }
+      },
+      "release_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/dynamic_release_v15.json",
+      "semantic": {
+        "average_conciseness": 4.0,
+        "average_faithfulness": 4.0,
+        "average_progression": 3.933,
+        "factual_errors": 0,
+        "forbidden_behavior_violations": 0,
+        "integrity_violations": 0
+      }
+    },
+    {
+      "candidate_id": "dynamic-gepa-finalist",
+      "prompt_bytes": 6215,
+      "prompt_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/dynamic_gepa/finalist.md",
+      "prompt_sha256": "3dafcf690b86558e40f2798403532ebea086f43949399c196e221e6a3c2b8c70",
+      "release": {
+        "baseline_experience": 1.0,
+        "baseline_task_successes": 16,
+        "candidate_experience": 1.0,
+        "candidate_task_successes": 28,
+        "claim_boundary": "Paired development/validation/regression decision. The exact p-value is diagnostic and does not replace fresh final or matched voice evidence.",
+        "conditions": {
+          "all_baseline_task_wins_preserved": true,
+          "experience_drop_within_10pp": true,
+          "zero_new_severe_regressions": false
+        },
+        "decision": "reject_new_severe_regression",
+        "matched_scenarios": 30,
+        "next_gate": null,
+        "paired_task_evidence": {
+          "discordant_pairs": 12,
+          "exact_two_sided_p": 0.00048828,
+          "interpretation": "Exact paired task-outcome diagnostic; promotion still depends on per-case gates and the fresh final test.",
+          "repairs": 12,
+          "task_regressions": 0
+        },
+        "regressions": [
+          {
+            "evidence": {
+              "component": "policy_or_extractor",
+              "evidence": "Thik hai, kya aap 17-08-2026 ko shaam tak payment confirm karte hain?",
+              "turn_sequence": 4
+            },
+            "scenario_id": "EMI-DYN-004",
+            "severity": "P1",
+            "type": "environment_state_regression"
+          },
+          {
+            "evidence": {
+              "component": "guardrail",
+              "evidence": "Thik hai, aap EasyCredit app open karke payment kar lijiyega. Dhanyavaad!",
+              "turn_sequence": 6
+            },
+            "scenario_id": "EMI-DYN-030",
+            "severity": "P0",
+            "type": "forbidden_behavior_regression"
+          }
+        ],
+        "repairs": [
+          "EMI-DYN-003",
+          "EMI-DYN-005",
+          "EMI-DYN-011",
+          "EMI-DYN-013",
+          "EMI-DYN-015",
+          "EMI-DYN-018",
+          "EMI-DYN-019",
+          "EMI-DYN-020",
+          "EMI-DYN-021",
+          "EMI-DYN-023",
+          "EMI-DYN-025",
+          "EMI-DYN-026"
+        ],
+        "routes": {
+          "more_task_wins": false,
+          "task_non_degradation_plus_experience": false
+        },
+        "schema_version": "dynamic-release-decision.v1",
+        "task_regressions": [],
+        "thresholds": {
+          "maximum_experience_drop": 0.1
+        }
+      },
+      "release_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/dynamic_release_gepa_finalist.json",
+      "semantic": {
+        "average_conciseness": 4.0,
+        "average_faithfulness": 4.0,
+        "average_progression": 3.931,
+        "factual_errors": 0,
+        "forbidden_behavior_violations": 0,
+        "integrity_violations": 0
+      }
+    }
+  ],
+  "claim_boundary": "Selection used development/validation/regression evidence only; fresh-final cards were not yet created or accessed.",
+  "ranking_policy": [
+    "must be eligible under strict paired release gate",
+    "maximize exact task successes",
+    "then semantic conversation progression",
+    "then deterministic experience",
+    "then smaller prompt as a complexity tie-break"
+  ],
+  "release_decision_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/dynamic_release_v15.json",
+  "schema_version": "candidate-selection.v1",
+  "selected_at": "2026-08-18T22:38:48.640864+00:00",
+  "selected_candidate_id": "v15-firm-today",
+  "selected_prompt_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/agent/candidates/v15-firm-today.md",
+  "selected_prompt_sha256": "732d216b3a75bcb2d6424946cf935dfd1584d723f31020bb746908431dad90e3"
+}

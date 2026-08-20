@@ -1,0 +1,98 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-ANCHOR-FAIL-11",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "ठीक है, तो फिर आप किस तारीख तक पेमेंट कर सकेंगे?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-ANCHOR-FAIL-12",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "धन्यवाद, मैंने तारीख नोट कर ली है। कृपया ऐप से भुगतान कर दें।",
+        "terminal_state": "fptp"
+      },
+      {
+        "case_id": "EMI-ANCHOR-FAIL-13",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "समझ गया। क्या आपके पास EasyCredit का कोई अकाउंट नहीं है? आप अधिक जानकारी के लिए 1800-500-4444 पर संपर्क कर सकते हैं।",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-ANCHOR-FAIL-14",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਧੰਨਵਾਦ ਜੀ, ਤੁਸੀਂ official app ਰਾਹੀਂ payment ਕਰ ਲਵੋ।",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-ANCHOR-FAIL-15",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "आप Play Store से EasyCredit app डाउनलोड कर सकते हैं। आप पेमेंट किस तारीख तक कर पाएंगे?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-ANCHOR-WIN-01",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "जी धन्यवाद, आप app से payment कर लीजिए।",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-ANCHOR-WIN-02",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ठीक है अर्णव जी, मैंने 20 अगस्त की तारीख नोट कर ली है। धन्यवाद!",
+        "terminal_state": "fptp"
+      },
+      {
+        "case_id": "EMI-ANCHOR-WIN-03",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ठीक है अर्णव जी, आपका धन्यवाद।",
+        "terminal_state": "already_paid"
+      },
+      {
+        "case_id": "EMI-ANCHOR-WIN-04",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thank you Arnav, please complete the payment through the app. Have a good day!",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-ANCHOR-WIN-05",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "I understand. Thank you for your time, have a good day.",
+        "terminal_state": "rtp"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 35964.2,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "228355fcbe600522eaa2c1ed7c6070f90606f468449ed5271920cf2e2f191996",
+    "response_hash": "3932d17ad4650b7632813916fff72e2c4b9f454b40157f42a7ee198857fcf294",
+    "usage": {
+      "candidatesTokenCount": 823,
+      "promptTokenCount": 5113,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 5113
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 6569,
+      "totalTokenCount": 12505
+    }
+  }
+}

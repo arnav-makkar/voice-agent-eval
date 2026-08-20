@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "escalation",
+    "should_end_call": true,
+    "spoken_response": "Samajh gaya. Fraud complaint ke liye kripya hamaare helpline number 1800-425-5555 par call karein. Dhanyawad.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "escalation"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 6453.2,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "fa460e0e07b387f1c8ae91f23e15406c6253e1591870b4bc603c49bddc3314c2",
+    "response_hash": "fd311be7ec8bb7238c527e3b44b47bf8d5379773b9a7a2b9aee4fc6f727a6be8",
+    "usage": {
+      "candidatesTokenCount": 80,
+      "promptTokenCount": 1821,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1821
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 936,
+      "totalTokenCount": 2837
+    }
+  }
+}

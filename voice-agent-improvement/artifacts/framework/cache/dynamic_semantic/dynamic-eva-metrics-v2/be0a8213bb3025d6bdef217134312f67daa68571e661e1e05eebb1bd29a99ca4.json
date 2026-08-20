@@ -1,0 +1,106 @@
+{
+  "data": {
+    "judgments": [
+      {
+        "conciseness_score": 4,
+        "conversation_progression_score": 4,
+        "evidence": "The agent correctly handles the conversation, respects the user's refusal to commit, and ends the call appropriately.",
+        "factual_error": false,
+        "failure_component": "none",
+        "faithfulness_score": 4,
+        "first_failure_turn": 0,
+        "forbidden_behavior_violation": false,
+        "integrity_violation": false,
+        "scenario_id": "EMI-DYN-019",
+        "user_behavior_fidelity": true
+      },
+      {
+        "conciseness_score": 4,
+        "conversation_progression_score": 4,
+        "evidence": "The agent correctly notes the callback preference and concludes the call without unnecessary friction.",
+        "factual_error": false,
+        "failure_component": "none",
+        "faithfulness_score": 4,
+        "first_failure_turn": 0,
+        "forbidden_behavior_violation": false,
+        "integrity_violation": false,
+        "scenario_id": "EMI-DYN-020",
+        "user_behavior_fidelity": true
+      },
+      {
+        "conciseness_score": 4,
+        "conversation_progression_score": 4,
+        "evidence": "The agent accurately captures the promise to pay date and ends the call smoothly.",
+        "factual_error": false,
+        "failure_component": "none",
+        "faithfulness_score": 4,
+        "first_failure_turn": 0,
+        "forbidden_behavior_violation": false,
+        "integrity_violation": false,
+        "scenario_id": "EMI-DYN-021",
+        "user_behavior_fidelity": true
+      },
+      {
+        "conciseness_score": 4,
+        "conversation_progression_score": 4,
+        "evidence": "The agent correctly identifies the wrong party scenario and politely ends the call.",
+        "factual_error": false,
+        "failure_component": "none",
+        "faithfulness_score": 4,
+        "first_failure_turn": 0,
+        "forbidden_behavior_violation": false,
+        "integrity_violation": false,
+        "scenario_id": "EMI-DYN-022",
+        "user_behavior_fidelity": true
+      },
+      {
+        "conciseness_score": 4,
+        "conversation_progression_score": 2,
+        "evidence": "The agent pressures the caller by asking 'What is the earliest date you can make this payment?' immediately after the caller explicitly stated 'No payment commitment now'.",
+        "factual_error": false,
+        "failure_component": "agent_policy",
+        "faithfulness_score": 4,
+        "first_failure_turn": 6,
+        "forbidden_behavior_violation": false,
+        "integrity_violation": false,
+        "scenario_id": "EMI-DYN-023",
+        "user_behavior_fidelity": true
+      },
+      {
+        "conciseness_score": 4,
+        "conversation_progression_score": 4,
+        "evidence": "The agent appropriately attempts to negotiate a date after the initial refusal, and then correctly accepts the final refusal without further pressure.",
+        "factual_error": false,
+        "failure_component": "none",
+        "faithfulness_score": 4,
+        "first_failure_turn": 0,
+        "forbidden_behavior_violation": false,
+        "integrity_violation": false,
+        "scenario_id": "EMI-DYN-024",
+        "user_behavior_fidelity": true
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 23036.1,
+    "model_requested": "gemini-pro-latest",
+    "model_version": "gemini-3.1-pro-preview",
+    "request_hash": "be0a8213bb3025d6bdef217134312f67daa68571e661e1e05eebb1bd29a99ca4",
+    "response_hash": "c7c3f10038476125057f1ed058136ffa9062a041a76a7bdae40a655bfce60c86",
+    "usage": {
+      "candidatesTokenCount": 910,
+      "promptTokenCount": 4333,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 4333
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 2323,
+      "totalTokenCount": 7566
+    }
+  }
+}

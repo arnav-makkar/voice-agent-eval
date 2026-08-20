@@ -1,0 +1,68 @@
+{
+  "data": {
+    "extractions": [
+      {
+        "call_summary": "Customer confirmed identity and was informed about overdue EMI of INR 4416 for Samsung TV. Customer stated they do not have the app and said they would look into it later.",
+        "disposition": "acknowledged",
+        "escalation_reason": "NA",
+        "evidence": "बाद में देखूंगा, bye.",
+        "trace_id": "BL-V12-16",
+        "unsupported_action_in_summary": false
+      },
+      {
+        "call_summary": "Customer confirmed identity and agreed to open the official app to make the EMI payment immediately.",
+        "disposition": "payment_ready",
+        "escalation_reason": "NA",
+        "evidence": "ठीक है अभी खोल रहा हूं कर दूंगा फिर।",
+        "trace_id": "BL-V12-02-R1",
+        "unsupported_action_in_summary": false
+      },
+      {
+        "call_summary": "Customer confirmed identity and agreed to open the official app and pay immediately after agent clarified no link was being sent.",
+        "disposition": "payment_ready",
+        "escalation_reason": "NA",
+        "evidence": "ठीक है मैं आप खोल के pay करता हूँ।",
+        "trace_id": "BL-V12-03-R1",
+        "unsupported_action_in_summary": false
+      },
+      {
+        "call_summary": "Customer questioned the call authenticity and stated they would open the app to check their account.",
+        "disposition": "acknowledged",
+        "escalation_reason": "NA",
+        "evidence": "मैं app open करके check कर रहा हूँ।",
+        "trace_id": "BL-V12-04-R1",
+        "unsupported_action_in_summary": false
+      },
+      {
+        "call_summary": "Customer raised a query about call authenticity and stated they would check the app themselves.",
+        "disposition": "acknowledged",
+        "escalation_reason": "NA",
+        "evidence": "Okay, okay, okay, okay, I'll check, I'll check.",
+        "trace_id": "BL-V12-04-R1-en",
+        "unsupported_action_in_summary": false
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 16270.7,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "e94418f4be37fcb4623ca8bfda291de9469cb9fe305a6d86af9f9c5e747aef74",
+    "response_hash": "078a9e6a138e3dddd15bc19a9959eb1c6261a540d2fe5def4222fb8cac791368",
+    "usage": {
+      "candidatesTokenCount": 457,
+      "promptTokenCount": 2256,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 2256
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 3127,
+      "totalTokenCount": 5840
+    }
+  }
+}

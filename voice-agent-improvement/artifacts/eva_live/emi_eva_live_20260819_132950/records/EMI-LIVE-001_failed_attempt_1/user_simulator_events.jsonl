@@ -1,0 +1,7 @@
+{"timestamp": 1787126394749, "sequence": 1, "type": "connection_state", "data": {"state": "connected", "details": {"server_url": "ws://localhost:10000/ws"}}, "provider": "elevenlabs"}
+{"timestamp": 1787126395279, "sequence": 2, "type": "connection_state", "data": {"state": "session_started", "details": {}}, "provider": "elevenlabs"}
+{"timestamp": 1787126395470, "sequence": 3, "event_type": "audio_start", "user": "assistant", "audio_timestamp": 1787126395.470447, "provider": "elevenlabs"}
+{"timestamp": 1787126396600, "sequence": 4, "event_type": "audio_start", "user": "simulated_user", "audio_timestamp": 1787126396.5997922, "provider": "elevenlabs"}
+{"timestamp": 1787126397688, "sequence": 5, "event_type": "audio_end", "user": "assistant", "audio_timestamp": 1787126397.688954, "provider": "elevenlabs"}
+{"timestamp": 1787126399940, "sequence": 6, "type": "provider_error", "data": {"provider": "elevenlabs", "status": "failed", "code": 1002, "error_type": "dependency_error", "reason": "This request cannot be processed due to a payment issue."}, "provider": "elevenlabs"}
+{"timestamp": 1787126400293, "sequence": 7, "type": "connection_state", "data": {"state": "session_ended", "details": {"reason": "provider_error"}}, "provider": "elevenlabs"}

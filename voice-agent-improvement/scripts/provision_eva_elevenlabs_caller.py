@@ -1,0 +1,148 @@
+"""Idempotently provision the ElevenLabs caller used by EVA's EMI smoke test.
+
+The script reads ELEVENLABS_API_KEY from the project .env, reuses an existing
+agent with the configured name, and otherwise creates one through the documented
+ElevenLabs Agents API. It prints only non-secret identifiers and metadata.
+"""
+
+from __future__ import annotations
+
+import json
+import os
+import ssl
+import sys
+import urllib.error
+import urllib.parse
+import urllib.request
+from pathlib import Path
+from typing import Any
+
+import certifi
+
+
+ROOT = Path(__file__).resolve().parents[1]
+API_BASE = "https://api.elevenlabs.io"
+AGENT_NAME = "Loopline EVA Caller — Arnav EMI"
+VOICE_ID = "n32p8A7EZ9CiVeRYpBY9"  # Rajesh — Indian male, calm and controlled
+CALLER_LLM = "qwen36-35b-a3b"  # ElevenLabs-native; avoids third-party LLM billing dependency
+
+
+def load_env(path: Path) -> None:
+    if not path.exists():
+        return
+    for raw in path.read_text(encoding="utf-8").splitlines():
+        line = raw.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, value = line.split("=", 1)
+        os.environ.setdefault(key.strip(), value.strip().strip('"').strip("'"))
+
+
+def request(method: str, path: str, api_key: str, payload: dict[str, Any] | None = None) -> dict[str, Any]:
+    body = json.dumps(payload).encode("utf-8") if payload is not None else None
+    req = urllib.request.Request(
+        f"{API_BASE}{path}",
+        data=body,
+        method=method,
+        headers={
+            "xi-api-key": api_key,
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+        },
+    )
+    try:
+        context = ssl.create_default_context(cafile=certifi.where())
+        with urllib.request.urlopen(req, timeout=30, context=context) as response:
+            return json.loads(response.read().decode("utf-8"))
+    except urllib.error.HTTPError as exc:
+        details = exc.read().decode("utf-8", errors="replace")
+        raise RuntimeError(f"ElevenLabs returned HTTP {exc.code}: {details[:2000]}") from exc
+
+
+def create_payload() -> dict[str, Any]:
+    end_call_description = (
+        "End the phone call only after you have said a brief goodbye and either the scenario success condition "
+        "or failure condition is met. Never end in the same turn where you provide information or agree to pay."
+    )
+    return {
+        "name": AGENT_NAME,
+        "tags": ["eva", "loopline", "emi", "user-simulator"],
+        "conversation_config": {
+            "asr": {
+                "quality": "high",
+                "provider": "scribe_realtime",
+                "user_input_audio_format": "ulaw_8000",
+            },
+            "turn": {
+                "turn_timeout": 15,
+                "silence_end_call_timeout": -1,
+                "turn_eagerness": "eager",
+                "turn_model": "turn_v3",
+                "mode": "turn",
+            },
+            "tts": {
+                "model_id": "eleven_v3_conversational",
+                "voice_id": VOICE_ID,
+                "agent_output_audio_format": "pcm_16000",
+                "stability": 0.55,
+                "speed": 1.05,
+                "similarity_boost": 0.8,
+            },
+            "conversation": {
+                "max_duration_seconds": 180,
+                "client_events": ["audio", "interruption"],
+            },
+            "agent": {
+                "first_message": "Haan, boliye.",
+                "language": "hi",
+                "disable_first_message_interruptions": False,
+                "prompt": {
+                    "prompt": "{{prompt}}",
+                    "llm": CALLER_LLM,
+                    "temperature": 0.2,
+                    "max_tokens": 250,
+                    "tool_ids": [],
+                    "built_in_tools": {
+                        "end_call": {
+                            "name": "end_call",
+                            "type": "system",
+                            "description": end_call_description,
+                            "params": {"system_tool_type": "end_call"},
+                        }
+                    },
+                },
+            },
+        },
+    }
+
+
+def main() -> int:
+    load_env(ROOT / ".env")
+    api_key = os.getenv("ELEVENLABS_API_KEY", "").strip()
+    if not api_key:
+        print("ELEVENLABS_API_KEY is missing from .env", file=sys.stderr)
+        return 2
+
+    agents = request("GET", "/v1/convai/agents?page_size=100", api_key).get("agents", [])
+    existing = next((item for item in agents if item.get("name") == AGENT_NAME and not item.get("archived")), None)
+    if existing:
+        result = {
+            "status": "reused",
+            "agent_id": existing["agent_id"],
+            "name": existing["name"],
+            "voice_id": VOICE_ID,
+        }
+    else:
+        created = request("POST", "/v1/convai/agents/create", api_key, create_payload())
+        result = {
+            "status": "created",
+            "agent_id": created["agent_id"],
+            "name": AGENT_NAME,
+            "voice_id": VOICE_ID,
+        }
+    print(json.dumps(result, indent=2))
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

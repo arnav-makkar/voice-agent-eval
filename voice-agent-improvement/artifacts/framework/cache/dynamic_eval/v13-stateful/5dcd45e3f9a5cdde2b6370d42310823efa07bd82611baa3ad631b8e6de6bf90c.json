@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "already_paid",
+    "should_end_call": true,
+    "spoken_response": "System mein abhi payment show nahi ho raha hai. Kripya payment details ke sath 1800-500-4444 par call kar lijiye. Dhanyawad.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "already_paid"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 7654.4,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "5dcd45e3f9a5cdde2b6370d42310823efa07bd82611baa3ad631b8e6de6bf90c",
+    "response_hash": "d0f773f923003151bde273d476b9a60793323ed6e07005a1989c9311ea9449e9",
+    "usage": {
+      "candidatesTokenCount": 86,
+      "promptTokenCount": 1715,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1715
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 953,
+      "totalTokenCount": 2754
+    }
+  }
+}

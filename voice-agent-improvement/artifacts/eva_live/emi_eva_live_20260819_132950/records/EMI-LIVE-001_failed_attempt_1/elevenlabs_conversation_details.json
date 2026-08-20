@@ -1,0 +1,301 @@
+{
+  "agent_id": "agent_5001m0cfkw7beaatc3d7abg4y7q6",
+  "agent_name": "Loopline EVA Caller — Arnav EMI",
+  "conversation_product": "agent",
+  "status": "failed",
+  "user_id": null,
+  "branch_id": "agtbrch_5601m0cfkx1nfnmbpvz8j2er2vt3",
+  "version_id": "agtvrsn_1701m0cggw8nf9hvvcefexvam4by",
+  "metadata": {
+    "start_time_unix_secs": 1787126395,
+    "accepted_time_unix_secs": 1787126395,
+    "call_duration_secs": 2,
+    "cost": 0,
+    "deletion_settings": {
+      "deletion_time_unix_secs": null,
+      "deleted_logs_at_time_unix_secs": null,
+      "deleted_audio_at_time_unix_secs": null,
+      "deleted_transcript_at_time_unix_secs": null,
+      "delete_transcript_and_pii": false,
+      "delete_audio": false
+    },
+    "feedback": {
+      "type": null,
+      "overall_score": null,
+      "likes": 0,
+      "dislikes": 0,
+      "rating": null,
+      "comment": null
+    },
+    "authorization_method": "signed_url",
+    "charging": {
+      "dev_discount": false,
+      "is_burst": false,
+      "tier": "pro",
+      "llm_usage": {
+        "irreversible_generation": {
+          "model_usage": {}
+        },
+        "initiated_generation": {
+          "model_usage": {}
+        }
+      },
+      "llm_price": 0.0,
+      "llm_charge": 0,
+      "call_charge": 0,
+      "free_minutes_consumed": 0.0,
+      "free_llm_dollars_consumed": 0.0,
+      "tts_usage": {
+        "primary_tts_model": "eleven_v3_conversational",
+        "total_audio_output_seconds": 1.52,
+        "total_characters": 13,
+        "per_voice_usage": [
+          {
+            "voice_id": "n32p8A7EZ9CiVeRYpBY9",
+            "audio_output_seconds": 1.52
+          }
+        ]
+      },
+      "asr_usage": {
+        "asr_model": "scribe_realtime",
+        "total_transcription_calls": 0,
+        "total_audio_input_seconds": 0.0
+      },
+      "platform_charge": 0,
+      "platform_usage": {
+        "category_usage": {}
+      },
+      "platform_price": 0.0,
+      "analysis": null
+    },
+    "phone_call": null,
+    "batch_call": null,
+    "termination_reason": "This request cannot be processed due to a payment issue.",
+    "error": {
+      "code": 1002,
+      "reason": "This request cannot be processed due to a payment issue.",
+      "error_type": "dependency_error"
+    },
+    "warnings": [],
+    "main_language": "hi",
+    "rag_usage": null,
+    "text_only": false,
+    "features_usage": {
+      "language_detection": {
+        "enabled": false,
+        "used": false
+      },
+      "transfer_to_agent": {
+        "enabled": false,
+        "used": false
+      },
+      "transfer_to_number": {
+        "enabled": false,
+        "used": false
+      },
+      "multivoice": {
+        "enabled": false,
+        "used": false
+      },
+      "dtmf_tones": {
+        "enabled": false,
+        "used": false
+      },
+      "external_mcp_servers": {
+        "enabled": false,
+        "used": false
+      },
+      "pii_zrm_workspace": false,
+      "pii_zrm_agent": false,
+      "tool_dynamic_variable_updates": {
+        "enabled": false,
+        "used": false
+      },
+      "is_livekit": false,
+      "voicemail_detection": {
+        "enabled": false,
+        "used": false
+      },
+      "dtmf_input": {
+        "enabled": false,
+        "used": false
+      },
+      "workflow": {
+        "enabled": false,
+        "tool_node": {
+          "enabled": false,
+          "used": false
+        },
+        "standalone_agent_node": {
+          "enabled": false,
+          "used": false
+        },
+        "phone_number_node": {
+          "enabled": false,
+          "used": false
+        },
+        "end_node": {
+          "enabled": false,
+          "used": false
+        }
+      },
+      "agent_testing": {
+        "enabled": false,
+        "tests_ran_after_last_modification": false,
+        "tests_ran_in_last_7_days": false
+      },
+      "versioning": {
+        "enabled": true,
+        "used": false
+      },
+      "file_input": {
+        "enabled": true,
+        "used": false
+      }
+    },
+    "eleven_assistant": {
+      "is_eleven_assistant": false
+    },
+    "initiator_id": null,
+    "conversation_initiation_source": "python_sdk",
+    "conversation_initiation_source_version": "2.53.0",
+    "timezone": null,
+    "async_metadata": null,
+    "whatsapp": null,
+    "sms": null,
+    "agent_created_from": "api",
+    "agent_last_updated_from": "api",
+    "voice_rewards": [],
+    "cost_fiat": 0.0
+  },
+  "analysis": {
+    "evaluation_criteria_results": {},
+    "data_collection_results": {},
+    "evaluation_criteria_results_list": [],
+    "data_collection_results_list": [],
+    "call_successful": "failure",
+    "transcript_summary": "The conversation consists of a single, non-substantive interjection from the agent (\"Haan,...\"), indicating a minimal interaction without any discernible topic or action.",
+    "call_summary_title": "Brief Exchange",
+    "scoped": [],
+    "call_success_score": 0.0,
+    "sentiment_analysis": null
+  },
+  "visited_agents": [
+    {
+      "agent_id": "agent_5001m0cfkw7beaatc3d7abg4y7q6",
+      "branch_id": "agtbrch_5601m0cfkx1nfnmbpvz8j2er2vt3"
+    }
+  ],
+  "conversation_initiation_client_data": {
+    "conversation_config_override": {
+      "asr": null,
+      "turn": null,
+      "tts": null,
+      "conversation": null,
+      "agent": null
+    },
+    "custom_llm_extra_body": {},
+    "user_id": null,
+    "source_info": {
+      "source": "python_sdk",
+      "version": "2.53.0"
+    },
+    "branch_id": null,
+    "environment": null,
+    "starting_workflow_node_id": null,
+    "dynamic_variables": {
+      "prompt": "You are Arnav, a real customer answering an unexpected EMI recovery phone call.\nYou are speaking to Shubh, the deployed EasyCredit voice agent under test.\nThis is a live audio conversation. Speak in short, natural Indian Hinglish.\n\n# Character\nYou're direct and to the point—you don't have time for lengthy explanations or unnecessary back-and-forth. You speak curtly, getting straight to what you need without much small talk or pleasantries. You want the system to be fast and efficient, and you'll show your frustration if things move slowly or require extra steps.\n\n# Hidden goal\nYou are Arnav, an uninterested customer who answered an unexpected EMI recovery call. Listen only long enough to understand the reason. If Shubh clearly says he is calling from EasyCredit about your overdue Samsung TV EMI and directly asks you to pay through the official EasyCredit app, agree once to open the app and pay now. You are not making a real payment during this simulation.\n\n# Success requirements\n['Shubh identifies EasyCredit, mentions the Samsung TV EMI, makes a direct payment ask, and correctly acknowledges your explicit agreement to open the official app and pay now without repeating the full pitch.']\n\n# Optional preferences\n['The reason for the call is explained in one short turn and the call closes immediately after your commitment is captured.']\n\n# Exact behavior policy\n['Start with the configured short pickup response and wait for Shubh to explain why he called.', 'Do not volunteer the product, lender, amount, due date, or desired outcome before Shubh states the reason for the call.', 'If Shubh clearly identifies EasyCredit, the Samsung TV EMI, and asks whether you can pay now in the official app, say: Theek hai, main abhi EasyCredit app khol ke payment kar deta hoon.', 'If Shubh asks whether you are Arnav, answer briefly: Haan, Arnav bol raha hoon.', 'If Shubh repeats the same payment pitch after you already agreed, correct him once: Maine haan bola na, main abhi app se pay kar raha hoon.', 'If the full pitch is repeated again, say you do not have more time, say goodbye, and end the call.', 'Never claim that payment has completed and never provide an OTP, card number, UPI PIN, or banking credential.']\n\n# Facts you know\nDo not volunteer these facts unless the policy above says to do so or Shubh asks.\n{'customer_name': 'Arnav Dhavala', 'company': 'EasyCredit', 'product': 'Samsung Smart TV', 'merchant': 'Croma', 'emi_amount_rupees': '2916', 'due_date': '11 August 2026', 'intended_commitment': 'Open the official EasyCredit app and pay now', 'must_not_share': 'OTP, UPI PIN, card number, CVV, or banking password'}\n\nToday is 2026-08-19 13:30 IST.\n\n# Realtime caller rules\n- Your first spoken turn must be exactly: Haan, boliye.\n- Stay in character. Never mention a test, prompt, goal, metric, simulator, or scenario.\n- Keep every response to one short sentence whenever possible.\n- Sound distracted and mildly impatient, not theatrical or abusive.\n- Listen to what Shubh actually says. Do not assume he mentioned the company, TV, amount, or payment request.\n- Never reveal an OTP, UPI PIN, card number, CVV, password, or other secret.\n- Never claim money was really transferred. You may only commit to opening the official app and paying.\n- Correct a wrong company, product, amount, or interpretation once. Do not silently accept it.\n- If Shubh talks for too long or repeats himself after your answer, interrupt briefly and push him to the point.\n- Do not add unrelated requests and do not accept a transfer.\n\n# End conditions\nSuccess: After you explicitly agree to open the EasyCredit app and pay now, Shubh acknowledges the commitment or confirms that it has been recorded without repeating the full pitch. Say a brief goodbye and call end_call.\nFailure: End the call after two consecutive turns with no progress, after a second repeated full payment pitch following your agreement, or if Shubh requests any secret financial credential.\nEscalation: Do not request or accept a live-agent transfer in this scenario. If Shubh cannot record a straightforward pay-now commitment, say you do not have time and end the call.\nEdge cases: ['If the audio is unclear, ask Shubh to repeat once and do not invent what was said.', 'If Shubh states the wrong product, amount, or company, say that does not sound right and ask him to check once.', 'If Shubh asks unrelated verification questions, say you only have a moment and ask him to state the reason for the call.', 'Do not become helpful, chatty, or polite beyond a terse real phone response.']\n\nSay a brief goodbye immediately before calling end_call. Never call end_call in the same turn in which you provide new information or agree to pay; allow Shubh one turn to acknowledge it.\n",
+      "system__agent_id": "agent_5001m0cfkw7beaatc3d7abg4y7q6",
+      "system__agent_turns": 1,
+      "system__current_agent_turns": 1,
+      "system__current_subagent_turns": 1,
+      "system__current_agent_id": "agent_5001m0cfkw7beaatc3d7abg4y7q6",
+      "system__conversation_id": "conv_1501m0cghcw9ffjvx7w4hnebaxgf",
+      "system__call_duration_secs": 1,
+      "system__time_utc": "2026-08-19T07:59:57.324817+00:00",
+      "system__time": "Wednesday, 07:59 19 August 2026",
+      "system__timezone": null,
+      "system__is_text_only": false,
+      "system__channel": "python_sdk",
+      "system__caller_id": null,
+      "system__called_number": null,
+      "system__call_sid": null,
+      "system__call_id": null,
+      "system__conversation_history": "{\"x-elevenlabs-history\": true, \"entries\": [{\"role\": \"agent\", \"message\": \"Haan,...\"}]}",
+      "system__user_id": null,
+      "system__initiator_id": null
+    },
+    "experiments": [],
+    "procedure_ids": null,
+    "tool_mock_config": {
+      "mocking_strategy": "none",
+      "fallback_strategy": "raise_error",
+      "mocked_tool_names": []
+    },
+    "tool_mock_overrides": {}
+  },
+  "environment": "production",
+  "conversation_id": "conv_1501m0cghcw9ffjvx7w4hnebaxgf",
+  "has_audio": true,
+  "has_user_audio": true,
+  "has_response_audio": true,
+  "transcript": [
+    {
+      "role": "agent",
+      "agent_metadata": {
+        "agent_id": "agent_5001m0cfkw7beaatc3d7abg4y7q6",
+        "branch_id": "agtbrch_5601m0cfkx1nfnmbpvz8j2er2vt3",
+        "workflow_node_id": null,
+        "version_id": "agtvrsn_1701m0cggw8nf9hvvcefexvam4by"
+      },
+      "message": "Haan,...",
+      "multivoice_message": null,
+      "tool_calls": [],
+      "tool_results": [],
+      "feedback": null,
+      "llm_override": null,
+      "time_in_call_secs": 0,
+      "conversation_turn_metrics": {
+        "metrics": {
+          "convai_tts_service_ttfb": {
+            "elapsed_time": 0.2645741739834193
+          },
+          "convai_ttf_audio_since_silence": {
+            "elapsed_time": 0.2668554440024309
+          },
+          "convai_turn_silence_before_initiation": {
+            "elapsed_time": 0.0
+          }
+        },
+        "convai_asr_provider": null,
+        "convai_tts_model": "eleven_v3_conversational",
+        "convai_tts_cascade": null
+      },
+      "rag_retrieval_info": null,
+      "llm_usage": null,
+      "interrupted": true,
+      "original_message": "Haan, boliye.",
+      "source_medium": null,
+      "source_event_id": 1,
+      "used_static_kb_document_ids": [],
+      "file_input": null,
+      "contextual_update_info": null,
+      "producing_llm": "qwen36-35b-a3b",
+      "ignored_as_backchannel": false,
+      "reasoning": [],
+      "analysis": null,
+      "user_identifier": null,
+      "id": null,
+      "triggered_guardrails": [],
+      "config_snapshot_id": null,
+      "reasoned": false
+    }
+  ],
+  "tag_ids": [],
+  "otlp_traces": null,
+  "experiment_assignments": null,
+  "hiding_reason": null,
+  "smb_metadata": null,
+  "has_auxiliary_audio": false,
+  "realtime_config_snapshots": null
+}

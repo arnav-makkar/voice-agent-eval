@@ -1,0 +1,25 @@
+{
+  "candidate_id": "v16-indus-drift",
+  "captured_at": "2026-08-20T20:06:51.947006+00:00",
+  "claim_boundary": "V16 is a newly registered candidate with no evaluation history. It has not been screened, has not seen the sealed final, and is not eligible for voice evaluation until it passes its own gates.",
+  "differs_from": {
+    "candidate_id": "v15-firm-today",
+    "prompt_sha256": "732d216b3a75bcb2d6424946cf935dfd1584d723f31020bb746908431dad90e3",
+    "relationship": "independent_drifted_variant"
+  },
+  "how_it_arose": "The Indus draft labelled 'v15' was modified in-platform by the Genie copilot across several edit rounds after the local V15 candidate was frozen. It is therefore not the frozen candidate and must not be evaluated or deployed under the V15 identity.",
+  "normalisation": "Variable and tool mentions render as chips in the Indus editor and were captured as backticked names. Chip-adjacent whitespace before punctuation was normalised. No wording was changed.",
+  "origin": "captured_from_deployed_indus_draft",
+  "prompt_bytes": 7094,
+  "prompt_path": "agent/candidates/v16-indus-drift.md",
+  "prompt_sha256": "ca8986d8f5fc0c9d0b5540dc1a0cdb9e99cf418d98e5979a3cd39101c47ee185",
+  "schema_version": "candidate-provenance.v1",
+  "source": {
+    "agent_id": "Conversatio-87b9b435-b466",
+    "draft_label_in_ui": "v15 \u00b7 Draft",
+    "editor_selector": ".agent-editor-prompt",
+    "greeting": "Namaste, kya main `userName` se baat kar raha hoon?",
+    "platform": "sarvam_indus"
+  },
+  "status": "registered_for_text_screening"
+}

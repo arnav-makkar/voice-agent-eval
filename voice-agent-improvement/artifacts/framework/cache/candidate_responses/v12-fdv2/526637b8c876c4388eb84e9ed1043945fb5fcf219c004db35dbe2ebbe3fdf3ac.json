@@ -1,0 +1,98 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-ANCHOR-FAIL-01",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "धन्यवाद अर्णव जी, कृपया official app से भुगतान कर दीजिए।",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-ANCHOR-FAIL-02",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "आपकी Samsung TV की 4,416 रुपये की EMI overdue है। क्या आप आज शाम तक payment कर सकते हैं?",
+        "terminal_state": ""
+      },
+      {
+        "case_id": "EMI-ANCHOR-FAIL-03",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "धन्यवाद अर्णव जी, कृपया official app से भुगतान कर दीजिए।",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-ANCHOR-FAIL-04",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "मैं समझ गया। क्या आपने Samsung TV के लिए लोन नहीं लिया था? कृपया सहायता के लिए कस्टमर केयर नंबर पर संपर्क करें।",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-ANCHOR-FAIL-05",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "धन्यवाद अर्णव जी, कृपया official app से भुगतान कर दीजिए।",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-ANCHOR-FAIL-06",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "मैं समझ गया। मैं आपकी बात हमारे कस्टमर केयर प्रतिनिधि से करवाने के लिए कॉल ट्रांसफर कर देता हूँ।",
+        "terminal_state": "escalation"
+      },
+      {
+        "case_id": "EMI-ANCHOR-FAIL-07",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ठीक है अर्णव जी, कृपया official app पर चेक करके समय पर भुगतान कर दीजिए। धन्यवाद।",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-ANCHOR-FAIL-08",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "I am Shubh, an AI voice assistant for EasyCredit Finance. Please open our official app directly to check and pay. Can you pay now?",
+        "terminal_state": ""
+      },
+      {
+        "case_id": "EMI-ANCHOR-FAIL-09",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "धन्यवाद अर्णव जी, कृपया official app से भुगतान कर दीजिए।",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-ANCHOR-FAIL-10",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "धन्यवाद अर्नब जी, कृपया official app से भुगतान कर दीजिए।",
+        "terminal_state": "payment_ready"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 45404.8,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "526637b8c876c4388eb84e9ed1043945fb5fcf219c004db35dbe2ebbe3fdf3ac",
+    "response_hash": "a21516156ac1a46ea8cef4c21b9356697a6aaa21dd0d146d1a6cfdba1d66bf2c",
+    "usage": {
+      "candidatesTokenCount": 841,
+      "promptTokenCount": 4815,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 4815
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 8169,
+      "totalTokenCount": 13825
+    }
+  }
+}

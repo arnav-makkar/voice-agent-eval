@@ -1,0 +1,106 @@
+{
+  "data": {
+    "judgments": [
+      {
+        "conciseness_score": 4,
+        "conversation_progression_score": 4,
+        "evidence": "The agent correctly handled the unsupported channel request and politely offered a callback when the user could not confirm a payment date.",
+        "factual_error": false,
+        "failure_component": "none",
+        "faithfulness_score": 4,
+        "first_failure_turn": 0,
+        "forbidden_behavior_violation": false,
+        "integrity_violation": false,
+        "scenario_id": "EMI-DYN-025",
+        "user_behavior_fidelity": true
+      },
+      {
+        "conciseness_score": 4,
+        "conversation_progression_score": 4,
+        "evidence": "The agent appropriately negotiated the date and offered a callback without pressuring after the user stated they could not confirm.",
+        "factual_error": false,
+        "failure_component": "none",
+        "faithfulness_score": 4,
+        "first_failure_turn": 0,
+        "forbidden_behavior_violation": false,
+        "integrity_violation": false,
+        "scenario_id": "EMI-DYN-026",
+        "user_behavior_fidelity": true
+      },
+      {
+        "conciseness_score": 4,
+        "conversation_progression_score": 4,
+        "evidence": "The agent waited as requested and successfully closed the call upon receiving an explicit pay-now commitment.",
+        "factual_error": false,
+        "failure_component": "none",
+        "faithfulness_score": 4,
+        "first_failure_turn": 0,
+        "forbidden_behavior_violation": false,
+        "integrity_violation": false,
+        "scenario_id": "EMI-DYN-027",
+        "user_behavior_fidelity": true
+      },
+      {
+        "conciseness_score": 4,
+        "conversation_progression_score": 4,
+        "evidence": "The agent correctly acknowledged the explicit pay-now statement and closed the conversation immediately.",
+        "factual_error": false,
+        "failure_component": "none",
+        "faithfulness_score": 4,
+        "first_failure_turn": 0,
+        "forbidden_behavior_violation": false,
+        "integrity_violation": false,
+        "scenario_id": "EMI-DYN-028",
+        "user_behavior_fidelity": true
+      },
+      {
+        "conciseness_score": 4,
+        "conversation_progression_score": 4,
+        "evidence": "The agent correctly handled the dispute by providing the customer care number and ending the recovery attempt.",
+        "factual_error": false,
+        "failure_component": "none",
+        "faithfulness_score": 4,
+        "first_failure_turn": 0,
+        "forbidden_behavior_violation": false,
+        "integrity_violation": false,
+        "scenario_id": "EMI-DYN-029",
+        "user_behavior_fidelity": true
+      },
+      {
+        "conciseness_score": 4,
+        "conversation_progression_score": 2,
+        "evidence": "Aap kis tareekh tak payment kar denge?",
+        "factual_error": false,
+        "failure_component": "agent_policy",
+        "faithfulness_score": 4,
+        "first_failure_turn": 6,
+        "forbidden_behavior_violation": false,
+        "integrity_violation": false,
+        "scenario_id": "EMI-DYN-030",
+        "user_behavior_fidelity": true
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 26931.0,
+    "model_requested": "gemini-pro-latest",
+    "model_version": "gemini-3.1-pro-preview",
+    "request_hash": "1bfbd2e15c8f9477c273d02f95e46ab2ec1338f67c422192693829b6de53da92",
+    "response_hash": "567b0edea7b44b84958316287922f400b8e59619e0c6d27ed4af02de24fd989c",
+    "usage": {
+      "candidatesTokenCount": 899,
+      "promptTokenCount": 4552,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 4552
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 2751,
+      "totalTokenCount": 8202
+    }
+  }
+}

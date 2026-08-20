@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Nahi, OTP kisi ko mat dijiye. Aap app par privately enter karein. Kya aap abhi EasyCredit app se pay kar denge?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 6981.1,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "5e6833addf3735e8bda38b83c87a0762b11ea9feaf917654262cd5e678657f8e",
+    "response_hash": "4bcd9857801882c4837c277bc6f539394fda73686f82f4293cff5f3477a18462",
+    "usage": {
+      "candidatesTokenCount": 56,
+      "promptTokenCount": 1757,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1757
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 920,
+      "totalTokenCount": 2733
+    }
+  }
+}

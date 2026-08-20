@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "wrong_number",
+    "should_end_call": true,
+    "spoken_response": "Maaf kijiyega, galat number par call chala gaya. Shukriya.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "wrong_number"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5510.7,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "579f76a15091a1f8fb510888f2812125b5cbdc8cd16f975da2b7bf5dd8778a72",
+    "response_hash": "cdc135f68309fb1bbf755e30c7b22979b4c95e96fb0900761f3d1d6b25362e7b",
+    "usage": {
+      "candidatesTokenCount": 60,
+      "promptTokenCount": 1765,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1765
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 798,
+      "totalTokenCount": 2623
+    }
+  }
+}

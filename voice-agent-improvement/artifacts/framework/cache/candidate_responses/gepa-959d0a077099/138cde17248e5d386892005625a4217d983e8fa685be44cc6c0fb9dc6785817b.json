@@ -1,0 +1,35 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-FACT-03",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thank you, Priya. Please log in to the EasyCredit app to complete your payment of Rs 3,850.",
+        "terminal_state": "payment_ready"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4378.9,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "138cde17248e5d386892005625a4217d983e8fa685be44cc6c0fb9dc6785817b",
+    "response_hash": "6f2422a74b5764c574a7b892a9a85441a3fdcea9aec02907e10f3b65f6cf2043",
+    "usage": {
+      "candidatesTokenCount": 102,
+      "promptTokenCount": 1509,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1509
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 548,
+      "totalTokenCount": 2159
+    }
+  }
+}

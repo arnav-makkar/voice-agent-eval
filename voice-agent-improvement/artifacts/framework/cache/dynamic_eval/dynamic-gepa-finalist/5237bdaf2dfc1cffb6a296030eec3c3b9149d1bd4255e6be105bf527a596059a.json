@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "escalation",
+    "should_end_call": true,
+    "spoken_response": "Samajh gaya. Kripya humari fraud helpline 1800-425-5555 par sampark karein. Dhanyawad.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "escalation"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4920.9,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "5237bdaf2dfc1cffb6a296030eec3c3b9149d1bd4255e6be105bf527a596059a",
+    "response_hash": "e7cf329ea490957765edb1948656c4b5c58d57fd4a23b1f79df1a7f9c4dbc2ba",
+    "usage": {
+      "candidatesTokenCount": 116,
+      "promptTokenCount": 1746,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1746
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 660,
+      "totalTokenCount": 2522
+    }
+  }
+}

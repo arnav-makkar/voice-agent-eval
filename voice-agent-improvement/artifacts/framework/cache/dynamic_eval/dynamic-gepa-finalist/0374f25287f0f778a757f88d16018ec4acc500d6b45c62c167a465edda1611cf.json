@@ -1,0 +1,43 @@
+{
+  "data": {
+    "disposition": "fptp",
+    "should_end_call": true,
+    "spoken_response": "Dhanyawad, maine 22 August 2026 ki payment date record kar li hai. Aapka din shubh ho!",
+    "tool_calls": [
+      {
+        "arguments": {
+          "date": "22-08-2026"
+        },
+        "name": "record_promise_to_pay"
+      },
+      {
+        "arguments": {
+          "disposition": "fptp"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5688.5,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "0374f25287f0f778a757f88d16018ec4acc500d6b45c62c167a465edda1611cf",
+    "response_hash": "fc19c58aa45e3ccc7fcaf8e867f537d5155ff6f537162db8dab1a713f8eaa85b",
+    "usage": {
+      "candidatesTokenCount": 99,
+      "promptTokenCount": 1800,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1800
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 881,
+      "totalTokenCount": 2780
+    }
+  }
+}

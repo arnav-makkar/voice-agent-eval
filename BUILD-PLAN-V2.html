@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Loopline Completion Build Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --bg:#0A0D13;--panel:#11161F;--panel2:#161D29;--inset:#0C1119;
+    --line:rgba(150,163,186,.15);--line2:rgba(150,163,186,.30);
+    --ink:#E8EDF5;--mut:#96A0B5;--dim:#69738C;
+    --acc:#6EA8FE;--vio:#A98BFA;--tool:#E0A34E;
+    --good:#3FCE96;--warn:#EFB65C;--bad:#F27690;
+    --good-bg:rgba(63,206,150,.10);--warn-bg:rgba(239,182,92,.10);--bad-bg:rgba(242,118,144,.10);--acc-bg:rgba(110,168,254,.10);--tool-bg:rgba(224,163,78,.10);
+    --disp:"Archivo","IBM Plex Sans",system-ui,sans-serif;
+    --body:"IBM Plex Sans",system-ui,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,monospace;
+  }
+  *{box-sizing:border-box;margin:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{background:var(--bg);color:var(--ink);font:15px/1.62 var(--body);-webkit-font-smoothing:antialiased}
+  a{color:var(--acc);text-decoration:none}a:hover{text-decoration:underline}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset:2px;border-radius:4px}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+  code{font:500 12.5px var(--mono);background:var(--inset);border:1px solid var(--line);border-radius:5px;padding:1px 6px;color:#C6D4F0}
+
+  nav.top{position:sticky;top:0;z-index:20;background:rgba(10,13,19,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav.top .wrap{display:flex;align-items:center;gap:16px;height:52px;overflow-x:auto;white-space:nowrap}
+  nav.top b{font:700 13px var(--disp);letter-spacing:.03em}nav.top b span{color:var(--acc)}
+  nav.top a{font:500 11.5px var(--mono);letter-spacing:.05em;color:var(--mut);text-transform:uppercase}
+  nav.top a:hover{color:var(--ink);text-decoration:none}
+
+  header.hero{padding:60px 0 38px;border-bottom:1px solid var(--line)}
+  .kicker{font:600 11.5px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--acc)}
+  header.hero h1{font:800 clamp(29px,4.4vw,44px)/1.09 var(--disp);letter-spacing:-.016em;margin:14px 0 16px;text-wrap:balance}
+  header.hero h1 em{font-style:normal;color:var(--acc)}
+  .lede{max-width:72ch;color:var(--mut);font-size:16px}
+  .heroStats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:26px}
+  .hs{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:14px 16px}
+  .hs b{display:block;font:800 24px var(--disp);font-variant-numeric:tabular-nums}
+  .hs span{font:500 11px var(--mono);letter-spacing:.05em;text-transform:uppercase;color:var(--dim)}
+  .hs.crit b{color:var(--bad)}.hs.warn b{color:var(--warn)}.hs.ok b{color:var(--good)}
+
+  section{padding:52px 0;border-bottom:1px solid var(--line)}
+  .sec-head{margin-bottom:24px}
+  .sec-head h2{font:700 clamp(21px,3vw,28px)/1.16 var(--disp);letter-spacing:-.01em;margin:9px 0 8px;text-wrap:balance}
+  .sec-head p{color:var(--mut);max-width:78ch}
+
+  .chip{display:inline-block;font:600 10.5px var(--mono);letter-spacing:.07em;text-transform:uppercase;padding:3px 9px;border-radius:999px;border:1px solid;white-space:nowrap}
+  .chip.good{color:var(--good);border-color:rgba(63,206,150,.4);background:var(--good-bg)}
+  .chip.warn{color:var(--warn);border-color:rgba(239,182,92,.4);background:var(--warn-bg)}
+  .chip.bad{color:var(--bad);border-color:rgba(242,118,144,.4);background:var(--bad-bg)}
+  .chip.acc{color:var(--acc);border-color:rgba(110,168,254,.4);background:var(--acc-bg)}
+  .chip.tool{color:var(--tool);border-color:rgba(224,163,78,.4);background:var(--tool-bg)}
+  .chip.dim{color:var(--dim);border-color:var(--line2);background:transparent}
+
+  .alert{background:var(--panel);border:1px solid rgba(242,118,144,.45);border-radius:13px;padding:22px 24px;margin-bottom:14px}
+  .alert.warn{border-color:rgba(239,182,92,.45)}
+  .alert h3{font:700 17px var(--disp);margin:10px 0 8px}
+  .alert p{color:var(--mut);max-width:84ch;font-size:14.5px}
+  .alert .ev{margin-top:12px;background:var(--inset);border-left:3px solid var(--bad);border-radius:0 8px 8px 0;padding:12px 15px;font:500 12.5px/1.65 var(--mono);color:#C6D4F0;overflow-x:auto}
+  .alert.warn .ev{border-left-color:var(--warn)}
+  .alert .fix{margin-top:12px;font-size:14px;color:var(--ink)}
+  .alert .fix b{color:var(--good)}
+
+  .phase{background:var(--panel);border:1px solid var(--line2);border-radius:14px;padding:0;margin-bottom:16px;overflow:hidden}
+  .phase-head{display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:18px 24px;background:var(--panel2);border-bottom:1px solid var(--line)}
+  .phase-head .id{font:800 13px var(--mono);color:var(--acc);letter-spacing:.06em}
+  .phase-head h3{font:700 17px var(--disp);flex:1;min-width:200px}
+  .phase-head .meta{font:500 11.5px var(--mono);color:var(--dim);letter-spacing:.03em}
+  .phase-body{padding:20px 24px}
+  .phase-body>p.goal{color:var(--mut);font-size:14.5px;max-width:84ch;margin-bottom:16px}
+  .task{display:grid;grid-template-columns:26px 1fr;gap:12px;padding:12px 0;border-top:1px solid var(--line)}
+  .task:first-of-type{border-top:0;padding-top:0}
+  .task .n{font:600 11px var(--mono);color:var(--dim);padding-top:3px}
+  .task b{font:600 14.5px var(--body);display:block;margin-bottom:3px}
+  .task p{color:var(--mut);font-size:13.5px;max-width:84ch}
+  .task p strong{color:var(--ink);font-weight:600}
+  .task .who{display:inline-flex;gap:6px;margin-top:6px;flex-wrap:wrap}
+  .accept{margin-top:16px;background:var(--inset);border:1px solid var(--line);border-radius:10px;padding:13px 16px;font-size:13.5px;color:var(--mut)}
+  .accept b{color:var(--good);font:600 10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;display:block;margin-bottom:5px}
+  pre.cmd{background:var(--inset);border:1px solid var(--line);border-radius:9px;padding:13px 16px;font:12.5px/1.75 var(--mono);color:#C6D4F0;overflow-x:auto;margin-top:11px}
+  pre.cmd b{color:var(--good);font-weight:600}
+  pre.cmd i{color:var(--dim);font-style:normal}
+
+  .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+  table{border-collapse:collapse;width:100%;font-size:13.5px}
+  th{font:600 11px var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--dim);text-align:left;padding:12px 14px;border-bottom:1px solid var(--line2);white-space:nowrap}
+  td{padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+  tr:last-child td{border-bottom:none}
+  td.num{font:500 13px var(--mono);white-space:nowrap;font-variant-numeric:tabular-nums}
+  td .sub{display:block;color:var(--mut);font-size:12.5px;margin-top:3px}
+
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:14px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+  .card h4{font:700 14.5px var(--disp);margin:9px 0 7px}
+  .card p{color:var(--mut);font-size:13.5px}
+  .card ul{margin:8px 0 0 17px;color:var(--mut);font-size:13px;display:flex;flex-direction:column;gap:4px}
+
+  .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+  .gcard{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px;position:relative}
+  .gcard .idx{font:800 11px var(--mono);color:var(--dim)}
+  .gcard h4{font:700 14px var(--disp);margin:6px 0 6px}
+  .gcard p{color:var(--mut);font-size:12.8px}
+  .gcard .tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:9px}
+
+  .foot{padding:34px 0 60px;color:var(--dim);font-size:12.5px}
+  .note{margin-top:14px;padding:13px 16px;background:var(--acc-bg);border:1px solid rgba(110,168,254,.3);border-radius:10px;color:var(--ink);font-size:13.5px}
+  .note b{color:var(--acc)}
+  .note.good{background:var(--good-bg);border-color:rgba(63,206,150,.3)}.note.good b{color:var(--good)}
+  .note.warn{background:var(--warn-bg);border-color:rgba(239,182,92,.3)}.note.warn b{color:var(--warn)}
+</style>
+</head>
+<body>
+
+<nav class="top"><div class="wrap">
+  <b>∿ <span>Loopline</span> · Build Plan v2</b>
+  <a href="#found">Findings</a><a href="#now">Do now</a><a href="#p1">P1 Truth</a><a href="#p2">P2 Tools</a><a href="#p3">P3 Demo</a><a href="#p4">P4 A+</a><a href="#p5">P5 L0–L5</a><a href="#p6">P6 Voice</a><a href="#p7">P7 Story</a><a href="#sched">Schedule</a>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <span class="kicker">Completion build plan · supersedes the readiness review's four-gate list</span>
+  <h1>Two things are broken in Indus. Everything else is a <em>build queue</em>.</h1>
+  <p class="lede">I signed into your Indus account and inspected the live agent. The deployed draft is not the candidate you froze, and the three tools are mock endpoints. Both are fixable today, and both must be fixed before any voice number means anything. This plan sequences that repair, then the demo rebuild that puts Loopline ahead of the EVA reference page, then the work that takes every verdict line to A+.</p>
+  <div class="heroStats">
+    <div class="hs crit"><b>2</b><span>Blocking defects found</span></div>
+    <div class="hs ok"><b>110</b><span>Inspectable episodes on disk</span></div>
+    <div class="hs ok"><b>30/30</b><span>V15 episodes with tool calls</span></div>
+    <div class="hs crit"><b>0/30</b><span>V12 episodes with tool calls</span></div>
+    <div class="hs warn"><b>8</b><span>Demo cards to build</span></div>
+  </div>
+</div></header>
+
+<section id="found"><div class="wrap">
+  <div class="sec-head"><span class="kicker">00 · What I found in your Indus account</span>
+    <h2>Two defects that invalidate Gate 3 and Gate 4 as currently written</h2>
+    <p>Agent <code>Conversatio-87b9b435-b466</code> ("Conversation Agent 6820"), currently showing <code>v15 · Draft</code>. Neither of these is in the handoff, because both happened inside the Indus UI after the last local freeze.</p></div>
+
+  <div class="alert">
+    <span class="chip bad">BLOCKING · GATE 3</span>
+    <h3>The Indus draft labelled "v15" is not the frozen V15 candidate</h3>
+    <p>The frozen file <code>agent/candidates/v15-firm-today.md</code> (sha256 <code>732d216b…</code>, re-verified) is organised as <em>Persona and objective → Opening and privacy → Decision policy → Outcome truth rules → Deterministic tools</em>. The live Indus draft is a materially different document — different section skeleton, different wording, extra sections, and a hardcoded experiment date. Genie rewrote it across at least four edit rounds, including one full prompt replacement and one "restructure into sections" pass.</p>
+    <div class="ev">Indus draft sections:  PERSONA · ENVIRONMENT &amp; SITUATION · OBJECTIVE · CONVERSATION GUIDELINES ·
+                       OUTCOME RULES · RECOVERY LADDER · TOOL EXECUTION · EXCEPTIONS ·
+                       SPEAKING STYLE &amp; LANGUAGE SWITCHING · SAFETY &amp; GUARDRAILS · Guardrails · CLOSING
+Frozen v15-firm-today.md:  Persona and objective · Opening and privacy · Decision policy ·
+                       Outcome truth rules · Deterministic tools</div>
+    <p class="fix"><b>Why it matters:</b> a matched V12/V15 voice suite run against this draft would not be measuring the candidate that passed the sealed text final. The result would be uninterpretable and the hash in every artifact would be a lie. <b>Fix:</b> decide deliberately — either paste the frozen text exactly (recommended), or accept the drifted draft as a <em>new</em> candidate V16 with its own hash, its own text-mode run, and its own gates. Never call the drifted draft "V15".</p>
+  </div>
+
+  <div class="alert">
+    <span class="chip bad">BLOCKING · GATE 2</span>
+    <h3>All three tools are postman-echo mocks with no authentication</h3>
+    <p>Indus's own review surfaced this in the agent's Genie panel: each of <code>check_payment_status</code>, <code>record_promise_to_pay</code> and <code>schedule_callback</code> is configured as <em>postman-echo, generic payload field, no auth, no secret, <code>save_to_variables: {}</code></em> — nothing wired back into the agent. None carries the tunnel URL, the <code>run_id</code>/<code>account_id</code> mapping, the date/time-window fields, or the <code>X-Loopline-Tool-Key</code> header.</p>
+    <div class="ev">record_promise_to_pay  → postman-echo · generic payload · no auth · no secret · save_to_variables: {}
+schedule_callback      → postman-echo · generic payload · no auth · no secret · save_to_variables: {}
+check_payment_status   → postman-echo · no run_id / account_id / date / time_window fields</div>
+    <p class="fix"><b>Why it matters:</b> an echo endpoint returns whatever you send it, so the agent can "successfully" call a tool that changed nothing. That is precisely the say/do gap the whole framework exists to catch — and right now the production runtime would pass it. <b>Fix:</b> P2 below rebuilds all three against the real run-scoped service with api_key auth from workspace Secrets.</p>
+  </div>
+
+  <div class="alert warn">
+    <span class="chip warn">DESIGN DECISION</span>
+    <h3><code>record_disposition</code> exists in text-mode but has no live endpoint</h3>
+    <p>Text-mode treats it as a real environment action validated against the 12-value enum; live, the adapter reads disposition from Indus output variables instead. The current Indus draft correctly does <em>not</em> instruct the agent to call it. Keep that: disposition stays an output variable, the deviation gets documented in the evaluator freeze notes, and the pilot watches for any attempt to call it.</p>
+  </div>
+</div></section>
+
+<section id="now"><div class="wrap">
+  <div class="sec-head"><span class="kicker">01 · Your move, right now</span>
+    <h2>The 20 labels — the tool is built, tested and waiting</h2>
+    <p>You asked what to review. Here it is concretely: 20 real V12 calls, each with its full turn-numbered transcript, the provisional label pre-filled, and the claimed breaking turn highlighted in the transcript. Agreeing is one click; correcting is a dropdown.</p></div>
+
+  <pre class="cmd"><i># the dashboard is already running — just open this</i>
+http://localhost:3000/label-review.html</pre>
+
+  <div class="cards" style="margin-top:16px">
+    <div class="card"><span class="chip acc">WHAT YOU DECIDE PER CALL</span><h4>Eight fields</h4>
+      <ul>
+        <li><strong>primary_success</strong> — was there an explicit pay-now commitment?</li>
+        <li><strong>task_success</strong> — was the correct outcome captured, whatever it was?</li>
+        <li><strong>first_breaking_turn</strong> — where did it actually go wrong? (highlighted turn is the claim)</li>
+        <li><strong>failure_category</strong> — 12 options, dropdown</li>
+        <li><strong>failure_owner</strong> — prompt / extractor / tool / workflow / runtime / voice / policy / simulator / mixed</li>
+        <li><strong>severity</strong> — P0–P3</li>
+        <li><strong>integrity_violation</strong> — did it claim something untrue?</li>
+        <li><strong>hard_safety_violation</strong> — credentials, threats, unsafe advice</li>
+      </ul>
+    </div>
+    <div class="card"><span class="chip warn">WHERE TO SPEND YOUR ATTENTION</span><h4>The three fields the evaluator is bad at</h4>
+      <p>Outcome agreement is already 1.00 for primary success and 0.80 for task success — those will mostly be one-click confirmations. The evaluator is weak exactly where your judgement is worth most:</p>
+      <ul>
+        <li><strong>failure_category — 0.25 agreement</strong></li>
+        <li><strong>failure_owner — 0.25 agreement</strong></li>
+        <li><strong>first_breaking_turn — 0.35 within ±1 turn</strong></li>
+      </ul>
+      <p style="margin-top:8px">Every correction you make here is worth more than a confirmation. Six of the twenty are labelled <code>redundant_confirmation</code>; check whether that is really one family or several.</p>
+    </div>
+    <div class="card"><span class="chip good">WHAT HAPPENS AFTER</span><h4>Export → owner truth → recalibration</h4>
+      <p>Hit <strong>Export owner labels</strong>, then hand me the file. The ingest module refuses partial exports, writes a new versioned <code>reference_annotations.owner_reviewed.v1.jsonl</code>, never touches the provisional artifact, and records every field you changed with before/after.</p>
+      <pre class="cmd">python -m framework.datasets.ingest_owner_labels \
+  ~/Downloads/owner_labels_export.json</pre>
+      <p style="margin-top:8px">Then calibration is re-reported against <em>your</em> truth, and the "labels are provisional" caveat comes off every claim in the deck.</p>
+    </div>
+  </div>
+  <div class="note good"><b>Time:</b> roughly 60–90 minutes for all twenty. Progress saves in the browser as you go, so you can stop and resume. <kbd>J</kbd>/<kbd>K</kbd> move between calls, <kbd>Enter</kbd> confirms.</div>
+</div></section>
+
+<section id="p1"><div class="wrap">
+  <div class="sec-head"><span class="kicker">Phase 1</span><h2>Truth and integrity</h2></div>
+
+  <div class="note note--good" style="margin-bottom:18px"><b>Closed 21 Aug.</b> All 20 labels approved by the owner and written to a versioned <code>reference_annotations.owner_reviewed.v1.jsonl</code>; the provisional artifact is untouched. Approval was recorded as <code>review_mode: bulk_confirmation</code> rather than implying twenty independent adjudications, because that distinction is exactly what a reviewer would probe. Key rotation confirmed. <strong>The second-order result is the valuable one:</strong> since the owner confirmed the references rather than correcting them, the weak diagnostic agreement (category 0.25, owner 0.25, first-break 0.35) is now attributable to the evaluator rather than to label noise — it stops being an open question and becomes an evaluator repair target with a named owner.</div>
+
+  <div class="phase">
+    <div class="phase-head"><span class="id">P1</span><h3>Own the labels, re-calibrate, close the security item</h3><span class="meta">YOU + FRAMEWORK · ~2 h</span></div>
+    <div class="phase-body">
+      <p class="goal">Converts the last "provisional" caveat into owner truth, and produces a second-order artifact nobody expects: a published table of where the machine evaluator disagrees with its owner.</p>
+      <div class="task"><span class="n">1.1</span><div><b>Review 20 labels in the app</b><p>Above. Output is <code>owner_labels_export.json</code>.</p><span class="who"><span class="chip acc">YOU</span><span class="chip dim">READY NOW</span></span></div></div>
+      <div class="task"><span class="n">1.2</span><div><b>Ingest as versioned owner truth</b><p>One command. Emits the owner-reviewed JSONL plus a change summary listing every corrected field.</p><span class="who"><span class="chip good">ME</span></span></div></div>
+      <div class="task"><span class="n">1.3</span><div><b>Re-run evaluator calibration against owner truth</b><p>Regenerate the agreement table. <strong>Publish both</strong> — agreement vs provisional and agreement vs owner. If owner review moves category agreement from 0.25, that delta is itself a finding about LLM-assisted labelling.</p><span class="who"><span class="chip good">ME</span></span></div></div>
+      <div class="task"><span class="n">1.4</span><div><b>Key rotation — confirmed done</b><p>You've rotated it. I'll record the confirmation in the audit as an owner attestation with a date, and the <code>owner_confirmation_required</code> status closes.</p><span class="who"><span class="chip good">DONE</span></span></div></div>
+      <div class="accept"><b>Acceptance</b>20 owner-reviewed labels versioned; calibration reported against owner truth with the provisional comparison retained; audit item <code>owner_labels</code> and <code>key_rotation</code> both move off pending; every deck line saying "provisional" is updated.</div>
+    </div>
+  </div>
+</div></section>
+
+<section id="p2"><div class="wrap">
+  <div class="sec-head"><span class="kicker">Phase 2</span><h2>Real execution truth in the production runtime</h2>
+    <p>This is the single highest-value technical gate. It converts the framework's central claim — "a transcript claim is not a tool side effect" — from an assertion into a captured trace.</p></div>
+
+  <div class="phase">
+    <div class="phase-head"><span class="id">P2</span><h3>Replace the mock tools with the authenticated run-scoped service</h3><span class="meta">YOU + ME · ~2–4 h · free</span></div>
+    <div class="phase-body">
+      <div class="task"><span class="n">2.1</span><div><b>Start the tool service and expose one HTTPS route</b><p>Local service on 8788, tunnelled over HTTPS. Allowlist Sarvam's documented tool-caller IP <code>4.213.167.70</code> at the tunnel. Never expose the SQLite file; never open an unauthenticated endpoint as a shortcut.</p><pre class="cmd">python scripts/run_tool_service.py --host 127.0.0.1 --port 8788</pre><span class="who"><span class="chip good">ME</span><span class="chip acc">YOU: tunnel auth</span></span></div></div>
+      <div class="task"><span class="n">2.2</span><div><b>Store the tool secret in workspace Secrets, not in the tool config</b><p>Sarvam's docs are explicit: auth types are <code>none / bearer / api_key / basic</code>, and the credential goes through the masked input into workspace Secrets so it never sits in plain text in the agent definition. <strong>This is almost certainly why the previous attempt lost the credential</strong> — a typed static header does not survive; a Secret reference does.</p><span class="who"><span class="chip acc">YOU</span></span></div></div>
+      <div class="task"><span class="n">2.3</span><div><b>Rebuild all three tools against real endpoints</b><p>Each gets: the real path, POST/JSON, api_key auth referencing the Secret, a tight timeout, and the agent-controlled fields. Then map the two run-scoping variables with the builder's <code>@</code> picker — <code>campaignId → run_id</code>, <code>transactionReference → account_id</code> — and set <code>save_to_variables</code> so results come back into the agent instead of vanishing.</p>
+      <div class="tablewrap" style="margin-top:11px"><table>
+        <thead><tr><th>Tool</th><th>Endpoint</th><th>Agent-controlled fields</th><th>Type</th></tr></thead>
+        <tbody>
+          <tr><td class="num">check_payment_status</td><td class="num">/v1/tools/check-payment-status</td><td>none</td><td><span class="chip acc">read</span></td></tr>
+          <tr><td class="num">record_promise_to_pay</td><td class="num">/v1/tools/record-promise-to-pay</td><td class="num">date (DD-MM-YYYY)</td><td><span class="chip tool">write</span></td></tr>
+          <tr><td class="num">schedule_callback</td><td class="num">/v1/tools/schedule-callback</td><td class="num">date + narrow time_window IST</td><td><span class="chip tool">write</span></td></tr>
+        </tbody>
+      </table></div>
+      <span class="who" style="margin-top:9px"><span class="chip acc">YOU: builder</span><span class="chip good">ME: verify</span></span></div></div>
+      <div class="task"><span class="n">2.4</span><div><b>Seed a run, press Test, prove the state moved</b><p>Seed via <code>POST /v1/evaluation/runs</code>, press <strong>Test</strong> in the tool panel, then read <code>GET /v1/evaluation/runs/{run_id}</code>. Assert: HTTP 200, exactly one append-only event, correct tool name and arguments, and a before/after diff scoped to <em>that run only</em>. This is the artifact the whole gate is waiting on.</p><span class="who"><span class="chip good">ME</span></span></div></div>
+      <div class="task"><span class="n">2.5</span><div><b>Run one EVA smoke scenario that requires a tool</b><p>Pick a callback or future-promise case. Confirm the transcript, the <code>server.event.tool_call</code>, the run state and the spoken claim all agree. Then the tool timeline in Loopline stops being an empty state.</p><span class="who"><span class="chip good">ME</span><span class="chip warn">1 paid session</span></span></div></div>
+      <div class="accept"><b>Acceptance</b>One Samvaad trace containing tool name, arguments, result, timestamps and before/after state; fail-closed auth preserved; no unauthenticated route ever exposed; audit item <code>live_tool_effect</code> moves from <code>external_blocked</code> to complete.</div>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-head"><span class="id">P2b</span><h3>Resolve the candidate identity, then commit immutably</h3><span class="meta">YOU · ~1 h</span></div>
+    <div class="phase-body">
+      <p class="goal">Fixes the drift finding. Do this <em>after</em> tools work, so the committed version is the one with real tools attached.</p>
+      <div class="note note--good" style="margin-bottom:14px"><b>Decided 21 Aug, on evidence rather than preference.</b> The drift was captured verbatim from the Indus editor, hashed as <code>ca8986d8…</code>, registered as a candidate, and run through the same 30 scenarios. Under one evaluator: deployed agent 16/30, drifted draft 22/30, optimiser finalist 28/30, approved agent 30/30. The independent gate also returned a rejection on the drift — and that rejection cited a P0 that turned out to be an <strong>evaluator false positive</strong>, now diagnosed and filed as <code>EVAL-GAP-001</code> rather than silently patched mid-comparison. Decision recorded in <code>candidate_identity_decision.json</code>: <strong>restore the approved agent</strong>. The drifted draft is retained as a registered candidate, not deleted.</div>
+      <div class="task"><span class="n">2.6</span><div><b>Paste the approved prompt back into the draft</b><p>The decision is made and signed; what remains is the mechanical step. Paste <code>v15-firm-today.md</code> exactly so the committed agent matches the candidate that won the sealed final. Treat in-platform copilot edits as a release-governance risk from here on — hash-verify the committed prompt before any matched evaluation.</p><span class="who"><span class="chip acc">YOU</span></span></div></div>
+      <div class="task"><span class="n">2.7</span><div><b>Commit one immutable version and record the mapping</b><p>Confirm Shubh voice, short greeting, EasyCredit/Samsung TV wording, no verification flow, all input variables present, output enum + extractor v2, three tool attachments. Then record: Indus app version number, prompt hash, extractor version, tool-config hash, rollback target. <strong>No prompt edits after this point</strong> — and no Genie edits, which is how the drift happened.</p><span class="who"><span class="chip acc">YOU</span><span class="chip good">ME: hash check</span></span></div></div>
+      <div class="accept"><b>Acceptance</b>Committed Indus version whose prompt hash equals <code>732d216b…</code> (or an explicitly versioned V16 with its own frozen hash and its own text-mode result); deployment mapping frozen in an artifact; Genie edit access understood as a release risk and noted.</div>
+    </div>
+  </div>
+</div></section>
+
+<section id="p3"><div class="wrap">
+  <div class="sec-head"><span class="kicker">Phase 3 · the visible one</span>
+    <h2>Rebuild the demo to beat the EVA page</h2>
+    <p>EVA's demo shows <strong>one</strong> conversation. You will show <strong>seven</strong>, spanning evidence tiers, with three capabilities their page does not have. The data already exists on disk — every episode has turn-by-turn transcript, tool calls with arguments and results, initial/final state, per-metric scores, first-breaking-turn, component owner, and per-assertion pass/fail.</p></div>
+
+  <div class="note note--good" style="margin-bottom:18px"><b>Shipped 21 Aug.</b> The site is now a single linear narrative — <em>measure → diagnose → improve → re-evaluate → sealed test → decide</em> — rather than a tab set, because the pitch is a story and tabs fight a story. Delivered on top of the original P3 scope: a rebuilt design system (one typeface, warm monochrome, semantic-only colour, first-class light and dark), three architecture diagrams drawn from the real mechanism, an eight-metric methodology section stating inputs / output / pass rule for every check, per-check pass rates with 95% intervals, and a 30-cell matrix covering every scenario in the suite. Everything on the page is generated from preserved artifacts; a test asserts the headline figures are not hardcoded.</div>
+
+  <div class="phase">
+    <div class="phase-head"><span class="id">P3.1</span><h3>Ship the eight-card gallery</h3><span class="meta">ME · ~1 day</span></div>
+    <div class="phase-body">
+      <p class="goal">Every card is a real preserved episode. Each carries an explicit evidence-tier badge, so richness never costs honesty.</p>
+      <div class="gallery">
+        <div class="gcard"><span class="idx">01</span><h4>EMI-DYN-003 · the diff that only tools reveal</h4><p>V12 and V15 transcripts are almost identical — both say "I'm noting 20 August". V12 wrote nothing; V15 called <code>record_promise_to_pay</code>. Side-by-side, with the tool trace as the only difference.</p><div class="tags"><span class="chip tool">2 tools</span><span class="chip acc">A/B</span><span class="chip dim">text tier</span></div></div>
+        <div class="gcard"><span class="idx">02</span><h4>EMI-DYN-009 · the tool contradicts the caller</h4><p>Caller claims they already paid by UPI. <code>check_payment_status</code> returns <code>unpaid</code>. The agent correctly refuses to confirm and routes to care. Execution truth beating a confident assertion.</p><div class="tags"><span class="chip tool">read tool</span><span class="chip good">integrity win</span></div></div>
+        <div class="gcard"><span class="idx">03</span><h4>EMI-DYN-005 · structured args, state materialises</h4><p><code>schedule_callback</code> with <code>date</code> + <code>time_window</code>; the state object appears from null. Also shows the assertion normalising <code>"05:00 PM - 06:00 PM"</code> against <code>"17:00-18:00 IST"</code> — assertion semantics made visible.</p><div class="tags"><span class="chip tool">write tool</span><span class="chip acc">state diff</span></div></div>
+        <div class="gcard"><span class="idx">04</span><h4>EMI-DYN-013 · Punjabi switch + date capture</h4><p>Caller opens in Punjabi; agent switches for the whole call and still lands the tool call. Multilingual competence EVA's English-only benchmark cannot show.</p><div class="tags"><span class="chip good">multilingual</span><span class="chip tool">write tool</span></div></div>
+        <div class="gcard"><span class="idx">05</span><h4>EMI-DYN-004 · the P1 that killed a 28/30 candidate</h4><p>GEPA's finalist asked "kya aap 17-08-2026 ko shaam tak payment confirm karte hain?" instead of recording. Expected vs got, verbatim, at turn 4. <strong>And the LLM judge blamed the simulator while the deterministic checker blamed policy</strong> — judge disagreement on display.</p><div class="tags"><span class="chip bad">P1 regression</span><span class="chip warn">judge conflict</span></div></div>
+        <div class="gcard"><span class="idx">06</span><h4>EMI-DYN-030 · the evaluator was wrong, and we caught it</h4><p>A P0 guardrail fired on the word "otp" — inside a <em>correct refusal</em>. A false positive. Toggle between evaluator v2 and v3 on the same immutable trace and watch the verdict flip 29/30 → 30/30. <strong>This is the best single interaction on the site.</strong></p><div class="tags"><span class="chip bad">P0 false positive</span><span class="chip acc">judge toggle</span></div></div>
+        <div class="gcard"><span class="idx">07</span><h4>EMI-LIVE-001 · real audio, real judge rationale</h4><p>The ElevenLabs↔Samvaad call with playable audio, nine EVA metrics, per-turn turn-taking latencies, and the progression judge quoting the redundant reconfirmation it caught.</p><div class="tags"><span class="chip good">live audio</span><span class="chip acc">EVA-A 1.0 / X 0.667</span></div></div>
+        <div class="gcard"><span class="idx">08</span><h4>BL-V12-12 · a P0 from a real production call</h4><p>Human-labelled: a dispute misclassified as wrong_number, break at turn 5. Plus the summary-hallucination capture — "product hallucination: Samuel", "semantic hallucination: overdose" — logged as data, not hidden.</p><div class="tags"><span class="chip bad">P0</span><span class="chip good">owner-labelled</span></div></div>
+      </div>
+      <div class="note"><b>Evidence tiers, always visible:</b> <span class="chip good">LIVE AUDIO</span> real duplex voice · <span class="chip acc">STATEFUL TEXT</span> executed episode with real tools and state · <span class="chip dim">REAL CALL</span> production Indus trace with owner labels. A viewer can never mistake a text episode for a voice result.</div>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-head"><span class="id">P3.2</span><h3>Match EVA's information architecture, element for element</h3><span class="meta">ME · included above</span></div>
+    <div class="phase-body">
+      <p class="goal">I tore down their page in full. Everything below is a concrete build target, not an impression.</p>
+      <div class="tablewrap"><table>
+        <thead><tr><th>EVA element</th><th>What it does</th><th>Loopline build target</th></tr></thead>
+        <tbody>
+          <tr><td>Twin sticky rails<span class="sub">25% / 22%, independent scroll</span></td><td>Goal spec and tool inventory stay pinned through a long transcript</td><td>Same, with our scenario contract on the left and tools + state diff on the right</td></tr>
+          <tr><td>Left panel accordions<span class="sub">Negotiation, Resolution &amp; Failure, Escalation, Edge Cases, Scenario Details</span></td><td>Full hidden-goal briefing without drowning the reader</td><td>Persona · hidden goal · must-have criteria · <strong>forbidden phrases</strong> · <strong>required actions</strong> · accepted dispositions · seeded account state</td></tr>
+          <tr><td>Tools rail<span class="sub">15 tools, 5 used, read/write/system badges</span></td><td>"Was this tool even available?" answered at a glance</td><td>Built and live already — 3 tools with read/write badges, used-count, opacity + tint + colour shift on used rows</td></tr>
+          <tr><td>Inline tool-call cards<span class="sub">header + PARAMETERS + collapsible RESPONSE</span></td><td>Tool calls break the chat rhythm as full-width evidence</td><td>Same three-band card, plus a <strong>state-delta band EVA does not have</strong>: the exact field that changed, before → after</td></tr>
+          <tr><td>Warning triangles on turns<span class="sub">hover tooltip names the metric that fired</span></td><td>Turns the transcript into an annotated exhibit</td><td>Same, sourced from <code>failure_localization.evidence</code> + <code>first_failure</code> so every marker is generated from real evaluator output</td></tr>
+          <tr><td>Metric rows with four expansion patterns<span class="sub">verdict · sub-dimensions · per-turn · entity diff</span></td><td>Every score is auditable down to the judge's sentence</td><td>All four, driven by <code>metrics.jsonl</code>, <code>action_checks[]</code> and <code>semantic-v2</code></td></tr>
+          <tr><td>Judge accountability, three levels deep<span class="sub">prompt modal → dev accuracy → Cohen's κ</span></td><td>Publishes how good the grader is before you can question the grade</td><td>Judge prompt modal + <strong>our owner-truth agreement table</strong>, including the weak 0.25 numbers</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-head"><span class="id">P3.3</span><h3>Three things EVA's page cannot do</h3><span class="meta">ME · the differentiators</span></div>
+    <div class="phase-body">
+      <div class="cards">
+        <div class="card"><span class="chip acc">DIFFERENTIATOR 1</span><h4>The evaluator-version toggle</h4><p>EVA shows you a score. Loopline lets you re-grade an immutable trace under two evaluator versions and watch a P0 disappear because the guardrail was a substring match on "otp" inside a correct refusal. No evaluation product shows its own judge being wrong and fixed. This is the demo moment people remember.</p></div>
+        <div class="card"><span class="chip acc">DIFFERENTIATOR 2</span><h4>The improvement loop, not just the score</h4><p>EVA stops at measurement — it says so in its own limitations. Every Loopline defect card carries a next step: first break → component owner → repair arm → candidate diff → gate verdict. Click a failure, land on the candidate that fixed it, and see whether the gate let it through.</p></div>
+        <div class="card"><span class="chip acc">DIFFERENTIATOR 3</span><h4>Release governance as a surface</h4><p>A Release Center showing per-case promote/hold/rollback with the exact failing assertion — including the 28/30 candidate that was rejected. EVA benchmarks systems; Loopline decides whether a change ships. That is the difference between a leaderboard and a product.</p></div>
+      </div>
+      <div class="note warn"><b>Honesty rail stays:</b> matched-voice and reliability panels remain visibly empty until P6 produces data. The gallery gets rich by using evidence that genuinely exists, never by dressing text episodes as voice results.</div>
+    </div>
+  </div>
+</div></section>
+
+<section id="p4"><div class="wrap">
+  <div class="sec-head"><span class="kicker">Phase 4</span><h2>Every verdict line to A+</h2>
+    <p>From the readiness review's scorecard. Each row below is the specific work that closes the gap — no line left loose.</p></div>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Line</th><th>Now</th><th>What closes it</th><th>Cost</th></tr></thead>
+    <tbody>
+      <tr><td>Live voice evidence</td><td class="num"><span class="chip bad">C</span></td><td>P6 matched 18×2 suite + 3-trial pass^k slice on 4 core records. Turns n=1 into a paired result with a reliability number.</td><td class="num">~170 credits</td></tr>
+      <tr><td>Execution truth in production</td><td class="num"><span class="chip bad">D</span></td><td>P2. One authenticated tool effect with a state diff, then the tool timeline populates from real evidence.</td><td class="num">free + 1 session</td></tr>
+      <tr><td>Label ownership &amp; calibration</td><td class="num"><span class="chip warn">C−</span></td><td>P1. Owner truth + dual agreement tables (vs provisional, vs owner).</td><td class="num">your 90 min</td></tr>
+      <tr><td>Judge independence</td><td class="num"><span class="chip warn">C</span></td><td>Re-score the 24 sealed-final episodes + the live transcript with a second judge family; publish agreement, disagreements, and Cohen's κ the way EVA does. No new calls, tokens only.</td><td class="num">~$2</td></tr>
+      <tr><td>Statistical power</td><td class="num"><span class="chip good">DONE</span></td><td><strong>Shipped 21 Aug.</strong> Every published rate now carries a 95% interval with a fixed seed — percentile bootstrap in general, and the rule of three where a column is unanimous, because a bootstrap of all-pass would read as certainty we do not have. Task success is reported as 53% [37–70%] before and 100% [90–100%] after. n is still 30; the intervals now say so instead of a bare point implying otherwise.</td><td class="num">free</td></tr>
+      <tr><td>Business outcome link</td><td class="num"><span class="chip warn">C</span></td><td>Stays scoped out as a result — but ship the <strong>contract</strong>: a documented outcome-join schema (ledger keys, attribution window, dedup, cohort assignment) so the path is designed, not hand-waved.</td><td class="num">~2 h</td></tr>
+      <tr><td>Improvement engine</td><td class="num"><span class="chip acc">B+</span></td><td>P5 — implement L2 and L3, and add MIPROv2 as a second optimizer arm so GEPA has a baseline to beat rather than being the only search.</td><td class="num">~1 day</td></tr>
+      <tr><td>Product UI</td><td class="num"><span class="chip acc">B+</span></td><td>P3 — eight-card gallery, four expansion patterns, evaluator toggle, Release Center.</td><td class="num">~1.5 days</td></tr>
+      <tr><td>Reproducibility</td><td class="num"><span class="chip acc">A−</span></td><td><code>git init</code>, commit the whole workspace, tag the submission. Removes the one lineage gap and makes "run it yourself" literal.</td><td class="num">15 min</td></tr>
+    </tbody>
+  </table></div>
+</div></section>
+
+<section id="p5"><div class="wrap">
+  <div class="sec-head"><span class="kicker">Phase 5</span><h2>Self-improvement: implement L0–L3, argue L4–L5</h2>
+    <p>You asked to implement everything doable and talk about the rest. Here is the honest split — what ships as running code, and what is a defensible roadmap answer on camera.</p></div>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Layer</th><th>Method</th><th>Decision</th><th>What ships</th></tr></thead>
+    <tbody>
+      <tr><td class="num">L0</td><td>Evaluation &amp; data engine</td><td><span class="chip good">BUILT</span></td><td>Already the core asset: scenarios, deterministic verifiers, judges, failure mining, first-break localisation, release gates.</td></tr>
+      <tr><td class="num">L1</td><td>Prompt optimization — GEPA + manual</td><td><span class="chip good">BUILT · EXTEND</span></td><td>Real GEPA lineage exists and its finalist was rejected. <strong>Add MIPROv2 as a second arm</strong> so the deck can say "GEPA beat a real baseline," and re-run one GEPA seed against a live-localised prompt failure once P6 gives us one.</td></tr>
+      <tr><td class="num">L2</td><td>Episodic memory — Reflexion / ExpeL</td><td><span class="chip acc">IMPLEMENT</span></td><td>A lessons store keyed by failure family: each gated cycle appends a short, human-readable lesson derived from confirmed failures, injected as scenario-family context at run time. Cheap, inspectable, and it makes "the loop compounds" literal rather than rhetorical. Gate it like any candidate.</td></tr>
+      <tr><td class="num">L3</td><td>Verifier gate on high-stakes turns</td><td><span class="chip acc">IMPLEMENT</span></td><td>A turn-level checker that fires only on amounts, dates and commitments — the three things that cause compliance incidents. Runs offline over episodes now; the same contract is what you'd deploy inline later. Report its precision/recall against owner labels so it isn't a black box.</td></tr>
+      <tr><td class="num">L4</td><td>Weight updates — SFT → KTO → RLVR</td><td><span class="chip warn">ARGUE</span></td><td>Not implementable here and saying otherwise would be the one dishonest claim in the project. The <em>argument</em> is strong: the release gate already emits the binary pass/fail signal KTO consumes, so the data pipeline for preference tuning is a by-product of the loop you built. Show the interface, state the volume threshold, refuse to fake the result.</td></tr>
+      <tr><td class="num">L5</td><td>Autonomous production mutation</td><td><span class="chip bad">REFUSE</span></td><td>Deliberately out of scope, and say why: in regulated collections, a human-gated batch loop with bounded, reviewable repair surfaces is the design a compliance team can sign. "We could remove the human" is not a feature here — it's a liability. This is a PM judgement answer, and it lands.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="note"><b>On camera:</b> "Self-improvement is a portfolio layered by cost, risk and reversibility. I implemented the four layers where the evidence supports action, and I can tell you exactly what volume and calibration each remaining layer needs before it earns its place. The evaluation engine is the asset — the methods are interchangeable parts."</div>
+</div></section>
+
+<section id="p6"><div class="wrap">
+  <div class="sec-head"><span class="kicker">Phase 6</span><h2>The matched voice round</h2></div>
+  <div class="phase">
+    <div class="phase-head"><span class="id">P6</span><h3>Pilot 3 → 18×2 frozen suite → signed release decision</h3><span class="meta">ME · ~1 day · <span style="color:var(--warn)">PAID, your go required</span></span></div>
+    <div class="phase-body">
+      <p class="goal">Runs only after P2 (real tools) and P2b (exact commit). Running it before those would burn credits on an uninterpretable comparison.</p>
+      <div class="task"><span class="n">6.1</span><div><b>Three pilot records</b><p>One straightforward pay-now, one tool/state-dependent, one language or experience risk. Inspect audio, termination, transcripts, tool events, latency. Infrastructure failures get fixed and rerun; agent failures get preserved. <strong>No frozen record or evaluator changes based on whether V15 looks good.</strong></p></div></div>
+      <div class="task"><span class="n">6.2</span><div><b>The unchanged 18-record suite on both versions</b><p>Identical records, trials, state, simulator, perturbations, scoring. 36 provider sessions.</p><pre class="cmd">run_eva_samvaad_suite.py --app-version 12 --suite all --trials 1 --max-sessions 18 --confirm-live-suite
+run_eva_samvaad_suite.py --app-version &lt;committed&gt; --suite all --trials 1 --max-sessions 18 --confirm-live-suite
+compare_eva_samvaad_suites.py --baseline &lt;v12-run&gt; --candidate &lt;v15-run&gt;</pre></div></div>
+      <div class="task"><span class="n">6.3</span><div><b>Reliability slice if credits allow</b><p>3 trials on 4 core records → the first real pass@1 / pass@k / pass^k numbers. EVA's own leaderboard shows a median pass@k→pass^k gap of 0.44 on accuracy; quoting that as the reason you measured consistency is a strong move.</p></div></div>
+      <div class="task"><span class="n">6.4</span><div><b>Emit and publish the decision — whatever it is</b><p>Both promotion routes were pre-declared: more matched task wins, or same wins with fewer integrity/experience defects (never called TSR lift). The 9/10 controlled ceiling makes route B live. <strong>A well-supported hold is a successful outcome</strong> and gets presented as one.</p></div></div>
+      <div class="accept"><b>Acceptance</b>Matched baseline/candidate directories; exact per-case decision; audio links; tool state; signed release record; bounded claim. Loopline's reliability and tool panels populate from real evidence.</div>
+    </div>
+  </div>
+</div></section>
+
+<section id="p7"><div class="wrap">
+  <div class="sec-head"><span class="kicker">Phase 7</span><h2>"I can join Monday and make your voice agents self-improving"</h2>
+    <p>The production argument has to be concrete, not aspirational. Three artifacts make it concrete.</p></div>
+  <div class="cards">
+    <div class="card"><span class="chip acc">ARTIFACT 1</span><h4>The 90-day plan, written as a PM would</h4><p>Days 1–30: instrument one live agent — canonical traces, redaction, a domain pack, calibrated evaluator against sampled human labels, published baseline and failure taxonomy. Days 31–60: first gated improvement cycle end to end, canary, rollback rehearsal. Days 61–90: second domain proves the pack boundary, weekly operating cadence, self-serve scorecards. Name what you'd need from them on day one: trace access, a policy owner, sampled human review, a staging agent.</p></div>
+    <div class="card"><span class="chip acc">ARTIFACT 2</span><h4>The outcome-join contract</h4><p>The one thing standing between "verbal commitment" and "collected cash." Ship the schema: ledger keys, attribution window, dedup/retry logic, cohort assignment, settlement confirmation, complaints and repeat-contact as counter-metrics. Designed, not measured — and say exactly that.</p></div>
+    <div class="card"><span class="chip acc">ARTIFACT 3</span><h4>The scale architecture diagram</h4><p>Ingestion → redaction → canonical trace store → stratified sampling → distributed scoring with caching → drift monitors → canary allocation → registries → rollback. Mark clearly which boxes exist today at MVP scale and which are enterprise substrate. The honest version is more persuasive than a diagram that pretends it's all built.</p></div>
+  </div>
+  <div class="note good"><b>The pitch line:</b> "Your platform tells a customer what happened on a call. It doesn't tell them whether the call worked, and nothing learns from the ones that didn't. I built the layer that does — deterministic task truth first, judges second, human-gated release, and a domain pack so the next vertical is configuration rather than a rebuild. Point me at one production agent and a policy owner, and I'll have a calibrated baseline and a ranked experiment backlog in 30 days."</div>
+</div></section>
+
+<section id="sched"><div class="wrap">
+  <div class="sec-head"><span class="kicker">Schedule</span><h2>Sequenced, with the dependencies that actually bind</h2></div>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Order</th><th>Work</th><th>Owner</th><th>Blocks</th><th>Effort</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1</td><td>Review the 20 labels <span class="chip good">TOOL READY</span></td><td>You</td><td>Calibration, every "provisional" caveat</td><td class="num">90 min</td></tr>
+      <tr><td class="num">2</td><td>Demo gallery + EVA-parity rebuild</td><td>Me</td><td>Nothing — starts now, parallel to you</td><td class="num">~1.5 days</td></tr>
+      <tr><td class="num">3</td><td>Tunnel + workspace Secret + rebuild 3 tools</td><td>You + me</td><td>Tool effect, matched suite, tool panels</td><td class="num">2–4 h</td></tr>
+      <tr><td class="num">4</td><td>Capture the tool side effect + EVA tool smoke</td><td>Me</td><td>Gate 2 closes</td><td class="num">1 h + 1 session</td></tr>
+      <tr><td class="num">5</td><td>Resolve drift, commit exact version</td><td>You</td><td>Matched suite validity</td><td class="num">1 h</td></tr>
+      <tr><td class="num">6</td><td>Second-judge re-score + bootstrap CIs</td><td>Me</td><td>Judge-independence line</td><td class="num">3 h</td></tr>
+      <tr><td class="num">7</td><td>L2 memory + L3 verifier gate + MIPROv2 arm</td><td>Me</td><td>Improvement-engine line</td><td class="num">~1 day</td></tr>
+      <tr><td class="num">8</td><td>Pilot 3 → 18×2 suite → release decision</td><td>Me + your go</td><td>The final claim</td><td class="num">~1 day, ~170 credits</td></tr>
+      <tr><td class="num">9</td><td>90-day plan, outcome-join contract, scale diagram</td><td>Me</td><td>Production credibility</td><td class="num">4 h</td></tr>
+      <tr><td class="num">10</td><td>git init + tag, final verify, video script</td><td>Me</td><td>Submission</td><td class="num">3 h</td></tr>
+    </tbody>
+  </table></div>
+  <div class="note warn"><b>The one ordering rule that matters:</b> tools before commit, commit before the voice suite. Every other item can move. Running the paid suite against mock tools and a drifted prompt would produce a number that looks like an answer and isn't — which is the exact failure mode this whole framework was built to prevent.</div>
+  <div class="foot">
+    <p>Build plan v2 · supersedes the four-gate list in the readiness review, which predates the Indus account inspection. Findings 00 are new and blocking. Machine artifacts remain the technical source of truth; <code>handoff.md</code> remains the technical index. EasyCredit data is fictional. EVA · τ-Voice · VAmoS · GEPA referenced with pinned commits and licences; no upstream endorsement implied.</p>
+  </div>
+</div></section>
+
+</body>
+</html>

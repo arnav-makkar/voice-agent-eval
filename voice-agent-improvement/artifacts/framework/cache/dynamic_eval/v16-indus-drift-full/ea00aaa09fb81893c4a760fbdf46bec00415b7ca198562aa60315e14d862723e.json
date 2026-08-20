@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Ji bilkul, aap app check kar lijiye. Kya check karne ke baad aap abhi payment kar denge?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4327.2,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "ea00aaa09fb81893c4a760fbdf46bec00415b7ca198562aa60315e14d862723e",
+    "response_hash": "d644c47ca1a8b4e8ba970a2a1c59fe1cbdbda82eaefe2dc427d9e10dff5262f6",
+    "usage": {
+      "candidatesTokenCount": 49,
+      "promptTokenCount": 1944,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1944
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 601,
+      "totalTokenCount": 2594
+    }
+  }
+}

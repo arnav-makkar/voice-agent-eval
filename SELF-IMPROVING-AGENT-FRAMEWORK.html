@@ -1,0 +1,784 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Self-Improving Agent Framework — Audited Plan</title>
+  <meta name="description" content="A domain-agnostic framework for evaluating, diagnosing, improving, validating, and safely releasing conversational agents.">
+  <style>
+    :root {
+      --bg: #f7f5f0;
+      --surface: #fffefb;
+      --ink: #171717;
+      --muted: #67635c;
+      --line: #d9d4ca;
+      --blue: #3157d5;
+      --blue-soft: #edf1ff;
+      --amber: #9b5700;
+      --amber-soft: #fff1d9;
+      --red: #ae3036;
+      --red-soft: #ffebec;
+      --grey: #ece9e2;
+      --radius: 12px;
+      --max: 1160px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--bg);
+      font: 16px/1.6 Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    a { color: var(--blue); text-underline-offset: 3px; }
+    code, pre, .mono { font-family: "SFMono-Regular", Consolas, monospace; }
+    code { font-size: .92em; }
+    button { font: inherit; }
+    .wrap { width: min(calc(100% - 32px), var(--max)); margin-inline: auto; }
+    header { position: sticky; top: 0; z-index: 20; background: rgba(247,245,240,.97); border-bottom: 1px solid var(--line); }
+    .topbar { min-height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { font-weight: 800; letter-spacing: -.02em; }
+    nav { display: flex; gap: 16px; overflow-x: auto; white-space: nowrap; }
+    nav a { color: var(--muted); text-decoration: none; font-size: 13px; }
+    nav a:hover { color: var(--ink); }
+    main { padding: 64px 0 100px; }
+    section { margin-top: 76px; scroll-margin-top: 86px; }
+    h1, h2, h3 { line-height: 1.15; letter-spacing: -.025em; }
+    h1 { max-width: 940px; margin: 0; font-size: clamp(2.8rem, 7.4vw, 6.5rem); }
+    h2 { margin: 0 0 12px; font-size: clamp(1.9rem, 4vw, 3rem); }
+    h3 { margin: 0 0 8px; font-size: 1.08rem; }
+    p { margin: 0 0 12px; }
+    .eyebrow { margin: 0 0 10px; color: var(--blue); font-size: 12px; font-weight: 850; letter-spacing: .12em; text-transform: uppercase; }
+    .lede { max-width: 880px; color: var(--muted); font-size: 1.1rem; }
+    .decision { margin-top: 28px; padding: 22px; background: var(--blue-soft); border: 1px solid #aabaff; border-left: 5px solid var(--blue); border-radius: var(--radius); }
+    .decision strong { display: block; margin-bottom: 5px; font-size: 1.18rem; }
+    .warning { padding: 18px; background: var(--amber-soft); border: 1px solid #e3b56d; border-radius: var(--radius); }
+    .hard-stop { padding: 18px; background: var(--red-soft); border: 1px solid #df9ba0; border-radius: var(--radius); }
+    .stats { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 12px; margin-top: 18px; }
+    .stat, .card, .audit-row, details, .phase { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
+    .stat { padding: 17px; }
+    .stat b { display: block; font-size: 1.65rem; line-height: 1.1; }
+    .stat span { display: block; margin-top: 7px; color: var(--muted); font-size: 12px; }
+    .grid { display: grid; gap: 14px; }
+    .grid.two { grid-template-columns: repeat(2,minmax(0,1fr)); }
+    .grid.three { grid-template-columns: repeat(3,minmax(0,1fr)); }
+    .grid.four { grid-template-columns: repeat(4,minmax(0,1fr)); }
+    .card { padding: 19px; }
+    .card p:last-child, .card ul:last-child { margin-bottom: 0; }
+    .card.keep { border-top: 4px solid var(--blue); }
+    .card.change { border-top: 4px solid var(--amber); }
+    .card.build { border-top: 4px solid var(--red); }
+    .pill { display: inline-flex; padding: 3px 9px; margin-bottom: 10px; border-radius: 999px; font-size: 11px; font-weight: 850; letter-spacing: .05em; text-transform: uppercase; }
+    .pill.keep { color: #2545aa; background: var(--blue-soft); }
+    .pill.change { color: #7d4600; background: var(--amber-soft); }
+    .pill.build { color: #98252b; background: var(--red-soft); }
+    ul, ol { margin: 8px 0 0; padding-left: 21px; }
+    li + li { margin-top: 5px; }
+    .table-wrap { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
+    table { width: 100%; min-width: 800px; border-collapse: collapse; }
+    th, td { padding: 13px 14px; vertical-align: top; text-align: left; border-bottom: 1px solid var(--line); }
+    th { color: var(--muted); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
+    tbody tr:last-child td { border-bottom: 0; }
+    td strong { display: block; }
+    .status { font-weight: 800; white-space: nowrap; }
+    .status.keep { color: var(--blue); }
+    .status.change { color: var(--amber); }
+    .status.build { color: var(--red); }
+    details { margin-top: 12px; padding: 0 17px; }
+    summary { cursor: pointer; padding: 14px 0; font-weight: 800; }
+    details > div { padding: 0 0 16px; color: var(--muted); }
+    .filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 14px; }
+    .filter { min-height: 38px; padding: 7px 12px; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 8px; cursor: pointer; }
+    .filter[aria-pressed="true"] { color: white; background: var(--ink); border-color: var(--ink); }
+    .audit-list { display: grid; gap: 8px; }
+    .audit-row { display: grid; grid-template-columns: 64px 180px 1fr; gap: 14px; padding: 15px; }
+    .audit-row[hidden] { display: none; }
+    .audit-id { color: var(--muted); font-family: "SFMono-Regular",Consolas,monospace; }
+    .audit-row p { margin: 4px 0 0; color: var(--muted); }
+    .formula { padding: 18px; color: #eeeae2; background: #222; border-radius: var(--radius); white-space: pre-wrap; font-size: 13px; }
+
+    .framework-map { margin-top: 24px; padding: 18px; overflow-x: auto; background: var(--grey); border: 1px solid var(--line); border-radius: 16px; }
+    .map-inner { min-width: 960px; }
+    .map-head { display: flex; justify-content: space-between; gap: 20px; padding: 3px 3px 16px; }
+    .map-head p { max-width: 690px; margin: 4px 0 0; color: var(--muted); }
+    .map-legend { display: flex; gap: 15px; padding: 0 3px 14px; color: var(--muted); font-size: 12px; }
+    .dot { width: 9px; height: 9px; display: inline-block; margin-right: 5px; border-radius: 50%; background: var(--blue); }
+    .dot.domain { background: var(--amber); }
+    .dot.human { background: var(--red); }
+    .lane { padding: 15px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; }
+    .lane-head { display: grid; grid-template-columns: 42px 230px 1fr; gap: 12px; padding-bottom: 11px; border-bottom: 1px solid var(--line); align-items: baseline; }
+    .lane-head span { color: var(--muted); font: 12px "SFMono-Regular",Consolas,monospace; }
+    .lane-head p { margin: 0; color: var(--muted); font-size: 12px; }
+    .nodes { display: grid; gap: 9px; margin-top: 11px; }
+    .nodes.two { grid-template-columns: repeat(2,minmax(0,1fr)); }
+    .nodes.three { grid-template-columns: repeat(3,minmax(0,1fr)); }
+    .nodes.four { grid-template-columns: repeat(4,minmax(0,1fr)); }
+    .nodes.five { grid-template-columns: repeat(5,minmax(0,1fr)); }
+    .nodes.six { grid-template-columns: repeat(6,minmax(0,1fr)); }
+    .node { min-height: 110px; padding: 13px; background: #faf9f6; border: 1px solid var(--line); border-top: 4px solid var(--blue); border-radius: 9px; }
+    .node.domain { border-top-color: var(--amber); }
+    .node.human { border-top-color: var(--red); }
+    .node b { display: block; margin-bottom: 5px; line-height: 1.25; }
+    .node p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.5; }
+    .node ul { margin: 5px 0 0; padding-left: 16px; color: var(--muted); font-size: 11.5px; line-height: 1.45; }
+    .tag { display: inline-block; margin-bottom: 6px; color: var(--muted); font: 9.5px "SFMono-Regular",Consolas,monospace; letter-spacing: .07em; text-transform: uppercase; }
+    .arrow { min-height: 50px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--muted); text-align: center; }
+    .arrow b { color: var(--ink); font-size: 22px; line-height: 1; }
+    .arrow span { margin-top: 4px; font-size: 10px; letter-spacing: .06em; text-transform: uppercase; }
+    .rail { margin-top: 10px; padding: 11px 13px; color: #e9e5dd; background: #222; border-radius: 8px; font-size: 12px; }
+    .rail strong { color: white; }
+    .router { width: min(460px,92%); margin: 11px auto; padding: 14px; text-align: center; background: var(--blue-soft); border: 2px solid var(--blue); border-radius: 50%; }
+    .loop { margin-top: 10px; padding: 11px; color: #784300; background: var(--amber-soft); border: 1px dashed #c98a3b; border-radius: 8px; text-align: center; font-size: 12px; font-weight: 800; }
+
+    .dual-track { display: grid; gap: 10px; margin-top: 20px; }
+    .dual-head, .dual-row { display: grid; grid-template-columns: minmax(0,1fr) 90px minmax(0,1fr); gap: 10px; }
+    .dual-head div { padding: 8px 13px; color: var(--muted); font-size: 11px; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
+    .dual-head div:nth-child(2) { text-align: center; }
+    .track-card, .bridge { padding: 15px; border-radius: 10px; }
+    .track-card { background: var(--surface); border: 1px solid var(--line); }
+    .track-card.framework { border-left: 4px solid var(--blue); }
+    .track-card.emi { border-left: 4px solid var(--amber); }
+    .track-card b { display: block; margin-bottom: 4px; }
+    .track-card p { margin: 0; color: var(--muted); font-size: 12.5px; }
+    .bridge { display: flex; align-items: center; justify-content: center; color: var(--muted); background: var(--grey); border: 1px dashed #bbb5aa; text-align: center; font: 10px/1.35 "SFMono-Regular",Consolas,monospace; text-transform: uppercase; }
+
+    .phases { display: grid; gap: 10px; margin-top: 18px; }
+    .phase { display: grid; grid-template-columns: 80px 1fr 220px; gap: 16px; padding: 17px; }
+    .phase-id { color: var(--blue); font-size: 11px; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
+    .phase p { margin: 0; color: var(--muted); }
+    .deliverable { color: var(--muted); font-size: 12px; }
+    .deliverable strong { color: var(--ink); }
+    footer { margin-top: 76px; padding-top: 22px; color: var(--muted); border-top: 1px solid var(--line); font-size: 13px; }
+    @media (max-width: 840px) {
+      header { position: static; }
+      .topbar { display: block; padding: 13px 0; }
+      nav { margin-top: 7px; }
+      main { padding-top: 42px; }
+      .stats, .grid.two, .grid.three, .grid.four { grid-template-columns: 1fr 1fr; }
+      .audit-row, .phase { grid-template-columns: 1fr; gap: 7px; }
+      .dual-head { display: none; }
+      .dual-row { grid-template-columns: 1fr; }
+      .bridge { min-height: 40px; }
+      .framework-map { padding: 12px; }
+    }
+    @media (max-width: 540px) {
+      .stats, .grid.two, .grid.three, .grid.four { grid-template-columns: 1fr; }
+      h1 { font-size: 2.7rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap topbar">
+      <div class="brand">Self-Improving Agent Framework · audited plan</div>
+      <nav aria-label="Page sections">
+        <a href="#audit">Audit</a>
+        <a href="#definition">Definition</a>
+        <a href="#contracts">Contracts</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#emi-validation">EMI validation</a>
+        <a href="#evaluation">Evaluation</a>
+        <a href="#improvement">Improvement</a>
+        <a href="#release">Release</a>
+        <a href="#domains">Domains</a>
+        <a href="#build">Build</a>
+        <a href="#execution">Execution</a>
+        <a href="#defense">Defense</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section style="margin-top:0">
+      <p class="eyebrow">Framework first · EMI is one adapter</p>
+      <h1>A governed learning system for any conversational agent.</h1>
+      <p class="lede" style="margin-top:22px">The framework observes real interactions, establishes reference truth, turns failures into versioned tests, routes each failure to the correct system owner, generates bounded repairs, blocks unsafe regressions, and releases only through human-controlled evidence gates.</p>
+      <div class="decision">
+        <strong>Core design decision</strong>
+        The framework does not promise that every cycle improves the agent. It guarantees that every cycle produces an auditable decision: promote a verified improvement, hold an inconclusive candidate, or reject a regression and preserve the failure as a permanent test.
+      </div>
+      <div class="stats">
+        <div class="stat"><b>Domain-neutral</b><span>Task, policy, tool, metric and channel packs are replaceable.</span></div>
+        <div class="stat"><b>Optimizer-neutral</b><span>GEPA is one plugin beside manual and non-prompt repairs.</span></div>
+        <div class="stat"><b>Evidence-gated</b><span>No model can change evaluation rules or deploy itself.</span></div>
+        <div class="stat"><b>Reversible</b><span>Every version has lineage, a decision record and rollback target.</span></div>
+      </div>
+    </section>
+
+    <section id="audit">
+      <p class="eyebrow">01 · Audit of the current plan</p>
+      <h2>Strong case study. Incomplete framework.</h2>
+      <p class="lede">The current execution audit correctly separates evaluation, diagnosis, optimization and promotion. Its weakness is abstraction: too many framework decisions are still encoded as EMI-specific facts.</p>
+
+      <div class="grid three" style="margin-top:20px">
+        <article class="card keep"><span class="pill keep">Keep</span><h3>Reusable control logic</h3><ul><li>Immutable traces and <code>run_id</code> lineage</li><li>First-breaking-turn diagnosis</li><li>Failure-owner routing</li><li>Layered evaluators</li><li>Development/regression/held-out splits</li><li>Human promotion and rollback</li></ul></article>
+        <article class="card change"><span class="pill change">Generalize</span><h3>Hard-coded domain logic</h3><ul><li>Pay-now commitment as universal success</li><li>EMI disposition taxonomy</li><li>Financial facts and policy rules</li><li>Sarvam-specific runtime assumptions</li><li>Fixed scenario counts</li><li>Prompt-centered repair narrative</li></ul></article>
+        <article class="card build"><span class="pill build">Build</span><h3>Missing framework surfaces</h3><ul><li>Domain-pack contract</li><li>Provider and outcome adapters</li><li>Repair-engine registry</li><li>Privacy and governance policy</li><li>Experiment and release schemas</li><li>Second-domain portability test</li></ul></article>
+      </div>
+
+      <div class="filters" role="group" aria-label="Filter audit items">
+        <button class="filter" data-filter="all" aria-pressed="true">All</button>
+        <button class="filter" data-filter="keep" aria-pressed="false">Reusable</button>
+        <button class="filter" data-filter="change" aria-pressed="false">Generalize</button>
+        <button class="filter" data-filter="build" aria-pressed="false">Missing</button>
+      </div>
+      <div class="audit-list">
+        <div class="audit-row" data-status="keep"><div class="audit-id">A01</div><div><span class="status keep">Reusable</span><strong>Evidence loop</strong></div><div>Observe → evaluate → diagnose → repair → gate → validate → monitor is domain-neutral.</div></div>
+        <div class="audit-row" data-status="change"><div class="audit-id">A02</div><div><span class="status change">Generalize</span><strong>Objective</strong></div><div>Replace “maximize pay-now agreement” with a domain-supplied success predicate, eligible-state rule and accepted terminal outcomes.</div></div>
+        <div class="audit-row" data-status="change"><div class="audit-id">A03</div><div><span class="status change">Generalize</span><strong>State model</strong></div><div>Replace EMI variables and dispositions with a typed environment-state and transition contract.</div></div>
+        <div class="audit-row" data-status="keep"><div class="audit-id">A04</div><div><span class="status keep">Reusable</span><strong>Failure evidence</strong></div><div>Earliest breaking turn, expected alternative, severity and owner work across customer service, healthcare and banking.</div></div>
+        <div class="audit-row" data-status="change"><div class="audit-id">A05</div><div><span class="status change">Generalize</span><strong>Metrics</strong></div><div>TSR remains generic, but numerator, denominator, exclusions, guardrails and business outcomes must come from the domain pack.</div></div>
+        <div class="audit-row" data-status="build"><div class="audit-id">A06</div><div><span class="status build">Missing</span><strong>Adapter interfaces</strong></div><div>Runtime, tools, knowledge, outcome source, channel and deployment must be swappable without editing the core loop.</div></div>
+        <div class="audit-row" data-status="build"><div class="audit-id">A07</div><div><span class="status build">Missing</span><strong>Repair registry</strong></div><div>The router needs typed repair plugins for prompt, model, retrieval, workflow, tool, voice, evaluator, policy and product changes.</div></div>
+        <div class="audit-row" data-status="change"><div class="audit-id">A08</div><div><span class="status change">Generalize</span><strong>Dataset policy</strong></div><div>120/30/30 is an EMI experiment minimum, not a framework constant. Framework sizes are coverage- and confidence-driven.</div></div>
+        <div class="audit-row" data-status="build"><div class="audit-id">A09</div><div><span class="status build">Missing</span><strong>Governance</strong></div><div>Data classification, consent, redaction, retention, access, PHI/financial constraints and human approval require explicit policy.</div></div>
+        <div class="audit-row" data-status="keep"><div class="audit-id">A10</div><div><span class="status keep">Reusable</span><strong>Release control</strong></div><div>Frozen gates, negative-result preservation, held-out isolation, human diff review, canary and rollback are framework primitives.</div></div>
+        <div class="audit-row" data-status="build"><div class="audit-id">A11</div><div><span class="status build">Missing</span><strong>Portability proof</strong></div><div>The same runner should load a second small domain pack without core-code changes.</div></div>
+        <div class="audit-row" data-status="keep"><div class="audit-id">A12</div><div><span class="status keep">Reusable</span><strong>Case-study evidence</strong></div><div>The 20 imperfect EMI calls remain valuable as the first framework validation fixture.</div></div>
+      </div>
+    </section>
+
+    <section id="definition">
+      <p class="eyebrow">02 · Framework definition</p>
+      <h2>What “self-improving” means here.</h2>
+      <p class="lede">A self-improving agent framework is a controlled learning and release system—not an agent that edits its own prompt in production.</p>
+      <div class="grid three" style="margin-top:18px">
+        <article class="card"><h3>It observes</h3><p>Captures versioned traces and verified downstream outcomes rather than relying only on transcripts or model self-evaluation.</p></article>
+        <article class="card"><h3>It learns</h3><p>Converts reviewed failures into reusable tests, clusters and candidate-repair evidence.</p></article>
+        <article class="card"><h3>It remains governed</h3><p>Separates candidate generation from evaluation, freezes policies and requires human release authority.</p></article>
+      </div>
+      <div class="formula" style="margin-top:14px">Framework cycle output = {
+  observed evidence,
+  reference annotations,
+  versioned evaluation dataset,
+  diagnosed failure owners,
+  candidate changes,
+  gate results,
+  release decision,
+  rollback target
+}
+
+Success of the framework ≠ “candidate always wins”
+Success of the framework = “decision is evidence-based, reproducible, safe and reversible”</div>
+      <div class="grid two" style="margin-top:14px">
+        <article class="warning"><strong>Allowed automation</strong><p>Sampling, test generation, simulation, semantic scoring, failure clustering, candidate proposal, experiment execution, reporting and monitoring.</p></article>
+        <article class="hard-stop"><strong>Never delegated to the optimizer</strong><p>Policy changes, success definitions, evaluation code, held-out expectations, privacy rules, deployment approval or rollback authority.</p></article>
+      </div>
+    </section>
+
+    <section id="contracts">
+      <p class="eyebrow">03 · Replaceable contracts</p>
+      <h2>The domain pack is the portability boundary.</h2>
+      <p class="lede">A new hospital, bank or commerce agent should be introduced through configuration and adapters—not by rewriting the framework.</p>
+      <div class="table-wrap" style="margin-top:18px">
+        <table>
+          <thead><tr><th>Domain-pack contract</th><th>Defines</th><th>Example values</th><th>Core framework use</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Task contract</strong></td><td>Goal, initial state, eligible states, terminal states, success predicate and exclusions.</td><td>Payment commitment; appointment booked; card dispute opened.</td><td>Calculates task success without domain-specific code.</td></tr>
+            <tr><td><strong>Environment contract</strong></td><td>Observable and hidden state, valid transitions, side effects and shared world state.</td><td>Ledger, appointment calendar, case status.</td><td>Supports τ²-style verifiable stateful tasks.</td></tr>
+            <tr><td><strong>Tool contract</strong></td><td>Tool names, schemas, preconditions, permissions, idempotency and result validators.</td><td>Schedule visit, fetch balance, open case.</td><td>Scores tool choice and state changes deterministically.</td></tr>
+            <tr><td><strong>Policy contract</strong></td><td>Mandatory disclosures, prohibited behavior, authentication, escalation and compliance.</td><td>No clinical diagnosis; no OTP request; fair collection language.</td><td>Creates immutable hard gates.</td></tr>
+            <tr><td><strong>Knowledge contract</strong></td><td>Authoritative facts, retrieval sources, freshness, citations and confidence rules.</td><td>Hospital hours, fee policy, product eligibility.</td><td>Detects fabrication and routes knowledge failures.</td></tr>
+            <tr><td><strong>Conversation contract</strong></td><td>Persona, languages, channel constraints, opening, style, interruption and termination.</td><td>Hindi voice; English chat; accessible speech.</td><td>Creates semantic and channel-specific scorers.</td></tr>
+            <tr><td><strong>Outcome contract</strong></td><td>External source of truth and observation delay.</td><td>Payment ledger, CRM resolution, appointment system.</td><td>Joins conversations to real business outcomes.</td></tr>
+            <tr><td><strong>Metric contract</strong></td><td>North-star, guardrails, secondary measures, denominators, slices and thresholds.</td><td>Resolution rate, P0=0, latency, handoff quality.</td><td>Builds comparable scorecards and gates.</td></tr>
+            <tr><td><strong>Privacy contract</strong></td><td>Data classes, redaction, consent, retention, residency and reviewer access.</td><td>PHI, financial identifiers, recordings.</td><td>Controls ingestion and artifact visibility.</td></tr>
+            <tr><td><strong>Deployment contract</strong></td><td>Provider version, traffic policy, canary, rollback and approval roles.</td><td>Sarvam Indus, web chat, call-center stack.</td><td>Separates framework decisions from vendor APIs.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="margin-top:24px">Canonical framework records</h3>
+      <div class="grid four" style="margin-top:12px">
+        <article class="card"><h3>Trace</h3><p>Interaction, turns, tools, versions, latency, cost, channel events and outcome links.</p></article>
+        <article class="card"><h3>Reference annotation</h3><p>Observed success, breaking turn, severity, owner, evidence and reviewer confidence.</p></article>
+        <article class="card"><h3>Evaluation case</h3><p>Visible context, hidden state, expected transition, forbidden behavior, split and lineage.</p></article>
+        <article class="card"><h3>Failure episode</h3><p>Cluster, affected traces, impact, owner, proposed repair and permanent regression ID.</p></article>
+        <article class="card"><h3>Candidate</h3><p>Parent version, exact diff, editable components, generator, rationale and artifact hashes.</p></article>
+        <article class="card"><h3>Experiment</h3><p>Hypothesis, arms, dataset versions, seeds, scorers, budgets, results and limitations.</p></article>
+        <article class="card"><h3>Release decision</h3><p>Gate outcomes, human approval, rollout percentage, rollback target and reason.</p></article>
+        <article class="card"><h3>Monitoring window</h3><p>Version, cohort, drift, business metrics, safety alerts and sampled audit traces.</p></article>
+      </div>
+    </section>
+
+    <section id="architecture">
+      <p class="eyebrow">04 · Complete framework architecture</p>
+      <h2>One closed loop, multiple replaceable layers.</h2>
+      <p class="lede">The flow below is the reusable product. EMI variables appear only inside a domain pack; GEPA appears only inside the repair registry.</p>
+
+      <div class="framework-map" aria-label="Domain-agnostic self-improving agent framework flow">
+        <div class="map-inner">
+          <div class="map-head"><div><h3>Framework control flow</h3><p>Blue nodes are core services. Amber nodes are supplied by each domain. Red nodes require human authority. Every stage writes versioned lineage.</p></div></div>
+          <div class="map-legend"><span><i class="dot"></i> Core framework</span><span><i class="dot domain"></i> Domain/provider adapter</span><span><i class="dot human"></i> Human authority</span></div>
+
+          <div class="lane">
+            <div class="lane-head"><span>01</span><b>Load the operating contract</b><p>No task runs until its objective, state, policy, tools, outcomes, metrics and privacy rules are versioned.</p></div>
+            <div class="nodes five">
+              <div class="node domain"><span class="tag">DOMAIN</span><b>Task + environment</b><p>Eligible states, success predicate, terminal states and valid transitions.</p></div>
+              <div class="node domain"><span class="tag">DOMAIN</span><b>Tools + knowledge</b><p>Typed actions, permissions, facts, retrieval sources and validators.</p></div>
+              <div class="node domain"><span class="tag">DOMAIN</span><b>Policy + privacy</b><p>Hard constraints, escalation, sensitive data and retention.</p></div>
+              <div class="node domain"><span class="tag">DOMAIN</span><b>Metrics + outcomes</b><p>North-star, guardrails and downstream source of truth.</p></div>
+              <div class="node domain"><span class="tag">PROVIDER</span><b>Runtime + deployment</b><p>Voice/chat vendor, version, channel events, traffic and rollback.</p></div>
+            </div>
+          </div>
+          <div class="arrow"><b>↓</b><span>instrument the live agent</span></div>
+
+          <div class="lane">
+            <div class="lane-head"><span>02</span><b>Observe and normalize</b><p>Produce a provider-neutral trace before evaluation.</p></div>
+            <div class="nodes five">
+              <div class="node"><span class="tag">COLLECTOR</span><b>Trace ingest</b><p>Conversation turns, tool calls, versions, latency, channel events and cost.</p></div>
+              <div class="node"><span class="tag">NORMALIZER</span><b>Canonical events</b><p>Map vendor payloads to one trace schema.</p></div>
+              <div class="node"><span class="tag">PRIVACY</span><b>Redact + authorize</b><p>Remove or tokenize sensitive data before analysis.</p></div>
+              <div class="node domain"><span class="tag">OUTCOME ADAPTER</span><b>Join external truth</b><p>Payment, appointment, CRM, case or task-state outcome.</p></div>
+              <div class="node"><span class="tag">REGISTRY</span><b>Freeze evidence</b><p><code>run_id</code>, hashes, versions and immutable artifact pointers.</p></div>
+            </div>
+          </div>
+          <div class="arrow"><b>↓</b><span>score, sample and annotate</span></div>
+
+          <div class="lane">
+            <div class="lane-head"><span>03</span><b>Establish reference truth</b><p>Baseline interactions remain imperfect; reviewed annotations describe observed reality.</p></div>
+            <div class="nodes four">
+              <div class="node"><span class="tag">100% COVERAGE</span><b>Deterministic scoring</b><p>State, tool, policy, output, latency and business-outcome checks.</p></div>
+              <div class="node"><span class="tag">SAMPLER</span><b>Risk + uncertainty</b><p>Failures, drift, valuable cohorts, novel behavior and judge uncertainty.</p></div>
+              <div class="node"><span class="tag">SEMANTIC</span><b>Model scoring</b><p>Conversation quality, evidence spans and provisional breaking turns.</p></div>
+              <div class="node human"><span class="tag">HUMAN</span><b>Reference annotation</b><p>Review critical and uncertain cases; calibrate the model judge.</p></div>
+            </div>
+          </div>
+          <div class="arrow"><b>↓</b><span>convert failures into tests</span></div>
+
+          <div class="lane">
+            <div class="lane-head"><span>04</span><b>Maintain the evaluation dataset</b><p>Real traces seed the dataset; controlled synthetic variants expand coverage.</p></div>
+            <div class="nodes five">
+              <div class="node"><span class="tag">SEEDS</span><b>Real failures + wins</b><p>Preserve known defects and behavior that must not regress.</p></div>
+              <div class="node"><span class="tag">FACTORY</span><b>Derived variants</b><p>Next-turn, multi-turn, tool, outcome, safety and channel perturbations.</p></div>
+              <div class="node"><span class="tag">QUALITY</span><b>Dataset audit</b><p>Lineage, deduplication, coverage, leakage and benchmark health.</p></div>
+              <div class="node"><span class="tag">SPLITS</span><b>Dev + regression</b><p>Optimizer-visible development; immutable regression.</p></div>
+              <div class="node"><span class="tag">SEALED</span><b>Held-out transfer</b><p>Hidden until a finalist is frozen.</p></div>
+            </div>
+          </div>
+          <div class="arrow"><b>↓</b><span>diagnose the earliest cause</span></div>
+
+          <div class="lane">
+            <div class="lane-head"><span>05</span><b>Build failure intelligence</b><p>Do not optimize a bad final metric until the responsible layer is known.</p></div>
+            <div class="nodes four">
+              <div class="node"><span class="tag">TRACE</span><b>First breaking event</b><p>Earliest turn, tool call or state transition that damaged the expected outcome.</p></div>
+              <div class="node"><span class="tag">CLUSTER</span><b>Failure taxonomy</b><p>Behavior, policy, tool, knowledge, model, channel, evaluator or product.</p></div>
+              <div class="node"><span class="tag">PRIORITY</span><b>Impact ranking</b><p>Frequency × task impact × severity × confidence × addressability.</p></div>
+              <div class="node"><span class="tag">BACKLOG</span><b>Failure episode</b><p>Evidence, owner, repair hypothesis, expected metric movement and regression ID.</p></div>
+            </div>
+            <div class="router"><b>Failure router</b><br><span>Choose exactly one primary repair owner for each experiment.</span></div>
+            <div class="nodes six">
+              <div class="node"><b>Prompt/model</b><p>Instructions, examples, model choice or inference settings.</p></div>
+              <div class="node"><b>Knowledge/RAG</b><p>Source truth, retrieval, freshness or grounding.</p></div>
+              <div class="node"><b>Workflow/tool</b><p>State machine, schema, timeout, permissions or validation.</p></div>
+              <div class="node"><b>Voice/channel</b><p>ASR, TTS, VAD, barge-in, latency or UI.</p></div>
+              <div class="node"><b>Evaluator/policy</b><p>Rubric error or policy gap; requires human authority.</p></div>
+              <div class="node"><b>Non-convertible</b><p>Correct refusal or unavoidable condition; record honestly.</p></div>
+            </div>
+          </div>
+          <div class="arrow"><b>↓</b><span>generate bounded repair candidates</span></div>
+
+          <div class="lane">
+            <div class="lane-head"><span>06</span><b>Run the repair-engine registry</b><p>GEPA is one registered optimizer, not the orchestration layer.</p></div>
+            <div class="nodes six">
+              <div class="node"><span class="tag">PROMPT</span><b>Manual repair</b><p>Minimal evidence-authored reference candidate.</p></div>
+              <div class="node"><span class="tag">PROMPT</span><b>GEPA</b><p>Reflective prompt search over development cases.</p></div>
+              <div class="node"><span class="tag">PROMPT</span><b>Metaprompting</b><p>Alternative optimizer or restructuring baseline.</p></div>
+              <div class="node"><span class="tag">SYSTEM</span><b>Code/config patch</b><p>Workflow, tool, retrieval, voice or model setting.</p></div>
+              <div class="node"><span class="tag">EVALUATOR</span><b>Judge alignment</b><p>Calibrate instructions against human feedback.</p></div>
+              <div class="node human"><span class="tag">POLICY</span><b>Human-only change</b><p>Compliance, safety or objective changes cannot be auto-mutated.</p></div>
+            </div>
+          </div>
+          <div class="arrow"><b>↓</b><span>evaluate identical experiment arms</span></div>
+
+          <div class="lane">
+            <div class="lane-head"><span>07</span><b>Execute experiments</b><p>Reproducible runners compare one change at a time under identical tasks and budgets.</p></div>
+            <div class="nodes five">
+              <div class="node"><b>Replay</b><p>Reproduce known traces and exact regression failures.</p></div>
+              <div class="node"><b>Counterfactual turn</b><p>Compare candidate replies at the first breaking point.</p></div>
+              <div class="node"><b>Multi-turn simulation</b><p>Isolated caller and environment state until terminal outcome.</p></div>
+              <div class="node"><b>Perturbation + ablation</b><p>Language, noise, timing, tool failure and component ownership.</p></div>
+              <div class="node"><b>Repeated trials</b><p>Estimate pass rate for stochastic critical tasks.</p></div>
+            </div>
+            <div class="rail"><strong>MLflow experiment spine:</strong> dataset hashes · prompt/model/tool versions · random seeds · judge versions · metrics · token/call cost · traces · candidate diffs · limitations</div>
+          </div>
+          <div class="arrow"><b>↓</b><span>enforce immutable release policy</span></div>
+
+          <div class="lane">
+            <div class="lane-head"><span>08</span><b>Gate and release</b><p>Candidate generation is automated; deployment authority is not.</p></div>
+            <div class="nodes six">
+              <div class="node"><span class="tag">G1</span><b>Target lift</b><p>Development improvement on the selected failure objective.</p></div>
+              <div class="node"><span class="tag">G2</span><b>Hard safety</b><p>Zero critical policy violations or false side effects.</p></div>
+              <div class="node"><span class="tag">G3</span><b>Regression</b><p>Known critical behavior remains fixed; preserved wins stay intact.</p></div>
+              <div class="node"><span class="tag">G4</span><b>Held-out</b><p>One transfer evaluation after finalist freeze.</p></div>
+              <div class="node"><span class="tag">G5</span><b>Cost + latency</b><p>Quality gain does not violate operating limits.</p></div>
+              <div class="node human"><span class="tag">G6</span><b>Human diff</b><p>Approve exact changes, limitations and rollout plan.</p></div>
+            </div>
+            <div class="nodes three">
+              <div class="node domain"><b>Shadow / matched validation</b><p>Use channel-specific evidence before live traffic.</p></div>
+              <div class="node domain"><b>Canary / A-B</b><p>Limited traffic with monitored business and safety outcomes.</p></div>
+              <div class="node human"><b>Promote, hold or rollback</b><p>Versioned decision with owner, reason and recovery target.</p></div>
+            </div>
+          </div>
+          <div class="arrow"><b>↓</b><span>monitor the released version</span></div>
+
+          <div class="lane">
+            <div class="lane-head"><span>09</span><b>Operate the weekly learning loop</b><p>New evidence refreshes the backlog and test suite; released policy remains fixed.</p></div>
+            <div class="nodes five">
+              <div class="node"><b>Quality monitoring</b><p>Task outcomes, guardrails, latency, cost and cohort slices.</p></div>
+              <div class="node"><b>Drift detection</b><p>Intent, language, tool, outcome and score distribution change.</p></div>
+              <div class="node"><b>Alert + triage</b><p>Critical incidents, uncertainty and newly frequent failures.</p></div>
+              <div class="node"><b>Regression growth</b><p>Every confirmed production failure can become a permanent test.</p></div>
+              <div class="node human"><b>Learning-policy review</b><p>Humans select the next bounded objective and approve budget.</p></div>
+            </div>
+            <div class="loop">↺ Return to observation with a new frozen control version · no silent self-editing · no self-approval · every release reversible</div>
+          </div>
+          <div class="rail" style="margin-top:11px"><strong>Cross-cutting governance:</strong> authentication · least privilege · consent · redaction · data retention · encryption · audit logs · model/dataset provenance · incident response · domain compliance · separation of optimizer and evaluator</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="emi-validation">
+      <p class="eyebrow">04B · Framework × EMI validation</p>
+      <h2>Build the framework and prove it with EMI in the same loop.</h2>
+      <p class="lede">There are not two sequential projects. Each generic component is implemented and immediately acceptance-tested using the 20 V12 EMI calls. The failure-derived dataset is the central bridge.</p>
+
+      <div class="dual-track" aria-label="Parallel framework and EMI case-study execution">
+        <div class="dual-head"><div>Case-agnostic framework</div><div>Acceptance bridge</div><div>EMI case-study proof</div></div>
+        <div class="dual-row">
+          <div class="track-card framework"><b>1. Define generic contracts</b><p>Task, environment, tools, policy, outcomes, metrics, privacy and deployment interfaces.</p></div>
+          <div class="bridge">loads without core edits →</div>
+          <div class="track-card emi"><b>EMI domain pack</b><p>Pay-now objective, accepted terminal outcomes, financial policies, Indus tools, EasyCredit variables and Sarvam deployment adapter.</p></div>
+        </div>
+        <div class="dual-row">
+          <div class="track-card framework"><b>2. Normalize provider-neutral traces</b><p>Canonical turns, tool events, outputs, versions, timing, cost, privacy state and external outcomes.</p></div>
+          <div class="bridge">normalizes →</div>
+          <div class="track-card emi"><b>20 V12 baseline calls</b><p>15 matched + 5 exploratory calls joined by <code>run_id</code> and Sarvam <code>attempt_id</code>; mistakes preserved.</p></div>
+        </div>
+        <div class="dual-row">
+          <div class="track-card framework"><b>3. Establish reference annotations</b><p>Observed outcome, eligibility, breaking event, severity, owner, evidence and confidence.</p></div>
+          <div class="bridge">reviews →</div>
+          <div class="track-card emi"><b>V12 reference truth</b><p>Confirm the provisional annotations, listen to critical calls and freeze what actually occurred—not ideal answers.</p></div>
+        </div>
+        <div class="dual-row">
+          <div class="track-card framework"><b>4. Run the failure-derived data factory</b><p>Seed → controlled variants → audit → development/regression/held-out → sealed hashes.</p></div>
+          <div class="bridge">must produce →</div>
+          <div class="track-card emi"><b>180 derived + 20 anchor cases</b><p>120 development, 30 regression, 30 held-out, 15 exact failure replays and 5 preserved-win smoke tests.</p></div>
+        </div>
+        <div class="dual-row">
+          <div class="track-card framework"><b>5. Calibrate the evaluator registry</b><p>Deterministic state/policy/tool checks, Gemini semantics, human reference and channel scoring.</p></div>
+          <div class="bridge">calibrates on →</div>
+          <div class="track-card emi"><b>EMI task rubric</b><p>Explicit commitment versus acknowledgement, correct disposition, direct CTA, truthful ledger language, non-coercion and language handling.</p></div>
+        </div>
+        <div class="dual-row">
+          <div class="track-card framework"><b>6. Route and compare repairs</b><p>Manual, GEPA, extractor, workflow, model, knowledge, voice and evaluator plugins behind one experiment interface.</p></div>
+          <div class="bridge">compares →</div>
+          <div class="track-card emi"><b>V12 vs manual vs GEPA vs extractor</b><p>Prompt candidates run on identical text tasks; extractor repair remains a separate ablation.</p></div>
+        </div>
+        <div class="dual-row">
+          <div class="track-card framework"><b>7. Gate, decide and monitor</b><p>Frozen thresholds, rejected-candidate evidence, held-out isolation, human approval, rollout and rollback.</p></div>
+          <div class="bridge">decides from →</div>
+          <div class="track-card emi"><b>Matched Indus voice result</b><p>One finalist returns to the same caller cards. Promote, hold or reject from paired voice evidence.</p></div>
+        </div>
+      </div>
+
+      <div class="decision">
+        <strong>Mutual acceptance rule</strong>
+        The framework passes only if its generic interfaces successfully run the EMI experiment. The EMI experiment is credible only if its data, evaluators, repair routing and release decision come through the generic framework rather than one-off scripts.
+      </div>
+
+      <h3 style="margin-top:26px">The EMI failure-derived dataset</h3>
+      <p class="lede">Start from the earliest observed failure, freeze only the context visible to the agent, then vary one factor while keeping account truth and policy fixed.</p>
+      <div class="table-wrap" style="margin-top:14px">
+        <table>
+          <thead><tr><th>Failure family</th><th>Real V12 seeds</th><th>What derived cases vary</th><th>Expected repair behavior</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Terminal commitment handling</strong></td><td><code>01, 05, 06, 14, 02-R1, 03-R1</code></td><td>Language, exact promise wording, interruption, amount confirmation and payment channel.</td><td>Recognize an explicit commitment, acknowledge once and end—no repeated confirmation or false payment thanks.</td></tr>
+            <tr><td><strong>Trust resolution + direct close</strong></td><td><code>04-R1-en</code></td><td>AI distrust, link distrust, caller-authenticity doubt, official-app availability and English/Hindi.</td><td>Resolve trust safely in one turn, then make one direct verify-and-pay close.</td></tr>
+            <tr><td><strong>Dispute and wrong-party precedence</strong></td><td><code>12</code></td><td>Named customer denies purchase, wrong person answers, shared phone and potential fraud wording.</td><td>Distinguish dispute from wrong-party, stop collection pressure and select the correct terminal state.</td></tr>
+            <tr><td><strong>Conditional check versus commitment</strong></td><td><code>04-R1</code></td><td>“I will check,” “maybe,” app opened, amount matched, funds unavailable and call ending.</td><td>Use one micro-close; count success only after explicit pay-now intent without contradiction.</td></tr>
+            <tr><td><strong>Terminal refusal and unavailable channel</strong></td><td><code>04-AI, 16</code></td><td>Repeated AI refusal, app unavailable, no smartphone, busy caller and request for human help.</td><td>Stop looping, offer one valid alternative or human route, then end respectfully.</td></tr>
+            <tr><td><strong>Factual and outcome integrity</strong></td><td><code>05, 06, 07, 10</code></td><td>Late fee included/not included, promise versus completed payment, today/future PTP and tool unavailable.</td><td>Use frozen ledger truth and never claim payment, callback, record update or completion that did not occur.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="grid four" style="margin-top:14px">
+        <article class="card"><span class="pill keep">120 development</span><h3>Optimizer-visible</h3><p>20 variants × 6 families. Mix next-reply, multi-turn and outcome tests. Used for diagnosis and candidate generation.</p></article>
+        <article class="card"><span class="pill change">30 regression</span><h3>Immutable</h3><p>5 variants × 6 families. Every candidate must pass; rows are reviewed and prompts cannot edit expectations.</p></article>
+        <article class="card"><span class="pill build">30 held-out</span><h3>Sealed</h3><p>5 variants × 6 families. Open once after a single finalist is frozen; never tune against results.</p></article>
+        <article class="card"><span class="pill keep">20 anchors</span><h3>Real-trace memory</h3><p>15 exact failure replays plus 5 clean-call smoke tests so repairs fix failures without deleting preserved strengths.</p></article>
+      </div>
+
+      <details>
+        <summary>Required fields on every derived EMI case</summary>
+        <div class="mono">case_id · domain_pack_version · seed_run_id · seed_attempt_id · seed_breaking_turn · failure_family · test_type · visible_agent_context · hidden_caller_state · environment_state · expected_transition · accepted_terminal_states · forbidden_behaviors · exact_facts · language · split · generator_model · generator_prompt_hash · reviewer_status · content_hash</div>
+      </details>
+
+      <h3 style="margin-top:24px">How each case is created and admitted</h3>
+      <div class="grid four" style="margin-top:12px">
+        <article class="card"><h3>1. Seed</h3><p>Choose one reviewed V12 failure and freeze the trace immediately before its first breaking agent turn.</p></article>
+        <article class="card"><h3>2. Generate</h3><p>Gemini 3.6 Flash returns schema-constrained variants; one meaningful factor changes per row.</p></article>
+        <article class="card"><h3>3. Validate</h3><p>Python checks ledger arithmetic, enum values, state reachability, hidden-state isolation, deduplication and split leakage.</p></article>
+        <article class="card"><h3>4. Review + freeze</h3><p>Regression and held-out rows receive review; datasets are content-hashed, versioned in MLflow and held-out access is sealed.</p></article>
+      </div>
+
+      <h3 style="margin-top:24px">The actual EMI experiment matrix</h3>
+      <div class="table-wrap" style="margin-top:12px">
+        <table>
+          <thead><tr><th>Arm</th><th>Change allowed</th><th>Evaluated on</th><th>Question answered</th></tr></thead>
+          <tbody>
+            <tr><td><strong>E0 · V12 control</strong></td><td>None.</td><td>All development and regression tasks.</td><td>Does the new generic runner reproduce baseline strengths and failures?</td></tr>
+            <tr><td><strong>E1 · Manual prompt candidate</strong></td><td>Declared prompt blocks only.</td><td>Same tasks, simulator, seeds and budgets.</td><td>Does the evidence-authored repair fix target failures?</td></tr>
+            <tr><td><strong>E2 · GEPA candidates</strong></td><td>Same prompt blocks; maximum three candidates.</td><td>Development during search; regression after every candidate.</td><td>Can reflective search beat both V12 and the manual repair?</td></tr>
+            <tr><td><strong>E3 · Extractor patch</strong></td><td>Output schema/instructions only.</td><td>Disposition and summary cases.</td><td>Does classification improve independently of spoken behavior?</td></tr>
+            <tr><td><strong>E4 · Gate stress control</strong></td><td>Known unsafe or over-aggressive behavior.</td><td>Regression/P0 gates only.</td><td>Does the release controller reliably reject prohibited behavior?</td></tr>
+            <tr><td><strong>E5 · Frozen finalist</strong></td><td>No further changes.</td><td>Held-out once, then matched Indus voice calls.</td><td>Does offline improvement generalize and survive the voice stack?</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="margin-top:24px">Frozen EMI promotion gates</h3>
+      <div class="grid four" style="margin-top:12px">
+        <article class="card"><h3>Dataset gate</h3><p>100% seed lineage; valid states; no hidden-state leakage; no duplicates across splits; every critical real failure anchored.</p></article>
+        <article class="card"><h3>Evaluator gate</h3><p>≥85% agreement with reviewed annotations and zero missed P0 cases before bulk scoring.</p></article>
+        <article class="card"><h3>Offline candidate gate</h3><p>Target-family lift, zero P0, no critical regression, correct account truth and no slower median payment CTA.</p></article>
+        <article class="card"><h3>Final voice gate</h3><p>Matched calls show more paired wins than losses—or preserved TSR with materially lower integrity/repetition defects—and no new P0.</p></article>
+      </div>
+
+      <div class="warning" style="margin-top:14px"><strong>Counts are case-study configuration.</strong><p>The framework accepts coverage policies rather than hard-coded numbers. EMI uses 120/30/30 because six observed families need enough controlled variation for candidate search and transfer testing. Another domain may require different counts.</p></div>
+    </section>
+
+    <section id="evaluation">
+      <p class="eyebrow">05 · Evaluation system</p>
+      <h2>Measure task truth, behavior and channel quality separately.</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Layer</th><th>Question</th><th>Method</th><th>Authority</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Outcome verifier</strong></td><td>Did the intended state transition actually occur?</td><td>External system join or deterministic environment state.</td><td>Final for task completion.</td></tr>
+            <tr><td><strong>Policy verifier</strong></td><td>Were mandatory and forbidden actions respected?</td><td>Deterministic rules plus reviewed critical cases.</td><td>Hard release gate.</td></tr>
+            <tr><td><strong>Tool/state verifier</strong></td><td>Were tools chosen correctly and side effects valid?</td><td>Schema, precondition, idempotency and state checks.</td><td>Final for exact actions.</td></tr>
+            <tr><td><strong>Conversation scorer</strong></td><td>Was the response clear, direct, grounded and appropriate?</td><td>Structured Gemini judge with evidence spans.</td><td>Provisional until calibrated.</td></tr>
+            <tr><td><strong>Human reference</strong></td><td>What happened in ambiguous or high-risk cases?</td><td>Domain-expert rubric and review.</td><td>Final for audited sample.</td></tr>
+            <tr><td><strong>Channel scorer</strong></td><td>Did voice/chat delivery preserve task capability?</td><td>Timing/events plus human channel review.</td><td>Final for end-to-end transfer.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="grid two" style="margin-top:14px">
+        <div class="formula">Generic Task Success Rate =
+  verified successful terminal tasks
+  / eligible completed interactions
+
+Domain pack supplies:
+  success predicate
+  eligibility predicate
+  accepted non-success terminal states
+  observation window
+  exclusions</div>
+        <article class="card"><h3>Multi-objective scorecard</h3><ul><li>Primary verified task outcome</li><li>Hard safety and compliance</li><li>Factual and side-effect integrity</li><li>Turns, latency and cost</li><li>Handoff and terminal-state quality</li><li>Channel-specific quality</li><li>Performance by language, intent and risk cohort</li></ul></article>
+      </div>
+      <div class="warning" style="margin-top:14px"><strong>No universal scalar reward.</strong><p>The framework uses hard constraints plus a metric vector. A candidate cannot trade a safety violation for a higher average task score.</p></div>
+    </section>
+
+    <section id="improvement">
+      <p class="eyebrow">06 · Improvement policy</p>
+      <h2>Route before optimizing.</h2>
+      <p class="lede">The framework first identifies the owner. Only then does it select a repair engine and an experiment design.</p>
+      <div class="table-wrap" style="margin-top:16px">
+        <table>
+          <thead><tr><th>Failure owner</th><th>Repair engines</th><th>Controlled experiment</th><th>Cannot change</th></tr></thead>
+          <tbody>
+            <tr><td>Prompt</td><td>Manual edit, GEPA, metaprompting, examples.</td><td>Same model/tools; prompt-only diff.</td><td>Policy, evaluator, held-out labels.</td></tr>
+            <tr><td>Model/inference</td><td>Model selection, thinking effort, context strategy.</td><td>Same prompt/data; model or setting only.</td><td>Success definition.</td></tr>
+            <tr><td>Knowledge/RAG</td><td>Source repair, retrieval, chunking, freshness, grounding.</td><td>Same agent; knowledge path only.</td><td>Authoritative facts.</td></tr>
+            <tr><td>Workflow/tool</td><td>State machine, schema, timeout, retry, validation.</td><td>One branch or tool patch.</td><td>Domain policy.</td></tr>
+            <tr><td>Voice/channel</td><td>VAD, ASR/TTS, barge-in, response length, UI.</td><td>Matched channel perturbation.</td><td>Text evaluator claims.</td></tr>
+            <tr><td>Evaluator</td><td>Rubric/examples, judge model, human calibration.</td><td>Compare against reviewed references.</td><td>Observed labels without review.</td></tr>
+            <tr><td>Policy/product</td><td>Human-authored policy, handoff or process redesign.</td><td>Governance review plus targeted test.</td><td>Automatic mutation.</td></tr>
+            <tr><td>Non-convertible</td><td>No repair; honest classification and cohort analysis.</td><td>None.</td><td>Pressure to manufacture success.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="grid three" style="margin-top:14px">
+        <article class="card"><h3>Optimizer interface</h3><p><code>propose(parent, editable_components, dev_cases, feedback, budget) → candidates</code></p></article>
+        <article class="card"><h3>Evaluator interface</h3><p><code>evaluate(candidate, frozen_dataset, scorer_versions) → evidence + metric_vector</code></p></article>
+        <article class="card"><h3>Release interface</h3><p><code>decide(candidate, gate_policy, human_approval) → promote | hold | reject</code></p></article>
+      </div>
+      <div class="hard-stop" style="margin-top:14px"><strong>GEPA's exact role</strong><p>It may generate prompt candidates from development feedback. It does not build the data, define the objective, score exact outcomes, fix tools, change policy, open held-out data, deploy a version or decide success.</p></div>
+    </section>
+
+    <section id="release">
+      <p class="eyebrow">07 · Release and operating model</p>
+      <h2>The framework is valuable even when no candidate wins.</h2>
+      <div class="grid four" style="margin-top:18px">
+        <article class="card keep"><span class="pill keep">Lift</span><h3>Candidate improves</h3><p>Promote only after hard gates, transfer evidence, human diff and bounded rollout.</p></article>
+        <article class="card change"><span class="pill change">Flat</span><h3>No meaningful change</h3><p>Hold control, report power/coverage limits and select the next failure cluster.</p></article>
+        <article class="card build"><span class="pill build">Regression</span><h3>Candidate gets worse</h3><p>Reject it, preserve the failing trace and prove the release controls worked.</p></article>
+        <article class="card change"><span class="pill change">Inconclusive</span><h3>Evidence is weak</h3><p>Do not claim improvement; gather targeted cases or improve evaluator reliability.</p></article>
+      </div>
+      <h3 style="margin-top:24px">Framework-level acceptance criteria</h3>
+      <div class="table-wrap" style="margin-top:10px">
+        <table>
+          <thead><tr><th>Capability</th><th>Acceptance rule</th><th>Why it is result-independent</th></tr></thead>
+          <tbody>
+            <tr><td>Traceability</td><td>Every metric, test and candidate resolves to source trace, version and hash.</td><td>Works whether a candidate passes or fails.</td></tr>
+            <tr><td>Reproducibility</td><td>Same frozen run configuration reproduces scores within declared stochastic bounds.</td><td>Evaluates framework quality, not candidate direction.</td></tr>
+            <tr><td>Evaluator reliability</td><td>Calibration threshold met and zero missed critical cases in reviewed set.</td><td>Validates measurement.</td></tr>
+            <tr><td>Failure-to-test conversion</td><td>Every confirmed critical failure gets a versioned regression case.</td><td>Shows learning memory.</td></tr>
+            <tr><td>Correct routing</td><td>Prompt optimizer never receives non-prompt failures as its primary fix.</td><td>Shows diagnosis quality.</td></tr>
+            <tr><td>Gate control</td><td>At least one superficially attractive candidate is rejected by a frozen gate.</td><td>Shows governance works.</td></tr>
+            <tr><td>Held-out integrity</td><td>No optimizer access and one finalist evaluation only.</td><td>Shows overfitting control.</td></tr>
+            <tr><td>Portability</td><td>A second domain pack loads and evaluates without core-code edits.</td><td>Shows framework abstraction.</td></tr>
+            <tr><td>Reversibility</td><td>Every release decision includes a rollback target and evidence bundle.</td><td>Shows operational safety.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="domains">
+      <p class="eyebrow">08 · Domain portability</p>
+      <h2>Same core, different packs.</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Contract</th><th>EMI recovery</th><th>Hospital customer service</th><th>Banking support</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Primary task</strong></td><td>Obtain valid payment commitment or correct terminal outcome.</td><td>Resolve request, schedule service or complete safe handoff.</td><td>Resolve account/service request or open the correct case.</td></tr>
+            <tr><td><strong>External truth</strong></td><td>Payment ledger or repayment system.</td><td>Appointment/EHR/CRM state.</td><td>Core banking, CRM or dispute system.</td></tr>
+            <tr><td><strong>Hard policy</strong></td><td>No threats, false fees, credentials or fabricated completion.</td><td>No diagnosis; protect PHI; urgent symptoms escalate.</td><td>Authentication, fraud escalation, no OTP/PIN collection.</td></tr>
+            <tr><td><strong>Tools</strong></td><td>Check status, record PTP, schedule callback.</td><td>Find slot, book/reschedule, route clinician, create ticket.</td><td>Check case, block card, open dispute, schedule callback.</td></tr>
+            <tr><td><strong>Accepted terminals</strong></td><td>Pay-now, PTP, dispute, already paid, refusal, escalation.</td><td>Booked, answered, ticket, clinical escalation, safe refusal.</td><td>Resolved, dispute opened, fraud escalated, handoff.</td></tr>
+            <tr><td><strong>Channel tests</strong></td><td>Hinglish, distrust, interruption, app unavailable.</td><td>Accessibility, distressed caller, noisy line, caregiver proxy.</td><td>Multilingual, authentication friction, fraud urgency.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="decision">
+        <strong>Portability proof for this assignment</strong>
+        Run the full experiment on the EMI pack. Add one small hospital-appointment pack with a handful of typed task contracts and tests. It does not need a second voice campaign; it only proves that core schemas, evaluators and runners do not contain EMI-specific logic.
+      </div>
+    </section>
+
+    <section id="build">
+      <p class="eyebrow">09 · Execution plan</p>
+      <h2>How the existing project becomes the framework.</h2>
+      <div class="phases">
+        <article class="phase"><div class="phase-id">Phase 0</div><div><h3>Freeze the current EMI evidence</h3><p>Keep the 20 V12 calls, provisional annotations, failure clusters, V13 draft and current dashboard as the initial case-study snapshot. Correct terminology and review the annotation truth.</p></div><div class="deliverable"><strong>Output</strong><br>Versioned baseline evidence pack.</div></article>
+        <article class="phase"><div class="phase-id">Phase 1</div><div><h3>Extract framework schemas</h3><p>Create typed records for domain packs, traces, annotations, evaluation cases, failure episodes, candidates, experiments and release decisions. Move EMI facts into <code>domain_packs/emi</code>.</p></div><div class="deliverable"><strong>Output</strong><br>Provider-neutral core contracts.</div></article>
+        <article class="phase"><div class="phase-id">Phase 2</div><div><h3>Build adapter interfaces</h3><p>Wrap Sarvam as a runtime adapter, Gemini as a model adapter, MLflow as an experiment store and the current variables/outputs as EMI environment and outcome adapters.</p></div><div class="deliverable"><strong>Output</strong><br>Swappable provider boundaries.</div></article>
+        <article class="phase"><div class="phase-id">Phase 3</div><div><h3>Complete evaluation and data factory</h3><p>Review reference annotations, generate failure-derived cases, validate lineage/dedup/splits, add deterministic scorers, Gemini structured judge and calibration reports.</p></div><div class="deliverable"><strong>Output</strong><br>Versioned evaluation dataset + scorer suite.</div></article>
+        <article class="phase"><div class="phase-id">Phase 4</div><div><h3>Implement diagnosis and repair registry</h3><p>Generalize failure mining and owner routing. Register manual prompt repair, GEPA, extractor/config repair and evaluator alignment behind one interface.</p></div><div class="deliverable"><strong>Output</strong><br>Pluggable repair engines.</div></article>
+        <article class="phase"><div class="phase-id">Phase 5</div><div><h3>Run controlled EMI experiments</h3><p>Replay V12, test the manual candidate, run proper GEPA with Gemini reflection, score the separate extractor patch, preserve a rejected candidate and evaluate one finalist on held-out cases.</p></div><div class="deliverable"><strong>Output</strong><br>Auditable promote/hold/reject recommendation.</div></article>
+        <article class="phase"><div class="phase-id">Phase 6</div><div><h3>Add release controller and dashboard</h3><p>Expose trace-to-failure-to-test lineage, experiment arms, gate failures, cost, candidate diff, release decision and rollback target. Keep all keys server-side.</p></div><div class="deliverable"><strong>Output</strong><br>Framework operations console.</div></article>
+        <article class="phase"><div class="phase-id">Phase 7</div><div><h3>Prove portability</h3><p>Add the small hospital appointment domain pack and run schema, dataset and evaluator contract tests without changing core code.</p></div><div class="deliverable"><strong>Output</strong><br>Second-domain compatibility proof.</div></article>
+        <article class="phase"><div class="phase-id">Phase 8</div><div><h3>Validate voice transfer</h3><p>After human approval, commit one candidate to Indus, record matched calls, import voice traces and issue the final release decision without moving thresholds.</p></div><div class="deliverable"><strong>Output</strong><br>End-to-end case-study report.</div></article>
+      </div>
+
+      <h3 style="margin-top:26px">Proposed repository boundary</h3>
+      <div class="formula">framework/
+  core/                 schemas · IDs · versioning · lineage
+  domain_packs/         emi · hospital_appointments
+  adapters/             sarvam · gemini · mlflow · outcome_sources
+  ingestion/            collect · normalize · redact · join outcomes
+  datasets/             curate · derive · split · audit · seal
+  evaluators/           deterministic · semantic · human · channel
+  diagnosis/            breaking_event · cluster · prioritize · route
+  repairs/              manual · gepa · metaprompt · config · judge_alignment
+  experiments/          replay · simulate · perturb · ablate · compare
+  release/              gates · approvals · canary · rollback
+  monitoring/           metrics · drift · sampling · alerts
+  dashboard/            traces · failures · tests · candidates · decisions
+
+case_studies/
+  emi_indus_v12_v13/    20 baseline calls · derived tests · matched voice result</div>
+    </section>
+
+    <section id="execution">
+      <p class="eyebrow">10 · Actual execution audit</p>
+      <h2>What is built, what the evidence says, and what remains gated.</h2>
+      <p class="lede">This is no longer a planning-only artifact. The reusable framework and the EMI adapter have been executed together. Every number below is tied to a local artifact; every unproven claim is labelled.</p>
+
+      <div class="stats">
+        <div class="stat"><b>20</b><span>real V12 voice traces canonicalized and hashed</span></div>
+        <div class="stat"><b>15</b><span>observed failure episodes routed by component owner</span></div>
+        <div class="stat"><b>200</b><span>V3 failure-derived cases; 30 held-out cases sealed</span></div>
+        <div class="stat"><b>38</b><span>automated contract tests; dashboard build verified</span></div>
+      </div>
+
+      <div class="table-wrap" style="margin-top:18px">
+        <table>
+          <thead><tr><th>Layer</th><th>Executed result</th><th>Decision</th><th>Evidence boundary</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Real evidence</strong></td><td>20 Sarvam Indus V12 calls normalized into provider-neutral traces with run, version, turn and outcome lineage.</td><td>Frozen baseline retained.</td><td>Reference labels are Codex-assisted and provisional until owner review.</td></tr>
+            <tr><td><strong>Diagnosis</strong></td><td>15 non-clean traces localized to the first observable break: 12 prompt-owned, 1 extractor-owned, 2 mixed.</td><td>Send each failure only to its owning repair surface.</td><td>Localization is reviewable evidence, not causal proof.</td></tr>
+            <tr><td><strong>Data factory</strong></td><td>V1 rejected for incomplete state; V2 rejected for outcome-taxonomy mismatch; V3 contains 120 development, 30 regression, 30 held-out, 15 failure anchors and 5 win anchors.</td><td>Only V3 is valid for scoring.</td><td>All derived cases remain provisional; held-out seal is unchanged.</td></tr>
+            <tr><td><strong>Evaluator registry</strong></td><td>Deterministic checks plus Gemini Pro semantic judge. Calibration reached 100% on primary success and hard safety, but only 25% exact failure-family agreement and 35% breaking-turn-within-one agreement.</td><td>Use semantic localization as advisory; never as the sole release oracle.</td><td>Release combines deterministic gates, matched comparisons and human review.</td></tr>
+            <tr><td><strong>Repair routing</strong></td><td>Eleven registered surfaces cover manual prompt, GEPA, extractor, evaluator, workflow, tools, knowledge, model, channel, policy and mixed ablation.</td><td>GEPA receives prompt-owned failures only.</td><td>Unimplemented provider changes remain human/configuration work.</td></tr>
+            <tr><td><strong>Extractor arm</strong></td><td>Extractor V2 scored 20/20 on the same provisional 20-call disposition reference with zero invalid enum values and zero unsupported summaries.</td><td>Candidate complete; not deployed.</td><td>Text re-extraction result, not voice TSR.</td></tr>
+            <tr><td><strong>Manual prompt arm</strong></td><td>V13 improved factual/integrity behavior but lowered matched V3 task success from 86.5% to 82.9% across 170 cases.</td><td>Do not promote wholesale; preserve as a negative result.</td><td>Paired mean −3.53 pp; 95% interval crosses zero.</td></tr>
+            <tr><td><strong>Precision prompt arm</strong></td><td>V14 reduced factual errors from 4 to 1, but task success reached only 85.3% and forbidden-behavior flags increased from 6 to 8.</td><td>Rejected by the guardrail gate.</td><td>Paired mean −1.18 pp; useful local repairs do not justify a global release.</td></tr>
+            <tr><td><strong>GEPA arm</strong></td><td>Optimize Anything generated three candidates with Gemini Pro reflection; its best regression score improved from 0.785 to 0.917. The deployable dynamic-date derivative then scored 91.8% vs V12’s 86.5% on 170 matched V3 cases.</td><td>Promote to owner review and one sealed held-out evaluation.</td><td>Paired mean +5.29 pp; 95% interval +0.59 to +10.0 pp; probability of positive lift 98.3%. This is still offline evidence.</td></tr>
+            <tr><td><strong>Portability</strong></td><td>A hospital-appointments domain pack passes six task, tool, emergency, privacy, language and clinical-scope contract fixtures without changing core schemas.</td><td>Framework abstraction demonstrated.</td><td>Smoke test only; no hospital performance claim.</td></tr>
+            <tr><td><strong>Operations</strong></td><td>MLflow stores experiment lineage; Loopline exposes traces, first breaks, routing, datasets, calibration, candidates and release gates.</td><td>Operational evidence is inspectable and rerunnable.</td><td>No key or direct caller identifier is exported to the browser.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="grid three" style="margin-top:16px">
+        <article class="card keep"><span class="pill keep">Machine-complete</span><h3>Framework control plane</h3><p>Contracts, domain packs, ingestion, diagnosis, failure-derived data, evaluators, repair registry, experiments, MLflow, release statistics, monitoring export and dashboard.</p></article>
+        <article class="card change"><span class="pill change">Owner gate</span><h3>Truth and candidate review</h3><p>Review the 20 provisional reference labels, the exact failure/win anchors, and the finalist prompt plus extractor diff. This is the required human authority boundary.</p></article>
+        <article class="card build"><span class="pill build">Physical validation</span><h3>Indus and matched voice</h3><p>After approval: commit one version in Indus, record the frozen matched caller cards, re-import traces, and compare voice TSR and channel-specific regressions.</p></article>
+      </div>
+
+      <div class="hard-stop" style="margin-top:16px"><strong>The external business outcome is still unavailable.</strong><p>Without a payment ledger or verified payment-status tool, this MVP optimizes the explicit verbal pay-now commitment proxy and correct terminal handling. It must not claim collected cash.</p></div>
+    </section>
+
+    <section id="defense">
+      <p class="eyebrow">11 · How to defend the project</p>
+      <h2>The framework is the product. EMI is the proof fixture.</h2>
+      <div class="grid two">
+        <article class="card"><h3>Defensible claim</h3><p>“I built a domain-configurable framework that turns real conversational failures into versioned tests, routes them to the correct repair layer, compares bounded candidates, blocks unsafe regressions and produces an auditable release decision. EMI recovery is its first end-to-end adapter.”</p></article>
+        <article class="card"><h3>Claim to avoid</h3><p>“I generated transcripts, ran GEPA and got a higher TSR, therefore the voice agent self-improved.” That describes a prompt experiment, not a reusable learning system.</p></article>
+      </div>
+      <div class="decision">
+        <strong>Result-independent interview position</strong>
+        If the candidate wins, the framework identifies and validates a safe improvement. If it loses, the framework prevents a bad release and explains why. If results are inconclusive, it exposes the evidence gap. All three outcomes demonstrate product judgment, measurement discipline and responsible automation.
+      </div>
+      <div class="grid three" style="margin-top:14px">
+        <article class="card"><h3>Product competency</h3><p>Defines success, guardrails, ownership, workflow, release policy and operating cadence.</p></article>
+        <article class="card"><h3>Technical depth</h3><p>Uses trace schemas, stateful task contracts, evaluators, simulations, optimization, experiment lineage and adapters.</p></article>
+        <article class="card"><h3>Executive clarity</h3><p>Separates business outcome, model quality, risk, cost and evidence strength; never hides a negative result.</p></article>
+      </div>
+
+      <details>
+        <summary>Research foundations used—not copied as the product</summary>
+        <div>
+          <a href="https://mlflow.org/docs/latest/genai/datasets/">MLflow trace-derived evaluation datasets</a> ·
+          <a href="https://mlflow.org/docs/latest/genai/eval-monitor/index.html">MLflow evaluation and monitoring</a> ·
+          <a href="https://gepa-ai.github.io/gepa/blog/2026/02/18/introducing-optimize-anything/">GEPA Optimize Anything</a> ·
+          <a href="https://arxiv.org/abs/2506.07982">τ² stateful dual-control evaluation</a> ·
+          <a href="https://arxiv.org/abs/2603.13686">τ-Voice text-to-voice transfer</a> ·
+          <a href="https://elevenlabs.io/docs/eleven-agents/customization/agent-testing">Production failures becoming tests</a>.
+        </div>
+      </details>
+    </section>
+
+    <footer>
+      Living execution artifact · framework core and EMI V3 experiments executed locally · held-out, Indus commit and matched voice round remain intentionally human-gated.
+    </footer>
+  </main>
+
+  <script>
+    const buttons = document.querySelectorAll('[data-filter]');
+    const rows = document.querySelectorAll('.audit-row[data-status]');
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const selected = button.dataset.filter;
+        buttons.forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
+        rows.forEach((row) => {
+          row.hidden = selected !== 'all' && row.dataset.status !== selected;
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "payment_ready",
+    "should_end_call": true,
+    "spoken_response": "Bahut dhanyawad Mehak ji! Aap app se payment kar lijiye.",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4600.0,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "1652afa465f39ecbbef536c26b6b2341235c66b700bc52140e0a309a8ce8c40f",
+    "response_hash": "734d65eb296b56f5988bdfc66304ce63801997ad1d6a6840f5e95afa662e6da7",
+    "usage": {
+      "candidatesTokenCount": 45,
+      "promptTokenCount": 1477,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1477
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 632,
+      "totalTokenCount": 2154
+    }
+  }
+}

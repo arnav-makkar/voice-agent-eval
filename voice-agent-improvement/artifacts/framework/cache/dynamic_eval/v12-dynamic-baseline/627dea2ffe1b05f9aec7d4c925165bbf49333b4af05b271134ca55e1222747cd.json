@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Ji, aap EasyCredit app par amount check kar sakte hain. App check karke kab tak payment kar denge?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 7213.6,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "627dea2ffe1b05f9aec7d4c925165bbf49333b4af05b271134ca55e1222747cd",
+    "response_hash": "d6336417d6a196db33b5b3f01977ac8bdfc5a61b676dc1091627c885d9ff422e",
+    "usage": {
+      "candidatesTokenCount": 48,
+      "promptTokenCount": 1480,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1480
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1153,
+      "totalTokenCount": 2681
+    }
+  }
+}

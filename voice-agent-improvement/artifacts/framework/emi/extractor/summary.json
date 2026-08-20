@@ -1,0 +1,124 @@
+{
+  "allowed_enum": [
+    "escalation",
+    "alternate_number",
+    "wrong_number",
+    "dispute",
+    "payment_ready",
+    "ptp_today",
+    "fptp",
+    "callback",
+    "rtp",
+    "already_paid",
+    "acknowledged",
+    "call_disconnected"
+  ],
+  "candidate_accuracy": 1.0,
+  "candidate_id": "extractor-v2",
+  "candidate_invalid_enum_count": 0,
+  "candidate_unsupported_summary_rate": 0.0,
+  "claim_boundary": "Text re-extraction experiment on the 20 baseline transcripts; Indus production extractor and matched voice outputs remain separate gates.",
+  "details": {
+    "bytes": 12279,
+    "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/extractor/details.jsonl",
+    "records": 20,
+    "sha256": "f8349ac3b8a3754f19e8ec4e55e4cdfa08e3f0f805f53261d966d54048341133"
+  },
+  "disagreements": {},
+  "judge_model": "gemini-3.6-flash",
+  "model_runs": [
+    {
+      "adapter_version": "gemini-json.v1",
+      "cache_hit": false,
+      "latency_ms": 16437.7,
+      "model_requested": "gemini-3.6-flash",
+      "model_version": "gemini-3.6-flash",
+      "request_hash": "eb1b7290e6fcdba6211a80cb538eb89a834f30edfaff9abcdafc680098f1aa5a",
+      "response_hash": "31c7b10546caf142aea12f30673f5030cb7ce4043434982ebb5087034a800dec",
+      "usage": {
+        "candidatesTokenCount": 605,
+        "promptTokenCount": 2430,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 2430
+          }
+        ],
+        "serviceTier": "standard",
+        "thoughtsTokenCount": 2512,
+        "totalTokenCount": 5547
+      }
+    },
+    {
+      "adapter_version": "gemini-json.v1",
+      "cache_hit": false,
+      "latency_ms": 15732.0,
+      "model_requested": "gemini-3.6-flash",
+      "model_version": "gemini-3.6-flash",
+      "request_hash": "25916b36e67a4e777f97ac9a00617d5b5326aaca5da8bc7dcaf04fc8cb8cccac",
+      "response_hash": "c6988275bf73d1e7d05ce9976f941fd4d362749ee4183432e7c93dca7f0d4aa8",
+      "usage": {
+        "candidatesTokenCount": 680,
+        "promptTokenCount": 2265,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 2265
+          }
+        ],
+        "serviceTier": "standard",
+        "thoughtsTokenCount": 2818,
+        "totalTokenCount": 5763
+      }
+    },
+    {
+      "adapter_version": "gemini-json.v1",
+      "cache_hit": false,
+      "latency_ms": 29013.5,
+      "model_requested": "gemini-3.6-flash",
+      "model_version": "gemini-3.6-flash",
+      "request_hash": "713d6f16fb7ec97cd2e6d28ab3dd364a18bf5bf573b8c83c97e587e4c93eda28",
+      "response_hash": "a8e1b1a0412a0324aeae142a80e7f7b4983d2e11090d50fb019b5ed4ec332800",
+      "usage": {
+        "candidatesTokenCount": 557,
+        "promptTokenCount": 2371,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 2371
+          }
+        ],
+        "serviceTier": "standard",
+        "thoughtsTokenCount": 5357,
+        "totalTokenCount": 8285
+      }
+    },
+    {
+      "adapter_version": "gemini-json.v1",
+      "cache_hit": false,
+      "latency_ms": 16270.7,
+      "model_requested": "gemini-3.6-flash",
+      "model_version": "gemini-3.6-flash",
+      "request_hash": "e94418f4be37fcb4623ca8bfda291de9469cb9fe305a6d86af9f9c5e747aef74",
+      "response_hash": "078a9e6a138e3dddd15bc19a9959eb1c6261a540d2fe5def4222fb8cac791368",
+      "usage": {
+        "candidatesTokenCount": 457,
+        "promptTokenCount": 2256,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 2256
+          }
+        ],
+        "serviceTier": "standard",
+        "thoughtsTokenCount": 3127,
+        "totalTokenCount": 5840
+      }
+    }
+  ],
+  "patch_path": "agent/candidates/extractor-v2/OUTPUT-VARIABLES.md",
+  "platform_baseline_accuracy": 0.9,
+  "reference_rule": "Provisional reference disposition uses observed human primary-success labels; conditional check/trust-without-commitment map to acknowledged rather than the scenario's desired payment_ready target.",
+  "schema_version": "extractor-experiment.v1",
+  "traces": 20
+}

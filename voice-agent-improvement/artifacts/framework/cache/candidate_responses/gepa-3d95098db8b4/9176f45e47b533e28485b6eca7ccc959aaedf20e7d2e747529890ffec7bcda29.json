@@ -1,0 +1,35 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-TREF-03",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "I understand you are using a basic keypad phone. What is the earliest date you can clear this payment?",
+        "terminal_state": "acknowledged"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 9634.4,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "9176f45e47b533e28485b6eca7ccc959aaedf20e7d2e747529890ffec7bcda29",
+    "response_hash": "8e17a8e87103217bdbd5f4b787bd52dedbc266793900762642f9aff673853742",
+    "usage": {
+      "candidatesTokenCount": 65,
+      "promptTokenCount": 1485,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1485
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1619,
+      "totalTokenCount": 3169
+    }
+  }
+}

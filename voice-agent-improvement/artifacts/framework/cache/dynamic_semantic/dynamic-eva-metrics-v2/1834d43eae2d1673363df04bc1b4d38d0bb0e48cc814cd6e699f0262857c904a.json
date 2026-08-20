@@ -1,0 +1,106 @@
+{
+  "data": {
+    "judgments": [
+      {
+        "conciseness_score": 4,
+        "conversation_progression_score": 4,
+        "evidence": "No failure observed.",
+        "factual_error": false,
+        "failure_component": "none",
+        "faithfulness_score": 4,
+        "first_failure_turn": 0,
+        "forbidden_behavior_violation": false,
+        "integrity_violation": false,
+        "scenario_id": "EMI-FINAL-007",
+        "user_behavior_fidelity": true
+      },
+      {
+        "conciseness_score": 4,
+        "conversation_progression_score": 4,
+        "evidence": "No failure observed.",
+        "factual_error": false,
+        "failure_component": "none",
+        "faithfulness_score": 4,
+        "first_failure_turn": 0,
+        "forbidden_behavior_violation": false,
+        "integrity_violation": false,
+        "scenario_id": "EMI-FINAL-008",
+        "user_behavior_fidelity": true
+      },
+      {
+        "conciseness_score": 4,
+        "conversation_progression_score": 4,
+        "evidence": "No failure observed.",
+        "factual_error": false,
+        "failure_component": "none",
+        "faithfulness_score": 4,
+        "first_failure_turn": 0,
+        "forbidden_behavior_violation": false,
+        "integrity_violation": false,
+        "scenario_id": "EMI-FINAL-009",
+        "user_behavior_fidelity": true
+      },
+      {
+        "conciseness_score": 4,
+        "conversation_progression_score": 3,
+        "evidence": "The agent failed to record the disposition after the user provided a conditional promise.",
+        "factual_error": false,
+        "failure_component": "tool_selection",
+        "faithfulness_score": 4,
+        "first_failure_turn": 6,
+        "forbidden_behavior_violation": false,
+        "integrity_violation": false,
+        "scenario_id": "EMI-FINAL-010",
+        "user_behavior_fidelity": true
+      },
+      {
+        "conciseness_score": 4,
+        "conversation_progression_score": 4,
+        "evidence": "No failure observed.",
+        "factual_error": false,
+        "failure_component": "none",
+        "faithfulness_score": 4,
+        "first_failure_turn": 0,
+        "forbidden_behavior_violation": false,
+        "integrity_violation": false,
+        "scenario_id": "EMI-FINAL-011",
+        "user_behavior_fidelity": true
+      },
+      {
+        "conciseness_score": 4,
+        "conversation_progression_score": 4,
+        "evidence": "No failure observed.",
+        "factual_error": false,
+        "failure_component": "none",
+        "faithfulness_score": 4,
+        "first_failure_turn": 0,
+        "forbidden_behavior_violation": false,
+        "integrity_violation": false,
+        "scenario_id": "EMI-FINAL-012",
+        "user_behavior_fidelity": true
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 27058.2,
+    "model_requested": "gemini-3.1-pro-preview",
+    "model_version": "gemini-3.1-pro-preview",
+    "request_hash": "1834d43eae2d1673363df04bc1b4d38d0bb0e48cc814cd6e699f0262857c904a",
+    "response_hash": "439b37eca2916e3021d548a37b10c18dafe69c13dcdecbf92c6e90ee2fb59926",
+    "usage": {
+      "candidatesTokenCount": 818,
+      "promptTokenCount": 5622,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 5622
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 2901,
+      "totalTokenCount": 9341
+    }
+  }
+}

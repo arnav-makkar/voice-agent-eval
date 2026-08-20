@@ -1,0 +1,43 @@
+{
+  "data": {
+    "disposition": "fptp",
+    "should_end_call": true,
+    "spoken_response": "Dhanyawad Mehak ji, maine 20 August ki payment date note kar li hai. Thank you!",
+    "tool_calls": [
+      {
+        "arguments": {
+          "date": "20-08-2026"
+        },
+        "name": "record_promise_to_pay"
+      },
+      {
+        "arguments": {
+          "disposition": "fptp"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4215.8,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "2c1cae6a7c594eff394ee56a8b576b635ac046cbbc00308557012c4d060a4326",
+    "response_hash": "1d85b171094788553038e232d4f6368942b6ed1a3d385b120c4c7c321129b088",
+    "usage": {
+      "candidatesTokenCount": 93,
+      "promptTokenCount": 1795,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1795
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 708,
+      "totalTokenCount": 2596
+    }
+  }
+}

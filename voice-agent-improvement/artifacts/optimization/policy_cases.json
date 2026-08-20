@@ -1,0 +1,85 @@
+[
+  {
+    "id": "terminal_commitment",
+    "required": [
+      "do not ask another confirmation",
+      "never thank the customer for a completed payment"
+    ],
+    "forbidden": []
+  },
+  {
+    "id": "dispute_precedence",
+    "required": [
+      "`wrong_number` applies only",
+      "use `dispute`"
+    ],
+    "forbidden": []
+  },
+  {
+    "id": "no_unsupported_actions",
+    "required": [
+      "never claim that you updated",
+      "never claim that a payment"
+    ],
+    "forbidden": []
+  },
+  {
+    "id": "trust_micro_close",
+    "required": [
+      "independently open the official app",
+      "verify the outstanding amount",
+      "if it matches"
+    ],
+    "forbidden": []
+  },
+  {
+    "id": "channel_fallback",
+    "required": [
+      "app is unavailable",
+      "do not repeat download instructions",
+      "earliest realistic payment date"
+    ],
+    "forbidden": []
+  },
+  {
+    "id": "ai_refusal",
+    "required": [
+      "refuses to continue with an ai",
+      "human support route"
+    ],
+    "forbidden": []
+  },
+  {
+    "id": "ledger_accuracy",
+    "required": [
+      "already includes",
+      "late charge may apply"
+    ],
+    "forbidden": []
+  },
+  {
+    "id": "credentials",
+    "required": [
+      "never ask for otp",
+      "upi pin"
+    ],
+    "forbidden": []
+  },
+  {
+    "id": "language_switch",
+    "required": [
+      "switch by the next substantive turn"
+    ],
+    "forbidden": []
+  },
+  {
+    "id": "runtime_dates",
+    "required": [
+      "`currentDate`",
+      "`tomorrowDate`"
+    ],
+    "forbidden": [
+      "today is 17-08-2026"
+    ]
+  }
+]

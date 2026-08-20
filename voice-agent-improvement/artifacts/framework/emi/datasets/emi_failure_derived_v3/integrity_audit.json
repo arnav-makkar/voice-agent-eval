@@ -1,0 +1,225 @@
+{
+  "allowed_uses": [
+    "development diagnostics",
+    "challenge-library coverage",
+    "regression debugging"
+  ],
+  "dataset_id": "emi_failure_derived_v3",
+  "forbidden_claims": [
+    "independent held-out evidence",
+    "sealed or unopened final test",
+    "voice-agent improvement proof"
+  ],
+  "group_independence_pass": false,
+  "legacy_held_out": {
+    "access_status": "inspected_during_implementation_audit",
+    "final_evidence_status": "compromised_development_only",
+    "reason": "The split shares source traces and generator batches with development/regression and was inspected. Its content hash proves immutability only; it is not a fresh final test.",
+    "source_independence": "fail"
+  },
+  "overlaps": [
+    {
+      "left": "development",
+      "right": "regression",
+      "shared_generator_request_count": 0,
+      "shared_source_trace_count": 18,
+      "shared_source_trace_ids": [
+        "BL-V12-01",
+        "BL-V12-02",
+        "BL-V12-02-R1",
+        "BL-V12-03-FRAUD",
+        "BL-V12-03-R1",
+        "BL-V12-04-AI",
+        "BL-V12-04-R1",
+        "BL-V12-04-R1-en",
+        "BL-V12-06",
+        "BL-V12-07",
+        "BL-V12-09",
+        "BL-V12-10",
+        "BL-V12-11",
+        "BL-V12-12",
+        "BL-V12-13",
+        "BL-V12-14",
+        "BL-V12-15",
+        "BL-V12-16"
+      ]
+    },
+    {
+      "left": "development",
+      "right": "held_out",
+      "shared_generator_request_count": 0,
+      "shared_source_trace_count": 18,
+      "shared_source_trace_ids": [
+        "BL-V12-02",
+        "BL-V12-02-R1",
+        "BL-V12-03-FRAUD",
+        "BL-V12-03-R1",
+        "BL-V12-04-AI",
+        "BL-V12-04-R1",
+        "BL-V12-04-R1-en",
+        "BL-V12-05",
+        "BL-V12-06",
+        "BL-V12-07",
+        "BL-V12-09",
+        "BL-V12-10",
+        "BL-V12-11",
+        "BL-V12-12",
+        "BL-V12-13",
+        "BL-V12-14",
+        "BL-V12-15",
+        "BL-V12-16"
+      ]
+    },
+    {
+      "left": "development",
+      "right": "anchor_failure",
+      "shared_generator_request_count": 0,
+      "shared_source_trace_count": 15,
+      "shared_source_trace_ids": [
+        "BL-V12-01",
+        "BL-V12-02",
+        "BL-V12-02-R1",
+        "BL-V12-03-FRAUD",
+        "BL-V12-03-R1",
+        "BL-V12-04-AI",
+        "BL-V12-04-R1",
+        "BL-V12-04-R1-en",
+        "BL-V12-05",
+        "BL-V12-06",
+        "BL-V12-07",
+        "BL-V12-10",
+        "BL-V12-12",
+        "BL-V12-14",
+        "BL-V12-16"
+      ]
+    },
+    {
+      "left": "development",
+      "right": "anchor_win",
+      "shared_generator_request_count": 0,
+      "shared_source_trace_count": 4,
+      "shared_source_trace_ids": [
+        "BL-V12-09",
+        "BL-V12-11",
+        "BL-V12-13",
+        "BL-V12-15"
+      ]
+    },
+    {
+      "left": "regression",
+      "right": "held_out",
+      "shared_generator_request_count": 6,
+      "shared_source_trace_count": 17,
+      "shared_source_trace_ids": [
+        "BL-V12-02",
+        "BL-V12-02-R1",
+        "BL-V12-03-FRAUD",
+        "BL-V12-03-R1",
+        "BL-V12-04-AI",
+        "BL-V12-04-R1",
+        "BL-V12-04-R1-en",
+        "BL-V12-06",
+        "BL-V12-07",
+        "BL-V12-09",
+        "BL-V12-10",
+        "BL-V12-11",
+        "BL-V12-12",
+        "BL-V12-13",
+        "BL-V12-14",
+        "BL-V12-15",
+        "BL-V12-16"
+      ]
+    },
+    {
+      "left": "regression",
+      "right": "anchor_failure",
+      "shared_generator_request_count": 0,
+      "shared_source_trace_count": 14,
+      "shared_source_trace_ids": [
+        "BL-V12-01",
+        "BL-V12-02",
+        "BL-V12-02-R1",
+        "BL-V12-03-FRAUD",
+        "BL-V12-03-R1",
+        "BL-V12-04-AI",
+        "BL-V12-04-R1",
+        "BL-V12-04-R1-en",
+        "BL-V12-06",
+        "BL-V12-07",
+        "BL-V12-10",
+        "BL-V12-12",
+        "BL-V12-14",
+        "BL-V12-16"
+      ]
+    },
+    {
+      "left": "regression",
+      "right": "anchor_win",
+      "shared_generator_request_count": 0,
+      "shared_source_trace_count": 4,
+      "shared_source_trace_ids": [
+        "BL-V12-09",
+        "BL-V12-11",
+        "BL-V12-13",
+        "BL-V12-15"
+      ]
+    },
+    {
+      "left": "held_out",
+      "right": "anchor_failure",
+      "shared_generator_request_count": 0,
+      "shared_source_trace_count": 14,
+      "shared_source_trace_ids": [
+        "BL-V12-02",
+        "BL-V12-02-R1",
+        "BL-V12-03-FRAUD",
+        "BL-V12-03-R1",
+        "BL-V12-04-AI",
+        "BL-V12-04-R1",
+        "BL-V12-04-R1-en",
+        "BL-V12-05",
+        "BL-V12-06",
+        "BL-V12-07",
+        "BL-V12-10",
+        "BL-V12-12",
+        "BL-V12-14",
+        "BL-V12-16"
+      ]
+    },
+    {
+      "left": "held_out",
+      "right": "anchor_win",
+      "shared_generator_request_count": 0,
+      "shared_source_trace_count": 4,
+      "shared_source_trace_ids": [
+        "BL-V12-09",
+        "BL-V12-11",
+        "BL-V12-13",
+        "BL-V12-15"
+      ]
+    },
+    {
+      "left": "anchor_failure",
+      "right": "anchor_win",
+      "shared_generator_request_count": 0,
+      "shared_source_trace_count": 0,
+      "shared_source_trace_ids": []
+    }
+  ],
+  "record_counts": {
+    "anchor_failure": 15,
+    "anchor_win": 5,
+    "development": 120,
+    "held_out": 30,
+    "regression": 30
+  },
+  "required_replacement": "Author a fresh group-separated multi-turn final test after evaluator and candidate methods freeze.",
+  "schema_version": "dataset-integrity-audit.v1",
+  "split_source_trace_counts": {
+    "anchor_failure": 15,
+    "anchor_win": 5,
+    "development": 19,
+    "held_out": 18,
+    "regression": 18
+  }
+}

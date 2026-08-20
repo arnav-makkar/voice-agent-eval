@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "escalation",
+    "should_end_call": true,
+    "spoken_response": "Aap iski report hamare fraud helpline number 1800-425-5555 par kar sakte hain. Main iski report escalate kar raha hoon. Dhanyawad.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "escalation"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5221.1,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "0a1bba9dae1218d13f856223f63c182109011315a8c1cafaa6948080ab50e837",
+    "response_hash": "73af8d7bd0a16bf337e8f5d6276b1599d16271d0cbe04db8abbc9c7e9cd587a0",
+    "usage": {
+      "candidatesTokenCount": 83,
+      "promptTokenCount": 1759,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1759
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 762,
+      "totalTokenCount": 2604
+    }
+  }
+}

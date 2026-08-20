@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "payment_ready",
+    "should_end_call": true,
+    "spoken_response": "Bahut badhiya Kabir ji, aap EasyCredit app se payment poora kar lijiye. Dhanyawad!",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "payment_ready"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 3594.3,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "1b27b2f45ec331d99801b862940fe0c24772bd7a6297a335498a52f98a5361f9",
+    "response_hash": "d0f481d0bd01d661cf69a40a309f47e5a39080282e6387a9fe75a66df3741aeb",
+    "usage": {
+      "candidatesTokenCount": 67,
+      "promptTokenCount": 1894,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1894
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 429,
+      "totalTokenCount": 2390
+    }
+  }
+}

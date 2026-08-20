@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Aapka total outstanding amount Rs 3188 hai. Kya aap abhi EasyCredit app se pay kar sakte hain?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 3262.9,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "afd5c6fa186d9198b0ffb30ea224052604080c6c52861e4ae79618f28a6a7085",
+    "response_hash": "1fbda30aa8ff6e4820819c57b3e591d0d1348c8e36ebfd889239d23964785f47",
+    "usage": {
+      "candidatesTokenCount": 51,
+      "promptTokenCount": 1602,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1602
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 389,
+      "totalTokenCount": 2042
+    }
+  }
+}

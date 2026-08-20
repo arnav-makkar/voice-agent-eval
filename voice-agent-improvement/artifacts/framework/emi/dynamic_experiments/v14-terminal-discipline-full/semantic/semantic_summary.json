@@ -1,0 +1,125 @@
+{
+  "average_conciseness": 4.0,
+  "average_faithfulness": 4.0,
+  "average_progression": 3.931,
+  "claim_boundary": "Secondary LLM-judge diagnostics; deterministic state/action checks are primary and human calibration is required for final claims.",
+  "factual_errors": 0,
+  "forbidden_behavior_violations": 1,
+  "integrity_violations": 0,
+  "judge_calls": [
+    {
+      "adapter_version": "gemini-json.v1",
+      "cache_hit": false,
+      "latency_ms": 25340.1,
+      "model_requested": "gemini-pro-latest",
+      "model_version": "gemini-3.1-pro-preview",
+      "request_hash": "1d4d235df68d891cdceba3d2243de23e69cc1b43e8ec6980be6507e8fe565078",
+      "response_hash": "f12e226f6c083ca24e0e16c68228e2b4b3d32c1e808804db015b1e3ab1a4654d",
+      "usage": {
+        "candidatesTokenCount": 805,
+        "promptTokenCount": 4512,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 4512
+          }
+        ],
+        "serviceTier": "standard",
+        "thoughtsTokenCount": 2469,
+        "totalTokenCount": 7786
+      }
+    },
+    {
+      "adapter_version": "gemini-json.v1",
+      "cache_hit": false,
+      "latency_ms": 24906.3,
+      "model_requested": "gemini-pro-latest",
+      "model_version": "gemini-3.1-pro-preview",
+      "request_hash": "1f70c131fc704df82b86619fa07295d9584770bb4515245d38237b655225e4b9",
+      "response_hash": "b2f3f3b362e83f0f66b555b2ba06403bf8a73398da5fd655245e38d22037d83f",
+      "usage": {
+        "candidatesTokenCount": 809,
+        "promptTokenCount": 4306,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 4306
+          }
+        ],
+        "serviceTier": "standard",
+        "thoughtsTokenCount": 2407,
+        "totalTokenCount": 7522
+      }
+    },
+    {
+      "adapter_version": "gemini-json.v1",
+      "cache_hit": false,
+      "latency_ms": 18021.2,
+      "model_requested": "gemini-pro-latest",
+      "model_version": "gemini-3.1-pro-preview",
+      "request_hash": "7ab27e8c786dc631fbde191d15601132c307286bb7b32f3a88711b51826d7d4e",
+      "response_hash": "51325d1a521eb2b2e5d65aa2865685f32db42a92351f12c587dfa55c541f79a5",
+      "usage": {
+        "candidatesTokenCount": 811,
+        "promptTokenCount": 4539,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 4539
+          }
+        ],
+        "serviceTier": "standard",
+        "thoughtsTokenCount": 1825,
+        "totalTokenCount": 7175
+      }
+    },
+    {
+      "adapter_version": "gemini-json.v1",
+      "cache_hit": false,
+      "latency_ms": 24162.3,
+      "model_requested": "gemini-pro-latest",
+      "model_version": "gemini-3.1-pro-preview",
+      "request_hash": "79e4b4cb41eb9a203f66d6a7a2fc6cb54ab0b8b9e75c1a341ea7313e788cb27b",
+      "response_hash": "1442298aee4a488baacfe67e7dad4eae670b36f304cac461b6b7b258d1148969",
+      "usage": {
+        "candidatesTokenCount": 813,
+        "promptTokenCount": 4368,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 4368
+          }
+        ],
+        "serviceTier": "standard",
+        "thoughtsTokenCount": 2510,
+        "totalTokenCount": 7691
+      }
+    },
+    {
+      "adapter_version": "gemini-json.v1",
+      "cache_hit": false,
+      "latency_ms": 18941.1,
+      "model_requested": "gemini-pro-latest",
+      "model_version": "gemini-3.1-pro-preview",
+      "request_hash": "4504eb4065b09e4008db3a86c6ff18de2d926aecade6a15415c7111b4e82101e",
+      "response_hash": "99e55f566dceb5189a927c8ecc66a6b3a84aba3bbb8d790851b658a6255aff70",
+      "usage": {
+        "candidatesTokenCount": 797,
+        "promptTokenCount": 4361,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 4361
+          }
+        ],
+        "serviceTier": "standard",
+        "thoughtsTokenCount": 1839,
+        "totalTokenCount": 6997
+      }
+    }
+  ],
+  "model": "gemini-pro-latest",
+  "records": 30,
+  "schema_version": "dynamic-semantic-summary.v1",
+  "valid_records": 29
+}

@@ -1,0 +1,36 @@
+{
+  "created_at": "2026-08-19T07:04:36.814971+00:00",
+  "credit_budget": 9.0,
+  "estimated_credits_per_session": 4.5,
+  "estimated_credits_reserved": 9.0,
+  "max_sessions": 2,
+  "reservations": [
+    {
+      "candidate_id": "indus-v12",
+      "error": "ConnectError: [Errno 8] nodename nor servname provided, or not known",
+      "estimated_credits": 4.5,
+      "fingerprint": "d2335f6269ee38074e5edea82ccfd3b190cda056f112df87faebc35f0bf499b0",
+      "interaction_id": null,
+      "interaction_type": "adaptive_call",
+      "reservation_id": "LIVE-0001-d2335f6269",
+      "reserved_at": "2026-08-19T07:04:36.815075+00:00",
+      "scenario_id": "EMI-DYN-001",
+      "status": "failed",
+      "updated_at": "2026-08-19T07:04:36.888692+00:00"
+    },
+    {
+      "candidate_id": "indus-v12",
+      "error": null,
+      "estimated_credits": 4.5,
+      "fingerprint": "d2335f6269ee38074e5edea82ccfd3b190cda056f112df87faebc35f0bf499b0",
+      "interaction_id": "20260819/d766a60f-12:34:58-f1f75b55",
+      "interaction_type": "adaptive_call",
+      "reservation_id": "LIVE-0002-d2335f6269",
+      "reserved_at": "2026-08-19T07:04:58.055356+00:00",
+      "scenario_id": "EMI-DYN-001",
+      "status": "completed",
+      "updated_at": "2026-08-19T07:05:52.655370+00:00"
+    }
+  ],
+  "schema_version": "live-budget-ledger.v1"
+}

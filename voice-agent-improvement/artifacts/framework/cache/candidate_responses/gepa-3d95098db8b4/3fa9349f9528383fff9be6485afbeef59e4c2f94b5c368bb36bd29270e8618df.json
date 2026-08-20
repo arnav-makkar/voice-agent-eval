@@ -1,0 +1,35 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-TERM-22",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Boht dhanyawad Gurpreet ji. Aap app se abhi payment kar lijiye, have a great day!",
+        "terminal_state": "payment_ready"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4506.1,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "3fa9349f9528383fff9be6485afbeef59e4c2f94b5c368bb36bd29270e8618df",
+    "response_hash": "33ea9f05991ce09c296ca576f34cf80294edd774d093dd70f61d8a3b724a3cb1",
+    "usage": {
+      "candidatesTokenCount": 70,
+      "promptTokenCount": 1489,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1489
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 513,
+      "totalTokenCount": 2072
+    }
+  }
+}

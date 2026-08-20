@@ -1,0 +1,98 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-TREF-01",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ठीक है राजेश जी, आपकी रिफ्यूज़ल दर्ज कर ली गई है। धन्यवाद।",
+        "terminal_state": "rtp"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-02",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Theek hai Ananya ji, main aapki refusal note kar leta hoon. Thank you.",
+        "terminal_state": "rtp"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-03",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "I understand Vikram. I will note that you do not have a smartphone. Thank you.",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-04",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਠੀਕ ਹੈ ਗੁਰਪ੍ਰੀਤ ਜੀ, ਮੈਂ ਤੁਹਾਡੀ ਇਹ ਬੇਨਤੀ ਨੋਟ ਕਰ ਲਈ ਹੈ। ਧੰਨਵਾਦ।",
+        "terminal_state": "escalation"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-05",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Theek hai Sunita ji, main aapki refusal note kar leta hoon. Thank you.",
+        "terminal_state": "rtp"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-06",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "मनोज जी, आप हमारी आधिकारिक वेबसाइट से भी भुगतान कर सकते हैं। क्या आप आज भुगतान कर सकेंगे?",
+        "terminal_state": ""
+      },
+      {
+        "case_id": "EMI-FD1-TREF-07",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Theek hai Rohan ji, main aapki refusal note kar leta hoon. Thank you.",
+        "terminal_state": "rtp"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-08",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "I understand Priya. I have recorded your refusal to pay. Thank you.",
+        "terminal_state": "rtp"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-09",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਠੀਕ ਹੈ ਹਰਜੀਤ ਜੀ, ਮੈਂ ਨੋਟ ਕਰ ਲੈਂਦਾ ਹਾਂ ਕਿ ਤੁਹਾਡੇ ਕੋਲ ਐਪ ਨਹੀਂ ਹੈ। ਧੰਨਵਾਦ।",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-10",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Theek hai Deepak ji, main aapki request note kar leta hoon. Thank you.",
+        "terminal_state": "escalation"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 61405.8,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "10f9268d66ad0f3c3120d283673aefbf391da00331098a28039c29579937350c",
+    "response_hash": "43dccb40f5dc4bf12f8984b2e7a4fa09e5f23fbe41eadcb42ff33cc966d6a41d",
+    "usage": {
+      "candidatesTokenCount": 633,
+      "promptTokenCount": 4441,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 4441
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 12798,
+      "totalTokenCount": 17872
+    }
+  }
+}

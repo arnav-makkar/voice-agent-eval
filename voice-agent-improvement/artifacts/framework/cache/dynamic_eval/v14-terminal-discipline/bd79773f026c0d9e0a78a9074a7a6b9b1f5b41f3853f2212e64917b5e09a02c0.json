@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Amount 2,933 rupaye hai. Aap app par check karke kya abhi payment kar sakte hain?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5711.4,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "bd79773f026c0d9e0a78a9074a7a6b9b1f5b41f3853f2212e64917b5e09a02c0",
+    "response_hash": "33159e2fa17e7cef3f154f0ab585cb70d6a538d9bf580fd62900b6b0a6d72d57",
+    "usage": {
+      "candidatesTokenCount": 49,
+      "promptTokenCount": 1761,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1761
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 810,
+      "totalTokenCount": 2620
+    }
+  }
+}

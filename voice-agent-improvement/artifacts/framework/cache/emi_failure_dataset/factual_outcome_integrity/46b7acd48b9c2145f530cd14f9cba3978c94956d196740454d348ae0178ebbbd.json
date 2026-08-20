@@ -1,0 +1,336 @@
+{
+  "data": {
+    "cases": [
+      {
+        "case_id": "EMI-FD1-FACT-01",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "UNPAID",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Ramesh Kumar",
+          "due_date": "2024-08-05",
+          "late_charge_inr": 250,
+          "official_payment_route": "EasyCredit Mobile App",
+          "outstanding_amount_inr": 4416,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent acknowledges the dispute/fraud claim without stating payment is done or marking as wrong number.",
+          "caller_goal": "Report suspected unauthorized loan/fraud and get escalated to dispute desk.",
+          "next_behavior_if_handled_badly": "Disconnect call and lodge formal complaint against aggressive collection.",
+          "next_behavior_if_handled_well": "Provide details of fraud claim and accept ticket reference number."
+        },
+        "language": "Hindi",
+        "visible_agent_context": {
+          "conversation_history": [
+            {},
+            {},
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "अरे यह फ्रॉड है, मैंने कोई Samsung TV नहीं खरीदा और मैं एक भी रुपया नहीं दूंगा।"
+        }
+      },
+      {
+        "case_id": "EMI-FD1-FACT-02",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "UNPAID",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Anish Sharma",
+          "due_date": "2024-08-10",
+          "late_charge_inr": 250,
+          "official_payment_route": "EasyCredit Mobile App",
+          "outstanding_amount_inr": 4416,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent confirms payment route without falsely claiming payment completed before ledger update.",
+          "caller_goal": "Pay total amount of 4,416 INR via app after understanding breakdown.",
+          "next_behavior_if_handled_badly": "Get annoyed by redundant loops or premature receipt claims.",
+          "next_behavior_if_handled_well": "Open official app and make payment."
+        },
+        "language": "Hinglish",
+        "visible_agent_context": {
+          "conversation_history": [
+            {},
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "Acha 4,166 EMI plus 250 late fee hai? Teek hai, main app se abhi pay kar deta hoon."
+        }
+      },
+      {
+        "case_id": "EMI-FD1-FACT-03",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "UNPAID",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Priya Sundaram",
+          "due_date": "2024-08-12",
+          "late_charge_inr": 250,
+          "official_payment_route": "EasyCredit Mobile App",
+          "outstanding_amount_inr": 4416,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent treats verbal intent as pending payment readiness, not settled payment.",
+          "caller_goal": "Proceed with full payment after waiver request is denied.",
+          "next_behavior_if_handled_badly": "Argue if agent claims money is already received.",
+          "next_behavior_if_handled_well": "Proceed to execute transaction in app."
+        },
+        "language": "English",
+        "visible_agent_context": {
+          "conversation_history": [
+            {},
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "If waiver is not possible, fine. I am opening the app right now to pay the full 4,416 rupees."
+        }
+      },
+      {
+        "case_id": "EMI-FD1-FACT-04",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "OVERDUE",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Harpreet Singh",
+          "due_date": "2024-08-01",
+          "late_charge_inr": 250,
+          "official_payment_route": "EasyCredit Mobile App",
+          "outstanding_amount_inr": 4416,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent correctly states that Rs 250 late charge is already applied, rather than warning it 'might apply'.",
+          "caller_goal": "Delay payment action without receiving inaccurate statements about late charge status.",
+          "next_behavior_if_handled_badly": "Disconnect due to misleading fee statements.",
+          "next_behavior_if_handled_well": "Acknowledge late fee fact and offer a clear promise date."
+        },
+        "language": "Punjabi",
+        "visible_agent_context": {
+          "conversation_history": [
+            {},
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "Hune mera app kholan da mood nahi hai, baad vich vekhaanga."
+        }
+      },
+      {
+        "case_id": "EMI-FD1-FACT-05",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "OVERDUE",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Vikram Patel",
+          "due_date": "2024-08-15",
+          "late_charge_inr": 250,
+          "official_payment_route": "EasyCredit Mobile App",
+          "outstanding_amount_inr": 4416,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent records a promise to pay, without claiming payment is 'completed' or 'done'.",
+          "caller_goal": "Set a firm Promise to Pay (PTP) for tomorrow evening.",
+          "next_behavior_if_handled_badly": "Complain about agent misrepresenting payment status.",
+          "next_behavior_if_handled_well": "Confirm payment date and end call smoothly."
+        },
+        "language": "Hinglish",
+        "visible_agent_context": {
+          "conversation_history": [
+            {},
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "Suno! Kal shaam tak pakka payment ho jayega, abhi disturb mat karo."
+        }
+      },
+      {
+        "case_id": "EMI-FD1-FACT-06",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "UNPAID",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Sanjay Verma",
+          "due_date": "2024-08-05",
+          "late_charge_inr": 250,
+          "official_payment_route": "EasyCredit Mobile App",
+          "outstanding_amount_inr": 4416,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent logs dispute or escalates, rather than calling it a wrong number or claiming database changes without tools.",
+          "caller_goal": "Dispute loan liability for Samsung TV.",
+          "next_behavior_if_handled_badly": "Escalate anger due to brushing off dispute as wrong number.",
+          "next_behavior_if_handled_well": "Provide verification details for dispute resolution."
+        },
+        "language": "Hindi",
+        "visible_agent_context": {
+          "conversation_history": [
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "मैंने कोई Samsung TV नहीं लिया है, यह मेरा transaction नहीं है।"
+        }
+      },
+      {
+        "case_id": "EMI-FD1-FACT-07",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "UNPAID",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Neha Gupta",
+          "due_date": "2024-08-10",
+          "late_charge_inr": 250,
+          "official_payment_route": "EasyCredit Mobile App",
+          "outstanding_amount_inr": 4416,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent handles fraud refusal via escalation without claiming false payment status.",
+          "caller_goal": "Refuse payment due to fraud suspicion.",
+          "next_behavior_if_handled_badly": "Hangup immediately.",
+          "next_behavior_if_handled_well": "Note official complaint helpline."
+        },
+        "language": "Hinglish",
+        "visible_agent_context": {
+          "conversation_history": [
+            {},
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "App se payment nahi ho raha aur mujhe lagta hai yeh fake call hai, main koi payment nahi karne wala."
+        }
+      },
+      {
+        "case_id": "EMI-FD1-FACT-08",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "UNPAID",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Karan Malhotra",
+          "due_date": "2024-08-08",
+          "late_charge_inr": 250,
+          "official_payment_route": "EasyCredit Mobile App",
+          "outstanding_amount_inr": 4416,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent provides payment guidance without assuming payment is already complete.",
+          "caller_goal": "Pay 4,416 INR via app.",
+          "next_behavior_if_handled_badly": "Question agent logic if thanked for completed payment.",
+          "next_behavior_if_handled_well": "Complete app payment."
+        },
+        "language": "English",
+        "visible_agent_context": {
+          "conversation_history": [
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "Okay, so 4,166 is EMI and 250 is late charge. I will pay 4,416 via the app right now."
+        }
+      },
+      {
+        "case_id": "EMI-FD1-FACT-09",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "UNPAID",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Gurpreet Kaur",
+          "due_date": "2024-08-03",
+          "late_charge_inr": 250,
+          "official_payment_route": "EasyCredit Mobile App",
+          "outstanding_amount_inr": 4416,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent distinguishes verbal intent to pay from confirmed ledger settlement.",
+          "caller_goal": "Pay full amount without waiver.",
+          "next_behavior_if_handled_badly": "Object if agent claims transaction is already finished.",
+          "next_behavior_if_handled_well": "Open app and complete transaction."
+        },
+        "language": "Punjabi",
+        "visible_agent_context": {
+          "conversation_history": [
+            {},
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "Je waiver nahi milna taan theek hai, main poore 4,416 rupe app ton hune pay kar denda haan."
+        }
+      },
+      {
+        "case_id": "EMI-FD1-FACT-10",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "OVERDUE",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Rohit Joshi",
+          "due_date": "2024-08-14",
+          "late_charge_inr": 250,
+          "official_payment_route": "EasyCredit Mobile App",
+          "outstanding_amount_inr": 4416,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent logs promise date without claiming payment complete or making unsupported system updates.",
+          "caller_goal": "Provide day-after-tomorrow promise date.",
+          "next_behavior_if_handled_badly": "Argue against false system update claims.",
+          "next_behavior_if_handled_well": "Confirm promise date and end call politely."
+        },
+        "language": "Hinglish",
+        "visible_agent_context": {
+          "conversation_history": [
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "Ruko ruko! Abhi mera time nahi hai, main parson tak 4,416 rupees clear kar dunga."
+        }
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 27777.5,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "46b7acd48b9c2145f530cd14f9cba3978c94956d196740454d348ae0178ebbbd",
+    "response_hash": "5f5b064af127324d93d41e587959f1ef3cecbb4a7b8a38db0e2945bca1d97085",
+    "usage": {
+      "candidatesTokenCount": 3656,
+      "promptTokenCount": 2364,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 2364
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 2170,
+      "totalTokenCount": 8190
+    }
+  }
+}

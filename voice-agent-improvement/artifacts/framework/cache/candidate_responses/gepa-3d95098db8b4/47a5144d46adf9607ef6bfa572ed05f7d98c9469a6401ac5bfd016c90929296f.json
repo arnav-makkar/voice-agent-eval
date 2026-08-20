@@ -1,0 +1,35 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-TREF-22",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thik hai Priya ji, main call end kar raha hu. Aap EasyCredit app se payment kar sakte hain.",
+        "terminal_state": "escalation"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 7797.8,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "47a5144d46adf9607ef6bfa572ed05f7d98c9469a6401ac5bfd016c90929296f",
+    "response_hash": "a54eb8e44599a665bf9eb4e909cc1b50c3d992dc8b597ff1720e4246e4276e3e",
+    "usage": {
+      "candidatesTokenCount": 67,
+      "promptTokenCount": 1483,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1483
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1213,
+      "totalTokenCount": 2763
+    }
+  }
+}

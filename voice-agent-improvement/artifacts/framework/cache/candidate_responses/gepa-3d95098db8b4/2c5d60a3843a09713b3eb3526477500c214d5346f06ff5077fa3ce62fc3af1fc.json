@@ -1,0 +1,35 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-TERM-21",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "धन्यवाद अर्णव जी, आप कृपया ऐप से अपना भुगतान पूरा कर लीजिए।",
+        "terminal_state": "payment_ready"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5073.9,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "2c5d60a3843a09713b3eb3526477500c214d5346f06ff5077fa3ce62fc3af1fc",
+    "response_hash": "0cc6754f351b1673264943e32dff93eb71de80657a549a06c65c5d123f695424",
+    "usage": {
+      "candidatesTokenCount": 61,
+      "promptTokenCount": 1511,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1511
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 680,
+      "totalTokenCount": 2252
+    }
+  }
+}

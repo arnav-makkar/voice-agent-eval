@@ -1,0 +1,35 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-COND-03",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Sure, thank you. Please make sure to pay tomorrow morning through the EasyCredit app.",
+        "terminal_state": "fptp"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 6567.6,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "8f602ecf54383d6f44883ad53333299cc65c6f40fd487eb538eefceb5847b92a",
+    "response_hash": "52c38feeda692812de68cb02eabdafb39d3e6239c7e4cb4d05a5a2d42909a4ca",
+    "usage": {
+      "candidatesTokenCount": 93,
+      "promptTokenCount": 1484,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1484
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 901,
+      "totalTokenCount": 2478
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-COND-22",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thik hai Ankit ji, aap app check karke payment kar dijiye. Dhanyawad.",
+        "terminal_state": "acknowledged"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 8702.7,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "23600f0806308cc6bc744b222fc25da61d615433b527367d973a0a40f98d5827",
+    "response_hash": "1984bfba1f2ea10ad50b1f9a8e6d34500ef57095a2153d71c568cc91bd4dfda0",
+    "usage": {
+      "candidatesTokenCount": 66,
+      "promptTokenCount": 1534,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1534
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1530,
+      "totalTokenCount": 3130
+    }
+  }
+}

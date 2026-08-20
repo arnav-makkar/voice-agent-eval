@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Main EasyCredit se Shubh hu, aapki TV ki Rs 2967 EMI overdue hai, kya abhi pay karenge?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5479.3,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "c75876c48bead200b051b831dedf32f0437c0dae3c0b2f7777e1f6f3af0ef5d1",
+    "response_hash": "84cf4ed73280fe03e95d98a45b5117a397f8c2bd4f323570e1b93de1574362dc",
+    "usage": {
+      "candidatesTokenCount": 52,
+      "promptTokenCount": 1688,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1688
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 862,
+      "totalTokenCount": 2602
+    }
+  }
+}

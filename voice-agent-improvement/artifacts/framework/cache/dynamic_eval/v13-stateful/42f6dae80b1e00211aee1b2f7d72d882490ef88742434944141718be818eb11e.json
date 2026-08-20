@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Ji, aap EasyCredit app par Rs 2,933 check kar lijiye. Verify karne ke baad aap kab tak payment kar paayenge?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5834.3,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "42f6dae80b1e00211aee1b2f7d72d882490ef88742434944141718be818eb11e",
+    "response_hash": "aceaa4882ff40c2c34a05511a311734133d846a43ebe867ad612aa876c99fb4c",
+    "usage": {
+      "candidatesTokenCount": 57,
+      "promptTokenCount": 1615,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1615
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 747,
+      "totalTokenCount": 2419
+    }
+  }
+}

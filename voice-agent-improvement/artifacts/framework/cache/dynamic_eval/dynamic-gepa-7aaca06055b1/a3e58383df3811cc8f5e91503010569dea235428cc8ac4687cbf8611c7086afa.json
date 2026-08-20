@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Kya aap confirm karte hain ki 22 August 2026 ko payment ho jayegi?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 10629.6,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "a3e58383df3811cc8f5e91503010569dea235428cc8ac4687cbf8611c7086afa",
+    "response_hash": "30cddf5914436a67c6b983e3acb6e2a36ec164b52ca6ffe15d6b9515bc010328",
+    "usage": {
+      "candidatesTokenCount": 45,
+      "promptTokenCount": 1745,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1745
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1728,
+      "totalTokenCount": 3518
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-FACT-21",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "बहुत धन्यवाद राहुल जी, आप EasyCredit ऐप से भुगतान कर लीजिए।",
+        "terminal_state": "payment_ready"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4100.4,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "e65e05733ebfa3ecec1a9f145583d93c51cce1676e359f0a678469dd493aa885",
+    "response_hash": "621b086c2f0622c8a8d6618fa3aac5ca68b55ebafc61979b6135982c6faa46a7",
+    "usage": {
+      "candidatesTokenCount": 58,
+      "promptTokenCount": 1488,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1488
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 559,
+      "totalTokenCount": 2105
+    }
+  }
+}

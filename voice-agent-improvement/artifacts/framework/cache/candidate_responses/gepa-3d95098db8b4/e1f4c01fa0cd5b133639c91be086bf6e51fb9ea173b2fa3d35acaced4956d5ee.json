@@ -1,0 +1,35 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-COND-03",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Understood. I have noted your payment promise for 18-08-2026 through the official app. Thank you.",
+        "terminal_state": "fptp"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 6428.0,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "e1f4c01fa0cd5b133639c91be086bf6e51fb9ea173b2fa3d35acaced4956d5ee",
+    "response_hash": "73e6180b2e1be073d22b7646078e4c67703bfee8d443aec522870fe3dd8f159b",
+    "usage": {
+      "candidatesTokenCount": 104,
+      "promptTokenCount": 1484,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1484
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1014,
+      "totalTokenCount": 2602
+    }
+  }
+}

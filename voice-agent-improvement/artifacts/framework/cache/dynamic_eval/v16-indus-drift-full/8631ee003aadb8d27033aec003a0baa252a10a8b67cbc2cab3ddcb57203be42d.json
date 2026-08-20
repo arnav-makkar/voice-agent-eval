@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "already_paid",
+    "should_end_call": true,
+    "spoken_response": "System mein payment abhi unpaid dikh raha hai. Kripya verification ke liye customer care number 1800-500-4444 par call karein.",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 8461.2,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "8631ee003aadb8d27033aec003a0baa252a10a8b67cbc2cab3ddcb57203be42d",
+    "response_hash": "0d856e826dac1d73600c9fceb4e8bbfa538cbeeadbd9b0af2edcb3f39ddf706a",
+    "usage": {
+      "candidatesTokenCount": 65,
+      "promptTokenCount": 2045,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 2045
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1408,
+      "totalTokenCount": 3518
+    }
+  }
+}

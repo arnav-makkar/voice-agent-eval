@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "wrong_number",
+    "should_end_call": true,
+    "spoken_response": "Aapka shukriya. Maaf kijiyega, galat number par call lag gaya. Hum ise update kar lete hain.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "wrong_number"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5068.4,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "74cc57609e4a0a397982b84225f9302ff58a32dbec79f9bb5773272a97c4a374",
+    "response_hash": "8e3f001036031e63dd28fd62092e67dd1dcfaa8f7b66787869a39d2e8ac377de",
+    "usage": {
+      "candidatesTokenCount": 70,
+      "promptTokenCount": 1698,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1698
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 701,
+      "totalTokenCount": 2469
+    }
+  }
+}

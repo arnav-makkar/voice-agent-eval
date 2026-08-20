@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Ji, aap EasyCredit app par Rs 2933 check kar lijiye. Kya check karne ke baad aap aaj pay kar payenge?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 7309.3,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "7fa68fb2f16344521e41714d8599462e7128b642d4e7f2bba329421595f0f848",
+    "response_hash": "95ceb7fdb141784bc4344e97180567f3bb7ac9813d86cf9cc8310ce601e12c4e",
+    "usage": {
+      "candidatesTokenCount": 55,
+      "promptTokenCount": 1832,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1832
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1066,
+      "totalTokenCount": 2953
+    }
+  }
+}

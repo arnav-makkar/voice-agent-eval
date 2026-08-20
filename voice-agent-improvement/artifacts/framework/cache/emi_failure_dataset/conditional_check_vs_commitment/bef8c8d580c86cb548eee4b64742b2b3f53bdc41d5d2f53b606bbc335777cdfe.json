@@ -1,0 +1,328 @@
+{
+  "data": {
+    "cases": [
+      {
+        "case_id": "EMI-FD1-COND-01",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "overdue",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "रवि शर्मा",
+          "due_date": "2023-10-05",
+          "late_charge_inr": 200,
+          "official_payment_route": "EasyCredit Mobile App",
+          "outstanding_amount_inr": 5200,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent acknowledges caller is checking the app without claiming payment is completed or guaranteed.",
+          "caller_goal": "Verify overdue amount in the official app before committing to payment.",
+          "next_behavior_if_handled_badly": "Caller gets annoyed if agent counts checking app as payment confirmation and hangs up.",
+          "next_behavior_if_handled_well": "Caller checks app and proceeds to make payment or confirms a specific timeframe."
+        },
+        "language": "Hindi",
+        "visible_agent_context": {
+          "conversation_history": [
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "ठीक है, मैं अभी official app खोलकर payment status चेक करता हूँ।"
+        }
+      },
+      {
+        "case_id": "EMI-FD1-COND-02",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "overdue",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Vikas Verma",
+          "due_date": "2023-10-10",
+          "late_charge_inr": 0,
+          "official_payment_route": "EasyCredit Mobile App",
+          "outstanding_amount_inr": 4200,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent allows time to check app or offers a brief callback without marking payment as completed.",
+          "caller_goal": "Check official app to verify authenticity of caller before agreeing to pay.",
+          "next_behavior_if_handled_badly": "Caller disconnects if agent insists that checking app means payment is guaranteed.",
+          "next_behavior_if_handled_well": "Caller opens app and confirms payment detail."
+        },
+        "language": "Hinglish",
+        "visible_agent_context": {
+          "conversation_history": [
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "Thik hai, main app open karke check kar leta hoon, fir batata hoon."
+        }
+      },
+      {
+        "case_id": "EMI-FD1-COND-03",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "overdue",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Amit Patel",
+          "due_date": "2023-10-01",
+          "late_charge_inr": 300,
+          "official_payment_route": "EasyCredit Mobile App",
+          "outstanding_amount_inr": 6500,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent accepts conditional checking offer without logging call as unconditional completed payment.",
+          "caller_goal": "Verify the bill on official app and pay immediately if valid.",
+          "next_behavior_if_handled_badly": "Caller abandons payment if agent treats checking intention as a finalized transaction.",
+          "next_behavior_if_handled_well": "Caller checks app, verifies due, and completes payment."
+        },
+        "language": "English",
+        "visible_agent_context": {
+          "conversation_history": [
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "Okay, I will check the app right now. If it shows the due, I will clear it immediately."
+        }
+      },
+      {
+        "case_id": "EMI-FD1-COND-04",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "overdue",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Harpreet Singh",
+          "due_date": "2023-10-02",
+          "late_charge_inr": 100,
+          "official_payment_route": "EasyCredit Mobile App",
+          "outstanding_amount_inr": 3800,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent records the promise to pay on 25th without forcing immediate payment.",
+          "caller_goal": "Commit to a specific future date (25th) after salary credit.",
+          "next_behavior_if_handled_badly": "Caller becomes defensive if agent repeatedly rejects salary schedule delay.",
+          "next_behavior_if_handled_well": "Caller confirms promise to pay date and ends call smoothly."
+        },
+        "language": "Punjabi",
+        "visible_agent_context": {
+          "conversation_history": [
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "ਮੇਰੇ ਕੋਲ ਹੁਣ ਪੈਸੇ ਨਹੀਂ ਹਨ, 25 ਤਾਰੀਖ ਨੂੰ ਸੈਲਰੀ ਆਵੇਗੀ ਤਾਂ ਹੀ ਭਰਾਂਗਾ।"
+        }
+      },
+      {
+        "case_id": "EMI-FD1-COND-05",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "overdue",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Neha Sharma",
+          "due_date": "2023-10-08",
+          "late_charge_inr": 250,
+          "official_payment_route": "EasyCredit Mobile App",
+          "outstanding_amount_inr": 5500,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent schedules callback concisely without pushing immediate resolution during meeting.",
+          "caller_goal": "Request callback due to ongoing meeting and check app later.",
+          "next_behavior_if_handled_badly": "Caller hangs up angrily if agent continues payment pitch during meeting.",
+          "next_behavior_if_handled_well": "Caller agrees to receive call at scheduled time."
+        },
+        "language": "Hinglish",
+        "visible_agent_context": {
+          "conversation_history": [
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "Arrey ruko ruko! Main abhi meeting me hoon, app check karunga baad me, callback schedule karo."
+        }
+      },
+      {
+        "case_id": "EMI-FD1-COND-06",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "overdue",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "सुरेश गुप्ता",
+          "due_date": "2023-10-04",
+          "late_charge_inr": 150,
+          "official_payment_route": "EasyCredit Mobile App",
+          "outstanding_amount_inr": 4800,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent states clearly whether they can stay on line or offer a quick callback while caller checks.",
+          "caller_goal": "Determine if agent can stay on line while caller opens app.",
+          "next_behavior_if_handled_badly": "Caller disconnects if agent assumes payment is already completed.",
+          "next_behavior_if_handled_well": "Caller opens app and attempts payment or requests callback after check."
+        },
+        "language": "Hindi",
+        "visible_agent_context": {
+          "conversation_history": [
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "ठीक है, मैं ऐप खोल रहा हूँ, क्या आप लाइन पर रहेंगे या बाद में कॉल करेंगे?"
+        }
+      },
+      {
+        "case_id": "EMI-FD1-COND-07",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "overdue",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Rohan Kapoor",
+          "due_date": "2023-10-09",
+          "late_charge_inr": 0,
+          "official_payment_route": "EasyCredit Mobile App",
+          "outstanding_amount_inr": 3200,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent validates security concern, points to official app, and seeks commitment post-check.",
+          "caller_goal": "Verify authenticity on app before committing to any payment.",
+          "next_behavior_if_handled_badly": "Caller refuses further interaction if agent dismisses fraud concerns.",
+          "next_behavior_if_handled_well": "Caller proceeds to check app trustfully."
+        },
+        "language": "Hinglish",
+        "visible_agent_context": {
+          "conversation_history": [
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "How do I know this isn't a scam call? Main app me jaake dekhunga pehle."
+        }
+      },
+      {
+        "case_id": "EMI-FD1-COND-08",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "overdue",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Priya Nair",
+          "due_date": "2023-10-03",
+          "late_charge_inr": 400,
+          "official_payment_route": "EasyCredit Mobile App",
+          "outstanding_amount_inr": 7100,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent captures exact promise-to-pay date without treating payment as completed today.",
+          "caller_goal": "Get promise-to-pay recorded for 15th of next month due to bonus schedule.",
+          "next_behavior_if_handled_badly": "Caller refuses to cooperate if agent forces immediate payment despite zero balance.",
+          "next_behavior_if_handled_well": "Caller confirms 15th as PTP date and ends call smoothly."
+        },
+        "language": "English",
+        "visible_agent_context": {
+          "conversation_history": [
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "I don't have the funds today, but I can definitely commit to paying on the 15th of next month once my bonus arrives."
+        }
+      },
+      {
+        "case_id": "EMI-FD1-COND-09",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "overdue",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Gurpreet Kaur",
+          "due_date": "2023-10-07",
+          "late_charge_inr": 200,
+          "official_payment_route": "EasyCredit Mobile App",
+          "outstanding_amount_inr": 5100,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent agrees to evening callback and avoids treating agreement to check as payment_ready.",
+          "caller_goal": "Schedule evening callback after checking app.",
+          "next_behavior_if_handled_badly": "Caller blocks call if agent insists on immediate payment while caller is busy.",
+          "next_behavior_if_handled_well": "Caller agrees to take call in the evening."
+        },
+        "language": "Punjabi",
+        "visible_agent_context": {
+          "conversation_history": [
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "ਮੈਂ ਹੁਣ ਬਿਜ਼ੀ ਹਾਂ, ਐਪ ਤੇ ਚੈੱਕ ਕਰਕੇ ਦੱਸਾਂਗਾ, ਸ਼ਾਮ ਨੂੰ ਕਾਲ ਕਰਨਾ।"
+        }
+      },
+      {
+        "case_id": "EMI-FD1-COND-10",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "overdue",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Deepak Joshi",
+          "due_date": "2023-10-06",
+          "late_charge_inr": 300,
+          "official_payment_route": "EasyCredit Mobile App",
+          "outstanding_amount_inr": 6000,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent notes conditional commitment (evening payment post-check) instead of claiming immediate payment.",
+          "caller_goal": "Check app details now and pay in evening if details match.",
+          "next_behavior_if_handled_badly": "Caller drops call if agent misrepresents current state as immediate payment.",
+          "next_behavior_if_handled_well": "Caller confirms evening payment timeline post app check."
+        },
+        "language": "Hinglish",
+        "visible_agent_context": {
+          "conversation_history": [
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "Suno suno! Main app khol ke dekh raha hoon, par payment shaam ko karunga agar detail sahi mili."
+        }
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 43544.5,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "bef8c8d580c86cb548eee4b64742b2b3f53bdc41d5d2f53b606bbc335777cdfe",
+    "response_hash": "2e8d145947a2f0b718324c0840f10e4b4c1edc4b5c9c162e7d8dcb032173c3c3",
+    "usage": {
+      "candidatesTokenCount": 2630,
+      "promptTokenCount": 1859,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1859
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 7078,
+      "totalTokenCount": 11567
+    }
+  }
+}

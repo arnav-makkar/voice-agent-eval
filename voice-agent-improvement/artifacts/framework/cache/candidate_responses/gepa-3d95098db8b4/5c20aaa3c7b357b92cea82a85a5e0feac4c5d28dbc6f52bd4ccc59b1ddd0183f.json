@@ -1,0 +1,35 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-DISP-22",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Rohan ji, samajh gaya. Kya aapne pehle iski koi complaint ki hai? Kripya EasyCredit customer care number par contact karein.",
+        "terminal_state": "dispute"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 7470.1,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "5c20aaa3c7b357b92cea82a85a5e0feac4c5d28dbc6f52bd4ccc59b1ddd0183f",
+    "response_hash": "ef5232a3e9a70896108b7a4815ffdc1cb9d30be8b98aa4a0fda1c6e159568fff",
+    "usage": {
+      "candidatesTokenCount": 77,
+      "promptTokenCount": 1447,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1447
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1150,
+      "totalTokenCount": 2674
+    }
+  }
+}

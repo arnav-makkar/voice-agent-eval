@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "callback",
+    "should_end_call": true,
+    "spoken_response": "Theek hai, main 18-08-2026 ko shaam 5 se 6 baje callback preference note kar leta hoon, yeh guaranteed booking nahi hai. Dhanyawad!",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 6513.8,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "fb0ef2d5a0b349903e3da6d5d884853fe8e7e89a2fa376a39d73a692a8aadace",
+    "response_hash": "a416af9ff9ca06a673a04f89d17fde64b944fe959d01fdf9e498f168af58cdad",
+    "usage": {
+      "candidatesTokenCount": 83,
+      "promptTokenCount": 1474,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1474
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1034,
+      "totalTokenCount": 2591
+    }
+  }
+}

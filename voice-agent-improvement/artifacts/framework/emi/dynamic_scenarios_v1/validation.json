@@ -1,0 +1,18 @@
+{
+  "claim_boundary": "Text scenario cards. Audio perturbations require the matched voice stage.",
+  "counts": {
+    "development": 18,
+    "regression": 6,
+    "validation": 6
+  },
+  "group_independence_pass": true,
+  "group_overlaps": {
+    "development:regression": [],
+    "development:validation": [],
+    "validation:regression": []
+  },
+  "hidden_state_leakage_pass": true,
+  "review_status": "authored_and_code_reviewed",
+  "schema_version": "dynamic-scenario-validation.v1",
+  "total": 30
+}

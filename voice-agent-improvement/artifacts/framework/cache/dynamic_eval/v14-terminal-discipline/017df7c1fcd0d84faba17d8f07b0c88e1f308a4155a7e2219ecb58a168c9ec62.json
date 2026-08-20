@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "dispute",
+    "should_end_call": true,
+    "spoken_response": "Samajh gaya Gurpreet ji. Iss dispute ke liye aap humare customer care number 1800-500-4444 par sampark kar sakte hain. Dhanyawad.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "dispute"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4795.1,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "017df7c1fcd0d84faba17d8f07b0c88e1f308a4155a7e2219ecb58a168c9ec62",
+    "response_hash": "8109d84712e57367c3600d8bf59cd1552b28fd741cf0487e30468de1e465778d",
+    "usage": {
+      "candidatesTokenCount": 84,
+      "promptTokenCount": 1761,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1761
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 612,
+      "totalTokenCount": 2457
+    }
+  }
+}

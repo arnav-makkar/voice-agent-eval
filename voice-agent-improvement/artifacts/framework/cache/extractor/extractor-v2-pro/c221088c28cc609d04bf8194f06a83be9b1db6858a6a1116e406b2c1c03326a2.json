@@ -1,0 +1,68 @@
+{
+  "data": {
+    "extractions": [
+      {
+        "call_summary": "The caller confirmed their identity but stated they do not have the app. When asked to download it, they said they would see later and ended the call.",
+        "disposition": "acknowledged",
+        "escalation_reason": "NA",
+        "evidence": "बाद में देखूंगा, bye.",
+        "trace_id": "BL-V12-16",
+        "unsupported_action_in_summary": false
+      },
+      {
+        "call_summary": "The caller confirmed their identity and explicitly agreed to open the official app and make the payment right now.",
+        "disposition": "payment_ready",
+        "escalation_reason": "NA",
+        "evidence": "ठीक है अभी खोल रहा हूं कर दूंगा फिर।",
+        "trace_id": "BL-V12-02-R1",
+        "unsupported_action_in_summary": false
+      },
+      {
+        "call_summary": "The caller confirmed their identity and initially refused to click on any links. After being advised to use the official app, they agreed to open it and make the payment immediately.",
+        "disposition": "payment_ready",
+        "escalation_reason": "NA",
+        "evidence": "ठीक है मैं आप खोल के pay करता हूँ।",
+        "trace_id": "BL-V12-03-R1",
+        "unsupported_action_in_summary": false
+      },
+      {
+        "call_summary": "The caller confirmed their identity but questioned the authenticity of the call. They agreed to open the official app to check their account but did not commit to making a payment.",
+        "disposition": "acknowledged",
+        "escalation_reason": "NA",
+        "evidence": "मैं app open करके check कर रहा हूँ।",
+        "trace_id": "BL-V12-04-R1",
+        "unsupported_action_in_summary": false
+      },
+      {
+        "call_summary": "The caller confirmed their identity but asked how to verify if the call was genuine. They agreed to check the official app but did not commit to paying.",
+        "disposition": "acknowledged",
+        "escalation_reason": "NA",
+        "evidence": "Okay, okay, okay, okay, I'll check, I'll check.",
+        "trace_id": "BL-V12-04-R1-en",
+        "unsupported_action_in_summary": false
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 19196.8,
+    "model_requested": "gemini-pro-latest",
+    "model_version": "gemini-3.1-pro-preview",
+    "request_hash": "c221088c28cc609d04bf8194f06a83be9b1db6858a6a1116e406b2c1c03326a2",
+    "response_hash": "91ddf9f5dafa1315d223c3d89578829bead500a27a7ffe4ec717f77c05751d76",
+    "usage": {
+      "candidatesTokenCount": 591,
+      "promptTokenCount": 2256,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 2256
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1854,
+      "totalTokenCount": 4701
+    }
+  }
+}

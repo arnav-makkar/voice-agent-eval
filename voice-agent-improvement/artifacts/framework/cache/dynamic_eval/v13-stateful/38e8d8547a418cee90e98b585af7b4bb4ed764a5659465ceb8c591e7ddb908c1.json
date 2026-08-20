@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "dispute",
+    "should_end_call": true,
+    "spoken_response": "Kripya pareshan na hon. Aap humare customer care number 1800-500-4444 par call karke iski janch karwa sakte hain. Dhanyawad.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "dispute"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5267.1,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "38e8d8547a418cee90e98b585af7b4bb4ed764a5659465ceb8c591e7ddb908c1",
+    "response_hash": "139ec9f0d508d5ac687d21ba117379b60190d13fe06e7c0e2e184e20c0c30f76",
+    "usage": {
+      "candidatesTokenCount": 87,
+      "promptTokenCount": 1616,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1616
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 655,
+      "totalTokenCount": 2358
+    }
+  }
+}

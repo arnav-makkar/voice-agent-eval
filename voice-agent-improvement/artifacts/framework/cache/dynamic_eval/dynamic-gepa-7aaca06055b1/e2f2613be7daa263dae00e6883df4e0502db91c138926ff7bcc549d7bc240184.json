@@ -1,0 +1,44 @@
+{
+  "data": {
+    "disposition": "callback",
+    "should_end_call": true,
+    "spoken_response": "Thik hai, 18 August ko subah 10 se 11 baje call karunga.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "date": "18-08-2026",
+          "time_window": "10:00 AM - 11:00 AM"
+        },
+        "name": "schedule_callback"
+      },
+      {
+        "arguments": {
+          "disposition": "callback"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 9538.4,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "e2f2613be7daa263dae00e6883df4e0502db91c138926ff7bcc549d7bc240184",
+    "response_hash": "5963f5f5679f56877a301b5642ec6aad4cb208e3b79b8ac6c338454e455e5762",
+    "usage": {
+      "candidatesTokenCount": 104,
+      "promptTokenCount": 1751,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1751
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1772,
+      "totalTokenCount": 3627
+    }
+  }
+}

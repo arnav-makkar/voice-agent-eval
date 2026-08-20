@@ -1,0 +1,44 @@
+{
+  "data": {
+    "disposition": "callback",
+    "should_end_call": true,
+    "spoken_response": "Theek hai Arnav ji, 18 August ko shaam 5 se 6 baje call karunga. Dhanyawad.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "date": "18-08-2026",
+          "time_window": "05:00 PM - 06:00 PM"
+        },
+        "name": "schedule_callback"
+      },
+      {
+        "arguments": {
+          "disposition": "callback"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 7964.6,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "a1b327f6ae0462a4a7d7844a62aee9f46d6c96428489b978ba356e272bfa02c0",
+    "response_hash": "e35e31471b3824faad3519a0d02e6382b0f70be79b422cdb7728cab3a50e26c0",
+    "usage": {
+      "candidatesTokenCount": 109,
+      "promptTokenCount": 1758,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1758
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1310,
+      "totalTokenCount": 3177
+    }
+  }
+}

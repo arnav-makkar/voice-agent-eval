@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Samajh gaya ji. Aap kab tak payment kar payenge?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4500.9,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "b1176733db75039c5d73ff7d60afd337a49025dbab036e5b0d13fe4aedec4c90",
+    "response_hash": "cdea8df47e41ca90e9401a140d4253dbff0192b174a0e0786a13ca7dd6cf6c6a",
+    "usage": {
+      "candidatesTokenCount": 43,
+      "promptTokenCount": 1835,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1835
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 563,
+      "totalTokenCount": 2441
+    }
+  }
+}

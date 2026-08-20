@@ -1,0 +1,98 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-FACT-01",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "रमेश जी, मैं आपकी बात समझ रहा हूँ। सहायता के लिए आप हमारे कस्टमर केयर नंबर पर संपर्क कर सकते हैं।",
+        "terminal_state": "escalation"
+      },
+      {
+        "case_id": "EMI-FD1-FACT-02",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Bahut dhanyawad Aniket ji, aap kripya EasyCredit app se payment kar dijiye.",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-FACT-03",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thank you Priya. Please complete the payment of 3,850 rupees using the EasyCredit app.",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-FACT-04",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "ਕੋਈ ਗੱਲ ਨਹੀਂ ਗੁਰਪ੍ਰੀਤ ਜੀ, ਤੁਸੀਂ ਕਿਸ ਤਾਰੀਖ ਤੱਕ ਭੁਗਤਾਨ ਕਰ ਸਕਦੇ ਹੋ?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-FACT-05",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Shukriya Vikas ji, toh 19 August tak aap payment kar dijiyega. Have a good day.",
+        "terminal_state": "fptp"
+      },
+      {
+        "case_id": "EMI-FD1-FACT-06",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "सुनीता जी, क्या आपने EasyCredit से कोई लोन नहीं लिया है? अधिक जानकारी के लिए हमारे कस्टमर केयर से संपर्क करें।",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-FD1-FACT-07",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Rohit ji, hum aapki baat samajhte hain. Kripya kisi bhi sahayata ke liye humare customer care se sampark karein.",
+        "terminal_state": "escalation"
+      },
+      {
+        "case_id": "EMI-FD1-FACT-08",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thank you Deepa, please complete the payment through the EasyCredit app now.",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-FACT-09",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਧੰਨਵਾਦ ਮਨਜੀਤ ਜੀ, ਕਿਰਪਾ ਕਰਕੇ EasyCredit ਐਪ ਰਾਹੀਂ ਹੁਣੇ ਭੁਗਤਾਨ ਕਰ ਦਿਓ।",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-FACT-10",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thik hai Amit ji, kripya app se jald hi payment kar dijiyega taaki aur late charges na lagein. Shukriya.",
+        "terminal_state": "acknowledged"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 50728.5,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "84f9ca9a76da2e3ff0e3ceea6be7456c7664857ba1a34b8bd83e8518fc387754",
+    "response_hash": "a21177cae38a5f77439a8c8e330b1d5a9593e66cfc9942fe11e127c4257256c2",
+    "usage": {
+      "candidatesTokenCount": 682,
+      "promptTokenCount": 4514,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 4514
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 10278,
+      "totalTokenCount": 15474
+    }
+  }
+}

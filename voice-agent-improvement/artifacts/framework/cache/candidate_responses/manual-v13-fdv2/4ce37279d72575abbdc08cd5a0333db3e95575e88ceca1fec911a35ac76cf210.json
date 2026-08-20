@@ -1,0 +1,98 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-ANCHOR-FAIL-11",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "कोई बात नहीं। आप किस तारीख तक पेमेंट कर पाएंगे?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-ANCHOR-FAIL-12",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "धन्यवाद, कृपया कल official app से ही payment कर दें।",
+        "terminal_state": "fptp"
+      },
+      {
+        "case_id": "EMI-ANCHOR-FAIL-13",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "समझ गया। कृपया हमारे customer care number 1800-500-4444 पर संपर्क करें।",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-ANCHOR-FAIL-14",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਧੰਨਵਾਦ, ਕਿਰਪਾ ਕਰਕੇ ਸਿਰਫ਼ official app ਰਾਹੀਂ ਹੀ payment ਕਰੋ।",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-ANCHOR-FAIL-15",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "कोई बात नहीं। आप सबसे जल्दी किस तारीख तक पेमेंट कर सकते हैं?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-ANCHOR-WIN-01",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "धन्यवाद, कृपया केवल official app के माध्यम से ही payment करें।",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-ANCHOR-WIN-02",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "धन्यवाद, कृपया बीस अगस्त को official app से payment कर दीजिएगा।",
+        "terminal_state": "fptp"
+      },
+      {
+        "case_id": "EMI-ANCHOR-WIN-03",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ठीक है, समय देने के लिए धन्यवाद।",
+        "terminal_state": "already_paid"
+      },
+      {
+        "case_id": "EMI-ANCHOR-WIN-04",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thank you, please make the payment using only the official app.",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-ANCHOR-WIN-05",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "I understand. Thank you for your time.",
+        "terminal_state": "rtp"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 29545.7,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "4ce37279d72575abbdc08cd5a0333db3e95575e88ceca1fec911a35ac76cf210",
+    "response_hash": "84748a1c27f7e8b76938c5e9cce7c0c391d278576c0fc4957dc972119622848d",
+    "usage": {
+      "candidatesTokenCount": 558,
+      "promptTokenCount": 5466,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 5466
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 5534,
+      "totalTokenCount": 11558
+    }
+  }
+}

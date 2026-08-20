@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "acknowledged",
+    "should_end_call": true,
+    "spoken_response": "Okay Gurpreet ji, please check the details in the official EasyCredit app. Thank you.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "acknowledged"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4874.4,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "fc65db40925c717e9f1385a141c36af7d6ae1d55f35cf892062746fa03cf3542",
+    "response_hash": "48a00bb22900e711b4c2f703d88f91d2797c960384f3ff39aca0595c880d7be8",
+    "usage": {
+      "candidatesTokenCount": 59,
+      "promptTokenCount": 1766,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1766
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 719,
+      "totalTokenCount": 2544
+    }
+  }
+}

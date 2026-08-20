@@ -1,0 +1,37 @@
+{
+  "artifacts": [
+    {
+      "bytes": 31294,
+      "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/dynamic_scenarios_v1/development.jsonl",
+      "records": 18,
+      "sha256": "e7efa22dc34310fcd22bdc575c9f0f4dfe10d686b4368ef7b7042cc753bc18de"
+    },
+    {
+      "bytes": 10524,
+      "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/dynamic_scenarios_v1/validation.jsonl",
+      "records": 6,
+      "sha256": "5358c2a6d5eac6eec9799d4c137e0892f554a4044953e83a087665582b8e6012"
+    },
+    {
+      "bytes": 10455,
+      "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/dynamic_scenarios_v1/regression.jsonl",
+      "records": 6,
+      "sha256": "b0b341debafe74adda48086c7163cef9919cbc0fa2cf133b05d8b3939412b385"
+    },
+    {
+      "bytes": 500,
+      "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/dynamic_scenarios_v1/validation.json",
+      "sha256": "de6ba04af594a2835099f8260bb6765335ecfeb1239a01f32f527481fead4ec3"
+    }
+  ],
+  "created_at": "2026-08-18T21:31:23.560481+00:00",
+  "metadata": {
+    "dataset_id": "emi_dynamic_v1",
+    "group_independence_pass": true,
+    "records": 30,
+    "schema": "evaluation-scenario.v1",
+    "source": "authored_from_observed_failure_taxonomy_and_research_patterns"
+  },
+  "schema_version": "framework-manifest.v1",
+  "stage": "dynamic_emi_scenarios"
+}

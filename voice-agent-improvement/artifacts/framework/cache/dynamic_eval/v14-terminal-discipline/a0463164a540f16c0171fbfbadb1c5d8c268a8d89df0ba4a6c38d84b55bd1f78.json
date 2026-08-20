@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "acknowledged",
+    "should_end_call": true,
+    "spoken_response": "Thik hai, aap EasyCredit app se pay kar lijiye. Dhanyawad!",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "acknowledged"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 3887.8,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "a0463164a540f16c0171fbfbadb1c5d8c268a8d89df0ba4a6c38d84b55bd1f78",
+    "response_hash": "4284490c56247f97c60107a1198307616548aa6a6f1bfa01b93402eb7701135e",
+    "usage": {
+      "candidatesTokenCount": 99,
+      "promptTokenCount": 1826,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1826
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 410,
+      "totalTokenCount": 2335
+    }
+  }
+}

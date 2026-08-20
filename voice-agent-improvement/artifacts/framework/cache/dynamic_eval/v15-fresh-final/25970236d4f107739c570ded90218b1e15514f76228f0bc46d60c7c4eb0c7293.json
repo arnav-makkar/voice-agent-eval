@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Koi baat nahi, kya aap 22 August tak koi confirm date bata sakte hain?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 8164.7,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "25970236d4f107739c570ded90218b1e15514f76228f0bc46d60c7c4eb0c7293",
+    "response_hash": "542fedb03c5d2708944280d498832c1148616878451b3c03451462b0c87ec618",
+    "usage": {
+      "candidatesTokenCount": 42,
+      "promptTokenCount": 1895,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1895
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1349,
+      "totalTokenCount": 3286
+    }
+  }
+}

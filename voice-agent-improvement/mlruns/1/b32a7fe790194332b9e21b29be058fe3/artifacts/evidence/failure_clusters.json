@@ -1,0 +1,190 @@
+{
+  "clusters": [
+    {
+      "business_impact": 6,
+      "cluster_id": "redundant_confirmation",
+      "count": 6,
+      "evidence": [
+        {
+          "note": "Explicit pay-now commitment at turn 4 was unnecessarily reconfirmed at turn 5.",
+          "run_id": "BL-V12-01",
+          "turn_id": 5
+        },
+        {
+          "note": "Commitment was reconfirmed, then closing thanked the caller for payment as though money had moved.",
+          "run_id": "BL-V12-05",
+          "turn_id": 7
+        },
+        {
+          "note": "After accepting the full amount, agent reconfirmed and then thanked the caller for payment as if completed.",
+          "run_id": "BL-V12-06",
+          "turn_id": 9
+        },
+        {
+          "note": "Punjabi switch succeeded, but the explicit app-payment commitment was reconfirmed.",
+          "run_id": "BL-V12-14",
+          "turn_id": 9
+        },
+        {
+          "note": "One concise reason converted the caller; the commitment was then unnecessarily reconfirmed.",
+          "run_id": "BL-V12-02-R1",
+          "turn_id": 7
+        },
+        {
+          "note": "Official-app alternative resolved distrust; the explicit commitment was then reconfirmed.",
+          "run_id": "BL-V12-03-R1",
+          "turn_id": 7
+        }
+      ],
+      "max_severity": "P1",
+      "priority_score": 144,
+      "prompt_fixable": true,
+      "recommendation": "Treat an explicit pay-now commitment as terminal: acknowledge once and end without another question."
+    },
+    {
+      "business_impact": 3,
+      "cluster_id": "trust_resolution_missing_direct_close",
+      "count": 1,
+      "evidence": [
+        {
+          "note": "English trust response gave the safe route without a direct pay-now close; the next explanation was interrupted and commitment was never reached.",
+          "run_id": "BL-V12-04-R1-en",
+          "turn_id": 5
+        }
+      ],
+      "max_severity": "P1",
+      "priority_score": 12,
+      "prompt_fixable": true,
+      "recommendation": "Resolve authenticity in one turn: identify AI status, give independent official-app verification, then ask one pay-now question."
+    },
+    {
+      "business_impact": 1,
+      "cluster_id": "dispute_misclassified_wrong_number",
+      "count": 1,
+      "evidence": [
+        {
+          "note": "Confirmed customer disputed the purchase; agent called it a wrong number and falsely claimed it would update the record.",
+          "run_id": "BL-V12-12",
+          "turn_id": 5
+        }
+      ],
+      "max_severity": "P0",
+      "priority_score": 8,
+      "prompt_fixable": true,
+      "recommendation": "Give dispute precedence when the named customer denies the purchase; wrong_number applies only when the person is not the named customer."
+    },
+    {
+      "business_impact": 3,
+      "cluster_id": "conditional_check_not_converted",
+      "count": 1,
+      "evidence": [
+        {
+          "note": "Safe verification was offered, but the caller only agreed to check and disconnected before an explicit payment commitment.",
+          "run_id": "BL-V12-04-R1",
+          "turn_id": 7
+        }
+      ],
+      "max_severity": "P2",
+      "priority_score": 6,
+      "prompt_fixable": true,
+      "recommendation": "After a conditional app-check response, use one concise verify-then-pay micro-close and stop if commitment remains absent."
+    },
+    {
+      "business_impact": 1,
+      "cluster_id": "repeated_pressure_after_channel_refusal",
+      "count": 1,
+      "evidence": [
+        {
+          "note": "Caller twice refused to engage with an AI; agent continued collection attempts instead of closing or providing a human route.",
+          "run_id": "BL-V12-04-AI",
+          "turn_id": 7
+        }
+      ],
+      "max_severity": "P1",
+      "priority_score": 4,
+      "prompt_fixable": true,
+      "recommendation": "If the caller refuses to continue with an AI twice, provide the official human-support route and end recovery pressure."
+    },
+    {
+      "business_impact": 1,
+      "cluster_id": "late_charge_misstatement",
+      "count": 1,
+      "evidence": [
+        {
+          "note": "Agent said late charges may apply even though the frozen outstanding already included a Rs 250 late charge.",
+          "run_id": "BL-V12-07",
+          "turn_id": 7
+        }
+      ],
+      "max_severity": "P1",
+      "priority_score": 4,
+      "prompt_fixable": true,
+      "recommendation": "Say the frozen outstanding already includes the stated late charge; never say it may apply later."
+    },
+    {
+      "business_impact": 1,
+      "cluster_id": "unsupported_future_completion_claim",
+      "count": 1,
+      "evidence": [
+        {
+          "note": "Agent converted a promise into the stronger statement that payment would be done.",
+          "run_id": "BL-V12-10",
+          "turn_id": 7
+        }
+      ],
+      "max_severity": "P1",
+      "priority_score": 4,
+      "prompt_fixable": true,
+      "recommendation": "Record a promise as a promise; never state that payment will be done or has completed."
+    },
+    {
+      "business_impact": 1,
+      "cluster_id": "channel_unavailable_loop",
+      "count": 1,
+      "evidence": [
+        {
+          "note": "After the caller twice said the app was unavailable, the agent repeated the download/pay request rather than offering one secondary path.",
+          "run_id": "BL-V12-16",
+          "turn_id": 9
+        }
+      ],
+      "max_severity": "P1",
+      "priority_score": 4,
+      "prompt_fixable": true,
+      "recommendation": "After one app-unavailable statement, stop repeating download instructions and offer one realistic date or callback path."
+    },
+    {
+      "business_impact": 1,
+      "cluster_id": "caller_disengagement_after_interruption",
+      "count": 1,
+      "evidence": [
+        {
+          "note": "Agent recovered from interruption but offered payment/callback before re-establishing the minimal context the busy caller missed.",
+          "run_id": "BL-V12-02",
+          "turn_id": 7
+        }
+      ],
+      "max_severity": "P2",
+      "priority_score": 2,
+      "prompt_fixable": true,
+      "recommendation": "After interruption, restate only lender, product, amount and one action before asking again."
+    },
+    {
+      "business_impact": 1,
+      "cluster_id": "invalid_output_disposition",
+      "count": 1,
+      "evidence": [
+        {
+          "note": "Spoken containment was acceptable, but disposition was fraud_claim rather than the allowed escalation outcome.",
+          "run_id": "BL-V12-03-FRAUD",
+          "turn_id": 9
+        }
+      ],
+      "max_severity": "P1",
+      "priority_score": 4,
+      "prompt_fixable": false,
+      "recommendation": "Fix the output extractor taxonomy separately; the agent prompt cannot repair an invalid enum value reliably."
+    }
+  ],
+  "schema_version": "failure-clusters.v1"
+}

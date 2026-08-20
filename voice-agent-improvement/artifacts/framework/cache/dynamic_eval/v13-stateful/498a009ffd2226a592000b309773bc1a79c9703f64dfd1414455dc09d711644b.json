@@ -1,0 +1,35 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Dhanyawad batane ke liye. Main abhi aapka payment status check kar leta hoon, kripya ek second rukiye.",
+    "tool_calls": [
+      {
+        "arguments": {},
+        "name": "check_payment_status"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4707.5,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "498a009ffd2226a592000b309773bc1a79c9703f64dfd1414455dc09d711644b",
+    "response_hash": "62c5e0f153af55a61bd3b63f534cfd3101613abf5783a9d88843401a7ea61a8e",
+    "usage": {
+      "candidatesTokenCount": 66,
+      "promptTokenCount": 1608,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1608
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 531,
+      "totalTokenCount": 2205
+    }
+  }
+}

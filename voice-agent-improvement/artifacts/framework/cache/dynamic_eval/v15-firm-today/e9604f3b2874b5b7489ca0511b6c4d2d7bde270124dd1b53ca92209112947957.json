@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "already_paid",
+    "should_end_call": true,
+    "spoken_response": "System mein payment abhi tak update nahi hua hai. Aap reference details ke saath Customer Care 1800-500-4444 par call kar sakte hain. Dhanyawad.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "already_paid"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 7471.6,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "e9604f3b2874b5b7489ca0511b6c4d2d7bde270124dd1b53ca92209112947957",
+    "response_hash": "9aab8afa63b9aaf91add9b2664fad220abb4145465a600000b5dbafbf7388aa4",
+    "usage": {
+      "candidatesTokenCount": 85,
+      "promptTokenCount": 1929,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1929
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1141,
+      "totalTokenCount": 3155
+    }
+  }
+}

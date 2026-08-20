@@ -1,0 +1,98 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-TERM-01",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "धन्यवाद। कृपया केवल आधिकारिक ऐप का उपयोग करें।",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-TERM-02",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thank you, kripya sirf official app ka use karein.",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-TERM-03",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thank you. Please use only the official app to pay.",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-TERM-04",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਧੰਨਵਾਦ। ਕਿਰਪਾ ਕਰਕੇ ਸਿਰਫ਼ ਆਧਿਕਾਰਿਕ ਐਪ ਦੀ ਵਰਤੋਂ ਕਰੋ।",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-TERM-05",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thank you, kripya sirf official app ka use karein.",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-TERM-06",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "धन्यवाद। कृपया केवल आधिकारिक ऐप का उपयोग करें।",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-TERM-07",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thank you, kripya sirf official app ka use karein.",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-TERM-08",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thank you. Please use only the official app to pay.",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-TERM-09",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਧੰਨਵਾਦ। ਕਿਰਪਾ ਕਰਕੇ ਸਿਰਫ਼ ਆਧਿਕਾਰਿਕ ਐਪ ਦੀ ਵਰਤੋਂ ਕਰੋ।",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-TERM-10",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thank you, kripya sirf official app ka use karein.",
+        "terminal_state": "payment_ready"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 12935.4,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "e09998883dfd1665b8d9bf41c6ccdf49236470b99d58c3d58900add53b33323d",
+    "response_hash": "fff71f5ed1adfca71fd1434f72dcbb4360cffb6c846e3dcbcd2194ef182a7aa1",
+    "usage": {
+      "candidatesTokenCount": 571,
+      "promptTokenCount": 4846,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 4846
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 2121,
+      "totalTokenCount": 7538
+    }
+  }
+}

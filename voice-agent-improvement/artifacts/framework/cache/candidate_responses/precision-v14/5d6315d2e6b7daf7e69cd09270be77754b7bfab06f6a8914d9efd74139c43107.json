@@ -1,0 +1,98 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-DISP-21",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "समझ गया। क्या आपके पास रिजेक्शन की रसीद है? आप सहायता के लिए कस्टमर केयर से संपर्क कर सकते हैं।",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-22",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Samajh gaya. Kya aapne iski complaint pehle register ki hai? Kripya help ke liye customer care se contact karein.",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-23",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Live verification is currently unavailable. Please contact customer care for payment reconciliation.",
+        "terminal_state": "already_paid"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-24",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਸਮਝ ਗਿਆ ਜੀ। ਕੀ ਤੁਸੀਂ ਇਸ ਬਾਰੇ ਪਹਿਲਾਂ ਸ਼ਿਕਾਇਤ ਕੀਤੀ ਹੈ? ਕਿਰਪਾ ਕਰਕੇ ਮਦਦ ਲਈ ਕਸਟਮਰ ਕੇਅਰ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-25",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Samajh gaya sir. Kya aapne iski complaint ki hai? Kripya help ke liye customer care se contact karein.",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-FD1-COND-21",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "ठीक है। तो आप इस EMI का भुगतान कब तक कर पाएंगे?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-COND-22",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "Thik hai, check karne ke baad kya aap abhi payment kar denge?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-COND-23",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "I cannot mark it as paid manually. Please complete the payment on the EasyCredit official app.",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-COND-24",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਠੀਕ ਹੈ ਜੀ, ਤੁਸੀਂ 20-08-2026 ਨੂੰ ਭੁਗਤਾਨ ਕਰ ਦੇਣਾ। ਧੰਨਵਾਦ।",
+        "terminal_state": "fptp"
+      },
+      {
+        "case_id": "EMI-FD1-COND-25",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Theek hai sir, aap baad mein app par check kar lijiye. Thank you.",
+        "terminal_state": "acknowledged"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 44730.3,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "5d6315d2e6b7daf7e69cd09270be77754b7bfab06f6a8914d9efd74139c43107",
+    "response_hash": "0c2ad99db3d554f76a863d678f7b8af64fa0369fdea20f8c031073806ba9842e",
+    "usage": {
+      "candidatesTokenCount": 662,
+      "promptTokenCount": 4321,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 4321
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 9243,
+      "totalTokenCount": 14226
+    }
+  }
+}

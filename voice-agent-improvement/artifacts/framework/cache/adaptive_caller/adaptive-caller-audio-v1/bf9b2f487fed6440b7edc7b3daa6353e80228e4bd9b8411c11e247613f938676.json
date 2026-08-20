@@ -1,0 +1,40 @@
+{
+  "data": {
+    "action": "speak",
+    "audio_quality": "clear",
+    "delay_ms": 0,
+    "heard_agent_text": "Hello, aap sun pa rahe hain?",
+    "heard_language": "hi",
+    "policy_node": "step-1",
+    "rationale": "The agent asked if I could hear them. I confirmed that I can hear and prompted them to state the reason for the call.",
+    "text": "Haan, sun rahi hoon. Boliye kis silsile mein call kiya hai?"
+  },
+  "metadata": {
+    "adapter_version": "gemini-audio-json.v1",
+    "audio_bytes": 86444,
+    "audio_sha256": "e41ac949dc5a2e76a737a7a87127936b93df974400d375801608460acdcc5161",
+    "cache_hit": false,
+    "latency_ms": 6689.7,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "bf9b2f487fed6440b7edc7b3daa6353e80228e4bd9b8411c11e247613f938676",
+    "response_hash": "a1f153c04997fb8cebf1f0dbfae5a7936e70e4b50a68605215ef905cb4d78946",
+    "usage": {
+      "candidatesTokenCount": 97,
+      "promptTokenCount": 583,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 515
+        },
+        {
+          "modality": "AUDIO",
+          "tokenCount": 68
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 646,
+      "totalTokenCount": 1326
+    }
+  }
+}

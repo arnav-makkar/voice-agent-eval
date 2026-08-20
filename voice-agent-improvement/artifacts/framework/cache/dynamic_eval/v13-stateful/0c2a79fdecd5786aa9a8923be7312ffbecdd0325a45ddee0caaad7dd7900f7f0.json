@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Kya koi waja hai ji? Aap kis tareekh tak yeh EMI pay kar sakte hain?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 6860.9,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "0c2a79fdecd5786aa9a8923be7312ffbecdd0325a45ddee0caaad7dd7900f7f0",
+    "response_hash": "b7fc15f8923d99c68d4c83f648fe7440b36720e9ed179e487176fab5ffbcc61d",
+    "usage": {
+      "candidatesTokenCount": 44,
+      "promptTokenCount": 1607,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1607
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 926,
+      "totalTokenCount": 2577
+    }
+  }
+}

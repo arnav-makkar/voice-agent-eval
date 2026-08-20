@@ -1,0 +1,35 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-COND-02",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "Ji, check karke kya aap abhi Rs 3800 pay kar denge?",
+        "terminal_state": ""
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 11185.6,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "e3d7f6dc89db090d7cabefbe341470f41bd624ba02102723f6d92e6cddf28f24",
+    "response_hash": "50b3f5e1044fd3180e4520b44f87689fcfdbc66d879b8a673d8aa6509dafbe88",
+    "usage": {
+      "candidatesTokenCount": 60,
+      "promptTokenCount": 1481,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1481
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1714,
+      "totalTokenCount": 3255
+    }
+  }
+}

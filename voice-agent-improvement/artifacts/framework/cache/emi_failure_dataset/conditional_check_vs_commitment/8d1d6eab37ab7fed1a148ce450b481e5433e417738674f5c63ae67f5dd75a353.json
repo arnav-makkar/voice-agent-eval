@@ -1,0 +1,508 @@
+{
+  "data": {
+    "cases": [
+      {
+        "case_id": "EMI-FD1-COND-11",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "overdue",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Aarav Sharma",
+          "due_date": "10-08-2026",
+          "late_charge_inr": 250,
+          "official_payment_route": "EasyCredit official app",
+          "outstanding_amount_inr": 4500,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent acknowledges checking the app and asks to proceed with payment if details match, without assuming payment is already completed.",
+          "caller_goal": "Verify account status on app before committing to pay.",
+          "next_behavior_if_handled_badly": "Will hang up if agent claims payment is confirmed or demands immediate OTP.",
+          "next_behavior_if_handled_well": "Will check app and complete payment if verified."
+        },
+        "language": "Hindi",
+        "visible_agent_context": {
+          "conversation_history": [
+            {
+              "actor": "agent",
+              "content": "नमस्ते, मैं EasyCredit Finance से बात कर रहा हूँ। आपके Samsung TV की EMI रु 4500 बकाया है।"
+            },
+            {
+              "actor": "caller",
+              "content": "मैं कैसे मानूँ कि यह कॉल असली है?"
+            },
+            {
+              "actor": "agent",
+              "content": "सुरक्षा के लिए आप खुद EasyCredit official app में लॉगिन करके अपना अकाउंट चेक कर सकते हैं।"
+            }
+          ],
+          "customer_profile": {
+            "customer_name": "Aarav Sharma",
+            "due_date": "10-08-2026",
+            "late_charge_inr": 250,
+            "official_payment_route": "EasyCredit official app",
+            "outstanding_amount_inr": 4500,
+            "product_name": "Samsung TV"
+          },
+          "latest_caller_utterance": "ठीक है, मैं अभी ऐप खोलकर चेक करता हूँ।"
+        }
+      },
+      {
+        "case_id": "EMI-FD1-COND-12",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "overdue",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Ramesh Verma",
+          "due_date": "15-08-2026",
+          "late_charge_inr": 200,
+          "official_payment_route": "EasyCredit official app",
+          "outstanding_amount_inr": 3200,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent converts the tentative date 25 August into a clear promise_to_pay or callback request without treating it as guaranteed payment today.",
+          "caller_goal": "Set a conditional payment attempt after salary date.",
+          "next_behavior_if_handled_badly": "Gets annoyed if agent treats checking on 25th as paid now.",
+          "next_behavior_if_handled_well": "Agrees to confirm 25th August as promise date."
+        },
+        "language": "Hinglish",
+        "visible_agent_context": {
+          "conversation_history": [
+            {
+              "actor": "agent",
+              "content": "Hello Ramesh Ji, aapki Samsung TV ki Rs 3200 ki EMI overdue hai."
+            },
+            {
+              "actor": "caller",
+              "content": "Paisa abhi nahi hai, salary aane pe try karunga."
+            },
+            {
+              "actor": "agent",
+              "content": "Aapki salary kab tak aayegi?"
+            }
+          ],
+          "customer_profile": {
+            "customer_name": "Ramesh Verma",
+            "due_date": "15-08-2026",
+            "late_charge_inr": 200,
+            "official_payment_route": "EasyCredit official app",
+            "outstanding_amount_inr": 3200,
+            "product_name": "Samsung TV"
+          },
+          "latest_caller_utterance": "25 August tak aayegi, tab app check karke try karunga pay karne ka."
+        }
+      },
+      {
+        "case_id": "EMI-FD1-COND-13",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "overdue",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Vikram Malhotra",
+          "due_date": "05-08-2026",
+          "late_charge_inr": 300,
+          "official_payment_route": "EasyCredit official app",
+          "outstanding_amount_inr": 5000,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent acknowledges uncertainty and asks if a specific callback time works or if they will pay via EasyCredit official app within 10 minutes.",
+          "caller_goal": "Avoid committing to immediate payment while busy.",
+          "next_behavior_if_handled_badly": "Disconnects if agent logs the payment as confirmed.",
+          "next_behavior_if_handled_well": "Agrees to a callback in 15 minutes."
+        },
+        "language": "English",
+        "visible_agent_context": {
+          "conversation_history": [
+            {
+              "actor": "agent",
+              "content": "Hello Vikram, calling from EasyCredit regarding your overdue EMI of Rs 5000 for Samsung TV."
+            },
+            {
+              "actor": "caller",
+              "content": "I'm in a meeting right now."
+            },
+            {
+              "actor": "agent",
+              "content": "I understand, but the payment due date was 05-08-2026. Can you clear it today?"
+            }
+          ],
+          "customer_profile": {
+            "customer_name": "Vikram Malhotra",
+            "due_date": "05-08-2026",
+            "late_charge_inr": 300,
+            "official_payment_route": "EasyCredit official app",
+            "outstanding_amount_inr": 5000,
+            "product_name": "Samsung TV"
+          },
+          "latest_caller_utterance": "Maybe I can open the app and try in 10 minutes, but don't count on it."
+        }
+      },
+      {
+        "case_id": "EMI-FD1-COND-14",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "overdue",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Gurpreet Singh",
+          "due_date": "12-08-2026",
+          "late_charge_inr": 150,
+          "official_payment_route": "EasyCredit official app",
+          "outstanding_amount_inr": 4000,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent notes the check step and asks to confirm payment once verified, without treating check as promise_to_pay or payment_ready.",
+          "caller_goal": "Check app balance before committing to any payment.",
+          "next_behavior_if_handled_badly": "Hangs up if agent assumes payment is already done.",
+          "next_behavior_if_handled_well": "Will stay on line or check app and give update."
+        },
+        "language": "Punjabi",
+        "visible_agent_context": {
+          "conversation_history": [
+            {
+              "actor": "agent",
+              "content": "Sat Sri Akal ji, main EasyCredit ton bol reha haan. Samsung TV di EMI Rs 4000 overdue hai."
+            },
+            {
+              "actor": "caller",
+              "content": "Mainu ki pata eh sahi call hai ki nahi?"
+            },
+            {
+              "actor": "agent",
+              "content": "Tusi EasyCredit official app te jaake check kar sakde ho."
+            }
+          ],
+          "customer_profile": {
+            "customer_name": "Gurpreet Singh",
+            "due_date": "12-08-2026",
+            "late_charge_inr": 150,
+            "official_payment_route": "EasyCredit official app",
+            "outstanding_amount_inr": 4000,
+            "product_name": "Samsung TV"
+          },
+          "latest_caller_utterance": "Acha main app khol ke balance check karda haan, pehla nahi keh sakda payment hovegi."
+        }
+      },
+      {
+        "case_id": "EMI-FD1-COND-15",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "overdue",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Sunita Gupta",
+          "due_date": "18-08-2026",
+          "late_charge_inr": 200,
+          "official_payment_route": "EasyCredit official app",
+          "outstanding_amount_inr": 3800,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent politely pauses, offers to stay on line or wait while caller checks EasyCredit official app, without forcing instant commitment.",
+          "caller_goal": "Check the app calmly without agent pressure.",
+          "next_behavior_if_handled_badly": "Disconnects if agent pushes for payment confirmation before check is complete.",
+          "next_behavior_if_handled_well": "Checks app and confirms payment if amount matches."
+        },
+        "language": "Hinglish",
+        "visible_agent_context": {
+          "conversation_history": [
+            {
+              "actor": "agent",
+              "content": "Hello Sunita ji, EasyCredit se aapke Samsung TV ke EMI amount Rs 3800 baaki hai..."
+            },
+            {
+              "actor": "caller",
+              "content": "Fake call lag raha hai mujhe."
+            },
+            {
+              "actor": "agent",
+              "content": "Aap kisi ko payment na karein, sirf EasyCredit official app open karke..."
+            }
+          ],
+          "customer_profile": {
+            "customer_name": "Sunita Gupta",
+            "due_date": "18-08-2026",
+            "late_charge_inr": 200,
+            "official_payment_route": "EasyCredit official app",
+            "outstanding_amount_inr": 3800,
+            "product_name": "Samsung TV"
+          },
+          "latest_caller_utterance": "Ruko ruko! Pehle mujhe app khol ke check karne do, jaldi mat machao!"
+        }
+      },
+      {
+        "case_id": "EMI-FD1-COND-16",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "overdue",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Pankaj Yadav",
+          "due_date": "14-08-2026",
+          "late_charge_inr": 350,
+          "official_payment_route": "EasyCredit official app",
+          "outstanding_amount_inr": 6000,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent avoids recording payment_ready or promise_to_pay, and asks if a callback or tentative date can be scheduled if funds are low.",
+          "caller_goal": "Check account balance without promising payment today.",
+          "next_behavior_if_handled_badly": "Gets hostile if agent records payment promise.",
+          "next_behavior_if_handled_well": "Agrees to check now or set a callback time."
+        },
+        "language": "Hindi",
+        "visible_agent_context": {
+          "conversation_history": [
+            {
+              "actor": "agent",
+              "content": "नमस्ते, EasyCredit Finance से। आपके Samsung TV का 6000 रुपये का EMI बकाया है।"
+            },
+            {
+              "actor": "caller",
+              "content": "अभी खाते में पैसे हैं या नहीं, मुझे चेक करना पड़ेगा।"
+            },
+            {
+              "actor": "agent",
+              "content": "आप EasyCredit official app पर जाकर देख सकते हैं।"
+            }
+          ],
+          "customer_profile": {
+            "customer_name": "Pankaj Yadav",
+            "due_date": "14-08-2026",
+            "late_charge_inr": 350,
+            "official_payment_route": "EasyCredit official app",
+            "outstanding_amount_inr": 6000,
+            "product_name": "Samsung TV"
+          },
+          "latest_caller_utterance": "हाँ, मैं ऐप में चेक करके देखूँगा, पर आज पेमेंट होगा या नहीं गारंटी नहीं है।"
+        }
+      },
+      {
+        "case_id": "EMI-FD1-COND-17",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "overdue",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Deepak Patel",
+          "due_date": "11-08-2026",
+          "late_charge_inr": 200,
+          "official_payment_route": "EasyCredit official app",
+          "outstanding_amount_inr": 4200,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent accurately captures callback disposition for evening instead of false payment commitment.",
+          "caller_goal": "Schedule a callback for evening after checking app.",
+          "next_behavior_if_handled_badly": "Hangs up if agent insists on paying right now while driving.",
+          "next_behavior_if_handled_well": "Confirms evening callback time."
+        },
+        "language": "Hinglish",
+        "visible_agent_context": {
+          "conversation_history": [
+            {
+              "actor": "agent",
+              "content": "Sir, aapka Samsung TV ka EMI amount Rs 4200 due date 11-08-2026 tak overdue tha."
+            },
+            {
+              "actor": "caller",
+              "content": "Main abhi driving kar raha hoon, busy hoon."
+            },
+            {
+              "actor": "agent",
+              "content": "Kya aap shaam tak pay kar sakte hain?"
+            }
+          ],
+          "customer_profile": {
+            "customer_name": "Deepak Patel",
+            "due_date": "11-08-2026",
+            "late_charge_inr": 200,
+            "official_payment_route": "EasyCredit official app",
+            "outstanding_amount_inr": 4200,
+            "product_name": "Samsung TV"
+          },
+          "latest_caller_utterance": "Ghar pahunch ke app pe try karunga, shaam ko call kar lena agar nahi hua to."
+        }
+      },
+      {
+        "case_id": "EMI-FD1-COND-18",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "overdue",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Ananya Roy",
+          "due_date": "08-08-2026",
+          "late_charge_inr": 250,
+          "official_payment_route": "EasyCredit official app",
+          "outstanding_amount_inr": 5500,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent distinguishes checking the app from payment commitment and asks one concise follow-up question or offers callback.",
+          "caller_goal": "Verify balance without making immediate payment commitment.",
+          "next_behavior_if_handled_badly": "Marks call as aggressive if agent claims payment is promised.",
+          "next_behavior_if_handled_well": "Agrees to check app now and report back."
+        },
+        "language": "English",
+        "visible_agent_context": {
+          "conversation_history": [
+            {
+              "actor": "agent",
+              "content": "Hello, this is EasyCredit calling regarding your Samsung TV loan payment of Rs 5500."
+            },
+            {
+              "actor": "caller",
+              "content": "Is this spam? How do I know this is real?"
+            },
+            {
+              "actor": "agent",
+              "content": "You don't need to share anything on this call. Simply open the EasyCredit official app to verify your outstanding balance."
+            }
+          ],
+          "customer_profile": {
+            "customer_name": "Ananya Roy",
+            "due_date": "08-08-2026",
+            "late_charge_inr": 250,
+            "official_payment_route": "EasyCredit official app",
+            "outstanding_amount_inr": 5500,
+            "product_name": "Samsung TV"
+          },
+          "latest_caller_utterance": "Okay, I will open the app and take a look, but I am not agreeing to pay right now."
+        }
+      },
+      {
+        "case_id": "EMI-FD1-COND-19",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "overdue",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Harpreet Kaur",
+          "due_date": "22-08-2026",
+          "late_charge_inr": 200,
+          "official_payment_route": "EasyCredit official app",
+          "outstanding_amount_inr": 4800,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent patiently offers to wait or call back if net issue persists, without marking payment as confirmed.",
+          "caller_goal": "Attempt app check despite poor internet connection.",
+          "next_behavior_if_handled_badly": "Ends call if agent treats slow attempt as completed payment.",
+          "next_behavior_if_handled_well": "Will try opening app or ask for callback."
+        },
+        "language": "Punjabi",
+        "visible_agent_context": {
+          "conversation_history": [
+            {
+              "actor": "agent",
+              "content": "Sat Sri Akal, EasyCredit ton call hai ji. Aapka Samsung TV da EMI Rs 4800 baki hai."
+            },
+            {
+              "actor": "caller",
+              "content": "Mainu lagda hai koi fraud call hai."
+            },
+            {
+              "actor": "agent",
+              "content": "Ji tusi EasyCredit official app te aape check kar sakde ho."
+            }
+          ],
+          "customer_profile": {
+            "customer_name": "Harpreet Kaur",
+            "due_date": "22-08-2026",
+            "late_charge_inr": 200,
+            "official_payment_route": "EasyCredit official app",
+            "outstanding_amount_inr": 4800,
+            "product_name": "Samsung TV"
+          },
+          "latest_caller_utterance": "Thik hai, main app khol ke koshish karda haan, par net hauli hai te hovega ki nahi pata nahi."
+        }
+      },
+      {
+        "case_id": "EMI-FD1-COND-20",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "overdue",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Vivek Saxena",
+          "due_date": "16-08-2026",
+          "late_charge_inr": 150,
+          "official_payment_route": "EasyCredit official app",
+          "outstanding_amount_inr": 3500,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent notes the conditional check tomorrow and attempts concise conversion to a promise to pay or callback after bonus check, without claiming payment is guaranteed.",
+          "caller_goal": "Condition payment strictly on bonus credit tomorrow.",
+          "next_behavior_if_handled_badly": "Refuses to talk if agent assumes payment is 100% guaranteed tomorrow.",
+          "next_behavior_if_handled_well": "Agrees to receive callback tomorrow afternoon."
+        },
+        "language": "Hinglish",
+        "visible_agent_context": {
+          "conversation_history": [
+            {
+              "actor": "agent",
+              "content": "Hello Vivek ji, EasyCredit se call hai. Aapke Samsung TV ka Rs 3500 ka EMI due date 16-08-2026 tak..."
+            },
+            {
+              "actor": "caller",
+              "content": "Suno suno! EMI clear tabhi karunga jab kal bonus credit hoga."
+            },
+            {
+              "actor": "agent",
+              "content": "Achha, to kya aap kal confirm..."
+            }
+          ],
+          "customer_profile": {
+            "customer_name": "Vivek Saxena",
+            "due_date": "16-08-2026",
+            "late_charge_inr": 150,
+            "official_payment_route": "EasyCredit official app",
+            "outstanding_amount_inr": 3500,
+            "product_name": "Samsung TV"
+          },
+          "latest_caller_utterance": "Arey baat poori suno! Kal check karunga bonus aaya ki nahi, aaya toh pay karunga varna nahi!"
+        }
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 51050.2,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "8d1d6eab37ab7fed1a148ce450b481e5433e417738674f5c63ae67f5dd75a353",
+    "response_hash": "426801e7b36961f5b384bc475127924153339359c4f0e47d5f23c42160709cba",
+    "usage": {
+      "candidatesTokenCount": 5592,
+      "promptTokenCount": 1912,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1912
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 5917,
+      "totalTokenCount": 13421
+    }
+  }
+}

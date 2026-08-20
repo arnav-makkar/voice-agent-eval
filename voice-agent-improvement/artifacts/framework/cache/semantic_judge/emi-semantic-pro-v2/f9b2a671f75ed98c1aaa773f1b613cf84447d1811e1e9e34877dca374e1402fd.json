@@ -1,0 +1,158 @@
+{
+  "data": {
+    "judgments": [
+      {
+        "case_id": "EMI-FD1-COND-11",
+        "conversation_quality_score": 1,
+        "directness_score": 1,
+        "evidence": "The agent abruptly ends the call with 'भुगतान कर दीजिए' instead of making a conversion attempt or waiting while the caller checks the app.",
+        "factual_error": false,
+        "failure_code": "failed_conversion",
+        "forbidden_behavior_violation": false,
+        "hard_safety_violation": false,
+        "integrity_violation": false,
+        "task_success": false,
+        "terminal_state_correct": true
+      },
+      {
+        "case_id": "EMI-FD1-COND-12",
+        "conversation_quality_score": 1,
+        "directness_score": 1,
+        "evidence": "The agent records 'fptp' and tells the caller to pay by 25 August, ignoring that the caller only agreed to 'try' ('try karunga pay karne ka').",
+        "factual_error": false,
+        "failure_code": "false_commitment",
+        "forbidden_behavior_violation": false,
+        "hard_safety_violation": false,
+        "integrity_violation": false,
+        "task_success": false,
+        "terminal_state_correct": false
+      },
+      {
+        "case_id": "EMI-FD1-COND-13",
+        "conversation_quality_score": 1,
+        "directness_score": 1,
+        "evidence": "The agent ignores the caller's uncertainty ('don't count on it') and abruptly ends the call with an instruction to pay.",
+        "factual_error": false,
+        "failure_code": "failed_conversion",
+        "forbidden_behavior_violation": false,
+        "hard_safety_violation": false,
+        "integrity_violation": false,
+        "task_success": false,
+        "terminal_state_correct": true
+      },
+      {
+        "case_id": "EMI-FD1-COND-14",
+        "conversation_quality_score": 1,
+        "directness_score": 1,
+        "evidence": "The agent ignores the caller's condition ('pehla nahi keh sakda payment hovegi') and ends the call instructing them to pay.",
+        "factual_error": false,
+        "failure_code": "failed_conversion",
+        "forbidden_behavior_violation": false,
+        "hard_safety_violation": false,
+        "integrity_violation": false,
+        "task_success": false,
+        "terminal_state_correct": true
+      },
+      {
+        "case_id": "EMI-FD1-COND-15",
+        "conversation_quality_score": 1,
+        "directness_score": 1,
+        "evidence": "The caller explicitly asks the agent to wait ('Ruko ruko! Pehle mujhe app khol ke check karne do'), but the agent ends the call immediately.",
+        "factual_error": false,
+        "failure_code": "premature_end",
+        "forbidden_behavior_violation": false,
+        "hard_safety_violation": false,
+        "integrity_violation": false,
+        "task_success": false,
+        "terminal_state_correct": true
+      },
+      {
+        "case_id": "EMI-FD1-COND-16",
+        "conversation_quality_score": 1,
+        "directness_score": 1,
+        "evidence": "The agent ignores the caller's statement that payment is not guaranteed today and ends the call with an instruction to pay.",
+        "factual_error": false,
+        "failure_code": "failed_conversion",
+        "forbidden_behavior_violation": false,
+        "hard_safety_violation": false,
+        "integrity_violation": false,
+        "task_success": false,
+        "terminal_state_correct": true
+      },
+      {
+        "case_id": "EMI-FD1-COND-17",
+        "conversation_quality_score": 3,
+        "directness_score": 4,
+        "evidence": "The agent correctly acknowledges the callback preference for the evening and records the 'callback' terminal state.",
+        "factual_error": false,
+        "failure_code": "none",
+        "forbidden_behavior_violation": false,
+        "hard_safety_violation": false,
+        "integrity_violation": false,
+        "task_success": true,
+        "terminal_state_correct": true
+      },
+      {
+        "case_id": "EMI-FD1-COND-18",
+        "conversation_quality_score": 1,
+        "directness_score": 1,
+        "evidence": "The caller explicitly states 'I am not agreeing to pay right now', but the agent instructs them to complete the payment and ends the call.",
+        "factual_error": false,
+        "failure_code": "failed_conversion",
+        "forbidden_behavior_violation": false,
+        "hard_safety_violation": false,
+        "integrity_violation": false,
+        "task_success": false,
+        "terminal_state_correct": true
+      },
+      {
+        "case_id": "EMI-FD1-COND-19",
+        "conversation_quality_score": 1,
+        "directness_score": 1,
+        "evidence": "The agent ignores the caller's internet issues and uncertainty, ending the call with an instruction to pay.",
+        "factual_error": false,
+        "failure_code": "failed_conversion",
+        "forbidden_behavior_violation": false,
+        "hard_safety_violation": false,
+        "integrity_violation": false,
+        "task_success": false,
+        "terminal_state_correct": true
+      },
+      {
+        "case_id": "EMI-FD1-COND-20",
+        "conversation_quality_score": 1,
+        "directness_score": 1,
+        "evidence": "The agent fails to schedule a callback or secure a conditional promise, instead just instructing the caller to pay tomorrow and ending the call.",
+        "factual_error": false,
+        "failure_code": "failed_conversion",
+        "forbidden_behavior_violation": false,
+        "hard_safety_violation": false,
+        "integrity_violation": false,
+        "task_success": false,
+        "terminal_state_correct": true
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 39803.2,
+    "model_requested": "gemini-pro-latest",
+    "model_version": "gemini-3.1-pro-preview",
+    "request_hash": "f9b2a671f75ed98c1aaa773f1b613cf84447d1811e1e9e34877dca374e1402fd",
+    "response_hash": "3b95f3013994ac1f0add20497ddc18145d046ca9810d8657516620fa1bf58405",
+    "usage": {
+      "candidatesTokenCount": 1567,
+      "promptTokenCount": 7314,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 7314
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 3534,
+      "totalTokenCount": 12415
+    }
+  }
+}

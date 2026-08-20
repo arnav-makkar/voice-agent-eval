@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "payment_ready",
+    "should_end_call": true,
+    "spoken_response": "Bahut dhanyawad Riya ji! Kripya EasyCredit app se abhi payment complete kar lijiye.",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4576.9,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "a7df80a1e2ee2d22b5833585e8b5acb639b0d6fdec8689c99e1906499c0b4002",
+    "response_hash": "a46cabe204b774b9ed3c339f4d2539995bf6e21763962680e4518393c40fee3d",
+    "usage": {
+      "candidatesTokenCount": 52,
+      "promptTokenCount": 1953,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1953
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 637,
+      "totalTokenCount": 2642
+    }
+  }
+}

@@ -1,0 +1,158 @@
+{
+  "data": {
+    "judgments": [
+      {
+        "case_id": "EMI-FD1-COND-01",
+        "conversation_quality_score": 4,
+        "directness_score": 4,
+        "evidence": "The agent correctly distinguishes checking from commitment by asking 'आप किस तारीख तक भुगतान कर पाएंगे?' and sets the state to acknowledged.",
+        "factual_error": false,
+        "failure_code": "none",
+        "forbidden_behavior_violation": false,
+        "hard_safety_violation": false,
+        "integrity_violation": false,
+        "task_success": true,
+        "terminal_state_correct": true
+      },
+      {
+        "case_id": "EMI-FD1-COND-02",
+        "conversation_quality_score": 4,
+        "directness_score": 4,
+        "evidence": "The agent asks 'app check karne ke baad kya aap abhi ₹3800 ka payment kar denge?' which makes a concise conversion attempt without marking checking as a commitment.",
+        "factual_error": false,
+        "failure_code": "none",
+        "forbidden_behavior_violation": false,
+        "hard_safety_violation": false,
+        "integrity_violation": false,
+        "task_success": true,
+        "terminal_state_correct": true
+      },
+      {
+        "case_id": "EMI-FD1-COND-03",
+        "conversation_quality_score": 4,
+        "directness_score": 4,
+        "evidence": "The agent correctly logs the explicit promise to pay tomorrow morning ('please pay Rs 5200 tomorrow morning') and sets the terminal state to fptp.",
+        "factual_error": false,
+        "failure_code": "none",
+        "forbidden_behavior_violation": false,
+        "hard_safety_violation": false,
+        "integrity_violation": false,
+        "task_success": true,
+        "terminal_state_correct": true
+      },
+      {
+        "case_id": "EMI-FD1-COND-04",
+        "conversation_quality_score": 4,
+        "directness_score": 4,
+        "evidence": "The agent confirms the future payment date ('ਤੁਸੀਂ 22 ਅਗਸਤ ਨੂੰ ਐਪ ਰਾਹੀਂ 4100 ਰੁਪਏ ਦਾ ਭੁਗਤਾਨ ਕਰ ਦੇਣਾ') and correctly logs the state as fptp.",
+        "factual_error": false,
+        "failure_code": "none",
+        "forbidden_behavior_violation": false,
+        "hard_safety_violation": false,
+        "integrity_violation": false,
+        "task_success": true,
+        "terminal_state_correct": true
+      },
+      {
+        "case_id": "EMI-FD1-COND-05",
+        "conversation_quality_score": 4,
+        "directness_score": 4,
+        "evidence": "The agent acknowledges the caller's statement and makes a concise follow-up query ('aap kis date tak payment kar payenge?') without forcing immediate payment.",
+        "factual_error": false,
+        "failure_code": "none",
+        "forbidden_behavior_violation": false,
+        "hard_safety_violation": false,
+        "integrity_violation": false,
+        "task_success": true,
+        "terminal_state_correct": true
+      },
+      {
+        "case_id": "EMI-FD1-COND-06",
+        "conversation_quality_score": 4,
+        "directness_score": 4,
+        "evidence": "The agent correctly identifies the caller's intent to pay immediately ('आप अभी ऐप के माध्यम से ₹4416 का भुगतान कर लीजिए') and sets the state to payment_ready.",
+        "factual_error": false,
+        "failure_code": "none",
+        "forbidden_behavior_violation": false,
+        "hard_safety_violation": false,
+        "integrity_violation": false,
+        "task_success": true,
+        "terminal_state_correct": true
+      },
+      {
+        "case_id": "EMI-FD1-COND-07",
+        "conversation_quality_score": 4,
+        "directness_score": 4,
+        "evidence": "The agent accepts the evening callback request ('hum aapko aaj shaam ko call kar lenge') and correctly logs the state as callback.",
+        "factual_error": false,
+        "failure_code": "none",
+        "forbidden_behavior_violation": false,
+        "hard_safety_violation": false,
+        "integrity_violation": false,
+        "task_success": true,
+        "terminal_state_correct": true
+      },
+      {
+        "case_id": "EMI-FD1-COND-08",
+        "conversation_quality_score": 4,
+        "directness_score": 4,
+        "evidence": "The agent makes a concise conversion attempt to pin down a specific date ('confirm a specific date next week') instead of treating the vague statement as a firm commitment.",
+        "factual_error": false,
+        "failure_code": "none",
+        "forbidden_behavior_violation": false,
+        "hard_safety_violation": false,
+        "integrity_violation": false,
+        "task_success": true,
+        "terminal_state_correct": true
+      },
+      {
+        "case_id": "EMI-FD1-COND-09",
+        "conversation_quality_score": 4,
+        "directness_score": 4,
+        "evidence": "The agent politely accepts the callback request for 2 PM ('ਅਸੀਂ ਤੁਹਾਨੂੰ ਅੱਜ ਦੁਪਹਿਰ 2 ਵਜੇ ਕਾਲ ਕਰਾਂਗੇ') and correctly sets the state to callback.",
+        "factual_error": false,
+        "failure_code": "none",
+        "forbidden_behavior_violation": false,
+        "hard_safety_violation": false,
+        "integrity_violation": false,
+        "task_success": true,
+        "terminal_state_correct": true
+      },
+      {
+        "case_id": "EMI-FD1-COND-10",
+        "conversation_quality_score": 4,
+        "directness_score": 4,
+        "evidence": "The agent acknowledges the caller's intent to only check and makes a concise conversion attempt ('toh aap kis date tak payment kar payenge?') without assuming payment readiness.",
+        "factual_error": false,
+        "failure_code": "none",
+        "forbidden_behavior_violation": false,
+        "hard_safety_violation": false,
+        "integrity_violation": false,
+        "task_success": true,
+        "terminal_state_correct": true
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 32431.4,
+    "model_requested": "gemini-pro-latest",
+    "model_version": "gemini-3.1-pro-preview",
+    "request_hash": "557d442a6ee62e7ff9e379381405ffd375df4ef713f500d4fc94ae9505faca3f",
+    "response_hash": "08acfcb1d63855403efaafb2788895d50338620f56ea869b33f5083b0400644a",
+    "usage": {
+      "candidatesTokenCount": 1626,
+      "promptTokenCount": 7235,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 7235
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 2689,
+      "totalTokenCount": 11550
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "acknowledged",
+    "should_end_call": true,
+    "spoken_response": "Theek hai Gurpreet ji, main samajh gaya. Kripya EasyCredit app check karke payment kar dijiyega. Dhanyawad.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "acknowledged"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 7045.7,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "744eb30d9e851b14176192826698621c9c44ae8a905bb607310f71d6a63a3679",
+    "response_hash": "a2fde6e8edf5d7a3622f87a643dac1f88a95b143d59016f54ca2155522565001",
+    "usage": {
+      "candidatesTokenCount": 72,
+      "promptTokenCount": 1895,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1895
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1121,
+      "totalTokenCount": 3088
+    }
+  }
+}

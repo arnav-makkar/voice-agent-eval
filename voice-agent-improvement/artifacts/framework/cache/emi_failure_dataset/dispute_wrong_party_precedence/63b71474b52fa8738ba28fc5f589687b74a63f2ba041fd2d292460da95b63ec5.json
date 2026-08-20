@@ -1,0 +1,436 @@
+{
+  "data": {
+    "cases": [
+      {
+        "case_id": "EMI-FD1-DISP-11",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "payment_pending_reconciliation",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Aarav Sharma",
+          "due_date": "12-08-2026",
+          "late_charge_inr": 300,
+          "official_payment_route": "EasyCredit official app",
+          "outstanding_amount_inr": 4500,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent acknowledges the payment claim, stops demanding immediate payment, and guides to verification without treating it as a refusal.",
+          "caller_goal": "Stop collection agents from demanding duplicate payment for an already paid EMI.",
+          "next_behavior_if_handled_badly": "Disconnect call angrily due to harassment for paid bill.",
+          "next_behavior_if_handled_well": "Provide reference number or wait while agent logs payment verification request."
+        },
+        "language": "Hindi",
+        "visible_agent_context": {
+          "conversation_history": [
+            {
+              "actor": "agent",
+              "content": "नमस्ते आरव जी, मैं EasyCredit से बात कर रहा हूँ। आपके Samsung TV की EMI बाकी है।"
+            },
+            {
+              "actor": "caller",
+              "content": "अरे भाई, मैंने कल ही EasyCredit official app से 4500 रुपये का भुगतान कर दिया है।"
+            }
+          ],
+          "customer_profile": {
+            "customer_name": "Aarav Sharma",
+            "due_date": "12-08-2026",
+            "late_charge_inr": 300,
+            "official_payment_route": "EasyCredit official app",
+            "outstanding_amount_inr": 4500,
+            "product_name": "Samsung TV"
+          },
+          "latest_caller_utterance": "मेरे खाते से पैसे कट चुके हैं, दोबारा भुगतान नहीं करुँगा।"
+        }
+      },
+      {
+        "case_id": "EMI-FD1-DISP-12",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "disputed_purchase",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Rohan Verma",
+          "due_date": "18-08-2026",
+          "late_charge_inr": 400,
+          "official_payment_route": "EasyCredit official app",
+          "outstanding_amount_inr": 5200,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent correctly logs a transaction dispute and stops demanding payment, instead of incorrectly marking it as wrong contact number.",
+          "caller_goal": "Dispute the validity of the loan purchase without being dismissed as a wrong number or forced to pay.",
+          "next_behavior_if_handled_badly": "Raise formal grievance against false billing.",
+          "next_behavior_if_handled_well": "Cooperate with dispute logging process."
+        },
+        "language": "Hinglish",
+        "visible_agent_context": {
+          "conversation_history": [
+            {
+              "actor": "agent",
+              "content": "Hello Rohan ji, EasyCredit se call hai. Aapke Samsung TV EMI 5200 rupees pending show kar raha hai."
+            }
+          ],
+          "customer_profile": {
+            "customer_name": "Rohan Verma",
+            "due_date": "18-08-2026",
+            "late_charge_inr": 400,
+            "official_payment_route": "EasyCredit official app",
+            "outstanding_amount_inr": 5200,
+            "product_name": "Samsung TV"
+          },
+          "latest_caller_utterance": "Listen, maine aisa koi Samsung TV order hi nahi kiya, yeh mera purchase hi nahi hai. Main yeh payment pay nahi karunga."
+        }
+      },
+      {
+        "case_id": "EMI-FD1-DISP-13",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "fraud_flagged",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Priya Nair",
+          "due_date": "10-08-2026",
+          "late_charge_inr": 500,
+          "official_payment_route": "EasyCredit official app",
+          "outstanding_amount_inr": 6100,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent flags the account for fraud investigation or escalation and refrains from urging payment or treating it as a simple payment delay.",
+          "caller_goal": "Report identity theft and fraudulent account creation, expecting immediate cessation of recovery efforts.",
+          "next_behavior_if_handled_badly": "Escalate to cyber cell and refuse further conversation.",
+          "next_behavior_if_handled_well": "Provide police complaint copy or fraud reference details if guided to official channel."
+        },
+        "language": "English",
+        "visible_agent_context": {
+          "conversation_history": [
+            {
+              "actor": "agent",
+              "content": "Hello Ms. Priya, calling from EasyCredit regarding your overdue Samsung TV loan EMI of 6100 rupees."
+            }
+          ],
+          "customer_profile": {
+            "customer_name": "Priya Nair",
+            "due_date": "10-08-2026",
+            "late_charge_inr": 500,
+            "official_payment_route": "EasyCredit official app",
+            "outstanding_amount_inr": 6100,
+            "product_name": "Samsung TV"
+          },
+          "latest_caller_utterance": "Someone opened this EasyCredit account using my stolen identity! I never applied for any loan or bought a Samsung TV, this is a clear fraud case!"
+        }
+      },
+      {
+        "case_id": "EMI-FD1-DISP-14",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "paid_unreconciled",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Gurpreet Singh",
+          "due_date": "22-08-2026",
+          "late_charge_inr": 300,
+          "official_payment_route": "EasyCredit official app",
+          "outstanding_amount_inr": 4800,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent registers the already-paid status and stops asking for immediate money, giving clear steps for receipt verification.",
+          "caller_goal": "Confirm payment has been made and request record update without paying again.",
+          "next_behavior_if_handled_badly": "Express anger about unupdated system records and end call.",
+          "next_behavior_if_handled_well": "Offer to share transaction reference number."
+        },
+        "language": "Punjabi",
+        "visible_agent_context": {
+          "conversation_history": [
+            {
+              "actor": "agent",
+              "content": "ਸਤਿ ਸ਼੍ਰੀ ਅਕਾਲ ਗੁਰਪ੍ਰੀਤ ਜੀ, EasyCredit ਤੋਂ ਗੱਲ ਕਰ ਰਿਹਾ ਹਾਂ। ਤੁਹਾਡੀ Samsung TV ਦੀ 4800 ਰੁਪਏ ਦੀ EMI ਲੇਟ ਹੈ।"
+            }
+          ],
+          "customer_profile": {
+            "customer_name": "Gurpreet Singh",
+            "due_date": "22-08-2026",
+            "late_charge_inr": 300,
+            "official_payment_route": "EasyCredit official app",
+            "outstanding_amount_inr": 4800,
+            "product_name": "Samsung TV"
+          },
+          "latest_caller_utterance": "ਮੈਂ ਪਰਸੋਂ ਹੀ EasyCredit official app ਰਾਹੀਂ ਪੂਰੀ ਪੇਮੈਂਟ ਕਰ ਦਿੱਤੀ ਸੀ, ਮੇਰੇ ਕੋਲ ਰਸੀਦ ਵੀ ਹੈਗੀ ਹੈ।"
+        }
+      },
+      {
+        "case_id": "EMI-FD1-DISP-15",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "disputed_purchase",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Ankit Mehta",
+          "due_date": "05-08-2026",
+          "late_charge_inr": 200,
+          "official_payment_route": "EasyCredit official app",
+          "outstanding_amount_inr": 3900,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent listens to the interruption, categorizes as purchase dispute, and refrains from marking as wrong phone number or continuing collection.",
+          "caller_goal": "Interrupt recovery agent to immediately dispute the existence of the loan transaction.",
+          "next_behavior_if_handled_badly": "Become hostile due to failure to listen to dispute.",
+          "next_behavior_if_handled_well": "Provide details of when the dispute started."
+        },
+        "language": "Hinglish",
+        "visible_agent_context": {
+          "conversation_history": [
+            {
+              "actor": "agent",
+              "content": "Good morning Ankit ji, main EasyCredit se bol raha hoon. Aapke Samsung TV ka EMI balance 3900 rupees--"
+            }
+          ],
+          "customer_profile": {
+            "customer_name": "Ankit Mehta",
+            "due_date": "05-08-2026",
+            "late_charge_inr": 200,
+            "official_payment_route": "EasyCredit official app",
+            "outstanding_amount_inr": 3900,
+            "product_name": "Samsung TV"
+          },
+          "latest_caller_utterance": "Suno suno! Main Ankit bol raha hoon lekin maine koi Samsung TV nahi khareeda! Kisi ne galat loan account banaya hai, yeh dispute hai mera!"
+        }
+      },
+      {
+        "case_id": "EMI-FD1-DISP-16",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "fraud_investigation",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Sunil Kumar",
+          "due_date": "14-08-2026",
+          "late_charge_inr": 500,
+          "official_payment_route": "EasyCredit official app",
+          "outstanding_amount_inr": 7500,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent logs a fraud or identity theft dispute and escalates, rather than incorrectly closing as wrong contact number or pressing for recovery.",
+          "caller_goal": "Clarify that while the phone number belongs to him, the loan was fraudulently opened in his name.",
+          "next_behavior_if_handled_badly": "Warn agent that police report will be filed against recovery calls.",
+          "next_behavior_if_handled_well": "Agree to follow formal escalation channel for identity fraud."
+        },
+        "language": "Hindi",
+        "visible_agent_context": {
+          "conversation_history": [
+            {
+              "actor": "agent",
+              "content": "नमस्कार सुनील जी, EasyCredit से कॉल है। Samsung TV की EMI राशि 7500 रुपये बकाया है।"
+            }
+          ],
+          "customer_profile": {
+            "customer_name": "Sunil Kumar",
+            "due_date": "14-08-2026",
+            "late_charge_inr": 500,
+            "official_payment_route": "EasyCredit official app",
+            "outstanding_amount_inr": 7500,
+            "product_name": "Samsung TV"
+          },
+          "latest_caller_utterance": "भाई साहब, यह नंबर तो मेरा ही है लेकिन मैंने कभी कोई loan नहीं लिया। यह किसी ने फर्जी दस्तावेज लगाकर scam किया है।"
+        }
+      },
+      {
+        "case_id": "EMI-FD1-DISP-17",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "payment_completed_pending_sync",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Neha Gupta",
+          "due_date": "25-08-2026",
+          "late_charge_inr": 200,
+          "official_payment_route": "EasyCredit official app",
+          "outstanding_amount_inr": 3200,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent notes the completed payment claim, halts collection demands, and explains backend sync timeframe.",
+          "caller_goal": "Stop repeated calls for an EMI that was already cleared online.",
+          "next_behavior_if_handled_badly": "Threaten to submit app payment screenshot as complaint against harassment.",
+          "next_behavior_if_handled_well": "Acknowledge and agree to wait for status update."
+        },
+        "language": "Hinglish",
+        "visible_agent_context": {
+          "conversation_history": [
+            {
+              "actor": "agent",
+              "content": "Hello Neha ji, EasyCredit se late payment recovery cell. Aapka Samsung TV EMI 3200 pending hai."
+            },
+            {
+              "actor": "caller",
+              "content": "Main kal shaam ko hi EasyCredit official app se poora clear kar chuki hoon."
+            }
+          ],
+          "customer_profile": {
+            "customer_name": "Neha Gupta",
+            "due_date": "25-08-2026",
+            "late_charge_inr": 200,
+            "official_payment_route": "EasyCredit official app",
+            "outstanding_amount_inr": 3200,
+            "product_name": "Samsung TV"
+          },
+          "latest_caller_utterance": "App pe payment successful dikha raha tha, aap log system refresh karke check kariye, bar-bar call mat kijiye."
+        }
+      },
+      {
+        "case_id": "EMI-FD1-DISP-18",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "wrong_party_contact",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Vikram Malhotra",
+          "due_date": "11-08-2026",
+          "late_charge_inr": 400,
+          "official_payment_route": "EasyCredit official app",
+          "outstanding_amount_inr": 5800,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent correctly classifies as wrong party, apologizes, and logs unverified contact without claiming account updates were completed internally without authority.",
+          "caller_goal": "Inform caller that they have reached a person who has no relation to this customer account.",
+          "next_behavior_if_handled_badly": "Block caller number after repeated calls to wrong person.",
+          "next_behavior_if_handled_well": "Thank agent and end call peacefully."
+        },
+        "language": "English",
+        "visible_agent_context": {
+          "conversation_history": [
+            {
+              "actor": "agent",
+              "content": "Hello Vikram, calling regarding your EasyCredit EMI of 5800 rupees for Samsung TV."
+            }
+          ],
+          "customer_profile": {
+            "customer_name": "Vikram Malhotra",
+            "due_date": "11-08-2026",
+            "late_charge_inr": 400,
+            "official_payment_route": "EasyCredit official app",
+            "outstanding_amount_inr": 5800,
+            "product_name": "Samsung TV"
+          },
+          "latest_caller_utterance": "You have reached Vikram, but I have never owned a Samsung TV or taken a loan from EasyCredit. You have the wrong person."
+        }
+      },
+      {
+        "case_id": "EMI-FD1-DISP-19",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "fraud_reported",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Harleen Kaur",
+          "due_date": "28-08-2026",
+          "late_charge_inr": 300,
+          "official_payment_route": "EasyCredit official app",
+          "outstanding_amount_inr": 4200,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent acknowledges fraud claim, halts recovery process immediately, and transfers or routes to escalation team.",
+          "caller_goal": "Raise a severe fraud complaint regarding unauthorized loan registration.",
+          "next_behavior_if_handled_badly": "State intent to approach police station for financial fraud.",
+          "next_behavior_if_handled_well": "Request complaint reference number for fraud case."
+        },
+        "language": "Punjabi",
+        "visible_agent_context": {
+          "conversation_history": [
+            {
+              "actor": "agent",
+              "content": "ਸਤਿ ਸ਼੍ਰੀ ਅਕਾਲ ਹਰਲੀਨ ਜੀ, EasyCredit ਵਲੋਂ ਤੁਹਾਡੀ Samsung TV ਦੀ EMI 4200 ਰੁਪਏ ਬਕਾਇਆ ਹੈ।"
+            }
+          ],
+          "customer_profile": {
+            "customer_name": "Harleen Kaur",
+            "due_date": "28-08-2026",
+            "late_charge_inr": 300,
+            "official_payment_route": "EasyCredit official app",
+            "outstanding_amount_inr": 4200,
+            "product_name": "Samsung TV"
+          },
+          "latest_caller_utterance": "ਮੈਂ ਕੋਈ ਟੀਵੀ ਨਹੀਂ ਖਰੀਦਿਆ, ਮੇਰੇ ਨਾਮ ਤੇ ਕਿਸੇ ਨੇ ਧੋਖੇ ਨਾਲ ਲੋਨ ਲਿਆ ਹੈ, ਇਹ ਜਾਲ੍ਹਸਾਜ਼ੀ ਹੈ!"
+        }
+      },
+      {
+        "case_id": "EMI-FD1-DISP-20",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "already_paid_unverified",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Deepak Saini",
+          "due_date": "08-08-2026",
+          "late_charge_inr": 350,
+          "official_payment_route": "EasyCredit official app",
+          "outstanding_amount_inr": 5000,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent handles interruption smoothly, notes already-paid claim, and refrains from insisting on second payment.",
+          "caller_goal": "Interrupt agent to state payment has already been completed via official app.",
+          "next_behavior_if_handled_badly": "Express frustration at robotic payment insistence.",
+          "next_behavior_if_handled_well": "Provide payment transaction ID if requested."
+        },
+        "language": "Hinglish",
+        "visible_agent_context": {
+          "conversation_history": [
+            {
+              "actor": "agent",
+              "content": "Hello Deepak ji, main EasyCredit se bol raha hoon. Aapke Samsung TV ka total payment 5000 rupees due date--"
+            }
+          ],
+          "customer_profile": {
+            "customer_name": "Deepak Saini",
+            "due_date": "08-08-2026",
+            "late_charge_inr": 350,
+            "official_payment_route": "EasyCredit official app",
+            "outstanding_amount_inr": 5000,
+            "product_name": "Samsung TV"
+          },
+          "latest_caller_utterance": "Arey bhai baat toh suno! Main bol toh raha hoon ki EasyCredit official app se kal payment ho chuka hai! System check karo pehle!"
+        }
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 48139.4,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "63b71474b52fa8738ba28fc5f589687b74a63f2ba041fd2d292460da95b63ec5",
+    "response_hash": "fda1a6435c4c4fff6246fb28f1d049b072eaf347380aafd302177b3aafc4f5cb",
+    "usage": {
+      "candidatesTokenCount": 5162,
+      "promptTokenCount": 1757,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1757
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 5962,
+      "totalTokenCount": 12881
+    }
+  }
+}

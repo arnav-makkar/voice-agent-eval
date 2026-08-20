@@ -1,0 +1,21 @@
+{
+  "artifact": {
+    "bytes": 7647,
+    "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/hospital_appointments/contract_smoke.jsonl",
+    "records": 6,
+    "sha256": "5713e3dbbbfbb984520547b43e82d23d43db5f0d9c72710a0b9903117190adef"
+  },
+  "case_count": 6,
+  "claim_boundary": "Schema/interface portability smoke test only; no hospital-model performance claim.",
+  "domain_id": "hospital_appointments",
+  "domain_pack_version": "0.1.0",
+  "families": [
+    "tool_confirmed_booking",
+    "emergency_routing",
+    "tool_failure_integrity",
+    "language_switch",
+    "privacy_boundary",
+    "clinical_scope"
+  ],
+  "schema_version": "domain-smoke.v1"
+}

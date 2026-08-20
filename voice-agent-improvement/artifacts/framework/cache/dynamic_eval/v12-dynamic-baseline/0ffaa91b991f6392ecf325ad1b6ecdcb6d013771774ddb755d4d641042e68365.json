@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "dispute",
+    "should_end_call": true,
+    "spoken_response": "Samajh gaya. Kya aapke paas iska koi SMS aaya hai? Kripya customer care number 1800-500-4444 par sampark karein.",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 7336.5,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "0ffaa91b991f6392ecf325ad1b6ecdcb6d013771774ddb755d4d641042e68365",
+    "response_hash": "ee2bb9f9125d223eb572418df7fcd0b779f3bb4303a56470a11e16d7c4e4b125",
+    "usage": {
+      "candidatesTokenCount": 83,
+      "promptTokenCount": 1475,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1475
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1108,
+      "totalTokenCount": 2666
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "data": {
+    "disposition": "fptp",
+    "should_end_call": true,
+    "spoken_response": "Bahut dhanyawad Mehak ji, maine 20 August 2026 ki payment date note kar li hai. Kripya app se payment kar dijiyega. Have a good day!",
+    "tool_calls": [
+      {
+        "arguments": {
+          "date": "20-08-2026"
+        },
+        "name": "record_promise_to_pay"
+      },
+      {
+        "arguments": {
+          "disposition": "fptp"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4512.8,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "4f0b1f07d099169c1eccff6c1ed0fa6f0d4d4dc44c53ad8408336171a76d58b1",
+    "response_hash": "ac2647624bf9c76bb45edf57606ca448f3b4f5101c4965adbcc8cfbc05470c27",
+    "usage": {
+      "candidatesTokenCount": 113,
+      "promptTokenCount": 1883,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1883
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 559,
+      "totalTokenCount": 2555
+    }
+  }
+}

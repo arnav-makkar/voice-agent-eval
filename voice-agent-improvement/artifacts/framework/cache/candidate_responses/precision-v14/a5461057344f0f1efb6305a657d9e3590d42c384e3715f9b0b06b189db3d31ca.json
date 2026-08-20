@@ -1,0 +1,98 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-TREF-21",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "समझ गया राजेश जी। आप भुगतान के लिए किस तारीख को सुविधाजनक मानते हैं?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-22",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Samajh gaya Priya ji, disturbance ke liye maaf kijiye. Aap EasyCredit official app se payment kar sakte hain.",
+        "terminal_state": "escalation"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-23",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thank you Amit. I have noted your commitment to pay Rs 5800 on 25th August 2026.",
+        "terminal_state": "fptp"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-24",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "ਸਮਝ ਗਿਆ ਗੁਰਪ੍ਰੀਤ ਜੀ। ਤੁਸੀਂ ਭੁਗਤਾਨ ਕਰਨ ਲਈ ਕਿਹੜੀ ਤਾਰੀਖ ਚੁਣੋਗੇ?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-25",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Samajh gaya Vikram ji. Aap EasyCredit official app se payment kar sakte hain. Dhanyawad.",
+        "terminal_state": "call_disconnected"
+      },
+      {
+        "case_id": "EMI-FD1-FACT-21",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "धन्यवाद राहुल जी! कृपया EasyCredit official app से ₹4,416 का भुगतान कर दें।",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-FACT-22",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "Samajh gaya Ankit ji. Aap kis date tak payment kar payenge?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-FACT-23",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thank you Priya. I have noted your payment promise of Rs 5200 for 16th August 2026.",
+        "terminal_state": "fptp"
+      },
+      {
+        "case_id": "EMI-FD1-FACT-24",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਧੰਨਵਾਦ ਗੁਰਪ੍ਰੀਤ ਜੀ। ਇਹ ਜਾਣਕਾਰੀ ਕਦੋਂ ਪਤਾ ਲੱਗੀ? ਕਿਰਪਾ ਕਰਕੇ ਸਾਡੀ ਕਸਟਮਰ ਕੇਅਰ ਟੀਮ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-FD1-FACT-25",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Samajh gaya Vikram ji. Aap EasyCredit customer care par contact kar sakte hain.",
+        "terminal_state": "escalation"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 82334.5,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "a5461057344f0f1efb6305a657d9e3590d42c384e3715f9b0b06b189db3d31ca",
+    "response_hash": "1360ad9b5431e00ef188118a2902fce0a8f21c88492240af4c014c0499126f72",
+    "usage": {
+      "candidatesTokenCount": 909,
+      "promptTokenCount": 4531,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 4531
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 4921,
+      "totalTokenCount": 10361
+    }
+  }
+}

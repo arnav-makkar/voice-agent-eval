@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Aap internet check karke app dobara try kariye. Kya aap abhi payment kar payengi?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4500.9,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "baec124e86821b297b07a49ddfe2edb42f832db418783910d30621c31f59d5db",
+    "response_hash": "dd981157323c969a189817f1856a918fc81924e0e41c71e79afc8ae6e6bd8c31",
+    "usage": {
+      "candidatesTokenCount": 61,
+      "promptTokenCount": 1470,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1470
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 508,
+      "totalTokenCount": 2039
+    }
+  }
+}

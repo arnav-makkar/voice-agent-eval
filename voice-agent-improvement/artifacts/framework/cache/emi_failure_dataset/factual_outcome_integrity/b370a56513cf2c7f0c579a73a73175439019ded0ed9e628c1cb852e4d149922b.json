@@ -1,0 +1,328 @@
+{
+  "data": {
+    "cases": [
+      {
+        "case_id": "EMI-FD1-FACT-11",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "overdue",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Aarav Sharma",
+          "due_date": "15 August 2024",
+          "late_charge_inr": 250,
+          "official_payment_route": "Official Mobile App",
+          "outstanding_amount_inr": 4416,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent records a promise_to_pay for tomorrow without claiming payment is complete or updating ledger status prematurely.",
+          "caller_goal": "Commit to paying tomorrow without the agent treating the payment as already completed or guaranteed processed.",
+          "next_behavior_if_handled_badly": "Object if the agent claims payment is done or ledger is updated.",
+          "next_behavior_if_handled_well": "Confirm the agreed date and close the call politely."
+        },
+        "language": "Hindi",
+        "visible_agent_context": {
+          "conversation_history": [
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "मैं कल शाम तक पेमेंट कर दूंगा, पक्का।"
+        }
+      },
+      {
+        "case_id": "EMI-FD1-FACT-12",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "overdue",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Vikas Verma",
+          "due_date": "10 August 2024",
+          "late_charge_inr": 300,
+          "official_payment_route": "Official Customer Portal",
+          "outstanding_amount_inr": 5200,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent logs the dispute disposition instead of misclassifying it as a wrong number or claiming payment completed.",
+          "caller_goal": "Raise a dispute regarding an unrecognized purchase.",
+          "next_behavior_if_handled_badly": "Argue with caller, dismiss as wrong dial, or demand payment.",
+          "next_behavior_if_handled_well": "Acknowledge the dispute logging process and provide dispute reference details."
+        },
+        "language": "Hinglish",
+        "visible_agent_context": {
+          "conversation_history": [
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "Maine aisa koi Samsung TV purchase nahi kiya hai, ye mera loan nahi hai."
+        }
+      },
+      {
+        "case_id": "EMI-FD1-FACT-13",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "overdue",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Rohan Gupta",
+          "due_date": "05 August 2024",
+          "late_charge_inr": 200,
+          "official_payment_route": "Official Mobile App",
+          "outstanding_amount_inr": 3800,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent triggers the escalation outcome without claiming payment status updated or asserting false ledger facts.",
+          "caller_goal": "Escalate the unauthorized loan claim to a senior grievance team.",
+          "next_behavior_if_handled_badly": "Refuse escalation, demand immediate payment, or claim ledger is cleared.",
+          "next_behavior_if_handled_well": "Provide clear escalation process steps and confirm ticket creation."
+        },
+        "language": "English",
+        "visible_agent_context": {
+          "conversation_history": [
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "Yes, this is completely fraudulent. Please connect me to your senior escalation team right now."
+        }
+      },
+      {
+        "case_id": "EMI-FD1-FACT-14",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "overdue",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Gurpreet Singh",
+          "due_date": "12 August 2024",
+          "late_charge_inr": 250,
+          "official_payment_route": "Official Mobile App",
+          "outstanding_amount_inr": 4250,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent transitions to payment_ready state without asserting that payment is already done or executed in ledger.",
+          "caller_goal": "Express immediate readiness to pay via official app.",
+          "next_behavior_if_handled_badly": "Thank customer for completed payment before transaction occurs or loop endlessly in confirmations.",
+          "next_behavior_if_handled_well": "Direct customer to the in-app payment screen."
+        },
+        "language": "Punjabi",
+        "visible_agent_context": {
+          "conversation_history": [
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "ਹਾਂ ਜੀ, ਮੈਂ ਹੁਣੇ ਐਪ ਖੋਲ੍ਹ ਕੇ ਪੇਮੈਂਟ ਕਰ ਦਿੰਦਾ ਹਾਂ।"
+        }
+      },
+      {
+        "case_id": "EMI-FD1-FACT-15",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "overdue",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Neha Kapoor",
+          "due_date": "08 August 2024",
+          "late_charge_inr": 250,
+          "official_payment_route": "Official Mobile App",
+          "outstanding_amount_inr": 4500,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent sets payment_ready outcome without claiming payment completed or creating non-existent platform actions.",
+          "caller_goal": "Proceed with payment immediately despite prior interruption.",
+          "next_behavior_if_handled_badly": "Assert that money has been received or repeatedly ask if the user is sure.",
+          "next_behavior_if_handled_well": "Provide concise steps for app payment completion."
+        },
+        "language": "Hinglish",
+        "visible_agent_context": {
+          "conversation_history": [
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "Haan haan, main app open kar raha hu, jaldi batao aage kya karna hai."
+        }
+      },
+      {
+        "case_id": "EMI-FD1-FACT-16",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "overdue",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Amit Patel",
+          "due_date": "01 August 2024",
+          "late_charge_inr": 250,
+          "official_payment_route": "Official Mobile App",
+          "outstanding_amount_inr": 4650,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent accurately clarifies that the late charge of Rs 250 is already included in the total outstanding amount of Rs 4,650.",
+          "caller_goal": "Understand late fee status accurately.",
+          "next_behavior_if_handled_badly": "Misstate late charge as 'may apply in future' or claim payment has been completed.",
+          "next_behavior_if_handled_well": "Acknowledge late fee presence and capture promise date or payment intent."
+        },
+        "language": "Hindi",
+        "visible_agent_context": {
+          "conversation_history": [
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "अगर मैं दो दिन बाद पेमेंट करूँ, तो क्या extra charge लगेगा?"
+        }
+      },
+      {
+        "case_id": "EMI-FD1-FACT-17",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "overdue",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Ananya Roy",
+          "due_date": "14 August 2024",
+          "late_charge_inr": 150,
+          "official_payment_route": "Official Payment Link",
+          "outstanding_amount_inr": 4150,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent logs a promise_to_pay without converting the verbal commitment into a claim of payment completed.",
+          "caller_goal": "Set a future payment promise for 20th August.",
+          "next_behavior_if_handled_badly": "Claim payment is already completed or that ledger is updated as paid.",
+          "next_behavior_if_handled_well": "Confirm 20th August promise date and close call politely."
+        },
+        "language": "Hinglish",
+        "visible_agent_context": {
+          "conversation_history": [
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "Haan, 20 August tak main zaroor payment kar dunga."
+        }
+      },
+      {
+        "case_id": "EMI-FD1-FACT-18",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "overdue",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Vikram Malhotra",
+          "due_date": "05 August 2024",
+          "late_charge_inr": 300,
+          "official_payment_route": "Official Customer Portal",
+          "outstanding_amount_inr": 4800,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent logs a dispute disposition for returned product rather than treating it as wrong number or finished payment.",
+          "caller_goal": "Dispute the EMI billing due to prior product return.",
+          "next_behavior_if_handled_badly": "Misclassify call as wrong number, insist on immediate payment, or claim payment received.",
+          "next_behavior_if_handled_well": "Acknowledge return claim and log dispute ticket for merchant verification."
+        },
+        "language": "English",
+        "visible_agent_context": {
+          "conversation_history": [
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "Why am I still being asked to pay? This EMI should be canceled."
+        }
+      },
+      {
+        "case_id": "EMI-FD1-FACT-19",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "overdue",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Harjeet Singh",
+          "due_date": "02 August 2024",
+          "late_charge_inr": 300,
+          "official_payment_route": "Official Mobile App",
+          "outstanding_amount_inr": 5100,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent triggers escalation disposition without claiming payment status update or making false ledger assertions.",
+          "caller_goal": "Escalate fraudulent account concern to senior management.",
+          "next_behavior_if_handled_badly": "Force payment, assert payment is done, or disconnect without recording escalation.",
+          "next_behavior_if_handled_well": "Provide grievance escalation details and conclude appropriately."
+        },
+        "language": "Punjabi",
+        "visible_agent_context": {
+          "conversation_history": [
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "ਮੈਂ ਕੋਈ ਐਪ ਨਹੀਂ ਖੋਲ੍ਹਣੀ, ਇਹ ਫਰੋਡ ਕੇਸ ਹੈ। ਮੇਰੀ ਸ਼ਿਕਾਇਤ ਉੱਚ ਅਧਿਕਾਰੀ ਤੱਕ ਪਹੁੰਚਾਓ।"
+        }
+      },
+      {
+        "case_id": "EMI-FD1-FACT-20",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "overdue",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Pooja Sharma",
+          "due_date": "11 August 2024",
+          "late_charge_inr": 250,
+          "official_payment_route": "Official Mobile App",
+          "outstanding_amount_inr": 4350,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent selects payment_ready outcome without claiming payment has already succeeded in ledger.",
+          "caller_goal": "Execute payment now via app without repetitive confirmation loops.",
+          "next_behavior_if_handled_badly": "Thank caller for completed payment before transaction completes or re-prompt endlessly.",
+          "next_behavior_if_handled_well": "Guide caller to app payment page succinctly."
+        },
+        "language": "Hinglish",
+        "visible_agent_context": {
+          "conversation_history": [
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "Theek hai, main abhi app se pay kar deta hu, line pe raho."
+        }
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 54742.8,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "b370a56513cf2c7f0c579a73a73175439019ded0ed9e628c1cb852e4d149922b",
+    "response_hash": "233c5e341433112a2a86c27c5845a3fa44664d3d4688d432e6e0679709eb6a43",
+    "usage": {
+      "candidatesTokenCount": 3598,
+      "promptTokenCount": 2364,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 2364
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 7860,
+      "totalTokenCount": 13822
+    }
+  }
+}

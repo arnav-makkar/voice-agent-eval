@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Ji zaroor, aap EasyCredit app mein check kar lijiye. Kya check karne ke baad aap abhi pay kar denge?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 6781.1,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "1f3e26d6baf2813b870abd17996eb7c0004247d4a1e94e2599a07d595cd36934",
+    "response_hash": "f25729d411fe307e2882dd0eef9f81896c5a5017870bf497d86f5756b4cf527b",
+    "usage": {
+      "candidatesTokenCount": 68,
+      "promptTokenCount": 1476,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1476
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1030,
+      "totalTokenCount": 2574
+    }
+  }
+}

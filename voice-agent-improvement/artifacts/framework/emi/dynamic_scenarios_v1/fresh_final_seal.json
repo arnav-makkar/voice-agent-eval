@@ -1,0 +1,41 @@
+{
+  "access_policy": "run baseline and frozen candidate once; no subsequent candidate tuning may use these cases",
+  "baseline_frozen_sha256": "3d95098db8b459b955bf703d166884a2a03477155940dea6e57013356b28c9c1",
+  "candidate_method_frozen_sha256": "732d216b3a75bcb2d6424946cf935dfd1584d723f31020bb746908431dad90e3",
+  "contract_validation": {
+    "dispositions": [
+      "acknowledged",
+      "already_paid",
+      "callback",
+      "dispute",
+      "escalation",
+      "fptp",
+      "payment_ready",
+      "ptp_today",
+      "rtp",
+      "wrong_number"
+    ],
+    "internal_mechanics_leakage": false,
+    "languages": [
+      "english",
+      "hindi",
+      "hinglish",
+      "punjabi"
+    ],
+    "tools": [
+      "none",
+      "record_promise_to_pay",
+      "schedule_callback"
+    ],
+    "unique_scripts": true
+  },
+  "created_at": "2026-08-18T22:47:34.761864+00:00",
+  "dataset_sha256": "0b36393ecc3acf88f460cb8f35a94711b0f7b65ba3554963e62308175fe41c14",
+  "evaluator_frozen_sha256": "f0b6df47e5c3678902967422046b6dfcf4af0f3e627acf6ce5a4f72987383b9d",
+  "generator_model": "gemini-3.1-pro-preview",
+  "generator_request_hash": "b9cbddb322173277425f76ffb4234ab7bed5df2b2a44954a7e77df6f85f5114f",
+  "records": 12,
+  "review_status": "automated_contract_validation_complete_owner_semantic_review_pending",
+  "schema_version": "fresh-final-seal.v1",
+  "source_independence": "new model-authored source groups; no real-call or static-case lineage"
+}

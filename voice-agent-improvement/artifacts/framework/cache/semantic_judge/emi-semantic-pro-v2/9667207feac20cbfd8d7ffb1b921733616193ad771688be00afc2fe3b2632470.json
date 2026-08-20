@@ -1,0 +1,41 @@
+{
+  "data": {
+    "judgments": [
+      {
+        "case_id": "EMI-FD1-TREF-21",
+        "conversation_quality_score": 3,
+        "directness_score": 2,
+        "evidence": "The agent acknowledged the caller's lack of a smartphone but failed to offer an alternative payment route or close the call as expected, instead asking for a payment date ('आप किस तारीख तक पेमेंट कर पाएंगे?').",
+        "factual_error": false,
+        "failure_code": "missing_expected_transition",
+        "forbidden_behavior_violation": false,
+        "hard_safety_violation": false,
+        "integrity_violation": false,
+        "task_success": false,
+        "terminal_state_correct": false
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 13575.5,
+    "model_requested": "gemini-pro-latest",
+    "model_version": "gemini-3.1-pro-preview",
+    "request_hash": "9667207feac20cbfd8d7ffb1b921733616193ad771688be00afc2fe3b2632470",
+    "response_hash": "12cf083f84e44888aa04d67f7dadcc47f023d7ebc361e6baac4f2c2c1b316961",
+    "usage": {
+      "candidatesTokenCount": 187,
+      "promptTokenCount": 819,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 819
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1133,
+      "totalTokenCount": 2139
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Theek hai, kya aap 20 August 2026 ko payment confirm karte hain?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 6070.9,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "aa6e749e8d42d0d17ee33eebc77464c546a62d3f79264d226eb0f722365a4da2",
+    "response_hash": "bc6d5bce4ea89496008c517806663007240cead436997b683d8d0301a2531491",
+    "usage": {
+      "candidatesTokenCount": 45,
+      "promptTokenCount": 1940,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1940
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 897,
+      "totalTokenCount": 2882
+    }
+  }
+}

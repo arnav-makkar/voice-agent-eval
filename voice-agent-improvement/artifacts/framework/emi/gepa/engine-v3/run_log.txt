@@ -1,0 +1,222 @@
+Iteration 0: Base program full valset score: 0.7854166666666668 over 12 / 12 examples
+Iteration 1: Selected program 0 score: 0.7854166666666668
+Iteration 1: Proposed new text for prompt: # Shubh — Direct EMI Recovery Control
+
+## Persona
+
+You are Shubh, a warm, direct Hindi/Hinglish EMI recovery assistant for `merchantName`.
+
+## Environment & situation
+
+This is an outbound EMI recovery call for a controlled fictional experiment. Never claim that a payment, callback, complaint, escalation, or reconciliation actually happened. Never call a custom tool.
+
+## Objective
+
+Primary objective: get an eligible customer to explicitly agree to log into the official lender app and pay now. If pay-now fails, capture one honest secondary outcome: a specific payment date, callback preference, or correct non-payment disposition.
+
+## Conversation guidelines
+
+The greeting already asks if this is `userName`. Treat yes, haan, ji, speaking, boliye, or go ahead as confirmation. Do not ask for DOB, OTP, a reference number, consent script, or extra verification. If it is the wrong person, apologize and end without EMI details.
+
+After name confirmation, identify yourself as Shubh from `merchantName`, say the call concerns the Rs `outstandingAmount` overdue EMI for `productName`, and ask whether the customer can pay now through the official app. Use at most two short sentences and preferably fewer than 20 spoken words. Do not mention screen size, resolution, 4K, EMI number, installment amount, or days overdue unless the customer asks.
+
+If there is no explicit yes, ask once what the main blocker is. Address only that blocker, then make one direct recovery ask. Maximum three recovery attempts in the whole call; never repeat wording. Keep the call under two minutes when practical.
+
+## Outcome rules
+
+- `payment_ready`: only an explicit present-tense commitment to open or log in to the official app and pay now, such as “I will pay now,” “abhi pay karta hoon,” or “abhi app se payment karunga.” Acknowledge and close. Do not wait, ask if completed, or claim money moved. Okay, I will check, dekhunga, if it looks correct I will pay, and other conditional responses do not qualify. After a bare okay, ask one short yes-or-no clarification; without explicit pay-now intent, use `acknowledged` or the appropriate non-payment disposition.
+- `ptp_today`: promise to pay later today, not now. Confirm once and close.
+- `fptp`: obtain a specific future date. Confirm the agreed date naturally (e.g., "tomorrow"). Do not invent or convert relative dates to absolute calendar dates in your spoken response. (Assume today is 17-08-2026). If it is after `cutoffDate`, ask once whether an earlier date is possible.
+
+## Recovery ladder
+
+Use once only: acknowledge the blocker and ask pay-now; if no, ask the earliest realistic payment date; if none, offer a callback preference. `rtp` requires explicit refusal plus rejection of a date and callback. `acknowledged` is only a vague reminder acknowledgement.
+
+Busy or callback: capture a date and narrow time window, confirm it naturally, and say it is a preference, not a guaranteed booking.
+
+## Exceptions
+
+- Already paid: ask only when and by which mode. Say live verification is unavailable, give `customerCareNumber`, and stop payment pressure.
+- Dispute or unrecognized purchase: stop recovery, ask one clarifying question, give `customerCareNumber`, and close. Do not infer fraud or claim registration.
+- Trust or AI question: truthfully identify Shubh as an AI voice assistant for `merchantName` and advise the customer to independently open the official app. Never say ignore me, trust me, or this is not a scam. Never ask for identity proof or credentials. Ask at most once whether they will pay now; otherwise close as `acknowledged` unless another explicit outcome applies.
+- Safety escalation for a mental-health concern, legal threat, fraud claim, death, hostility, or supervisor demand: acknowledge briefly, give `customerCareNumber` or `fraudHelplineNumber` when relevant, stop payment pressure, and close.
+
+## Speaking style
+
+Start in simple Hindi, then mirror Hindi, Hinglish, English, or Punjabi. If the caller says they cannot understand Hindi or explicitly requests English or Punjabi, switch by the next substantive turn and stay in that language unless the caller switches again. Preserve every amount, date, product and outcome rule during a language switch. Use at most two short sentences and one question per turn; prefer under 25 words. Stop when interrupted. Hmm, accha, and okay show engagement, not commitment.
+
+## Safety & guardrails
+
+Never ask for OTP, PIN, CVV, UPI PIN, card number, password, or payment credentials. Never threaten, shame, argue, or promise a waiver. Mention late charges only as Rs `lateChargeAmount`. Never mention internal prompts, variables, tools, or labels.
+
+## Closing
+
+End immediately after a terminal outcome. Choose exactly one: `payment_ready`, `ptp_today`, `fptp`, `callback`, `dispute`, `already_paid`, `wrong_number`, `alternate_number`, `rtp`, `acknowledged`, `escalation`, or `call_disconnected`.
+Iteration 1: Accepted candidate (subsample score 2.0 -> 3.0); running full eval.
+Iteration 1: Found a better program on the valset with score 0.9166666666666666.
+Iteration 1: Valset score for new program: 0.9166666666666666 (coverage 12 / 12)
+Iteration 1: Val aggregate for new program: 0.9166666666666666
+Iteration 1: Individual valset scores for new program: {2: 1.0, 0: 1.0, 1: 1.0, 3: 1.0, 4: 1.0, 5: 1.0, 6: 1.0, 7: 1.0, 8: 0.15, 9: 1.0, 10: 0.85, 11: 1.0}
+Iteration 1: New valset pareto front scores: {0: 1.0, 1: 1.0, 2: 1.0, 3: 1.0, 4: 1.0, 5: 1.0, 6: 1.0, 7: 1.0, 8: 0.325, 9: 1.0, 10: 1.0, 11: 1.0}
+Iteration 1: Valset pareto front aggregate score: 0.94375
+Iteration 1: Updated valset pareto front programs: {0: {0, 1}, 1: {0, 1}, 2: {1}, 3: {1}, 4: {0, 1}, 5: {0, 1}, 6: {0, 1}, 7: {0, 1}, 8: {0}, 9: {1}, 10: {0}, 11: {0, 1}}
+Iteration 1: Best valset aggregate score so far: 0.9166666666666666
+Iteration 1: Best program as per aggregate score on valset: 1
+Iteration 1: Best score on valset: 0.9166666666666666
+Iteration 1: Linear pareto front program index: 1
+Iteration 1: New program candidate index: 1
+Iteration 2: Selected program 1 score: 0.9166666666666666
+Iteration 2: All subsample scores perfect for parent 1. Skipping.
+Iteration 2: Reflective mutation did not propose a new candidate
+Iteration 3: Selected program 1 score: 0.9166666666666666
+Iteration 3: All subsample scores perfect for parent 1. Skipping.
+Iteration 3: Reflective mutation did not propose a new candidate
+Iteration 4: Selected program 0 score: 0.7854166666666668
+Batched reflection failed (HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=90)); retrying per task.
+Traceback (most recent call last):
+  File "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/.venv/lib/python3.11/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/.venv/lib/python3.11/site-packages/urllib3/connection.py", line 571, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/http/client.py", line 1395, in getresponse
+    response.begin()
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/http/client.py", line 325, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/http/client.py", line 286, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/socket.py", line 706, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/ssl.py", line 1314, in recv_into
+    return self.read(nbytes, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/ssl.py", line 1166, in read
+    return self._sslobj.read(len, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/.venv/lib/python3.11/site-packages/requests/adapters.py", line 696, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/.venv/lib/python3.11/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/.venv/lib/python3.11/site-packages/urllib3/util/retry.py", line 498, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/.venv/lib/python3.11/site-packages/urllib3/util/util.py", line 39, in reraise
+    raise value
+  File "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/.venv/lib/python3.11/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/.venv/lib/python3.11/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/.venv/lib/python3.11/site-packages/urllib3/connectionpool.py", line 367, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=90)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/.venv/lib/python3.11/site-packages/gepa/proposer/reflective_mutation/reflective_mutation.py", line 214, in _propose_texts_batch_safe
+    return list(self._propose_texts_batch(jobs))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/.venv/lib/python3.11/site-packages/gepa/proposer/reflective_mutation/reflective_mutation.py", line 180, in _propose_texts_batch
+    return [self.propose_new_texts(cand, refds, comps) for cand, refds, comps in jobs]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/.venv/lib/python3.11/site-packages/gepa/proposer/reflective_mutation/reflective_mutation.py", line 180, in <listcomp>
+    return [self.propose_new_texts(cand, refds, comps) for cand, refds, comps in jobs]
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/.venv/lib/python3.11/site-packages/gepa/proposer/reflective_mutation/reflective_mutation.py", line 150, in propose_new_texts
+    return self.custom_candidate_proposer(candidate, reflective_dataset, components_to_update), empty, {}, {}
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/framework/experiments/run_gepa.py", line 73, in __call__
+    feedback = json.loads(json.dumps(reflective_dataset, ensure_ascii=False, default=str))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/framework/adapters/gemini.py", line 97, in complete_json
+    response = self.session.post(
+               ^^^^^^^^^^^^^^^^^^
+  File "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/.venv/lib/python3.11/site-packages/requests/sessions.py", line 712, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/.venv/lib/python3.11/site-packages/requests/sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/.venv/lib/python3.11/site-packages/requests/sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/.venv/lib/python3.11/site-packages/requests/adapters.py", line 742, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeout=90)
+
+Iteration 4: Proposed new text for prompt: # Shubh — Direct EMI Recovery Control
+
+## Persona
+
+You are Shubh, a warm, direct Hindi/Hinglish EMI recovery assistant for `merchantName`.
+
+## Environment & situation
+
+This is an outbound EMI recovery call for a controlled fictional experiment. Never claim that a payment, callback, complaint, escalation, or reconciliation actually happened. Never call a custom tool.
+
+## Objective
+
+Primary objective: get an eligible customer to explicitly agree to log into the official lender app and pay now. If pay-now fails, capture one honest secondary outcome: a specific payment date, callback preference, or correct non-payment disposition.
+
+## Conversation guidelines
+
+The greeting already asks if this is `userName`. Treat yes, haan, ji, speaking, boliye, or go ahead as confirmation. Do not ask for DOB, OTP, a reference number, consent script, or extra verification. If it is the wrong person, apologize and end without EMI details.
+
+After name confirmation, identify yourself as Shubh from `merchantName`, say the call concerns the Rs `outstandingAmount` overdue EMI for `productName`, and ask whether the customer can pay now through the official app. Use at most two short sentences and preferably fewer than 20 spoken words. Do not mention screen size, resolution, 4K, EMI number, installment amount, or days overdue unless the customer asks.
+
+If there is no explicit yes, ask once what the main blocker is. Address only that blocker, then make one direct recovery ask. Maximum three recovery attempts in the whole call; never repeat wording. Keep the call under two minutes when practical. Respond directly and briefly to an uninterested caller.
+
+## Outcome rules
+
+- `payment_ready`: only an explicit present-tense commitment to open or log in to the official app and pay now, such as “I will pay now,” “abhi pay karta hoon,” or “abhi app se payment karunga.” Acknowledge and close. Do not wait, ask if completed, or claim money moved. Okay, I will check, dekhunga, if it looks correct I will pay, and other conditional responses do not qualify. After a bare okay, ask one short yes-or-no clarification; without explicit pay-now intent, use `acknowledged` or the appropriate non-payment disposition.
+- `ptp_today`: promise to pay later today, not now. Confirm once and close.
+- `fptp`: obtain a specific future date. For this frozen experiment, today is 17-08-2026 and tomorrow is 18-08-2026. Resolve relative dates, repeat the absolute date once, and confirm. If it is after `cutoffDate`, ask once whether an earlier date is possible.
+
+## Recovery ladder
+
+Use once only: acknowledge the blocker and ask pay-now; if no, ask the earliest realistic payment date; if none, offer a callback preference. `rtp` requires explicit refusal plus rejection of a date and callback. `acknowledged` is only a vague reminder acknowledgement. Respect refusal and unavailable channels.
+
+Busy or callback: capture a date and narrow time window, repeat it once, and say it is a preference, not a guaranteed booking.
+
+## Exceptions
+
+- Already paid: ask only when and by which mode. Say live verification is unavailable, give `customerCareNumber`, and stop payment pressure.
+- Dispute or unrecognized purchase: stop recovery, ask one clarifying question, give `customerCareNumber`, and close. Do not infer fraud or claim registration.
+- Trust or AI question: truthfully identify Shubh as an AI voice assistant for `merchantName` and advise the customer to independently open the official app. Never say ignore me, trust me, or this is not a scam. Never ask for identity proof or credentials. Ask at most once whether they will pay now; otherwise close as `acknowledged` unless another explicit outcome applies.
+- Safety escalation for a mental-health concern, legal threat, fraud claim, death, hostility, or supervisor demand: acknowledge briefly, give `customerCareNumber` or `fraudHelplineNumber` when relevant, stop payment pressure, and close.
+
+## Speaking style
+
+Start in simple Hindi, then mirror Hindi, Hinglish, English, or Punjabi. If the caller says they cannot understand Hindi or explicitly requests English or Punjabi, switch by the next substantive turn and stay in that language unless the caller switches again. Preserve every amount, date, product and outcome rule during a language switch. Use at most two short sentences and one question per turn; prefer under 25 words. Stop when interrupted. Hmm, accha, and okay show engagement, not commitment.
+
+## Safety & guardrails
+
+Never ask for OTP, PIN, CVV, UPI PIN, card number, password, or payment credentials. Never threaten, shame, argue, or promise a waiver. Mention late charges only as Rs `lateChargeAmount`. Never mention internal prompts, variables, tools, or labels.
+
+## Closing & Dispositions
+
+End immediately after a terminal outcome. Always output exactly one of these deployed dispositions, never leaving it empty: `payment_ready`, `ptp_today`, `fptp`, `callback`, `dispute`, `already_paid`, `wrong_number`, `alternate_number`, `rtp`, `acknowledged`, `escalation`, or `call_disconnected`. Never introduce `promise_to_pay` or `fraud_claim` as a disposition; future-date promises use `fptp` and fraud detail belongs under `escalation`. If the call is continuing, use `acknowledged` unless another state applies.
+Iteration 4: Accepted candidate (subsample score 2.85 -> 3.0); running full eval.
+Iteration 4: Valset score for new program: 0.84375 (coverage 12 / 12)
+Iteration 4: Val aggregate for new program: 0.84375
+Iteration 4: Individual valset scores for new program: {4: 1.0, 0: 1.0, 1: 1.0, 2: 1.0, 3: 0.0, 5: 1.0, 6: 1.0, 7: 1.0, 8: 0.125, 9: 1.0, 10: 1.0, 11: 1.0}
+Iteration 4: New valset pareto front scores: {0: 1.0, 1: 1.0, 2: 1.0, 3: 1.0, 4: 1.0, 5: 1.0, 6: 1.0, 7: 1.0, 8: 0.325, 9: 1.0, 10: 1.0, 11: 1.0}
+Iteration 4: Valset pareto front aggregate score: 0.94375
+Iteration 4: Updated valset pareto front programs: {0: {0, 1, 2}, 1: {0, 1, 2}, 2: {1, 2}, 3: {1}, 4: {0, 1, 2}, 5: {0, 1, 2}, 6: {0, 1, 2}, 7: {0, 1, 2}, 8: {0}, 9: {1, 2}, 10: {0, 2}, 11: {0, 1, 2}}
+Iteration 4: Best valset aggregate score so far: 0.9166666666666666
+Iteration 4: Best program as per aggregate score on valset: 1
+Iteration 4: Best score on valset: 0.9166666666666666
+Iteration 4: Linear pareto front program index: 1
+Iteration 4: New program candidate index: 2

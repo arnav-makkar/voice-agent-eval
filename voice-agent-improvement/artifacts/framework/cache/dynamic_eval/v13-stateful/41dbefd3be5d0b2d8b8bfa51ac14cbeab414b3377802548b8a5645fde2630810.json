@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "escalation",
+    "should_end_call": true,
+    "spoken_response": "Main samajh sakta hoon. Kisi bhi sahayata ya jaankari ke liye aap hamare customer care number 1800-500-4444 par sampark kar sakte hain. Dhanyawad.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "escalation"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4223.9,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "41dbefd3be5d0b2d8b8bfa51ac14cbeab414b3377802548b8a5645fde2630810",
+    "response_hash": "fae53a31f449434f401acb4437b120d89f15f262d70cb6d321f1ecf7915da2f6",
+    "usage": {
+      "candidatesTokenCount": 89,
+      "promptTokenCount": 1610,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1610
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 479,
+      "totalTokenCount": 2178
+    }
+  }
+}

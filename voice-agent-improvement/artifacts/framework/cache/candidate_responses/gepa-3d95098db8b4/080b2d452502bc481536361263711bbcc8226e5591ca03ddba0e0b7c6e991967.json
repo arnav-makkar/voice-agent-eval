@@ -1,0 +1,35 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-TRST-21",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "मैं Shubh हूँ, EasyCredit Finance का AI असिस्टेंट। आप किसी लिंक के बिना सीधे ऑफिशियल ऐप से भुगतान कर सकते हैं, क्या आप अभी पे करेंगे?",
+        "terminal_state": ""
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 8248.6,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "080b2d452502bc481536361263711bbcc8226e5591ca03ddba0e0b7c6e991967",
+    "response_hash": "e52e8f0c197c6aadb510ed6d129fb738e402ef73fabdab6e846e75c7ba1e1622",
+    "usage": {
+      "candidatesTokenCount": 80,
+      "promptTokenCount": 1455,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1455
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1203,
+      "totalTokenCount": 2738
+    }
+  }
+}

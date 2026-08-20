@@ -1,0 +1,98 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-TREF-01",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ठीक है राजेश जी, मैंने आपकी बात नोट कर ली है। धन्यवाद।",
+        "terminal_state": "rtp"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-02",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Okay Ananya ji, maine aapka refusal note kar liya hai. Thank you.",
+        "terminal_state": "rtp"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-03",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "I understand Vikram, I will note that you do not have a smartphone for the app. Thank you.",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-04",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਠੀਕ ਹੈ ਗੁਰਪ੍ਰੀਤ ਜੀ, ਮੈਂ ਇਹ ਗੱਲ ਟੀਮ ਨੂੰ ਭੇਜ ਦਿੰਦਾ ਹਾਂ। ਧੰਨਵਾਦ।",
+        "terminal_state": "escalation"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-05",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Okay Sunita ji, maine aapka refusal note kar liya hai. Thank you.",
+        "terminal_state": "rtp"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-06",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "मनोज जी, भुगतान केवल ऐप से ही संभव है। ऐप न होने के कारण मैं आपकी जानकारी नोट कर लेता हूँ। धन्यवाद।",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-07",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Okay Rohan ji, main aapki request human agent ke liye note kar leta hoon. Thank you.",
+        "terminal_state": "escalation"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-08",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Okay Priya, I have recorded your refusal to pay. Thank you.",
+        "terminal_state": "rtp"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-09",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਮੈਂ ਸਮਝ ਸਕਦਾ ਹਾਂ ਹਰਜੀਤ ਜੀ, ਮੈਂ ਇਹ ਜਾਣਕਾਰੀ ਨੋਟ ਕਰ ਲੈਂਦਾ ਹਾਂ। ਧੰਨਵਾਦ।",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-10",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Okay Deepak ji, main aapki request human agent ke liye note kar leta hoon. Thank you.",
+        "terminal_state": "escalation"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 81590.3,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "2e26dc6b38f6ea4b7e619668ad6546ffec39ba4ea6c870fa9464383600bb14c8",
+    "response_hash": "fc98f34b7ebd7474fc1c599d73ba799c8ad8a4f9c66276e88c182da808bb3074",
+    "usage": {
+      "candidatesTokenCount": 873,
+      "promptTokenCount": 4454,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 4454
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 15555,
+      "totalTokenCount": 20882
+    }
+  }
+}

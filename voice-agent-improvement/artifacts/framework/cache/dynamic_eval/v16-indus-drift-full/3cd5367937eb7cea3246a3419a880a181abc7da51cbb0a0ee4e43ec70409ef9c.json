@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "25 August late ho jayega. Kya aap cutoff date 22 August se pehle payment kar sakti hain?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5791.3,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "3cd5367937eb7cea3246a3419a880a181abc7da51cbb0a0ee4e43ec70409ef9c",
+    "response_hash": "e7ab6692893d9058f610f1e257776e2a93aae74b129472de3a05580e1deeb137",
+    "usage": {
+      "candidatesTokenCount": 64,
+      "promptTokenCount": 1943,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1943
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 833,
+      "totalTokenCount": 2840
+    }
+  }
+}

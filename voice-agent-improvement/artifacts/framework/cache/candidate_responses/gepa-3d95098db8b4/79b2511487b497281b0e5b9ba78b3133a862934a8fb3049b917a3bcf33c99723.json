@@ -1,0 +1,35 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-COND-22",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Ji bilkul, aap app mein check karke payment kar lijiye. Dhanyawad!",
+        "terminal_state": "acknowledged"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 8799.8,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "79b2511487b497281b0e5b9ba78b3133a862934a8fb3049b917a3bcf33c99723",
+    "response_hash": "42b718a0f8ac951a7dbfa2e78cf5f6440ff0160b85798f1c888e8e7f93fcba4e",
+    "usage": {
+      "candidatesTokenCount": 64,
+      "promptTokenCount": 1451,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1451
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1483,
+      "totalTokenCount": 2998
+    }
+  }
+}

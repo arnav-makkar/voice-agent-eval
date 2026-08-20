@@ -1,0 +1,43 @@
+{
+  "data": {
+    "disposition": "fptp",
+    "should_end_call": true,
+    "spoken_response": "Dhanyawad Riya ji, maine 22 August 2026 ki date note kar li hai. Aapka din shubh ho.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "date": "22-08-2026"
+        },
+        "name": "record_promise_to_pay"
+      },
+      {
+        "arguments": {
+          "disposition": "fptp"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 3926.2,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "05c83ffad96b7f86404ea56680b1df191b99ea411c002771b20f97c40b79afbe",
+    "response_hash": "3f86397d1a051f4450f2cf99a3953c9689e007e60a8120cfaba17efa7c067674",
+    "usage": {
+      "candidatesTokenCount": 102,
+      "promptTokenCount": 1795,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1795
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 443,
+      "totalTokenCount": 2340
+    }
+  }
+}

@@ -1,0 +1,310 @@
+{
+  "data": {
+    "cases": [
+      {
+        "case_id": "EMI-FD1-TERM-21",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "overdue",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Vikas Sharma",
+          "due_date": "2024-10-05",
+          "late_charge_inr": 250,
+          "official_payment_route": "EasyCredit Mobile App",
+          "outstanding_amount_inr": 4416,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent acknowledges the commitment politely without reconfirming or claiming payment is finished",
+          "caller_goal": "Pay overdue EMI in full via official app after waiver refusal",
+          "next_behavior_if_handled_badly": "Expresses frustration at redundant questioning and closes call without paying",
+          "next_behavior_if_handled_well": "Opens app and completes payment"
+        },
+        "language": "Hindi",
+        "visible_agent_context": {
+          "conversation_history": [
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "ठीक है, कोई बात नहीं। मैं अभी official app खोलकर 4,416 रुपये का पूरा payment कर देता हूँ।"
+        }
+      },
+      {
+        "case_id": "EMI-FD1-TERM-22",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "overdue",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Rohit Verma",
+          "due_date": "2024-10-10",
+          "late_charge_inr": 200,
+          "official_payment_route": "EasyCredit Mobile App",
+          "outstanding_amount_inr": 4000,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent acknowledges commitment once and closes call smoothly",
+          "caller_goal": "Pay full overdue EMI via official app immediately",
+          "next_behavior_if_handled_badly": "Gets irritated by repeated confirmation prompts",
+          "next_behavior_if_handled_well": "Opens app and pays immediately"
+        },
+        "language": "Hinglish",
+        "visible_agent_context": {
+          "conversation_history": [],
+          "customer_profile": {},
+          "latest_caller_utterance": "Acha thik hai, main abhi official app open karke Rs 4,000 pay kar deta hu."
+        }
+      },
+      {
+        "case_id": "EMI-FD1-TERM-23",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "overdue",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Anita Roy",
+          "due_date": "2024-10-01",
+          "late_charge_inr": 300,
+          "official_payment_route": "EasyCredit Mobile App",
+          "outstanding_amount_inr": 4800,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent acknowledges payment promise once and concludes call without pitching or re-asking",
+          "caller_goal": "Pay overdue EMI immediately on official app after urgency clarification",
+          "next_behavior_if_handled_badly": "Delays payment due to unnecessary agent pushiness",
+          "next_behavior_if_handled_well": "Proceeds to pay on official app"
+        },
+        "language": "English",
+        "visible_agent_context": {
+          "conversation_history": [],
+          "customer_profile": {},
+          "latest_caller_utterance": "Alright, in that case I am opening the official app right now to complete the payment."
+        }
+      },
+      {
+        "case_id": "EMI-FD1-TERM-24",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "overdue",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Gurpreet Singh",
+          "due_date": "2024-10-02",
+          "late_charge_inr": 250,
+          "official_payment_route": "EasyCredit Mobile App",
+          "outstanding_amount_inr": 5250,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent confirms app route gently and ends call without asking caller to re-confirm",
+          "caller_goal": "Pay overdue amount via official app safely without clicking external links",
+          "next_behavior_if_handled_badly": "Grows suspicious if agent keeps pressing for re-confirmation",
+          "next_behavior_if_handled_well": "Opens app and pays 5250 INR"
+        },
+        "language": "Punjabi",
+        "visible_agent_context": {
+          "conversation_history": [],
+          "customer_profile": {},
+          "latest_caller_utterance": "ਠੀਕ ਹੈ ਫਿਰ, ਮੈਂ ਹੁਣੇ official app ਖੋਲ੍ਹ ਕੇ 5,250 ਰੁਪਏ ਪੇ ਕਰ ਦਿੰਦਾ ਹਾਂ।"
+        }
+      },
+      {
+        "case_id": "EMI-FD1-TERM-25",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "overdue",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Amit Patel",
+          "due_date": "2024-10-08",
+          "late_charge_inr": 200,
+          "official_payment_route": "EasyCredit Mobile App",
+          "outstanding_amount_inr": 4400,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent accepts caller commitment immediately and ends call without further questions",
+          "caller_goal": "State payment commitment while interrupting agent and close conversation",
+          "next_behavior_if_handled_badly": "Hangs up angrily if agent continues script",
+          "next_behavior_if_handled_well": "Completes payment on app"
+        },
+        "language": "Hinglish",
+        "visible_agent_context": {
+          "conversation_history": [],
+          "customer_profile": {},
+          "latest_caller_utterance": "Arey haan haan, main abhi app khol kar Rs 4,400 pay kar raha hu, aap call end kar sakte hain."
+        }
+      },
+      {
+        "case_id": "EMI-FD1-TERM-26",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "overdue",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Rajesh Kumar",
+          "due_date": "2024-10-04",
+          "late_charge_inr": 250,
+          "official_payment_route": "EasyCredit Mobile App",
+          "outstanding_amount_inr": 4416,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent acknowledges payment commitment and closes without reconfirmation",
+          "caller_goal": "Pay overdue EMI after receiving explanation of late fees",
+          "next_behavior_if_handled_badly": "Becomes annoyed if agent asks if payment was completed",
+          "next_behavior_if_handled_well": "Opens app and clears overdue amount"
+        },
+        "language": "Hindi",
+        "visible_agent_context": {
+          "conversation_history": [],
+          "customer_profile": {},
+          "latest_caller_utterance": "अच्छा ठीक है समझ गया, मैं अभी official app से 4,416 रुपये pay कर देता हूँ।"
+        }
+      },
+      {
+        "case_id": "EMI-FD1-TERM-27",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "overdue",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Deepa Mehra",
+          "due_date": "2024-10-07",
+          "late_charge_inr": 200,
+          "official_payment_route": "EasyCredit Mobile App",
+          "outstanding_amount_inr": 3800,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent acknowledges pay-now commitment once and exits call",
+          "caller_goal": "Pay full overdue amount after waiver request is denied",
+          "next_behavior_if_handled_badly": "Rethinks decision and postpones payment",
+          "next_behavior_if_handled_well": "Pays amount in official app immediately"
+        },
+        "language": "Hinglish",
+        "visible_agent_context": {
+          "conversation_history": [],
+          "customer_profile": {},
+          "latest_caller_utterance": "Fine, agar waiver nahi ho sakta toh main official app khol kar poora Rs 3,800 abhi pay kar deti hu."
+        }
+      },
+      {
+        "case_id": "EMI-FD1-TERM-28",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "overdue",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Suresh Menon",
+          "due_date": "2024-10-03",
+          "late_charge_inr": 200,
+          "official_payment_route": "EasyCredit Mobile App",
+          "outstanding_amount_inr": 5000,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent acknowledges payment intention cleanly and disconnects",
+          "caller_goal": "Proceed with official app payment after route clarification",
+          "next_behavior_if_handled_badly": "Gets confused if agent asks for re-confirmation",
+          "next_behavior_if_handled_well": "Completes transaction on app"
+        },
+        "language": "English",
+        "visible_agent_context": {
+          "conversation_history": [],
+          "customer_profile": {},
+          "latest_caller_utterance": "Okay, got it. I am opening the EasyCredit app right now to process the payment."
+        }
+      },
+      {
+        "case_id": "EMI-FD1-TERM-29",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "overdue",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Manpreet Kaur",
+          "due_date": "2024-10-06",
+          "late_charge_inr": 200,
+          "official_payment_route": "EasyCredit Mobile App",
+          "outstanding_amount_inr": 4100,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent acknowledges commitment politely and finishes call",
+          "caller_goal": "Pay immediately to avoid additional late fee penalty",
+          "next_behavior_if_handled_badly": "Feels harassed if agent continues pitching or re-verifying",
+          "next_behavior_if_handled_well": "Opens official app and pays 4100 INR"
+        },
+        "language": "Punjabi",
+        "visible_agent_context": {
+          "conversation_history": [],
+          "customer_profile": {},
+          "latest_caller_utterance": "ਚਲੋ ਠੀਕ ਹੈ, ਮੈਂ ਵਾਧੂ ਚਾਰਜ ਤੋਂ ਬਚਣ ਲਈ ਹੁਣੇ official app ਤੋਂ 4,100 ਰੁਪਏ ਪੇ ਕਰ ਦਿੰਦੀ ਹਾਂ।"
+        }
+      },
+      {
+        "case_id": "EMI-FD1-TERM-30",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "overdue",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Vikram Joshi",
+          "due_date": "2024-10-09",
+          "late_charge_inr": 200,
+          "official_payment_route": "EasyCredit Mobile App",
+          "outstanding_amount_inr": 4500,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent accepts payment commitment once without asking caller to re-confirm",
+          "caller_goal": "Interrupt agent to give immediate payment commitment and end call",
+          "next_behavior_if_handled_badly": "Gets frustrated by unnecessary agent repetition",
+          "next_behavior_if_handled_well": "Pays amount via official app"
+        },
+        "language": "Hinglish",
+        "visible_agent_context": {
+          "conversation_history": [],
+          "customer_profile": {},
+          "latest_caller_utterance": "Arey suniye, main abhi official app open karke Rs 4,500 pay kar raha hu, aap tension mat lijiye."
+        }
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 41331.3,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "99db7339887adecb0e21d757929fc8946bc508b97a00586cf0438343607069e4",
+    "response_hash": "928a859d7eb1dc006bcd77848ef225dafc61acf3cbbafdd7a1709a8d7adfa6ea",
+    "usage": {
+      "candidatesTokenCount": 2476,
+      "promptTokenCount": 2302,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 2302
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 6492,
+      "totalTokenCount": 11270
+    }
+  }
+}

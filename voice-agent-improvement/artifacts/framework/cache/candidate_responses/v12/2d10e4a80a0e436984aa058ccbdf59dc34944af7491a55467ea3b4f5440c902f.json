@@ -1,0 +1,98 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-TERM-01",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "धन्यवाद! कृपया ऐप में लॉगिन करके पेमेंट पूरा कर लीजिए।",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-TERM-02",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thank you! Kripya official app se payment complete kar lijiye.",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-TERM-03",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thank you. Please log in to the official app and complete the payment.",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-TERM-04",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਧੰਨਵਾਦ! ਕਿਰਪਾ ਕਰਕੇ official app ਤੋਂ ਹੁਣੇ payment ਕਰ ਦਿਓ।",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-TERM-05",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thank you, aap official app se payment kar lijiye.",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-TERM-06",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "धन्यवाद! आप ऐप से भुगतान कर लीजिए।",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-TERM-07",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thank you! Aap app se payment complete kar lijiye.",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-TERM-08",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thank you. Please proceed with the payment on the official app.",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-TERM-09",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਧੰਨਵਾਦ! ਤੁਸੀਂ app ਰਾਹੀਂ payment ਕਰ ਲਵੋ।",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-TERM-10",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thank you! Kripya official app se payment kar lijiye.",
+        "terminal_state": "payment_ready"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 12135.8,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "2d10e4a80a0e436984aa058ccbdf59dc34944af7491a55467ea3b4f5440c902f",
+    "response_hash": "e885a0e1bc57e36f3a79cd2a01a1cd1273d05345c0785a7f2883a9bd70f00a69",
+    "usage": {
+      "candidatesTokenCount": 561,
+      "promptTokenCount": 2897,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 2897
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 2046,
+      "totalTokenCount": 5504
+    }
+  }
+}

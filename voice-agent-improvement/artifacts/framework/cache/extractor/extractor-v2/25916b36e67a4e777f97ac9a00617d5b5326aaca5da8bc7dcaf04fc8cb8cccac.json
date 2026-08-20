@@ -1,0 +1,68 @@
+{
+  "data": {
+    "extractions": [
+      {
+        "call_summary": "Arnav confirmed identity. Agent requested overdue EMI of Rs 4416 for Samsung TV. Caller requested a late fee waiver, which the agent declined. Caller then agreed to open the app and pay now.",
+        "disposition": "payment_ready",
+        "escalation_reason": "NA",
+        "evidence": "Caller said 'ठीक है मैं pay करता हूँ' and confirmed 'जी' when asked if opening official app now to pay.",
+        "trace_id": "BL-V12-06",
+        "unsupported_action_in_summary": false
+      },
+      {
+        "call_summary": "Arnav confirmed identity. Agent requested overdue EMI of Rs 4416 for Samsung TV. Caller initially hesitated but then agreed to open the app and pay immediately.",
+        "disposition": "payment_ready",
+        "escalation_reason": "NA",
+        "evidence": "Caller stated 'ठीक है अभी अभी ऐप खोल के पे करता हूं.'",
+        "trace_id": "BL-V12-07",
+        "unsupported_action_in_summary": false
+      },
+      {
+        "call_summary": "Arnav confirmed identity. Agent attempted to explain overdue EMI of Rs 4416 for Samsung TV, and caller interrupted to confirm they are opening the app to pay immediately.",
+        "disposition": "payment_ready",
+        "escalation_reason": "NA",
+        "evidence": "Caller said 'अभी app से कर दूं pay' and 'मैं कर रहा हूँ कर रहा हूँ.'",
+        "trace_id": "BL-V12-08",
+        "unsupported_action_in_summary": false
+      },
+      {
+        "call_summary": "Arnav confirmed identity. Agent requested overdue EMI of Rs 4416 for Samsung TV. Caller cited lack of funds until salary credit and promised to pay on 20th August.",
+        "disposition": "fptp",
+        "escalation_reason": "NA",
+        "evidence": "Caller stated '20 अगस्त को आएगी मेरी सैलरी, उसके बाद ही पे कर पाऊंगा' and confirmed 'अह हां ठीक है' for 20th August.",
+        "trace_id": "BL-V12-09",
+        "unsupported_action_in_summary": false
+      },
+      {
+        "call_summary": "Arnav confirmed identity. Agent requested overdue EMI of Rs 4416 for Samsung TV. Caller committed to paying tomorrow by evening, confirmed for 18th August.",
+        "disposition": "fptp",
+        "escalation_reason": "NA",
+        "evidence": "Caller stated 'कल शाम तक पैसे आ जाएंगे' and confirmed 'हाँ कन्फर्म' for tomorrow.",
+        "trace_id": "BL-V12-10",
+        "unsupported_action_in_summary": false
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 15732.0,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "25916b36e67a4e777f97ac9a00617d5b5326aaca5da8bc7dcaf04fc8cb8cccac",
+    "response_hash": "c6988275bf73d1e7d05ce9976f941fd4d362749ee4183432e7c93dca7f0d4aa8",
+    "usage": {
+      "candidatesTokenCount": 680,
+      "promptTokenCount": 2265,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 2265
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 2818,
+      "totalTokenCount": 5763
+    }
+  }
+}

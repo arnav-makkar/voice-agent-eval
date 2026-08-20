@@ -1,0 +1,68 @@
+{
+  "data": {
+    "extractions": [
+      {
+        "call_summary": "Caller confirmed identity as Arnav. After being informed that the late fee waiver could not be granted, caller agreed to open the official app and make the payment immediately.",
+        "disposition": "payment_ready",
+        "escalation_reason": "NA",
+        "evidence": "Caller confirmed: \"जी\" after agent asked \"क्या आप अभी official app open करके payment कर रहे हैं?\"",
+        "trace_id": "BL-V12-06",
+        "unsupported_action_in_summary": false
+      },
+      {
+        "call_summary": "Caller confirmed identity as Arnav and agreed to open the app right now to complete the overdue EMI payment.",
+        "disposition": "payment_ready",
+        "escalation_reason": "NA",
+        "evidence": "Caller stated: \"ठीक है अभी अभी ऐप खोल के पे करता हूं।\"",
+        "trace_id": "BL-V12-07",
+        "unsupported_action_in_summary": false
+      },
+      {
+        "call_summary": "Caller confirmed identity as Arnav and agreed to make the overdue EMI payment immediately via the official app.",
+        "disposition": "payment_ready",
+        "escalation_reason": "NA",
+        "evidence": "Caller stated: \"अभी app से कर दूं pay\" and \"मैं कर रहा हूँ कर रहा हूँ।\"",
+        "trace_id": "BL-V12-08",
+        "unsupported_action_in_summary": false
+      },
+      {
+        "call_summary": "Caller confirmed identity as Arnav, cited lack of funds due to waiting for salary on August 20th, and promised to pay the overdue EMI on August 20th.",
+        "disposition": "fptp",
+        "escalation_reason": "NA",
+        "evidence": "Caller stated: \"20 अगस्त को आएगी मेरी सैलरी, उसके बाद ही पे कर पाऊंगा।\"",
+        "trace_id": "BL-V12-09",
+        "unsupported_action_in_summary": false
+      },
+      {
+        "call_summary": "Caller confirmed identity as Arnav and promised to pay the overdue EMI by tomorrow evening (18th August).",
+        "disposition": "fptp",
+        "escalation_reason": "NA",
+        "evidence": "Caller stated: \"कल शाम तक पैसे आ जाएंगे।\" and confirmed \"हाँ कन्फर्म।\"",
+        "trace_id": "BL-V12-10",
+        "unsupported_action_in_summary": false
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 11506.7,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "4f26da45eea5443ac5893f8a18fd30f46c3b929a45da76910127e6ad9caaff2a",
+    "response_hash": "884b3bdec57115179693fabbfcacd886ab5dcb0fc84f3a7b2b1ad7770e34c3ed",
+    "usage": {
+      "candidatesTokenCount": 465,
+      "promptTokenCount": 2153,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 2153
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1700,
+      "totalTokenCount": 4318
+    }
+  }
+}

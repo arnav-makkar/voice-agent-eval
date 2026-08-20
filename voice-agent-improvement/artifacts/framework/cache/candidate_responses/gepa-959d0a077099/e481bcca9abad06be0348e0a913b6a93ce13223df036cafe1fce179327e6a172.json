@@ -1,0 +1,35 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-TERM-22",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Dhanyawad Gurpreet ji, aap EasyCredit app se abhi payment kar lijiye.",
+        "terminal_state": "payment_ready"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4438.2,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "e481bcca9abad06be0348e0a913b6a93ce13223df036cafe1fce179327e6a172",
+    "response_hash": "233c859b02cb899b9f0bf5e5ae11bee09243759b20b6b4d1860ee6a3be666721",
+    "usage": {
+      "candidatesTokenCount": 65,
+      "promptTokenCount": 1489,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1489
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 588,
+      "totalTokenCount": 2142
+    }
+  }
+}

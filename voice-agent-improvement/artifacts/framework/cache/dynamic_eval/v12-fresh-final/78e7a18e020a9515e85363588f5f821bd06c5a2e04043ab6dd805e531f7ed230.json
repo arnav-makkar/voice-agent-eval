@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "We do not send web links over calls for security reasons. What is the earliest date you can make the payment?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 6474.6,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "78e7a18e020a9515e85363588f5f821bd06c5a2e04043ab6dd805e531f7ed230",
+    "response_hash": "9f682173707644c11012c23d0b0f528e2e61376cdd0ea949781be713b96ce883",
+    "usage": {
+      "candidatesTokenCount": 48,
+      "promptTokenCount": 1493,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1493
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 907,
+      "totalTokenCount": 2448
+    }
+  }
+}

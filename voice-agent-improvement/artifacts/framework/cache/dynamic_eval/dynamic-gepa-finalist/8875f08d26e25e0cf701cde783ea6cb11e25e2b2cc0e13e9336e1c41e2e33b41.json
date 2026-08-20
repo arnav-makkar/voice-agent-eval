@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Hi Kabir, I am Shubh from EasyCredit regarding your Rs 3103 overdue EMI. Can you pay now via EasyCredit app?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4864.9,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "8875f08d26e25e0cf701cde783ea6cb11e25e2b2cc0e13e9336e1c41e2e33b41",
+    "response_hash": "98c382cb9b4049d21f2e6ba05f7ba6fba44e4e8cff4a34a00b220b4b60ddff99",
+    "usage": {
+      "candidatesTokenCount": 54,
+      "promptTokenCount": 1695,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1695
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 643,
+      "totalTokenCount": 2392
+    }
+  }
+}

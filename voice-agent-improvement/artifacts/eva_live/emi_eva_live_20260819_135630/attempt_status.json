@@ -1,0 +1,37 @@
+{
+  "run_id": "emi_eva_live_20260819_135630",
+  "record_id": "EMI-LIVE-001",
+  "classification": "valid_live_bot_to_bot_evaluation",
+  "architecture": {
+    "caller": "ElevenLabs realtime agent — Arnav",
+    "transport": "live bidirectional audio",
+    "system_under_test": "Sarvam Samvaad — deployed Shubh agent"
+  },
+  "provider_evidence": {
+    "sarvam_connectivity": "connected",
+    "sarvam_ended_by": "AGENT_ENDS",
+    "sarvam_failure_reason": "NO_FAILURE_REASON",
+    "sarvam_duration_seconds": 45.507,
+    "sarvam_average_agent_response_seconds": 0.92,
+    "elevenlabs_status": "done",
+    "elevenlabs_duration_seconds": 47
+  },
+  "execution_truth": {
+    "disposition": "payment_ready",
+    "final_state_matches_expected": true,
+    "caller_behavioral_fidelity": 1.0,
+    "caller_speech_fidelity": 1.0,
+    "terminal_state_score": 1.0
+  },
+  "product_finding": {
+    "severity": "quality_regression_candidate",
+    "description": "After Arnav explicitly agreed to open the EasyCredit app and pay, Shubh asked for confirmation once more before closing.",
+    "task_completed": true,
+    "experience_perfect": false
+  },
+  "normalization": {
+    "provider_rerun_used": false,
+    "raw_archived_attempt_preserved": true,
+    "reason": "The original bridge classified the provider's normal socket close as a disconnect; the recovered record uses Indus AGENT_ENDS evidence and the provider post-call transcript."
+  }
+}

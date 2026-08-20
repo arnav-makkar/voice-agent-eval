@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Shukriya. Toh aap iski payment kab tak kar denge?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4781.8,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "6722d5f251f67ceef279147313414b12bbac01c7b8ce5ffc0f43cfa563358650",
+    "response_hash": "8c5e03b9ca62a6dac3bae239a56d67081d926cba63dd688bc679a517272f73a3",
+    "usage": {
+      "candidatesTokenCount": 39,
+      "promptTokenCount": 1831,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1831
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 592,
+      "totalTokenCount": 2462
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "acknowledged",
+    "should_end_call": true,
+    "spoken_response": "Thik hai, kripya EasyCredit app se check karke payment kar dijiyega. Dhanyawad!",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "acknowledged"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4521.6,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "e6b1d62a2a043fa4c632521272a8e2777093ce7c1c22d210614dc8e9ba9e9620",
+    "response_hash": "e7d5236e4d6e3f78551bb738b7d144b8b06fb8d60599aefb5515b1d26f652624",
+    "usage": {
+      "candidatesTokenCount": 65,
+      "promptTokenCount": 1788,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1788
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 646,
+      "totalTokenCount": 2499
+    }
+  }
+}

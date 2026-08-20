@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "acknowledged",
+    "should_end_call": true,
+    "spoken_response": "Website ka option nahi hai. Aap madad ke liye hamare customer care number 1800-500-4444 par call kar sakte hain. Dhanyawad.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "acknowledged"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 6032.2,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "0bf993c9fb4ac9a8750eb7959089ac1c835860d796f243c1c5d6fb3236076497",
+    "response_hash": "3faa5ea61ef4c64335fef16c8850326f3fb9dad2c741b0c71c7917ffe2d88647",
+    "usage": {
+      "candidatesTokenCount": 80,
+      "promptTokenCount": 1830,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1830
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 823,
+      "totalTokenCount": 2733
+    }
+  }
+}

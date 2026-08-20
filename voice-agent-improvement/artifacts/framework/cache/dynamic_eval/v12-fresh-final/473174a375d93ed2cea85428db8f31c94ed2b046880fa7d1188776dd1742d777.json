@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Koi baat nahi. Aap kab tak iska payment kar payenge?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4094.2,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "473174a375d93ed2cea85428db8f31c94ed2b046880fa7d1188776dd1742d777",
+    "response_hash": "8f9bce19e1218f2cb93f4b1789bdf90721261dd44533288d418ecfe9e4f0a17b",
+    "usage": {
+      "candidatesTokenCount": 38,
+      "promptTokenCount": 1481,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1481
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 446,
+      "totalTokenCount": 1965
+    }
+  }
+}

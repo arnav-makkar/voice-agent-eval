@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Build Plan — Self-Improving Voice Agents · 14 Days</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#12151a; --ink-2:#1a1f27; --ink-3:#161b22; --line:#2a313d;
+    --paper:#e9e6de; --paper-dim:#9aa1ad;
+    --gold:#d9a94a; --gold-dim:#8a743a;
+    --teal:#4fa8a0; --violet:#9a8fe0; --red-flag:#c9705f;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{background:var(--ink); scroll-behavior:smooth;}
+  body{background:var(--ink); color:var(--paper); font-family:'IBM Plex Sans',sans-serif; line-height:1.55; -webkit-font-smoothing:antialiased;}
+  ::selection{ background:var(--gold); color:var(--ink); }
+  .wrap{ max-width:1080px; margin:0 auto; padding:0 28px; }
+
+  .hero{ padding:64px 0 40px; }
+  .eyebrow{ font-family:'IBM Plex Mono',monospace; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); display:flex; align-items:center; gap:10px; margin-bottom:26px; }
+  .eyebrow::before{ content:""; width:7px; height:7px; border-radius:50%; background:var(--gold); box-shadow:0 0 0 3px rgba(217,169,74,.18); }
+  .hero-grid{ display:grid; grid-template-columns:1.35fr 1fr; gap:40px; align-items:end; }
+  h1{ font-family:'Fraunces',serif; font-weight:400; font-size:clamp(34px,5vw,54px); line-height:1.04; letter-spacing:-.01em; }
+  h1 em{ font-style:italic; color:var(--gold); }
+  .hero-sub{ margin-top:18px; color:var(--paper-dim); font-size:15px; max-width:54ch; }
+  .hero-figure{ text-align:right; border-left:1px solid var(--line); padding-left:32px; }
+  .hero-figure .num{ font-family:'Fraunces',serif; font-weight:300; font-size:72px; line-height:.9; }
+  .hero-figure .num small{ font-size:20px; color:var(--paper-dim); font-weight:400; }
+  .hero-figure .cap{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.06em; color:var(--paper-dim); margin-top:8px; }
+
+  .tabbar{ position:sticky; top:0; z-index:50; background:rgba(18,21,26,.94); backdrop-filter:blur(12px); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .tabbar-inner{ max-width:1080px; margin:0 auto; padding:0 28px; display:flex; gap:2px; overflow-x:auto; }
+  .tab{ background:none; border:none; color:var(--paper-dim); font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.04em; padding:15px 15px; cursor:pointer; white-space:nowrap; border-bottom:2px solid transparent; display:flex; align-items:center; gap:8px; }
+  .tab:hover{ color:var(--paper); }
+  .tab.active{ color:var(--gold); border-bottom-color:var(--gold); }
+  .tnum{ opacity:.55; font-size:10px; }
+
+  .panel{ display:none; padding:44px 0 80px; }
+  .panel.active{ display:block; }
+  section{ margin-bottom:52px; }
+  .sec-head{ border-bottom:1px solid var(--line); padding-bottom:12px; margin-bottom:26px; }
+  h2{ font-family:'Fraunces',serif; font-weight:400; font-size:28px; letter-spacing:-.01em; }
+  .tag{ font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.06em; color:var(--paper-dim); margin-top:6px; }
+  h3{ font-family:'Fraunces',serif; font-weight:400; font-size:20px; margin:28px 0 12px; color:var(--gold); }
+  h4{ font-size:15px; font-weight:600; margin:20px 0 8px; }
+  p{ font-size:14.5px; margin-bottom:12px; }
+  ul,ol{ margin:0 0 14px 20px; font-size:14.5px; }
+  li{ margin-bottom:7px; }
+  code{ font-family:'IBM Plex Mono',monospace; font-size:12.5px; background:var(--ink-2); border:1px solid var(--line); padding:1px 5px; border-radius:3px; color:var(--gold); }
+  em.g{ font-style:italic; color:var(--gold); }
+  del{ color:var(--paper-dim); }
+
+  .grid{ display:grid; gap:1px; background:var(--line); border:1px solid var(--line); margin:22px 0; }
+  .g2{ grid-template-columns:1fr 1fr; } .g3{ grid-template-columns:repeat(3,1fr); } .g4{ grid-template-columns:repeat(4,1fr); }
+  .cell{ background:var(--ink-2); padding:20px 22px; }
+  .clabel{ font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--paper-dim); margin-bottom:9px; }
+  .cbig{ font-family:'Fraunces',serif; font-size:32px; line-height:1; font-weight:300; }
+  .cbig small{ font-size:14px; color:var(--paper-dim); }
+  .cnote{ font-size:12.5px; color:var(--paper-dim); margin-top:8px; }
+
+  .tscroll{ overflow-x:auto; margin:20px 0; }
+  table{ width:100%; border-collapse:collapse; font-size:13.5px; }
+  th{ text-align:left; font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--gold); border-bottom:1px solid var(--gold-dim); padding:9px 12px; background:var(--ink-3); }
+  td{ border-bottom:1px solid var(--line); padding:11px 12px; vertical-align:top; }
+  tr:hover td{ background:var(--ink-3); }
+
+  .callout{ border-left:2px solid var(--gold); background:var(--ink-2); padding:18px 22px; margin:22px 0; }
+  .callout.warn{ border-left-color:var(--red-flag); }
+  .callout.good{ border-left-color:var(--teal); }
+  .callout.violet{ border-left-color:var(--violet); }
+  .ctitle{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--gold); margin-bottom:9px; }
+  .callout.warn .ctitle{ color:var(--red-flag); }
+  .callout.good .ctitle{ color:var(--teal); }
+  .callout.violet .ctitle{ color:var(--violet); }
+
+  .badge{ font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.06em; padding:2px 8px; border-radius:20px; display:inline-block; white-space:nowrap; }
+  .badge.ok{ background:var(--teal); color:#08201e; font-weight:600; }
+  .badge.no{ background:var(--red-flag); color:#2a0f0a; font-weight:600; }
+  .badge.warn{ background:var(--gold); color:#1a1509; font-weight:600; }
+  .badge.dim{ background:transparent; border:1px solid var(--line); color:var(--paper-dim); }
+  .badge.v{ background:var(--violet); color:#15102b; font-weight:600; }
+
+  .flow{ display:flex; align-items:stretch; gap:0; flex-wrap:wrap; margin:22px 0; }
+  .fstep{ flex:1; min-width:150px; background:var(--ink-2); border:1px solid var(--line); padding:16px 18px; }
+  .fstep + .fstep{ border-left:none; }
+  .fstep .fnum{ font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.1em; color:var(--gold); margin-bottom:7px; }
+  .fstep .fname{ font-size:14px; font-weight:600; margin-bottom:5px; }
+  .fstep .fdesc{ font-size:12.5px; color:var(--paper-dim); }
+  .fstep.accent{ background:rgba(217,169,74,.07); border-color:var(--gold-dim); }
+
+  .day{ display:grid; grid-template-columns:78px 1fr; gap:20px; border-bottom:1px solid var(--line); padding:18px 0; }
+  .daynum{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.08em; color:var(--gold); padding-top:3px; }
+  .daynum small{ display:block; color:var(--paper-dim); font-size:10px; margin-top:4px; letter-spacing:.04em; }
+  .dayname{ font-size:15px; font-weight:600; margin-bottom:6px; }
+  .daybody{ font-size:13.5px; color:var(--paper-dim); }
+  .daybody strong{ color:var(--paper); }
+  .gate{ display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.06em; color:var(--teal); border:1px solid var(--teal); padding:2px 8px; border-radius:3px; margin-top:9px; }
+
+  footer{ border-top:1px solid var(--line); padding:34px 0 60px; color:var(--paper-dim); font-size:13px; }
+  @media(max-width:820px){
+    .hero-grid{ grid-template-columns:1fr; } .hero-figure{ text-align:left; border-left:none; padding-left:0; border-top:1px solid var(--line); padding-top:20px; }
+    .g2,.g3,.g4{ grid-template-columns:1fr; }
+    .fstep + .fstep{ border-left:1px solid var(--line); }
+    .day{ grid-template-columns:1fr; gap:6px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="eyebrow">Build Plan · v1 · Locked 3 Aug 2026 · Read this, then start</div>
+    <div class="hero-grid">
+      <div>
+        <h1>Self-improving voice agents,<br><em>with a number you can defend.</em></h1>
+        <p class="hero-sub">Three agents, three real data provenances, one honest task-success number on a frozen held-out split. Built on the benchmark the field actually uses, wrapped into the framework Sarvam forked. Everything below is checked — licences, deployments, claims. Where there is no real data, it says so.</p>
+      </div>
+      <div class="hero-figure">
+        <div class="num">14<small>&nbsp;days</small></div>
+        <div class="cap">3 AUG → 17 AUG 2026</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="tabbar">
+  <div class="tabbar-inner" id="tabbar">
+    <button class="tab active" data-p="q0"><span class="tnum">00</span>The argument</button>
+    <button class="tab" data-p="q1"><span class="tnum">01</span>The stack</button>
+    <button class="tab" data-p="q2"><span class="tnum">02</span>Three domains</button>
+    <button class="tab" data-p="q3"><span class="tnum">03</span>The data</button>
+    <button class="tab" data-p="q4"><span class="tnum">04</span>What you measure</button>
+    <button class="tab" data-p="q5"><span class="tnum">05</span>The 14 days</button>
+    <button class="tab" data-p="q6"><span class="tnum">06</span>What you report</button>
+    <button class="tab" data-p="q7"><span class="tnum">07</span>How you get caught</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- ═════════════ PANEL 0 ═════════════ -->
+<div class="panel active" id="q0">
+
+  <section>
+    <div class="sec-head">
+      <h2>The argument, in one page</h2>
+      <div class="tag">read this before you touch a terminal</div>
+    </div>
+
+    <p><strong>Sarvam has published a task success rate exactly once.</strong> It appears in the EkStep <em>Listen at Scale</em> report, against a deployment called SwaTaleem: <strong>62% task success rate</strong>. One number, one programme, out of twenty organisations and 74 lakh voice minutes.</p>
+
+    <p>Everything else they publish is reach. Calls placed, minutes served, conversations that lasted more than fifteen seconds, users identified. Those are real numbers and they are impressive — 1.58 million calls for Maharashtra's Aaple Sarkar, 1.1 lakh structured interactions for Piramal, 2.5 million outreach calls for the National Health Authority. <strong>But almost none of it says whether the call worked.</strong></p>
+
+    <div class="callout good">
+      <div class="ctitle">★ The sentence the whole build exists to earn</div>
+      <p><em class="g">"You've published a task success rate once, on one deployment out of twenty. Here's the layer that produces it everywhere — and here's the honest version of that number on three of your own domains."</em></p>
+    </div>
+
+    <p>This is not a criticism you invent. It is the same criticism Forbes ran in March under the heading <em>"Every Performance Claim Is Self-Reported,"</em> and the same one the builder community raised the day after Epoch, asking about selective benchmark slides and <em>"evaluation honesty."</em> You are not attacking a weakness. You are <strong>bringing the thing three separate audiences have already asked for.</strong></p>
+
+    <h3>Why these three domains</h3>
+
+    <p>Two of them are the same mechanic, and that mechanic is Sarvam's single most-deployed pattern.</p>
+
+    <div class="flow">
+      <div class="fstep accent">
+        <div class="fnum">DOMAIN A · PERSONAL</div>
+        <div class="fname">College semester feedback</div>
+        <div class="fdesc">Outbound. Collect structured feedback from students on courses, teaching and facilities. Handle refusal, partial answers, code-switching, and the "I don't have a mentor" branch.</div>
+      </div>
+      <div class="fstep">
+        <div class="fnum">DOMAIN B · BFSI</div>
+        <div class="fname">SBI Life policy servicing</div>
+        <div class="fdesc">Inbound. Authenticate, return fund value and premium due date, complete the payment intent or hand off — <strong>without stating a surrender value the core system did not return.</strong></div>
+      </div>
+      <div class="fstep accent">
+        <div class="fnum">DOMAIN C · SCALE</div>
+        <div class="fname">Aadhaar post-enrolment feedback</div>
+        <div class="fdesc">Outbound. Collect feedback on an enrolment or update, <strong>including whether the resident was overcharged.</strong> Ten languages, air-gapped, integrity flagging.</div>
+      </div>
+    </div>
+
+    <p><strong>A and C are the same machine.</strong> Both are outbound structured-feedback collection with an integrity flag and a completion criterion. Build A properly and C costs you a schema swap, not a rebuild. That is the engineering argument for why three domains fit in two weeks, and it is also the product argument: <em class="g">this is one reusable environment, not three demos.</em></p>
+
+    <p><strong>B is the different one</strong> — inbound, transactional, regulated, and the only domain where a wrong number is a compliance event rather than a bad experience. It is there because BFSI is where Sarvam earns, and because it forces the verifier to prove something harder than "did we collect the answers."</p>
+
+    <div class="callout violet">
+      <div class="ctitle">★ Sarvam has already shipped your architecture — in another vertical</div>
+      <p>The Government of Maharashtra <strong>Aaple Sarkar</strong> deployment, from Sarvam's own EkStep report: 1.58M+ calls, 490K+ meaningful conversations, 53K+ with qualitative feedback, 35 districts, average service rating <strong>4.37/5</strong>. The agent <em>"verified beneficiary identity, captured service ratings, audited whether multiple visits were required, and flagged reports of unofficial transaction costs."</em></p>
+      <p style="margin-top:10px">Identity check → structured capture → integrity flag. <strong>That is exactly Domain A and Domain C.</strong> You are not proposing a new pattern; you are proposing the measurement layer for the pattern they run most.</p>
+    </div>
+
+    <h3>What "real" means here, precisely</h3>
+
+    <p>You said no fluff. So the honest position, stated up front and repeated on camera:</p>
+
+    <div class="tscroll">
+    <table>
+      <thead><tr><th>Layer</th><th>Real?</th><th>Provenance</th></tr></thead>
+      <tbody>
+        <tr><td><strong>The domain schema</strong> — what services exist, what a call must achieve</td><td><span class="badge ok">Real, cited</span></td><td>NAAC's mandated Student Satisfaction Survey · UIDAI's published 1947 IVR service catalogue and Citizen's Charter SLAs · SBI Life's three named voice applications</td></tr>
+        <tr><td><strong>The entities</strong> — courses, policy types, service names, intents</td><td><span class="badge ok">Real, cited</span></td><td>47.9M Kisan Call Centre transcripts (GODL-India) · Banking77 + CLINC150 · BhashaBench-Finance · ServicePlus's 3,409 G2C services</td></tr>
+        <tr><td><strong>The answer content</strong> — what students and callers actually say</td><td><span class="badge ok">Real, cited</span></td><td>9.5M RateMyProfessor reviews (CC BY 4.0) · Waterloo course reviews (CC0) · Hinglish-TOP (Apache-2.0)</td></tr>
+        <tr><td><strong>The Hinglish code-switching</strong></td><td><span class="badge ok">Real audio</span></td><td>MUCS 2021 sub-task 2 / OpenSLR SLR104 — 7.3 GB of genuine Hindi-English code-switched speech, CC BY-SA 4.0</td></tr>
+        <tr><td><strong>The dialogue arrangement</strong> — who says what in which order</td><td><span class="badge warn">Synthetic</span></td><td>Generated combinatorially from (init, solution, assertion) triples, proven solvable and non-trivial by construction. <strong>Say this out loud.</strong></td></tr>
+        <tr><td><strong>Real BFSI call recordings</strong></td><td><span class="badge no">Do not exist</span></td><td>There is no open Indian BFSI voice or dialogue corpus, in any language. We checked. <strong>Say this out loud too</strong> — it's a finding, not a gap.</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="callout">
+      <div class="ctitle">◆ The one-line provenance statement, for the video</div>
+      <p><em class="g">"Every entity in these tasks comes from a cited, licence-checked public source. The dialogues are synthetic — generated from executable specs, proven solvable by construction, and scored against database end-state rather than an LLM's opinion. No real customer conversations were used, because none exist under an open licence. I'll show you the licence table."</em></p>
+    </div>
+  </section>
+</div>
+
+<!-- ═════════════ PANEL 1 ═════════════ -->
+<div class="panel" id="q1">
+
+  <section>
+    <div class="sec-head">
+      <h2>The stack, locked</h2>
+      <div class="tag">every choice, why, and the licence</div>
+    </div>
+
+    <div class="tscroll">
+    <table>
+      <thead><tr><th>Layer</th><th>Choice</th><th>Licence</th><th>Why this and not the obvious alternative</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Environment &amp; rollout</strong></td>
+          <td><code>sierra-research/tau2-bench</code> (τ³)</td>
+          <td><span class="badge ok">MIT</span></td>
+          <td>The only thing where the LLM user simulator, multi-turn loop, tool calling, telephony audio path <em>and</em> a non-LLM verifier already exist together. 1,511★. Fork the existing <code>banking_knowledge</code> domain rather than starting from <code>mock</code>.</td>
+        </tr>
+        <tr>
+          <td><strong>Verifier</strong></td>
+          <td>τ-bench <code>DB × COMMUNICATE</code></td>
+          <td><span class="badge ok">MIT</span></td>
+          <td>Reward is a <strong>hash of the canonicalised end-state database</strong> versus a replayed reference trajectory, times substring containment of required outputs. <em class="g">There is no LLM anywhere in <code>calculate_reward</code>.</em> That is the whole point — a reviewer can disagree with a judge, but not with a hash.</td>
+        </tr>
+        <tr>
+          <td><strong>Speech metrics</strong></td>
+          <td><code>sarvamai/llm_wer</code> + <code>sarvamai/llm_intent_entity</code></td>
+          <td><span class="badge no">No LICENSE file</span></td>
+          <td>Sarvam's own published stack — using it is the single strongest credibility move available. <strong>But GitHub returns <code>license: null</code> for both.</strong> Depend on them, import them, cite them; <strong>do not copy their code into your repo.</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Per-turn microscope</strong></td>
+          <td>Pipecat Evals</td>
+          <td><span class="badge ok">BSD-2</span></td>
+          <td>Runs fully local and free — Kokoro TTS, Moonshine STT, Ollama judge. Asserts on function calls with arguments, barge-in, per-turn latency budgets. Scripted user turns, so it can't produce a TSR — it reproduces the exact broken turn deterministically once τ³ flags it.</td>
+        </tr>
+        <tr>
+          <td><strong>Optimiser</strong></td>
+          <td>Manual taxonomy iteration, then <strong>one</strong> scoped GEPA run</td>
+          <td><span class="badge ok">MIT</span></td>
+          <td>GEPA is an ICLR 2026 Oral and it is real — but its published evidence base contains <strong>zero multi-turn agentic benchmarks</strong>, and its own top-priority open issue (#261) describes a <em>"silent failure mode — train score improves, production score doesn't."</em> That is the exact failure this pitch is against. One arm, reported honestly.</td>
+        </tr>
+        <tr>
+          <td><strong>Packaging</strong></td>
+          <td>NeMo Gym <code>resources_server</code></td>
+          <td><span class="badge ok">Apache-2.0</span></td>
+          <td>Sarvam forked NeMo Gym on 28 May 2026. Wrapping the finished domain into it means the work lands in a framework their org already picked up. <code>toolsandbox</code> is the reference implementation for a multi-turn env with a simulated user.</td>
+        </tr>
+        <tr>
+          <td><strong>Agent model</strong></td>
+          <td>Sarvam-30B via the Sarvam API</td>
+          <td>₹2.5 in / ₹10 out per 1M</td>
+          <td>It's the model that powers Samvaad. Optimising anything else would be a strange choice in a pitch to Sarvam. Keep a frontier model as the <em>reflector</em> only — a cheap reflector fails outright.</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="callout warn">
+      <div class="ctitle">⚠ Two things about Sarvam's Gym fork you must state accurately</div>
+      <p><strong>The fork is unmodified.</strong> GitHub's compare endpoint returns <code>ahead_by 0, behind_by 298</code> — a clean fork with no Sarvam commits, created 28 May 2026 and last synced 5 June. They also forked <code>harbor</code> the same day.</p>
+      <p style="margin-top:10px">So the accurate sentence is <em class="g">"Sarvam picked up NeMo Gym in May"</em> — not "Sarvam is building on NeMo Gym." Saying the second thing in a room containing the engineer who pressed the fork button is how you lose it.</p>
+    </div>
+
+    <div class="callout good">
+      <div class="ctitle">★ Two verified gaps you can fill, and they're both worth a line in the video</div>
+      <p><strong>1. There is no τ-bench environment among NeMo Gym's 102 <code>resources_servers</code>.</strong> The τ² harness NVIDIA markets lives in NeMo <em>Evaluator</em>, a different product. So a τ-style multi-turn environment contributed to Gym is a genuine first.</p>
+      <p style="margin-top:10px"><strong>2. NeMo Gym does not compute pass^k.</strong> Its <code>reward_profile.py</code> emits pass@k, majority@k and standard deviation — not pass^k. Since τ-bench's own paper defines pass^k as the honest metric for a stochastic user simulator, that's a small, real, contributable fix.</p>
+    </div>
+
+    <h3>What you are deliberately not using</h3>
+
+    <div class="tscroll">
+    <table>
+      <thead><tr><th>Rejected</th><th>Reason</th></tr></thead>
+      <tbody>
+        <tr><td><strong>VoiceAgentBench</strong> (Ola Krutrim)</td><td><span class="badge no">Non-compete clause</span> Licence is <code>krutrim-community-license-agreement-v1.0</code>. §5 verbatim: <em>"The Software may not be used to develop, market, sell, or support competing products or services."</em> <strong>Krutrim is Sarvam's direct competitor.</strong> The paper is CC BY 4.0 — cite it, critique it, reuse nothing. Not one byte.</td></tr>
+        <tr><td><strong>Coval · Cekura · Hamming</strong></td><td>Hosted SaaS. A dashboard number cannot be read, re-run, or disagreed with by a reviewer. That defeats the entire pitch.</td></tr>
+        <tr><td><strong>MIPROv2 as baseline</strong></td><td>2,270–6,926 rollouts at <code>auto=heavy</code>, bloats prompts, and regressed <em>below</em> the unoptimised baseline on one of GEPA's own reported settings. Your baseline is the seed prompt with variance bars.</td></tr>
+        <tr><td><strong>DeepEval as scorer</strong></td><td>Best OSS conversation simulator, but <code>TaskCompletionMetric</code> is still <code>LLMTestCase</code>-only — open issue #2223. You'd hit the exact wall you're demonstrating past.</td></tr>
+        <tr><td><strong>Gram Vaani</strong> for anything shipped</td><td>Real rural Hindi <em>telephone</em> speech, which is exactly what you want — but the upstream OpenSLR terms say academic use only, commercial requires written permission. Use it to characterise acoustics; don't ship it.</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+</div>
+
+<!-- ═════════════ PANEL 2 ═════════════ -->
+<div class="panel" id="q2">
+
+  <section>
+    <div class="sec-head">
+      <h2>The three domains</h2>
+      <div class="tag">modelled on what Sarvam actually runs — including three things their own site gets wrong</div>
+    </div>
+
+    <div class="callout warn">
+      <div class="ctitle">⚠ Corrections that would otherwise sink you in the first two minutes</div>
+      <p><strong>1. The Aadhaar agent does not do citizen self-service.</strong> Per PIB PRID 2112485 (18 Mar 2025), it collects <em>"near real-time feedback from Aadhaar number holders for their enrolment and update processes, including information on overcharging of residents (if any)"</em> and issues real-time fraud alerts. It does not check enrolment status, book appointments, or handle grievances. <strong>Ten languages, and Bengali is not among them.</strong> Air-gapped, on-premise, and <em>UIDAI owns the solution, not Sarvam</em> — it was built under UIDAI's volunteer policy.</p>
+      <p style="margin-top:10px"><strong>2. SBI Life's headline deployment is WhatsApp, not voice.</strong> The official case study leads with an assistant for <strong>3.5 lakh+ sales agents</strong> in 11 languages — "the largest enterprise WhatsApp chatbot use case in India." Voice policy servicing is one of three named applications, it is <strong>pilot-only in Maharashtra and Tamil Nadu branches</strong>, and the August 2026 nationwide target is trade-press sourced and <strong>unconfirmed as of today</strong>. Do not say it is live nationwide.</p>
+      <p style="margin-top:10px"><strong>3. Sarvam's own homepage mislabels the farmer work.</strong> It credits "Skill Development India" for the 50,000+ farmer feedback calls. It was the <strong>Government of Maharashtra Agriculture Department</strong>, with EkStep. Skill India is a separate, real Sarvam engagement — a WhatsApp assistant with MSDE, Meta and NSDC — with nothing to do with farmers. <em class="g">Quietly getting this right is worth more than any statistic in the deck.</em></p>
+      <p style="margin-top:10px"><strong>Bonus:</strong> "AI Sachiv" is a Piramal Foundation programme calling <em>Sarpanches and Ward Members</em> in Bihar and Jharkhand — not a citizen service, despite the label on Sarvam's own audio demo.</p>
+    </div>
+
+    <h3>Domain A — College semester feedback <span class="badge dim">personal · build this first</span></h3>
+
+    <p><strong>Shape:</strong> outbound call to a student, consent, eligibility screen, then a structured instrument, then close. Success is not "the call happened" — it is <em class="g">the required fields were captured accurately, refusals were recorded as refusals rather than invented, and the student was never asked a question the skip logic should have suppressed.</em></p>
+
+    <div class="tscroll">
+    <table>
+      <thead><tr><th>Element</th><th>Spec</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Instrument</strong></td><td><strong>NAAC Student Satisfaction Survey, Key Indicator 2.7.1</strong> — mandated for every accredited Indian HEI. 20 ordinal questions on a 0–4 scale with verbal anchors, plus one open-ended three-slot question. Courses (Q1, Q10, Q12, Q16), teaching (Q2–Q6, Q13, Q14), facilities (Q7, Q9, Q15, Q17–Q19).</td></tr>
+        <tr><td><strong>The refusal branch is official</strong></td><td>Q11 ships with <em>"0 — I don't have a mentor."</em> You do not have to invent a not-applicable path; the government instrument has one. That single detail is what separates a real survey agent from a chatbot.</td></tr>
+        <tr><td><strong>Tools</strong></td><td><code>get_student_record</code> · <code>verify_enrolment</code> · <code>record_response(q_id, value)</code> · <code>record_refusal(q_id, reason)</code> · <code>record_free_text</code> · <code>flag_for_review</code> · <code>close_survey(status)</code></td></tr>
+        <tr><td><strong>DB end-state</strong></td><td>Response row per answered question with the exact ordinal; refusals recorded distinctly from zeros; skip-suppressed questions absent rather than null; survey status one of <code>complete</code> / <code>partial</code> / <code>refused</code> / <code>ineligible</code>.</td></tr>
+        <tr><td><strong>The failure that matters</strong></td><td><strong>A recorded 0 where the student refused.</strong> Both look like "we got an answer." Only one is honest. Your verifier distinguishes them; a containment metric never would. <em class="g">This is the whole thesis, in one field.</em></td></tr>
+        <tr><td><strong>Sarvam precedent</strong></td><td>Maharashtra FFS: 50k+ meaningful conversations, 58.8% training-implementation rate verified. SwaTaleem: 6.5k+ parents, 93% engaged, <strong>62% task success rate</strong> — the only published TSR in the entire report.</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h3>Domain B — SBI Life voice policy servicing <span class="badge dim">BFSI · the hard one</span></h3>
+
+    <p><strong>Shape:</strong> inbound, policyholder-initiated, in the caller's language. Grounded strictly in the three capabilities Sarvam and SBI Life have actually named: <strong>fund values, premium due dates, surrender calculations.</strong></p>
+
+    <div class="callout">
+      <div class="ctitle">◆ The objective, written so a verifier can score it</div>
+      <p>Authenticate the caller against the policy record → return the current fund value and next premium due date → state whether the premium is payable now → either complete the payment intent or hand off to a human — <strong>without stating a surrender value the core system did not return.</strong></p>
+    </div>
+
+    <div class="tscroll">
+    <table>
+      <thead><tr><th>Element</th><th>Spec</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Tools</strong></td><td><code>authenticate_policyholder</code> · <code>get_policy</code> · <code>get_fund_value</code> · <code>get_premium_schedule</code> · <code>compute_surrender_value</code> · <code>initiate_payment</code> · <code>escalate_to_human(reason)</code></td></tr>
+        <tr><td><strong>The compliance trap, built in</strong></td><td>A subset of tasks make <code>compute_surrender_value</code> return an error or a pending state. <strong>The correct behaviour is to say so and escalate.</strong> An agent that fills the gap with a plausible number scores zero — and a containment metric would have scored it a success. This is the BFSI hallucination case, made mechanically detectable.</td></tr>
+        <tr><td><strong>Human-in-the-loop is theirs, not yours</strong></td><td>SBI Life state a human-in-the-loop framework. So <strong>correct escalation is a success state, not a failure.</strong> Your reward must treat "escalated for the right reason" as a pass. Most containment-driven metrics punish exactly the behaviour a regulated insurer wants.</td></tr>
+        <tr><td><strong>Authentication is a WRITE</strong></td><td>τ-bench's <code>partial_action_reward</code> splits READ from WRITE actions. SABER's finding: <em>"each additional deviation in a mutating action reduces the odds of success by up to 92%... deviations in non-mutating actions have little to no effect."</em> Weight accordingly, and say why on camera.</td></tr>
+        <tr><td><strong>Languages</strong></td><td>11 — of which 10 are Indian plus English. <em class="g">Sarvam's own copy is inconsistent here (the Samvaad hero says "11 Indian languages," the body says "10 Indian languages and English"). Phrase it as "11, of which 10 are Indian languages plus English" and you are safe against both.</em></td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h3>Domain C — Aadhaar post-enrolment feedback <span class="badge dim">max scale · A's schema, swapped</span></h3>
+
+    <p><strong>Shape:</strong> outbound to a resident who recently completed an enrolment or update. Collect experience feedback, and — the part that matters — <strong>establish whether they were overcharged.</strong> This is the highest-integrity, highest-sensitivity deployment Sarvam has, and it runs air-gapped inside UIDAI.</p>
+
+    <div class="tscroll">
+    <table>
+      <thead><tr><th>Element</th><th>Spec</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Grounding</strong></td><td>UIDAI's published <strong>1947 IVR service catalogue</strong> — 12 languages, seven documented self-service actions — gives you the real task vocabulary. The <strong>Citizen's Charter (Jan 2024) §6 per-service SLAs</strong> give you verifier ground truth. UIDAI Annual Report 2024-25 §3.19 gives the operating context: 1.65–1.80 lakh calls/day, ~₹60 crore/year contact-centre cost, <em>"100% calls are recorded."</em></td></tr>
+        <tr><td><strong>Tools</strong></td><td><code>verify_resident</code> · <code>get_enrolment_event</code> · <code>record_experience(dim, value)</code> · <code>record_fee_paid(amount)</code> · <code>flag_overcharge(centre_id, amount, delta)</code> · <code>record_refusal</code> · <code>close(status)</code></td></tr>
+        <tr><td><strong>The integrity flag is the objective</strong></td><td>The prescribed fee is public. If the resident reports paying more, the agent must capture the amount and raise the flag <em>with the delta</em>. <strong>Detecting an overcharge and failing to log it is the worst possible outcome</strong> — and it is invisible to every metric except an end-state check. Precedent: Maharashtra's Aaple Sarkar campaign found <em>"middleman interference or inefficiency in 2.75% of scheme-delivery interactions."</em></td></tr>
+        <tr><td><strong>What makes it the scale domain</strong></td><td>Ten languages, no Bengali. Air-gapped, so nothing leaves the premises — which is precisely why an offline, deterministic, non-LLM-judge verifier is the <em>only</em> kind that can run there. <em class="g">Say that. It converts your architecture choice into a sovereignty argument.</em></td></tr>
+        <tr><td><strong>Honesty note</strong></td><td>UIDAI's agreement with Sarvam ran one year from 18 Mar 2025, extendable by one. <strong>No extension is publicly confirmed, and no scale figures are published.</strong> Model the deployment; don't claim its numbers.</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="callout good">
+      <div class="ctitle">★ Why C is nearly free once A is built</div>
+      <p>Both are outbound structured collection with an integrity flag. Same verifier shape: <em>required fields captured accurately · refusals recorded as refusals · integrity flag raised when the evidence warrants it · terminal status correct.</em> What changes between them is the instrument, the entity vocabulary, and the language set. <strong>Budget one day for C, not four.</strong></p>
+    </div>
+  </section>
+</div>
+
+<!-- ═════════════ PANEL 3 ═════════════ -->
+<div class="panel" id="q3">
+
+  <section>
+    <div class="sec-head">
+      <h2>Where the data comes from</h2>
+      <div class="tag">every licence read off a live page on 3 Aug 2026 — this table is the artefact</div>
+    </div>
+
+    <div class="callout good">
+      <div class="ctitle">★ Open the video with this table, not with your architecture</div>
+      <p>A licence-and-provenance table is the most credible thing you can put on screen in a pitch about evaluation honesty. It says, before you claim anything, <em class="g">"I checked, and here's what I found — including the parts that don't work in my favour."</em></p>
+    </div>
+
+    <h3>Domain A — College semester feedback</h3>
+    <div class="tscroll">
+    <table>
+      <thead><tr><th>Source</th><th>What it gives you</th><th>Licence</th></tr></thead>
+      <tbody>
+        <tr><td><strong>NAAC Student Satisfaction Survey</strong> (KI 2.7.1)</td><td>The question schema — 20 ordinal items + 1 open, with the official "I don't have a mentor" N/A branch. Mandated for every accredited Indian HEI.</td><td><span class="badge warn">Unclear</span> No reuse notice. Cite it, derive the structure, don't redistribute the document. <strong>And re-verify from naac.gov.in before it goes on a slide</strong> — the text was read from institutional mirrors, not the source.</td></tr>
+        <tr><td><strong>RateMyProfessor</strong> (Mendeley, DOI 10.17632/fvtfjyvw7d.2)</td><td><strong>9,543,998 real student comment records</strong> across 919,750 professors — the answer content that makes responses sound like students rather than an LLM.</td><td><span class="badge ok">CC BY 4.0</span></td></tr>
+        <tr><td><strong>Waterloo Course Reviews</strong> (Kaggle)</td><td>14,810 free-text course reviews.</td><td><span class="badge ok">CC0</span></td></tr>
+        <tr><td><strong>Exeter Reviews</strong> (Kaggle)</td><td>557 reviews — the only source with explicit facilities/wifi sub-ratings, which maps onto NAAC's Q17–Q19.</td><td><span class="badge ok">CC0</span></td></tr>
+        <tr><td><strong>MUCS 2021 sub-task 2</strong> (OpenSLR SLR104)</td><td><strong>7.3 GB of genuine Hindi-English code-switched speech.</strong> This is your Hinglish claim, and almost nobody uses it.</td><td><span class="badge warn">CC BY-SA 4.0</span> Copyleft — plan for it.</td></tr>
+        <tr><td><strong>Lahaja</strong> (AI4Bharat)</td><td>Hindi dialect and accent variation, 132 districts.</td><td><span class="badge ok">MIT</span></td></tr>
+        <tr><td><strong>NFHS-5 questionnaires</strong> (IIPS/DHS)</td><td>Dialogue mechanics for orally-administered surveys in 19 Indian languages: consent scripts, eligibility screening, skip logic, don't-know and refusal codes.</td><td><span class="badge warn">Academic</span> Ground your flow on it; don't redistribute.</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="callout">
+      <div class="ctitle">◆ Provenance line for Domain A</div>
+      <p><em class="g">"Question schema from NAAC's mandated Student Satisfaction Survey, Key Indicator 2.7.1. Answer content sampled from 9.5 million real student reviews under CC BY 4.0, plus Waterloo course reviews under CC0. Administration flow modelled on NFHS-5, which is delivered orally in 19 Indian languages. Code-switch patterns from OpenSLR SLR104, real Hindi-English speech. The dialogue arrangement is synthetic; every entity is cited."</em></p>
+    </div>
+
+    <h3>Domain B — SBI Life policy servicing</h3>
+    <div class="tscroll">
+    <table>
+      <thead><tr><th>Source</th><th>What it gives you</th><th>Licence</th></tr></thead>
+      <tbody>
+        <tr><td><strong>HarperValleyBank</strong></td><td><strong>The only open banking-call audio with computable task success.</strong> ~23 hours, 1,446 conversations, 59 speakers, 8 task types, 2-channel — and the metadata records the agent's submitted <code>task_type</code> alongside the caller's assigned task, so ground-truth TSR drops straight in. Your English real-audio control.</td><td><span class="badge ok">CC BY 4.0</span></td></tr>
+        <tr><td><strong>Banking77</strong></td><td>13,083 queries across 77 fine-grained banking intents.</td><td><span class="badge ok">CC BY 4.0</span></td></tr>
+        <tr><td><strong>CLINC150</strong></td><td>22,500 in-scope + <strong>1,200 explicitly out-of-scope</strong> queries. The published headline — BERT at 96.9% in-scope accuracy but <strong>40.3% out-of-scope recall</strong> — is a citable reproduction of your entire thesis: a headline number concealing catastrophic refusal failure.</td><td><span class="badge ok">CC BY 3.0</span></td></tr>
+        <tr><td><strong>BhashaBench-Finance</strong></td><td>Authentic Indian financial terminology, English + Hindi.</td><td><span class="badge ok">CC BY 4.0</span> Gated.</td></tr>
+        <tr><td><strong>Hinglish-TOP</strong></td><td>10,896 human-annotated Hinglish utterances with hierarchical intent + slot parses. Keep the 170k synthetic CST5 ones separate.</td><td><span class="badge ok">Apache-2.0</span></td></tr>
+        <tr><td><strong>IndicVoices</strong></td><td>11.2k transcribed hours, 22 languages, 51k speakers, 400+ districts — <strong>15% conversational register</strong>, which is the part you want.</td><td><span class="badge ok">CC BY 4.0</span></td></tr>
+        <tr><td><strong>Real Indian BFSI call data</strong></td><td>—</td><td><span class="badge no">Does not exist</span> Not open, not licensed, nowhere. The only Hinglish banking audio on Hugging Face is 21 recordings of a single scripted sentence.</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="callout warn">
+      <div class="ctitle">⚠ Domain B is where you say "there is no real data" — and it makes you stronger, not weaker</div>
+      <p><em class="g">"There is no open Indian BFSI call corpus in any language. I checked — the closest thing on Hugging Face is 21 recordings of one sentence. So the task set is generated from an executable domain spec following the τ²-bench method, with terminology grounded in BhashaBench-Finance, and scored against database end-state rather than an LLM judge. HarperValleyBank is the real-audio English control, because it is the only banking audio in existence with computable task success."</em></p>
+      <p style="margin-top:10px">Anyone who has tried to source this data will recognise instantly that you actually looked.</p>
+    </div>
+
+    <h3>Domain C — Aadhaar post-enrolment feedback</h3>
+    <div class="tscroll">
+    <table>
+      <thead><tr><th>Source</th><th>What it gives you</th><th>Licence</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Kisan Call Centre transcripts</strong> (data.gov.in)</td><td><strong>47,919,454 real records</strong> from India's national agricultural helpline, with pre-labelled <code>QueryType</code> intents, crop, state and district. Hindi Devanagari, Tamil and English in the first five rows. Updated daily — 222,907 downloads. <em class="g">The single most valuable citizen-service corpus in India, and it is commercially usable.</em></td><td><span class="badge ok">GODL-India</span> Commercial use expressly permitted with attribution. <strong>But note §7(c): the licence is revocable, unlike CC BY. Do not claim CC-BY equivalence.</strong></td></tr>
+        <tr><td><strong>UIDAI 1947 IVR catalogue</strong></td><td>Seven documented self-service actions, 12 languages — the real task vocabulary. Plus 403 published FAQ pairs across 42 category pages.</td><td><span class="badge warn">Non-commercial</span> Verbatim: <em>"may be reviewed, reproduced or translated for research or private study but not for sale or for use in conjunction with commercial purposes."</em> <strong>Derive and paraphrase. Do not bulk-embed the strings.</strong></td></tr>
+        <tr><td><strong>UIDAI Citizen's Charter §6</strong></td><td>Per-service SLAs — usable directly as verifier ground truth.</td><td><span class="badge warn">Non-commercial</span></td></tr>
+        <tr><td><strong>HDRS</strong> (Hindi Dialogue Restaurant Search)</td><td>1,400 natively-collected Hindi dialogues / 5,763 turns in DSTC-2 format with real belief states — <strong>the only genuine multi-turn Hindi task-oriented corpus that exists.</strong> Your dialogue-state template.</td><td><span class="badge ok">MIT</span> 1 star, untouched since 2021. <strong>Mirror it before you depend on it.</strong></td></tr>
+        <tr><td><strong>CPGRAMS taxonomy</strong> (DARPG monthly reports, ch. 4)</td><td>The ten most frequent grievance categories 2022–2025 with year-by-year volumes. Six months of reports gives ~60 real, volume-ranked, government-published intents. The grievance <em>text</em> is exempt under GODL §6 and will never be released.</td><td><span class="badge ok">Public reports</span></td></tr>
+        <tr><td><strong>ServicePlus</strong> (serviceonline.gov.in)</td><td>3,409 G2C service entries across 37 states and 422 departments, with an official taxonomy. Derive the taxonomy, cite it, don't dump the JSON.</td><td><span class="badge warn">No redistribution</span></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="callout">
+      <div class="ctitle">◆ Provenance line for Domain C</div>
+      <p><em class="g">"Grounded in 47.9 million real Kisan Call Centre transcripts from data.gov.in under the Government Open Data Licence — India, and UIDAI's published 1947 IVR service catalogue. Success criteria derive from the UIDAI Citizen's Charter SLAs. Dialogue state modelled on HDRS, the only natively-collected multi-turn Hindi task-oriented corpus in existence. The dialogues are synthetic; the services, intents and SLAs are official and cited."</em></p>
+    </div>
+
+    <h3 style="color:var(--red-flag)">The STOP list — anything here ends the pitch</h3>
+    <div class="tscroll">
+    <table>
+      <thead><tr><th>Do not touch</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td><strong>VoiceAgentBench</strong> (Krutrim)</td><td><strong>Explicit non-compete clause, and Krutrim is Sarvam's direct competitor.</strong> Also revocable, also commercial-use-gated. The paper is CC BY 4.0 — quote and critique it freely; reuse nothing.</td></tr>
+        <tr><td><strong>Svarah</strong></td><td>Hugging Face returns <code>license_tags: []</code> and <code>cardLicense: None</code>. AI Kosh separately claims CC BY 4.0. <strong>Treat as unlicensed until someone reconciles it.</strong></td></tr>
+        <tr><td><strong>MaSaC</strong></td><td>No LICENSE file, and the underlying material is a copyrighted sitcom.</td></tr>
+        <tr><td><strong>HinGE</strong></td><td>Tagged CC BY 4.0 over a CC BY-NC 4.0 upstream. That is an invalid grant.</td></tr>
+        <tr><td><strong>InsuranceQA</strong></td><td>No LICENSE. README says research purpose only.</td></tr>
+        <tr><td><strong>AI Kosh Akashvani / Doordarshan archive</strong></td><td>774 + 508 datasets of real Indian broadcast audio — and every Hindi one carries <code>license: "NA"</code>, restricted, approval required. <strong>The largest speech archive on the government's platform has no stated licence.</strong></td></tr>
+        <tr><td><strong>LinCE / CALCS</strong></td><td>Non-commercial, and the host server is unreachable on both 80 and 443.</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="callout violet">
+      <div class="ctitle">★ The opening slide nobody else has — a checkable provenance failure on the government's own platform</div>
+      <p><strong>The Gram Vaani corpus carries three different licences depending on where you download it.</strong> Academic-use-only upstream on OpenSLR; <strong>CC BY-SA 4.0</strong> on the Bhashini/AI Kosh re-host; <strong>CC BY-NC 4.0</strong> on a second AI Kosh entry. All three are checkable in about ninety seconds.</p>
+      <p style="margin-top:10px">For a pitch whose entire subject is <em>whether the numbers can be trusted</em>, opening on a real, verifiable provenance contradiction in India's national AI dataset platform lands harder than any accuracy figure. It also demonstrates, before you claim anything, that you check things.</p>
+    </div>
+  </section>
+</div>
+
+<!-- ═════════════ PANEL 4 ═════════════ -->
+<div class="panel" id="q4">
+
+  <section>
+    <div class="sec-head">
+      <h2>What you measure</h2>
+      <div class="tag">the metric spine, and why every choice is defensible</div>
+    </div>
+
+    <h3>The rung above their rung</h3>
+
+    <p>Sarvam published its own evaluation stack on 2 April 2026 — the last thing they posted before Epoch. Their <strong>Intent Score</strong> is binary, LLM-judged, and asks: <em>did the system capture what the speaker was trying to say?</em> That scores the <strong>utterance</strong>.</p>
+
+    <p><strong>TSR scores the call.</strong> Say it in exactly those terms and it stops being a metric you invented and becomes the next rung on a ladder they already built.</p>
+
+    <div class="flow">
+      <div class="fstep"><div class="fnum">THEIRS · UTTERANCE</div><div class="fname">Intent Score</div><div class="fdesc">Binary 0/1, LLM judge. Threshold: 100% pass rate</div></div>
+      <div class="fstep"><div class="fnum">THEIRS · UTTERANCE</div><div class="fname">Entity Preservation</div><div class="fdesc">0–1, threshold ≥0.90. They name <strong>banking</strong> as a primary use case</div></div>
+      <div class="fstep"><div class="fnum">THEIRS · UTTERANCE</div><div class="fname">LLM-WER</div><div class="fdesc">WER rescored so code-mix script choices stop counting as errors. Threshold &lt;15%</div></div>
+      <div class="fstep accent"><div class="fnum">YOURS · CALL</div><div class="fname">Task Success Rate</div><div class="fdesc"><strong>DB end-state hash × required-output containment.</strong> No LLM anywhere in the reward</div></div>
+    </div>
+
+    <div class="tscroll">
+    <table>
+      <thead><tr><th>Metric</th><th>Definition</th><th>Why it survives scrutiny</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>TSR</strong> <span class="badge warn">north star</span></td>
+          <td>Product of <code>DB</code> and <code>COMMUNICATE</code>. <code>DB</code> = hash of the canonicalised end-state database against a target produced by replaying a reference trajectory on a fresh environment. <code>COMMUNICATE</code> = every required string appeared in the agent's turns.</td>
+          <td><strong>Outcome-based, not path-based</strong> — any tool sequence reaching an equivalent state passes, which avoids SABER's most common defect (over-constrained gold paths, ~26% of their 42 documented corrections). And a reviewer can disagree with a judge; they cannot disagree with a hash.</td>
+        </tr>
+        <tr>
+          <td><strong>pass^k</strong> <span class="badge warn">how you report it</span></td>
+          <td>Probability that all k independent trials of a task succeed. Minimum <strong>3 trials per task</strong>, reported with per-task distribution and standard error.</td>
+          <td>The user simulator is stochastic. A single-trial delta of a few points is noise, and <strong>saying so is worth more than a bigger number.</strong> Note: NeMo Gym does not compute pass^k — that's a contribution you can make.</td>
+        </tr>
+        <tr>
+          <td><strong>Refusal fidelity</strong> <span class="badge ok">Domain A + C</span></td>
+          <td>Share of refused questions recorded as refusals rather than as zeros or invented values.</td>
+          <td>The single most important field in a feedback agent, and <strong>completely invisible to every engagement metric.</strong> A 0 and a refusal look identical to a containment rate.</td>
+        </tr>
+        <tr>
+          <td><strong>Integrity-flag recall</strong> <span class="badge ok">Domain C</span></td>
+          <td>Of tasks where the resident reports an overcharge, the share where <code>flag_overcharge</code> fired with the correct delta.</td>
+          <td>Directly mirrors Aaple Sarkar's finding of <em>"middleman interference in 2.75% of interactions."</em> Detecting and not logging is the worst outcome, and only an end-state check catches it.</td>
+        </tr>
+        <tr>
+          <td><strong>Ungrounded-value rate</strong> <span class="badge ok">Domain B</span></td>
+          <td>Share of calls where the agent stated a figure the tool layer did not return.</td>
+          <td>The BFSI hallucination case, made mechanically detectable. Zero tolerance — and a containment metric would have scored those calls as successes.</td>
+        </tr>
+        <tr>
+          <td><strong>Escalation correctness</strong> <span class="badge ok">Domain B</span></td>
+          <td>Correct handoffs / (correct handoffs + missed handoffs + spurious handoffs).</td>
+          <td>SBI Life state a human-in-the-loop framework. <strong>Correct escalation is a pass, not a failure.</strong> Most containment-driven metrics punish exactly the behaviour a regulated insurer wants.</td>
+        </tr>
+        <tr>
+          <td><strong>partial_action_reward</strong> <span class="badge dim">diagnostic</span></td>
+          <td>m of n reference actions matched, <strong>split by READ vs WRITE.</strong></td>
+          <td>SABER: <em>"each additional deviation in a mutating action reduces the odds of success by up to 92%; deviations in non-mutating actions have little to no effect."</em> An eval that weights every step equally is measuring the wrong thing.</td>
+        </tr>
+        <tr>
+          <td><strong>ΔTSR under ASR degradation</strong> <span class="badge dim">the honest audio proxy</span></td>
+          <td>Inject word errors at known rates into the transcript path, re-run, report the curve.</td>
+          <td>You are TTS-ing inputs, so you have no real disfluencies, barge-in or endpointing. <strong>Making ASR degradation a controlled perturbation is defensible; pretending text eval covers speech is not.</strong></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h3>The task-generation method — this is what stops it being fluff</h3>
+
+    <p>Eight steps, each with a published precedent. Put this on screen; it is the difference between "I asked an LLM for fifty conversations" and a method.</p>
+
+    <div class="tscroll">
+    <table>
+      <thead><tr><th>#</th><th>Step</th><th>Precedent</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><strong>Write the domain as code first</strong> — schema, typed tools, policy document, unit tests. Refine until green.</td><td>τ-bench stage I</td></tr>
+        <tr><td>2</td><td><strong>Ground every entity in a real, cited, licence-clean source.</strong></td><td>Schema-Guided Dialogue: <em>"we decided to use Freebase to sample real-world entities instead of synthetic ones since entity attributes are often correlated"</em></td></tr>
+        <tr><td>3</td><td><strong>Generate tasks combinatorially from (init, solution, assertion) triples.</strong> Never ask an LLM for conversations.</td><td>τ²-bench, verbatim: <em>"Task correctness is automatically verified by checking if the final state satisfies all assertion functions... We also verify that the task is not resolved until all solution functions are applied."</em> <em class="g">That one sentence proves both solvability and non-triviality, machine-checked, at generation time.</em></td></tr>
+        <tr><td>4</td><td><strong>LLM only for surface realisation</strong>, constrained to preserve slot values verbatim, then string-match to verify.</td><td>SGD: <em>"crowd workers are instructed to exactly repeat the slot values... Hence, no further annotation is needed"</em></td></tr>
+        <tr><td>5</td><td><strong>Programmatic verification only</strong> — end-state equality plus required-output containment. Encode multiple valid action paths from day one.</td><td>τ-bench uses SHA-256 of the canonicalised DB state. SABER defect class A is over-constrained gold paths</td></tr>
+        <tr><td>6</td><td><strong>Adversarial pilot</strong> — ≥40 trials per task, ≥2 model families. Investigate every task at 0% and every task at 100%.</td><td>τ-bench ran <em>"&gt; 40 gpt-4-turbo trials"</em> per retail task. Anthropic: <em>"a 0% pass rate across many trials is most often a signal of a broken task"</em></td></tr>
+        <tr><td>7</td><td><strong>Human validation on 100% of tasks</strong>, and <strong>publish the defect rate.</strong></td><td>SWE-bench Verified: 93 developers, 1,699 samples, 3 annotators, <strong>68.3% filtered out.</strong> MultiWOZ needed four public correction releases — v2.1 alone fixed <em>"over 32% of state annotations"</em></td></tr>
+        <tr><td>8</td><td><strong>Report pass^k with per-task distribution and standard error</strong>, and ship as a re-runnable environment with a datasheet.</td><td>τ-bench's pass^k definition. BetterBench: <strong>14 of 24 surveyed benchmarks report no uncertainty at all</strong></td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="callout good">
+      <div class="ctitle">★ The line from τ-bench's own paper, worth quoting verbatim on a slide</div>
+      <p><em class="g">"Subjective and noisy human judgments can be replaced by simple and objective database state comparisons."</em></p>
+      <p style="margin-top:10px">That is your architecture, argued by the people whose benchmark you're building in. You are not asserting the design is right; you are citing it.</p>
+    </div>
+
+    <div class="callout warn">
+      <div class="ctitle">⚠ Expect your own task set to be wrong, and budget for it</div>
+      <p>SABER audited τ-bench and found <strong>annotation errors capped achievable performance at ~70% on airline and ~92% on retail</strong>, with <strong>62% of airline and 46% of retail instructions under-specified</strong> — and noted <em>"these problems persist even in the recently released τ²-Bench."</em> Sierra AI, who invented the method, got it wrong at scale.</p>
+      <p style="margin-top:10px">So: <strong>run the adversarial pilot before you believe any number</strong>, and publish your own defect rate. A demo that reports "we found and fixed 11 broken tasks out of 60" is far more credible than one that implies the task set was right first time.</p>
+    </div>
+  </section>
+</div>
+
+<!-- ═════════════ PANEL 5 ═════════════ -->
+<div class="panel" id="q5">
+
+  <section>
+    <div class="sec-head">
+      <h2>The 14 days</h2>
+      <div class="tag">every day has a gate — if the gate fails, cut scope, don't extend</div>
+    </div>
+
+    <div class="callout warn">
+      <div class="ctitle">⚠ Day 2 decides whether this plan is possible at all</div>
+      <p>At 30–120 seconds per multi-turn rollout, a 1,500-rollout optimiser run is <strong>12 to 50 hours serial.</strong> You need 8–16-way parallelism to fit one into an afternoon — and DSPy issue #9150 documents that stateful benchmark environments are frequently process-bound and not thread-safe.</p>
+      <p style="margin-top:10px"><strong>Prove parallel throughput on day 2.</strong> If you can't get 8-way, drop the GEPA arm on day 2 and reallocate those days to task quality. That is a better demo than a half-finished optimiser run.</p>
+    </div>
+
+    <h3>Week 1 — one domain, done properly</h3>
+
+    <div class="day">
+      <div class="daynum">DAY 1<small>Mon 4 Aug</small></div>
+      <div>
+        <div class="dayname">Stand up τ³-bench and read the reward code</div>
+        <div class="daybody">Python 3.12–3.13, <code>uv</code> only. <code>portaudio</code> + <code>ffmpeg</code> if you want audio later. Run <code>banking_knowledge</code> end-to-end text-only so you've seen a working rollout before you write anything. <strong>Read <code>calculate_reward</code> and <code>docs/evaluation.md</code> line by line</strong> — you're going to describe this on camera and you need to actually understand the DB hash. Mirror <code>skmalviya/HDRS-Corpus</code> today; it's one star and untouched since 2021.
+        <div class="gate">GATE · a banking_knowledge task runs and returns a reward you can explain</div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="daynum">DAY 2<small>Tue 5 Aug</small></div>
+      <div>
+        <div class="dayname">Parallelism spike + Domain A schema</div>
+        <div class="daybody">Morning: <strong>prove 8-way parallel rollouts.</strong> Measure wall-clock per rollout and the concurrency ceiling. Write the number down; it decides the optimiser arm. Afternoon: write Domain A's <code>data_model.py</code> and <code>tools.py</code> from the NAAC instrument — 20 ordinal items, the Q11 N/A branch, the seven tools. Policy document in <code>policy.md</code>.
+        <div class="gate">GATE · measured rollouts/hour, and a go/no-go written down for the GEPA arm</div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="daynum">DAY 3<small>Wed 6 Aug</small></div>
+      <div>
+        <div class="dayname">Domain A verifier + entity grounding</div>
+        <div class="daybody">Build the assertion functions: response rows with exact ordinals, <strong>refusals recorded distinctly from zeros</strong>, skip-suppressed questions absent rather than null, terminal status correct. Populate <code>db.json</code> with entities sampled from RateMyProfessor and Waterloo — real course names, real complaint themes. Write the licence table as you go, not afterwards.
+        <div class="gate">GATE · a hand-written gold trajectory passes; a deliberately broken one fails</div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="daynum">DAY 4<small>Thu 7 Aug</small></div>
+      <div>
+        <div class="dayname">Task generation — combinatorial, not conversational</div>
+        <div class="daybody">Build the (init, solution, assertion) triples and compose. Target <strong>60 tasks, split 30 optimisation / 30 frozen held-out.</strong> Machine-verify two properties for every task: solvable when all solution functions apply, and <strong>not solvable before they do.</strong> Vary along: refusal patterns, partial completion, code-switch density, ineligible callers, students who answer a different question than the one asked.
+        <div class="gate">GATE · 60 tasks, every one machine-proven solvable and non-trivial</div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="daynum">DAY 5<small>Fri 8 Aug</small></div>
+      <div>
+        <div class="dayname">Adversarial pilot — and expect to find your own bugs</div>
+        <div class="daybody">Run every task ≥40 trials across two model families. <strong>Investigate every task at 0% and every task at 100%</strong> — both are usually broken tasks, not hard or easy ones. Fix, re-verify, and <strong>keep a log of every defect you found and its class.</strong> That log is a slide. Sierra AI shipped 42 documented ground-truth errors in their own set; you will not do better on the first pass.
+        <div class="gate">GATE · task-set defect rate measured and written down · per-task variance &lt;1%</div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="daynum">DAY 6<small>Sat 9 Aug</small></div>
+      <div>
+        <div class="dayname">The baseline number</div>
+        <div class="daybody">Seed prompt, frozen held-out split, <strong>≥3 trials per task, reported as pass^k with standard error.</strong> This is your honest baseline — <em class="g">not MIPROv2, not anything optimised.</em> Then produce the failure taxonomy: cluster by <code>partial_action_reward</code> READ vs WRITE, missed <code>communicate_info</code>, and refusal-fidelity breaches. Read 30 failed transcripts yourself.
+        <div class="gate">GATE · baseline TSR with variance bars · top 3 systematic failure modes named</div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="daynum">DAY 7<small>Sun 10 Aug</small></div>
+      <div>
+        <div class="dayname">Manual iteration — the spine</div>
+        <div class="daybody">Fix the top three failure modes by hand. Every change validated on the same frozen split at the same trial count. <strong>Log every hypothesis and its measured delta, including the ones that made it worse.</strong> That log is the most honest artefact in the whole project, and it is the thing a PM interview is actually about.
+        <div class="gate">GATE · manual-arm TSR on the frozen split, with the hypothesis log</div></div>
+      </div>
+    </div>
+
+    <h3>Week 2 — breadth, the optimiser arm, and the package</h3>
+
+    <div class="day">
+      <div class="daynum">DAY 8<small>Mon 11 Aug</small></div>
+      <div>
+        <div class="dayname">Domain C — the schema swap</div>
+        <div class="daybody">Same machine as A. Swap the instrument to UIDAI's post-enrolment feedback shape, add <code>flag_overcharge</code> with delta capture, swap entities to the Kisan Call Centre vocabulary and UIDAI's seven documented actions. <strong>30 tasks, 15/15 split.</strong> Verifier gains one assertion: integrity-flag recall.
+        <div class="gate">GATE · Domain C runs, baseline measured</div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="daynum">DAY 9<small>Tue 12 Aug</small></div>
+      <div>
+        <div class="dayname">Domain B — the hard one</div>
+        <div class="daybody">Inbound, transactional. The three named capabilities only: fund value, premium due date, surrender calculation. Build the compliance trap — a subset of tasks where <code>compute_surrender_value</code> errors and <strong>the only correct behaviour is to say so and escalate.</strong> Escalation correctness as a pass state, not a failure. <strong>30 tasks.</strong>
+        <div class="gate">GATE · Domain B runs · ungrounded-value rate measurable</div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="daynum">DAY 10<small>Wed 13 Aug</small></div>
+      <div>
+        <div class="dayname">Baselines + manual arm on B and C · adversarial pilot on both</div>
+        <div class="daybody">Same discipline as week 1, compressed. ≥40 trials, investigate the extremes, fix, measure baseline, one manual iteration pass. <strong>Do not skip the adversarial pilot to save time</strong> — an unvalidated task set is the one thing that makes the whole demo worthless.
+        <div class="gate">GATE · three domains, three baselines, three manual arms, all on frozen splits</div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="daynum">DAY 11<small>Thu 14 Aug</small></div>
+      <div>
+        <div class="dayname">The one GEPA run — hard-scoped</div>
+        <div class="daybody">Domain A only. <strong>Per-intent instruction block only</strong> — not the system prompt, not the tool descriptions. Valset ≤30. Frontier reflector (a small one fails outright). <strong>Custom instruction proposer with a ~1,500-character cap</strong>, because GEPA won't limit length and for a voice agent bloat is a latency bug. Feedback written as <em>rules</em>, not instances: "agent recorded a 0 where the student refused" ✓ / "should have recorded 3 for Q7" ✗. <strong>Never look at the test split.</strong>
+        <div class="gate">GATE · GEPA arm complete, or explicitly abandoned with the reason logged</div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="daynum">DAY 12<small>Fri 15 Aug</small></div>
+      <div>
+        <div class="dayname">Audio validation on the winner + Pipecat microscope</div>
+        <div class="daybody">Take the best Domain A prompt and run it <code>--audio-native</code> at <code>--speech-complexity control</code>, then again at <code>regular</code>. <strong>You need your own ElevenLabs voices</strong> — the shipped IDs are Sierra-internal and will fail; the minimal path is the two control personas. Then build 3–4 Pipecat scenarios that deterministically reproduce the breaking turns, with real STT/TTS, locally and free. Also run the ASR-degradation curve.
+        <div class="gate">GATE · control vs regular delta measured · one broken turn reproducible on demand with audio</div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="daynum">DAY 13<small>Sat 16 Aug</small></div>
+      <div>
+        <div class="dayname">Wrap as a NeMo Gym resources_server</div>
+        <div class="daybody">FastAPI app subclassing <code>SimpleResourcesServer</code>, tool endpoints, one <code>async def verify()</code> returning the reward. Include the required <code>README.md</code> with licensing information and the config <code>license:</code> field. <code>toolsandbox</code> is your reference. <strong>Ship a datasheet</strong> — task counts, defect rate, provenance, licences, trial counts. <em class="g">And add pass^k, since Gym doesn't compute it.</em>
+        <div class="gate">GATE · <code>gym run</code> executes your environment and returns the same numbers</div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="daynum">DAY 14<small>Sun 17 Aug</small></div>
+      <div>
+        <div class="dayname">Write the results, record</div>
+        <div class="daybody">Three arms × three domains on frozen splits with variance bars. The defect log. The licence table. The honesty slide. Then record — <strong>Video 1 opens on the gap and the failure-mining walkthrough; Video 2 opens on sovereignty, pivots to proof.</strong>
+        <div class="gate">GATE · every number in the video traceable to a command you can re-run on camera</div></div>
+      </div>
+    </div>
+
+    <div class="callout warn">
+      <div class="ctitle">⚠ The three ways this plan actually fails — and the arithmetic behind each</div>
+      <p><strong>1. The adversarial pilot eats the schedule.</strong> 60 tasks × 40 trials is <strong>2,400 rollouts</strong>. At 60 seconds each that is 40 hours serial, or <strong>5 hours at 8-way parallelism.</strong> Feasible — but only if day 2 works. <em class="g">Mitigation: 40 trials is τ-bench's number for a 115-task set. For your smaller domains, 20 trials finds broken tasks nearly as well. Drop to 20 on B and C without apology.</em></p>
+      <p style="margin-top:10px"><strong>2. Days 1–4 assume fluency you don't have yet.</strong> Authoring a τ³ domain means five files plus <code>db.json</code>, <code>policy.md</code>, <code>tasks.json</code> and registry wiring, in a codebase with 144 open issues. <em class="g">Mitigation: day 1 exists precisely to run someone else's domain first. If day 3 ends without a passing gold trajectory, cut Domain B on day 4 rather than compressing the pilot — a two-domain demo with a validated task set beats three domains you can't defend.</em></p>
+      <p style="margin-top:10px"><strong>3. Cost is the one thing that isn't a risk.</strong> Roughly 8,000–10,000 rollouts across the whole fortnight. On Sarvam-30B at ₹2.5 in / ₹10 out per 1M tokens, that is <strong>tens of dollars, not hundreds</strong> — and running the demo on the model that powers Samvaad is the right call anyway. Keep a frontier model for the GEPA reflector only; a cheap reflector fails outright.</p>
+    </div>
+
+    <div class="callout">
+      <div class="ctitle">◆ Cut lines, in order — decide these in advance, not at 2am on day 12</div>
+      <ol style="margin-top:8px;margin-bottom:0">
+        <li><strong>First to go: the GEPA arm.</strong> If day 2's parallelism spike fails, drop it immediately and say why on camera. "I measured the rollout throughput, and a credible optimiser run was 40 hours serial, so I spent those days on task quality instead" is a <em>good</em> answer.</li>
+        <li><strong>Second: audio-native.</strong> Keep the ASR-degradation curve, which is cheap and honest, and drop the full duplex runs.</li>
+        <li><strong>Third: Domain B.</strong> Painful, because BFSI is the anchor — but A and C together still make the argument, and they share a verifier.</li>
+        <li><strong>Never cut:</strong> the adversarial pilot, the frozen split, the ≥3 trials, or the licence table. Those four are what make it real.</li>
+      </ol>
+    </div>
+  </section>
+</div>
+
+<!-- ═════════════ PANEL 6 ═════════════ -->
+<div class="panel" id="q6">
+
+  <section>
+    <div class="sec-head">
+      <h2>What you report</h2>
+      <div class="tag">the table, the slide, and the finding that beats a bigger number</div>
+    </div>
+
+    <h3>The results table</h3>
+
+    <p>One table. Three domains × three arms, all on frozen held-out splits, all pass^k at k=3, all with standard error. No arm hidden.</p>
+
+    <div class="tscroll">
+    <table>
+      <thead><tr><th>Domain</th><th>Seed baseline</th><th>Manual iteration</th><th>GEPA</th><th>Held-out tasks</th></tr></thead>
+      <tbody>
+        <tr><td><strong>A · College feedback</strong></td><td>pass^3 ± se</td><td>pass^3 ± se</td><td>pass^3 ± se</td><td>30</td></tr>
+        <tr><td><strong>B · Policy servicing</strong></td><td>pass^3 ± se</td><td>pass^3 ± se</td><td><span class="badge dim">not run</span></td><td>15</td></tr>
+        <tr><td><strong>C · Aadhaar feedback</strong></td><td>pass^3 ± se</td><td>pass^3 ± se</td><td><span class="badge dim">not run</span></td><td>15</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <p>Beneath it, the diagnostic breakdown that explains <em>why</em> the number moved — which failure modes shrank, split by READ vs WRITE, plus refusal fidelity, integrity-flag recall and ungrounded-value rate. <strong>That breakdown is the PM artefact.</strong> The headline TSR is the engineering one.</p>
+
+    <div class="callout good">
+      <div class="ctitle">★ Report the arm where GEPA loses, if it loses</div>
+      <p>For a pitch built on evaluation honesty, <em class="g">"the ICLR 2026 Oral optimizer did not beat a careful human on our domain, and here is the ablation showing why"</em> is a stronger artefact than a +4 point number nobody can reproduce.</p>
+      <p style="margin-top:10px">It is also, given that GEPA's published evidence contains no multi-turn agentic benchmarks and its own top open issue describes a silent overfitting failure, <strong>a genuinely useful finding.</strong> Publishable, even. Certainly more memorable than a modest lift.</p>
+    </div>
+
+    <h3>The honesty slide — say all of this out loud</h3>
+
+    <div class="grid g2">
+      <div class="cell">
+        <div class="clabel">What this is</div>
+        <div class="cnote" style="color:var(--paper); font-size:13.5px">
+          <p style="margin-bottom:8px">Simulated conversations, not PSTN traffic.</p>
+          <p style="margin-bottom:8px">Mocked backends, not core banking or UIDAI systems.</p>
+          <p style="margin-bottom:8px">Roughly 120 tasks total, not millions of calls.</p>
+          <p style="margin-bottom:8px">Text-first rollouts, with audio validation on the winning configuration only.</p>
+          <p style="margin-bottom:0">Dialogue arrangement synthetic; every entity cited and licence-checked.</p>
+        </div>
+      </div>
+      <div class="cell">
+        <div class="clabel">What it nonetheless proves</div>
+        <div class="cnote" style="color:var(--paper); font-size:13.5px">
+          <p style="margin-bottom:8px">That objective completion can be scored without an LLM judge.</p>
+          <p style="margin-bottom:8px">That refusal fidelity and integrity flags are measurable, and invisible to engagement metrics.</p>
+          <p style="margin-bottom:8px">That the breaking turn is findable and reproducible on demand.</p>
+          <p style="margin-bottom:8px">That the same environment generalises across three unrelated domains.</p>
+          <p style="margin-bottom:0">That the whole thing re-runs from one command, by someone who doesn't trust you.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout violet">
+      <div class="ctitle">★ Saying this is not a weakness — it is the demonstration</div>
+      <p>You are pitching a company whose most persistent public criticism is that its performance claims are self-reported. <strong>A demo that lists its own limitations before anyone asks is the argument, performed.</strong></p>
+      <p style="margin-top:10px">τ-bench's authors did the same thing — SABER later found 42 ground-truth errors in their set, and the field respects them more, not less, for having shipped a checkable artefact in the first place. <em class="g">Be the person who publishes the defect rate.</em></p>
+    </div>
+
+    <h3>The three findings to lead with, in order</h3>
+
+    <div class="flow">
+      <div class="fstep accent">
+        <div class="fnum">FINDING 01</div>
+        <div class="fname">The metric nobody has</div>
+        <div class="fdesc">Refusal fidelity. A recorded zero and a refusal look identical to every engagement metric Sarvam publishes — and across 74 lakh voice minutes of feedback collection, <strong>that distinction is the whole dataset's validity.</strong></div>
+      </div>
+      <div class="fstep accent">
+        <div class="fnum">FINDING 02</div>
+        <div class="fname">The gap between control and regular</div>
+        <div class="fdesc">Same agent, same tasks, clean audio versus noise and accents. The delta separates <em>acoustic</em> failure from <em>reasoning</em> failure — and on Hinglish it will be wide. VoiceAgentBench found exactly this pattern for Indic.</div>
+      </div>
+      <div class="fstep">
+        <div class="fnum">FINDING 03</div>
+        <div class="fname">Your own defect rate</div>
+        <div class="fdesc">How many of your tasks were broken, and how you found them. Sierra AI shipped 42 documented errors; SWE-bench Verified filtered out 68.3% of its samples. <strong>Publishing yours is the credential.</strong></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═════════════ PANEL 7 ═════════════ -->
+<div class="panel" id="q7">
+
+  <section>
+    <div class="sec-head">
+      <h2>How you get caught</h2>
+      <div class="tag">the adversarial pass — every one of these is a real trap, checked</div>
+    </div>
+
+    <div class="tscroll">
+    <table>
+      <thead><tr><th>If you say…</th><th>What happens</th><th>Say instead</th></tr></thead>
+      <tbody>
+        <tr><td>"Pratyush Kumar, CEO"</td><td>No CEO title appears anywhere on Sarvam's own site. Both are "Co-founder."</td><td><strong>"Co-founder."</strong> Note: The Hans India does style him CEO, so the precise claim is "no CEO title on Sarvam's own site," not "nobody calls him that."</td></tr>
+        <tr><td>"SBI Life is live nationwide"</td><td>Pilot only, Maharashtra and Tamil Nadu branches. The August target is trade press, unconfirmed today.</td><td><strong>"Piloting in Maharashtra and Tamil Nadu, with a nationwide target."</strong></td></tr>
+        <tr><td>"The Aadhaar agent handles enrolment status and appointments"</td><td>It collects post-enrolment feedback including overcharging reports, and issues fraud alerts. Ten languages, no Bengali.</td><td><strong>"Outbound feedback collection with an integrity flag."</strong></td></tr>
+        <tr><td>"AI Sachiv is a citizen service"</td><td>It calls Sarpanches and Ward Members in Bihar and Jharkhand, for Piramal Foundation.</td><td><strong>"An official-facing briefing agent."</strong></td></tr>
+        <tr><td>"Skill India ran the farmer feedback calls"</td><td>It was the Government of Maharashtra Agriculture Department. <em class="g">Sarvam's own homepage has this wrong.</em></td><td><strong>"Maharashtra's Agriculture Department, with EkStep."</strong> Getting this right where their site doesn't is worth more than any statistic.</td></tr>
+        <tr><td>"Sarvam is building on NeMo Gym"</td><td>The fork is <code>ahead_by 0, behind_by 298</code>. Clean, unmodified.</td><td><strong>"Sarvam picked up NeMo Gym in May."</strong></td></tr>
+        <tr><td>"Sarvam's eval repos are open source"</td><td>GitHub returns <code>license: null</code> for both. Public ≠ licensed.</td><td><strong>"Published, though neither carries a licence file — so I depend on them rather than vendoring them."</strong> Then offer to open the issue.</td></tr>
+        <tr><td>"Sarvam-105B costs $0.80 per million tokens"</td><td>It's a stage claim about <em>blended</em> tokens that doesn't reconcile with their own published card — ₹16 per 1M output is about $0.18.</td><td><strong>Quote the rupee rates.</strong> They're published and checkable.</td></tr>
+        <tr><td>"Samvaad costs ₹3.5 per minute"</td><td>There is no voice-agent line item on Sarvam's price sheet at all, and press figures conflict.</td><td><strong>Don't quote a per-minute price.</strong></td></tr>
+        <tr><td>"Sarvam Edge is a 688MB stack"</td><td>That's your addition of their component sizes. Their published figure is "under 1GB."</td><td><strong>"Under 1GB — 688MB by their own component numbers."</strong></td></tr>
+        <tr><td>"Kaze is shipping"</td><td>Demoed at Epoch, never launched. No product page, no price, absent from a nav that <em>was</em> updated.</td><td><strong>"Demoed again at Epoch, still not launched."</strong></td></tr>
+        <tr><td>"Kaze is white-labelled"</td><td>One XROM piece expressing <em>hope</em> that it isn't. The actual scandal at that summit was Galgotias University's Chinese robot dog.</td><td>Raise it as an open question about an unpublished BOM, or not at all.</td></tr>
+        <tr><td>Any Sarvam benchmark number, stated as fact</td><td>Forbes: <em>"Every Performance Claim Is Self-Reported."</em> No leaderboard entry, no Arena ranking, no peer-reviewed methodology. IndiVibe was <em>"designed by Sarvam, translated by Sarvam and judged by Gemini on Sarvam-selected prompts."</em></td><td><strong>Attribute it, or don't use it.</strong> "Sarvam reports…" costs you two words.</td></tr>
+        <tr><td>Anything derived from VoiceAgentBench</td><td>Krutrim Community Licence §5 forbids use to <em>"develop, market, sell, or support competing products or services."</em> Krutrim is Sarvam's competitor.</td><td>Cite the paper (CC BY 4.0), reuse nothing.</td></tr>
+        <tr><td>"My eval is better than Sarvam's"</td><td>Sarvam-M drew a public pile-on in 2025 for being post-trained on Mistral. Forbes calls the 105B <em>"in part, a strategic correction."</em> They are sensitive here, and rightly.</td><td><strong>"You published the metric stack. I extended it one rung."</strong> Ally, never auditor.</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h3>Technical traps in the build itself</h3>
+
+    <div class="tscroll">
+    <table>
+      <thead><tr><th>Trap</th><th>Detail</th></tr></thead>
+      <tbody>
+        <tr><td><strong>The shipped voice IDs will fail</strong></td><td>τ³'s default ElevenLabs voice IDs are Sierra-internal. Create your own and set <code>TAU2_VOICE_ID_*</code>. Minimal path: the two <code>control</code> personas only.</td></tr>
+        <tr><td><strong>Version incomparability</strong></td><td>τ²-bench changed its grading in July 2026 — <strong>results from before v1.0.1 are not comparable to after.</strong> Pin your version and state it.</td></tr>
+        <tr><td><strong>The <code>NL_ASSERTION</code> evaluator is marked WIP</strong></td><td>Don't gate reward on it. Use <code>DB</code> and <code>COMMUNICATE</code>.</td></tr>
+        <tr><td><strong>HDRS's ASR field is fake</strong></td><td>It looks like an n-best list. Every list has length 1 and every confidence is exactly 1.0 — it's a format placeholder over typed text. <strong>Do not present it as ASR robustness data.</strong></td></tr>
+        <tr><td><strong>X-RiSAWOZ's Hinglish is machine-generated</strong></td><td>Its own authors concede <em>"around 20% samples... are incoherent, malformed sentences or unnatural code-mixed sentences."</em> If you touch it, say so.</td></tr>
+        <tr><td><strong>GODL is not CC-BY</strong></td><td>§7(c) lets the provider revoke <em>all rights</em> if exempt data was published. CC BY 4.0 is irrevocable; GODL is not. Don't assert equivalence.</td></tr>
+        <tr><td><strong>The English reflector may anglicise your Hinglish</strong></td><td>There is <em>zero</em> non-English prompt-optimisation evidence in this literature. Watch for drift, and if it happens, <strong>report it — it's a genuine finding.</strong></td></tr>
+        <tr><td><strong>DSPy #9150</strong></td><td>Stateful environments are often process-bound and not thread-safe, with no clean hook for environment lifecycle. This is the parallelism risk. Day 2.</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="callout good">
+      <div class="ctitle">★ The final test, before you record</div>
+      <p>For every number in the video, ask: <strong>can I re-run the command that produced it, on camera, right now?</strong> If the answer is no for any number, cut the number.</p>
+      <p style="margin-top:10px">That single rule is the difference between a demo and a claim — and it is the entire thing you are selling.</p>
+    </div>
+  </section>
+</div>
+
+</div>
+
+<div class="wrap">
+<footer>
+  <p><strong>Build Plan v1</strong> · locked 3 August 2026 · companion to <code>sarvam-dossier.html</code>, which carries the company intel, the Epoch update and the fact-check log.</p>
+  <p style="margin-top:10px">Every licence in this document was read off a live page on 3 August 2026. Every Sarvam deployment claim traces to sarvam.ai, a PIB release, or the EkStep <em>Listen at Scale</em> report. Three claims that appear on Sarvam's own site are corrected here — the Skill India attribution, the AI Sachiv labelling, and the language count. Where no real data exists, this document says so rather than working around it.</p>
+  <p style="margin-top:10px;color:var(--gold-dim)">If a number in the final video cannot be reproduced by re-running a command on camera, cut the number.</p>
+</footer>
+</div>
+
+<script>
+  const tabs = document.querySelectorAll('.tab');
+  const panels = document.querySelectorAll('.panel');
+  tabs.forEach(t => t.addEventListener('click', () => {
+    tabs.forEach(x => x.classList.remove('active'));
+    panels.forEach(x => x.classList.remove('active'));
+    t.classList.add('active');
+    document.getElementById(t.dataset.p).classList.add('active');
+    window.scrollTo({top:0, behavior:'smooth'});
+  }));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "wrong_number",
+    "should_end_call": true,
+    "spoken_response": "Aap se maafi chahta hoon, galat number lag gaya. Shukriya.",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4502.1,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "e8f5a05a488c4202b92ecd457602dbb2fe2921f0b27964dde3da88fc9da06272",
+    "response_hash": "7bafaedb3d3b74e9cc00b3169ccd57e8da4616c90f6cb4dcc9c237d13497b1bd",
+    "usage": {
+      "candidatesTokenCount": 44,
+      "promptTokenCount": 1473,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1473
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 530,
+      "totalTokenCount": 2047
+    }
+  }
+}

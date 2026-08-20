@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Samajh gaya Arnav ji. Toh aap kis date tak payment kar payenge?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 7062.6,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "4ccd06fad00b754005a59458c03da65aa462140265167becffe169a837d24446",
+    "response_hash": "f294cc15715a9b486bbb61f54f7fcc11656e75d6cbae383dcc0364c4cb6242cc",
+    "usage": {
+      "candidatesTokenCount": 41,
+      "promptTokenCount": 1686,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1686
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1006,
+      "totalTokenCount": 2733
+    }
+  }
+}

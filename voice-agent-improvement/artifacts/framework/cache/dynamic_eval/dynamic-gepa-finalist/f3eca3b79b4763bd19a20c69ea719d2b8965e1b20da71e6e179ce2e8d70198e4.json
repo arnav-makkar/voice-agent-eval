@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Thik hai, kya 20 August ko payment confirm samjhu?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 21169.9,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "f3eca3b79b4763bd19a20c69ea719d2b8965e1b20da71e6e179ce2e8d70198e4",
+    "response_hash": "d9702f6febfb861fff0dee265c771d9c998942d1f5b4c5b18d3b9fd3001c9ea9",
+    "usage": {
+      "candidatesTokenCount": 40,
+      "promptTokenCount": 1747,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1747
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 3738,
+      "totalTokenCount": 5525
+    }
+  }
+}

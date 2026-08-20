@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Nahi, hum kabhi OTP nahi maangte. Aap EasyCredit app par jaakar payment kar sakte hain. Kya aap abhi app se pay kar denge?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 3768.6,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "249a9f327fe9f71a02f8cb7c367c2baaf38f35a08fe418e9cd0ae57ef3c058c3",
+    "response_hash": "9362f5c9bddc4d986b926e054c12ed58cf287c15ea3ca255353ec90ab88ea0ae",
+    "usage": {
+      "candidatesTokenCount": 58,
+      "promptTokenCount": 1939,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1939
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 367,
+      "totalTokenCount": 2364
+    }
+  }
+}

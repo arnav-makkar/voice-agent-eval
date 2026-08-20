@@ -1,0 +1,98 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-TERM-11",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "धन्यवाद। कृपया भुगतान के लिए केवल आधिकारिक ऐप का ही उपयोग करें।",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-TERM-12",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Dhanyawad. Kripya payment ke liye sirf official app ka hi istemal karein.",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-TERM-13",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thank you. Please use only the official app to make your payment.",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-TERM-14",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਧੰਨਵਾਦ। ਕਿਰਪਾ ਕਰਕੇ ਭੁਗਤਾਨ ਲਈ ਸਿਰਫ਼ ਅਧਿਕਾਰਤ ਐਪ ਵਰਤੋ।",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-TERM-15",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Dhanyawad. Kripya payment ke liye sirf official app ka hi use karein.",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-TERM-16",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "धन्यवाद। कृपया भुगतान के लिए केवल आधिकारिक ऐप का ही उपयोग करें।",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-TERM-17",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Dhanyawad. Kripya sirf official app se hi payment karein.",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-TERM-18",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thank you. Please use only the official app to make your payment.",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-TERM-19",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਧੰਨਵਾਦ। ਕਿਰਪਾ ਕਰਕੇ ਭੁਗਤਾਨ ਲਈ ਸਿਰਫ਼ ਅਧਿਕਾਰਤ ਐਪ ਦੀ ਵਰਤੋਂ ਕਰੋ।",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-TERM-20",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Dhanyawad. Kripya payment ke liye sirf official app ka hi istemal karein.",
+        "terminal_state": "payment_ready"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 14366.6,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "1897037a67a43d4fb8b34e0a4948f3130c3ea5047a04d38303076dc963e9276d",
+    "response_hash": "d92c193ca3d538fd0c35261aac3832d180cd85249b6cf1be5804f7b9026ad451",
+    "usage": {
+      "candidatesTokenCount": 849,
+      "promptTokenCount": 4947,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 4947
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 2430,
+      "totalTokenCount": 8226
+    }
+  }
+}

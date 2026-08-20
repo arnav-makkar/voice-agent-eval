@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "rtp",
+    "should_end_call": true,
+    "spoken_response": "Thik hai, main aapka refusal note kar leta hoon. Dhanyawad.",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4272.7,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "af8fcf1e1ea1821bab403626260eea02ae72b7aa1649b1a405e2a54f62a91e95",
+    "response_hash": "1d66cf4a666b2b27a38e469f2ca0b66eb02d507afc96a8044c71981abada721d",
+    "usage": {
+      "candidatesTokenCount": 43,
+      "promptTokenCount": 1983,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1983
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 525,
+      "totalTokenCount": 2551
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "data": {
+    "disposition": "fptp",
+    "should_end_call": true,
+    "spoken_response": "Dhanyawad Riya ji, maine 22 August ki date note kar li hai. Kripya EasyCredit app se pay kar dijiyega. Namaste!",
+    "tool_calls": [
+      {
+        "arguments": {
+          "date": "22-08-2026"
+        },
+        "name": "record_promise_to_pay"
+      },
+      {
+        "arguments": {
+          "disposition": "fptp"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4811.4,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "81eddaf5234b5ba12ff652a62106dd0c441dcec98cf53fb502cd53caa9994306",
+    "response_hash": "4bc86d19a37962e55018bd9f7c1d14912f4488b2a9b57672e144581b185d1956",
+    "usage": {
+      "candidatesTokenCount": 106,
+      "promptTokenCount": 1881,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1881
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 690,
+      "totalTokenCount": 2677
+    }
+  }
+}

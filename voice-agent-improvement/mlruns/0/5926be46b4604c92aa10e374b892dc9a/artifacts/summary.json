@@ -1,0 +1,1069 @@
+{
+  "agent_model": "gemini-3.6-flash",
+  "candidate_id": "manual-v13-fdv2",
+  "candidate_path": "agent/candidates/gepa-v13/SYSTEM-PROMPT.md",
+  "candidate_prompt_sha256": "2d04449cbe56cbe2e0895c121f3e9ed7603517a3318297b8915571f16c561fbe",
+  "dataset_id": "emi_failure_derived_v2",
+  "details_artifact": {
+    "bytes": 652738,
+    "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/experiments/manual-v13-fdv2-development-regression-anchor_failure-anchor_win-20260817T200240Z/case_results.jsonl",
+    "records": 170,
+    "sha256": "4569cd27667a1d725b407b06c744b2a01c78ff13fe370ce94aa8bdd33deaefdf"
+  },
+  "evaluator_version": "emi-semantic-pro-v2",
+  "experiment_id": "manual-v13-fdv2-development-regression-anchor_failure-anchor_win-20260817T200240Z",
+  "judge_model": "gemini-pro-latest",
+  "model_runs": [
+    {
+      "case_ids": [
+        "EMI-FD1-TERM-01",
+        "EMI-FD1-TERM-02",
+        "EMI-FD1-TERM-03",
+        "EMI-FD1-TERM-04",
+        "EMI-FD1-TERM-05",
+        "EMI-FD1-TERM-06",
+        "EMI-FD1-TERM-07",
+        "EMI-FD1-TERM-08",
+        "EMI-FD1-TERM-09",
+        "EMI-FD1-TERM-10"
+      ],
+      "generation": {
+        "adapter_version": "gemini-json.v1",
+        "cache_hit": true,
+        "latency_ms": 12935.4,
+        "model_requested": "gemini-3.6-flash",
+        "model_version": "gemini-3.6-flash",
+        "request_hash": "e09998883dfd1665b8d9bf41c6ccdf49236470b99d58c3d58900add53b33323d",
+        "response_hash": "fff71f5ed1adfca71fd1434f72dcbb4360cffb6c846e3dcbcd2194ef182a7aa1",
+        "usage": {
+          "candidatesTokenCount": 571,
+          "promptTokenCount": 4846,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 4846
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 2121,
+          "totalTokenCount": 7538
+        }
+      },
+      "judge": {
+        "adapter_version": "gemini-json.v1",
+        "cache_hit": false,
+        "latency_ms": 24900.4,
+        "model_requested": "gemini-pro-latest",
+        "model_version": "gemini-3.1-pro-preview",
+        "request_hash": "87b087b919ff15cfe731a39476ca8476ace0275c2cbd710d39bd4e23c8b0559e",
+        "response_hash": "da18311e5de8b8011f90afdc549600423cf18fcd3db3f25f7e08b7cead8fb3db",
+        "usage": {
+          "candidatesTokenCount": 1432,
+          "promptTokenCount": 6702,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 6702
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 1909,
+          "totalTokenCount": 10043
+        }
+      }
+    },
+    {
+      "case_ids": [
+        "EMI-FD1-TERM-11",
+        "EMI-FD1-TERM-12",
+        "EMI-FD1-TERM-13",
+        "EMI-FD1-TERM-14",
+        "EMI-FD1-TERM-15",
+        "EMI-FD1-TERM-16",
+        "EMI-FD1-TERM-17",
+        "EMI-FD1-TERM-18",
+        "EMI-FD1-TERM-19",
+        "EMI-FD1-TERM-20"
+      ],
+      "generation": {
+        "adapter_version": "gemini-json.v1",
+        "cache_hit": true,
+        "latency_ms": 14366.6,
+        "model_requested": "gemini-3.6-flash",
+        "model_version": "gemini-3.6-flash",
+        "request_hash": "1897037a67a43d4fb8b34e0a4948f3130c3ea5047a04d38303076dc963e9276d",
+        "response_hash": "d92c193ca3d538fd0c35261aac3832d180cd85249b6cf1be5804f7b9026ad451",
+        "usage": {
+          "candidatesTokenCount": 849,
+          "promptTokenCount": 4947,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 4947
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 2430,
+          "totalTokenCount": 8226
+        }
+      },
+      "judge": {
+        "adapter_version": "gemini-json.v1",
+        "cache_hit": false,
+        "latency_ms": 23175.6,
+        "model_requested": "gemini-pro-latest",
+        "model_version": "gemini-3.1-pro-preview",
+        "request_hash": "346bd761c6da7a16676b9d3ba5a7e82c093eb565d0ecb8b61ed85c43c5e5cc4c",
+        "response_hash": "f548f75e8d7984f3387b5ebd57de5f7a38c8b59ace8a5808aadb6d6e49e1c11e",
+        "usage": {
+          "candidatesTokenCount": 1476,
+          "promptTokenCount": 6906,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 6906
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 1981,
+          "totalTokenCount": 10363
+        }
+      }
+    },
+    {
+      "case_ids": [
+        "EMI-FD1-TRST-01",
+        "EMI-FD1-TRST-02",
+        "EMI-FD1-TRST-03",
+        "EMI-FD1-TRST-04",
+        "EMI-FD1-TRST-05",
+        "EMI-FD1-TRST-06",
+        "EMI-FD1-TRST-07",
+        "EMI-FD1-TRST-08",
+        "EMI-FD1-TRST-09",
+        "EMI-FD1-TRST-10"
+      ],
+      "generation": {
+        "adapter_version": "gemini-json.v1",
+        "cache_hit": true,
+        "latency_ms": 51418.0,
+        "model_requested": "gemini-3.6-flash",
+        "model_version": "gemini-3.6-flash",
+        "request_hash": "20d4337feb43ebac75a54615b466cab02829434895bc105bd1f6f9a534ce2579",
+        "response_hash": "548c68ea482a4cbedb2226a87af4e7c7e02fc7438544c3d1a6b8d4efa9698918",
+        "usage": {
+          "candidatesTokenCount": 935,
+          "promptTokenCount": 4687,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 4687
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 10237,
+          "totalTokenCount": 15859
+        }
+      },
+      "judge": {
+        "adapter_version": "gemini-json.v1",
+        "cache_hit": false,
+        "latency_ms": 23148.8,
+        "model_requested": "gemini-pro-latest",
+        "model_version": "gemini-3.1-pro-preview",
+        "request_hash": "aeb2ac44fe91bf40ab802ee202b7acd8d60ec1c9e310d97f6870e0e0505149ca",
+        "response_hash": "5c1f014771198121fe149079d71f8a2a24bb225a233971d29e8f381f197042b3",
+        "usage": {
+          "candidatesTokenCount": 1513,
+          "promptTokenCount": 7215,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 7215
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 1870,
+          "totalTokenCount": 10598
+        }
+      }
+    },
+    {
+      "case_ids": [
+        "EMI-FD1-TRST-11",
+        "EMI-FD1-TRST-12",
+        "EMI-FD1-TRST-13",
+        "EMI-FD1-TRST-14",
+        "EMI-FD1-TRST-15",
+        "EMI-FD1-TRST-16",
+        "EMI-FD1-TRST-17",
+        "EMI-FD1-TRST-18",
+        "EMI-FD1-TRST-19",
+        "EMI-FD1-TRST-20"
+      ],
+      "generation": {
+        "adapter_version": "gemini-json.v1",
+        "cache_hit": true,
+        "latency_ms": 36795.0,
+        "model_requested": "gemini-3.6-flash",
+        "model_version": "gemini-3.6-flash",
+        "request_hash": "b00640b0620899ed556dbbaace05e9c583a70dc27f5a515ff3be154b332d5a2b",
+        "response_hash": "56fa446721876ce908d2102b82d42292113421d89a1511e069f5bf18c0c8c1a5",
+        "usage": {
+          "candidatesTokenCount": 853,
+          "promptTokenCount": 4422,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 4422
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 7258,
+          "totalTokenCount": 12533
+        }
+      },
+      "judge": {
+        "adapter_version": "gemini-json.v1",
+        "cache_hit": false,
+        "latency_ms": 33628.3,
+        "model_requested": "gemini-pro-latest",
+        "model_version": "gemini-3.1-pro-preview",
+        "request_hash": "6d4e8846eafceabdae1fdf9c4f058f495e7292a83bf430693cc1323a5606dbf3",
+        "response_hash": "07fc16b05be26b2470e4fad1eb748e26d37111c8e142b11989babdade82d52cc",
+        "usage": {
+          "candidatesTokenCount": 1833,
+          "promptTokenCount": 6747,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 6747
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 2621,
+          "totalTokenCount": 11201
+        }
+      }
+    },
+    {
+      "case_ids": [
+        "EMI-FD1-DISP-01",
+        "EMI-FD1-DISP-02",
+        "EMI-FD1-DISP-03",
+        "EMI-FD1-DISP-04",
+        "EMI-FD1-DISP-05",
+        "EMI-FD1-DISP-06",
+        "EMI-FD1-DISP-07",
+        "EMI-FD1-DISP-08",
+        "EMI-FD1-DISP-09",
+        "EMI-FD1-DISP-10"
+      ],
+      "generation": {
+        "adapter_version": "gemini-json.v1",
+        "cache_hit": true,
+        "latency_ms": 22348.2,
+        "model_requested": "gemini-3.6-flash",
+        "model_version": "gemini-3.6-flash",
+        "request_hash": "b6d38b1af83b20270df4ef563ebc385b377b3c146adefa7e91f45a4c2c2c149b",
+        "response_hash": "cef76a51c79462b0e45b3c605aff96145edea2040052469609d4949ad2fd95c3",
+        "usage": {
+          "candidatesTokenCount": 819,
+          "promptTokenCount": 4778,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 4778
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 3729,
+          "totalTokenCount": 9326
+        }
+      },
+      "judge": {
+        "adapter_version": "gemini-json.v1",
+        "cache_hit": false,
+        "latency_ms": 27541.4,
+        "model_requested": "gemini-pro-latest",
+        "model_version": "gemini-3.1-pro-preview",
+        "request_hash": "5a6c5aa50ff56246b2d8e21b1bfb99bd11c62432db887a1cc1f4b569a1a6c2d4",
+        "response_hash": "490123d723e3c2732b253a92914fca46a1f541fc1cf334ac3b3fc969de21f724",
+        "usage": {
+          "candidatesTokenCount": 1686,
+          "promptTokenCount": 7337,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 7337
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 2421,
+          "totalTokenCount": 11444
+        }
+      }
+    },
+    {
+      "case_ids": [
+        "EMI-FD1-DISP-11",
+        "EMI-FD1-DISP-12",
+        "EMI-FD1-DISP-13",
+        "EMI-FD1-DISP-14",
+        "EMI-FD1-DISP-15",
+        "EMI-FD1-DISP-16",
+        "EMI-FD1-DISP-17",
+        "EMI-FD1-DISP-18",
+        "EMI-FD1-DISP-19",
+        "EMI-FD1-DISP-20"
+      ],
+      "generation": {
+        "adapter_version": "gemini-json.v1",
+        "cache_hit": false,
+        "latency_ms": 22735.1,
+        "model_requested": "gemini-3.6-flash",
+        "model_version": "gemini-3.6-flash",
+        "request_hash": "2d9d761eac5e285e7e477579a225e59bd6d69e1bc6c94b363a50bc3d64d32c8e",
+        "response_hash": "569b390dd7263d4f928e221816c6cb5e1aeaf3e3b4e0aa2b3f5a4f3c60cbc3c6",
+        "usage": {
+          "candidatesTokenCount": 926,
+          "promptTokenCount": 4583,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 4583
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 3851,
+          "totalTokenCount": 9360
+        }
+      },
+      "judge": {
+        "adapter_version": "gemini-json.v1",
+        "cache_hit": false,
+        "latency_ms": 29881.4,
+        "model_requested": "gemini-pro-latest",
+        "model_version": "gemini-3.1-pro-preview",
+        "request_hash": "b60102731bffe0133b33f429a706f0e652aa70cecae5e811fde56e0058733b90",
+        "response_hash": "3dcfba3623aabcb884afeebf84bd09fae72449e7d91de26a58b16ddb4db2d1c6",
+        "usage": {
+          "candidatesTokenCount": 1604,
+          "promptTokenCount": 7120,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 7120
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 3329,
+          "totalTokenCount": 12053
+        }
+      }
+    },
+    {
+      "case_ids": [
+        "EMI-FD1-COND-01",
+        "EMI-FD1-COND-02",
+        "EMI-FD1-COND-03",
+        "EMI-FD1-COND-04",
+        "EMI-FD1-COND-05",
+        "EMI-FD1-COND-06",
+        "EMI-FD1-COND-07",
+        "EMI-FD1-COND-08",
+        "EMI-FD1-COND-09",
+        "EMI-FD1-COND-10"
+      ],
+      "generation": {
+        "adapter_version": "gemini-json.v1",
+        "cache_hit": false,
+        "latency_ms": 52135.1,
+        "model_requested": "gemini-3.6-flash",
+        "model_version": "gemini-3.6-flash",
+        "request_hash": "ce21ea5c3a5d012719fac04b7e6b3d6f5242720d1af40645c090054b0b923229",
+        "response_hash": "9dff5dd4ec3ccf0153646c02f40d96db89756df441605f6d0f0b45a0b9cf50f7",
+        "usage": {
+          "candidatesTokenCount": 936,
+          "promptTokenCount": 4812,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 4812
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 9773,
+          "totalTokenCount": 15521
+        }
+      },
+      "judge": {
+        "adapter_version": "gemini-json.v1",
+        "cache_hit": false,
+        "latency_ms": 27723.6,
+        "model_requested": "gemini-pro-latest",
+        "model_version": "gemini-3.1-pro-preview",
+        "request_hash": "abe938d1df5f3db6ec257ea71d9ecda6a0b37fcdc8f7258dd322d0ae891aa42a",
+        "response_hash": "35a6603a8e76ff5f4f3308f629697cbb2b21ea36f1f6db185a919a336b9052a1",
+        "usage": {
+          "candidatesTokenCount": 1600,
+          "promptTokenCount": 7236,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 7236
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 2058,
+          "totalTokenCount": 10894
+        }
+      }
+    },
+    {
+      "case_ids": [
+        "EMI-FD1-COND-11",
+        "EMI-FD1-COND-12",
+        "EMI-FD1-COND-13",
+        "EMI-FD1-COND-14",
+        "EMI-FD1-COND-15",
+        "EMI-FD1-COND-16",
+        "EMI-FD1-COND-17",
+        "EMI-FD1-COND-18",
+        "EMI-FD1-COND-19",
+        "EMI-FD1-COND-20"
+      ],
+      "generation": {
+        "adapter_version": "gemini-json.v1",
+        "cache_hit": false,
+        "latency_ms": 57968.9,
+        "model_requested": "gemini-3.6-flash",
+        "model_version": "gemini-3.6-flash",
+        "request_hash": "25e4c8902e7926ca2003f08d2130be77c00af5e80424155bc9150f08c54a3c2b",
+        "response_hash": "bb1633b3e4a5d2ae9b192ae7b59aed41f63211d3cbdd6a8d9cd4fc65e870ee1a",
+        "usage": {
+          "candidatesTokenCount": 860,
+          "promptTokenCount": 4876,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 4876
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 11213,
+          "totalTokenCount": 16949
+        }
+      },
+      "judge": {
+        "adapter_version": "gemini-json.v1",
+        "cache_hit": false,
+        "latency_ms": 25761.7,
+        "model_requested": "gemini-pro-latest",
+        "model_version": "gemini-3.1-pro-preview",
+        "request_hash": "3812db5fb7d92d15cdbb8ec0c7008712ee735664c9884c45a15dcb7d0ab12485",
+        "response_hash": "1962ba60f9606cdf1535390c3a5241adfa3255bc2b93b5d14516782be3d19d3c",
+        "usage": {
+          "candidatesTokenCount": 1717,
+          "promptTokenCount": 7225,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 7225
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 1833,
+          "totalTokenCount": 10775
+        }
+      }
+    },
+    {
+      "case_ids": [
+        "EMI-FD1-TREF-01",
+        "EMI-FD1-TREF-02",
+        "EMI-FD1-TREF-03",
+        "EMI-FD1-TREF-04",
+        "EMI-FD1-TREF-05",
+        "EMI-FD1-TREF-06",
+        "EMI-FD1-TREF-07",
+        "EMI-FD1-TREF-08",
+        "EMI-FD1-TREF-09",
+        "EMI-FD1-TREF-10"
+      ],
+      "generation": {
+        "adapter_version": "gemini-json.v1",
+        "cache_hit": false,
+        "latency_ms": 39966.3,
+        "model_requested": "gemini-3.6-flash",
+        "model_version": "gemini-3.6-flash",
+        "request_hash": "21cdd00cea2703708bb1f86a63c80596ae112b50731042f7f60cf2d74e91090a",
+        "response_hash": "51a75b67bd29998536e2b3412dedce1c43482936211f6bb3b4c858a4704aa421",
+        "usage": {
+          "candidatesTokenCount": 852,
+          "promptTokenCount": 4794,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 4794
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 7742,
+          "totalTokenCount": 13388
+        }
+      },
+      "judge": {
+        "adapter_version": "gemini-json.v1",
+        "cache_hit": false,
+        "latency_ms": 28889.4,
+        "model_requested": "gemini-pro-latest",
+        "model_version": "gemini-3.1-pro-preview",
+        "request_hash": "dab6505a97625289e5de7c92b6b23013498babe0f026502fb41ac0811cd73a29",
+        "response_hash": "531573cc48349ccadaed5948b5916ddd6d03deb291c1f5377ea967931a897b0a",
+        "usage": {
+          "candidatesTokenCount": 1744,
+          "promptTokenCount": 6959,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 6959
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 1984,
+          "totalTokenCount": 10687
+        }
+      }
+    },
+    {
+      "case_ids": [
+        "EMI-FD1-TREF-11",
+        "EMI-FD1-TREF-12",
+        "EMI-FD1-TREF-13",
+        "EMI-FD1-TREF-14",
+        "EMI-FD1-TREF-15",
+        "EMI-FD1-TREF-16",
+        "EMI-FD1-TREF-17",
+        "EMI-FD1-TREF-18",
+        "EMI-FD1-TREF-19",
+        "EMI-FD1-TREF-20"
+      ],
+      "generation": {
+        "adapter_version": "gemini-json.v1",
+        "cache_hit": false,
+        "latency_ms": 42000.4,
+        "model_requested": "gemini-3.6-flash",
+        "model_version": "gemini-3.6-flash",
+        "request_hash": "a15e3eddf3334bc568d86708a0055994c8013979ab9d896bd6289041c8fcdcfc",
+        "response_hash": "5b15c553174c6ece66f14ee5173884222c6512e94361678cafa905336c6b8d86",
+        "usage": {
+          "candidatesTokenCount": 609,
+          "promptTokenCount": 4850,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 4850
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 7855,
+          "totalTokenCount": 13314
+        }
+      },
+      "judge": {
+        "adapter_version": "gemini-json.v1",
+        "cache_hit": false,
+        "latency_ms": 33453.1,
+        "model_requested": "gemini-pro-latest",
+        "model_version": "gemini-3.1-pro-preview",
+        "request_hash": "aafcf1be4579edfa32b004cf0b75c7a06fa73c310987fc6b1c7185afb136e511",
+        "response_hash": "addcda264d2a4d74dc938693fb825c39a4a9613572a84e6de61d92f7087f010e",
+        "usage": {
+          "candidatesTokenCount": 1486,
+          "promptTokenCount": 7054,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 7054
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 3230,
+          "totalTokenCount": 11770
+        }
+      }
+    },
+    {
+      "case_ids": [
+        "EMI-FD1-FACT-01",
+        "EMI-FD1-FACT-02",
+        "EMI-FD1-FACT-03",
+        "EMI-FD1-FACT-04",
+        "EMI-FD1-FACT-05",
+        "EMI-FD1-FACT-06",
+        "EMI-FD1-FACT-07",
+        "EMI-FD1-FACT-08",
+        "EMI-FD1-FACT-09",
+        "EMI-FD1-FACT-10"
+      ],
+      "generation": {
+        "adapter_version": "gemini-json.v1",
+        "cache_hit": false,
+        "latency_ms": 37662.4,
+        "model_requested": "gemini-3.6-flash",
+        "model_version": "gemini-3.6-flash",
+        "request_hash": "dbf21174f8936b5e3717b6103e1420a7d89d664a22d5c482b4a695b8584ae17a",
+        "response_hash": "cd9c4702d59be5be0808d794fe637fe3191d6bead20d71c7ed0e54814acd3f86",
+        "usage": {
+          "candidatesTokenCount": 794,
+          "promptTokenCount": 4867,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 4867
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 6851,
+          "totalTokenCount": 12512
+        }
+      },
+      "judge": {
+        "adapter_version": "gemini-json.v1",
+        "cache_hit": false,
+        "latency_ms": 29750.2,
+        "model_requested": "gemini-pro-latest",
+        "model_version": "gemini-3.1-pro-preview",
+        "request_hash": "d9b3ff00cf8eaee809e3bc07081aade2b671be89627e0366c7b450f328b5a942",
+        "response_hash": "f79b3d2c13a200c8e406a6267a6ec4ad1a9d44218a6e82f016e896dd8d058386",
+        "usage": {
+          "candidatesTokenCount": 1596,
+          "promptTokenCount": 7310,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 7310
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 2582,
+          "totalTokenCount": 11488
+        }
+      }
+    },
+    {
+      "case_ids": [
+        "EMI-FD1-FACT-11",
+        "EMI-FD1-FACT-12",
+        "EMI-FD1-FACT-13",
+        "EMI-FD1-FACT-14",
+        "EMI-FD1-FACT-15",
+        "EMI-FD1-FACT-16",
+        "EMI-FD1-FACT-17",
+        "EMI-FD1-FACT-18",
+        "EMI-FD1-FACT-19",
+        "EMI-FD1-FACT-20"
+      ],
+      "generation": {
+        "adapter_version": "gemini-json.v1",
+        "cache_hit": false,
+        "latency_ms": 48388.1,
+        "model_requested": "gemini-3.6-flash",
+        "model_version": "gemini-3.6-flash",
+        "request_hash": "8633d3c7f6bd822602f9117e3e52fd25fc8f4ea6e24c1ae73d6eaa4b7d08581b",
+        "response_hash": "bff264d06d909e5d32fbfba7646ded2742519df881f76519c6a842a2cd6e805e",
+        "usage": {
+          "candidatesTokenCount": 600,
+          "promptTokenCount": 4868,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 4868
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 9149,
+          "totalTokenCount": 14617
+        }
+      },
+      "judge": {
+        "adapter_version": "gemini-json.v1",
+        "cache_hit": false,
+        "latency_ms": 31493.1,
+        "model_requested": "gemini-pro-latest",
+        "model_version": "gemini-3.1-pro-preview",
+        "request_hash": "d674692b796b652386b13feae18b9d860bf53b694c7609b6d2b16ecbd1cae1d5",
+        "response_hash": "c662842a065af7853fe949cba53ee58c61a7ac0213aff16639a77f1595e2299f",
+        "usage": {
+          "candidatesTokenCount": 1630,
+          "promptTokenCount": 7206,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 7206
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 1512,
+          "totalTokenCount": 10348
+        }
+      }
+    },
+    {
+      "case_ids": [
+        "EMI-FD1-TERM-21",
+        "EMI-FD1-TERM-22",
+        "EMI-FD1-TERM-23",
+        "EMI-FD1-TERM-24",
+        "EMI-FD1-TERM-25",
+        "EMI-FD1-TRST-21",
+        "EMI-FD1-TRST-22",
+        "EMI-FD1-TRST-23",
+        "EMI-FD1-TRST-24",
+        "EMI-FD1-TRST-25"
+      ],
+      "generation": {
+        "adapter_version": "gemini-json.v1",
+        "cache_hit": false,
+        "latency_ms": 24822.0,
+        "model_requested": "gemini-3.6-flash",
+        "model_version": "gemini-3.6-flash",
+        "request_hash": "e34c8f9b6bad346d33d61b2be93837dfa299b9f977a8166d9c9a6750a13eea6b",
+        "response_hash": "d2eef8e4d88399ed6b20fe970c6853db7cf7f15971ed43a1061a0d8779445246",
+        "usage": {
+          "candidatesTokenCount": 737,
+          "promptTokenCount": 4786,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 4786
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 4396,
+          "totalTokenCount": 9919
+        }
+      },
+      "judge": {
+        "adapter_version": "gemini-json.v1",
+        "cache_hit": false,
+        "latency_ms": 40267.0,
+        "model_requested": "gemini-pro-latest",
+        "model_version": "gemini-3.1-pro-preview",
+        "request_hash": "8c0a8f73d53546e8c3d47c627619b3573776005a46115ee2a43d2c598b99edfb",
+        "response_hash": "ec681c6a195ebb1445be3833c569887782a70705cd1605e9f8b07426f4516a58",
+        "usage": {
+          "candidatesTokenCount": 1507,
+          "promptTokenCount": 6945,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 6945
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 4234,
+          "totalTokenCount": 12686
+        }
+      }
+    },
+    {
+      "case_ids": [
+        "EMI-FD1-DISP-21",
+        "EMI-FD1-DISP-22",
+        "EMI-FD1-DISP-23",
+        "EMI-FD1-DISP-24",
+        "EMI-FD1-DISP-25",
+        "EMI-FD1-COND-21",
+        "EMI-FD1-COND-22",
+        "EMI-FD1-COND-23",
+        "EMI-FD1-COND-24",
+        "EMI-FD1-COND-25"
+      ],
+      "generation": {
+        "adapter_version": "gemini-json.v1",
+        "cache_hit": false,
+        "latency_ms": 52253.6,
+        "model_requested": "gemini-3.6-flash",
+        "model_version": "gemini-3.6-flash",
+        "request_hash": "cfa92c1c0585789e3dae5565a0506d116cb6a139995f37f49821464335402d90",
+        "response_hash": "247322da9144c831c0125c737221abae8baaf54b8d139611ea13fd4c5bc56cc1",
+        "usage": {
+          "candidatesTokenCount": 974,
+          "promptTokenCount": 4611,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 4611
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 9873,
+          "totalTokenCount": 15458
+        }
+      },
+      "judge": {
+        "adapter_version": "gemini-json.v1",
+        "cache_hit": false,
+        "latency_ms": 25222.7,
+        "model_requested": "gemini-pro-latest",
+        "model_version": "gemini-3.1-pro-preview",
+        "request_hash": "03ccf3264ecda683ccea805d789e8a377631f49dfe3b10686531a330fe0bd58a",
+        "response_hash": "d36d9652ba0bb264e62c84b12540ff63e7916ac094ba58b8f75dd51e16dbbfdb",
+        "usage": {
+          "candidatesTokenCount": 1576,
+          "promptTokenCount": 7091,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 7091
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 2943,
+          "totalTokenCount": 11610
+        }
+      }
+    },
+    {
+      "case_ids": [
+        "EMI-FD1-TREF-21",
+        "EMI-FD1-TREF-22",
+        "EMI-FD1-TREF-23",
+        "EMI-FD1-TREF-24",
+        "EMI-FD1-TREF-25",
+        "EMI-FD1-FACT-21",
+        "EMI-FD1-FACT-22",
+        "EMI-FD1-FACT-23",
+        "EMI-FD1-FACT-24",
+        "EMI-FD1-FACT-25"
+      ],
+      "generation": {
+        "adapter_version": "gemini-json.v1",
+        "cache_hit": false,
+        "latency_ms": 52389.0,
+        "model_requested": "gemini-3.6-flash",
+        "model_version": "gemini-3.6-flash",
+        "request_hash": "1ef4c16908ec27a0a23337706fb4c69eb76389c5cb82650a937e064da2119a1a",
+        "response_hash": "3be70df28086a672778ad4dd316d00fc66ac8ebb4f5eac1cc5564f9155c83a98",
+        "usage": {
+          "candidatesTokenCount": 641,
+          "promptTokenCount": 4821,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 4821
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 10103,
+          "totalTokenCount": 15565
+        }
+      },
+      "judge": {
+        "adapter_version": "gemini-json.v1",
+        "cache_hit": false,
+        "latency_ms": 36317.1,
+        "model_requested": "gemini-pro-latest",
+        "model_version": "gemini-3.1-pro-preview",
+        "request_hash": "21b831bf6e6aaccb5878288bb33651dc262e3acb75c95291de6000e0e1ab5956",
+        "response_hash": "42ac5eaff22107857f0608ebe2bca66f46d48481bcbebd13d130d30014bb5365",
+        "usage": {
+          "candidatesTokenCount": 1630,
+          "promptTokenCount": 7121,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 7121
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 3306,
+          "totalTokenCount": 12057
+        }
+      }
+    },
+    {
+      "case_ids": [
+        "EMI-ANCHOR-FAIL-01",
+        "EMI-ANCHOR-FAIL-02",
+        "EMI-ANCHOR-FAIL-03",
+        "EMI-ANCHOR-FAIL-04",
+        "EMI-ANCHOR-FAIL-05",
+        "EMI-ANCHOR-FAIL-06",
+        "EMI-ANCHOR-FAIL-07",
+        "EMI-ANCHOR-FAIL-08",
+        "EMI-ANCHOR-FAIL-09",
+        "EMI-ANCHOR-FAIL-10"
+      ],
+      "generation": {
+        "adapter_version": "gemini-json.v1",
+        "cache_hit": false,
+        "latency_ms": 49320.9,
+        "model_requested": "gemini-3.6-flash",
+        "model_version": "gemini-3.6-flash",
+        "request_hash": "b4f637b12b3ad64c84db096668586a913b75e8479b2d373f32a704f856d8f5e5",
+        "response_hash": "d3a9acccaa2c9724d83d5e3be32cf58f0df21cf0f8f80f318475ad28bbfbb687",
+        "usage": {
+          "candidatesTokenCount": 601,
+          "promptTokenCount": 5155,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 5155
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 8937,
+          "totalTokenCount": 14693
+        }
+      },
+      "judge": {
+        "adapter_version": "gemini-json.v1",
+        "cache_hit": false,
+        "latency_ms": 40238.5,
+        "model_requested": "gemini-pro-latest",
+        "model_version": "gemini-3.1-pro-preview",
+        "request_hash": "7a6c045605a2a5723bf9e557969d8ada70b61e12a1967c48bb595aa8b38d3bdd",
+        "response_hash": "96b0a841dcc088cbb1ae7d901c7844f18f4da67651312e595390baeb79ad8dfe",
+        "usage": {
+          "candidatesTokenCount": 1598,
+          "promptTokenCount": 7121,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 7121
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 4079,
+          "totalTokenCount": 12798
+        }
+      }
+    },
+    {
+      "case_ids": [
+        "EMI-ANCHOR-FAIL-11",
+        "EMI-ANCHOR-FAIL-12",
+        "EMI-ANCHOR-FAIL-13",
+        "EMI-ANCHOR-FAIL-14",
+        "EMI-ANCHOR-FAIL-15",
+        "EMI-ANCHOR-WIN-01",
+        "EMI-ANCHOR-WIN-02",
+        "EMI-ANCHOR-WIN-03",
+        "EMI-ANCHOR-WIN-04",
+        "EMI-ANCHOR-WIN-05"
+      ],
+      "generation": {
+        "adapter_version": "gemini-json.v1",
+        "cache_hit": false,
+        "latency_ms": 35072.1,
+        "model_requested": "gemini-3.6-flash",
+        "model_version": "gemini-3.6-flash",
+        "request_hash": "35f7bf4ccfaf3a1079b568810cbd3ebb7d9103e1e78b1f0e4328dc5ba322faa5",
+        "response_hash": "96cb4af4ce9ced339bf8e569fa803d997c5c8d5a1c3da401eda796b93de6f1d5",
+        "usage": {
+          "candidatesTokenCount": 657,
+          "promptTokenCount": 5607,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 5607
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 6807,
+          "totalTokenCount": 13071
+        }
+      },
+      "judge": {
+        "adapter_version": "gemini-json.v1",
+        "cache_hit": false,
+        "latency_ms": 39159.7,
+        "model_requested": "gemini-pro-latest",
+        "model_version": "gemini-3.1-pro-preview",
+        "request_hash": "d72ea8184747ba883a44f552ddeb123ffbfdf89cae6342a849345f8d2dea19d4",
+        "response_hash": "6652674c78bd77cc74e5142dfdfca4d53d09394c9ac12317ba4e0af3b5741808",
+        "usage": {
+          "candidatesTokenCount": 1631,
+          "promptTokenCount": 7669,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 7669
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 3748,
+          "totalTokenCount": 13048
+        }
+      }
+    }
+  ],
+  "schema_version": "offline-experiment.v1",
+  "splits": [
+    "development",
+    "regression",
+    "anchor_failure",
+    "anchor_win"
+  ],
+  "summary": {
+    "average_directness": 3.753,
+    "average_quality": 3.624,
+    "by_family": {
+      "conditional_check_vs_commitment": {
+        "cases": 27,
+        "integrity_violation_rate": 0.0,
+        "task_success_rate": 0.3333
+      },
+      "dispute_wrong_party_precedence": {
+        "cases": 28,
+        "integrity_violation_rate": 0.0357,
+        "task_success_rate": 0.9286
+      },
+      "factual_outcome_integrity": {
+        "cases": 28,
+        "integrity_violation_rate": 0.0,
+        "task_success_rate": 0.9643
+      },
+      "terminal_commitment_handling": {
+        "cases": 31,
+        "integrity_violation_rate": 0.0,
+        "task_success_rate": 1.0
+      },
+      "terminal_refusal_channel_unavailable": {
+        "cases": 28,
+        "integrity_violation_rate": 0.0,
+        "task_success_rate": 0.5357
+      },
+      "trust_resolution_direct_close": {
+        "cases": 28,
+        "integrity_violation_rate": 0.0,
+        "task_success_rate": 0.9286
+      }
+    },
+    "cases": 170,
+    "factual_error_rate": 0.0059,
+    "failure_codes": {
+      "": 12,
+      "expected_transition_failure": 1,
+      "factual_error": 1,
+      "forbidden_behavior_violation": 5,
+      "incorrect_terminal_state": 19,
+      "invalid_terminal_state": 14,
+      "misclassified_account_stance": 1,
+      "missing_alternate_route": 2,
+      "redundant_confirmation": 1,
+      "task_failure": 7,
+      "terminal_state_error": 4,
+      "terminal_state_mismatch": 2
+    },
+    "forbidden_behavior_rate": 0.0294,
+    "hard_safety_violation_rate": 0.0,
+    "integrity_violation_rate": 0.0059,
+    "redundant_confirmation_rate": 0.0118,
+    "task_success_rate": 0.7882,
+    "terminal_state_accuracy": 0.6706
+  }
+}

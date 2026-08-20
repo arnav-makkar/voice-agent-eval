@@ -1,0 +1,35 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-COND-03",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thank you, Priya. I have noted your confirmation to pay on 18th August 2026. Have a good day.",
+        "terminal_state": "fptp"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5339.9,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "026308e8b0eba42f9e7cccf0513fd1c37c5ab1cb83b41bf0897e02f446d08b0f",
+    "response_hash": "0f23454d50c8f32f95195bbbed439a17a9c6e436439103e055905431985af462",
+    "usage": {
+      "candidatesTokenCount": 80,
+      "promptTokenCount": 1617,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1617
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 773,
+      "totalTokenCount": 2470
+    }
+  }
+}

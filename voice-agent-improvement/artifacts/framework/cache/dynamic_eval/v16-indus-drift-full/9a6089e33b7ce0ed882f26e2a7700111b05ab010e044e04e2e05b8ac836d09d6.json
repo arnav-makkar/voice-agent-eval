@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Koi baat nahi. Kya hum aapko baad mein call kar sakte hain? Aap kis samay comfortable rahenge?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5971.2,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "9a6089e33b7ce0ed882f26e2a7700111b05ab010e044e04e2e05b8ac836d09d6",
+    "response_hash": "c31328521b58c80ec20d63ad61075cc2ec4680f947419f74bcb6f50ed8e6e4a7",
+    "usage": {
+      "candidatesTokenCount": 48,
+      "promptTokenCount": 2012,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 2012
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 782,
+      "totalTokenCount": 2842
+    }
+  }
+}

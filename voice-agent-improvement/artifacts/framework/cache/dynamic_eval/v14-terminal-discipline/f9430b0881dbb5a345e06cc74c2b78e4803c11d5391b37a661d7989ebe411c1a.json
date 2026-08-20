@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Thik hai Gurpreet ji, toh aap aaj 17 August 2026 ko shaam tak payment kar denge, confirm kar doon?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 7589.9,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "f9430b0881dbb5a345e06cc74c2b78e4803c11d5391b37a661d7989ebe411c1a",
+    "response_hash": "3ecb3236b4a36543a986d2420f918c03e2443d93f025fb0099ebf98f4e39e933",
+    "usage": {
+      "candidatesTokenCount": 57,
+      "promptTokenCount": 1766,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1766
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1427,
+      "totalTokenCount": 3250
+    }
+  }
+}

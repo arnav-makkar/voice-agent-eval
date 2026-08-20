@@ -1,0 +1,25 @@
+{
+  "adapter": "sarvam-conv-ai-sdk==1.0.21/CALL_ADAPTIVE_DUPLEX",
+  "aggregate": {
+    "average_experience_score": 0.5,
+    "failure_counts": {
+      "disposition": 1
+    },
+    "invalid_simulations": 0,
+    "records": 1,
+    "task_success_rate": 0.0,
+    "task_successes": 0,
+    "valid_records": 1
+  },
+  "candidate_id": "indus-v12",
+  "claim_boundary": "Live adaptive audio-in/audio-out Samvaad runtime with a local caller audio fixture and Gemini hidden-goal policy. Samvaad is the complete audio-native agent under test; no external STT/LLM/TTS reconstruction is scored. This exercises concurrent audio, interruption handling, tools and observed barge-in; matched human voice remains a separate gate.",
+  "interaction_ids": [
+    "20260819/8c91df96-12:44:08-74e478fb"
+  ],
+  "paid_session_control": {
+    "ledger": "artifacts/framework/emi/indus_adaptive_duplex_v2/live_budget.json",
+    "provider_retries": 0
+  },
+  "scenario_count": 1,
+  "schema_version": "indus-chat-suite.v1"
+}

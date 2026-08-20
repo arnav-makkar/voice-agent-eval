@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Ji, main EasyCredit ka AI assistant hoon. Aap official app khol kar abhi pay kar sakte hain?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4613.6,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "1e021b362f5546ccd9d393616635d292a834aa2f310ce9a244e5f7e7b7278129",
+    "response_hash": "142757b54ae1ab7127a7f9a78bba51e3032bb5abcf602beefad03921cb21ea58",
+    "usage": {
+      "candidatesTokenCount": 48,
+      "promptTokenCount": 1743,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1743
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 719,
+      "totalTokenCount": 2510
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "App mein amount Rs 2,933 hi hai. Check karne ke baad kya aap aaj payment kar payenge?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 8790.7,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "368f46ada79dca1d54fb41ae6cc413a2ae8d40d656645a86259ad6626df0e3fb",
+    "response_hash": "7478c474f56ad8aac88bca358111b544fed9279720f4133e84e99efa5a9e6282",
+    "usage": {
+      "candidatesTokenCount": 49,
+      "promptTokenCount": 1833,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1833
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1306,
+      "totalTokenCount": 3188
+    }
+  }
+}

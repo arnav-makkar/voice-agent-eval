@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "dispute",
+    "should_end_call": true,
+    "spoken_response": "Late charges Rs 150 hain. Aap is dispute ke liye customer care number 1800-500-4444 par baat kar sakte hain.",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 7881.7,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "edad8a4624f84d1dfb2a3e01c944fc35df66ce57aff8de338141fa1ca3f52065",
+    "response_hash": "f02b70d312d92f2e80c3c014c1a37c5f8df99f15c1bedccf0753a32a8dab7409",
+    "usage": {
+      "candidatesTokenCount": 62,
+      "promptTokenCount": 1486,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1486
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1226,
+      "totalTokenCount": 2774
+    }
+  }
+}

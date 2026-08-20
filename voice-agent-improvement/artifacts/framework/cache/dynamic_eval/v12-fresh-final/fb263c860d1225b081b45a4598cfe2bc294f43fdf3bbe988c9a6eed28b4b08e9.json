@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Samajh gaya. Kya aap 22-08-2026 tak payment karne ki koi pakki date bata sakte hain?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 9111.8,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "fb263c860d1225b081b45a4598cfe2bc294f43fdf3bbe988c9a6eed28b4b08e9",
+    "response_hash": "c22ebc7aded60f0b42000480f2858079edaf45c03de87271cdaa375ce6f8127a",
+    "usage": {
+      "candidatesTokenCount": 69,
+      "promptTokenCount": 1555,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1555
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1589,
+      "totalTokenCount": 3213
+    }
+  }
+}

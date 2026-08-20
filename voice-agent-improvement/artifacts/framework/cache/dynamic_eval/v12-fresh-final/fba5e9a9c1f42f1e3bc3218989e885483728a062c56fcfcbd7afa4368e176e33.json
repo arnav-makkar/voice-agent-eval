@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Koi baat nahi. Aap ye EMI payment kab tak kar payenge?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4911.6,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "fba5e9a9c1f42f1e3bc3218989e885483728a062c56fcfcbd7afa4368e176e33",
+    "response_hash": "fd3322508680d6c9d16872bb21e106ca0fd2028374871bd6a386c3ef85cd7879",
+    "usage": {
+      "candidatesTokenCount": 38,
+      "promptTokenCount": 1478,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1478
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 657,
+      "totalTokenCount": 2173
+    }
+  }
+}

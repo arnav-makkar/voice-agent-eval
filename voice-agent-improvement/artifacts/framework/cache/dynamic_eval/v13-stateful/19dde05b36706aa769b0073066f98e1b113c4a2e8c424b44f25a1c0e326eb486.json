@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "rtp",
+    "should_end_call": true,
+    "spoken_response": "Theek hai Gurpreet ji, aap EasyCredit app par check karke payment kar sakte hain. Dhanyawad.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "rtp"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4934.5,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "19dde05b36706aa769b0073066f98e1b113c4a2e8c424b44f25a1c0e326eb486",
+    "response_hash": "648fcd8e224e3d9ec0359fbaedc4318785dcb5fe7e7627bebeb337f38b54b43a",
+    "usage": {
+      "candidatesTokenCount": 65,
+      "promptTokenCount": 1676,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1676
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 711,
+      "totalTokenCount": 2452
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Main EasyCredit se Shubh. Aapka Rs 3256 Samsung TV EMI overdue hai, kya abhi app se pay karenge?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5768.1,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "b3998d95b41cd198690fff1a092a8fd277314e4e3b9f0a94072f0eb1c3ab4dc4",
+    "response_hash": "aa838e0eb5fd18877ecdfe8370ff4156a4cf8fc555cdaaeb868fec7f16647d19",
+    "usage": {
+      "candidatesTokenCount": 53,
+      "promptTokenCount": 1687,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1687
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 921,
+      "totalTokenCount": 2661
+    }
+  }
+}

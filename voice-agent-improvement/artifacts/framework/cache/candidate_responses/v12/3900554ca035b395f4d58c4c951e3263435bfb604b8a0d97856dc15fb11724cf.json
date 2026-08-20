@@ -1,0 +1,98 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-TERM-11",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "बहुत-बहुत धन्यवाद। आप कृपया ऐप खोलकर पेमेंट कर दीजिए।",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-TERM-12",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Bahut dhanyawad. Aap official app se abhi payment complete kar lijiye.",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-TERM-13",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thank you so much. Please complete the payment through the official portal.",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-TERM-14",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਬਹੁਤ ਧੰਨਵਾਦ ਜੀ। ਤੁਸੀਂ ਹੁਣੇ ਐਪ ਖੋਲ੍ਹ ਕੇ ਭੁਗਤਾਨ ਕਰ ਲਵੋ।",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-TERM-15",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Bahut dhanyawad. Aap abhi app khol ke payment kar lijiye.",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-TERM-16",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "बहुत-बहुत धन्यवाद। आप कृपया अभी ऑफिशियल ऐप से भुगतान कर लीजिए।",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-TERM-17",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Bahut dhanyawad. Aap abhi app se payment complete kar lijiye.",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-TERM-18",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thank you so much. Please proceed with the payment on the official app.",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-TERM-19",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਬਹੁਤ ਧੰਨਵਾਦ ਜੀ। ਤੁਸੀਂ ਹੁਣੇ ਐਪ ਰਾਹੀਂ ਆਪਣੀ ਪੇਮੈਂਟ ਕਰ ਲਵੋ।",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-TERM-20",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Bahut dhanyawad. Aap abhi app khol ke payment complete kar lijiye.",
+        "terminal_state": "payment_ready"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 12899.2,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "3900554ca035b395f4d58c4c951e3263435bfb604b8a0d97856dc15fb11724cf",
+    "response_hash": "821809b58e3ad8c53fc79e8c679f4d0dce2a69e2ccdaa54b54bf55bf0431cba5",
+    "usage": {
+      "candidatesTokenCount": 618,
+      "promptTokenCount": 2955,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 2955
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 2210,
+      "totalTokenCount": 5783
+    }
+  }
+}

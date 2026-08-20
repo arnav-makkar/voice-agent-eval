@@ -1,0 +1,35 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-TERM-04",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਧੰਨਵਾਦ ਜੀ, ਕਿਰਪਾ ਕਰਕੇ EasyCredit app ਰਾਹੀਂ ਹੁਣੇ ਹੀ ਭੁਗਤਾਨ ਕਰ ਦਿਓ।",
+        "terminal_state": "payment_ready"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5117.0,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "ba92d90e5ef790840e49d8d1a378cbc2a89feaed2f6c54cbb6117e4d8388a71e",
+    "response_hash": "0b714e551cf692c2b93cd002cfc71aef9f30ea2338804a4a2a846b19fe78363e",
+    "usage": {
+      "candidatesTokenCount": 109,
+      "promptTokenCount": 1545,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1545
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 631,
+      "totalTokenCount": 2285
+    }
+  }
+}

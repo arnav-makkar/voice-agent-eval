@@ -1,0 +1,43 @@
+{
+  "data": {
+    "disposition": "fptp",
+    "should_end_call": true,
+    "spoken_response": "Dhanvaad ji, tuhadi 20 August 2026 di payment date note kar layi hai. Sat Sri Akal.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "date": "20-08-2026"
+        },
+        "name": "record_promise_to_pay"
+      },
+      {
+        "arguments": {
+          "disposition": "fptp"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5169.5,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "becbc9c3ac063383f3e486b49f9e3ab4a6d6ee25ca234beddf3fd7553c7a9286",
+    "response_hash": "232c88d9acf8e61b4387b2afb84b410841e5b07e10dee9b8e329f71768010e6c",
+    "usage": {
+      "candidatesTokenCount": 99,
+      "promptTokenCount": 1899,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1899
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 752,
+      "totalTokenCount": 2750
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-TERM-04",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਬਹੁਤ ਧੰਨਵਾਦ ਗੁਰਪ੍ਰੀਤ ਜੀ! ਕਿਰਪਾ ਕਰਕੇ official app ਰਾਹੀਂ payment ਕਰ ਦਿਓ।",
+        "terminal_state": "payment_ready"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4878.5,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "79d76641e9f9e381124a11fad486860b954bff29159faa4b5fa154143581922c",
+    "response_hash": "235f703bd878f3cb635cdc44b66a4efdf497cb67f8c1cc9e2be34838e08a6c1d",
+    "usage": {
+      "candidatesTokenCount": 77,
+      "promptTokenCount": 1545,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1545
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 603,
+      "totalTokenCount": 2225
+    }
+  }
+}

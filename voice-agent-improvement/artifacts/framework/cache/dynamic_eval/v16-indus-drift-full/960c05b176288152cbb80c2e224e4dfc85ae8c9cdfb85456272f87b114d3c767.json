@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "fptp",
+    "should_end_call": true,
+    "spoken_response": "Thik hai ji, 20 August nu payment kar dena. Dhanwaad!",
+    "tool_calls": [
+      {
+        "arguments": {
+          "date": "20-08-2026"
+        },
+        "name": "record_promise_to_pay"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 8939.5,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "960c05b176288152cbb80c2e224e4dfc85ae8c9cdfb85456272f87b114d3c767",
+    "response_hash": "bfa73fbbab4b6d6299a7c898d32653335a0780438477daecf93ac94eb7eb0e7f",
+    "usage": {
+      "candidatesTokenCount": 69,
+      "promptTokenCount": 2008,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 2008
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1320,
+      "totalTokenCount": 3397
+    }
+  }
+}

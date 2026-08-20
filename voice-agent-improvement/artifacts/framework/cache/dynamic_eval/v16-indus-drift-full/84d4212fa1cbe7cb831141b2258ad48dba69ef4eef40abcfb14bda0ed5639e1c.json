@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "acknowledged",
+    "should_end_call": true,
+    "spoken_response": "Theek hai Arnav ji, aap official app mein check kar lijiye. Dhanyawad.",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5056.7,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "84d4212fa1cbe7cb831141b2258ad48dba69ef4eef40abcfb14bda0ed5639e1c",
+    "response_hash": "c88fd1e02ec8e1d01966407c507efa83c0341557e259a69ba86b11099e7e91aa",
+    "usage": {
+      "candidatesTokenCount": 46,
+      "promptTokenCount": 2018,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 2018
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 731,
+      "totalTokenCount": 2795
+    }
+  }
+}

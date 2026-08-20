@@ -1,0 +1,38 @@
+{
+  "data": {
+    "disposition": "callback",
+    "should_end_call": true,
+    "spoken_response": "Dhanyawad Arnav ji, aapka din shubh ho.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "date": "18-08-2026",
+          "time_window": "5 PM - 6 PM"
+        },
+        "name": "schedule_callback"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 9424.7,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "ddf9287778e0433aeb873d562749abf5e583f5f4ddcaa9e45acb94b63917ca3b",
+    "response_hash": "e2e727394939bae5364cbe1bad414564b4265bc5f86181c43e3426e01a3c2548",
+    "usage": {
+      "candidatesTokenCount": 70,
+      "promptTokenCount": 2029,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 2029
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1600,
+      "totalTokenCount": 3699
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Dhanvaad ji, ki tusi 20 August 2026 nu payment kar devoge, main eh confirm kar lavan?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 17255.0,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "ff4ecf22a55e414228072a4d4c2c6da5da2a07c5264f0b31140488828edfbf65",
+    "response_hash": "2fb6ae932281bea3749dbab7147aa360aba1dfe158d31d5abede641a5d08e1b5",
+    "usage": {
+      "candidatesTokenCount": 55,
+      "promptTokenCount": 1837,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1837
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 3100,
+      "totalTokenCount": 4992
+    }
+  }
+}

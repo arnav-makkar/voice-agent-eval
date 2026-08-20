@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Samajh gaya. Aap kis tareekh tak yeh payment kar payenge?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5208.0,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "0a26ff8094c1d2045ede61a4f19d9f5461c633e6ee890687af2861b6f64ac6c6",
+    "response_hash": "9804d9f5875aa8b0d1c3e94f52a8ac5c428abd9f67312d7cbc5242c71e5abd7c",
+    "usage": {
+      "candidatesTokenCount": 56,
+      "promptTokenCount": 1467,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1467
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 682,
+      "totalTokenCount": 2205
+    }
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-COND-01",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "ठीक है, क्या आप आज शाम तक या किसी निश्चित तारीख तक ₹4416 का भुगतान कर देंगे?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-COND-02",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "Ji, status check karke kya aap abhi ₹3800 ka payment kar denge?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-COND-03",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thank you. I have noted 18-08-2026 as your payment date. Please clear the payment of Rs 5200 on the EasyCredit official app.",
+        "terminal_state": "fptp"
+      },
+      {
+        "case_id": "EMI-FD1-COND-04",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਧੰਨਵਾਦ, ਮੈਂ 22-08-2026 ਦੀ ਤਾਰੀਖ਼ ਨੋਟ ਕਰ ਲਈ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ EasyCredit official app ਤੋਂ ₹4100 ਦਾ ਭੁਗਤਾਨ ਕਰ ਦੇਣਾ।",
+        "terminal_state": "fptp"
+      },
+      {
+        "case_id": "EMI-FD1-COND-05",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "Thik hai, aap check kar lijiye. Aap kis tareekh tak ₹3200 ka payment kar payenge?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-COND-06",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "धन्यवाद! कृपया EasyCredit official app से ₹4416 का भुगतान पूर्ण करें।",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-COND-07",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thik hai, main aaj shaam ke callback ki preference note kar leta hoon, yeh guaranteed booking nahi hai. Dhanyawad!",
+        "terminal_state": "callback"
+      },
+      {
+        "case_id": "EMI-FD1-COND-08",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "Could you please confirm a specific date next week by which you will pay Rs 3600?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-COND-09",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਠੀਕ ਹੈ ਜੀ, ਮੈਂ ਅੱਜ ਦੁਪਹਿਰ 2 ਵਜੇ ਦੀ ਕਾਲਬੈਕ ਪ੍ਰੈਫਰੈਂਸ ਨੋਟ ਕਰ ਲਈ ਹੈ, ਇਹ ਗਾਰੰਟੀਡ ਬੁਕਿੰਗ ਨਹੀਂ ਹੈ। ਧੰਨਵਾਦ।",
+        "terminal_state": "callback"
+      },
+      {
+        "case_id": "EMI-FD1-COND-10",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "Thik hai, aap check kar lijiye. Aap kis tareekh tak ₹5500 ki payment kar payenge?",
+        "terminal_state": "acknowledged"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 41286.9,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "22dc94eaedf2c012bf69faf1947c01d57fd01752bfcef25bbbc8ce37831ad019",
+    "response_hash": "16147e4633a471383524ed7ee819c1ab6c3fd7450a588b9b553870439aa2d10b",
+    "usage": {
+      "candidatesTokenCount": 732,
+      "promptTokenCount": 4472,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 4472
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 7760,
+      "totalTokenCount": 12964
+    }
+  }
+}

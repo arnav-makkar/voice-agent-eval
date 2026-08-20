@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Kabir ji, aapka total overdue amount Rs 3188 hai. Kya aap abhi EasyCredit app se pay kar sakte hain?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4281.0,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "4a0e46ad0b2a8a9affc54008dbee7488187d4f8a2d7c06c20e918d5c0718164e",
+    "response_hash": "83d31fc6e915be79ef4ff64885226db0bc59ba5dc6539d3cf502d2defe50e391",
+    "usage": {
+      "candidatesTokenCount": 54,
+      "promptTokenCount": 1758,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1758
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 449,
+      "totalTokenCount": 2261
+    }
+  }
+}

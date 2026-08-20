@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Aap ek baar internet check karke app restart kar lijiye. Kya aap abhi try karke payment kar sakti hain?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 3486.2,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "114b9e8ea82621cdc6f7138dea30250f9dcef21f7b1606d79de5911e6427970a",
+    "response_hash": "b65860a4a83bdab3a005b9826c389e278fe42d3cf73d90862a2d04b2a31197dc",
+    "usage": {
+      "candidatesTokenCount": 52,
+      "promptTokenCount": 1950,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1950
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 385,
+      "totalTokenCount": 2387
+    }
+  }
+}

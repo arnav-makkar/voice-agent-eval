@@ -1,0 +1,35 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-TREF-04",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਜੀ ਠੀਕ ਹੈ, ਤੁਸੀਂ ਸਾਡੇ ਕਸਟਮਰ ਕੇਅਰ ਨਾਲ ਸੰਪਰਕ ਕਰ ਸਕਦੇ ਹੋ। ਧੰਨਵਾਦ।",
+        "terminal_state": "escalation"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 7055.1,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "cc9073a59204eddebfde32b74aa0be3d0fc560417d29df86b48e1a03bd2e53be",
+    "response_hash": "f4adbfc7f26376670e04ad74847ad603e8ece5d12214dbcafa8139672d0ff53e",
+    "usage": {
+      "candidatesTokenCount": 79,
+      "promptTokenCount": 1515,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1515
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1130,
+      "totalTokenCount": 2724
+    }
+  }
+}

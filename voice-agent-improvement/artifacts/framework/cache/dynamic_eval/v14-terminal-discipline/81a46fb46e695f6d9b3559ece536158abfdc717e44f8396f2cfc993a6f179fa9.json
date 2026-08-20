@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "acknowledged",
+    "should_end_call": true,
+    "spoken_response": "Samajh gaya Riya ji. Kripya jaise hi ho sake EasyCredit app se payment kar dijiyega. Dhanyawad.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "acknowledged"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 6960.3,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "81a46fb46e695f6d9b3559ece536158abfdc717e44f8396f2cfc993a6f179fa9",
+    "response_hash": "2762075e2e0493507cda865ae7857d852dd46d1bbb76641ebfeebe236af6f34f",
+    "usage": {
+      "candidatesTokenCount": 71,
+      "promptTokenCount": 1763,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1763
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1269,
+      "totalTokenCount": 3103
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Kya koi dikkat aa rahi hai, ya aap kis tareekh tak EMI pay kar payenge?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5630.0,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "efbfb07cff8ad181966b3a8e63713e36b7ac408e09c7176c32cc8d5b448ad3db",
+    "response_hash": "688baf524a88d6788cd372b7a7e661e47a819b9322caf9241d1c051edd5879fe",
+    "usage": {
+      "candidatesTokenCount": 59,
+      "promptTokenCount": 1601,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1601
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 716,
+      "totalTokenCount": 2376
+    }
+  }
+}

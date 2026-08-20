@@ -1,0 +1,51 @@
+{
+  "baseline_experience": 1.0,
+  "baseline_task_successes": 16,
+  "candidate_experience": 0.995,
+  "candidate_task_successes": 22,
+  "claim_boundary": "Paired development/validation/regression decision. The exact p-value is diagnostic and does not replace fresh final or matched voice evidence.",
+  "conditions": {
+    "all_baseline_task_wins_preserved": true,
+    "experience_drop_within_10pp": true,
+    "zero_new_severe_regressions": false
+  },
+  "decision": "reject_new_severe_regression",
+  "matched_scenarios": 30,
+  "next_gate": null,
+  "paired_task_evidence": {
+    "discordant_pairs": 6,
+    "exact_two_sided_p": 0.03125,
+    "interpretation": "Exact paired task-outcome diagnostic; promotion still depends on per-case gates and the fresh final test.",
+    "repairs": 6,
+    "task_regressions": 0
+  },
+  "regressions": [
+    {
+      "evidence": {
+        "component": "policy_or_extractor",
+        "evidence": "Samajh gaya. Toh aap kis tareekh tak payment kar paayenge?",
+        "turn_sequence": 6
+      },
+      "scenario_id": "EMI-DYN-030",
+      "severity": "P0",
+      "type": "forbidden_behavior_regression"
+    }
+  ],
+  "repairs": [
+    "EMI-DYN-003",
+    "EMI-DYN-005",
+    "EMI-DYN-013",
+    "EMI-DYN-020",
+    "EMI-DYN-021",
+    "EMI-DYN-023"
+  ],
+  "routes": {
+    "more_task_wins": false,
+    "task_non_degradation_plus_experience": false
+  },
+  "schema_version": "dynamic-release-decision.v1",
+  "task_regressions": [],
+  "thresholds": {
+    "maximum_experience_drop": 0.1
+  }
+}

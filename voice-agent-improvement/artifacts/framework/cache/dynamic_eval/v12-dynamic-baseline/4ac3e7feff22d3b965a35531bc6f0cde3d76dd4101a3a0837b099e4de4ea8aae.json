@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "callback",
+    "should_end_call": true,
+    "spoken_response": "Thik hai, 18 August subah 10 se 11 baje ki callback preference note kar li hai. Yeh ek preference hai, guaranteed booking nahi.",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 6547.6,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "4ac3e7feff22d3b965a35531bc6f0cde3d76dd4101a3a0837b099e4de4ea8aae",
+    "response_hash": "1d1e519e41018bf087ce5fb8e6cb8b15f83da216cd748d9141091c3d46c1f2c7",
+    "usage": {
+      "candidatesTokenCount": 60,
+      "promptTokenCount": 1472,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1472
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 985,
+      "totalTokenCount": 2517
+    }
+  }
+}

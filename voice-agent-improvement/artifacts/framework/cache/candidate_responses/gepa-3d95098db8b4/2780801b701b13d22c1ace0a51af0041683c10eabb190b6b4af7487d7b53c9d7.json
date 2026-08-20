@@ -1,0 +1,35 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-TRST-01",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "मैं EasyCredit Finance का AI असिस्टेंट शुभ हूँ। आप बिना किसी लिंक के सीधे आधिकारिक ऐप से भुगतान कर सकते हैं, क्या आप अभी करेंगे?",
+        "terminal_state": ""
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 13109.9,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "2780801b701b13d22c1ace0a51af0041683c10eabb190b6b4af7487d7b53c9d7",
+    "response_hash": "d83c42c5631c81c2ab567ff99338d1da923319858af5d517d9061cb2716f931b",
+    "usage": {
+      "candidatesTokenCount": 102,
+      "promptTokenCount": 1456,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1456
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 2122,
+      "totalTokenCount": 3680
+    }
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "allowed_enum": [
+    "escalation",
+    "alternate_number",
+    "wrong_number",
+    "dispute",
+    "payment_ready",
+    "ptp_today",
+    "fptp",
+    "callback",
+    "rtp",
+    "already_paid",
+    "acknowledged",
+    "call_disconnected"
+  ],
+  "candidate_accuracy": 1.0,
+  "candidate_id": "extractor-v2-pro",
+  "candidate_invalid_enum_count": 0,
+  "candidate_unsupported_summary_rate": 0.0,
+  "claim_boundary": "Text re-extraction experiment on the 20 baseline transcripts; Indus production extractor and matched voice outputs remain separate gates.",
+  "details": {
+    "bytes": 12673,
+    "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/extractor/extractor-v2-pro/details.jsonl",
+    "records": 20,
+    "sha256": "83eba70c2ea03dc947d62c02eab4b809f0567f0fe337795d23188b8d4d140d4a"
+  },
+  "disagreements": {},
+  "judge_model": "gemini-pro-latest",
+  "model_runs": [
+    {
+      "adapter_version": "gemini-json.v1",
+      "cache_hit": false,
+      "latency_ms": 22381.2,
+      "model_requested": "gemini-pro-latest",
+      "model_version": "gemini-3.1-pro-preview",
+      "request_hash": "f1599163e47854426bb2b802a0dad67f4e3a863a4859cd2351b1f4b71810df46",
+      "response_hash": "2ea39a87fc20bf87f06e83eb56aec948cc54c3dc7f9dc93dfe59462f2f7c6c40",
+      "usage": {
+        "candidatesTokenCount": 610,
+        "promptTokenCount": 2430,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 2430
+          }
+        ],
+        "serviceTier": "standard",
+        "thoughtsTokenCount": 2323,
+        "totalTokenCount": 5363
+      }
+    },
+    {
+      "adapter_version": "gemini-json.v1",
+      "cache_hit": false,
+      "latency_ms": 13601.1,
+      "model_requested": "gemini-pro-latest",
+      "model_version": "gemini-3.1-pro-preview",
+      "request_hash": "1f69507ca449e58376533f373765928cf6f6a3dc269f0e344d7d6cf2a2949eb4",
+      "response_hash": "cf45f39ddc567c400d83b128d17cbeda38aae3d9b7c7f680c6fecf595e64da73",
+      "usage": {
+        "candidatesTokenCount": 637,
+        "promptTokenCount": 2265,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 2265
+          }
+        ],
+        "serviceTier": "standard",
+        "thoughtsTokenCount": 1336,
+        "totalTokenCount": 4238
+      }
+    },
+    {
+      "adapter_version": "gemini-json.v1",
+      "cache_hit": false,
+      "latency_ms": 24318.4,
+      "model_requested": "gemini-pro-latest",
+      "model_version": "gemini-3.1-pro-preview",
+      "request_hash": "b8f44b8754213d772e95fe12c4df981b55495408d26476ff201048381ceeeeb0",
+      "response_hash": "6f6a65022c66dda3b9ddc1b43af4295d9e56cbf3445d0f28a897438c9f258c93",
+      "usage": {
+        "candidatesTokenCount": 560,
+        "promptTokenCount": 2371,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 2371
+          }
+        ],
+        "serviceTier": "standard",
+        "thoughtsTokenCount": 2246,
+        "totalTokenCount": 5177
+      }
+    },
+    {
+      "adapter_version": "gemini-json.v1",
+      "cache_hit": false,
+      "latency_ms": 19196.8,
+      "model_requested": "gemini-pro-latest",
+      "model_version": "gemini-3.1-pro-preview",
+      "request_hash": "c221088c28cc609d04bf8194f06a83be9b1db6858a6a1116e406b2c1c03326a2",
+      "response_hash": "91ddf9f5dafa1315d223c3d89578829bead500a27a7ffe4ec717f77c05751d76",
+      "usage": {
+        "candidatesTokenCount": 591,
+        "promptTokenCount": 2256,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 2256
+          }
+        ],
+        "serviceTier": "standard",
+        "thoughtsTokenCount": 1854,
+        "totalTokenCount": 4701
+      }
+    }
+  ],
+  "patch_path": "agent/candidates/extractor-v2/OUTPUT-VARIABLES.md",
+  "platform_baseline_accuracy": 0.9,
+  "reference_rule": "Provisional reference disposition uses observed human primary-success labels; conditional check/trust-without-commitment map to acknowledged rather than the scenario's desired payment_ready target.",
+  "schema_version": "extractor-experiment.v1",
+  "traces": 20
+}

@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Aapka kul outstanding Rs 3188 hai. Kya aap abhi EasyCredit app se payment karenge?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4455.1,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "8d0bd1bb32438d9415cc665e30ad85ed42204fcdf1089671668563baabee9d74",
+    "response_hash": "4dd191e223194ac3fdb54316d241ca0cb23bfb5b8c8255103b93b6687ce75023",
+    "usage": {
+      "candidatesTokenCount": 48,
+      "promptTokenCount": 1742,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1742
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 586,
+      "totalTokenCount": 2376
+    }
+  }
+}

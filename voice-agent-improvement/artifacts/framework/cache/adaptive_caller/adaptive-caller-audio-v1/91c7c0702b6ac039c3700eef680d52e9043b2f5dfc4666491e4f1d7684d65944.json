@@ -1,0 +1,40 @@
+{
+  "data": {
+    "action": "speak",
+    "audio_quality": "clear",
+    "delay_ms": 0,
+    "heard_agent_text": "Acha main EasyCredit se Shubh baat kar raha hoon. Aapke Samsung Smart TV ki 2916 rupaye ki EMI overdue hai. Kya aap abhi official app se payment kar sakte hain?",
+    "heard_language": "hinglish",
+    "policy_node": "step-2",
+    "rationale": "The agent repeated the exact same statement asking for payment even after the caller already agreed twice. The caller re-iterates firmly with low patience.",
+    "text": "Maine bola na, main abhi app se payment kar rahi hoon."
+  },
+  "metadata": {
+    "adapter_version": "gemini-audio-json.v1",
+    "audio_bytes": 326444,
+    "audio_sha256": "d4150592eb99e115efba3bdb18014a51c192976592e19bb436b6c97675c7519b",
+    "cache_hit": false,
+    "latency_ms": 7840.7,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "91c7c0702b6ac039c3700eef680d52e9043b2f5dfc4666491e4f1d7684d65944",
+    "response_hash": "6fffdc37948bd4acec1ab24d6156110b49552a04af12db6fa3a64fa1e691ea6a",
+    "usage": {
+      "candidatesTokenCount": 163,
+      "promptTokenCount": 1012,
+      "promptTokensDetails": [
+        {
+          "modality": "AUDIO",
+          "tokenCount": 255
+        },
+        {
+          "modality": "TEXT",
+          "tokenCount": 757
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1296,
+      "totalTokenCount": 2471
+    }
+  }
+}

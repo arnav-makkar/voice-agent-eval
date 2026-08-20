@@ -1,0 +1,98 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-COND-01",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "ठीक है, तो आप किस तारीख तक भुगतान कर पाएंगे?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-COND-02",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "Ji, app check karne ke baad kya aap abhi ₹3800 ka payment kar denge?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-COND-03",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thank you Priya, please pay Rs 5200 tomorrow morning through the official app.",
+        "terminal_state": "fptp"
+      },
+      {
+        "case_id": "EMI-FD1-COND-04",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਠੀਕ ਹੈ ਜੀ, ਤੁਸੀਂ 22 ਅਗਸਤ ਨੂੰ ਐਪ ਰਾਹੀਂ 4100 ਰੁਪਏ ਦਾ ਭੁਗਤਾਨ ਕਰ ਦੇਣਾ। ਧੰਨਵਾਦ।",
+        "terminal_state": "fptp"
+      },
+      {
+        "case_id": "EMI-FD1-COND-05",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "Thik hai Rohan ji, aap kis date tak payment kar payenge?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-COND-06",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "धन्यवाद सुनील जी, आप अभी ऐप के माध्यम से ₹4416 का भुगतान कर लीजिए।",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-COND-07",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thik hai Neha ji, hum aapko aaj shaam ko call kar lenge. Dhanyawad.",
+        "terminal_state": "callback"
+      },
+      {
+        "case_id": "EMI-FD1-COND-08",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "Could you please confirm a specific date next week when you can make the payment?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-COND-09",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਠੀਕ ਹੈ ਜੀ, ਅਸੀਂ ਤੁਹਾਨੂੰ ਅੱਜ ਦੁਪਹਿਰ 2 ਵਜੇ ਕਾਲ ਕਰਾਂਗੇ। ਧੰਨਵਾਦ।",
+        "terminal_state": "callback"
+      },
+      {
+        "case_id": "EMI-FD1-COND-10",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "Thik hai Vikram ji, toh aap kis date tak payment kar payenge?",
+        "terminal_state": "acknowledged"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 47005.3,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "ec04871e3eaf1a4aeb9d3d70fa316e9166c5d10b606323d2e73805ed88c5019f",
+    "response_hash": "0dec0c45f13032feca35f4648fc2d240a53b2668d0b4f465dcb6735fe553aa09",
+    "usage": {
+      "candidatesTokenCount": 865,
+      "promptTokenCount": 4522,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 4522
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 8821,
+      "totalTokenCount": 14208
+    }
+  }
+}

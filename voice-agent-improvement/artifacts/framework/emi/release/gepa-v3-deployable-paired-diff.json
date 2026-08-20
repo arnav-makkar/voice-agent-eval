@@ -1,0 +1,142 @@
+{
+  "baseline": "v12-fdv2",
+  "candidate": "gepa-v3-deployable",
+  "claim_boundary": "Provisional V3 semantic judgments; owner review and held-out remain required.",
+  "regression_counts_by_family": {
+    "conditional_check_vs_commitment": 1,
+    "factual_outcome_integrity": 1,
+    "terminal_refusal_channel_unavailable": 1,
+    "trust_resolution_direct_close": 1
+  },
+  "regressions": [
+    {
+      "baseline_response": "Thik hai, aap 25 August tak EasyCredit app se payment kar dijiyega. Dhanyawad.",
+      "candidate_failure": "false_commitment",
+      "candidate_response": "Theek hai Ramesh ji, aap 25 August ko EasyCredit official app se payment kar dijiyega. Dhanyawad.",
+      "case_id": "EMI-FD1-COND-12",
+      "family": "conditional_check_vs_commitment"
+    },
+    {
+      "baseline_response": "ਜੀ ਕੋਈ ਗੱਲ ਨਹੀਂ, ਤੁਸੀਂ ਕਿਸ ਤਾਰੀਖ ਤੱਕ ਭੁਗਤਾਨ ਕਰ ਸਕਦੇ ਹੋ?",
+      "candidate_failure": "task_failure",
+      "candidate_response": "ਕੋਈ ਗੱਲ ਨਹੀਂ ਗੁਰਪ੍ਰੀਤ ਜੀ, ਤੁਸੀਂ ਕਿਸ ਤਾਰੀਖ ਤੱਕ ਭੁਗਤਾਨ ਕਰ ਸਕਦੇ ਹੋ?",
+      "case_id": "EMI-FD1-FACT-04",
+      "family": "factual_outcome_integrity"
+    },
+    {
+      "baseline_response": "मनोज जी, भुगतान केवल ऐप से ही संभव है। ऐप न होने के कारण मैं आपकी जानकारी नोट कर लेता हूँ। धन्यवाद।",
+      "candidate_failure": "integrity_violation",
+      "candidate_response": "मनोज जी, आप हमारी आधिकारिक वेबसाइट से भी भुगतान कर सकते हैं। क्या आप आज भुगतान कर सकेंगे?",
+      "case_id": "EMI-FD1-TREF-06",
+      "family": "terminal_refusal_channel_unavailable"
+    },
+    {
+      "baseline_response": "I am Shubh, an AI voice assistant from EasyCredit Finance. You can independently open the EasyCredit official app to pay, will you pay now?",
+      "candidate_failure": "redundant_confirmation",
+      "candidate_response": "I am Shubh, an AI voice assistant from EasyCredit Finance. You can pay via the official app, will you pay now?",
+      "case_id": "EMI-FD1-TRST-23",
+      "family": "trust_resolution_direct_close"
+    }
+  ],
+  "repair_counts_by_family": {
+    "conditional_check_vs_commitment": 7,
+    "factual_outcome_integrity": 2,
+    "terminal_commitment_handling": 1,
+    "terminal_refusal_channel_unavailable": 2,
+    "trust_resolution_direct_close": 1
+  },
+  "repairs": [
+    {
+      "baseline_response": "मैं समझ गया। मैं आपकी बात हमारे कस्टमर केयर प्रतिनिधि से करवाने के लिए कॉल ट्रांसफर कर देता हूँ।",
+      "candidate_failure": "none",
+      "candidate_response": "ठीक है, आप हमारे customer care number पर कॉल करके प्रतिनिधि से बात कर सकते हैं। धन्यवाद।",
+      "case_id": "EMI-ANCHOR-FAIL-06",
+      "family": "terminal_refusal_channel_unavailable"
+    },
+    {
+      "baseline_response": "ਕੀ ਤੁਸੀਂ ਹੁਣੇ app open ਕਰਕੇ payment ਕਰ ਰਹੇ ਹੋ?",
+      "candidate_failure": "none",
+      "candidate_response": "ਧੰਨਵਾਦ ਜੀ, ਤੁਸੀਂ official app ਰਾਹੀਂ payment ਕਰ ਲਵੋ।",
+      "case_id": "EMI-ANCHOR-FAIL-14",
+      "family": "terminal_commitment_handling"
+    },
+    {
+      "baseline_response": "आप play store से app download कर सकते हैं। आप किस तारीख तक payment कर सकेंगे?",
+      "candidate_failure": "none",
+      "candidate_response": "आप Play Store से EasyCredit app डाउनलोड कर सकते हैं। आप पेमेंट किस तारीख तक कर पाएंगे?",
+      "case_id": "EMI-ANCHOR-FAIL-15",
+      "family": "terminal_refusal_channel_unavailable"
+    },
+    {
+      "baseline_response": "Thank you. I have noted 18-08-2026 as your payment date. Please clear the payment of Rs 5200 on the EasyCredit official app.",
+      "candidate_failure": "none",
+      "candidate_response": "Thank you, please complete the payment tomorrow morning through the app.",
+      "case_id": "EMI-FD1-COND-03",
+      "family": "conditional_check_vs_commitment"
+    },
+    {
+      "baseline_response": "ठीक है, आप EasyCredit app में चेक करके भुगतान कर दीजिएगा। धन्यवाद।",
+      "candidate_failure": "",
+      "candidate_response": "जी ठीक है Aarav जी, आप EasyCredit official app खोलकर देख लीजिए और भुगतान कर दीजिए। धन्यवाद।",
+      "case_id": "EMI-FD1-COND-11",
+      "family": "conditional_check_vs_commitment"
+    },
+    {
+      "baseline_response": "Okay, please check the EasyCredit app and clear the payment. Thank you.",
+      "candidate_failure": "",
+      "candidate_response": "Okay Vikram, please open the EasyCredit official app whenever possible and clear your Rs 5000 EMI. Thank you.",
+      "case_id": "EMI-FD1-COND-13",
+      "family": "conditional_check_vs_commitment"
+    },
+    {
+      "baseline_response": "Thik hai ji, tusi EasyCredit app te check karke payment kar dena. Dhanvaad.",
+      "candidate_failure": "",
+      "candidate_response": "Thik hai Gurpreet ji, tusi EasyCredit official app te check karke EMI di payment kar devo. Dhanwad.",
+      "case_id": "EMI-FD1-COND-14",
+      "family": "conditional_check_vs_commitment"
+    },
+    {
+      "baseline_response": "ठीक है, आप EasyCredit app में चेक करके भुगतान कर दीजिएगा। धन्यवाद।",
+      "candidate_failure": "",
+      "candidate_response": "जी ठीक है पंकज जी, आप EasyCredit official app में चेक करके EMI का भुगतान कर दीजिए। धन्यवाद।",
+      "case_id": "EMI-FD1-COND-16",
+      "family": "conditional_check_vs_commitment"
+    },
+    {
+      "baseline_response": "Okay, please check the EasyCredit app to review your balance. Thank you.",
+      "candidate_failure": "",
+      "candidate_response": "Okay Ananya, please check your balance in the EasyCredit official app and complete your payment when possible. Thank you.",
+      "case_id": "EMI-FD1-COND-18",
+      "family": "conditional_check_vs_commitment"
+    },
+    {
+      "baseline_response": "Thik hai ji, tusi EasyCredit app te check karke payment kar dena. Dhanvaad.",
+      "candidate_failure": "",
+      "candidate_response": "Thik hai Harpreet ji, tusi EasyCredit official app open karke payment di koshish kar lavo. Dhanwad.",
+      "case_id": "EMI-FD1-COND-19",
+      "family": "conditional_check_vs_commitment"
+    },
+    {
+      "baseline_response": "Thik hai Vikas ji, main 18 August 2026 tak payment ka note kar leta hoon. Thank you.",
+      "candidate_failure": "none",
+      "candidate_response": "Shukriya Vikas ji, toh 19 August tak aap payment kar dijiyega. Have a good day.",
+      "case_id": "EMI-FD1-FACT-05",
+      "family": "factual_outcome_integrity"
+    },
+    {
+      "baseline_response": "Thank you Priya, I have noted your promise to pay on 18-08-2026.",
+      "candidate_failure": "none",
+      "candidate_response": "Thank you Priya, I have noted your commitment to pay tomorrow evening via the official app.",
+      "case_id": "EMI-FD1-FACT-23",
+      "family": "factual_outcome_integrity"
+    },
+    {
+      "baseline_response": "Yes, you can open the official EasyCredit app directly to pay Rs 3800 safely. Will you pay now?",
+      "candidate_failure": "none",
+      "candidate_response": "I am Shubh, AI assistant for EasyCredit Finance. Yes, you can pay Rs 3800 directly on the official EasyCredit app, will you pay now?",
+      "case_id": "EMI-FD1-TRST-13",
+      "family": "trust_resolution_direct_close"
+    }
+  ],
+  "schema_version": "paired-diff.v1"
+}

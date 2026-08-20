@@ -1,0 +1,35 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-TREF-22",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Ji main samajh gaya, main call end kar raha hoon. Aap EasyCredit official app check kar sakte hain.",
+        "terminal_state": "escalation"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 11286.2,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "404a272661d3b6f4cd67b02ba05cb2b4e989294d35fa92074cc9ffbb0e6b065f",
+    "response_hash": "b2d4e941ab9cff077bef23fea1dba5c423c4c31b5f66bc56e12d4f45677d85e3",
+    "usage": {
+      "candidatesTokenCount": 98,
+      "promptTokenCount": 1566,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1566
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1906,
+      "totalTokenCount": 3570
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-FACT-22",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "Samjh gaya Ankit ji. Aap kab tak payment kar payenge?",
+        "terminal_state": "acknowledged"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 15388.1,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "70e112d47b9ed3b7d1f5f016a405bbefaf28ed8a6436bc554f826f2316341b70",
+    "response_hash": "b7e27d812319c1bc18a16087d55865b62019dd39911487acb8d57d569cbde125",
+    "usage": {
+      "candidatesTokenCount": 89,
+      "promptTokenCount": 1492,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1492
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 2594,
+      "totalTokenCount": 4175
+    }
+  }
+}

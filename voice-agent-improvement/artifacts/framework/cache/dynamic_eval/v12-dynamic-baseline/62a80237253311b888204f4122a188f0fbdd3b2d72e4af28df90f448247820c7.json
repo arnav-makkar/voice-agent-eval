@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Koi dikkat hai Riya ji? Aap kab tak payment kar sakengi?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 6346.5,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "62a80237253311b888204f4122a188f0fbdd3b2d72e4af28df90f448247820c7",
+    "response_hash": "524002ca5627955aa3dbf9c2adeae3bacef6942a2017757692327d8da7260f9b",
+    "usage": {
+      "candidatesTokenCount": 54,
+      "promptTokenCount": 1472,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1472
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 885,
+      "totalTokenCount": 2411
+    }
+  }
+}

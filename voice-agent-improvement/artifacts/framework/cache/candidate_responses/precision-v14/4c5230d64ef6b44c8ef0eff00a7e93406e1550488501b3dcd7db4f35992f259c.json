@@ -1,0 +1,98 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-COND-11",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ठीक है, आप EasyCredit app में चेक करके भुगतान कर दीजिए। धन्यवाद।",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-COND-12",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thik hai, aap 25 August tak EasyCredit app se payment kar dijiye. Dhanyawad.",
+        "terminal_state": "fptp"
+      },
+      {
+        "case_id": "EMI-FD1-COND-13",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Okay Vikram, please open the EasyCredit app whenever possible and pay the EMI. Thank you.",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-COND-14",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thik hai ji, tusi EasyCredit app te check karke payment kar do. Dhanvaad.",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-COND-15",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thik hai Sunita ji, aap EasyCredit app open karke check kar lijiye aur payment kar dijiye. Dhanyawad.",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-COND-16",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ठीक है Pankaj जी, आप EasyCredit app में चेक करके भुगतान कर दीजिए। धन्यवाद।",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-COND-17",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thik hai Deepak ji, hum shaam ko callback ki preference note kar rahe hain, yeh guaranteed booking nahi hai. Dhanyawad.",
+        "terminal_state": "callback"
+      },
+      {
+        "case_id": "EMI-FD1-COND-18",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Okay Ananya, please verify your balance on the EasyCredit official app and complete the payment. Thank you.",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-COND-19",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thik hai ji, tusi EasyCredit app khol ke check kar lo te payment kar do. Dhanvaad.",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-COND-20",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thik hai Vivek ji, aap kal bonus check karke EasyCredit app se payment kar dijiyega. Dhanyawad.",
+        "terminal_state": "acknowledged"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 83008.2,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "4c5230d64ef6b44c8ef0eff00a7e93406e1550488501b3dcd7db4f35992f259c",
+    "response_hash": "c595f404aa6c5f84f234f2ccfd1e1d1d6e66bbae4c3a43325aece307d42a6dc3",
+    "usage": {
+      "candidatesTokenCount": 710,
+      "promptTokenCount": 4586,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 4586
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 16026,
+      "totalTokenCount": 21322
+    }
+  }
+}

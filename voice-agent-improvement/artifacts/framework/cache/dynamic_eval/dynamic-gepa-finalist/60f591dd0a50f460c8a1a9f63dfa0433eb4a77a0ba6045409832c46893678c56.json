@@ -1,0 +1,43 @@
+{
+  "data": {
+    "disposition": "fptp",
+    "should_end_call": true,
+    "spoken_response": "Dhanvaad ji, main 20 August di date note kar layi hai. EasyCredit ton call karan layi dhanvaad.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "date": "20-08-2026"
+        },
+        "name": "record_promise_to_pay"
+      },
+      {
+        "arguments": {
+          "disposition": "fptp"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5833.7,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "60f591dd0a50f460c8a1a9f63dfa0433eb4a77a0ba6045409832c46893678c56",
+    "response_hash": "9d7166ec6f34514a3fea36f393726f6d25c4b8c9f74ab0f500d50c59f08337c4",
+    "usage": {
+      "candidatesTokenCount": 97,
+      "promptTokenCount": 1806,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1806
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 858,
+      "totalTokenCount": 2761
+    }
+  }
+}

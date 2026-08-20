@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Thik hai ji, 20 August 2026 nu payment date confirm karaan?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 9316.5,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "334f59c1b24d1ad708280750c177625355d2d42ece74e72c29cc46efb2b98d67",
+    "response_hash": "b2735f866c10fb12b44c179c6fe462e8d3f84dbb47f003ab62590242e80898c0",
+    "usage": {
+      "candidatesTokenCount": 45,
+      "promptTokenCount": 1762,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1762
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1407,
+      "totalTokenCount": 3214
+    }
+  }
+}

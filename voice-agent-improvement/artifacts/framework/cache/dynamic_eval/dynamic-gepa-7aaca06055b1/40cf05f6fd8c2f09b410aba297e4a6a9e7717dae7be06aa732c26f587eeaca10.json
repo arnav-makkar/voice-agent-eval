@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "already_paid",
+    "should_end_call": true,
+    "spoken_response": "Payment abhi system mein reflect nahi hua hai. Kripya customer care number 1800-500-4444 par sampark karein. Dhanyawad.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "already_paid"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 6720.6,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "40cf05f6fd8c2f09b410aba297e4a6a9e7717dae7be06aa732c26f587eeaca10",
+    "response_hash": "93216be4995cda242c489dac3c5f7904d20c407fa39576878c96495d49e7eedf",
+    "usage": {
+      "candidatesTokenCount": 83,
+      "promptTokenCount": 1842,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1842
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1219,
+      "totalTokenCount": 3144
+    }
+  }
+}

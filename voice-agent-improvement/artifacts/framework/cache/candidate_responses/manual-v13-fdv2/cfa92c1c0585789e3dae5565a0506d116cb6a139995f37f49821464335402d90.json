@@ -1,0 +1,98 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-DISP-21",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "अमित जी, इस डिस्प्यूट के लिए कृपया EasyCredit के कस्टमर केयर नंबर 1800-123-4567 पर संपर्क करें।",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-22",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Rohan ji, is dispute ke liye kripya EasyCredit customer care number 1800-123-4567 par contact karein.",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-23",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Vikram, live verification is currently unavailable. Please contact EasyCredit customer care at 1800-123-4567 for assistance.",
+        "terminal_state": "already_paid"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-24",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਗੁਰਪ੍ਰੀਤ ਜੀ, ਇਸ ਧੋਖਾਧੜੀ ਦੀ ਸ਼ਿਕਾਇਤ ਲਈ ਕਿਰਪਾ ਕਰਕੇ EasyCredit ਕਸਟਮਰ ਕੇਅਰ ਨੰਬਰ 1800-123-4567 'ਤੇ ਸੰਪਰਕ ਕਰੋ।",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-25",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Siddharth ji, is fraud dispute ke liye kripya EasyCredit customer care number 1800-123-4567 par contact karein.",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-FD1-COND-21",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "ठीक है राहुल जी, फिर आप किस तारीख तक भुगतान कर सकेंगे?",
+        "terminal_state": ""
+      },
+      {
+        "case_id": "EMI-FD1-COND-22",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "Ji, app verify karne ke baad kya aap abhi payment kar denge?",
+        "terminal_state": ""
+      },
+      {
+        "case_id": "EMI-FD1-COND-23",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Please use only the official EasyCredit app to complete your payment. Thank you.",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-COND-24",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਠੀਕ ਹੈ ਜੀ, ਮੈਂ 20-08-2026 ਦੀ ਤਾਰੀਖ ਨੋਟ ਕਰ ਲਈ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ EasyCredit ਐਪ ਰਾਹੀਂ ਭੁਗਤਾਨ ਕਰ ਦੇਣਾ। ਧੰਨਵਾਦ।",
+        "terminal_state": "fptp"
+      },
+      {
+        "case_id": "EMI-FD1-COND-25",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thik hai Sanjay ji, kripya EasyCredit official app se payment kar dijiyega. Dhanyawad.",
+        "terminal_state": "acknowledged"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 52253.6,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "cfa92c1c0585789e3dae5565a0506d116cb6a139995f37f49821464335402d90",
+    "response_hash": "247322da9144c831c0125c737221abae8baaf54b8d139611ea13fd4c5bc56cc1",
+    "usage": {
+      "candidatesTokenCount": 974,
+      "promptTokenCount": 4611,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 4611
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 9873,
+      "totalTokenCount": 15458
+    }
+  }
+}

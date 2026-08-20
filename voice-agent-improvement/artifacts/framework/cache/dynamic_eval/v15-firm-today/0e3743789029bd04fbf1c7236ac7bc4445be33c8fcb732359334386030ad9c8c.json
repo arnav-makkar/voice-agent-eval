@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "dispute",
+    "should_end_call": true,
+    "spoken_response": "Kabir ji, agar yeh loan aapka nahi hai toh kripya EasyCredit customer care number 1800-500-4444 par sampark karein. Main ise dispute ke roop mein record kar raha hoon. Dhanyawad.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "dispute"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 6695.0,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "0e3743789029bd04fbf1c7236ac7bc4445be33c8fcb732359334386030ad9c8c",
+    "response_hash": "f06c5c1175f9221ec68bd4b74c85384542dec4a47dd92af831221ee051d89e4e",
+    "usage": {
+      "candidatesTokenCount": 97,
+      "promptTokenCount": 1834,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1834
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 972,
+      "totalTokenCount": 2903
+    }
+  }
+}

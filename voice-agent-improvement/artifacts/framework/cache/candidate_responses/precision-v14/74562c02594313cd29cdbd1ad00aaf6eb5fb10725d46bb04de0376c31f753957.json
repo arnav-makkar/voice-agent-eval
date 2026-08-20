@@ -1,0 +1,98 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-TREF-01",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ठीक है राजेश जी, मैं समझ गया। मैं अभी कॉल समाप्त कर रहा हूँ। धन्यवाद।",
+        "terminal_state": "rtp"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-02",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Theek hai Ananya ji, main abhi call end kar raha hoon. Thank you.",
+        "terminal_state": "rtp"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-03",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "I apologize, Vikram. What is the earliest date you can arrange to make this payment?",
+        "terminal_state": ""
+      },
+      {
+        "case_id": "EMI-FD1-TREF-04",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਠੀਕ ਹੈ ਗੁਰਪ੍ਰੀਤ ਜੀ, ਤੁਸੀਂ ਸਾਡੀ ਕਸਟਮਰ ਕੇਅਰ ਟੀਮ ਨਾਲ ਸੰਪਰਕ ਕਰ ਸਕਦੇ ਹੋ। ਧੰਨਵਾਦ।",
+        "terminal_state": "escalation"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-05",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Theek hai Sunita ji, main abhi call disconnect kar raha hoon. Thank you.",
+        "terminal_state": "rtp"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-06",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "मनोज जी, ऐप ही मुख्य माध्यम है। क्या आप किसी तारीख तक भुगतान की व्यवस्था कर सकते हैं?",
+        "terminal_state": ""
+      },
+      {
+        "case_id": "EMI-FD1-TREF-07",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Theek hai Rohan ji, aap hamaare customer care se baat kar sakte hain. Thank you.",
+        "terminal_state": "escalation"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-08",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "I understand, Priya. I am closing the call now. Thank you.",
+        "terminal_state": "rtp"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-09",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "ਮੈਂ ਸਮਝ ਸਕਦਾ ਹਾਂ, ਹਰਜੀਤ ਜੀ। ਕੀ ਤੁਸੀਂ ਦੱਸ ਸਕਦੇ ਹੋ ਕਿ ਤੁਸੀਂ ਕਿਸ ਤਾਰੀਖ ਤੱਕ ਭੁਗਤਾਨ ਕਰ ਸਕਦੇ ਹੋ?",
+        "terminal_state": ""
+      },
+      {
+        "case_id": "EMI-FD1-TREF-10",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Theek hai Deepak ji, aap customer care se baat kar sakte hain. Thank you.",
+        "terminal_state": "escalation"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 72627.4,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "74562c02594313cd29cdbd1ad00aaf6eb5fb10725d46bb04de0376c31f753957",
+    "response_hash": "792d094908d67d156a8f2cb3741ed6c107d56f4102c2d9bffd73718649b39a92",
+    "usage": {
+      "candidatesTokenCount": 640,
+      "promptTokenCount": 4504,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 4504
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 13107,
+      "totalTokenCount": 18251
+    }
+  }
+}

@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Loopline Readiness Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --bg:#0B0E14; --panel:#121724; --panel2:#171E30; --inset:#0D1220;
+    --line:rgba(148,159,184,.16); --line2:rgba(148,159,184,.30);
+    --ink:#E9EDF6; --mut:#98A1B6; --dim:#6C7690;
+    --acc:#7C9EFF; --vio:#A78BFA;
+    --good:#46D39A; --warn:#F0BA5E; --bad:#F2788F;
+    --good-bg:rgba(70,211,154,.10); --warn-bg:rgba(240,186,94,.10); --bad-bg:rgba(242,120,143,.10); --acc-bg:rgba(124,158,255,.10);
+    --disp:"Archivo","IBM Plex Sans",system-ui,sans-serif;
+    --body:"IBM Plex Sans",system-ui,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,monospace;
+  }
+  *{box-sizing:border-box;margin:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{background:var(--bg);color:var(--ink);font:15px/1.62 var(--body);-webkit-font-smoothing:antialiased}
+  a{color:var(--acc);text-decoration:none}
+  a:hover{text-decoration:underline}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset:2px;border-radius:4px}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 28px}
+
+  nav.top{position:sticky;top:0;z-index:9;background:rgba(11,14,20,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  nav.top .wrap{display:flex;align-items:center;gap:18px;height:52px;overflow-x:auto;white-space:nowrap}
+  nav.top b{font:600 13px var(--disp);letter-spacing:.04em}
+  nav.top b span{color:var(--acc)}
+  nav.top a{font:500 11.5px var(--mono);letter-spacing:.05em;color:var(--mut);text-transform:uppercase}
+  nav.top a:hover{color:var(--ink);text-decoration:none}
+
+  header.hero{padding:64px 0 40px;border-bottom:1px solid var(--line)}
+  .kicker{font:600 11.5px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--acc)}
+  header.hero h1{font:800 clamp(30px,4.6vw,46px)/1.08 var(--disp);letter-spacing:-.015em;margin:14px 0 16px;text-wrap:balance}
+  header.hero h1 em{font-style:normal;color:var(--acc)}
+  .lede{max-width:70ch;color:var(--mut);font-size:16px}
+  .stampline{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+  .stamp{display:inline-flex;align-items:center;gap:7px;font:500 11.5px var(--mono);letter-spacing:.03em;padding:6px 11px;border:1px solid var(--line2);border-radius:999px;color:var(--mut)}
+  .stamp i{width:7px;height:7px;border-radius:50%;background:var(--good);display:inline-block}
+  .stamp.warn i{background:var(--warn)}
+  .stamp.acc i{background:var(--acc)}
+
+  section{padding:54px 0;border-bottom:1px solid var(--line)}
+  .sec-head{margin-bottom:26px}
+  .sec-head h2{font:700 clamp(21px,3vw,28px)/1.16 var(--disp);letter-spacing:-.01em;margin:9px 0 8px;text-wrap:balance}
+  .sec-head p{color:var(--mut);max-width:76ch}
+
+  .chip{display:inline-block;font:600 10.5px var(--mono);letter-spacing:.07em;text-transform:uppercase;padding:3px 9px;border-radius:999px;border:1px solid}
+  .chip.good{color:var(--good);border-color:rgba(70,211,154,.4);background:var(--good-bg)}
+  .chip.warn{color:var(--warn);border-color:rgba(240,186,94,.4);background:var(--warn-bg)}
+  .chip.bad{color:var(--bad);border-color:rgba(242,120,143,.4);background:var(--bad-bg)}
+  .chip.acc{color:var(--acc);border-color:rgba(124,158,255,.4);background:var(--acc-bg)}
+  .chip.dim{color:var(--dim);border-color:var(--line2);background:transparent}
+
+  .verdict{background:var(--panel);border:1px solid var(--line2);border-radius:14px;padding:26px 28px;margin-bottom:18px}
+  .verdict h3{font:700 19px/1.3 var(--disp);margin:10px 0 10px}
+  .verdict p{color:var(--mut);max-width:80ch}
+  .verdict .claim{margin-top:16px;padding:15px 18px;background:var(--inset);border-left:3px solid var(--acc);border-radius:0 8px 8px 0;color:var(--ink);font-size:14.5px}
+  .vgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+  .vcard{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+  .vcard b{display:block;font:700 14px var(--disp);margin:8px 0 6px}
+  .vcard p{color:var(--mut);font-size:13.5px}
+
+  table{border-collapse:collapse;width:100%;font-size:13.5px}
+  .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+  th{font:600 11px var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--dim);text-align:left;padding:12px 14px;border-bottom:1px solid var(--line2);white-space:nowrap}
+  td{padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink)}
+  tr:last-child td{border-bottom:none}
+  td.num{font:500 13px var(--mono);white-space:nowrap;font-variant-numeric:tabular-nums}
+  td .sub{display:block;color:var(--mut);font-size:12.5px;margin-top:3px}
+  .grade{font:700 15px var(--mono)}
+  .grade.a{color:var(--good)} .grade.b{color:var(--acc)} .grade.c{color:var(--warn)} .grade.d{color:var(--bad)}
+
+  .cards2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+  .card h4{font:700 14.5px var(--disp);margin:9px 0 7px}
+  .card p{color:var(--mut);font-size:13.5px}
+  .card .ev{display:block;margin-top:9px;font:400 11.5px var(--mono);color:var(--dim);word-break:break-all}
+
+  .gaplist{display:flex;flex-direction:column;gap:12px}
+  .gap{display:grid;grid-template-columns:86px 1fr;gap:16px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 20px}
+  .gap b{font:700 14px var(--disp)}
+  .gap p{color:var(--mut);font-size:13.5px;margin-top:4px}
+  .gap p strong{color:var(--ink);font-weight:600}
+  @media (max-width:640px){.gap{grid-template-columns:1fr}}
+
+  .gate{background:var(--panel);border:1px solid var(--line2);border-radius:14px;padding:22px 24px;margin-bottom:16px}
+  .gate-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px;margin-bottom:8px}
+  .gate-head .n{font:800 22px var(--disp);color:var(--acc)}
+  .gate-head h3{font:700 17px var(--disp)}
+  .gate-head .meta{font:500 11.5px var(--mono);color:var(--dim);letter-spacing:.03em;margin-left:auto}
+  .gate p{color:var(--mut);font-size:14px;max-width:82ch}
+  .gate ol,.gate ul{margin:10px 0 0 18px;color:var(--mut);font-size:13.5px;display:flex;flex-direction:column;gap:5px}
+  .gate li strong{color:var(--ink);font-weight:600}
+  pre.cmd{background:var(--inset);border:1px solid var(--line);border-radius:8px;padding:13px 16px;font:12.5px/1.7 var(--mono);color:#C7D3EF;overflow-x:auto;margin-top:12px}
+  pre.cmd b{color:var(--good);font-weight:600}
+
+  .pitch{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px 24px}
+  .pitch ol{margin-left:20px;display:flex;flex-direction:column;gap:7px;color:var(--ink);font-size:14px}
+  .qa{border-top:1px solid var(--line);padding:14px 0}
+  .qa:first-of-type{border-top:none}
+  .qa b{display:block;font:600 14.5px var(--body);color:var(--ink);margin-bottom:5px}
+  .qa p{color:var(--mut);font-size:13.5px;max-width:86ch}
+
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media (max-width:760px){.two-col{grid-template-columns:1fr}}
+  .say{background:var(--panel);border-radius:12px;padding:18px 20px;border:1px solid rgba(70,211,154,.35)}
+  .say.no{border-color:rgba(242,120,143,.35)}
+  .say h4{font:700 13px var(--mono);letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}
+  .say h4.g{color:var(--good)} .say h4.r{color:var(--bad)}
+  .say ul{margin-left:16px;color:var(--mut);font-size:13.5px;display:flex;flex-direction:column;gap:6px}
+
+  .arc{position:relative;margin-left:8px;padding-left:26px;border-left:1px solid var(--line2);display:flex;flex-direction:column;gap:16px}
+  .arc .beat{position:relative}
+  .arc .beat::before{content:"";position:absolute;left:-30.5px;top:6px;width:9px;height:9px;border-radius:50%;background:var(--bg);border:2px solid var(--acc)}
+  .arc b{font:600 14px var(--disp)}
+  .arc p{color:var(--mut);font-size:13.5px;max-width:82ch}
+
+  .foot{padding:36px 0 64px;color:var(--dim);font-size:12.5px}
+  .foot .paths{font:400 11.5px var(--mono);line-height:2;word-break:break-all;color:var(--dim)}
+  code{font:500 12.5px var(--mono);background:var(--inset);border:1px solid var(--line);border-radius:5px;padding:1px 6px;color:#C7D3EF}
+  .note{margin-top:14px;padding:13px 16px;background:var(--warn-bg);border:1px solid rgba(240,186,94,.3);border-radius:10px;color:var(--ink);font-size:13.5px}
+  .note b{color:var(--warn)}
+  .note--good{background:var(--good-bg);border-color:rgba(70,211,154,.3)}
+  .note--good b{color:var(--good)}
+</style>
+</head>
+<body>
+
+<nav class="top"><div class="wrap">
+  <b>∿ <span>Loopline</span> · Readiness Review</b>
+  <a href="#verdict">Verdict</a><a href="#evidence">Evidence</a><a href="#good">Strengths</a><a href="#gaps">Gaps</a><a href="#gepa">Self-improvement</a><a href="#plan">Next actions</a><a href="#scale">Scale</a><a href="#eva">EVA parity</a><a href="#playbook">Interview</a><a href="#arc">Story arc</a>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <span class="kicker">Objective take · consolidation · completion plan · 19 August 2026</span>
+  <h1>The framework is real and verified. The last mile is <em>evidence collection</em>, not engineering.</h1>
+  <p class="lede">This review consolidates everything built so far around the assignment — a framework for evaluation and self-improvement of voice agents — audits it against the machine artifacts (re-verified today), grades it honestly, and lays out the exact sequence that finishes it. It supersedes the older planning HTMLs as the presentation-prep source; <code>handoff.md</code> and the machine artifacts remain the technical truth.</p>
+  <div class="stampline">
+    <span class="stamp"><i></i>Re-verified today · 79 Python tests · dashboard lint / tests / build · frozen hashes · secret scan — all pass (18:09 UTC)</span>
+    <span class="stamp acc"><i></i>V15 hash re-checked: <span style="font-family:var(--mono)">732d216b…</span> matches the freeze</span>
+    <span class="stamp warn"><i></i>4 binding gates open — all external evidence, zero new architecture</span>
+  </div>
+</div></header>
+
+<section id="verdict"><div class="wrap">
+  <div class="sec-head"><span class="kicker">01 · The objective take</span>
+    <h2>One paragraph of truth</h2></div>
+
+  <div class="verdict">
+    <span class="chip acc">CURRENT DEFENSIBLE CLAIM</span>
+    <h3>A governed evaluate → diagnose → improve → gate loop exists around a real deployed Sarvam agent — and it is provably honest about what it has not yet proven.</h3>
+    <p>Loopline separates three powers: an EVA-inspired <strong>evaluation engine</strong> (deterministic task/state/tool truth first, LLM judges second), an <strong>improvement engine</strong> (manual, GEPA, extractor and component repair arms), and an independent <strong>release controller</strong> (per-case hard gates, sealed finals, promote/hold/rollback). The candidate V15 swept the 30-scenario stateful text suite and won the sealed 12-case final 9/12 vs 5/12 with zero task regressions — and is correctly <strong>held</strong>, because a real tool side effect and a matched live voice comparison have not run yet. The strongest single asset is the rejection of the GEPA finalist at 28/30 for one P0 guardrail regression: proof the gate is independent of the optimizer.</p>
+    <div class="claim">“I built a domain-configurable failure-to-release control plane around a real Sarvam Indus voice agent and adapted EVA for one validated realtime bot-to-bot evaluation. The candidate passed a sealed text final, but remains held until a real tool effect and matched V12/V15 voice suite pass the frozen gate.”</div>
+  </div>
+
+  <div class="tablewrap"><table>
+    <thead><tr><th>Dimension</th><th>Grade</th><th>Why</th></tr></thead>
+    <tbody>
+      <tr><td>Architecture &amp; separation of powers</td><td class="num"><span class="grade a">A</span></td><td>Evaluation, improvement and release are genuinely independent, versioned and hash-frozen. The optimizer cannot touch truth definitions or the final sets.</td></tr>
+      <tr><td>Evidence discipline &amp; claim boundaries</td><td class="num"><span class="grade a">A</span></td><td>Rare in take-homes: datasets were demoted when compromised, negative candidates preserved, every result carries a claim boundary. The project repeatedly downgraded its own prior proof.</td></tr>
+      <tr><td>Research translation (EVA · τ-Voice · VAmoS · GEPA)</td><td class="num"><span class="grade a">A−</span></td><td>Pinned commits, licenses kept, patterns adapted selectively rather than forked wholesale. Correctly described as “inspired,” never “endorsed.”</td></tr>
+      <tr><td>Improvement engine incl. GEPA</td><td class="num"><span class="grade b">B+</span></td><td>Real Optimize Anything run with full lineage, plus independent manual and extractor arms. Only one GEPA seed executed — deliberately deferred, and the deferral is well argued.</td></tr>
+      <tr><td>Product UI (Loopline)</td><td class="num"><span class="grade b">B+</span></td><td>EVA-grade demo page with real audio, transcript, state diff, validation and score components. Tool and reliability panels are honest empty states awaiting live evidence.</td></tr>
+      <tr><td>Reproducibility &amp; verification</td><td class="num"><span class="grade a">A−</span></td><td>79 tests, one-command verifier, 23 MLflow runs across 4 experiments, frozen evaluator/dataset/prompt hashes. Root workspace is not a git repo — the only lineage gap.</td></tr>
+      <tr><td>Live voice evidence</td><td class="num"><span class="grade c">C</span></td><td>Exactly one valid realtime bot-to-bot run (V12, scored under evaluator V7). Real and inspectable, but n=1 proves integration, not reliability or lift.</td></tr>
+      <tr><td>Execution truth in production runtime</td><td class="num"><span class="grade d">D</span></td><td>The authenticated tool service is built and tested, but zero live Indus tool side effects captured — blocked on credential propagation in the Indus test runtime. This is the binding technical gate.</td></tr>
+      <tr><td>Label ownership &amp; evaluator calibration</td><td class="num"><span class="grade c">C−</span></td><td>Outcome-level agreement is strong (primary success 1.00, task 0.80) but diagnostic agreement is weak (failure category 0.25, owner 0.25, first-break ±1 turn 0.35) and all labels are Codex-assisted, pending owner review.</td></tr>
+      <tr><td>Statistical power</td><td class="num"><span class="grade c">C</span></td><td>The sealed final has 4 discordant pairs in 12 (exact p = 0.125). Correctly reported as diagnostic, not significance — but it is thin, and repeated-trial reliability (pass^k) has zero data.</td></tr>
+      <tr><td>Judge independence</td><td class="num"><span class="grade c">C</span></td><td>Gemini generates scenarios, powers the caller pipeline, and judges semantics. Upstream EVA itself splits judges across three model families; Loopline discloses the dependence but has not yet mitigated it.</td></tr>
+      <tr><td>Business outcome link</td><td class="num"><span class="grade c">C</span></td><td>Verbal pay-now commitment is the declared proxy; no payment-ledger join. Correct for an MVP and correctly disclosed — but it caps every business claim.</td></tr>
+    </tbody>
+  </table></div>
+</div></section>
+
+<section id="evidence"><div class="wrap">
+  <div class="sec-head"><span class="kicker">02 · What is actually done</span>
+    <h2>Nine evidence layers, re-verified against artifacts today</h2>
+    <p>Every number below was independently re-checked this session against the machine artifacts — not quoted from planning docs. Where two artifacts disagree (29/30 vs 30/30), the lineage is disclosed inline.</p></div>
+
+  <div class="tablewrap"><table>
+    <thead><tr><th>Layer</th><th>Result</th><th>Proves</th><th>Does not prove</th></tr></thead>
+    <tbody>
+      <tr><td>20 real V12 Indus calls<span class="sub">15 matched + 5 exploratory/stress · 10 eligible</span></td><td class="num">9/10 pay-now<span class="sub">controlled TSR 90%</span></td><td>Real voice-system behavior; failure taxonomy seed; the ceiling problem that shaped the two promotion routes</td><td>Gold labels (provisional, Codex-assisted); customer-population performance</td></tr>
+      <tr><td>Evaluator calibration vs 20 provisional labels</td><td class="num">1.00 / 0.80 / 0.25<span class="sub">primary · task · owner</span></td><td>Outcome and hard-safety judging usable; weakness shown, not hidden</td><td>Human-gold calibration; trustworthy first-break localization (0.35 within ±1 turn)</td></tr>
+      <tr><td>200-case static library <code>emi_failure_derived_v3</code><span class="sub">120 dev · 30 regression · 30 legacy held-out · 20 anchors</span></td><td class="num">demoted</td><td>Cheap screening and regression debugging in 4 languages</td><td>Independent held-out proof — source-trace overlap was found and disclosed; development-only</td></tr>
+      <tr><td>30 stateful scenarios<span class="sub">18 dev · 6 val · 6 regression · fresh SQLite per trial</span></td><td class="num">complete</td><td>Multi-turn task/state/action evaluation with hidden goals, forbidden actions, tool assertions</td><td>Live audio performance</td></tr>
+      <tr><td>Matched V12 vs candidates, 30 paired scenarios</td><td class="num">16 → 30 / 30<span class="sub">V15 governing rescore; original run 29/30, traces immutable</span></td><td>14 repairs, 0 task regressions, p = 0.00012 (diagnostic); V13 (23/30), V14 (29/30), GEPA finalist (28/30) all <strong>rejected</strong> by per-case gates</td><td>Voice transfer; production lift</td></tr>
+      <tr><td>Sealed 12-case text final<span class="sub">authored after method freeze · opened exactly twice</span></td><td class="num">5/12 → 9/12<span class="sub">41.7% → 75.0%</span></td><td>4 repairs, 0 regressions, experience 1.00 → 0.9375 (within floor); decision <code>pass_text_final_awaiting_matched_voice</code></td><td>Statistical generalization (p = 0.125, 4 discordant pairs); voice improvement</td></tr>
+      <tr><td>Six-condition acoustic diagnostic (V12 only)</td><td class="num">6/6 · 6/6 · 0/6<span class="sub">intent · redundancy · exact brand</span></td><td>Pay-now intent survives noise; redundant confirmation is systematic; entity fidelity is the audio risk (macOS TTS caveat on brand)</td><td>Matched candidate behavior; adaptive-caller dynamics</td></tr>
+      <tr><td>One valid EVA ↔ Samvaad realtime run<span class="sub"><code>emi_eva_live_20260819_135630</code> · ElevenLabs “Arnav” ↔ deployed Shubh</span></td><td class="num">EVA-A 1.00 · EVA-X 0.667<span class="sub">turn-taking 0.5 · progression 0.5 · task/faith/speech 1.0</span></td><td>True duplex audio bot-to-bot path works; task succeeded while experience failed — Shubh reconfirmed after explicit commitment (agent avg response 0.92 s, AGENT_ENDS)</td><td>Reliability (n=1); V15 anything; scored under historical evaluator V7, not V10</td></tr>
+      <tr><td>Frozen prospective suite (evaluator V10)<span class="sub">12 core + 6 acoustic-risk records · noise/gain/packet-loss/jitter</span></td><td class="num">0 pairs run</td><td>Protocol, hashes, budget guards and paired gate all exist; dry-runs pass (re-confirmed today)</td><td>The result. No baseline/candidate pair has executed — the final claim is empty by design until it runs</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="note note--good"><b>Also verified today:</b> dashboard JSONs byte-agree with the Python artifacts everywhere they overlap; a secret/PII scan of the exported UI data found nothing real (only fictional 1800-numbers and hash substrings); MLflow holds 23 finished runs across 4 experiments including all rejected candidates; and the machine audit was refreshed — 19 items complete, 8 open, gate statuses unchanged.</div>
+</div></section>
+
+<section id="good"><div class="wrap">
+  <div class="sec-head"><span class="kicker">03 · What is genuinely good</span>
+    <h2>Eight things a Lead PM panel will respect</h2></div>
+  <div class="cards2">
+    <div class="card"><span class="chip good">GOVERNANCE</span><h4>The optimizer lost, and the system proved why</h4><p>The GEPA finalist scored 28/30 — higher than baseline by 12 repairs — and was rejected for one P1 state regression and one P0 guardrail regression (an unauthorized payment-confirmation pattern at turn 4). An aggregate gate would have shipped it. The per-case gate held it. That is the product.</p></div>
+    <div class="card"><span class="chip good">MEASUREMENT</span><h4>Deterministic truth outranks LLM opinion</h4><p>Task success is decided by state, tool and disposition assertions against fresh per-trial SQLite state. Gemini grades only what cannot be executed — progression, concision, faithfulness — and can never override an executable failure. <code>improvement_cannot_mutate_evaluator: true</code> is enforced, not aspirational.</p></div>
+    <div class="card"><span class="chip good">HONESTY</span><h4>The project demoted its own evidence, twice</h4><p>The 200-case library lost held-out status when source-trace overlap was found. The 20 calls were downgraded from “gold” to “provisional.” Failed candidates, failed provider attempts and a compromised split all survive in the record. Nothing was quietly repainted.</p></div>
+    <div class="card"><span class="chip good">INTEGRATION</span><h4>The live path is real, not reconstructed</h4><p>ElevenLabs realtime caller ↔ project-owned EVA adapter ↔ Samvaad bidirectional WebSocket ↔ the actual deployed Shubh agent. Not a batch STT→LLM→TTS loop. Provider evidence (AGENT_ENDS, 45.5 s, 0.92 s mean response) is preserved and replayable in the UI with audio.</p></div>
+    <div class="card"><span class="chip good">DIAGNOSIS</span><h4>The one live run already earned its keep</h4><p>Task passed, experience failed: Shubh asked for confirmation again after an explicit pay-now agreement. EVA-A 1.00 / EVA-X 0.667 with the first defect localized to a turn. One run produced a prompt-owned, testable, fixable finding — the loop demonstrated on real audio.</p></div>
+    <div class="card"><span class="chip good">PORTABILITY</span><h4>The domain pack is a real boundary</h4><p>EMI is a config artifact — goals, state, tools, dispositions, languages, assertions — not hardcoded logic. A hospital-appointments pack passes schema smoke tests. The honest wording ships with it: schema portability proven, second-domain performance not.</p></div>
+    <div class="card"><span class="chip good">MULTILINGUAL</span><h4>Hindi/Hinglish/English/Punjabi today</h4><p>Scenario coverage, language-switch rules and judging span four language modes now. Upstream EVA lists multilingual as future roadmap. For Sarvam's market this is not a checkbox — it is the product context, and it is already in the fixtures.</p></div>
+    <div class="card"><span class="chip good">COST CONTROL</span><h4>Session budgets exist because a mistake taught them</h4><p>An early overnight run burned ~63 Sarvam credits on scripted audio loops that proved little. The response: hard session caps, dry-run-first wrappers, no automatic paid retries, and a stop rule against optimizer runs before live evidence. The scar tissue is now policy.</p></div>
+  </div>
+</div></section>
+
+<section id="gaps"><div class="wrap">
+  <div class="sec-head"><span class="kicker">04 · What is weak, missing, or newly found</span>
+    <h2>The gap list — ranked by what it blocks</h2>
+    <p>Items marked <span class="chip bad">BLOCKING</span> gate the final claim. Items marked <span class="chip warn">CREDIBILITY</span> will be probed in the interview. Two items were <strong>found in this session's review</strong> and are new information.</p></div>
+  <div class="gaplist">
+    <div class="gap"><span class="chip bad">BLOCKING</span><div><b>Zero live tool side effects — execution truth unproven in production runtime</b><p>The FastAPI/SQLite tool service (auth, idempotency, run isolation, 3 endpoints) is built and tested, but the Indus test runtime dropped the stored credential on the one attempt. Until one <code>record_promise_to_pay</code> flows Indus → HTTPS → state diff, “say/do consistency” is a text-mode claim only. <strong>Unblock path in Gate 2 below uses Sarvam's documented api_key auth + workspace Secrets + IP allowlist.</strong></p></div></div>
+    <div class="gap"><span class="chip bad">BLOCKING</span><div><b>No matched live voice pair — the headline experiment has not run</b><p>The 18-record V10 protocol (12 core + 6 acoustic-risk) is frozen with hashes and dry-runs pass, but 0 of 36 provider sessions have executed. Every voice-lift claim is empty until this runs — and the framework is correctly refusing to make one.</p></div></div>
+    <div class="gap"><span class="chip bad">BLOCKING</span><div><b>Owner has not reviewed the 20 labels; exposed API key unconfirmed as rotated</b><p>Calibration is against Codex-assisted labels. Twenty calls ≈ 2–3 focused hours of owner review. The key pasted into an earlier chat must be treated as exposed until rotation is confirmed at account level — this is a 5-minute action and it gates any public demo.</p></div></div>
+    <div class="gap"><span class="chip warn">CREDIBILITY</span><div><b>Single judge family end-to-end (all Gemini)</b><p>Gemini generated scenarios, drove candidate experiments and judges semantics. Upstream EVA splits judges across three families (deterministic + Claude for faithfulness + GPT for experience + Gemini for audio) and names same-family bias as a limitation. <strong>Cheap fix that needs no new calls:</strong> re-score the 24 frozen fresh-final episodes plus the live transcript with a second judge family and publish the agreement/disagreement table.</p></div></div>
+    <div class="gap"><span class="chip warn">CREDIBILITY</span><div><b>n=1 live, trials=1 planned — reliability is unmeasured</b><p>EVA's leaderboard shows a median pass@k → pass^k drop of 0.44 on accuracy: single-trial results systematically overstate deployment reliability. The matched suite runs trials=1 for budget reasons. Pre-declare this limitation and, if credits allow, add 3 trials on 3–4 core records to produce the first pass^k slice.</p></div></div>
+    <div class="gap"><span class="chip warn">CREDIBILITY</span><div><b>Sealed final is thin: 12 cases, p = 0.125</b><p>Correctly reported as diagnostic. Expect the question “would you ship on p = 0.125?” The answer is no — text gates screen candidates; the matched voice suite and per-case severity gates decide. Rehearse that answer; it is the right one and it is already the design.</p></div></div>
+    <div class="gap"><span class="chip acc">FOUND TODAY</span><div><b>V15 prompt instructs a tool the live runtime does not expose: <code>record_disposition</code></b><p>In text mode <code>record_disposition</code> is a real environment action (validated against the 12-value enum, with a runner fallback). Live, the tool service has only 3 endpoints — a literal call would 404 — and the Indus adapter synthesizes disposition from output variables after the call. <strong>Decision needed at Gate 3:</strong> keep disposition as an output variable (recommended; no evaluator change), document the prompt line as a known deviation, and watch for it in the 3-call pilot. If the live agent audibly fumbles trying to “call” it, that is a tool-contract failure → route to repair → V16 with a new hash — never a silent prompt edit.</p></div></div>
+    <div class="gap"><span class="chip acc">FOUND TODAY</span><div><b>Two stale wordings fixed; one cosmetic mismatch remains</b><p>Fixed this session (statuses untouched, audit test green): the hardcoded “78 tests” note now derives from the verifier, and the audit's matched-text note now discloses the 29/30 → 30/30 rescore lineage inline. Remaining nit: the dashboard's completion list shows <strong>five</strong> numbered open steps while the audit names <strong>four</strong> binding gates (the pilot is split out as its own step) — align the copy or say “four gates, five steps” deliberately.</p></div></div>
+    <div class="gap"><span class="chip dim">SCOPED OUT</span><div><b>No payment-ledger join; verbal commitment is the ceiling of every business claim</b><p>By design for the MVP, and disclosed. The production answer (outcome joins, attribution windows, canary cohorts) is specced in the scale section — keep it as roadmap, never as an implied result.</p></div></div>
+    <div class="gap"><span class="chip dim">SCOPED OUT</span><div><b>Root workspace is not a git repository</b><p>Hashes and MLflow carry lineage instead. Fine for the interview; initialize git before any collaboration or CI claim.</p></div></div>
+  </div>
+</div></section>
+
+<section id="gepa"><div class="wrap">
+  <div class="sec-head"><span class="kicker">05 · Self-improvement, validated</span>
+    <h2>GEPA is validated — as one arm of a portfolio, and the evidence agrees</h2>
+    <p>The assignment asks for self-improvement with GEPA as the current method. The correct Lead-PM position, backed by this project's own data: keep GEPA, bound it, and grow a layered portfolio as evidence and volume justify each layer.</p></div>
+
+  <div class="cards2" style="margin-bottom:18px">
+    <div class="card"><span class="chip good">VALIDATED</span><h4>What GEPA did here, for real</h4><p>A genuine local <code>gepa.optimize_anything</code> search ran with full-episode failure feedback; proposals, reflections, Pareto lineage and scores are preserved in MLflow. Its finalist reached 28/30 — objectively strong prompt search.</p></div>
+    <div class="card"><span class="chip warn">BOUNDED</span><h4>What GEPA cannot do</h4><p>Define business truth, validate simulators, create tool state, prove side effects, decide failure ownership, repair extractors/workflows, run matched voice evaluation, or approve release. It proposes text. The framework decides. Its finalist introduced a P0 guardrail regression the gate caught.</p></div>
+    <div class="card"><span class="chip acc">DISCIPLINED</span><h4>When to run it again</h4><p>Only after the frozen live evaluation localizes a <em>prompt-owned</em> failure. Optimizer volume is not evidence; a second seed now would optimize against text-mode noise. This deferral is pre-declared in the audit as <code>not_required_for_current_gate</code>.</p></div>
+  </div>
+
+  <div class="tablewrap"><table>
+    <thead><tr><th>Layer</th><th>Methods</th><th>When it earns its place</th><th>Status here</th></tr></thead>
+    <tbody>
+      <tr><td class="num">L0</td><td>Evaluation &amp; data engine — simulators, deterministic truth, judges, failure mining</td><td>Always first. Every other layer consumes its signal; without it, optimization is unfalsifiable.</td><td><span class="chip good">BUILT</span> — the project's core asset</td></tr>
+      <tr><td class="num">L1</td><td>Prompt optimization — GEPA (primary), MIPROv2 as baseline arm, manual repair</td><td>When failures are prompt-owned. Cheap, reversible, auditable diffs.</td><td><span class="chip good">RUN</span> — manual won, GEPA rejected by gate, both preserved</td></tr>
+      <tr><td class="num">L2</td><td>Episodic memory — Reflexion/ExpeL-style “lessons” injected per scenario family</td><td>When the same failure family recurs across cycles and prompt space is saturated.</td><td><span class="chip dim">NEXT CYCLE</span> — needs recurring live cycles first</td></tr>
+      <tr><td class="num">L3</td><td>Verifier gates in-loop — self-critique on high-stakes turns (amounts, dates, commitments)</td><td>When integrity violations dominate the failure mix; adds latency, so gate only risky turns.</td><td><span class="chip dim">DESIGNED</span> — the release gate is the offline version; an online turn-level verifier is roadmap</td></tr>
+      <tr><td class="num">L4</td><td>Weight-space — SFT on gold traces → KTO from binary task outcomes → RLVR/GRPO</td><td>Only at volume: thousands of owner-verified outcomes, stable evaluator, and a business case per basis point. KTO is the natural first step because the TSR gate already emits exactly the binary signal it needs.</td><td><span class="chip dim">ROADMAP</span> — honest answer: not before the evaluator is calibrated against owner truth</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="note"><b>The line to say out loud:</b> “Self-improving does not mean the optimizer ships itself. It means every production cycle emits evaluated failures, routed repairs, versioned candidates, and a gated release decision — weekly, boringly, with a human holding the promote button. GEPA is the search inside one repair arm. The moat is the loop.”</div>
+</div></section>
+
+<section id="plan"><div class="wrap">
+  <div class="sec-head"><span class="kicker">06 · What to do next</span>
+    <h2>Four gates in strict order, then the interview build-up</h2>
+    <p>All four are evidence collection. Nothing below changes architecture. Paid actions are marked — none should run without your explicit go at the moment of execution.</p></div>
+
+  <div class="gate">
+    <div class="gate-head"><span class="n">1</span><h3>Own the truth · rotate the key</h3><span class="meta">OWNER: ARNAV · ~3 h · FREE</span></div>
+    <p>Confirm at account level that the previously exposed Voice Agents key was rotated (5 minutes — do this first, it gates any demo). Then review all 20 provisional annotations: eligibility, primary success, disposition, integrity/safety flags, first breaking turn, failure family, owner. Version the reviewed file — never overwrite the provisional one — and re-run calibration so the agreement table is against <em>owner truth</em>.</p>
+    <pre class="cmd"><b>cd</b> voice-agent-improvement && source .venv/bin/activate
+<b>open</b> artifacts/framework/emi/reference_annotations.provisional.jsonl  <b># review → save as owner-reviewed vN</b></pre>
+  </div>
+
+  <div class="gate">
+    <div class="gate-head"><span class="n">2</span><h3>Capture one real Indus tool side effect</h3><span class="meta">OWNER: ARNAV + FRAMEWORK · ~2–4 h · FREE (local) + tunnel</span></div>
+    <p>The blocker was credential propagation in the Indus test runtime. Sarvam's current API-tool docs give the supported path: auth types are <code>none / bearer / api_key / basic</code>, the secret is entered through the masked input and stored in <strong>workspace Secrets</strong> (never inline in the tool config), and their tool-caller IP <code>4.213.167.70</code> can be allowlisted at your tunnel/firewall.</p>
+    <ol>
+      <li>Run the service locally; expose it through one authenticated HTTPS tunnel (allowlist the Sarvam IP).</li>
+      <li>In the V15 draft, create the three tools with <strong>api_key auth referencing a workspace Secret</strong> for <code>X-Loopline-Tool-Key</code> — not a hand-typed static header. If the key still gets stripped, fall back to <strong>basic</strong> auth (also supported) before considering anything weaker.</li>
+      <li>Map <code>campaignId → run_id</code> and <code>transactionReference → account_id</code> with the builder's @ picker.</li>
+      <li>Seed a run, press <strong>Test</strong> in the tool panel, confirm HTTP 200, then read back the run state: one append-only event, correct tool/args/result, before/after diff scoped to that run only.</li>
+      <li>Run one EVA smoke scenario that requires the tool; confirm transcript, tool event and final state agree. <strong>Never ship an unauthenticated public endpoint as a shortcut.</strong></li>
+    </ol>
+    <pre class="cmd">python scripts/run_tool_service.py --host 127.0.0.1 --port 8788   <b># then tunnel 8788 over HTTPS</b></pre>
+  </div>
+
+  <div class="gate">
+    <div class="gate-head"><span class="n">3</span><h3>Commit V15 as an exact immutable Indus version</h3><span class="meta">OWNER: ARNAV · ~1 h · FREE</span></div>
+    <p>Hash re-verified today: the file matches frozen <code>732d216b…</code>. Paste it exactly; confirm Shubh voice, short greeting, EasyCredit/Samsung-TV wording, no verification flow, input variables, output enum + extractor v2, and the three tool attachments. Record the Indus version number, prompt hash, extractor version, tool-config hash and rollback target. <strong>Decide the <code>record_disposition</code> question here:</strong> keep disposition as an output variable (no evaluator change), note the prompt line as a known deviation, watch it in the pilot. Genie may flag contradictions — it must not rewrite policy. Any prompt change after this point is a new candidate, new hash, new gates.</p>
+  </div>
+
+  <div class="gate">
+    <div class="gate-head"><span class="n">4</span><h3>Pilot 3 · then the frozen 18×2 matched suite</h3><span class="meta">OWNER: FRAMEWORK · ~1 day · <span style="color:var(--warn)">PAID — explicit go required</span></span></div>
+    <p>Three pilot records first (one pay-now, one tool/state-dependent, one language/experience risk) — inspect audio, termination, transcripts, tool events. Infrastructure failures get fixed and rerun; <em>agent</em> failures get preserved. Then the unchanged 18-record suite on V12 and on the committed V15 — identical records, trials, state, simulator, perturbations, scoring — and the independent comparator emits promote / hold / rollback. Budget honestly from the observed burn (~63 credits ≈ 14 sessions): 36 sessions ≈ 150–170 Sarvam credits plus ElevenLabs minutes; confirm balances before starting. If credits allow, add trials=3 on 3–4 core records for a first pass^k slice.</p>
+    <pre class="cmd"><b># dry-runs already pass (re-confirmed today); live only with explicit authorization</b>
+run_eva_samvaad_suite.py --app-version 12 --suite all --trials 1 --max-sessions 18 --confirm-live-suite
+run_eva_samvaad_suite.py --app-version &lt;committed-V15&gt; --suite all --trials 1 --max-sessions 18 --confirm-live-suite
+compare_eva_samvaad_suites.py --baseline &lt;v12-run&gt; --candidate &lt;v15-run&gt;   <b># decision is preserved either way</b></pre>
+    <p style="margin-top:10px"><strong>If the result is hold or rollback, present it proudly.</strong> Route A (more matched task wins) and Route B (same wins, fewer integrity/experience defects — never called TSR lift) were both pre-declared; a correct hold is the framework working. The controlled baseline's 9/10 ceiling makes Route B a live possibility — say so before the result, not after.</p>
+  </div>
+
+  <div class="cards2">
+    <div class="card"><span class="chip acc">FREE · BEFORE INTERVIEW</span><h4>48-hour prep list</h4><p>① Confirm key rotation. ② Rehearse the 2-minute pitch and the 12-step demo against the running dashboard (it is live and its audio plays). ③ Re-run <code>python -m framework.verify</code> the morning of. ④ Pre-open MLflow to the rejected-GEPA run. ⑤ Decide the one sentence you'll say if asked for the live number: “It hasn't run; here is the frozen protocol that makes it unfakeable.”</p></div>
+    <div class="card"><span class="chip acc">FREE · HIGH VALUE</span><h4>Second-family judge check</h4><p>Re-score the 24 frozen fresh-final episodes + the live transcript with a non-Gemini judge; publish agreement + disagreements. Kills the “Gemini grades its own homework” question with data, costs only API tokens, touches nothing frozen (new versioned diagnostic, clearly labeled).</p></div>
+    <div class="card"><span class="chip good">DONE THIS SESSION</span><h4>UI micro-upgrades</h4><p><strong>Shipped:</strong> an EVA-style agent-tools rail on the demo page — 3 tools with read/write badges, “0 of 3 used,” wired to the real run artifact so it lights up the moment a live tool call lands. Lint, tests and build re-verified green. Still optional: align the four-gates/five-steps copy; surface key-entity accuracy as a named diagnostic beside the acoustic panel.</p></div>
+  </div>
+</div></section>
+
+<section id="scale"><div class="wrap">
+  <div class="sec-head"><span class="kicker">07 · Real scenarios</span>
+    <h2>From a 30-scenario MVP to a production learning loop</h2>
+    <p>The scalability story has three rungs: what transfers as-is, what must be added, and where it lands inside Sarvam's actual business. Keep the three rungs separate — that separation <em>is</em> the credibility.</p></div>
+
+  <div class="cards2" style="margin-bottom:18px">
+    <div class="card"><span class="chip good">TRANSFERS AS-IS</span><h4>The control loop</h4><p>Canonical trace schema · validity gates · deterministic-first evaluation · first-break + ownership routing · repair registry · frozen comparisons · per-case release gates · lineage. None of it is EMI-specific; EMI lives entirely in one JSON domain pack, and a hospital pack already passes schema smoke.</p></div>
+    <div class="card"><span class="chip warn">MUST BE ADDED</span><h4>The enterprise substrate</h4><p>Stream/batch ingestion and PII redaction · outcome joins (payment ledger / CRM) · stratified sampling + human review queues · distributed scoring with caching · drift monitors · canary traffic allocation · registries and rollback automation · residency/access controls. First deliverable on a million-call corpus: a reproducible baseline, failure taxonomy, calibrated evaluator and a ranked experiment backlog — not a prompt rewrite.</p></div>
+    <div class="card"><span class="chip acc">OPERATING CADENCE</span><h4>The weekly loop</h4><p>Weekly traces → evaluate → diagnose → route → propose → compare frozen → human approve → canary → promote/hold/rollback → new traces. Batch, human-gated, boring on purpose: in regulated BFSI voice, bounded reviewable repair surfaces are what a compliance team can sign.</p></div>
+  </div>
+
+  <div class="tablewrap"><table>
+    <thead><tr><th>Sarvam reality (from the project dossier)</th><th>Where Loopline lands</th></tr></thead>
+    <tbody>
+      <tr><td>Samvaad ships <strong>analytics</strong> — dashboards, transcripts, call logs — but no objective task-success evaluation, and nothing feeds failures back into agents</td><td>Loopline is precisely that missing layer: “the platform tells you what happened on a call; this tells you whether the call <em>worked</em>, and makes the failures compound into fixes.”</td></tr>
+      <tr><td>~2M+ interactions/day and self-serve onboarding — thousands of agents deployed by builders who cannot measure them</td><td>Evaluation must be a runtime product, not a services engagement: domain packs as the self-serve contract, per-agent scorecards, release gates in the deploy flow.</td></tr>
+      <tr><td>BFSI anchors the revenue (consumer-lending collections at 20-lakh-interactions/month scale; insurers rolling out to tens of millions of customers)</td><td>EMI recovery is the reference domain pack on purpose. Collections is where a wrong amount or a false “payment confirmed” is a compliance incident — exactly what deterministic execution truth and P0 gates catch.</td></tr>
+      <tr><td>The loudest public criticism of the company is “self-reported claims”</td><td>A framework whose signature move is <em>rejecting its own optimizer's candidate</em> and publishing claim boundaries is the cultural answer, not just a tool. Methodological honesty as product.</td></tr>
+      <tr><td>Sarvam's own published eval repos judge with Gemini via Vertex — evaluation calls leave India</td><td>Roadmap hook: a sovereign judge (a Sarvam model fine-tuned for evaluation, calibrated against owner labels) closes the loop on their own stack. Frame gently: gap, not hypocrisy.</td></tr>
+      <tr><td>Sarvam forked NVIDIA NeMo Gym; their vocabulary is “environment + verifier”</td><td>Speak it: each domain pack is an <em>environment</em>, the deterministic layer is the <em>verifier</em>, Loopline wraps them in release governance. The EMI world could be packaged as a NeMo Gym environment — and its binary task outcomes are exactly the signal KTO-style weight updates would need later.</td></tr>
+      <tr><td>Outcome-based pricing already exists in the product family (billing for completed work)</td><td>A calibrated, audited TSR is the metering infrastructure that lets voice agents be priced per successful outcome instead of per minute — the commercial reason evaluation is a P0 platform bet, not tooling.</td></tr>
+      <tr><td>Every new language/market multiplies QA cost (the expansion thesis's bottleneck)</td><td>The loop is the unit-economics engine of language onboarding: matched perturbation suites + per-language calibration turn “does it work in Kannada?” from a linguist bottleneck into a regression suite. (Position expansion specifics as your proposal, not company plans.)</td></tr>
+    </tbody>
+  </table></div>
+</div></section>
+
+<section id="eva"><div class="wrap">
+  <div class="sec-head"><span class="kicker">08 · Benchmark against the reference</span>
+    <h2>Loopline vs the EVA project page — parity, gaps, and two honest advantages</h2>
+    <p>The assignment's reference is ServiceNow's EVA (site + demo reviewed section-by-section this session). Loopline's UI already mirrors its information architecture — goal/persona left, audio + transcript center, evidence right, per-metric methodology cards, limitations page. The differences that matter:</p></div>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Dimension</th><th>EVA (upstream)</th><th>Loopline (this project)</th></tr></thead>
+    <tbody>
+      <tr><td>Scope</td><td>Evaluation benchmark: 3 English enterprise domains, 213 scenarios, 20-system leaderboard</td><td>Evaluation <strong>plus</strong> improvement plus release governance around one deployed agent — EVA measures; Loopline also decides</td></tr>
+      <tr><td>Judges</td><td>Multi-family: deterministic + audio-LLM + two text-LLM families; same-family bias named as a limitation</td><td>Deterministic-first, Gemini-only semantics — disclosed; second-family re-score is the queued cheap fix</td></tr>
+      <tr><td>Execution truth</td><td>Tool calls logged with params/response in the demo transcript</td><td>VAmoS-inspired: isolated per-trial backend state, before/after diffs, say/do consistency as a hard gate — <em>pending one live side effect</em></td></tr>
+      <tr><td>Reliability</td><td>pass@1 / pass@k / pass^k over 5 trials; median pass@k→pass^k gap 0.44 — their own proof that n=1 overstates</td><td>Metrics implemented, no repeated-trial data yet; budget-gated. Quote their 0.44 as the reason reliability is a declared roadmap item</td></tr>
+      <tr><td>Perturbations</td><td>Accent + noise studies with significance marks; turn-taking most sensitive (81% of pairs)</td><td>6 frozen acoustic-risk records (noise/gain/packet-loss/jitter) inside the matched suite; six-condition baseline diagnostic already run</td></tr>
+      <tr><td>Languages</td><td>English; multilingual on the roadmap</td><td><strong>Advantage:</strong> Hindi/Hinglish/English/Punjabi in fixtures, scenarios and judging today</td></tr>
+      <tr><td>Failure→fix loop</td><td>Out of scope by design</td><td><strong>Advantage:</strong> first-break localization → ownership routing → bounded repairs → frozen re-evaluation → gated release</td></tr>
+      <tr><td>Demo honesty</td><td>Their showcased conversation displays a 0% faithfulness score — they show failures</td><td>Same instinct: the flagship live run is shown as EVA-A pass / EVA-X <em>fail</em> with the defect turn highlighted. Keep this; it is the shared language of credibility</td></tr>
+    </tbody>
+  </table></div>
+</div></section>
+
+<section id="playbook"><div class="wrap">
+  <div class="sec-head"><span class="kicker">09 · Interview playbook</span>
+    <h2>The pitch, the demo, the hard questions, the claim lines</h2></div>
+
+  <div class="two-col" style="margin-bottom:16px">
+    <div class="pitch"><span class="chip acc">TWO-MINUTE PITCH</span>
+      <ol style="margin-top:12px">
+        <li>Voice agents fail across conversation, execution and audio — averages hide which.</li>
+        <li>I defined task success and the denominator first: answered, eligible callers; explicit pay-now commitment; a promise is not cash.</li>
+        <li>I collected 20 real Indus calls as discovery — labeled provisional, never “gold.”</li>
+        <li>I built an EVA-inspired evaluator: deterministic task/state/tool truth first, LLM judges second, simulator validity before scoring.</li>
+        <li>Every failure becomes a packet: first breaking event, severity, owning component.</li>
+        <li>A router picks the repair arm — manual, GEPA, extractor, tool, workflow. GEPA is one arm, not the framework.</li>
+        <li>Candidates return to the unchanged frozen evaluator; negative candidates are preserved in MLflow.</li>
+        <li>The release controller enforces per-case gates: V13, V14 and the 28/30 GEPA finalist were all rejected; V15 passed the sealed final 9/12 vs 5/12 with zero regressions.</li>
+        <li>One genuine realtime ElevenLabs↔Samvaad run proves the live path — task passed, experience failed, defect localized.</li>
+        <li>V15 is deliberately held until one real tool effect and the matched 18×2 voice suite pass the frozen gate. The product is the decision system, not a green number.</li>
+      </ol>
+    </div>
+    <div class="pitch"><span class="chip acc">TWELVE-STEP DEMO · ~4 MIN</span>
+      <ol style="margin-top:12px">
+        <li>Loopline intro — read the evidence-boundary card aloud (“Text candidate passed. Voice lift is still unproven.”).</li>
+        <li>Open the live run; play ~15 s of real Arnav↔Shubh audio.</li>
+        <li>Show the hidden caller goal and persona (EVA-style scenario card).</li>
+        <li>Point at the explicit pay-now commitment in the transcript.</li>
+        <li>Point at the defect: Shubh reconfirms after commitment — flagged on the turn.</li>
+        <li>Show EVA-A 1.00 pass vs EVA-X 0.667 fail — task truth vs experience, separately scored.</li>
+        <li>Show provider evidence: AGENT_ENDS, 0.92 s mean response — infra vs agent separated.</li>
+        <li>Improvement tab: failure routes to prompt-owned terminal discipline.</li>
+        <li>Candidate table: GEPA finalist 28/30 — <em>rejected</em>; open the P0 regression.</li>
+        <li>Results: 16/30→30/30 development, 5/12→9/12 sealed final, claim boundaries under each.</li>
+        <li>Limitations tab: the empty tool timeline and matched-voice panels — “empty because I refuse to fake them.”</li>
+        <li>Close on the loop diagram: promote/hold/rollback, domain packs, weekly cadence.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="pitch" style="margin-bottom:16px"><span class="chip acc">HARD QUESTIONS — ANSWERS THAT ALREADY EXIST</span>
+    <div class="qa"><b>Why not just GEPA? Isn't this over-built?</b><p>A prompt optimizer cannot define truth, validate a simulator, prove a side effect, or approve a release. Ours produced a 28/30 candidate with a P0 guardrail regression — the gate caught what the score hid. The framework is what made GEPA safe to use.</p></div>
+    <div class="qa"><b>Your final is 12 cases, p = 0.125. Would you ship on that?</b><p>No — and I didn't. The text final screens candidates cheaply; promotion requires the matched live suite plus per-case severity gates where a single P0 vetoes any average. I report exact paired counts instead of dressing 12 cases in significance language.</p></div>
+    <div class="qa"><b>Gemini generates and Gemini judges. Why should I trust the scores?</b><p>Deterministic state/action/tool checks control every gate; Gemini only grades what can't be executed. Outcome-level agreement with labels is 1.00/0.80; I publish the weak diagnostics too (0.25 owner agreement). Mitigations queued: owner-truth calibration and a second judge family on the frozen episodes — upstream EVA does the same for the same reason.</p></div>
+    <div class="qa"><b>What did the one live call actually prove?</b><p>That the full path is real — live duplex audio against the deployed agent, provider-attributed termination, scoring on preserved artifacts — and that the evaluator finds product truth: the task succeeded while the experience failed on a redundant confirmation. It proves integration and diagnosis, not reliability or lift; n=1 is why the matched suite exists.</p></div>
+    <div class="qa"><b>Why ElevenLabs as the caller when you're testing Sarvam?</b><p>The caller must be independent of the system under test, and EVA officially supports ElevenLabs as the realtime simulator. Samvaad stays the complete black-box agent under test; a Samvaad-vs-Samvaad setup would double session cost and couple simulator to subject.</p></div>
+    <div class="qa"><b>Your baseline already commits 9/10. Where's the headroom?</b><p>That ceiling is a finding, not a flaw — I pre-declared two promotion routes: more matched task wins, or same wins with materially fewer integrity/repetition defects. Route B is quality improvement under a ceiling and is never reported as TSR lift. The live run's redundant-confirmation defect is exactly Route-B surface.</p></div>
+    <div class="qa"><b>Would this survive a million SBI/LIC calls?</b><p>The control loop transfers; the substrate must be built: ingestion, redaction, outcome joins, stratified human review, distributed scoring, drift and canary infrastructure. My first deliverable on that corpus is a calibrated baseline and a ranked failure taxonomy — anyone who promises an immediate prompt fix on a million calls is describing an experiment without a control.</p></div>
+    <div class="qa"><b>What would you do with model weights access?</b><p>Nothing until the evaluator is owner-calibrated. Then the ladder is SFT on verified traces → KTO, because the release gate already emits the binary outcome signal KTO consumes → RLVR-style methods where verifiable rewards exist. Weight updates inherit every measurement flaw, so measurement matures first.</p></div>
+    <div class="qa"><b>What broke along the way? What would you do differently?</b><p>I burned ~63 credits on an overnight run that produced scripted audio loops, not adaptive evaluation — that mistake became the session-budget and dry-run-first policy. I'd stand up the tool-auth path on day one (it is now the binding gate), and I'd bring a second judge family in earlier. I also spent the first week optimizing before measurement was trustworthy — the audit that killed that version of the project was its most valuable day.</p></div>
+    <div class="qa"><b>What's the product here, if the candidate might lose?</b><p>The release decision system. A correct hold on a bad candidate saves a compliance incident; a correct promote compounds weekly. Evaluation-as-infrastructure also unlocks outcome-based pricing — you can only bill per successful call if success is measured in a way both sides trust.</p></div>
+  </div>
+
+  <div class="two-col">
+    <div class="say"><h4 class="g">Safe to claim</h4><ul>
+      <li>“Built and locally verified the full evaluate→diagnose→improve→gate loop around a real deployed Sarvam agent.”</li>
+      <li>“One validated realtime bot-to-bot evaluation with preserved audio, transcripts, provider evidence and scores.”</li>
+      <li>“V15 passed a sealed text final 9/12 vs 5/12 with zero task regressions — held pending matched voice.”</li>
+      <li>“The gate rejected a higher-scoring GEPA candidate for a P0 regression.”</li>
+      <li>“Schema portability proven with a second domain pack; performance there unproven.”</li>
+    </ul></div>
+    <div class="say no"><h4 class="r">Never claim (yet)</h4><ul>
+      <li>“V15 improved live voice TSR” · “the agent collects more money.”</li>
+      <li>“The 20 calls are human gold” · “the 200 cases are independent held-out proof.”</li>
+      <li>“The tool path works live in Indus” — zero live side effects captured.</li>
+      <li>“EVA/ServiceNow endorses this” — it is an adaptation with license and attribution.</li>
+      <li>“Production-ready for millions of calls with minor changes.”</li>
+    </ul></div>
+  </div>
+</div></section>
+
+<section id="arc"><div class="wrap">
+  <div class="sec-head"><span class="kicker">10 · How it was done</span>
+    <h2>The story arc is the judgment story — ten beats</h2>
+    <p>If asked “walk me through how you worked,” this is the arc. Each beat raised the evidence bar and demoted the previous stage's proof — which is exactly what a self-improving system's operator has to be willing to do.</p></div>
+  <div class="arc">
+    <div class="beat"><b>1 · The benchmark fantasy (3 Aug)</b><p>First plan: a 14-day, three-domain synthetic τ-bench build. Impressive, license-audited — and entirely simulated. Its lasting gifts: pre-registered GEPA skepticism and the rule “if a number can't be re-run on camera, cut the number.”</p></div>
+    <div class="beat"><b>2 · The reality pivot (17 Aug)</b><p>Traded three imagined domains for one real deployed Indus EMI agent. First evidence purge: the early 150-scenario corpus declared inadmissible; only controlled real calls count as seed evidence.</p></div>
+    <div class="beat"><b>3 · The caller becomes an instrument</b><p>Recording protocol with hidden cards, frozen fictional facts, anti-bias rules and deliberate negative controls — “a failed call is valuable evidence.” Twenty V12 calls frozen as the discovery corpus.</p></div>
+    <div class="beat"><b>4 · The same-day self-audit</b><p>Hours later: labels demoted to provisional, the first GEPA run reclassified as a pipeline smoke test, “20%→100% must never be called TSR.” The habit of auditing one's own claims is set.</p></div>
+    <div class="beat"><b>5 · Framework becomes the product (18 Aug)</b><p>Reframed as a domain-neutral governed loop: replaceable contracts, repair registry, GEPA demoted to one entry. Success redefined from “candidate wins” to “every cycle produces an auditable decision.”</p></div>
+    <div class="beat"><b>6 · The research reset (19 Aug)</b><p>EVA, τ-Voice and VAmoS audited and adopted <em>selectively</em> — realtime validated simulation and A×X separation from EVA, perturbations from τ-Voice, execution truth from VAmoS — explicitly rejecting wholesale cloning.</p></div>
+    <div class="beat"><b>7 · Gates harden</b><p>Aggregate scoring replaced by per-case severity gates with preserved-win protection — the exact rule that later rejected the GEPA finalist despite its 28/30.</p></div>
+    <div class="beat"><b>8 · The text loop completes</b><p>V13 and V14 rejected for regressions; V15 selected at 30/30 (governing rescore, lineage disclosed); sealed 12-case final won 9/12 vs 5/12 with exact paired reporting and no significance theater.</p></div>
+    <div class="beat"><b>9 · The live path becomes real</b><p>After a costly false start with scripted audio loops (disclosed, budgeted against), a genuine ElevenLabs↔Samvaad duplex run is captured, scored, and shipped into the product UI with its defect on display.</p></div>
+    <div class="beat"><b>10 · The deliberate withhold (today)</b><p>Everything local verifies; four evidence gates stay open on purpose. The success condition was rewritten: run the frozen fair evaluation, preserve every artifact, and let the independent controller make the correct promote / hold / rollback call.</p></div>
+  </div>
+</div></section>
+
+<section style="border-bottom:none"><div class="wrap">
+  <div class="sec-head"><span class="kicker">Appendix · verify everything yourself</span>
+    <h2>One command, and the artifact index</h2></div>
+  <pre class="cmd"><b>cd</b> /Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement && source .venv/bin/activate
+python -m framework.verify            <b># 79 tests · dashboard lint/tests/build · hashes · secret scan</b>
+python -m framework.completion_audit  <b># regenerates the machine acceptance record</b>
+npm run dev   <b># in ../dashboard → http://localhost:3000 (live now)</b>
+mlflow ui --backend-store-uri sqlite:///artifacts/experiments/mlflow.db --port 5000</pre>
+  <div class="foot">
+    <p style="margin-bottom:10px">Primary artifacts (paths relative to <code>voice-agent-improvement/</code>):</p>
+    <p class="paths">
+      artifacts/framework/completion_audit.json · artifacts/framework/verification/latest.json ·
+      artifacts/framework/emi/dynamic_release_v15.json · artifacts/framework/emi/dynamic_release_gepa_finalist.json ·
+      artifacts/framework/emi/selection.json · artifacts/framework/emi/method_freeze.json ·
+      artifacts/framework/emi/fresh_final_decision.json · artifacts/framework/emi/dynamic_scenarios_v1/fresh_final_seal.json ·
+      artifacts/framework/emi/eva_adapter_v10/evaluator_freeze.json · artifacts/framework/emi/eva_voice_suite_v1/manifest.json ·
+      artifacts/eva_live/emi_eva_live_20260819_135630/ · artifacts/framework/emi/voice_stress_v1/live/voice_summary.json ·
+      agent/candidates/v15-firm-today.md (sha256 732d216b…) · artifacts/experiments/mlflow.db · ../handoff.md
+    </p>
+    <p style="margin-top:18px">Prepared 19 Aug 2026 · consolidates handoff.md, FINAL-INTERVIEW-DECISION.html, the machine audit, this session's re-verification, the EVA site review, and the Sarvam context dossier. Presentation-prep source of truth; technical truth remains the hash-linked artifacts. EasyCredit data is fictional. EVA · τ-Voice · VAmoS · GEPA are referenced with pinned commits and licenses; no upstream endorsement implied.</p>
+  </div>
+</div></section>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-DISP-04",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਮੈਂ ਸਮਝ ਸਕਦਾ ਹਾਂ। ਕੀ ਤੁਹਾਨੂੰ ਇਸ ਸਬੰਧੀ ਕੋਈ ਮੈਸੇਜ ਆਇਆ ਸੀ? ਕਿਰਪਾ ਕਰਕੇ EasyCredit ਦੇ ਕਸਟਮਰ ਕੇਅਰ ਨੰਬਰ 'ਤੇ ਸੰਪਰਕ ਕਰੋ।",
+        "terminal_state": "dispute"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 10178.8,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "c823065ad8511c00d07d80575e1d934ba574ba81f83bb71c83a80113ca6b1cb0",
+    "response_hash": "b763eadba43697ae8ee22ae26ce3ff2425636765ecaca05d5b881149cf69457e",
+    "usage": {
+      "candidatesTokenCount": 134,
+      "promptTokenCount": 1506,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1506
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1590,
+      "totalTokenCount": 3230
+    }
+  }
+}

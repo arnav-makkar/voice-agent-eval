@@ -1,0 +1,51 @@
+{
+  "artifacts": [
+    {
+      "bytes": 378631,
+      "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/datasets/emi_failure_derived_v3/development.jsonl",
+      "records": 120,
+      "sha256": "f015c4a5ee8edce8ce80283f51e73ba449f0a7335e3ce2c44479683d38c6e767"
+    },
+    {
+      "bytes": 94774,
+      "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/datasets/emi_failure_derived_v3/regression.jsonl",
+      "records": 30,
+      "sha256": "976886eb9adb2662186880f84848af50d0c5abfb7e61cc2623afba67be7cc31c"
+    },
+    {
+      "bytes": 93410,
+      "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/datasets/emi_failure_derived_v3/held_out.jsonl",
+      "records": 30,
+      "sha256": "c39dd5fd31dd9e21b0921b8b40ab91a6e7da83f7fff76f1eff4604011beeac67"
+    },
+    {
+      "bytes": 47921,
+      "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/datasets/emi_failure_derived_v3/anchor_failure.jsonl",
+      "records": 15,
+      "sha256": "f6c2f2423eaef98111f2d7a3f5f174196f9e54d854d11772d46b05281bf0e91c"
+    },
+    {
+      "bytes": 16678,
+      "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/datasets/emi_failure_derived_v3/anchor_win.jsonl",
+      "records": 5,
+      "sha256": "cdebd7051fa276b0949f7e73db781aabd73c6903f17b240a1cd038dc7758ca46"
+    },
+    {
+      "bytes": 610,
+      "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/datasets/emi_failure_derived_v3/validation.json",
+      "sha256": "435fc8f458eb02b3c15159399c77fa941d91d19d964e8c0dcf22f756a8f7a378"
+    }
+  ],
+  "created_at": "2026-08-17T20:10:49.393838+00:00",
+  "metadata": {
+    "dataset_id": "emi_failure_derived_v3",
+    "domain_pack_version": "1.1.0",
+    "held_out_changed": false,
+    "held_out_seal_sha256": "c39dd5fd31dd9e21b0921b8b40ab91a6e7da83f7fff76f1eff4604011beeac67",
+    "reference_status": "provisional",
+    "repaired_failure_anchors": 15,
+    "repaired_win_anchors": 5
+  },
+  "schema_version": "framework-manifest.v1",
+  "stage": "repair_anchor_decision_points"
+}

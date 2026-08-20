@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "escalation",
+    "should_end_call": true,
+    "spoken_response": "Ji, main samajh gaya. Kisi bhi jankari ke liye aap 1800-500-4444 par sampark kar sakte hain. Dhanyawad.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "escalation"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 3400.2,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "e63d81625447cdaa16fe846fc1535c58af3d4ef58b843ac94fd6aee5c0c8f79d",
+    "response_hash": "501f3dc65638b527eed3465398d05aa43352627cc229281a7c4ce00005c896e8",
+    "usage": {
+      "candidatesTokenCount": 81,
+      "promptTokenCount": 1829,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1829
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 483,
+      "totalTokenCount": 2393
+    }
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-DISP-11",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ठीक है आरव जी, अभी लाइव वेरिफिकेशन की सुविधा नहीं है। आप कृपया EasyCredit कस्टमर केयर से संपर्क करें।",
+        "terminal_state": "already_paid"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-12",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Samajh gaya Rohan ji, kya aapne EasyCredit se koi purchase kiya tha? Kripya EasyCredit customer care se baat karein.",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-13",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "I understand Priya ji. Please contact the EasyCredit fraud helpline or customer care immediately to report this.",
+        "terminal_state": "escalation"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-14",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਠੀਕ ਹੈ ਗੁਰਪ੍ਰੀਤ ਜੀ, ਅਜੇ ਲਾਈਵ ਵੈਰੀਫਿਕੇਸ਼ਨ ਦੀ ਸੁਵਿਧਾ ਨਹੀਂ ਹੈ। ਤੁਸੀਂ EasyCredit ਕਸਟਮਰ ਕੇਅਰ ਨਾਲ ਸੰਪਰਕ ਕਰ ਸਕਦੇ ਹੋ।",
+        "terminal_state": "already_paid"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-15",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Samajh gaya Ankit ji, kya aapne yeh account khud banaya tha? Kripya EasyCredit customer care se sampark karein.",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-16",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "मैं समझ गया सुनील जी। कृपया इसके लिए EasyCredit की फ्रॉड हेल्पलाइन या कस्टमर केयर से तुरंत संपर्क करें।",
+        "terminal_state": "escalation"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-17",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Samajh gaya Neha ji, abhi mere paas live verification available nahi hai. Aap kripya EasyCredit customer care se baat kar lein.",
+        "terminal_state": "already_paid"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-18",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "I understand Vikram. Did you ever apply for a loan with EasyCredit? Please contact EasyCredit customer care to resolve this.",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-19",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਮੈਂ ਸਮਝ ਗਿਆ ਹਰਲੀਨ ਜੀ। ਕਿਰਪਾ ਕਰਕੇ EasyCredit ਦੀ ਫਰਾਡ ਹੈਲਪਲਾਈਨ ਜਾਂ ਕਸਟਮਰ ਕੇਅਰ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।",
+        "terminal_state": "escalation"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-20",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Samajh gaya Deepak ji, abhi mere paas live verification ki suvidha nahi hai. Aap kripya EasyCredit customer care se sampark karein.",
+        "terminal_state": "already_paid"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 38704.5,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "76769c53526344beeda03a66018970c944071b68be17de3a4ae8a4f72f3c27fa",
+    "response_hash": "58cfa31a995927edbf6c913844d1c39feabd85de488ab4b5ac8096ea78e5882f",
+    "usage": {
+      "candidatesTokenCount": 742,
+      "promptTokenCount": 4230,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 4230
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 7476,
+      "totalTokenCount": 12448
+    }
+  }
+}

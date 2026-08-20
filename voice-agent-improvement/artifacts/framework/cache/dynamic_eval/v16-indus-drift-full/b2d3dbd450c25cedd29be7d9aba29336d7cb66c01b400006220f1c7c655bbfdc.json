@@ -1,0 +1,35 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Accha, main payment status check kar leta hoon. Kripya ek second line par rahiye.",
+    "tool_calls": [
+      {
+        "arguments": {},
+        "name": "check_payment_status"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5733.9,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "b2d3dbd450c25cedd29be7d9aba29336d7cb66c01b400006220f1c7c655bbfdc",
+    "response_hash": "9fc48d50bab59a31b820d8dcada8cc611208c60b9bf42fc5c00c2a8541ddbea1",
+    "usage": {
+      "candidatesTokenCount": 57,
+      "promptTokenCount": 1946,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1946
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 799,
+      "totalTokenCount": 2802
+    }
+  }
+}

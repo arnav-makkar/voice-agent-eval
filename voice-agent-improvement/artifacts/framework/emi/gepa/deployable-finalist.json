@@ -1,0 +1,14 @@
+{
+  "approval_status": "pending_owner_review",
+  "bounded_changes": [
+    "replace frozen 17-08-2026 temporal assumption with currentDate/tomorrowDate variables",
+    "preserve GEPA natural relative-date confirmation behavior"
+  ],
+  "candidate_id": "gepa-v3-deployable",
+  "candidate_sha256": "9524d22296e72f5b945cbfa61642bf5bff5895aadd96e8250f01963b9ce1c60e",
+  "held_out_accessed": false,
+  "reason": "Raw optimizer output must not embed a calendar date in a deployable prompt.",
+  "schema_version": "candidate-derivation.v1",
+  "source": "gepa_v3_finalist",
+  "source_sha256": "add82302d1ab8e1c274fb10805a8b600915e078c6d13f01070a81d6c08444be4"
+}

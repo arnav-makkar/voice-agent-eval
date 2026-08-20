@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "acknowledged",
+    "should_end_call": true,
+    "spoken_response": "Aap 1800-500-4444 par customer care se baat kar sakti hain. Dhanyawad.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "acknowledged"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5079.8,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "fc0c03f41799b602fa1e249d02fea8153744b6272e16ed3bc13a343dd1a98bd8",
+    "response_hash": "4714262f04d3770a080be2493dfc67ed7a5313c0b6ecf6d0b3e4ee854c750fb7",
+    "usage": {
+      "candidatesTokenCount": 71,
+      "promptTokenCount": 1748,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1748
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 800,
+      "totalTokenCount": 2619
+    }
+  }
+}

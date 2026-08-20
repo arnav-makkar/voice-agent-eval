@@ -1,0 +1,35 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-DISP-04",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਮੈਂ ਸਮਝਦਾ ਹਾਂ। ਕੀ ਇਹ ਖਰੀਦਦਾਰੀ ਤੁਹਾਡੇ ਦੁਆਰਾ ਨਹੀਂ ਕੀਤੀ ਗਈ? ਕਿਰਪਾ ਕਰਕੇ ਵਧੇਰੇ ਜਾਣਕਾਰੀ ਅਤੇ ਮਦਦ ਲਈ ਸਾਡੇ ਕਸਟਮਰ ਕੇਅਰ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।",
+        "terminal_state": "dispute"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 8201.8,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "8bfdedb3c0c21f7a971c6e9ae11c95c142769414475418837787ec81114ec10d",
+    "response_hash": "4fa3b59b7db596120de8ec18134e8f68d54eca67e46758ec16d9f9cf58b239a5",
+    "usage": {
+      "candidatesTokenCount": 104,
+      "promptTokenCount": 1506,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1506
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1179,
+      "totalTokenCount": 2789
+    }
+  }
+}

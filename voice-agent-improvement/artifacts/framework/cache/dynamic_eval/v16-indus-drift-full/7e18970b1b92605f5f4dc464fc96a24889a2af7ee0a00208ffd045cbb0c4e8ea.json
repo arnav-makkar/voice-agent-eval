@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "EMI payment EasyCredit app se hi hoti hai. Kya aap app restart karke abhi pay kar sakte hain?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5033.8,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "7e18970b1b92605f5f4dc464fc96a24889a2af7ee0a00208ffd045cbb0c4e8ea",
+    "response_hash": "cc195651bc39272eb0adaf3a05f65a359065d83e356e0f66f0aa43b970bd9e40",
+    "usage": {
+      "candidatesTokenCount": 48,
+      "promptTokenCount": 1944,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1944
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 583,
+      "totalTokenCount": 2575
+    }
+  }
+}

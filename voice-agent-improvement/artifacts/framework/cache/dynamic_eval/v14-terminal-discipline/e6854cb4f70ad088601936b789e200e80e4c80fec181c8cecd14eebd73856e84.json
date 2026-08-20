@@ -1,0 +1,43 @@
+{
+  "data": {
+    "disposition": "fptp",
+    "should_end_call": true,
+    "spoken_response": "Dhanvaad Mehak ji, 20 August 2026 di date note kar layi hai. Kripya EasyCredit app ton payment kar dena.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "date": "20-08-2026"
+        },
+        "name": "record_promise_to_pay"
+      },
+      {
+        "arguments": {
+          "disposition": "fptp"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5322.7,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "e6854cb4f70ad088601936b789e200e80e4c80fec181c8cecd14eebd73856e84",
+    "response_hash": "a3b9bebdbb7f526ad71b2d80d53222defa38aaa68619a2897873d5b07240095e",
+    "usage": {
+      "candidatesTokenCount": 162,
+      "promptTokenCount": 1814,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1814
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 745,
+      "totalTokenCount": 2721
+    }
+  }
+}

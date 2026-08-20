@@ -1,0 +1,86 @@
+{
+  "actions": [
+    "Restore the exact frozen V15 text in the Indus draft and commit it as an immutable version.",
+    "Retain v16-indus-drift as a registered candidate with its own hash, result and gate record; it is not eligible for voice evaluation.",
+    "Treat in-platform copilot edits as a release-governance risk: the committed version must be hash-verified against the frozen candidate before any matched evaluation.",
+    "Ship the evaluator repair EVAL-GAP-001 as a separately versioned evaluator v4 with its own calibration."
+  ],
+  "candidates": {
+    "dynamic-gepa-finalist": {
+      "average_experience_score": 1.0,
+      "failure_counts": {
+        "disposition": 1,
+        "forbidden_behavior": 1
+      },
+      "records": 30,
+      "task_success_rate": 0.9333,
+      "task_successes": 28
+    },
+    "v12-dynamic-baseline": {
+      "average_experience_score": 1.0,
+      "failure_counts": {
+        "disposition": 8,
+        "required_actions": 6
+      },
+      "records": 30,
+      "task_success_rate": 0.5333,
+      "task_successes": 16
+    },
+    "v15-firm-today": {
+      "average_experience_score": 0.905,
+      "failure_counts": {},
+      "records": 30,
+      "task_success_rate": 1.0,
+      "task_successes": 30
+    },
+    "v16-indus-drift": {
+      "average_experience_score": 0.995,
+      "failure_counts": {
+        "disposition": 7,
+        "required_actions": 1
+      },
+      "records": 30,
+      "task_success_rate": 0.7333,
+      "task_successes": 22
+    }
+  },
+  "claim_boundary": "This is a text-mode screening decision about which prompt to deploy. It is not a voice result and does not establish live improvement for any candidate.",
+  "decided_at": "2026-08-20T20:21:45.273013+00:00",
+  "decision": "restore_frozen_v15",
+  "evaluator": {
+    "note": "All four candidates were rescored under this single evaluator hash for this comparison. V15 reproduces its stored 30/30 under it, confirming the historical result is stable.",
+    "sha256": "bf8ee7c518309e94fd0721946d12957e95976a0de9f96d11ddbb390ca0267a3d",
+    "version": "evaluation-metrics.v3/loopline-eva-adapter.v1"
+  },
+  "hashes": {
+    "v15-firm-today": "732d216b3a75bcb2d6424946cf935dfd1584d723f31020bb746908431dad90e3",
+    "v16-indus-drift": "ca8986d8f5fc0c9d0b5540dc1a0cdb9e99cf418d98e5979a3cd39101c47ee185"
+  },
+  "method": "The drift was captured verbatim from the Indus editor, hashed, and registered as a new candidate (v16-indus-drift). It was then run through the same 30 stateful scenarios as every other candidate and scored under a single deterministic evaluator, so the decision rests on evidence rather than preference.",
+  "question": "The deployed Indus draft labelled 'v15' had drifted from the frozen V15 candidate after in-platform Genie edits. Should the drifted draft be adopted, or should the frozen candidate be restored?",
+  "rationale": [
+    "V16 completes 22/30 tasks against V15's 30/30 under the identical evaluator \u2014 eight fewer, with seven disposition failures.",
+    "V16 is a genuine improvement on the V12 baseline (16/30), so the drift was not harmful in absolute terms; it is simply a weaker candidate than the one already selected.",
+    "The frozen V15 is the candidate that won the sealed group-separated final. Deploying anything else under the V15 identity would break the evidence chain that result depends on.",
+    "Registering the drift as V16 preserves its content for a future cycle instead of discarding it, and keeps the audit trail honest about what was running in production."
+  ],
+  "schema_version": "candidate-identity-decision.v1",
+  "v16_release_gate": {
+    "caveat": "The single P0 cited by the gate is an evaluator false positive, diagnosed and filed as EVAL-GAP-001. It is disclosed rather than silently discounted, and it does not change the decision.",
+    "decision": "reject_new_severe_regression",
+    "repairs": 6,
+    "severe_regressions": [
+      {
+        "evidence": {
+          "component": "policy_or_extractor",
+          "evidence": "Samajh gaya. Toh aap kis tareekh tak payment kar paayenge?",
+          "turn_sequence": 6
+        },
+        "scenario_id": "EMI-DYN-030",
+        "severity": "P0",
+        "type": "forbidden_behavior_regression"
+      }
+    ],
+    "task_regressions": 0
+  }
+}

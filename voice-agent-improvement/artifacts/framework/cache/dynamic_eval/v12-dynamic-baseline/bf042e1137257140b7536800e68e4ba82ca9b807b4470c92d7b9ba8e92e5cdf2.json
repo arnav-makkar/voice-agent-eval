@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Koi baat nahi. Aap kis tareekh tak payment kar denge?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4693.7,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "bf042e1137257140b7536800e68e4ba82ca9b807b4470c92d7b9ba8e92e5cdf2",
+    "response_hash": "f7d439a240fe994e9b4c0126bc80311345d00adcb308c2c4a564deafb525edc1",
+    "usage": {
+      "candidatesTokenCount": 44,
+      "promptTokenCount": 1532,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1532
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 665,
+      "totalTokenCount": 2241
+    }
+  }
+}

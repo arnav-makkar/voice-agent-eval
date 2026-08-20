@@ -1,0 +1,35 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-DISP-21",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "समझ गया अमित जी। क्या आपके पास डिलीवरी रिजेक्शन का कोई मैसेज या रसीद है? आप अधिक जानकारी के लिए EasyCredit कस्टमर केयर 1800-123-4567 पर संपर्क कर सकते हैं।",
+        "terminal_state": "dispute"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5522.0,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "10d79c0791f1e837b26c51ee8613d70e747973e7e6fbe8faa301b10d9be80eaa",
+    "response_hash": "6a53c2bac65b4c68f9f5dd689b5ff4f69bce5322d50f7078f8b328b7dd75718e",
+    "usage": {
+      "candidatesTokenCount": 94,
+      "promptTokenCount": 1458,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1458
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 843,
+      "totalTokenCount": 2395
+    }
+  }
+}

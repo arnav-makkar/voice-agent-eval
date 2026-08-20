@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "rtp",
+    "should_end_call": true,
+    "spoken_response": "Samajh gaya Gurpreet ji. Main record kar leta hoon ki aap abhi payment nahi karna chahte. Dhanyawad.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "rtp"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 3271.3,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "b18d771cce0ffae130a0c2a1b34eb97a23568f2e3b8714ec6e601dd386e73a29",
+    "response_hash": "a4a727f51936dbdfd7ecf793a2258e8334165b2c5923b9e766b8d4d57324e7a7",
+    "usage": {
+      "candidatesTokenCount": 68,
+      "promptTokenCount": 1754,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1754
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 296,
+      "totalTokenCount": 2118
+    }
+  }
+}

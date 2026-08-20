@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "wrong_number",
+    "should_end_call": true,
+    "spoken_response": "Maaf kijiyega, galat number par call lag gaya. Thank you.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "wrong_number"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 3336.4,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "79e5170ac539b5d34460481e76a35eb28226ade01c035f75c5817136be2043ab",
+    "response_hash": "4ba4d8e506a280230d2c1c49440aba694c824a4751cb8375ca5dcdf5ed1f6ada",
+    "usage": {
+      "candidatesTokenCount": 59,
+      "promptTokenCount": 1691,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1691
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 464,
+      "totalTokenCount": 2214
+    }
+  }
+}

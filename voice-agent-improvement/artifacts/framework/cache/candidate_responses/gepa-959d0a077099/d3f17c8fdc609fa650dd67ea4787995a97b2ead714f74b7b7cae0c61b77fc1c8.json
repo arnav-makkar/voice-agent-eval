@@ -1,0 +1,35 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-DISP-22",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Samajh gaya Rohan ji. Kya aapne iski complaint pehle ki hai? Kripya details verify karne ke liye humare customer care number par contact karein.",
+        "terminal_state": "dispute"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 6299.8,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "d3f17c8fdc609fa650dd67ea4787995a97b2ead714f74b7b7cae0c61b77fc1c8",
+    "response_hash": "28b20b6bda099b8cea6a92a41b86f45c5c875411d57e5b5f0c3dddadf70ec5e4",
+    "usage": {
+      "candidatesTokenCount": 80,
+      "promptTokenCount": 1447,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1447
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 956,
+      "totalTokenCount": 2483
+    }
+  }
+}

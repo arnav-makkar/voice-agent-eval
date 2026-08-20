@@ -1,0 +1,164 @@
+{
+  "commands": [
+    {
+      "command": [
+        "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/.venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_*.py",
+        "-q"
+      ],
+      "cwd": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement",
+      "exit_code": 0,
+      "name": "python_unit_tests",
+      "output_tail": "PyAudio not available. Local audio streaming will not work.\n----------------------------------------------------------------------\nRan 55 tests in 0.199s\n\nOK\n",
+      "passed": true
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "lint"
+      ],
+      "cwd": "/Users/Arnav/Claude/Projects/Sarvam/dashboard",
+      "exit_code": 0,
+      "name": "dashboard_lint",
+      "output_tail": "\n> loopline-agent-learning-dashboard@0.1.0 lint\n> eslint . --ignore-pattern dist --ignore-pattern .next\n\n",
+      "passed": true
+    },
+    {
+      "command": [
+        "npm",
+        "test"
+      ],
+      "cwd": "/Users/Arnav/Claude/Projects/Sarvam/dashboard",
+      "exit_code": 0,
+      "name": "dashboard_tests",
+      "output_tail": "\n> loopline-agent-learning-dashboard@0.1.0 test\n> npm run build && node --test tests/rendered-html.test.mjs\n\n\n> loopline-agent-learning-dashboard@0.1.0 build\n> WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext build\n\n\n  vinext build  (Vite 8.0.13)\n\n[1/5] analyze client references...\n\u001b[2K\ntransforming...✓ 218 modules transformed.\nrendering chunks...\n✓ built in 329ms\n[2/5] analyze server references...\n\u001b[2K\ntransforming...✓ 75 modules transformed.\nrendering chunks...\n✓ built in 71ms\n[3/5] build rsc environment...\n\u001b[2K\ntransforming...✓ 216 modules transformed.\nrendering chunks...\ncomputing gzip size...\n✓ built in 297ms\n[4/5] build client environment...\n\u001b[2K\ntransforming...✓ 116 modules transformed.\nrendering chunks...\ncomputing gzip size...\n✓ built in 350ms\n[5/5] build ssr environment...\n\u001b[2K\ntransforming...✓ 81 modules transformed.\nrendering chunks...\ncomputing gzip size...\n✓ built in 259ms\n\u001b[0m\n  Route (app)\n  ─ ? /\n\n  ? Unknown\n\n  ? Some routes could not be classified. vinext currently uses static analysis\n    and cannot detect dynamic API usage (headers(), cookies(), etc.) at build time.\n    Automatic classification will be improved in a future release.\n\n  Build complete. Run `vinext start` to start the production server.\n\n✔ server-renders Loopline without starter scaffolding (71.175875ms)\n✔ source keeps evaluation, improvement, and release claims separate (2.145667ms)\nℹ tests 2\nℹ suites 0\nℹ pass 2\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 114.945\n\n(node:19799) ExperimentalWarning: glob is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n",
+      "passed": true
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "cwd": "/Users/Arnav/Claude/Projects/Sarvam/dashboard",
+      "exit_code": 0,
+      "name": "dashboard_build",
+      "output_tail": "\n> loopline-agent-learning-dashboard@0.1.0 build\n> WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext build\n\n\n  vinext build  (Vite 8.0.13)\n\n[1/5] analyze client references...\n\u001b[2K\ntransforming...✓ 218 modules transformed.\nrendering chunks...\n✓ built in 260ms\n[2/5] analyze server references...\n\u001b[2K\ntransforming...✓ 75 modules transformed.\nrendering chunks...\n✓ built in 65ms\n[3/5] build rsc environment...\n\u001b[2K\ntransforming...✓ 216 modules transformed.\nrendering chunks...\ncomputing gzip size...\n✓ built in 274ms\n[4/5] build client environment...\n\u001b[2K\ntransforming...✓ 116 modules transformed.\nrendering chunks...\ncomputing gzip size...\n✓ built in 378ms\n[5/5] build ssr environment...\n\u001b[2K\ntransforming...✓ 81 modules transformed.\nrendering chunks...\ncomputing gzip size...\n✓ built in 267ms\n\u001b[0m\n  Route (app)\n  ─ ? /\n\n  ? Unknown\n\n  ? Some routes could not be classified. vinext currently uses static analysis\n    and cannot detect dynamic API usage (headers(), cookies(), etc.) at build time.\n    Automatic classification will be improved in a future release.\n\n  Build complete. Run `vinext start` to start the production server.\n\n\n(node:19835) ExperimentalWarning: glob is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n",
+      "passed": true
+    }
+  ],
+  "environment": {
+    "node_path": "/Users/Arnav/.zsh/misc",
+    "python": "3.11.9"
+  },
+  "fresh_final_protocol": {
+    "dataset_sha256": "0b36393ecc3acf88f460cb8f35a94711b0f7b65ba3554963e62308175fe41c14",
+    "decision": "pass_text_final_awaiting_matched_voice",
+    "evaluation_runs": 2,
+    "passed": true,
+    "sealed_sha256": "0b36393ecc3acf88f460cb8f35a94711b0f7b65ba3554963e62308175fe41c14"
+  },
+  "method_freeze": {
+    "components": [
+      {
+        "actual": "3d95098db8b459b955bf703d166884a2a03477155940dea6e57013356b28c9c1",
+        "component": "baseline_prompt",
+        "expected": "3d95098db8b459b955bf703d166884a2a03477155940dea6e57013356b28c9c1",
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/agent/v1/SYSTEM-PROMPT.md"
+      },
+      {
+        "actual": "732d216b3a75bcb2d6424946cf935dfd1584d723f31020bb746908431dad90e3",
+        "component": "finalist_prompt",
+        "expected": "732d216b3a75bcb2d6424946cf935dfd1584d723f31020bb746908431dad90e3",
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/agent/candidates/v15-firm-today.md"
+      },
+      {
+        "actual": "5a6d37cee9d382b3f15aecf87ed4b212e4a60329b066e162b6ac4fd8c643e440",
+        "component": "selection_decision",
+        "expected": "5a6d37cee9d382b3f15aecf87ed4b212e4a60329b066e162b6ac4fd8c643e440",
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/selection.json"
+      },
+      {
+        "actual": "9cf518e34e2610f37383484d9b5ee8d5424ab0bb5980e55428f0d3d5ff1cacfd",
+        "component": "evaluator_files",
+        "expected": "9cf518e34e2610f37383484d9b5ee8d5424ab0bb5980e55428f0d3d5ff1cacfd",
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/framework/evaluation/contracts.py"
+      },
+      {
+        "actual": "55842c91c7f771f8b6e4b220056d0e7d24933b6572adb72e70a891f64ee3861f",
+        "component": "evaluator_files",
+        "expected": "55842c91c7f771f8b6e4b220056d0e7d24933b6572adb72e70a891f64ee3861f",
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/framework/evaluation/environment.py"
+      },
+      {
+        "actual": "23fda7aad450113cf7592eb5479ef174ab5f544a7fa0baeb577316528be2d4cd",
+        "component": "evaluator_files",
+        "expected": "23fda7aad450113cf7592eb5479ef174ab5f544a7fa0baeb577316528be2d4cd",
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/framework/evaluation/runner.py"
+      },
+      {
+        "actual": "e57f59cc7b4d52c44a337bf0bf3a5ec459b8428895993c09b49db1076f4840c4",
+        "component": "evaluator_files",
+        "expected": "e57f59cc7b4d52c44a337bf0bf3a5ec459b8428895993c09b49db1076f4840c4",
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/framework/evaluation/metrics.py"
+      },
+      {
+        "actual": "1225ce608051e89be366d9504f580f89e5bc47bec8470b53b9d18d8ca758fc8e",
+        "component": "evaluator_files",
+        "expected": "1225ce608051e89be366d9504f580f89e5bc47bec8470b53b9d18d8ca758fc8e",
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/framework/evaluation/semantic_metrics.py"
+      },
+      {
+        "actual": "fd4e4b3aedce96b61cfee787282dc7143b7e3d6a9f1d08cf51322ea971c62cae",
+        "component": "evaluator_files",
+        "expected": "fd4e4b3aedce96b61cfee787282dc7143b7e3d6a9f1d08cf51322ea971c62cae",
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/framework/evaluation/release.py"
+      },
+      {
+        "actual": "e7efa22dc34310fcd22bdc575c9f0f4dfe10d686b4368ef7b7042cc753bc18de",
+        "component": "development_suite",
+        "expected": "e7efa22dc34310fcd22bdc575c9f0f4dfe10d686b4368ef7b7042cc753bc18de",
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/dynamic_scenarios_v1/development.jsonl"
+      },
+      {
+        "actual": "5358c2a6d5eac6eec9799d4c137e0892f554a4044953e83a087665582b8e6012",
+        "component": "development_suite",
+        "expected": "5358c2a6d5eac6eec9799d4c137e0892f554a4044953e83a087665582b8e6012",
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/dynamic_scenarios_v1/validation.jsonl"
+      },
+      {
+        "actual": "b0b341debafe74adda48086c7163cef9919cbc0fa2cf133b05d8b3939412b385",
+        "component": "development_suite",
+        "expected": "b0b341debafe74adda48086c7163cef9919cbc0fa2cf133b05d8b3939412b385",
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/dynamic_scenarios_v1/regression.jsonl"
+      },
+      {
+        "actual": "12e7345f72080e918a7ff6c6397e4b0803db29bb7599d11a7f0694dfe02c562f",
+        "component": "development_suite",
+        "expected": "12e7345f72080e918a7ff6c6397e4b0803db29bb7599d11a7f0694dfe02c562f",
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/dynamic_scenarios_v1/manifest.json"
+      },
+      {
+        "actual": "de6ba04af594a2835099f8260bb6765335ecfeb1239a01f32f527481fead4ec3",
+        "component": "development_suite",
+        "expected": "de6ba04af594a2835099f8260bb6765335ecfeb1239a01f32f527481fead4ec3",
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/dynamic_scenarios_v1/validation.json"
+      }
+    ],
+    "passed": true
+  },
+  "passed": true,
+  "schema_version": "loopline-verification.v1",
+  "secret_scan": {
+    "credential_pattern_files": [],
+    "passed": true
+  },
+  "verified_at": "2026-08-18T23:12:00.604702+00:00"
+}

@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "dispute",
+    "should_end_call": true,
+    "spoken_response": "Samajh gaya Kabir ji. Charges se jude dispute ke liye aap humare customer care number 1800-500-4444 par sampark kar sakte hain. Dhanyawad.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "dispute"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5526.3,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "b2042790097ba1f8fd4ad0c40b46088f9a5717151ef1cd3f696e26ac7bf0c475",
+    "response_hash": "f4ec85a69b25ec788162e3eca1b2c106571ecef58c838c508c24c52097122f35",
+    "usage": {
+      "candidatesTokenCount": 124,
+      "promptTokenCount": 1846,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1846
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 792,
+      "totalTokenCount": 2762
+    }
+  }
+}

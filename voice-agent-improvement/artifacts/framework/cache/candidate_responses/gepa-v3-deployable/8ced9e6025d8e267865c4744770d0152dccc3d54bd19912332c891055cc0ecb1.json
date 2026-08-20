@@ -1,0 +1,98 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-DISP-01",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "समझ गया अमित जी। क्या आपने मर्चेंट से संपर्क किया है? कृपया हमारे कस्टमर केयर नंबर पर बात करें।",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-02",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Samajh gaya Rahul ji. Abhi live verification available nahi hai, kripya hamare customer care number par call karein.",
+        "terminal_state": "already_paid"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-03",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "I understand Rohan. Have you received a return receipt? Please contact our customer care number for assistance.",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-04",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਮੈਂ ਸਮਝ ਗਿਆ ਰੋਹਿਤ ਜੀ। ਕੀ ਤੁਸੀਂ ਇਸ ਬਾਰੇ ਮਰਚੈਂਟ ਨਾਲ ਗੱਲ ਕੀਤੀ ਹੈ? ਕਿਰਪਾ ਕਰਕੇ ਸਾਡੇ ਕਸਟਮਰ ਕੇਅਰ ਨੰਬਰ 'ਤੇ ਸੰਪਰਕ ਕਰੋ।",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-05",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Samajh gaya Priya ji. Abhi live verification available nahi hai, kripya hamare customer care number par sampark karein.",
+        "terminal_state": "already_paid"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-06",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "समझ गया सुनील जी। क्या आपने मर्चेंट से संपर्क किया है? कृपया सहायता के लिए हमारे कस्टमर केयर नंबर पर कॉल करें।",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-07",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Samajh gaya Vikram ji. Kya aapne store ya merchant se baat ki hai? Kripya hamare customer care number par call karein.",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-08",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "I understand Ananya. Live verification is currently unavailable, so please contact our customer care number for support.",
+        "terminal_state": "already_paid"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-09",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਮੈਂ ਸਮਝ ਗਿਆ ਗੁਰਪ੍ਰੀਤ ਜੀ। ਕੀ ਤੁਹਾਡੇ ਕੋਲ ਕੈਂਸਲੇਸ਼ਨ ਦੀ ਰਸੀਦ ਹੈ? ਕਿਰਪਾ ਕਰਕੇ ਸਾਡੇ ਕਸਟਮਰ ਕੇਅਰ ਨੰਬਰ 'ਤੇ ਸੰਪਰਕ ਕਰੋ।",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-10",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Samajh gaya Deepak ji. Kya aapne is baare mein merchant se baat ki hai? Kripya hamare customer care number par call karein.",
+        "terminal_state": "dispute"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 22550.7,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "8ced9e6025d8e267865c4744770d0152dccc3d54bd19912332c891055cc0ecb1",
+    "response_hash": "aa10116c864c19893dd3e2c3dc54654dd992dccf524d0bb6b0986f18e2c8ae16",
+    "usage": {
+      "candidatesTokenCount": 977,
+      "promptTokenCount": 4425,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 4425
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 4214,
+      "totalTokenCount": 9616
+    }
+  }
+}

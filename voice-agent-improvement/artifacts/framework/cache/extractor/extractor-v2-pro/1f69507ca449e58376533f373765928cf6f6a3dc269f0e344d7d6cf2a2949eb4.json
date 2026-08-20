@@ -1,0 +1,68 @@
+{
+  "data": {
+    "extractions": [
+      {
+        "call_summary": "The caller confirmed his identity as Arnav. He requested a late fee waiver, which the agent denied. The caller then explicitly agreed to open the official app and make the payment immediately.",
+        "disposition": "payment_ready",
+        "escalation_reason": "NA",
+        "evidence": "Agent: अच्छा, तो क्या आप अभी official app open करके payment कर रहे हैं? Caller: जी",
+        "trace_id": "BL-V12-06",
+        "unsupported_action_in_summary": false
+      },
+      {
+        "call_summary": "The caller confirmed his identity as Arnav. Initially reluctant to open the app, he eventually agreed to open the app and make the payment immediately after the agent informed him about potential late charges.",
+        "disposition": "payment_ready",
+        "escalation_reason": "NA",
+        "evidence": "Caller: ठीक है अभी अभी ऐप खोल के पे करता हूं।",
+        "trace_id": "BL-V12-07",
+        "unsupported_action_in_summary": false
+      },
+      {
+        "call_summary": "The caller confirmed his identity as Arnav. He interrupted the agent to ask for the required action and then explicitly agreed to make the payment via the app immediately.",
+        "disposition": "payment_ready",
+        "escalation_reason": "NA",
+        "evidence": "Caller: अभी app से कर दूं pay ... मैं कर रहा हूँ कर रहा हूँ।",
+        "trace_id": "BL-V12-08",
+        "unsupported_action_in_summary": false
+      },
+      {
+        "call_summary": "The caller confirmed his identity as Arnav. He stated he currently has no funds and promised to make the payment on August 20th after receiving his salary.",
+        "disposition": "fptp",
+        "escalation_reason": "NA",
+        "evidence": "Caller: मेरे अकाउंट में कोई पैसे नहीं हैं, 20 अगस्त को आएगी मेरी सैलरी, उसके बाद ही पे कर पाऊंगा।",
+        "trace_id": "BL-V12-09",
+        "unsupported_action_in_summary": false
+      },
+      {
+        "call_summary": "The caller confirmed his identity as Arnav. He promised to make the payment by tomorrow evening (August 18th) when he expects to receive funds.",
+        "disposition": "fptp",
+        "escalation_reason": "NA",
+        "evidence": "Caller: कल शाम तक पैसे आ जाएंगे। ... हाँ कन्फर्म।",
+        "trace_id": "BL-V12-10",
+        "unsupported_action_in_summary": false
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 13601.1,
+    "model_requested": "gemini-pro-latest",
+    "model_version": "gemini-3.1-pro-preview",
+    "request_hash": "1f69507ca449e58376533f373765928cf6f6a3dc269f0e344d7d6cf2a2949eb4",
+    "response_hash": "cf45f39ddc567c400d83b128d17cbeda38aae3d9b7c7f680c6fecf595e64da73",
+    "usage": {
+      "candidatesTokenCount": 637,
+      "promptTokenCount": 2265,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 2265
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1336,
+      "totalTokenCount": 4238
+    }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "data": {
+    "extractions": [
+      {
+        "call_summary": "Caller confirmed identity but stated they had already paid the EMI yesterday via UPI and refused to make a duplicate payment.",
+        "disposition": "already_paid",
+        "escalation_reason": "NA",
+        "evidence": "नहीं मैंने payment कल ही कर दी थी UPI से।",
+        "trace_id": "BL-V12-11",
+        "unsupported_action_in_summary": false
+      },
+      {
+        "call_summary": "Caller confirmed identity but denied purchasing a Samsung TV or making the transaction, stating it was a wrong number.",
+        "disposition": "dispute",
+        "escalation_reason": "NA",
+        "evidence": "मैंने कोई मैंने कोई Samsung TV नहीं खरीदा यह मेरा transaction नहीं है wrong number.",
+        "trace_id": "BL-V12-12",
+        "unsupported_action_in_summary": false
+      },
+      {
+        "call_summary": "Caller confirmed identity and agreed to open the official EasyCredit Finance app to make the payment immediately.",
+        "disposition": "payment_ready",
+        "escalation_reason": "NA",
+        "evidence": "Yes, I'll do that now.",
+        "trace_id": "BL-V12-13",
+        "unsupported_action_in_summary": false
+      },
+      {
+        "call_summary": "Caller confirmed identity and agreed to open the official app to make the payment immediately after the agent switched to Punjabi.",
+        "disposition": "payment_ready",
+        "escalation_reason": "NA",
+        "evidence": "ਹਾਂਜੀ ਚਲੋ ਮੈਂ check ਕਰਾਂ app ਖੋਲ ਦੇ ਵਿੱਚ payment ਕਰਦਾਂ।",
+        "trace_id": "BL-V12-14",
+        "unsupported_action_in_summary": false
+      },
+      {
+        "call_summary": "Caller confirmed identity but refused to make the payment today without providing a reason and requested not to be called back.",
+        "disposition": "rtp",
+        "escalation_reason": "NA",
+        "evidence": "No, I'm not paying today. No reason I'm not making a payment.",
+        "trace_id": "BL-V12-15",
+        "unsupported_action_in_summary": false
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 24318.4,
+    "model_requested": "gemini-pro-latest",
+    "model_version": "gemini-3.1-pro-preview",
+    "request_hash": "b8f44b8754213d772e95fe12c4df981b55495408d26476ff201048381ceeeeb0",
+    "response_hash": "6f6a65022c66dda3b9ddc1b43af4295d9e56cbf3445d0f28a897438c9f258c93",
+    "usage": {
+      "candidatesTokenCount": 560,
+      "promptTokenCount": 2371,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 2371
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 2246,
+      "totalTokenCount": 5177
+    }
+  }
+}

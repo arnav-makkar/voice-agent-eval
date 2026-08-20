@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "fptp",
+    "should_end_call": true,
+    "spoken_response": "Dhanyawad! Kripya 22-08-2026 ko EasyCredit app se payment kar dijiyega.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "date": "22-08-2026"
+        },
+        "name": "record_promise_to_pay"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 10392.0,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "8794684bf74b4a8d23d5f49e9d5a01e92c858638a5bdb524dfae86b27b191d2b",
+    "response_hash": "e8278a426996b4962dd180d5f2298a98cbc8c128a36a42abf789740bca2e9b23",
+    "usage": {
+      "candidatesTokenCount": 81,
+      "promptTokenCount": 1993,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1993
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1844,
+      "totalTokenCount": 3918
+    }
+  }
+}

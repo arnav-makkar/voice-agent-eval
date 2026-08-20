@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "wrong_number",
+    "should_end_call": true,
+    "spoken_response": "Maaf kijiyega, galat number par call ho gaya. Aapka din shubh ho.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "wrong_number"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4382.5,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "09715bbe7f674c42043b9f3e9f53878a95ed21d409a904c8f3b01f4bba9a696f",
+    "response_hash": "287f9b5ac826d7daca0f9081c0bff29b09cf5c5d1e923738b38f4d8de37bcfb7",
+    "usage": {
+      "candidatesTokenCount": 63,
+      "promptTokenCount": 1693,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1693
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 677,
+      "totalTokenCount": 2433
+    }
+  }
+}

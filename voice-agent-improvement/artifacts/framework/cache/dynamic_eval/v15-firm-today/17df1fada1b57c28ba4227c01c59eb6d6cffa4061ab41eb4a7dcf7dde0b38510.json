@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "acknowledged",
+    "should_end_call": true,
+    "spoken_response": "Koi baat nahi Riya ji. Aap hamare helpline number 1800-500-4444 par call karke madad le sakti hain. Dhanyawad!",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "acknowledged"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 3070.3,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "17df1fada1b57c28ba4227c01c59eb6d6cffa4061ab41eb4a7dcf7dde0b38510",
+    "response_hash": "03a700f10321a71d45ae8e1c45c19253dfd6c9c2341e260d02e113c5eb8deff4",
+    "usage": {
+      "candidatesTokenCount": 81,
+      "promptTokenCount": 1828,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1828
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 273,
+      "totalTokenCount": 2182
+    }
+  }
+}

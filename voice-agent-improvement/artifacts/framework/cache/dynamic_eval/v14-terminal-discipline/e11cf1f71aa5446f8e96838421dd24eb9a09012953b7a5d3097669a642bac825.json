@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "wrong_number",
+    "should_end_call": true,
+    "spoken_response": "Maaf kijiyega, wrong number lag gaya. Shukriya.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "wrong_number"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 3569.4,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "e11cf1f71aa5446f8e96838421dd24eb9a09012953b7a5d3097669a642bac825",
+    "response_hash": "7bfcb72f8d18f44b7abf71345614eb2e7bd6b0937c50fe2805249fa5cf42ab62",
+    "usage": {
+      "candidatesTokenCount": 56,
+      "promptTokenCount": 1691,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1691
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 441,
+      "totalTokenCount": 2188
+    }
+  }
+}

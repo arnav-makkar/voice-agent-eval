@@ -1,0 +1,35 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-TREF-03",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "I understand. What is the earliest date you can make the payment?",
+        "terminal_state": "acknowledged"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 8467.9,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "b1e897a3588036ffe9daa6069d8a547403af50ee2ba3a6313da7099c4112f5ba",
+    "response_hash": "ee412e15648d6af35e22a0daebb4307bb69f3d1ce147aae64596c21e7b2a5879",
+    "usage": {
+      "candidatesTokenCount": 89,
+      "promptTokenCount": 1568,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1568
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1339,
+      "totalTokenCount": 2996
+    }
+  }
+}

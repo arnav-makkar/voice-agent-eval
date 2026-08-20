@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "acknowledged",
+    "should_end_call": true,
+    "spoken_response": "Koi baat nahi Mehak ji. Kripya EasyCredit app ke zariye jald se jald payment karne ki koshish karein. Dhanyawad!",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "acknowledged"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4535.6,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "32c24749a17355593dd25cad43497bb7baf45ed40f96c9d1e1f421dddf472695",
+    "response_hash": "098de524e5b5b22839f992272d1fbaae04042c3dd07ca39c5dd584b1b7f111fd",
+    "usage": {
+      "candidatesTokenCount": 75,
+      "promptTokenCount": 1879,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1879
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 653,
+      "totalTokenCount": 2607
+    }
+  }
+}

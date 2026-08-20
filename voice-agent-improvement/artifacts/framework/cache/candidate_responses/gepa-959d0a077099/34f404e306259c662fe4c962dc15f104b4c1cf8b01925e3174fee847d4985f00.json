@@ -1,0 +1,35 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-TERM-01",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "बहुत धन्यवाद अर्णव जी, कृपया EasyCredit app से payment पूरा कर लीजिए। आपका दिन शुभ हो।",
+        "terminal_state": "payment_ready"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4305.3,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "34f404e306259c662fe4c962dc15f104b4c1cf8b01925e3174fee847d4985f00",
+    "response_hash": "f3397aee547d620d2ca9d1b3a77c340fa5c8377cb65b18623f4a4004645a3a47",
+    "usage": {
+      "candidatesTokenCount": 66,
+      "promptTokenCount": 1451,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1451
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 586,
+      "totalTokenCount": 2103
+    }
+  }
+}

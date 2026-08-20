@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Thik hai, kya aap 17-08-2026 ko shaam tak payment confirm karte hain?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 7610.5,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "b90e9b29a564613464664f52087050b9bfc3f00c628e61ae3bd6d2358e2c3e16",
+    "response_hash": "7c52eb586cc3fa7d8e4f53a37c186bcbf9f5221d797d11d574e88d7385f3f754",
+    "usage": {
+      "candidatesTokenCount": 50,
+      "promptTokenCount": 1753,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1753
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1407,
+      "totalTokenCount": 3210
+    }
+  }
+}

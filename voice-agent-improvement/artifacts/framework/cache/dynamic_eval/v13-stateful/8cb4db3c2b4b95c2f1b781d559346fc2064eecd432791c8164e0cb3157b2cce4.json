@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Koi baat nahi Arnav ji. Aap ye payment kab tak kar denge?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4708.4,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "8cb4db3c2b4b95c2f1b781d559346fc2064eecd432791c8164e0cb3157b2cce4",
+    "response_hash": "e5bbbddad7ca9a8f93937600ca03b42ec3788b11de6cc2bbc44d51471dcb0ce4",
+    "usage": {
+      "candidatesTokenCount": 54,
+      "promptTokenCount": 1678,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1678
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 607,
+      "totalTokenCount": 2339
+    }
+  }
+}

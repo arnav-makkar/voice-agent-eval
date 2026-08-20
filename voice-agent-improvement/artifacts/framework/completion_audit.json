@@ -1,0 +1,309 @@
+{
+  "binding_open_gates": [
+    "Arnav reviews and versions the 20 provisional discovery labels and confirms Sarvam key rotation.",
+    "A secure public tool route works from the deployed Indus runtime and one real tool side effect is captured.",
+    "V15 is committed as an exact immutable Indus version.",
+    "The frozen matched V12/V15 live voice suite runs and the independent gate emits the final decision."
+  ],
+  "claim_boundary": "The local framework and prospective protocol verify cleanly. The project is not evidence-complete until the binding open gates are satisfied; no live candidate lift or live tool execution is claimed.",
+  "current_evaluator": "evaluation-metrics.v3/loopline-eva-adapter.v1/samvaad-duplex.v10",
+  "generated_at": "2026-08-19T18:19:15.798073+00:00",
+  "phases": {
+    "P0_truth_repair": [
+      {
+        "evidence": [
+          "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/reference_annotations.provisional.jsonl"
+        ],
+        "id": "owner_labels",
+        "label": "Owner review of 20 discovery labels",
+        "note": "The 20 labels remain explicitly provisional; only Arnav can convert them into owner truth.",
+        "status": "external_pending"
+      },
+      {
+        "evidence": [
+          "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/dynamic_release_v15.json",
+          "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/tests/test_dynamic_release.py"
+        ],
+        "id": "strict_gate",
+        "label": "Per-case severity and preserved-win gate",
+        "note": "Aggregate improvement cannot hide a new severe or preserved-win regression.",
+        "status": "complete"
+      },
+      {
+        "evidence": [
+          "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/datasets/emi_failure_derived_v3/manifest.json",
+          "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/datasets/emi_failure_derived_v3/integrity_audit.json"
+        ],
+        "id": "static_library",
+        "label": "200 rows demoted to static development diagnostics",
+        "note": "The former held-out split is not used as final proof.",
+        "status": "complete"
+      },
+      {
+        "evidence": [
+          "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/verification/latest.json"
+        ],
+        "id": "verification",
+        "label": "Code, dashboard and protocol verification",
+        "note": "The full Python unit test suite, dashboard lint/tests/build, freeze checks and secret scan pass in the latest verifier run.",
+        "status": "complete"
+      },
+      {
+        "evidence": [],
+        "id": "key_rotation",
+        "label": "Rotate previously exposed Sarvam key",
+        "note": "Key rotation is an account action and cannot be proven from repository state.",
+        "status": "owner_confirmation_required"
+      }
+    ],
+    "P1_clone_and_spike": [
+      {
+        "evidence": [
+          "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/UPSTREAM_SOURCES.md",
+          "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/THIRD_PARTY_NOTICES.md"
+        ],
+        "id": "upstreams",
+        "label": "Pinned EVA, tau and Riley references with licenses",
+        "note": "Pinned commits and attribution are recorded.",
+        "status": "complete"
+      },
+      {
+        "evidence": [],
+        "id": "stock_eva",
+        "label": "Untouched upstream EVA scenario",
+        "note": "The upstream stock run requires its full supported provider stack. The project instead preserves a disclosed EVA adaptation; it must not be called an untouched upstream run.",
+        "status": "documented_fallback"
+      },
+      {
+        "evidence": [
+          "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/src/eva/assistant/samvaad_server.py"
+        ],
+        "id": "indus_adapter",
+        "label": "Verified Samvaad bidirectional audio adapter",
+        "note": "Samvaad remains the complete deployed agent under test.",
+        "status": "complete"
+      },
+      {
+        "evidence": [
+          "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/eva_live/emi_eva_live_20260819_135630/attempt_status.json"
+        ],
+        "id": "live_duplex",
+        "label": "Clean realtime ElevenLabs caller to Samvaad trial",
+        "note": "One valid live audio-in/audio-out conversation is preserved and eligible for scoring.",
+        "status": "complete"
+      },
+      {
+        "evidence": [
+          "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/framework/tool_service.py"
+        ],
+        "id": "live_tool_effect",
+        "label": "Captured Indus tool call and state mutation",
+        "note": "The service is authenticated, isolated and tested, but the Indus test runtime omitted the stored credential. No live side effect is claimed.",
+        "status": "external_blocked"
+      }
+    ],
+    "P2_emi_eval_world": [
+      {
+        "evidence": [
+          "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/dynamic_scenarios_v1/manifest.json"
+        ],
+        "id": "scenario_count",
+        "label": "30 stateful development/validation/regression scenarios",
+        "note": "18 development + 6 validation + 6 regression scenarios.",
+        "status": "complete"
+      },
+      {
+        "evidence": [
+          "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/framework/tool_service.py",
+          "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/tests/test_tool_service.py"
+        ],
+        "id": "three_tools",
+        "label": "Payment-status, promise-to-pay and callback tools",
+        "note": "All three tools have authenticated, idempotent, run-scoped implementations and tests.",
+        "status": "complete"
+      },
+      {
+        "evidence": [
+          "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/framework/evaluation/environment.py",
+          "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/tests/test_dynamic_evaluation.py",
+          "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/tests/test_tool_service.py"
+        ],
+        "id": "fresh_state",
+        "label": "Fresh SQLite state and no cross-trial leakage",
+        "note": "Per-trial state is isolated and covered by tests.",
+        "status": "complete"
+      },
+      {
+        "evidence": [
+          "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/dynamic_experiments/v12-dynamic-full/summary.json"
+        ],
+        "id": "simulator_validity",
+        "label": "Simulator validity and termination checks",
+        "note": "Text-mode baseline recorded 30/30 valid simulations; live reliability remains a later gate.",
+        "status": "complete"
+      }
+    ],
+    "P3_evaluation": [
+      {
+        "evidence": [
+          "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/eva_adapter_v10/evaluator_freeze.json"
+        ],
+        "id": "metric_contract",
+        "label": "Frozen Accuracy, Experience, validation and diagnostic contract",
+        "note": "V10 is the prospective evaluator. It changes only the synthetic caller name; historical V7–V9 evidence remains immutable.",
+        "status": "complete"
+      },
+      {
+        "evidence": [
+          "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/evaluator_calibration/summary.json"
+        ],
+        "id": "calibration",
+        "label": "Calibration against owner-reviewed discovery calls",
+        "note": "Current agreement is against Codex-assisted provisional labels, not independent owner truth.",
+        "status": "external_pending"
+      },
+      {
+        "evidence": [
+          "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/dynamic_experiments/v12-dynamic-full/summary.json",
+          "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/eva_live/emi_eva_live_20260819_135630/attempt_status.json"
+        ],
+        "id": "v12_scorecard",
+        "label": "Reproducible V12 baseline scorecard",
+        "note": "The 30-case stateful text baseline and one full live EVA score exist; an 18-case repeated live baseline does not.",
+        "status": "partial"
+      }
+    ],
+    "P4_improvement": [
+      {
+        "evidence": [
+          "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/dynamic_gepa/lineage.json",
+          "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/extractor",
+          "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/selection.json"
+        ],
+        "id": "repair_arms",
+        "label": "Manual, GEPA and extractor repair arms",
+        "note": "Prompt and extractor changes are evaluated independently and failed candidates are retained.",
+        "status": "complete"
+      },
+      {
+        "evidence": [
+          "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/dynamic_gepa/lineage.json",
+          "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/dynamic_gepa/engine"
+        ],
+        "id": "gepa_lineage",
+        "label": "Real GEPA Optimize Anything lineage",
+        "note": "The real optimizer, candidates, reflection and MLflow lineage are preserved.",
+        "status": "complete"
+      },
+      {
+        "evidence": [
+          "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/dynamic_gepa/lineage.json"
+        ],
+        "id": "multi_seed",
+        "label": "Repeated GEPA search from multiple seed prompts",
+        "note": "One stateful GEPA seed was run. Another optimizer run is intentionally deferred until live execution identifies a prompt-owned failure; more search is not evidence by itself.",
+        "status": "not_required_for_current_gate"
+      },
+      {
+        "evidence": [
+          "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/datasets/emi_failure_derived_v3/manifest.json"
+        ],
+        "id": "cheap_screen",
+        "label": "Static 200-case library used only for cheap screening",
+        "note": "It is excluded from final voice claims.",
+        "status": "complete"
+      }
+    ],
+    "P5_re_evaluation_and_gate": [
+      {
+        "evidence": [
+          "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/dynamic_release_v15.json"
+        ],
+        "id": "matched_text",
+        "label": "Identical matched V12/V15 stateful text comparison",
+        "note": "V12 16/30 versus V15 30/30 under the governing deterministic v3 rescore (original full-run aggregate 29/30; immutable traces were not rerun) on development/validation/regression; text evidence only.",
+        "status": "complete"
+      },
+      {
+        "evidence": [
+          "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/dynamic_scenarios_v1/fresh_final_seal.json",
+          "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/fresh_final_decision.json"
+        ],
+        "id": "fresh_final",
+        "label": "Sealed group-separated final test",
+        "note": "The once-only 12-case text final is preserved with hashes and an access log.",
+        "status": "complete"
+      },
+      {
+        "evidence": [
+          "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/eva_voice_suite_v1/manifest.json"
+        ],
+        "id": "matched_voice",
+        "label": "Frozen matched V12/V15 live voice suite",
+        "note": "The [{'record_id': 'EMI-VOICE-001', 'source_id': 'EMI-DYN-001', 'suite': 'core', 'scenario_path': '/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-VOICE-001.json'}, {'record_id': 'EMI-VOICE-002', 'source_id': 'EMI-DYN-003', 'suite': 'core', 'scenario_path': '/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-VOICE-002.json'}, {'record_id': 'EMI-VOICE-003', 'source_id': 'EMI-DYN-005', 'suite': 'core', 'scenario_path': '/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-VOICE-003.json'}, {'record_id': 'EMI-VOICE-004', 'source_id': 'EMI-DYN-006', 'suite': 'core', 'scenario_path': '/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-VOICE-004.json'}, {'record_id': 'EMI-VOICE-005', 'source_id': 'EMI-DYN-007', 'suite': 'core', 'scenario_path': '/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-VOICE-005.json'}, {'record_id': 'EMI-VOICE-006', 'source_id': 'EMI-DYN-008', 'suite': 'core', 'scenario_path': '/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-VOICE-006.json'}, {'record_id': 'EMI-VOICE-007', 'source_id': 'EMI-DYN-009', 'suite': 'core', 'scenario_path': '/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-VOICE-007.json'}, {'record_id': 'EMI-VOICE-008', 'source_id': 'EMI-DYN-012', 'suite': 'core', 'scenario_path': '/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-VOICE-008.json'}, {'record_id': 'EMI-VOICE-009', 'source_id': 'EMI-DYN-013', 'suite': 'core', 'scenario_path': '/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-VOICE-009.json'}, {'record_id': 'EMI-VOICE-010', 'source_id': 'EMI-DYN-014', 'suite': 'core', 'scenario_path': '/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-VOICE-010.json'}, {'record_id': 'EMI-VOICE-011', 'source_id': 'EMI-DYN-025', 'suite': 'core', 'scenario_path': '/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-VOICE-011.json'}, {'record_id': 'EMI-VOICE-012', 'source_id': 'EMI-DYN-028', 'suite': 'core', 'scenario_path': '/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-VOICE-012.json'}, {'record_id': 'EMI-VOICE-013', 'source_id': 'EMI-DYN-001', 'suite': 'acoustic', 'perturbation': {'kind': 'background_noise', 'snr_db': 12, 'seed': 1301}, 'scenario_path': '/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-VOICE-013.json'}, {'record_id': 'EMI-VOICE-014', 'source_id': 'EMI-DYN-001', 'suite': 'acoustic', 'perturbation': {'kind': 'low_gain', 'gain': 0.4, 'seed': 1302}, 'scenario_path': '/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-VOICE-014.json'}, {'record_id': 'EMI-VOICE-015', 'source_id': 'EMI-DYN-001', 'suite': 'acoustic', 'perturbation': {'kind': 'packet_loss', 'probability': 0.08, 'seed': 1303}, 'scenario_path': '/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-VOICE-015.json'}, {'record_id': 'EMI-VOICE-016', 'source_id': 'EMI-DYN-028', 'suite': 'acoustic', 'perturbation': {'kind': 'jitter', 'max_delay_ms': 80, 'seed': 1304}, 'scenario_path': '/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-VOICE-016.json'}, {'record_id': 'EMI-VOICE-017', 'source_id': 'EMI-DYN-012', 'suite': 'acoustic', 'perturbation': {'kind': 'background_noise', 'snr_db': 15, 'seed': 1305}, 'scenario_path': '/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-VOICE-017.json'}, {'record_id': 'EMI-VOICE-018', 'source_id': 'EMI-DYN-013', 'suite': 'acoustic', 'perturbation': {'kind': 'low_gain', 'gain': 0.55, 'seed': 1306}, 'scenario_path': '/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-VOICE-018.json'}]-record protocol exists, but zero baseline/candidate pairs have completed.",
+        "status": "external_pending"
+      },
+      {
+        "evidence": [
+          "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/fresh_final_decision.json"
+        ],
+        "id": "final_release",
+        "label": "Signed live promote/hold/rollback record",
+        "note": "The current signed decision is pass_text_final_awaiting_matched_voice, not production promotion.",
+        "status": "pending_on_matched_voice"
+      }
+    ],
+    "P6_unified_ui": [
+      {
+        "evidence": [
+          "/Users/Arnav/Claude/Projects/Sarvam/dashboard/app/page.tsx",
+          "/Users/Arnav/Claude/Projects/Sarvam/dashboard/tests/rendered-html.test.mjs"
+        ],
+        "id": "loopline",
+        "label": "Loopline evaluation/improvement/release product UI",
+        "note": "Production build and render tests pass.",
+        "status": "complete"
+      },
+      {
+        "evidence": [
+          "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/eva_live/emi_eva_live_20260819_135630/attempt_status.json"
+        ],
+        "id": "live_evidence",
+        "label": "Audio, transcript, provider events, first defect and EVA scores",
+        "note": "The valid realtime run is replayable in the UI.",
+        "status": "complete"
+      },
+      {
+        "evidence": [
+          "/Users/Arnav/Claude/Projects/Sarvam/dashboard/app/page.tsx"
+        ],
+        "id": "tool_and_reliability_panels",
+        "label": "Populated live tool timeline and matched reliability panels",
+        "note": "The views and contracts exist; they remain empty until live tool and matched suite evidence is captured.",
+        "status": "external_pending"
+      },
+      {
+        "evidence": [
+          "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/experiments/mlflow.db"
+        ],
+        "id": "mlflow",
+        "label": "MLflow experiment lineage",
+        "note": "Experiment runs and negative candidates are retained for technical drill-down.",
+        "status": "complete"
+      }
+    ]
+  },
+  "schema_version": "final-interview-plan-audit.v1",
+  "source_plan": "/Users/Arnav/Claude/Projects/Sarvam/FINAL-INTERVIEW-DECISION.html",
+  "status_counts": {
+    "complete": 19,
+    "documented_fallback": 1,
+    "external_blocked": 1,
+    "external_pending": 4,
+    "not_required_for_current_gate": 1,
+    "owner_confirmation_required": 1,
+    "partial": 1,
+    "pending_on_matched_voice": 1
+  },
+  "verifier_passed": true
+}

@@ -1,0 +1,22 @@
+[
+  {"run_id":"BL-V12-01","scenario_id":"BL-V12-01","attempt_id":"3f34fed8-564c-4e3a-b1ed-42767c18ab06","corpus_role":"matched","benchmark_member":true,"primary_eligible":true,"expected_disposition":"payment_ready"},
+  {"run_id":"BL-V12-02","scenario_id":"EXP-BUSY-REFUSAL","attempt_id":"7ecc8140-d9f4-4a8d-907c-2045334ee54d","corpus_role":"exploratory","benchmark_member":false,"primary_eligible":false,"expected_disposition":"rtp"},
+  {"run_id":"BL-V12-03-FRAUD","scenario_id":"EXP-FRAUD-CLAIM","attempt_id":"43f41867-cc8b-499f-840c-2455a09f579d","corpus_role":"exploratory","benchmark_member":false,"primary_eligible":false,"expected_disposition":"escalation"},
+  {"run_id":"BL-V12-04-AI","scenario_id":"EXP-AI-REFUSAL","attempt_id":"6afd9fdb-30a7-42ec-94b2-8b1b023a9fcd","corpus_role":"exploratory","benchmark_member":false,"primary_eligible":false,"expected_disposition":"rtp"},
+  {"run_id":"BL-V12-05","scenario_id":"BL-V12-05","attempt_id":"440055a5-2f3f-4cf0-a16c-317f737b44b8","corpus_role":"matched","benchmark_member":true,"primary_eligible":true,"expected_disposition":"payment_ready"},
+  {"run_id":"BL-V12-06","scenario_id":"BL-V12-06","attempt_id":"ad8cd11b-4737-4b07-80af-474a705e6443","corpus_role":"matched","benchmark_member":true,"primary_eligible":true,"expected_disposition":"payment_ready"},
+  {"run_id":"BL-V12-07","scenario_id":"BL-V12-07","attempt_id":"ccc626b4-d62d-4a3c-b3e1-f570b4775bf8","corpus_role":"matched","benchmark_member":true,"primary_eligible":true,"expected_disposition":"payment_ready"},
+  {"run_id":"BL-V12-08","scenario_id":"BL-V12-08","attempt_id":"928c4fa1-1b66-48f4-a030-cda8e9c11bf7","corpus_role":"matched","benchmark_member":true,"primary_eligible":true,"expected_disposition":"payment_ready"},
+  {"run_id":"BL-V12-09","scenario_id":"BL-V12-09","attempt_id":"d2b2f47d-0cd2-4e45-a10e-a34656a89b40","corpus_role":"matched","benchmark_member":true,"primary_eligible":false,"expected_disposition":"fptp"},
+  {"run_id":"BL-V12-10","scenario_id":"BL-V12-10","attempt_id":"3f513313-6c46-4075-948d-0a6b156e792e","corpus_role":"matched","benchmark_member":true,"primary_eligible":false,"expected_disposition":"fptp"},
+  {"run_id":"BL-V12-11","scenario_id":"BL-V12-11","attempt_id":"d0ed0d59-f513-4fa7-87ac-ed1a665633c8","corpus_role":"matched","benchmark_member":true,"primary_eligible":false,"expected_disposition":"already_paid"},
+  {"run_id":"BL-V12-12","scenario_id":"BL-V12-12","attempt_id":"48f7d54c-6bff-4f21-a767-d352577576da","corpus_role":"matched","benchmark_member":true,"primary_eligible":false,"expected_disposition":"dispute"},
+  {"run_id":"BL-V12-13","scenario_id":"BL-V12-13","attempt_id":"b1d12987-1d44-4388-b7f7-499d2c246725","corpus_role":"matched","benchmark_member":true,"primary_eligible":true,"expected_disposition":"payment_ready"},
+  {"run_id":"BL-V12-14","scenario_id":"BL-V12-14","attempt_id":"f337f94d-8c81-46fc-ae8b-e76e5d3fe48d","corpus_role":"matched","benchmark_member":true,"primary_eligible":true,"expected_disposition":"payment_ready"},
+  {"run_id":"BL-V12-15","scenario_id":"BL-V12-15","attempt_id":"5a5f1547-8cd9-4c36-ab2f-e71a1fa31c19","corpus_role":"matched","benchmark_member":true,"primary_eligible":false,"expected_disposition":"rtp"},
+  {"run_id":"BL-V12-16","scenario_id":"EXP-NO-APP","attempt_id":"def300ed-2d32-4434-87fe-0af6d696491c","corpus_role":"exploratory","benchmark_member":false,"primary_eligible":false,"expected_disposition":"acknowledged"},
+  {"run_id":"BL-V12-02-R1","scenario_id":"BL-V12-02","attempt_id":"891333dc-e5e0-40e3-9f05-1919ec6cb389","corpus_role":"matched","benchmark_member":true,"primary_eligible":true,"expected_disposition":"payment_ready"},
+  {"run_id":"BL-V12-03-R1","scenario_id":"BL-V12-03","attempt_id":"84e2040e-b375-477e-bbeb-2325d221ed36","corpus_role":"matched","benchmark_member":true,"primary_eligible":true,"expected_disposition":"payment_ready"},
+  {"run_id":"BL-V12-04-R1","scenario_id":"BL-V12-04","attempt_id":"dda755ae-f7f6-4c5e-9aad-d1ff5bdf0bae","corpus_role":"matched","benchmark_member":true,"primary_eligible":true,"expected_disposition":"payment_ready"},
+  {"run_id":"BL-V12-04-R1-en","scenario_id":"LANG-AUTH-EN","attempt_id":"42767a5b-79a6-45e0-88dc-66fa7fcb8917","corpus_role":"language_variant","benchmark_member":false,"primary_eligible":true,"expected_disposition":"payment_ready"}
+]

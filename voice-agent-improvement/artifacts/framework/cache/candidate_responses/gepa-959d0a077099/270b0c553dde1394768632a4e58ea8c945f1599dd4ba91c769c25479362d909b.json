@@ -1,0 +1,35 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-FACT-22",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "Koi baat nahi sir, aap kab tak payment kar denge?",
+        "terminal_state": ""
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 12686.9,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "270b0c553dde1394768632a4e58ea8c945f1599dd4ba91c769c25479362d909b",
+    "response_hash": "e701717b805e908f16f9c880f5196206d9447067e5caac9747f2bf1cfbe1f4ed",
+    "usage": {
+      "candidatesTokenCount": 53,
+      "promptTokenCount": 1492,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1492
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 2195,
+      "totalTokenCount": 3740
+    }
+  }
+}

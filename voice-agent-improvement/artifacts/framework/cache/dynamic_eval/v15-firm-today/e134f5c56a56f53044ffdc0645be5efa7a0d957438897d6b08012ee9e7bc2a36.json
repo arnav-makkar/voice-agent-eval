@@ -1,0 +1,43 @@
+{
+  "data": {
+    "disposition": "ptp_today",
+    "should_end_call": true,
+    "spoken_response": "Ji dhanyawad Gurpreet ji, aap aaj shaam tak EasyCredit app se payment kar dijiyega.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "date": "17-08-2026"
+        },
+        "name": "record_promise_to_pay"
+      },
+      {
+        "arguments": {
+          "disposition": "ptp_today"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4709.0,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "e134f5c56a56f53044ffdc0645be5efa7a0d957438897d6b08012ee9e7bc2a36",
+    "response_hash": "966b1697106b1146d041a080abfdbfe5961cee8b429af9cc9984f8a17e1f4af4",
+    "usage": {
+      "candidatesTokenCount": 95,
+      "promptTokenCount": 1833,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1833
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 795,
+      "totalTokenCount": 2723
+    }
+  }
+}

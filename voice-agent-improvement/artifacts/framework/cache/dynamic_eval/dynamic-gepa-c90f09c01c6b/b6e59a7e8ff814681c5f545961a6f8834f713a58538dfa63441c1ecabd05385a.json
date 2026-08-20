@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "rtp",
+    "should_end_call": true,
+    "spoken_response": "Thik hai, main note kar leta hoon ki aap payment nahi karna chahte. Dhanyawaad.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "rtp"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4864.4,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "b6e59a7e8ff814681c5f545961a6f8834f713a58538dfa63441c1ecabd05385a",
+    "response_hash": "67cf6ba89fb3045d4f81bba15768535946714900d9b31315be0ffd144f73de1c",
+    "usage": {
+      "candidatesTokenCount": 62,
+      "promptTokenCount": 1753,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1753
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 688,
+      "totalTokenCount": 2503
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "schema_version": "eva-live-attempt.v1",
+  "run_id": "emi_eva_live_20260819_132950",
+  "record_id": "EMI-LIVE-001",
+  "classification": "invalid_provider_infrastructure_attempt",
+  "eligible_for_agent_quality_scoring": false,
+  "valid_realtime_bot_to_bot_conversation": false,
+  "controlled_change_from_prior_attempt": "Replaced the caller LLM with the workspace-supported ElevenLabs-native qwen36-35b-a3b model; voice, prompt, scenario, and audio transport were unchanged.",
+  "system_under_test": {
+    "provider": "Sarvam Samvaad",
+    "agent": "Shubh",
+    "app_version": 12,
+    "connected": true,
+    "interaction_id": "20260819/c3c104b0-13:29:55-93c0e08e",
+    "opening_audio_observed": true
+  },
+  "user_simulator": {
+    "provider": "ElevenLabs Agents",
+    "persona": "Arnav",
+    "llm": "qwen36-35b-a3b",
+    "connected": true,
+    "status": "failed",
+    "error_code": 1002,
+    "error_type": "dependency_error",
+    "termination_reason": "This request cannot be processed due to a payment issue.",
+    "reported_cost": 0
+  },
+  "observed_exchange": {
+    "assistant_audio_seconds": 2.278,
+    "caller_clean_audio_seconds": 1.52,
+    "substantive_completed_turns": 0,
+    "task_outcome": null,
+    "latency_eligible": false
+  },
+  "conclusion": "The repeated payment failure is account-level ElevenLabs billing/quota, not the chosen hosted LLM and not the Samvaad transport.",
+  "next_action": "In ElevenLabs Developer settings > Top Up, add the minimum PAYG balance (₹500 in India) or activate an eligible paid subscription. Then run the guarded command once. Do not score or present this attempt as an agent failure.",
+  "record_artifacts": "records/EMI-LIVE-001_failed_attempt_1"
+}

@@ -1,0 +1,35 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-TERM-22",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Bahut badhiya, ji! Aap EasyCredit app open karke abhi payment kar dijiye. Dhanyawad!",
+        "terminal_state": "payment_ready"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 3224.3,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "c6f5c732f8bd4b22c30b6aa56d4963ab4563750d2706377c40d070fe8d7c8c0e",
+    "response_hash": "7b6c0a180798bc00e4bdd5e31e09053e1f9393d50aac1d22029051f98c81529d",
+    "usage": {
+      "candidatesTokenCount": 71,
+      "promptTokenCount": 1572,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1572
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 377,
+      "totalTokenCount": 2020
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Hi Kabir, I am Shubh from EasyCredit regarding your overdue EMI of Rs 3103 for the Samsung TV. Can you pay now in the EasyCredit app?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5556.1,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "90bca8a95f1255652ea8ad2140a4bc9e0309fba7a1164d986c9572a42e85d7f7",
+    "response_hash": "27bb92edb15354f21fa3fc52986fc25edf7fd1c6ae47cb35d48f5821d7d75e4b",
+    "usage": {
+      "candidatesTokenCount": 65,
+      "promptTokenCount": 1760,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1760
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 741,
+      "totalTokenCount": 2566
+    }
+  }
+}

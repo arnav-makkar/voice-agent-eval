@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Ji haan, main EasyCredit ka AI voice assistant hoon. Aap official EasyCredit app kholkar payment kar sakte hain. Kya aap abhi payment karenge?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 6185.0,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "f827d37bf82c99234ebef26d7dd6630efa964146c0d12b3507e0d329f8f4c1e5",
+    "response_hash": "4689c67db0ee49d6e2df401447257ff1406ef56ad366bb3c4ab8b8d8786737dd",
+    "usage": {
+      "candidatesTokenCount": 57,
+      "promptTokenCount": 1829,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1829
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 912,
+      "totalTokenCount": 2798
+    }
+  }
+}

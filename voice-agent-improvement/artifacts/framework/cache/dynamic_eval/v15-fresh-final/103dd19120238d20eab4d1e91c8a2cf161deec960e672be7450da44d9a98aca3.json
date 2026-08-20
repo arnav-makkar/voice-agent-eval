@@ -1,0 +1,35 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Aapne kal app se payment kiya hai, main abhi aapka payment status check kar leta hoon.",
+    "tool_calls": [
+      {
+        "arguments": {},
+        "name": "check_payment_status"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 6665.8,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "103dd19120238d20eab4d1e91c8a2cf161deec960e672be7450da44d9a98aca3",
+    "response_hash": "ea14933d765fd4daf4b2cf1d3d5c233692cecec28fcaee2e99531a44bc615a40",
+    "usage": {
+      "candidatesTokenCount": 58,
+      "promptTokenCount": 1842,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1842
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1015,
+      "totalTokenCount": 2915
+    }
+  }
+}

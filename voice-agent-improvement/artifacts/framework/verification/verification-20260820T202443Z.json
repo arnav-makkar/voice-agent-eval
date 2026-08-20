@@ -1,0 +1,498 @@
+{
+  "commands": [
+    {
+      "command": [
+        "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/.venv/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_*.py",
+        "-q"
+      ],
+      "cwd": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement",
+      "exit_code": 0,
+      "name": "python_unit_tests",
+      "output_tail": "PyAudio not available. Local audio streaming will not work.\n/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/.venv/lib/python3.11/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n  from starlette.testclient import TestClient as TestClient  # noqa\n----------------------------------------------------------------------\nRan 79 tests in 0.269s\n\nOK\n",
+      "passed": true
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "lint"
+      ],
+      "cwd": "/Users/Arnav/Claude/Projects/Sarvam/dashboard",
+      "exit_code": 0,
+      "name": "dashboard_lint",
+      "output_tail": "\n> loopline-agent-learning-dashboard@0.1.0 lint\n> eslint . --ignore-pattern dist --ignore-pattern .next\n\n",
+      "passed": true
+    },
+    {
+      "command": [
+        "npm",
+        "test"
+      ],
+      "cwd": "/Users/Arnav/Claude/Projects/Sarvam/dashboard",
+      "exit_code": 0,
+      "name": "dashboard_tests",
+      "output_tail": "\n> loopline-agent-learning-dashboard@0.1.0 test\n> npm run build && node --test tests/rendered-html.test.mjs\n\n\n> loopline-agent-learning-dashboard@0.1.0 build\n> WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext build\n\n\n  vinext build  (Vite 8.0.13)\n\n[1/5] analyze client references...\n\u001b[2K\ntransforming...✓ 218 modules transformed.\nrendering chunks...\n✓ built in 262ms\n[2/5] analyze server references...\n\u001b[2K\ntransforming...✓ 76 modules transformed.\nrendering chunks...\n✓ built in 76ms\n[3/5] build rsc environment...\n\u001b[2K\ntransforming...✓ 216 modules transformed.\nrendering chunks...\ncomputing gzip size...\n✓ built in 279ms\n[4/5] build client environment...\n\u001b[2K\ntransforming...✓ 117 modules transformed.\nrendering chunks...\ncomputing gzip size...\n✓ built in 343ms\n[5/5] build ssr environment...\n\u001b[2K\ntransforming...✓ 82 modules transformed.\nrendering chunks...\ncomputing gzip size...\n✓ built in 269ms\n\u001b[0m\n  Route (app)\n  ─ ? /\n\n  ? Unknown\n\n  ? Some routes could not be classified. vinext currently uses static analysis\n    and cannot detect dynamic API usage (headers(), cookies(), etc.) at build time.\n    Automatic classification will be improved in a future release.\n\n  Build complete. Run `vinext start` to start the production server.\n\n✔ server-renders Loopline without starter scaffolding (70.516542ms)\n✔ source keeps evaluation, improvement, and release claims separate (2.802625ms)\nℹ tests 2\nℹ suites 0\nℹ pass 2\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 115.11725\n\n(node:72376) ExperimentalWarning: glob is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n",
+      "passed": true
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "cwd": "/Users/Arnav/Claude/Projects/Sarvam/dashboard",
+      "exit_code": 0,
+      "name": "dashboard_build",
+      "output_tail": "\n> loopline-agent-learning-dashboard@0.1.0 build\n> WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext build\n\n\n  vinext build  (Vite 8.0.13)\n\n[1/5] analyze client references...\n\u001b[2K\ntransforming...✓ 218 modules transformed.\nrendering chunks...\n✓ built in 233ms\n[2/5] analyze server references...\n\u001b[2K\ntransforming...✓ 76 modules transformed.\nrendering chunks...\n✓ built in 73ms\n[3/5] build rsc environment...\n\u001b[2K\ntransforming...✓ 216 modules transformed.\nrendering chunks...\ncomputing gzip size...\n✓ built in 285ms\n[4/5] build client environment...\n\u001b[2K\ntransforming...✓ 117 modules transformed.\nrendering chunks...\ncomputing gzip size...\n✓ built in 322ms\n[5/5] build ssr environment...\n\u001b[2K\ntransforming...✓ 82 modules transformed.\nrendering chunks...\ncomputing gzip size...\n✓ built in 258ms\n\u001b[0m\n  Route (app)\n  ─ ? /\n\n  ? Unknown\n\n  ? Some routes could not be classified. vinext currently uses static analysis\n    and cannot detect dynamic API usage (headers(), cookies(), etc.) at build time.\n    Automatic classification will be improved in a future release.\n\n  Build complete. Run `vinext start` to start the production server.\n\n\n(node:72417) ExperimentalWarning: glob is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n",
+      "passed": true
+    }
+  ],
+  "environment": {
+    "node_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/.venv/bin",
+    "python": "3.11.9"
+  },
+  "fresh_final_protocol": {
+    "dataset_sha256": "0b36393ecc3acf88f460cb8f35a94711b0f7b65ba3554963e62308175fe41c14",
+    "decision": "pass_text_final_awaiting_matched_voice",
+    "evaluation_runs": 2,
+    "passed": true,
+    "sealed_sha256": "0b36393ecc3acf88f460cb8f35a94711b0f7b65ba3554963e62308175fe41c14"
+  },
+  "historical_method_freeze": {
+    "exact_historical_match": false,
+    "historical_evaluator_files": [
+      {
+        "actual": "9cf518e34e2610f37383484d9b5ee8d5424ab0bb5980e55428f0d3d5ff1cacfd",
+        "component": "historical_evaluator_files",
+        "expected": "9cf518e34e2610f37383484d9b5ee8d5424ab0bb5980e55428f0d3d5ff1cacfd",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/framework/evaluation/contracts.py"
+      },
+      {
+        "actual": "55842c91c7f771f8b6e4b220056d0e7d24933b6572adb72e70a891f64ee3861f",
+        "component": "historical_evaluator_files",
+        "expected": "55842c91c7f771f8b6e4b220056d0e7d24933b6572adb72e70a891f64ee3861f",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/framework/evaluation/environment.py"
+      },
+      {
+        "actual": "23fda7aad450113cf7592eb5479ef174ab5f544a7fa0baeb577316528be2d4cd",
+        "component": "historical_evaluator_files",
+        "expected": "23fda7aad450113cf7592eb5479ef174ab5f544a7fa0baeb577316528be2d4cd",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/framework/evaluation/runner.py"
+      },
+      {
+        "actual": "8ca46fc2657d5af512a42dacf9b2808074da28cac949fd96dad553bc0d0b7976",
+        "component": "historical_evaluator_files",
+        "expected": "e57f59cc7b4d52c44a337bf0bf3a5ec459b8428895993c09b49db1076f4840c4",
+        "matched": false,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/framework/evaluation/metrics.py"
+      },
+      {
+        "actual": "1225ce608051e89be366d9504f580f89e5bc47bec8470b53b9d18d8ca758fc8e",
+        "component": "historical_evaluator_files",
+        "expected": "1225ce608051e89be366d9504f580f89e5bc47bec8470b53b9d18d8ca758fc8e",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/framework/evaluation/semantic_metrics.py"
+      },
+      {
+        "actual": "fd4e4b3aedce96b61cfee787282dc7143b7e3d6a9f1d08cf51322ea971c62cae",
+        "component": "historical_evaluator_files",
+        "expected": "fd4e4b3aedce96b61cfee787282dc7143b7e3d6a9f1d08cf51322ea971c62cae",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/framework/evaluation/release.py"
+      }
+    ],
+    "immutable_experiment_inputs": [
+      {
+        "actual": "3d95098db8b459b955bf703d166884a2a03477155940dea6e57013356b28c9c1",
+        "component": "baseline_prompt",
+        "expected": "3d95098db8b459b955bf703d166884a2a03477155940dea6e57013356b28c9c1",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/agent/v1/SYSTEM-PROMPT.md"
+      },
+      {
+        "actual": "732d216b3a75bcb2d6424946cf935dfd1584d723f31020bb746908431dad90e3",
+        "component": "finalist_prompt",
+        "expected": "732d216b3a75bcb2d6424946cf935dfd1584d723f31020bb746908431dad90e3",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/agent/candidates/v15-firm-today.md"
+      },
+      {
+        "actual": "5a6d37cee9d382b3f15aecf87ed4b212e4a60329b066e162b6ac4fd8c643e440",
+        "component": "selection_decision",
+        "expected": "5a6d37cee9d382b3f15aecf87ed4b212e4a60329b066e162b6ac4fd8c643e440",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/selection.json"
+      },
+      {
+        "actual": "e7efa22dc34310fcd22bdc575c9f0f4dfe10d686b4368ef7b7042cc753bc18de",
+        "component": "development_suite",
+        "expected": "e7efa22dc34310fcd22bdc575c9f0f4dfe10d686b4368ef7b7042cc753bc18de",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/dynamic_scenarios_v1/development.jsonl"
+      },
+      {
+        "actual": "5358c2a6d5eac6eec9799d4c137e0892f554a4044953e83a087665582b8e6012",
+        "component": "development_suite",
+        "expected": "5358c2a6d5eac6eec9799d4c137e0892f554a4044953e83a087665582b8e6012",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/dynamic_scenarios_v1/validation.jsonl"
+      },
+      {
+        "actual": "b0b341debafe74adda48086c7163cef9919cbc0fa2cf133b05d8b3939412b385",
+        "component": "development_suite",
+        "expected": "b0b341debafe74adda48086c7163cef9919cbc0fa2cf133b05d8b3939412b385",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/dynamic_scenarios_v1/regression.jsonl"
+      },
+      {
+        "actual": "12e7345f72080e918a7ff6c6397e4b0803db29bb7599d11a7f0694dfe02c562f",
+        "component": "development_suite",
+        "expected": "12e7345f72080e918a7ff6c6397e4b0803db29bb7599d11a7f0694dfe02c562f",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/dynamic_scenarios_v1/manifest.json"
+      },
+      {
+        "actual": "de6ba04af594a2835099f8260bb6765335ecfeb1239a01f32f527481fead4ec3",
+        "component": "development_suite",
+        "expected": "de6ba04af594a2835099f8260bb6765335ecfeb1239a01f32f527481fead4ec3",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/dynamic_scenarios_v1/validation.json"
+      }
+    ],
+    "passed": true,
+    "status": "superseded_evaluator_reported",
+    "supersession_note": "The text-final experiment remains frozen. Current live evaluation uses the separately versioned V7 evaluator; mismatches below are disclosed evolution, not rewritten history."
+  },
+  "live_evaluator_freeze": {
+    "bundle_sha256": "35553ac8eac2fc60d275c41e434559534c5e3a7e03572c4bdfbb830df55b05d9",
+    "components": [
+      {
+        "actual": "89f32e876af1cb005999283dcfdcf313c042396c7c96ab09ebfcb30d3c4be43e",
+        "component": "evaluator_files",
+        "expected": "89f32e876af1cb005999283dcfdcf313c042396c7c96ab09ebfcb30d3c4be43e",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/framework/adapters/gemini.py"
+      },
+      {
+        "actual": "9cf518e34e2610f37383484d9b5ee8d5424ab0bb5980e55428f0d3d5ff1cacfd",
+        "component": "evaluator_files",
+        "expected": "9cf518e34e2610f37383484d9b5ee8d5424ab0bb5980e55428f0d3d5ff1cacfd",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/framework/evaluation/contracts.py"
+      },
+      {
+        "actual": "55842c91c7f771f8b6e4b220056d0e7d24933b6572adb72e70a891f64ee3861f",
+        "component": "evaluator_files",
+        "expected": "55842c91c7f771f8b6e4b220056d0e7d24933b6572adb72e70a891f64ee3861f",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/framework/evaluation/environment.py"
+      },
+      {
+        "actual": "8ca46fc2657d5af512a42dacf9b2808074da28cac949fd96dad553bc0d0b7976",
+        "component": "evaluator_files",
+        "expected": "8ca46fc2657d5af512a42dacf9b2808074da28cac949fd96dad553bc0d0b7976",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/framework/evaluation/metrics.py"
+      },
+      {
+        "actual": "1225ce608051e89be366d9504f580f89e5bc47bec8470b53b9d18d8ca758fc8e",
+        "component": "evaluator_files",
+        "expected": "1225ce608051e89be366d9504f580f89e5bc47bec8470b53b9d18d8ca758fc8e",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/framework/evaluation/semantic_metrics.py"
+      },
+      {
+        "actual": "c976ca7a37cc4ffcd6a65aa13b1ab004387ec8a301bf7db89fd66fe13fadf787",
+        "component": "evaluator_files",
+        "expected": "c976ca7a37cc4ffcd6a65aa13b1ab004387ec8a301bf7db89fd66fe13fadf787",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/framework/evaluation/adaptive_caller.py"
+      },
+      {
+        "actual": "8270863e53e623f4edeb461082340fd0429e6e470fb7c7df31264897bf328d6b",
+        "component": "evaluator_files",
+        "expected": "8270863e53e623f4edeb461082340fd0429e6e470fb7c7df31264897bf328d6b",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/framework/evaluation/live_budget.py"
+      },
+      {
+        "actual": "a26acfeab5fd145e66b89f4f54458e600e18333f77bcbdb54c420e8cc4b550e6",
+        "component": "evaluator_files",
+        "expected": "a26acfeab5fd145e66b89f4f54458e600e18333f77bcbdb54c420e8cc4b550e6",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/framework/evaluation/live_release.py"
+      },
+      {
+        "actual": "df2daac7ac8f09eed546a6015a3be42a6bd7a509d4981cd3369b095bf523cb55",
+        "component": "evaluator_files",
+        "expected": "df2daac7ac8f09eed546a6015a3be42a6bd7a509d4981cd3369b095bf523cb55",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/framework/evaluation/adapters/indus.py"
+      },
+      {
+        "actual": "3a16b335eb8ff6baa81ab9bdf0fdae2781694b0a54b1b62ea604c78c33dbc9f9",
+        "component": "evaluator_files",
+        "expected": "3a16b335eb8ff6baa81ab9bdf0fdae2781694b0a54b1b62ea604c78c33dbc9f9",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/framework/evaluation/adapters/sarvam_speech.py"
+      },
+      {
+        "actual": "2a283a972bdc806a358b8dc618208f42f2f1b4ccb510f97719c320fe591d4478",
+        "component": "evaluator_files",
+        "expected": "2a283a972bdc806a358b8dc618208f42f2f1b4ccb510f97719c320fe591d4478",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/scripts/run_eva_samvaad_live.py"
+      },
+      {
+        "actual": "78a5bb5495b00dbf96074f25aa798f34f816abe6244a178dd84d0359c8b38e35",
+        "component": "evaluator_files",
+        "expected": "78a5bb5495b00dbf96074f25aa798f34f816abe6244a178dd84d0359c8b38e35",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/scripts/run_eva_samvaad_suite.py"
+      },
+      {
+        "actual": "f3b4f86327e0b46758a89ffb97c373b5f5fee45fc89f1ea9cf5af7af5bec9648",
+        "component": "evaluator_files",
+        "expected": "f3b4f86327e0b46758a89ffb97c373b5f5fee45fc89f1ea9cf5af7af5bec9648",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/scripts/rescore_eva_samvaad_run.py"
+      },
+      {
+        "actual": "422ed4949cf74291de22854a0e8a24066e308e165841c61db794918ecd26a469",
+        "component": "evaluator_files",
+        "expected": "422ed4949cf74291de22854a0e8a24066e308e165841c61db794918ecd26a469",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/scripts/build_eva_emi_voice_suite.py"
+      },
+      {
+        "actual": "a7675f568c90425690c1177dd5bed4c083443c0fbc721f5ec65b1a25982a7108",
+        "component": "evaluator_files",
+        "expected": "a7675f568c90425690c1177dd5bed4c083443c0fbc721f5ec65b1a25982a7108",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/scripts/compare_eva_samvaad_suites.py"
+      },
+      {
+        "actual": "955c6dadc3db953738749899629ad08e69b1f275fbd3f98a7d4ff081bfdafad0",
+        "component": "evaluator_files",
+        "expected": "955c6dadc3db953738749899629ad08e69b1f275fbd3f98a7d4ff081bfdafad0",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/framework/tool_service.py"
+      },
+      {
+        "actual": "a0a0254849f804066c0a569c6ff37e9c4321ea832413d2871aaf39191d37d589",
+        "component": "evaluator_files",
+        "expected": "a0a0254849f804066c0a569c6ff37e9c4321ea832413d2871aaf39191d37d589",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/src/eva/assistant/samvaad_server.py"
+      },
+      {
+        "actual": "28e6c9ee971666577813b1ba27e8fdacf6153663cefc881253abbcb9648acb32",
+        "component": "evaluator_files",
+        "expected": "28e6c9ee971666577813b1ba27e8fdacf6153663cefc881253abbcb9648acb32",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/src/eva/metrics/accuracy/faithfulness.py"
+      },
+      {
+        "actual": "e88d4fed8b318b9f73f58077838d6e31a4771ab4bb043b00a394932caefd7a6d",
+        "component": "evaluator_files",
+        "expected": "e88d4fed8b318b9f73f58077838d6e31a4771ab4bb043b00a394932caefd7a6d",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/configs/prompts/judge.yaml"
+      },
+      {
+        "actual": "e7efa22dc34310fcd22bdc575c9f0f4dfe10d686b4368ef7b7042cc753bc18de",
+        "component": "scenario_suite",
+        "expected": "e7efa22dc34310fcd22bdc575c9f0f4dfe10d686b4368ef7b7042cc753bc18de",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/dynamic_scenarios_v1/development.jsonl"
+      },
+      {
+        "actual": "5358c2a6d5eac6eec9799d4c137e0892f554a4044953e83a087665582b8e6012",
+        "component": "scenario_suite",
+        "expected": "5358c2a6d5eac6eec9799d4c137e0892f554a4044953e83a087665582b8e6012",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/dynamic_scenarios_v1/validation.jsonl"
+      },
+      {
+        "actual": "b0b341debafe74adda48086c7163cef9919cbc0fa2cf133b05d8b3939412b385",
+        "component": "scenario_suite",
+        "expected": "b0b341debafe74adda48086c7163cef9919cbc0fa2cf133b05d8b3939412b385",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/dynamic_scenarios_v1/regression.jsonl"
+      },
+      {
+        "actual": "12e7345f72080e918a7ff6c6397e4b0803db29bb7599d11a7f0694dfe02c562f",
+        "component": "scenario_suite",
+        "expected": "12e7345f72080e918a7ff6c6397e4b0803db29bb7599d11a7f0694dfe02c562f",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/dynamic_scenarios_v1/manifest.json"
+      },
+      {
+        "actual": "de6ba04af594a2835099f8260bb6765335ecfeb1239a01f32f527481fead4ec3",
+        "component": "scenario_suite",
+        "expected": "de6ba04af594a2835099f8260bb6765335ecfeb1239a01f32f527481fead4ec3",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/dynamic_scenarios_v1/validation.json"
+      },
+      {
+        "actual": "99d6f0f37bba3595a6f3498b48f7dfee751d004af7980835725adb1612710f48",
+        "component": "live_voice_suite",
+        "expected": "99d6f0f37bba3595a6f3498b48f7dfee751d004af7980835725adb1612710f48",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_dataset.json"
+      },
+      {
+        "actual": "7fc70becbfc4d1a4bc37fd4b7c36187b28344688b2fe16f8f9f3f5ed1a32c5bf",
+        "component": "live_voice_suite",
+        "expected": "7fc70becbfc4d1a4bc37fd4b7c36187b28344688b2fe16f8f9f3f5ed1a32c5bf",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/eva_voice_suite_v1/manifest.json"
+      },
+      {
+        "actual": "8fc097a7787222ce009ad4692144949cc537339f8af8a2fac2411744d9739630",
+        "component": "live_voice_suite",
+        "expected": "8fc097a7787222ce009ad4692144949cc537339f8af8a2fac2411744d9739630",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-VOICE-001.json"
+      },
+      {
+        "actual": "ce4273e4139555cbc1475a170d66cfa28b64f035d6f22bbae1b73e5b6319a0b1",
+        "component": "live_voice_suite",
+        "expected": "ce4273e4139555cbc1475a170d66cfa28b64f035d6f22bbae1b73e5b6319a0b1",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-VOICE-002.json"
+      },
+      {
+        "actual": "42da0a8280a90af66eb0a5beb58f3b7a1e8265f972f9766afaf84d5050be3ba5",
+        "component": "live_voice_suite",
+        "expected": "42da0a8280a90af66eb0a5beb58f3b7a1e8265f972f9766afaf84d5050be3ba5",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-VOICE-003.json"
+      },
+      {
+        "actual": "a21e3d32a38dc27ceb4dd537bd215bfd2accefacf9c97de0569490484c0e188b",
+        "component": "live_voice_suite",
+        "expected": "a21e3d32a38dc27ceb4dd537bd215bfd2accefacf9c97de0569490484c0e188b",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-VOICE-004.json"
+      },
+      {
+        "actual": "f6baa5bb2c45b96b8073f92b88298afb75e5fb83a5a559ac59eeef9c7c5857b8",
+        "component": "live_voice_suite",
+        "expected": "f6baa5bb2c45b96b8073f92b88298afb75e5fb83a5a559ac59eeef9c7c5857b8",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-VOICE-005.json"
+      },
+      {
+        "actual": "45d1cb9a835d622e8cb365c59c143c4a26b68cc1f8832c02ca8d242415ad5561",
+        "component": "live_voice_suite",
+        "expected": "45d1cb9a835d622e8cb365c59c143c4a26b68cc1f8832c02ca8d242415ad5561",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-VOICE-006.json"
+      },
+      {
+        "actual": "e5c73f813dacde9b6eb87abb79929191c24582158da474ac93f434f2275814b6",
+        "component": "live_voice_suite",
+        "expected": "e5c73f813dacde9b6eb87abb79929191c24582158da474ac93f434f2275814b6",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-VOICE-007.json"
+      },
+      {
+        "actual": "ce84687a83f1fb5a7e50b1579321846f0b363bbcd4a6984d5fd946cfe53ab6d3",
+        "component": "live_voice_suite",
+        "expected": "ce84687a83f1fb5a7e50b1579321846f0b363bbcd4a6984d5fd946cfe53ab6d3",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-VOICE-008.json"
+      },
+      {
+        "actual": "a65f633d91529c088f5e1cdc6c5ce9d8e8dc9614c2cf7e4800a74da22ea49d12",
+        "component": "live_voice_suite",
+        "expected": "a65f633d91529c088f5e1cdc6c5ce9d8e8dc9614c2cf7e4800a74da22ea49d12",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-VOICE-009.json"
+      },
+      {
+        "actual": "e3633424030193af9b0fc67d0f698ba60109dc45340449325d6d56777835f9e1",
+        "component": "live_voice_suite",
+        "expected": "e3633424030193af9b0fc67d0f698ba60109dc45340449325d6d56777835f9e1",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-VOICE-010.json"
+      },
+      {
+        "actual": "b2a9b183b2d1d7b590b2e5c7dd82526e2d06b511ec74439edb2fcb8151613b8a",
+        "component": "live_voice_suite",
+        "expected": "b2a9b183b2d1d7b590b2e5c7dd82526e2d06b511ec74439edb2fcb8151613b8a",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-VOICE-011.json"
+      },
+      {
+        "actual": "1cb415118db93c748ddb8c7be1e7125361b5f59e89c3dc99d556fcb096541f44",
+        "component": "live_voice_suite",
+        "expected": "1cb415118db93c748ddb8c7be1e7125361b5f59e89c3dc99d556fcb096541f44",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-VOICE-012.json"
+      },
+      {
+        "actual": "1e898010581150a777d2e3d182a5d675ad9df135663fc7ac85f5cd4a2a78c97a",
+        "component": "live_voice_suite",
+        "expected": "1e898010581150a777d2e3d182a5d675ad9df135663fc7ac85f5cd4a2a78c97a",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-VOICE-013.json"
+      },
+      {
+        "actual": "b909abfb729b252a0ebc32b471b38b4b7a6c0ef215bcf313c45009a6fff747db",
+        "component": "live_voice_suite",
+        "expected": "b909abfb729b252a0ebc32b471b38b4b7a6c0ef215bcf313c45009a6fff747db",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-VOICE-014.json"
+      },
+      {
+        "actual": "e9807f16e8c6975ae4738d7048e5260d2d774ae81d5c2119979828c97dae67ea",
+        "component": "live_voice_suite",
+        "expected": "e9807f16e8c6975ae4738d7048e5260d2d774ae81d5c2119979828c97dae67ea",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-VOICE-015.json"
+      },
+      {
+        "actual": "5def64fb61e10eead7b5696626294125b75192b3363e5129c6b5a931b6ba2656",
+        "component": "live_voice_suite",
+        "expected": "5def64fb61e10eead7b5696626294125b75192b3363e5129c6b5a931b6ba2656",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-VOICE-016.json"
+      },
+      {
+        "actual": "8a1710e4c1f6238a78d9fea19aeb75538a2cb6840fbfc40311d886aa4a3ae177",
+        "component": "live_voice_suite",
+        "expected": "8a1710e4c1f6238a78d9fea19aeb75538a2cb6840fbfc40311d886aa4a3ae177",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-VOICE-017.json"
+      },
+      {
+        "actual": "448f8d364fe7a15ed48962e350873651849fd997a0e8203e68592cff7eebcc12",
+        "component": "live_voice_suite",
+        "expected": "448f8d364fe7a15ed48962e350873651849fd997a0e8203e68592cff7eebcc12",
+        "matched": true,
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-VOICE-018.json"
+      }
+    ],
+    "evaluator_version": "evaluation-metrics.v3/loopline-eva-adapter.v1/samvaad-duplex.v10",
+    "passed": true
+  },
+  "passed": true,
+  "schema_version": "loopline-verification.v2",
+  "secret_scan": {
+    "credential_pattern_files": [],
+    "passed": true
+  },
+  "verified_at": "2026-08-20T20:24:43.676044+00:00"
+}

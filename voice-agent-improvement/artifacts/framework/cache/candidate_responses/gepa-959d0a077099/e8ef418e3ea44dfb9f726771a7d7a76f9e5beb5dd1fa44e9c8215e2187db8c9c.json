@@ -1,0 +1,35 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-TREF-21",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "समझ गया राजेश जी। आप अपनी बकाया EMI का भुगतान किस तारीख तक कर सकते हैं?",
+        "terminal_state": ""
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 12410.2,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "e8ef418e3ea44dfb9f726771a7d7a76f9e5beb5dd1fa44e9c8215e2187db8c9c",
+    "response_hash": "19c5d6bf3005a6509e4dac15556b4958602aadad77410232740e2ed268445e3a",
+    "usage": {
+      "candidatesTokenCount": 59,
+      "promptTokenCount": 1481,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1481
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1865,
+      "totalTokenCount": 3405
+    }
+  }
+}

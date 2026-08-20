@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "escalation",
+    "should_end_call": true,
+    "spoken_response": "Aapko hui pareshani ke liye kshama chahta hoon. Aap hamare customer care number 1800-500-4444 par sampark kar sakte hain.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "escalation"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 6693.3,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "6bce0839705acf150b6178933dade3805cb5b9646300a96d54491f073fa1f5d3",
+    "response_hash": "231eb214e3d9d36cc64906aa199e635d04c12ce59a1388d6d67022008863d845",
+    "usage": {
+      "candidatesTokenCount": 83,
+      "promptTokenCount": 1836,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1836
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 980,
+      "totalTokenCount": 2899
+    }
+  }
+}

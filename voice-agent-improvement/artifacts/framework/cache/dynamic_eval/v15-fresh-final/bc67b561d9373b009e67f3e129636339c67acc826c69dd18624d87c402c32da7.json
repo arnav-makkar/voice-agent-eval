@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Main Shubh EasyCredit se bol raha hoon. Kya meri baat Gurpreet ji se ho rahi hai?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5724.6,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "bc67b561d9373b009e67f3e129636339c67acc826c69dd18624d87c402c32da7",
+    "response_hash": "11cc9d295451377da82cb4ad49ad9088422900a23d1ff942493b28f104efe377",
+    "usage": {
+      "candidatesTokenCount": 60,
+      "promptTokenCount": 1755,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1755
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 863,
+      "totalTokenCount": 2678
+    }
+  }
+}

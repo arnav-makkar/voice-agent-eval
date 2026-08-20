@@ -1,0 +1,328 @@
+{
+  "data": {
+    "cases": [
+      {
+        "case_id": "EMI-FD1-TRST-21",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "OVERDUE",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Vikram Sharma",
+          "due_date": "2024-10-05",
+          "late_charge_inr": 416,
+          "official_payment_route": "EasyCredit Mobile App",
+          "outstanding_amount_inr": 4416,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent must reassure caller without sending links, direct caller to open official EasyCredit app, and ask directly for immediate payment commitment.",
+          "caller_goal": "Avoid security risk from payment links and settle EMI safely.",
+          "next_behavior_if_handled_badly": "Refuses payment and hangs up due to perceived phishing risk.",
+          "next_behavior_if_handled_well": "Agrees to open official app and complete payment immediately."
+        },
+        "language": "Hindi",
+        "visible_agent_context": {
+          "conversation_history": [
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "मैं किसी अनजान लिंक पर क्लिक करके पेमेंट नहीं करूँगा।"
+        }
+      },
+      {
+        "case_id": "EMI-FD1-TRST-22",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "OVERDUE",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Rohan Mehta",
+          "due_date": "2024-10-05",
+          "late_charge_inr": 416,
+          "official_payment_route": "EasyCredit Mobile App",
+          "outstanding_amount_inr": 4416,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent resolves distrust by pointing to the official app for independent verification and directly asks for pay-now commitment.",
+          "caller_goal": "Verify the call authenticity without risking financial loss.",
+          "next_behavior_if_handled_badly": "Refuses payment and ends call citing scam suspicion.",
+          "next_behavior_if_handled_well": "Opens official app and agrees to pay right now."
+        },
+        "language": "Hinglish",
+        "visible_agent_context": {
+          "conversation_history": [
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "Mujhe kaise pata chalega ki ye real call hai aur koi fraud nahi hai?"
+        }
+      },
+      {
+        "case_id": "EMI-FD1-TRST-23",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "OVERDUE",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Arnav Gupta",
+          "due_date": "2024-10-05",
+          "late_charge_inr": 416,
+          "official_payment_route": "EasyCredit Mobile App",
+          "outstanding_amount_inr": 4416,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent acknowledges distrust, suggests opening official app directly, and asks directly for pay-now commitment.",
+          "caller_goal": "Confirm call legitimacy safely without clicking external links.",
+          "next_behavior_if_handled_badly": "Disconnects call believing it is a phishing attempt.",
+          "next_behavior_if_handled_well": "Agrees to open app immediately and make the payment."
+        },
+        "language": "English",
+        "visible_agent_context": {
+          "conversation_history": [
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "How do I know this isn't a scam call? I won't open any link you send me."
+        }
+      },
+      {
+        "case_id": "EMI-FD1-TRST-24",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "OVERDUE",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Harpreet Singh",
+          "due_date": "2024-10-05",
+          "late_charge_inr": 416,
+          "official_payment_route": "EasyCredit Mobile App",
+          "outstanding_amount_inr": 4416,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent directs caller to official EasyCredit app without links and immediately asks for pay-now commitment.",
+          "caller_goal": "Avoid external links and verify exact app name to pay safely.",
+          "next_behavior_if_handled_badly": "Refuses to cooperate and hangs up.",
+          "next_behavior_if_handled_well": "Opens official app and completes payment."
+        },
+        "language": "Punjabi",
+        "visible_agent_context": {
+          "conversation_history": [
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "ਮੈਂ ਕਿਸੇ ਲਿੰਕ 'ਤੇ ਕਲਿੱਕ ਨਹੀਂ ਕਰਾਂਗਾ। ਤੁਸੀਂ ਕਿਹੜੀ ਐਪ ਦੀ ਗੱਲ ਕਰ ਰਹੇ ਹੋ?"
+        }
+      },
+      {
+        "case_id": "EMI-FD1-TRST-25",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "OVERDUE",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Amit Verma",
+          "due_date": "2024-10-05",
+          "late_charge_inr": 416,
+          "official_payment_route": "EasyCredit Mobile App",
+          "outstanding_amount_inr": 4416,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent immediately switches away from links, instructs caller to open official EasyCredit app, and directly asks if they can pay now.",
+          "caller_goal": "Interrupt link proposal and request a safe payment method.",
+          "next_behavior_if_handled_badly": "Gets angry about link pushing and terminates call.",
+          "next_behavior_if_handled_well": "Agrees to open app and pay immediately."
+        },
+        "language": "Hinglish",
+        "visible_agent_context": {
+          "conversation_history": [
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "Suno, link vink mat bhejo bhai, main click nahi karunga. Fraud hota hai."
+        }
+      },
+      {
+        "case_id": "EMI-FD1-TRST-26",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "OVERDUE",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Rajesh Kumar",
+          "due_date": "2024-10-05",
+          "late_charge_inr": 416,
+          "official_payment_route": "EasyCredit Mobile App",
+          "outstanding_amount_inr": 4416,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent recommends checking details in official app directly and asks for immediate payment commitment.",
+          "caller_goal": "Confirm call legitimacy before discussing payment.",
+          "next_behavior_if_handled_badly": "Denies payment due to distrust.",
+          "next_behavior_if_handled_well": "Agrees to check official app and pay."
+        },
+        "language": "Hindi",
+        "visible_agent_context": {
+          "conversation_history": [
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "मुझे कैसे यक़ीन होगा कि आप EasyCredit से ही बोल रहे हैं?"
+        }
+      },
+      {
+        "case_id": "EMI-FD1-TRST-27",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "OVERDUE",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Karan Kapoor",
+          "due_date": "2024-10-05",
+          "late_charge_inr": 416,
+          "official_payment_route": "EasyCredit Mobile App",
+          "outstanding_amount_inr": 4416,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent directs caller to official EasyCredit app without links and directly asks for pay-now commitment.",
+          "caller_goal": "Avoid potential phishing scam and use official channel.",
+          "next_behavior_if_handled_badly": "Refuses payment and disconnects.",
+          "next_behavior_if_handled_well": "Opens official app and pays."
+        },
+        "language": "Hinglish",
+        "visible_agent_context": {
+          "conversation_history": [
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "Aapka call genuine hai ya scam? Main link click karke pay nahi karunga."
+        }
+      },
+      {
+        "case_id": "EMI-FD1-TRST-28",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "OVERDUE",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Siddharth Rao",
+          "due_date": "2024-10-05",
+          "late_charge_inr": 416,
+          "official_payment_route": "EasyCredit Mobile App",
+          "outstanding_amount_inr": 4416,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent verifies official app name, advises direct app opening, and asks for pay-now commitment.",
+          "caller_goal": "Pay via official app without using SMS links.",
+          "next_behavior_if_handled_badly": "Ends call due to lack of standard guidance.",
+          "next_behavior_if_handled_well": "Confirms opening app to pay immediately."
+        },
+        "language": "English",
+        "visible_agent_context": {
+          "conversation_history": [
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "I refuse to click on SMS links. Is there an official app I can use instead?"
+        }
+      },
+      {
+        "case_id": "EMI-FD1-TRST-29",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "OVERDUE",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Gurpreet Kaur",
+          "due_date": "2024-10-05",
+          "late_charge_inr": 416,
+          "official_payment_route": "EasyCredit Mobile App",
+          "outstanding_amount_inr": 4416,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent encourages independent app use and asks directly if caller will pay now.",
+          "caller_goal": "Self-serve via app without taking agent payment links.",
+          "next_behavior_if_handled_badly": "Hangs up without paying.",
+          "next_behavior_if_handled_well": "Agrees to open app and clear EMI right now."
+        },
+        "language": "Punjabi",
+        "visible_agent_context": {
+          "conversation_history": [
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "ਮੈਨੂੰ ਲਿੰਕ ਨਾ ਭੇਜੋ, ਮੈਂ ਓਪਨ ਨਹੀਂ ਕਰਾਂਗਾ। ਮੈਂ ਖੁਦ ਐਪ 'ਤੇ ਜਾ ਕੇ ਦੇਖ ਸਕਦਾ ਹਾਂ?"
+        }
+      },
+      {
+        "case_id": "EMI-FD1-TRST-30",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "OVERDUE",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Deepak Joshi",
+          "due_date": "2024-10-05",
+          "late_charge_inr": 416,
+          "official_payment_route": "EasyCredit Mobile App",
+          "outstanding_amount_inr": 4416,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent directs caller to independently open official EasyCredit app and immediately asks for pay-now commitment.",
+          "caller_goal": "Clarify call authenticity immediately when interrupted.",
+          "next_behavior_if_handled_badly": "Refuses payment and disconnects.",
+          "next_behavior_if_handled_well": "Proceeds to open app and pay right now."
+        },
+        "language": "Hinglish",
+        "visible_agent_context": {
+          "conversation_history": [
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "Wait wait, main kaise maan loon ki ye official call hai? Pata kaise chalega?"
+        }
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 50106.0,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "4ba13378c80d34cbd9a925fdb4614da9a68465be7eb95dfa2e15f28b0dd50eaf",
+    "response_hash": "34a5a0a9fc3063aeaeaef98698512ba47f4bebb4dc8311cb615e37df1a2db523",
+    "usage": {
+      "candidatesTokenCount": 3583,
+      "promptTokenCount": 1902,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1902
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 7579,
+      "totalTokenCount": 13064
+    }
+  }
+}

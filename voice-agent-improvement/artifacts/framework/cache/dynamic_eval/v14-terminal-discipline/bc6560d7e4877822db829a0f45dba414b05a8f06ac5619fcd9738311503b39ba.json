@@ -1,0 +1,35 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Teek hai, main aapka payment status check kar raha hoon.",
+    "tool_calls": [
+      {
+        "arguments": {},
+        "name": "check_payment_status"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 14846.2,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "bc6560d7e4877822db829a0f45dba414b05a8f06ac5619fcd9738311503b39ba",
+    "response_hash": "a850c55ef2bbb75776c1a01148f9a55076ee6642de21e6ee157538cbe25bf51d",
+    "usage": {
+      "candidatesTokenCount": 50,
+      "promptTokenCount": 1756,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1756
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 2006,
+      "totalTokenCount": 3812
+    }
+  }
+}

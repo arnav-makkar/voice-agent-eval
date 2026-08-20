@@ -1,0 +1,61 @@
+{
+  "baseline_experience": 1.0,
+  "baseline_task_successes": 5,
+  "candidate_experience": 0.9375,
+  "candidate_task_successes": 9,
+  "claim_boundary": "The frozen candidate improved exact text-mode task completion on this sealed final with no observed task regression. Production payment lift and matched voice improvement are not established.",
+  "conditions": {
+    "all_baseline_task_wins_preserved": true,
+    "experience_drop_within_10pp": true,
+    "zero_new_severe_regressions": true
+  },
+  "dataset_sha256": "0b36393ecc3acf88f460cb8f35a94711b0f7b65ba3554963e62308175fe41c14",
+  "decision": "pass_text_final_awaiting_matched_voice",
+  "evaluation_runs": [
+    {
+      "candidate_hash": "3d95098db8b459b955bf703d166884a2a03477155940dea6e57013356b28c9c1",
+      "candidate_id": "v12-fresh-final",
+      "completed_at": "2026-08-18T22:51:26.477112+00:00",
+      "experiment_id": "v12-fresh-final"
+    },
+    {
+      "candidate_hash": "732d216b3a75bcb2d6424946cf935dfd1584d723f31020bb746908431dad90e3",
+      "candidate_id": "v15-fresh-final",
+      "completed_at": "2026-08-18T22:54:23.052672+00:00",
+      "experiment_id": "v15-fresh-final"
+    }
+  ],
+  "matched_scenarios": 12,
+  "next_gate": "human_review_and_matched_indus_voice",
+  "paired_task_evidence": {
+    "discordant_pairs": 4,
+    "exact_two_sided_p": 0.125,
+    "interpretation": "Exact paired task-outcome diagnostic; promotion still depends on per-case gates and the fresh final test.",
+    "repairs": 4,
+    "task_regressions": 0
+  },
+  "protocol_valid": true,
+  "regressions": [],
+  "repairs": [
+    "EMI-FINAL-003",
+    "EMI-FINAL-004",
+    "EMI-FINAL-008",
+    "EMI-FINAL-011"
+  ],
+  "schema_version": "fresh-final-decision.v1",
+  "semantic_secondary": {
+    "baseline": {
+      "conciseness": 4.0,
+      "faithfulness": 3.833,
+      "progression": 3.833
+    },
+    "candidate": {
+      "conciseness": 4.0,
+      "faithfulness": 4.0,
+      "progression": 3.75
+    },
+    "role": "diagnostic only; deterministic state/action/guardrail truth controls the gate"
+  },
+  "statistical_note": "The exact paired p-value is diagnostic. Four discordant pairs in a 12-case final are insufficient for a broad statistical claim.",
+  "task_regressions": []
+}

@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Main EasyCredit se Shubh, aapki Rs 2933 ki EMI overdue hai, kya abhi EasyCredit app se pay karenge?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5479.4,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "da2726f200603df63988c7d390de28cbdce05f4de1d9c0777d29cbc83f145d5c",
+    "response_hash": "414d4db64026a2d48d4cb7567c2c7c951942abe09d4b4510fcd45563286c6989",
+    "usage": {
+      "candidatesTokenCount": 54,
+      "promptTokenCount": 1688,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1688
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 847,
+      "totalTokenCount": 2589
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "dispute",
+    "should_end_call": true,
+    "spoken_response": "Kya aapke paas is purchase ki koi detail ya SMS aaya tha? Kripya aage ki jaankari ke liye customer care number 1800-500-4444 par sampark karein.",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 7504.7,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "6b991ee0b658de46b4293ac36ff7b5c5331fc436c3fc64dadc899e2564f511d1",
+    "response_hash": "ddc83362b893500f051fa2dd9eea3c53ecf566896f5d746236b17727ac34e502",
+    "usage": {
+      "candidatesTokenCount": 89,
+      "promptTokenCount": 1471,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1471
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1109,
+      "totalTokenCount": 2669
+    }
+  }
+}

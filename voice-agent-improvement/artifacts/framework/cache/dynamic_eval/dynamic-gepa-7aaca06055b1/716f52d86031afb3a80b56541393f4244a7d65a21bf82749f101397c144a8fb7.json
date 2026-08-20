@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "acknowledged",
+    "should_end_call": true,
+    "spoken_response": "Thik hai, aap app par check kar lijiye. Dhanyawad.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "acknowledged"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5008.8,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "716f52d86031afb3a80b56541393f4244a7d65a21bf82749f101397c144a8fb7",
+    "response_hash": "5b401d5a9719497cefe4dfc0f7b523adda0c0c3f7c1c40cdbde2b35114da1b59",
+    "usage": {
+      "candidatesTokenCount": 58,
+      "promptTokenCount": 1802,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1802
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 780,
+      "totalTokenCount": 2640
+    }
+  }
+}

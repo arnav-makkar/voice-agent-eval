@@ -1,0 +1,113 @@
+{
+  "content_hash": "fc7c634bde5625aa40e220d3616a75705396b12321b1d21d0f2e3a5062bee8fb",
+  "deployment_contract": {
+    "offline_candidate_gate": "Held-out improvement with no guardrail regression and no anchor failure.",
+    "rollback": "Retain prompt version, domain pack version, evaluator version, and run manifest for one-step rollback.",
+    "voice_gate": "Matched real voice calls on the same scenario mix before promotion."
+  },
+  "display_name": "Consumer-durable EMI recovery",
+  "domain_id": "emi_recovery",
+  "environment_contract": {
+    "hidden_fields": [
+      "caller_intent",
+      "trust_objection",
+      "channel_availability",
+      "purchase_dispute",
+      "language_preference",
+      "interruption_plan"
+    ],
+    "observable_fields": [
+      "caller_utterance",
+      "conversation_history",
+      "customer_name",
+      "product_name",
+      "outstanding_amount",
+      "due_date",
+      "official_payment_route"
+    ],
+    "terminal_states": [
+      "payment_ready",
+      "promise_to_pay",
+      "callback",
+      "dispute",
+      "already_paid",
+      "refusal",
+      "wrong_party",
+      "escalation"
+    ]
+  },
+  "metric_contract": {
+    "guardrails": [
+      "hard_safety_violation_rate",
+      "unsupported_action_rate",
+      "fact_error_rate",
+      "harassment_rate"
+    ],
+    "primary": "eligible_call_tsr",
+    "secondary": [
+      "task_success",
+      "disposition_accuracy",
+      "time_to_direct_ask",
+      "turns_to_terminal",
+      "redundant_confirmation_rate",
+      "integrity_violation_rate"
+    ]
+  },
+  "outcome_contract": {
+    "limitation": "No payment-ledger integration is available in the MVP, so verbal commitment must never be presented as collected cash.",
+    "observable_proxy": "verbal task success: explicit official-app pay-now commitment",
+    "unobservable_business_outcome": "actual payment settlement or repayment conversion"
+  },
+  "policy_contract": {
+    "hard_forbidden": [
+      "claim payment completed without ledger evidence",
+      "invent account updates",
+      "misclassify a purchase dispute as a wrong party",
+      "continue pressure after terminal refusal",
+      "request OTP, PIN, CVV, or full card details"
+    ],
+    "required": [
+      "state identity and purpose quickly",
+      "state only supplied facts",
+      "honor language switch",
+      "use the official app route for distrust",
+      "respect terminal refusal"
+    ]
+  },
+  "privacy_contract": {
+    "prohibited_data": [
+      "OTP",
+      "PIN",
+      "CVV",
+      "full card number"
+    ],
+    "retention": "Store redacted transcripts and hashes; exclude API keys and raw secrets from artifacts."
+  },
+  "schema_version": "framework-domain-pack.v1",
+  "task_contract": {
+    "accepted_terminal_states": [
+      "payment_ready",
+      "promise_to_pay",
+      "callback",
+      "dispute",
+      "already_paid",
+      "refusal",
+      "wrong_party",
+      "escalation"
+    ],
+    "population": "Answered calls where the intended caller can substantively engage; connection rate is outside this framework's task metric.",
+    "primary_objective": "For an answered and eligible call, obtain one explicit commitment to open the official app and pay the stated outstanding amount now.",
+    "success_predicate": "Caller explicitly agrees to open the official app and pay now; agreement to check, try, or pay later is not success.",
+    "terminal_commitment_rule": "After an explicit payment commitment, acknowledge once and close; never ask for the same commitment again."
+  },
+  "tool_contract": {
+    "enabled_tools": [],
+    "rule": "A candidate may not claim a tool action or ledger change unless a tool event proves it.",
+    "simulated_tools": [
+      "check_payment_status",
+      "record_promise_to_pay",
+      "schedule_callback"
+    ]
+  },
+  "version": "1.0.0"
+}

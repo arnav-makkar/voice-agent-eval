@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Main EasyCredit se Shubh bol raha hoon. Aapke Samsung TV ka Rs 3001 ka EMI overdue hai, kya aap abhi EasyCredit app se pay kar sakti hain?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 3818.9,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "1184a4d3dff10ce6b0c1334d555d50153595623a85f57cce2ba78effccbbc974",
+    "response_hash": "d2d6416a835d80706be3388b56164a814d0a57e5997ee2a47472c61a7787acd7",
+    "usage": {
+      "candidatesTokenCount": 64,
+      "promptTokenCount": 1686,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1686
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 500,
+      "totalTokenCount": 2250
+    }
+  }
+}

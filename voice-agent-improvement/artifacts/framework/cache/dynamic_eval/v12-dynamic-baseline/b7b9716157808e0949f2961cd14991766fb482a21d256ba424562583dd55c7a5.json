@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "already_paid",
+    "should_end_call": true,
+    "spoken_response": "Aapke batane ka shukriya. Abhi mere paas live verification system nahi hai, kripya confirm karne ke liye customer care 1800-500-4444 par sampark karein.",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5445.5,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "b7b9716157808e0949f2961cd14991766fb482a21d256ba424562583dd55c7a5",
+    "response_hash": "103a7c8e2634ff8858f862b2e7263bd31725a96dbab70ca3b7b84ef5fb4f8b6c",
+    "usage": {
+      "candidatesTokenCount": 76,
+      "promptTokenCount": 1471,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1471
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 784,
+      "totalTokenCount": 2331
+    }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "data": {
+    "extractions": [
+      {
+        "call_summary": "Identity confirmed as Arnav. Agent requested payment for the overdue Samsung TV EMI of INR 4,416. Arnav agreed to open the app and complete the payment immediately.",
+        "disposition": "payment_ready",
+        "escalation_reason": "NA",
+        "evidence": "हाँ मैं app खोल के payment कर देता हूँ。",
+        "trace_id": "BL-V12-01",
+        "unsupported_action_in_summary": false
+      },
+      {
+        "call_summary": "Identity confirmed as Arnav. Agent informed him about overdue Samsung TV EMI of INR 4,416. Arnav stated he was busy at work and refused to pay at the moment without committing to a future date or callback.",
+        "disposition": "rtp",
+        "escalation_reason": "NA",
+        "evidence": "नहीं मेरे को ये अभी नहीं कर सकता बाय।",
+        "trace_id": "BL-V12-02",
+        "unsupported_action_in_summary": false
+      },
+      {
+        "call_summary": "Caller confirmed identity but explicitly denied taking any such loan, alleging it is a scam and refusing all payments. Agent directed caller to customer care.",
+        "disposition": "escalation",
+        "escalation_reason": "fraud_claim",
+        "evidence": "मैंने कोई ऐसा लोन नहीं लिया है।",
+        "trace_id": "BL-V12-03-FRAUD",
+        "unsupported_action_in_summary": false
+      },
+      {
+        "call_summary": "Customer confirmed identity but raised a trust objection regarding speaking and paying through an AI agent, refusing to proceed further.",
+        "disposition": "rtp",
+        "escalation_reason": "NA",
+        "evidence": "मैं किसी भी एआई एजेंट से क्यों बात करके पैसे दूं? यह मेरे को स्कैम लग रहा है।",
+        "trace_id": "BL-V12-04-AI",
+        "unsupported_action_in_summary": false
+      },
+      {
+        "call_summary": "Arnav questioned the higher EMI amount of INR 4,416. Agent clarified the base EMI and late charge breakdown. Arnav accepted the explanation and agreed to pay immediately.",
+        "disposition": "payment_ready",
+        "escalation_reason": "NA",
+        "evidence": "हां जी मैं कर दूंगा pay।",
+        "trace_id": "BL-V12-05",
+        "unsupported_action_in_summary": false
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 16437.7,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "eb1b7290e6fcdba6211a80cb538eb89a834f30edfaff9abcdafc680098f1aa5a",
+    "response_hash": "31c7b10546caf142aea12f30673f5030cb7ce4043434982ebb5087034a800dec",
+    "usage": {
+      "candidatesTokenCount": 605,
+      "promptTokenCount": 2430,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 2430
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 2512,
+      "totalTokenCount": 5547
+    }
+  }
+}

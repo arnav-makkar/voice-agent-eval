@@ -1,0 +1,35 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-DISP-01",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "असुविधा के लिए खेद है। आप इस समस्या के समाधान के लिए हमारे कस्टमर केयर से संपर्क करें।",
+        "terminal_state": "escalation"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 7090.5,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "7da4989a7b7af8b9f88b70e8744e20b4471604ae542a1377585b88b374f76beb",
+    "response_hash": "e57125a6e9330f8023645008c328e7a694eafaede2bdff9c973f423dcedffe7c",
+    "usage": {
+      "candidatesTokenCount": 68,
+      "promptTokenCount": 1598,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1598
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1161,
+      "totalTokenCount": 2827
+    }
+  }
+}

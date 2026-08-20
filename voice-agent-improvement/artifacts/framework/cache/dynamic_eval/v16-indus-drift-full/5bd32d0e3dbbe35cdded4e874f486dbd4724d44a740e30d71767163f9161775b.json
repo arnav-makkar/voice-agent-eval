@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Samajh gaya. Kya main aapse baat karne ke liye kisi date aur time par callback arrange kar doon?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 7668.0,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "5bd32d0e3dbbe35cdded4e874f486dbd4724d44a740e30d71767163f9161775b",
+    "response_hash": "d7e3aa145123c327527eff54265ff40c2d9e3d16d61e03eceb2b1cd053e7af09",
+    "usage": {
+      "candidatesTokenCount": 48,
+      "promptTokenCount": 1995,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1995
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1228,
+      "totalTokenCount": 3271
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "acknowledged",
+    "should_end_call": true,
+    "spoken_response": "Website option nahi hai. Help ke liye hamare customer care number 1800-500-4444 par call kar lijiye.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "acknowledged"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4765.0,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "66415a04cec5c5b382ee1e6a9a978f34e9fe86cd901331cda6cb55c44fe93a9d",
+    "response_hash": "060caa40f3366e0f8080ac04dbab1ca2b87bc20db30065ee2c19bd370bcd7070",
+    "usage": {
+      "candidatesTokenCount": 74,
+      "promptTokenCount": 1745,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1745
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 596,
+      "totalTokenCount": 2415
+    }
+  }
+}

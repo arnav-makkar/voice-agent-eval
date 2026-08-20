@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "rtp",
+    "should_end_call": true,
+    "spoken_response": "Theek hai Riya ji, maine aapki baat note kar li hai. Dhanyawad.",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5526.0,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "0cd65893d4e0f13deb62e7bf98f90d50e9b4e2c6412ae525e00c86f3a70922cd",
+    "response_hash": "ef32d981c7014cff44d2c66c58e5b9991772f9a82c7ee721c64cedd707993cbc",
+    "usage": {
+      "candidatesTokenCount": 46,
+      "promptTokenCount": 1517,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1517
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 713,
+      "totalTokenCount": 2276
+    }
+  }
+}

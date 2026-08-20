@@ -1,0 +1,43 @@
+{
+  "confusion": {
+    "deterministic=policy|judge=knowledge": 1,
+    "deterministic=policy|judge=policy": 3,
+    "deterministic=policy|judge=simulator": 1,
+    "deterministic=tool|judge=policy": 1
+  },
+  "detection": {
+    "agreement": 0.8333,
+    "n": 60,
+    "question": "Did the judge and the executable checker agree on whether the episode failed at all?"
+  },
+  "disagreements": [
+    {
+      "deterministic": "tool",
+      "experiment": "v12-dynamic-full",
+      "judge": "policy",
+      "scenario_id": "EMI-DYN-013"
+    },
+    {
+      "deterministic": "policy",
+      "experiment": "v12-dynamic-full",
+      "judge": "knowledge",
+      "scenario_id": "EMI-DYN-015"
+    },
+    {
+      "deterministic": "policy",
+      "experiment": "v12-dynamic-full",
+      "judge": "simulator",
+      "scenario_id": "EMI-DYN-018"
+    }
+  ],
+  "episodes": 60,
+  "generated_at": "2026-08-20T21:04:23.337140+00:00",
+  "interpretation": "The judge is reliable at noticing that something went wrong and materially less reliable at saying what owns it. That is precisely why ownership routing is advisory and the executable checker controls the release gate. Publishing the number is the point: a grader whose accuracy is unstated should not be trusted.",
+  "method": "Recomputed from preserved episode artifacts. No new model calls were made, so this audit costs nothing and cannot drift from the results it describes.",
+  "ownership": {
+    "agreement": 0.5,
+    "n": 6,
+    "question": "When both said it failed, did they agree on which component owns the failure?"
+  },
+  "schema_version": "judge-audit.v1"
+}

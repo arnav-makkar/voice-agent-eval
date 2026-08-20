@@ -1,0 +1,43 @@
+{
+  "adapter": "gemini_prompt_proxy",
+  "aggregate": {
+    "average_experience_score": 0.925,
+    "failure_counts": {},
+    "invalid_simulations": 0,
+    "records": 4,
+    "task_success_rate": 1.0,
+    "task_successes": 4,
+    "valid_records": 4
+  },
+  "candidate_hash": "732d216b3a75bcb2d6424946cf935dfd1584d723f31020bb746908431dad90e3",
+  "candidate_id": "v15-firm-today-smoke",
+  "claim_boundary": "Text-mode stateful evaluation. Audio/STT/TTS and production payment lift require matched Indus voice evidence.",
+  "dataset_id": "emi_dynamic_v1",
+  "experiment_id": "v15-firm-today-smoke",
+  "mlflow": {
+    "experiment_id": "2",
+    "run_id": "0f554b25b1a24eee8d55c3d1156cce99",
+    "status": "logged",
+    "tracking_uri": "sqlite:////Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/experiments/mlflow.db"
+  },
+  "model": "gemini-3.6-flash",
+  "prompt_path": "agent/candidates/v15-firm-today.md",
+  "prompt_sha256": "732d216b3a75bcb2d6424946cf935dfd1584d723f31020bb746908431dad90e3",
+  "run_ids": [
+    "RUN-20260818T220707-cdd3b212",
+    "RUN-20260818T220714-b5fdd524",
+    "RUN-20260818T220731-7743b104",
+    "RUN-20260818T220751-207943d6"
+  ],
+  "scenario_count": 4,
+  "schema_version": "evaluation-suite-summary.v1",
+  "source_groups": [
+    "authored-development-001",
+    "authored-development-002",
+    "authored-development-003",
+    "authored-development-004"
+  ],
+  "splits": [
+    "development"
+  ]
+}

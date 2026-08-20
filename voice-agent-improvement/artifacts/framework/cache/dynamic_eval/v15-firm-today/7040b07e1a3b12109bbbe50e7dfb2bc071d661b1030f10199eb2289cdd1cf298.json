@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "rtp",
+    "should_end_call": true,
+    "spoken_response": "Theek hai Gurpreet ji, main aapka response record kar leta hoon. Dhanyawad.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "rtp"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 3607.2,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "7040b07e1a3b12109bbbe50e7dfb2bc071d661b1030f10199eb2289cdd1cf298",
+    "response_hash": "cd54912e86d27937af5297dd79566bc2641b7ef1f6ff312f8c4276bacb9b8ef1",
+    "usage": {
+      "candidatesTokenCount": 61,
+      "promptTokenCount": 1825,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1825
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 613,
+      "totalTokenCount": 2499
+    }
+  }
+}

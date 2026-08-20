@@ -1,0 +1,98 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-TRST-01",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "मैं EasyCredit से AI असिस्टेंट शुभ हूँ। आप किसी लिंक पर क्लिक न करें, सीधे EasyCredit App खोलकर ₹4500 देखकर क्या अभी भुगतान कर सकते हैं?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-TRST-02",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "Main EasyCredit se AI assistant Shubh hoon. Aap link par click mat kijiye, EasyCredit App khol kar ₹5200 verify karke kya abhi pay kar sakte hain?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-TRST-03",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "I am Shubh, an AI assistant from EasyCredit. Please don't click links—open the EasyCredit App, verify ₹3800, and can you pay now?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-TRST-04",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "ਮੈਂ EasyCredit ਤੋਂ AI ਅਸਿਸਟੈਂਟ ਸ਼ੁਭ ਹਾਂ। ਤੁਸੀਂ ਲਿੰਕ 'ਤੇ ਕਲਿੱਕ ਨਾ ਕਰੋ, EasyCredit App ਖੋਲ੍ਹ ਕੇ ₹6000 ਚੈੱਕ ਕਰਕੇ ਕੀ ਹੁਣੇ ਪੇ ਕਰ ਸਕਦੇ ਹੋ?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-TRST-05",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "Main EasyCredit se AI assistant Shubh hoon. Aap link par click mat kijiye, seedhe EasyCredit App khol kar ₹4200 verify karke kya abhi pay kar sakte hain?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-TRST-06",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "मैं EasyCredit से AI असिस्टेंट शुभ हूँ। आप किसी लिंक पर क्लिक न करें, सीधे EasyCredit App खोलकर ₹3500 देखकर क्या अभी भुगतान कर सकते हैं?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-TRST-07",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "Main EasyCredit se AI assistant Shubh hoon. Aap link par click mat kijiye, EasyCredit App khol kar ₹4800 verify karke kya abhi pay kar sakte hain?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-TRST-08",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "I am Shubh, an AI assistant from EasyCredit. Please don't click links—open the EasyCredit App directly, verify ₹5000, and can you pay now?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-TRST-09",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਜੀ ਹਾਂ, ਤੁਸੀਂ ਸਿਰਫ਼ ਆਫੀਸ਼ੀਅਲ EasyCredit App ਤੋਂ ਹੀ ਪੇਮੈਂਟ ਕਰੋ। ਧੰਨਵਾਦ!",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-TRST-10",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "Main EasyCredit se AI assistant Shubh hoon. Aap link par click mat kijiye, EasyCredit App khol kar ₹4600 verify karke kya abhi pay kar sakte hain?",
+        "terminal_state": "acknowledged"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 23698.1,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "ed252cc825f6ceef172ee441a69c60ba19bcb872b48f1829d11bd68f64834ee2",
+    "response_hash": "c9a799c94dd7d2e208184499eb84a27789065fab98b8e13159055ebe77fb2502",
+    "usage": {
+      "candidatesTokenCount": 1054,
+      "promptTokenCount": 3270,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 3270
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 4087,
+      "totalTokenCount": 8411
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Aap kis tareekh tak payment kar denge?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5246.2,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "f5df36505cb2f672e23886214e6eed09d8608fcbb1f408c1af461367f7ddf4fc",
+    "response_hash": "ca56d43d3940b5e73a08dc0647512b791f58984953c750be4cbcc4e594de67d7",
+    "usage": {
+      "candidatesTokenCount": 36,
+      "promptTokenCount": 1743,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1743
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 689,
+      "totalTokenCount": 2468
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "schema_version": "evaluation-run-role.v1",
+  "role": "integration_calibration_only",
+  "eligible_for_baseline_candidate_comparison": false,
+  "reason": "The first valid adaptive Samvaad audio run revealed evaluator timing, causal-alignment, cross-script WER, and vacuous-metric defects. The immutable evidence is retained, but the run is not an official baseline result.",
+  "superseded_evaluator": "evaluation-metrics.v3/loopline-eva-adapter.v1/samvaad-duplex.v3",
+  "replacement_evaluator": "evaluation-metrics.v3/loopline-eva-adapter.v1/samvaad-duplex.v5",
+  "interaction_id": "20260819/8c91df96-12:44:08-74e478fb",
+  "estimated_sarvam_credits": 4.5
+}

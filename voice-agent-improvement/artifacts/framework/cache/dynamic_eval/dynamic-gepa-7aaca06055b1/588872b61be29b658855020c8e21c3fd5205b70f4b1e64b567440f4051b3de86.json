@@ -1,0 +1,43 @@
+{
+  "data": {
+    "disposition": "ptp_today",
+    "should_end_call": true,
+    "spoken_response": "Theek hai, 17 August tak EasyCredit app se payment kar dijiyega. Dhanyawad!",
+    "tool_calls": [
+      {
+        "arguments": {
+          "date": "17-08-2026"
+        },
+        "name": "record_promise_to_pay"
+      },
+      {
+        "arguments": {
+          "disposition": "ptp_today"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 14790.3,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "588872b61be29b658855020c8e21c3fd5205b70f4b1e64b567440f4051b3de86",
+    "response_hash": "8ad468c6c24e2bd0717b1514430cfa73b8b6b07d58983fe1982b87011ac49e2e",
+    "usage": {
+      "candidatesTokenCount": 95,
+      "promptTokenCount": 1750,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1750
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 2504,
+      "totalTokenCount": 4349
+    }
+  }
+}

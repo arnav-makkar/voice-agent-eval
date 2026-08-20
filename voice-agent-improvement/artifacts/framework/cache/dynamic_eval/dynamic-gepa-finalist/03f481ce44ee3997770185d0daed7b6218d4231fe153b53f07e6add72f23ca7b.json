@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Acha ji, ki main 20 August 2026 di payment date confirm kara?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 11160.6,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "03f481ce44ee3997770185d0daed7b6218d4231fe153b53f07e6add72f23ca7b",
+    "response_hash": "9da6470ef61c2b14fab4eea5c06ede5cedb7879fc8348e55813e1fbcb3a580f1",
+    "usage": {
+      "candidatesTokenCount": 45,
+      "promptTokenCount": 1754,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1754
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1844,
+      "totalTokenCount": 3643
+    }
+  }
+}

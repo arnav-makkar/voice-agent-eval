@@ -1,0 +1,98 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-FACT-11",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Ji dhanyawad. Kripya 18 August tak EasyCredit app se payment kar dijiyega.",
+        "terminal_state": "fptp"
+      },
+      {
+        "case_id": "EMI-FD1-FACT-12",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Ji samajh gaya. Is dispute ke liye aap kripya humare customer care se sampark karein.",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-FD1-FACT-13",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thank you for the information. Please contact our customer care team regarding this dispute.",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-FD1-FACT-14",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Ji dhanvaad, tusi EasyCredit official app ton hunne payment kar lavo.",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-FACT-15",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Ji dhanyawad, aap EasyCredit official app se payment complete kar lijiye.",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-FACT-16",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "Samajh gaya. Aap kis tareekh tak payment kar payenge?",
+        "terminal_state": ""
+      },
+      {
+        "case_id": "EMI-FD1-FACT-17",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Ji dhanyawad, kripya 20 August tak EasyCredit app se payment kar dijiye.",
+        "terminal_state": "fptp"
+      },
+      {
+        "case_id": "EMI-FD1-FACT-18",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thank you for letting us know. Please contact our customer care team to address this dispute.",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-FD1-FACT-19",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Tusi fikar na karo, kripya is dispute layi saade customer care naal sampark karo.",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-FD1-FACT-20",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Ji dhanyawad, aap EasyCredit official app se Rs 4416 pay kar lijiye.",
+        "terminal_state": "payment_ready"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 45023.4,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "48a540a4b39a8afe83b4bbd7eb1e8297261ad50abf2416c65ea78f4dbf8aa469",
+    "response_hash": "8a0742d79a081b668bde9f4bc54d334a1280ea1d5d0d5089f4b5e4af4d7ee9e2",
+    "usage": {
+      "candidatesTokenCount": 680,
+      "promptTokenCount": 4515,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 4515
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 9080,
+      "totalTokenCount": 14275
+    }
+  }
+}

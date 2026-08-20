@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "rtp",
+    "should_end_call": true,
+    "spoken_response": "Theek hai, main aapka response note kar leta hoon. EasyCredit se baat karne ke liye dhanyawad.",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4694.6,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "1f6e6b00f5af3dd6ea8dbfb3bb366ff0cdfc0e9a16ea2967b3e84c8513130ce2",
+    "response_hash": "1c4073976c70ca1bec2bc44fd539e6c8fd76d6aa579eeb6fe482935856b9e712",
+    "usage": {
+      "candidatesTokenCount": 50,
+      "promptTokenCount": 1984,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1984
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 593,
+      "totalTokenCount": 2627
+    }
+  }
+}

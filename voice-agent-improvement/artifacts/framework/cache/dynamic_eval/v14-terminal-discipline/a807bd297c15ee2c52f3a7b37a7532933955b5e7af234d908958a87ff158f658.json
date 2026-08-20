@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "payment_ready",
+    "should_end_call": true,
+    "spoken_response": "Bahut dhanyawad Mehak ji! Kripya EasyCredit app kholkar payment poora kar lijiye. Aapka din shubh ho!",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "payment_ready"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 3015.8,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "a807bd297c15ee2c52f3a7b37a7532933955b5e7af234d908958a87ff158f658",
+    "response_hash": "3509fe4aa1758296189b162c7994a5cce7b68310bf1f5d141bf9457cd778ae79",
+    "usage": {
+      "candidatesTokenCount": 76,
+      "promptTokenCount": 1765,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1765
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 330,
+      "totalTokenCount": 2171
+    }
+  }
+}

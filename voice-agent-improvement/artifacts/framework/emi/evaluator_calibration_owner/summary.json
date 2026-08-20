@@ -1,0 +1,145 @@
+{
+  "agreement": {
+    "failure_category": 0.25,
+    "failure_owner": 0.25,
+    "first_breaking_turn_within_one": 0.35,
+    "hard_safety_violation": 1.0,
+    "integrity_violation": 0.85,
+    "primary_success": 1.0,
+    "task_success": 0.8
+  },
+  "calls": 20,
+  "confusion": {
+    "failure_category": {
+      "reference=caller_disengagement_after_interruption|prediction=none": 1,
+      "reference=channel_unavailable_loop|prediction=none": 1,
+      "reference=conditional_check_not_converted|prediction=none": 1,
+      "reference=dispute_misclassified_wrong_number|prediction=integrity_violation": 1,
+      "reference=invalid_output_disposition|prediction=none": 1,
+      "reference=late_charge_misstatement|prediction=none": 1,
+      "reference=none|prediction=none": 5,
+      "reference=redundant_confirmation|prediction=none": 6,
+      "reference=repeated_pressure_after_channel_refusal|prediction=escalation_failure": 1,
+      "reference=trust_resolution_missing_direct_close|prediction=none": 1,
+      "reference=unsupported_future_completion_claim|prediction=none": 1
+    },
+    "integrity_violation": {
+      "reference=False|prediction=False": 16,
+      "reference=True|prediction=False": 3,
+      "reference=True|prediction=True": 1
+    },
+    "primary_success": {
+      "reference=False|prediction=False": 11,
+      "reference=True|prediction=True": 9
+    },
+    "task_success": {
+      "reference=False|prediction=False": 1,
+      "reference=False|prediction=True": 3,
+      "reference=True|prediction=False": 1,
+      "reference=True|prediction=True": 15
+    }
+  },
+  "details": {
+    "bytes": 22082,
+    "path": "artifacts/framework/emi/evaluator_calibration_owner/details.jsonl",
+    "records": 20,
+    "sha256": "c1497216117125c3c160ca624953736c5871a7d1c8b4c96042458ad5cc40a853"
+  },
+  "evaluator_version": "emi-semantic-pro-v2",
+  "interpretation": "Agreement is measured against owner-reviewed reference labels (bulk_confirmation). Because the owner confirmed the references rather than correcting them, the weak diagnostic agreement is attributable to the evaluator rather than to label noise, and becomes an evaluator repair target rather than an open question.",
+  "judge_model": "gemini-pro-latest",
+  "model_runs": [
+    {
+      "adapter_version": "gemini-json.v1",
+      "cache_hit": true,
+      "latency_ms": 22594.3,
+      "model_requested": "gemini-pro-latest",
+      "model_version": "gemini-3.1-pro-preview",
+      "request_hash": "f5e1557632b99bbf7d8718e642bf8ac87c607d392862af0282e9bc26b6ae5889",
+      "response_hash": "2b99e171b86e2f883cd462fb6acbbfe2e9e473567da69a80eae8418a0526e50b",
+      "usage": {
+        "candidatesTokenCount": 672,
+        "promptTokenCount": 2379,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 2379
+          }
+        ],
+        "serviceTier": "standard",
+        "thoughtsTokenCount": 2643,
+        "totalTokenCount": 5694
+      }
+    },
+    {
+      "adapter_version": "gemini-json.v1",
+      "cache_hit": true,
+      "latency_ms": 19549.1,
+      "model_requested": "gemini-pro-latest",
+      "model_version": "gemini-3.1-pro-preview",
+      "request_hash": "5139fcce695804e39576be30298332facd0c6bb2e5e0e550464cfd3b45b7714d",
+      "response_hash": "866db4eb84c4658fe6e0d8a496baba04e69203771344a61256c5a1ce8734b2d4",
+      "usage": {
+        "candidatesTokenCount": 681,
+        "promptTokenCount": 2200,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 2200
+          }
+        ],
+        "serviceTier": "standard",
+        "thoughtsTokenCount": 1410,
+        "totalTokenCount": 4291
+      }
+    },
+    {
+      "adapter_version": "gemini-json.v1",
+      "cache_hit": true,
+      "latency_ms": 18482.7,
+      "model_requested": "gemini-pro-latest",
+      "model_version": "gemini-3.1-pro-preview",
+      "request_hash": "67804697fdc46c7a2ceeb500f73efd508d3f7c69dae92656655d53b8f52784b1",
+      "response_hash": "c22be59a83be12d54e711ba1ffa5cf1f53fa8a2650decc6bc839d05e51c425b0",
+      "usage": {
+        "candidatesTokenCount": 699,
+        "promptTokenCount": 2272,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 2272
+          }
+        ],
+        "serviceTier": "standard",
+        "thoughtsTokenCount": 1976,
+        "totalTokenCount": 4947
+      }
+    },
+    {
+      "adapter_version": "gemini-json.v1",
+      "cache_hit": true,
+      "latency_ms": 27416.1,
+      "model_requested": "gemini-pro-latest",
+      "model_version": "gemini-3.1-pro-preview",
+      "request_hash": "4376172888b204ca3b04717dee13df484b56845688a5ce5fba81060cbca68154",
+      "response_hash": "3aac4e476c55d08845b27345b7f1eee81389649bec560332a4cf9db9daac717d",
+      "usage": {
+        "candidatesTokenCount": 697,
+        "promptTokenCount": 2194,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 2194
+          }
+        ],
+        "serviceTier": "standard",
+        "thoughtsTokenCount": 2670,
+        "totalTokenCount": 5561
+      }
+    }
+  ],
+  "reference_path": "artifacts/framework/emi/reference_annotations.owner_reviewed.v1.jsonl",
+  "reference_status": "owner_reviewed",
+  "review_mode": "bulk_confirmation",
+  "schema_version": "evaluator-calibration.v1"
+}

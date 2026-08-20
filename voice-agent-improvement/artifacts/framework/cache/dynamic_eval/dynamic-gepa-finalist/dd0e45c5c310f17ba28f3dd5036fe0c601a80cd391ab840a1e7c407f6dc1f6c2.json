@@ -1,0 +1,43 @@
+{
+  "data": {
+    "disposition": "fptp",
+    "should_end_call": true,
+    "spoken_response": "Dhanyawad Mehak ji, aapki 20 August ki payment date note kar li hai. Have a good day!",
+    "tool_calls": [
+      {
+        "arguments": {
+          "date": "20-08-2026"
+        },
+        "name": "record_promise_to_pay"
+      },
+      {
+        "arguments": {
+          "disposition": "fptp"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4434.8,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "dd0e45c5c310f17ba28f3dd5036fe0c601a80cd391ab840a1e7c407f6dc1f6c2",
+    "response_hash": "4e7511e0f6628b6fed9425df464c18ead179a4004350defa4ea503e35cfabee9",
+    "usage": {
+      "candidatesTokenCount": 97,
+      "promptTokenCount": 1794,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1794
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 586,
+      "totalTokenCount": 2477
+    }
+  }
+}

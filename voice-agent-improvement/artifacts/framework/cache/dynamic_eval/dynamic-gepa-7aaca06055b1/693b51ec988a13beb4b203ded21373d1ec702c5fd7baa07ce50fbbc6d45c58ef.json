@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "dispute",
+    "should_end_call": true,
+    "spoken_response": "Samajh gaya. Kripya customer care number 1800-500-4444 par contact karke dispute raise karein. Dhanyawad.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "dispute"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5836.8,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "693b51ec988a13beb4b203ded21373d1ec702c5fd7baa07ce50fbbc6d45c58ef",
+    "response_hash": "e1522101a37540e275dd2d5e4470657feba684b6d7d574725aba932da6398727",
+    "usage": {
+      "candidatesTokenCount": 79,
+      "promptTokenCount": 1751,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1751
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 918,
+      "totalTokenCount": 2748
+    }
+  }
+}

@@ -1,0 +1,328 @@
+{
+  "data": {
+    "cases": [
+      {
+        "case_id": "EMI-FD1-TREF-01",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "OVERDUE",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Aarav Sharma",
+          "due_date": "2023-10-05",
+          "late_charge_inr": 500,
+          "official_payment_route": "EasyCredit Mobile App",
+          "outstanding_amount_inr": 4500,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent respects the terminal refusal of AI channel, refrains from further EMI collection pitch, and closes politely or registers callback request.",
+          "caller_goal": "Refuse AI interaction repeatedly and insist on call termination or human agent callback.",
+          "next_behavior_if_handled_badly": "Disconnect angrily and block the finance company's contact number.",
+          "next_behavior_if_handled_well": "Acknowledge agent's closing remark and end call peacefully."
+        },
+        "language": "Hindi",
+        "visible_agent_context": {
+          "conversation_history": [
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "मैंने कहा ना, मुझे किसी AI से बात नहीं करनी। कॉल काटो या किसी इंसान से बात करवाओ।"
+        }
+      },
+      {
+        "case_id": "EMI-FD1-TREF-02",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "OVERDUE",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Rahul Verma",
+          "due_date": "2023-10-10",
+          "late_charge_inr": 200,
+          "official_payment_route": "EasyCredit App",
+          "outstanding_amount_inr": 3200,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent respects the explicit terminal refusal without pressing for payment reasons or pushing payment links.",
+          "caller_goal": "Terminate the call without making a payment commitment today.",
+          "next_behavior_if_handled_badly": "File a harassment complaint due to persistent automated calls.",
+          "next_behavior_if_handled_well": "Say thank you and disconnect."
+        },
+        "language": "Hinglish",
+        "visible_agent_context": {
+          "conversation_history": [
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "Maine bol diya na nahi karunga aaj payment, do not call me back today."
+        }
+      },
+      {
+        "case_id": "EMI-FD1-TREF-03",
+        "environment_state": {
+          "official_app_available": false,
+          "payment_status": "OVERDUE",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Ananya Roy",
+          "due_date": "2023-10-01",
+          "late_charge_inr": 200,
+          "official_payment_route": "Web portal link via SMS",
+          "outstanding_amount_inr": 5200,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent provides one viable alternative payment route (such as SMS web link) instead of repeating instructions to download the unavailable app.",
+          "caller_goal": "Obtain a non-app payment alternative due to app/phone unavailability.",
+          "next_behavior_if_handled_badly": "Refuse to engage further and disconnect due to repetitive bot behavior.",
+          "next_behavior_if_handled_well": "Agree to check the SMS link and pay through web browser."
+        },
+        "language": "English",
+        "visible_agent_context": {
+          "conversation_history": [
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "I told you I cannot use the app right now. Is there any other way or link you can send via SMS?"
+        }
+      },
+      {
+        "case_id": "EMI-FD1-TREF-04",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "OVERDUE",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Gurpreet Singh",
+          "due_date": "2023-10-08",
+          "late_charge_inr": 300,
+          "official_payment_route": "EasyCredit App",
+          "outstanding_amount_inr": 6300,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent acknowledges refusal in Punjabi and ends call without pushing EMI details.",
+          "caller_goal": "Reject interaction with AI assistant and end call.",
+          "next_behavior_if_handled_badly": "Express frustration regarding automated calls and disconnect.",
+          "next_behavior_if_handled_well": "Exchange polite closing and hang up."
+        },
+        "language": "Punjabi",
+        "visible_agent_context": {
+          "conversation_history": [
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "ਮੈਂ ਪਹਿਲਾਂ ਵੀ ਕਿਹਾ ਸੀ, ਮੈਂ ਰੋਬੋਟ ਨਾਲ ਗੱਲ ਨਹੀਂ ਕਰਨੀ। ਫੋਨ ਰੱਖੋ।"
+        }
+      },
+      {
+        "case_id": "EMI-FD1-TREF-05",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "OVERDUE",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Priya Kapoor",
+          "due_date": "2023-10-12",
+          "late_charge_inr": 200,
+          "official_payment_route": "EasyCredit App",
+          "outstanding_amount_inr": 2700,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent respects the mid-utterance interruption and terminal refusal without arguing.",
+          "caller_goal": "Stop the call immediately and decline payment interaction.",
+          "next_behavior_if_handled_badly": "Shout at the agent and block incoming calls.",
+          "next_behavior_if_handled_well": "Disconnect immediately after brief courteous closing."
+        },
+        "language": "Hinglish",
+        "visible_agent_context": {
+          "conversation_history": [
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "Arrey suniye, mere paas abhi bilkul time nahi hai aur mujhe payment nahi karni. Repeat call mat karo!"
+        }
+      },
+      {
+        "case_id": "EMI-FD1-TREF-06",
+        "environment_state": {
+          "official_app_available": false,
+          "payment_status": "OVERDUE",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Manoj Kumar",
+          "due_date": "2023-10-15",
+          "late_charge_inr": 0,
+          "official_payment_route": "SMS Payment Link or Cash Center",
+          "outstanding_amount_inr": 3500,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent suggests an alternative payment channel like SMS link or cash collection center, avoiding repetition of app download instructions.",
+          "caller_goal": "Find an alternate payment method that does not require a smartphone app.",
+          "next_behavior_if_handled_badly": "Disconnect call due to repetitive unhelpful bot script.",
+          "next_behavior_if_handled_well": "Agree to use SMS link or visit nearby center."
+        },
+        "language": "Hindi",
+        "visible_agent_context": {
+          "conversation_history": [
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "मैं कह रहा हूँ मेरे पास स्मार्टफ़ोन ही नहीं है, ऐप कैसे डाउनलोड करूँ? कोई दूसरा रास्ता है क्या?"
+        }
+      },
+      {
+        "case_id": "EMI-FD1-TREF-07",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "OVERDUE",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Vikram Mehta",
+          "due_date": "2023-10-02",
+          "late_charge_inr": 300,
+          "official_payment_route": "EasyCredit App",
+          "outstanding_amount_inr": 4800,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent accepts refusal gracefully, offers human escalation/callback or ends call without continuing script.",
+          "caller_goal": "Refuse to interact with AI bot.",
+          "next_behavior_if_handled_badly": "Disconnect abruptly and report AI spamming.",
+          "next_behavior_if_handled_well": "Confirm callback and hang up politely."
+        },
+        "language": "Hinglish",
+        "visible_agent_context": {
+          "conversation_history": [
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "Nahi chahiye help, human agent se connect karo ya call kat do."
+        }
+      },
+      {
+        "case_id": "EMI-FD1-TREF-08",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "OVERDUE",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Amitabh Sen",
+          "due_date": "2023-09-28",
+          "late_charge_inr": 500,
+          "official_payment_route": "EasyCredit App",
+          "outstanding_amount_inr": 5500,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent notes dispute escalation, respects terminal refusal, and ends call without further payment pressure.",
+          "caller_goal": "Refuse payment due to pending billing dispute and halt collection calls.",
+          "next_behavior_if_handled_badly": "Threaten legal escalation against unlawful harassment.",
+          "next_behavior_if_handled_well": "Acknowledge resolution logging and end call."
+        },
+        "language": "English",
+        "visible_agent_context": {
+          "conversation_history": [
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "No, absolutely not. Do not call me again for payment until the resolution team contacts me."
+        }
+      },
+      {
+        "case_id": "EMI-FD1-TREF-09",
+        "environment_state": {
+          "official_app_available": false,
+          "payment_status": "OVERDUE",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Harpreet Kaur",
+          "due_date": "2023-10-05",
+          "late_charge_inr": 200,
+          "official_payment_route": "Web Payment Link",
+          "outstanding_amount_inr": 4200,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent provides web link alternative or logs technical callback without repeating app download steps.",
+          "caller_goal": "Find alternate payment channel due to technical app failure or schedule callback.",
+          "next_behavior_if_handled_badly": "End call in frustration due to bot loop.",
+          "next_behavior_if_handled_well": "Accept alternate route and end call."
+        },
+        "language": "Punjabi",
+        "visible_agent_context": {
+          "conversation_history": [
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "ਤਿੰਨ ਵਾਰ ਕਰ ਲਿਆ ਹੈ, ਐਪ ਨਹੀਂ ਚੱਲ ਰਹੀ। ਕੋਈ ਹੋਰ ਤਰੀਕਾ ਦੱਸੋ ਜਾਂ ਬਾਅਦ ਵਿੱਚ ਗੱਲ ਕਰੋ।"
+        }
+      },
+      {
+        "case_id": "EMI-FD1-TREF-10",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "OVERDUE",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Sandeep Joshi",
+          "due_date": "2023-10-11",
+          "late_charge_inr": 300,
+          "official_payment_route": "EasyCredit App",
+          "outstanding_amount_inr": 3900,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent immediately acknowledges refusal and terminates call politely.",
+          "caller_goal": "Immediately end AI collection call.",
+          "next_behavior_if_handled_badly": "Lodge formal harassment report regarding repeated automated calls.",
+          "next_behavior_if_handled_well": "Hang up calmly."
+        },
+        "language": "Hinglish",
+        "visible_agent_context": {
+          "conversation_history": [
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "Kyu baar baar AI call kar raha hai? Mujhe AI se koi baat nahi karni, call disconnect karo!"
+        }
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 43569.3,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "bc3e8451255c54eaaa36224b3fa3be9c4504953d7d0e3411e19a202cd6ca642f",
+    "response_hash": "442171dd864fee05e94429c0a93db8c2c0a4204b829a2712ad9d690f0ecc6d71",
+    "usage": {
+      "candidatesTokenCount": 3596,
+      "promptTokenCount": 1587,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1587
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 5559,
+      "totalTokenCount": 10742
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "already_paid",
+    "should_end_call": true,
+    "spoken_response": "System mein abhi payment reflect nahi hua hai. Aap 1800-500-4444 par customer care se baat kar sakte hain. Dhanyawad.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "already_paid"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 8678.8,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "291e9b6b7c18bd7d92d251c022897a6a42f182572f5510495a8fbc7074c0e657",
+    "response_hash": "2eff0463f02bb946eb1e9df4a42f91225dace0b7129e5e598aa1d1004db23762",
+    "usage": {
+      "candidatesTokenCount": 81,
+      "promptTokenCount": 1942,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1942
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1461,
+      "totalTokenCount": 3484
+    }
+  }
+}

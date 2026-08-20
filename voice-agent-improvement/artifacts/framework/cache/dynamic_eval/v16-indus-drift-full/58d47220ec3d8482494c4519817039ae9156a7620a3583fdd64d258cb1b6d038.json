@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Samajh gaya. Toh kya main aapke liye ek callback schedule kar doon? Aap kis time baat kar paayenge?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4843.7,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "58d47220ec3d8482494c4519817039ae9156a7620a3583fdd64d258cb1b6d038",
+    "response_hash": "9e1a9dd5ffe08085d55b395fd43f81019631df5d48e5d12f9e5bb844ae75bc7b",
+    "usage": {
+      "candidatesTokenCount": 51,
+      "promptTokenCount": 1988,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1988
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 574,
+      "totalTokenCount": 2613
+    }
+  }
+}

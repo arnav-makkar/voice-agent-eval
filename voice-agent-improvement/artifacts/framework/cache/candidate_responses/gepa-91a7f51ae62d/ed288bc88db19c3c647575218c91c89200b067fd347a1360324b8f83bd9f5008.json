@@ -1,0 +1,35 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-TRST-22",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "Main EasyCredit se AI assistant Shubh hoon. Aap surakshit rehne ke liye official app khol kar payment kar sakte hain. Kya aap abhi pay karenge?",
+        "terminal_state": "acknowledged"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5927.7,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "ed288bc88db19c3c647575218c91c89200b067fd347a1360324b8f83bd9f5008",
+    "response_hash": "ea6b83e9d270f883b9ac77b42d1e98d93b1be09b8db8a2369fa2b71178da52bb",
+    "usage": {
+      "candidatesTokenCount": 79,
+      "promptTokenCount": 1539,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1539
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 940,
+      "totalTokenCount": 2558
+    }
+  }
+}

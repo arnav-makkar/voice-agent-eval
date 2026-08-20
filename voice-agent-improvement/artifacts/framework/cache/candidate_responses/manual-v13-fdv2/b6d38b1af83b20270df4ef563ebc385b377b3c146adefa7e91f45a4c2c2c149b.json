@@ -1,0 +1,98 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-DISP-01",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "यदि आपने यह लोन नहीं लिया है, तो कृपया हमारे कस्टमर केयर नंबर 1800-123-4567 पर संपर्क करें।",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-02",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Live verification abhi unavailable hai. Kripya aage ki sahayata ke liye hamare customer care number 1800-123-4567 par call karein.",
+        "terminal_state": "already_paid"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-03",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Since you are disputing this charge, please contact our customer care at 1800-123-4567 for resolution.",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-04",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਜੇਕਰ ਇਹ ਲੋਨ ਤੁਹਾਡਾ ਨਹੀਂ ਹੈ, ਤਾਂ ਕਿਰਪਾ ਕਰਕੇ ਸਾਡੇ ਕਸਟਮਰ ਕੇਅਰ ਨੰਬਰ 1800-123-4567 'ਤੇ ਸੰਪਰਕ ਕਰੋ।",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-05",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Live verification abhi unavailable hai. Kisi bhi sahayata ke liye aap hamare customer care number 1800-123-4567 par sampark kar sakte hain.",
+        "terminal_state": "already_paid"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-06",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "यदि आपने यह टीवी नहीं खरीदा है, तो कृपया समाधान के लिए हमारे कस्टमर केयर नंबर 1800-123-4567 पर संपर्क करें।",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-07",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Agar aapka account compromise hua hai, toh kripya hamare customer care number 1800-123-4567 par sampark karein.",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-08",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Live verification is currently unavailable. Please contact our customer care number at 1800-123-4567 for assistance.",
+        "terminal_state": "already_paid"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-09",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਜੇਕਰ ਤੁਹਾਡਾ ਆਰਡਰ ਕੈਂਸਲ ਹੋ ਗਿਆ ਸੀ, ਤਾਂ ਕਿਰਪਾ ਕਰਕੇ ਸਾਡੇ ਕਸਟਮਰ ਕੇਅਰ ਨੰਬਰ 1800-123-4567 'ਤੇ ਸੰਪਰਕ ਕਰੋ।",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-10",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Agar aapne koi finance nahi karwaya hai, toh kripya hamare customer care number 1800-123-4567 par call karein.",
+        "terminal_state": "dispute"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 22348.2,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "b6d38b1af83b20270df4ef563ebc385b377b3c146adefa7e91f45a4c2c2c149b",
+    "response_hash": "cef76a51c79462b0e45b3c605aff96145edea2040052469609d4949ad2fd95c3",
+    "usage": {
+      "candidatesTokenCount": 819,
+      "promptTokenCount": 4778,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 4778
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 3729,
+      "totalTokenCount": 9326
+    }
+  }
+}

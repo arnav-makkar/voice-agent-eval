@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "dispute",
+    "should_end_call": true,
+    "spoken_response": "Samajh gaya Kabir ji. Iski jankari ke liye aap customer care number 1800-500-4444 par call kar sakte hain. Main ise dispute mark kar raha hoon.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "dispute"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5175.8,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "b19169f82478ee53fd13e541f2813c2ce481938ba48fa963bed6c7a393906b37",
+    "response_hash": "6a33682b387a5d5fb989c0a7808a111fc1979c91a005be3cb00527427731e641",
+    "usage": {
+      "candidatesTokenCount": 86,
+      "promptTokenCount": 1607,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1607
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 668,
+      "totalTokenCount": 2361
+    }
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-DISP-01",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "समझ गया अमित जी। इस फ्रॉड शिकायत के लिए कृपया हमारे कस्टमर केयर नंबर customerCareNumber पर संपर्क करें।",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-02",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Samajh gaya Rahul ji. Abhi live verification available nahi hai, kripya customerCareNumber par sampark karein.",
+        "terminal_state": "already_paid"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-03",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "I understand Rohan. Please contact our customer care at customerCareNumber regarding this dispute.",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-04",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਮੈਂ ਸਮਝ ਗਿਆ ਰੋਹਿਤ ਜੀ। ਇਸ ਦੀ ਜਾਂਚ ਲਈ ਕਿਰਪਾ ਕਰਕੇ ਸਾਡੇ ਕਸਟਮਰ ਕੇਅਰ ਨੰਬਰ customerCareNumber 'ਤੇ ਸੰਪਰਕ ਕਰੋ।",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-05",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Samajh gaya Priya ji. Abhi live verification available nahi hai, kripya customerCareNumber par baat karein.",
+        "terminal_state": "already_paid"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-06",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "समझ गया सुनील जी। इस मर्चेंट डिस्प्यूट के समाधान के लिए कृपया हमारे कस्टमर केयर नंबर customerCareNumber पर संपर्क करें।",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-07",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Samajh gaya Vikram ji. Iss fraud report ke liye kripya hamare helpline number fraudHelplineNumber par call karein.",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-08",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "I understand Ananya. Currently live verification is unavailable, so please contact customerCareNumber for assistance.",
+        "terminal_state": "already_paid"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-09",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਮੈਂ ਸਮਝ ਗਿਆ ਗੁਰਪ੍ਰੀਤ ਜੀ। ਇਸ ਡਿਸਪਿਊਟ ਲਈ ਕਿਰਪਾ ਕਰਕੇ ਸਾਡੇ ਕਸਟਮਰ ਕੇਅਰ ਨੰਬਰ customerCareNumber 'ਤੇ ਸੰਪਰਕ ਕਰੋ।",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-10",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Samajh gaya Deepak ji. Iss dispute ke liye kripya hamare helpline number fraudHelplineNumber par call karein.",
+        "terminal_state": "dispute"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 17494.7,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "bcf10f509861b78c49395b8a03f4d3262e4837b04d670a83081df8657d8f6661",
+    "response_hash": "d3d9372f2a9dac588206092ef5c4bd0a76f68718f7ef5aff61528ea64b3c5959",
+    "usage": {
+      "candidatesTokenCount": 712,
+      "promptTokenCount": 4438,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 4438
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 2774,
+      "totalTokenCount": 7924
+    }
+  }
+}

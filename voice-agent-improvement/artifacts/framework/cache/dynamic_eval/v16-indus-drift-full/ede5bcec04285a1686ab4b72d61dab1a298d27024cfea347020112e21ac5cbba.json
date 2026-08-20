@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "payment_ready",
+    "should_end_call": true,
+    "spoken_response": "Bahut dhanyavaad! Aap EasyCredit app se payment kar lijiye. Have a great day!",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4790.8,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "ede5bcec04285a1686ab4b72d61dab1a298d27024cfea347020112e21ac5cbba",
+    "response_hash": "44b62e52568778aef64e8c164ac721aa681289326292ea29a63fb5569e11cc27",
+    "usage": {
+      "candidatesTokenCount": 49,
+      "promptTokenCount": 1945,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1945
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 669,
+      "totalTokenCount": 2663
+    }
+  }
+}

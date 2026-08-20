@@ -1,0 +1,98 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-TERM-21",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "धन्यवाद अर्णव जी, आप ऐप से भुगतान कर लीजिए।",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-TERM-22",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Dhanyawad Gurpreet ji, aap app se payment kar lijiye.",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-TERM-23",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thank you Vikram, please complete the payment in the app.",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-TERM-24",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਧੰਨਵਾਦ ਹਰਜੀਤ ਜੀ, ਤੁਸੀਂ ਐਪ ਤੋਂ ਭੁਗਤਾਨ ਕਰ ਲਵੋ।",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-TERM-25",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Dhanyawad Arnav ji, aap app se payment poori kar lijiye.",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-TRST-21",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "मैं EasyCredit Finance का AI वॉयस असिस्टेंट शुभ हूँ। आप खुद आधिकारिक ऐप खोलकर भुगतान कर सकते हैं, क्या आप अभी पे करेंगे?",
+        "terminal_state": ""
+      },
+      {
+        "case_id": "EMI-FD1-TRST-22",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "Main EasyCredit Finance se Shubh, ek AI voice assistant bol raha hoon. Aap khud official app khol kar payment kar sakte hain, kya aap abhi pay karenge?",
+        "terminal_state": ""
+      },
+      {
+        "case_id": "EMI-FD1-TRST-23",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "I am Shubh, an AI voice assistant for EasyCredit Finance. Please open the official app independently to pay. Will you pay now?",
+        "terminal_state": ""
+      },
+      {
+        "case_id": "EMI-FD1-TRST-24",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "ਹਾਂ ਜੀ, ਮੈਂ EasyCredit Finance ਤੋਂ ਸ਼ੁਭ, ਇੱਕ AI voice assistant ਹਾਂ। ਤੁਸੀਂ ਖੁਦ official app ਖੋਲ੍ਹ ਕੇ ਦੇਖ ਸਕਦੇ ਹੋ, ਕੀ ਤੁਸੀਂ ਹੁਣੇ ਪੇਮੈਂਟ ਕਰੋਗੇ?",
+        "terminal_state": ""
+      },
+      {
+        "case_id": "EMI-FD1-TRST-25",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "Main EasyCredit Finance se Shubh, ek AI voice assistant bol raha hoon. Aap bilkul official app se abhi payment kar sakte hain, kya aap abhi pay karenge?",
+        "terminal_state": ""
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 30236.9,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "66f1fd60c835a685fa2bb79fc2fa4b88063d9c88956ebfa0fbcffc6d87f496af",
+    "response_hash": "8c54a44abcd05308b0bd4d9034bd448c8ab235d947228d1acdcba9793d14dacb",
+    "usage": {
+      "candidatesTokenCount": 740,
+      "promptTokenCount": 4496,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 4496
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 5927,
+      "totalTokenCount": 11163
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "experiments": [
+    {
+      "candidate_id": "manual-v13-fdv2",
+      "experiment_id": "manual-v13-fdv2-development-regression-anchor_failure-anchor_win-20260817T200240Z",
+      "results_sha256": "4569cd27667a1d725b407b06c744b2a01c78ff13fe370ce94aa8bdd33deaefdf"
+    },
+    {
+      "candidate_id": "v12-fdv2",
+      "experiment_id": "v12-fdv2-development-regression-anchor_failure-anchor_win-20260817T200235Z",
+      "results_sha256": "954fb6f3b681e2fbc07354f78af9457d80451cf24ae4bfd1dc0998c8585b1c91"
+    }
+  ],
+  "reason": "emi_failure_derived_v2 used generic terminal names that disagreed with the deployed Indus enum; dialogue content is retained and re-scored under V3.",
+  "schema_version": "experiment-invalidation.v1",
+  "status": "invalidated_for_comparison",
+  "superseded_dataset": "emi_failure_derived_v3"
+}

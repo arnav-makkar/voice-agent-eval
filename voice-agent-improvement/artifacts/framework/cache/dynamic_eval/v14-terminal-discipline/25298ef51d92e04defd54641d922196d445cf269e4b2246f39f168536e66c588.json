@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Dhanyawad Mehak ji. Toh kya aap aaj hi payment kar denge?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5488.2,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "25298ef51d92e04defd54641d922196d445cf269e4b2246f39f168536e66c588",
+    "response_hash": "6611e446339d93bdd3af0989b8dad789bc180512727b82c3044bd525e11fcf86",
+    "usage": {
+      "candidatesTokenCount": 42,
+      "promptTokenCount": 1755,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1755
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 696,
+      "totalTokenCount": 2493
+    }
+  }
+}

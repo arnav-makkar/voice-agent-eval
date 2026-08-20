@@ -1,0 +1,68 @@
+{
+  "data": {
+    "extractions": [
+      {
+        "call_summary": "Caller confirmed identity. Agent informed about the overdue EMI. Caller explicitly agreed to open the app and make the payment immediately.",
+        "disposition": "payment_ready",
+        "escalation_reason": "NA",
+        "evidence": "हाँ मैं app खोल के payment कर देता हूँ। ... हां जी अभी कर रहा हूं।",
+        "trace_id": "BL-V12-01",
+        "unsupported_action_in_summary": false
+      },
+      {
+        "call_summary": "Caller confirmed identity but stated they were busy at the office. When informed about the EMI, the caller refused to make the payment at the moment and said goodbye.",
+        "disposition": "rtp",
+        "escalation_reason": "NA",
+        "evidence": "नहीं मेरे को ये अभी नहीं कर सकता बाय।",
+        "trace_id": "BL-V12-02",
+        "unsupported_action_in_summary": false
+      },
+      {
+        "call_summary": "Caller confirmed identity but denied taking the loan, claiming it was a scam. Agent provided the customer care number to report the unauthorized purchase.",
+        "disposition": "escalation",
+        "escalation_reason": "fraud_claim",
+        "evidence": "मैंने कोई ऐसा लोन नहीं लिया है।",
+        "trace_id": "BL-V12-03-FRAUD",
+        "unsupported_action_in_summary": false
+      },
+      {
+        "call_summary": "Caller confirmed identity but objected to speaking with an AI agent, stating the call felt like a scam. The caller refused to pay the AI and stated they would only speak to a human.",
+        "disposition": "rtp",
+        "escalation_reason": "NA",
+        "evidence": "मैं किसी भी एआई एजेंट से क्यों बात करके पैसे दूं? यह मेरे को स्कैम लग रहा है। मैं जेन्युइन कॉल अगर कोई आएगा तो उससे बात करूंगा।",
+        "trace_id": "BL-V12-04-AI",
+        "unsupported_action_in_summary": false
+      },
+      {
+        "call_summary": "Caller confirmed identity and questioned the increased EMI amount. Agent explained the late charges, after which the caller agreed to make the payment immediately.",
+        "disposition": "payment_ready",
+        "escalation_reason": "NA",
+        "evidence": "हां जी मैं कर दूंगा pay। ... जी",
+        "trace_id": "BL-V12-05",
+        "unsupported_action_in_summary": false
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 22381.2,
+    "model_requested": "gemini-pro-latest",
+    "model_version": "gemini-3.1-pro-preview",
+    "request_hash": "f1599163e47854426bb2b802a0dad67f4e3a863a4859cd2351b1f4b71810df46",
+    "response_hash": "2ea39a87fc20bf87f06e83eb56aec948cc54c3dc7f9dc93dfe59462f2f7c6c40",
+    "usage": {
+      "candidatesTokenCount": 610,
+      "promptTokenCount": 2430,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 2430
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 2323,
+      "totalTokenCount": 5363
+    }
+  }
+}

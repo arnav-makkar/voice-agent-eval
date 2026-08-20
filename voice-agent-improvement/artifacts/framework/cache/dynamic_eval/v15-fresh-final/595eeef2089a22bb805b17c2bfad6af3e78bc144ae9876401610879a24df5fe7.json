@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Samajh sakta hoon. Aap kab tak iski payment kar paayenge?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4376.6,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "595eeef2089a22bb805b17c2bfad6af3e78bc144ae9876401610879a24df5fe7",
+    "response_hash": "2ce1d9941400015a82ae0745daff24f93d7af6213596ba70242a29b70b861b16",
+    "usage": {
+      "candidatesTokenCount": 41,
+      "promptTokenCount": 1829,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1829
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 636,
+      "totalTokenCount": 2506
+    }
+  }
+}

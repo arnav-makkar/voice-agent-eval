@@ -1,0 +1,34 @@
+{
+  "artifacts": [
+    {
+      "bytes": 82627,
+      "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/traces.jsonl",
+      "records": 20,
+      "sha256": "e1d2c55cf76cba9cbeac83c4ca152078fcdd54a85fa6f485daf130bdacbdbba1"
+    },
+    {
+      "bytes": 16585,
+      "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/reference_annotations.provisional.jsonl",
+      "records": 20,
+      "sha256": "7922ec56b245126cf907e50637a9d0988d92ed7de1f0f4af2aa201d202a91f55"
+    },
+    {
+      "bytes": 3821,
+      "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/domain_pack.snapshot.json",
+      "sha256": "fa5f2ab6bc584ff15908e6abe4b870d93ec9c6911fcc999d0140fd95f6e64736"
+    }
+  ],
+  "created_at": "2026-08-17T19:01:21.199538+00:00",
+  "metadata": {
+    "domain_id": "emi_recovery",
+    "domain_pack_version": "1.0.0",
+    "input_hashes": {
+      "annotations_sha256": "3e64a1e025beee324f92962db3498127e7fb20b00302d2751a9a4003c0ae2792",
+      "calls_sha256": "3d49ee6dea658073b5280fe43f9419c9fa08f160c0cce3194f9fdcdaa67c15da",
+      "scorecards_sha256": "e8d48e6946cd5cb8f7e92e35ba879229362924585364f8b83218f546656d0ed2"
+    },
+    "reference_status": "provisional"
+  },
+  "schema_version": "framework-manifest.v1",
+  "stage": "canonicalize"
+}

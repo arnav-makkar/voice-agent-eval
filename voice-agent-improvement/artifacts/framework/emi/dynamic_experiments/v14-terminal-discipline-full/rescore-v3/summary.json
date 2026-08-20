@@ -1,0 +1,19 @@
+{
+  "aggregate": {
+    "average_experience_score": 0.93,
+    "failure_counts": {
+      "disposition": 1
+    },
+    "invalid_simulations": 0,
+    "records": 30,
+    "task_success_rate": 0.9667,
+    "task_successes": 29,
+    "valid_records": 30
+  },
+  "claim_boundary": "Deterministic rescore of immutable episode traces; it does not rerun the agent or simulator.",
+  "evaluator_sha256": "925c1eab45dd0b59e50e0042e945ad0e208f9682285e7c60d1c92be46ae5bb3a",
+  "evaluator_version": "evaluation-metrics.v3/loopline-eva-adapter.v1",
+  "schema_version": "deterministic-rescore.v1",
+  "source_runs": "artifacts/framework/emi/dynamic_experiments/v14-terminal-discipline-full/runs.jsonl",
+  "source_runs_sha256": "095cba6be209d558812c58d91a2ddf063dc31d3d8195f82dabefee6d8b1f82e9"
+}

@@ -1,0 +1,72 @@
+{
+  "access_policy": "Only the frozen baseline and finalist may run once on fresh_final; no repair process receives final-test feedback.",
+  "baseline_prompt_sha256": "3d95098db8b459b955bf703d166884a2a03477155940dea6e57013356b28c9c1",
+  "claim_boundary": "Automated hash freeze. Owner semantic review of generated final cards remains a separate human gate.",
+  "components": {
+    "baseline_prompt": {
+      "path": "agent/v1/SYSTEM-PROMPT.md",
+      "sha256": "3d95098db8b459b955bf703d166884a2a03477155940dea6e57013356b28c9c1"
+    },
+    "development_suite": [
+      {
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/dynamic_scenarios_v1/development.jsonl",
+        "sha256": "e7efa22dc34310fcd22bdc575c9f0f4dfe10d686b4368ef7b7042cc753bc18de"
+      },
+      {
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/dynamic_scenarios_v1/validation.jsonl",
+        "sha256": "5358c2a6d5eac6eec9799d4c137e0892f554a4044953e83a087665582b8e6012"
+      },
+      {
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/dynamic_scenarios_v1/regression.jsonl",
+        "sha256": "b0b341debafe74adda48086c7163cef9919cbc0fa2cf133b05d8b3939412b385"
+      },
+      {
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/dynamic_scenarios_v1/manifest.json",
+        "sha256": "12e7345f72080e918a7ff6c6397e4b0803db29bb7599d11a7f0694dfe02c562f"
+      },
+      {
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/dynamic_scenarios_v1/validation.json",
+        "sha256": "de6ba04af594a2835099f8260bb6765335ecfeb1239a01f32f527481fead4ec3"
+      }
+    ],
+    "evaluator_files": [
+      {
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/framework/evaluation/contracts.py",
+        "sha256": "9cf518e34e2610f37383484d9b5ee8d5424ab0bb5980e55428f0d3d5ff1cacfd"
+      },
+      {
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/framework/evaluation/environment.py",
+        "sha256": "55842c91c7f771f8b6e4b220056d0e7d24933b6572adb72e70a891f64ee3861f"
+      },
+      {
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/framework/evaluation/runner.py",
+        "sha256": "23fda7aad450113cf7592eb5479ef174ab5f544a7fa0baeb577316528be2d4cd"
+      },
+      {
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/framework/evaluation/metrics.py",
+        "sha256": "e57f59cc7b4d52c44a337bf0bf3a5ec459b8428895993c09b49db1076f4840c4"
+      },
+      {
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/framework/evaluation/semantic_metrics.py",
+        "sha256": "1225ce608051e89be366d9504f580f89e5bc47bec8470b53b9d18d8ca758fc8e"
+      },
+      {
+        "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/framework/evaluation/release.py",
+        "sha256": "fd4e4b3aedce96b61cfee787282dc7143b7e3d6a9f1d08cf51322ea971c62cae"
+      }
+    ],
+    "finalist_prompt": {
+      "path": "agent/candidates/v15-firm-today.md",
+      "sha256": "732d216b3a75bcb2d6424946cf935dfd1584d723f31020bb746908431dad90e3"
+    },
+    "selection_decision": {
+      "path": "artifacts/framework/emi/selection.json",
+      "sha256": "5a6d37cee9d382b3f15aecf87ed4b212e4a60329b066e162b6ac4fd8c643e440"
+    }
+  },
+  "evaluator_bundle_sha256": "f0b6df47e5c3678902967422046b6dfcf4af0f3e627acf6ce5a4f72987383b9d",
+  "finalist_prompt_sha256": "732d216b3a75bcb2d6424946cf935dfd1584d723f31020bb746908431dad90e3",
+  "frozen_at": "2026-08-18T22:39:03.055447+00:00",
+  "method_bundle_sha256": "04485d2d1bd9330e440aead16e609ccc403be8b96f23d2363d6f29e47be664f9",
+  "schema_version": "evaluation-method-freeze.v1"
+}

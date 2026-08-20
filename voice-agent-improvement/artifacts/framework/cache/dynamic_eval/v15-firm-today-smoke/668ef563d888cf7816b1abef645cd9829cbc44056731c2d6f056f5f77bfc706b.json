@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "payment_ready",
+    "should_end_call": true,
+    "spoken_response": "Bahut dhanyawad Riya ji! Aap kripya EasyCredit app se payment kar lijiye. Aapka din shubh ho!",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "payment_ready"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 3988.1,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "668ef563d888cf7816b1abef645cd9829cbc44056731c2d6f056f5f77bfc706b",
+    "response_hash": "47214a49dd6918f7ddd311937ffcd25c90c17a5c97e9d47ae6bf3f22839d0248",
+    "usage": {
+      "candidatesTokenCount": 73,
+      "promptTokenCount": 1837,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1837
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 454,
+      "totalTokenCount": 2364
+    }
+  }
+}

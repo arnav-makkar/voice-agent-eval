@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "rtp",
+    "should_end_call": true,
+    "spoken_response": "Thik hai, main aapka decision note kar raha hoon. Dhanyawad.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "rtp"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 3345.2,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "8c3d7f93f7abe1efee1a01369c40e74f51180ee3611b9e73a66b0f4dd4ad1792",
+    "response_hash": "f6d0a6697a17e13ff5892c4b1eb1693d731e5e9c0b6b75f204322b70f8a9e5f6",
+    "usage": {
+      "candidatesTokenCount": 58,
+      "promptTokenCount": 1745,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1745
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 552,
+      "totalTokenCount": 2355
+    }
+  }
+}

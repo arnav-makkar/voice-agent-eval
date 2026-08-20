@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "You can check the Rs 3222 amount on the EasyCredit app right now. Will you be able to pay today after checking?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5980.1,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "48840f280ad00707c49679e6c67f99cbebfc707d698e899d142cfba070ee676b",
+    "response_hash": "aca930007faf0a06dca0d9ced91b122dd70076ccfd48809b3e4261f50a068b03",
+    "usage": {
+      "candidatesTokenCount": 53,
+      "promptTokenCount": 1944,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1944
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 881,
+      "totalTokenCount": 2878
+    }
+  }
+}

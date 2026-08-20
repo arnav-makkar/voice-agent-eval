@@ -1,0 +1,35 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-DISP-21",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "क्या आपने डिलीवरी रिजेक्शन के समय कोई शिकायत दर्ज कराई थी? कृपया आगे की सहायता के लिए कस्टमर केयर नंबर पर संपर्क करें।",
+        "terminal_state": "dispute"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 8192.0,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "0af9fd868eb73934aa289c980c4a0787e04d6a255998a19ac84ddb05200da105",
+    "response_hash": "38317cd27a7b1243f44dd7c3dbb751f7a261856802194469f82f51f35abb0e72",
+    "usage": {
+      "candidatesTokenCount": 71,
+      "promptTokenCount": 1541,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1541
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1351,
+      "totalTokenCount": 2963
+    }
+  }
+}

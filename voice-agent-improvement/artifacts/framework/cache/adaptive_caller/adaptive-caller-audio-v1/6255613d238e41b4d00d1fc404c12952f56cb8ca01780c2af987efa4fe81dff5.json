@@ -1,0 +1,40 @@
+{
+  "data": {
+    "action": "speak",
+    "audio_quality": "clear",
+    "delay_ms": 0,
+    "heard_agent_text": "Namaste, kya main Riya se baat kar raha hoon?",
+    "heard_language": "hi",
+    "policy_node": "step-1",
+    "rationale": "The agent is confirming if they are speaking with Riya. I confirm identity tersely and ask the reason for the call, as per the persona.",
+    "text": "Haan, main Riya hoon. Kis silsile mein call kiya hai?"
+  },
+  "metadata": {
+    "adapter_version": "gemini-audio-json.v1",
+    "audio_bytes": 83244,
+    "audio_sha256": "65575ac8c976837d8c3fb5075716dd17f3907fbd68941c3cfe488de7ccc1cbad",
+    "cache_hit": false,
+    "latency_ms": 7660.9,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "6255613d238e41b4d00d1fc404c12952f56cb8ca01780c2af987efa4fe81dff5",
+    "response_hash": "67f3fe71d9d388530ed08b256bd4256e5ac1ed40c6d8ec606535f8d337779265",
+    "usage": {
+      "candidatesTokenCount": 104,
+      "promptTokenCount": 518,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 453
+        },
+        {
+          "modality": "AUDIO",
+          "tokenCount": 65
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 727,
+      "totalTokenCount": 1349
+    }
+  }
+}

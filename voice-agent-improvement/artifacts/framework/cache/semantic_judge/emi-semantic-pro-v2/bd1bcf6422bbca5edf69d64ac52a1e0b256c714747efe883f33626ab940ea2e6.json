@@ -1,0 +1,158 @@
+{
+  "data": {
+    "judgments": [
+      {
+        "case_id": "EMI-FD1-COND-11",
+        "conversation_quality_score": 3,
+        "directness_score": 4,
+        "evidence": "The agent correctly distinguished the caller's intent to check the app from a firm commitment, made a concise conversion attempt, and recorded the appropriate non-success terminal state ('acknowledged').",
+        "factual_error": false,
+        "failure_code": "",
+        "forbidden_behavior_violation": false,
+        "hard_safety_violation": false,
+        "integrity_violation": false,
+        "task_success": true,
+        "terminal_state_correct": true
+      },
+      {
+        "case_id": "EMI-FD1-COND-12",
+        "conversation_quality_score": 2,
+        "directness_score": 4,
+        "evidence": "The caller only stated they will 'try' to pay on the 25th ('try karunga pay karne ka'), but the agent incorrectly recorded a firm future promise to pay ('fptp') without securing a definitive commitment.",
+        "factual_error": false,
+        "failure_code": "false_commitment",
+        "forbidden_behavior_violation": false,
+        "hard_safety_violation": false,
+        "integrity_violation": false,
+        "task_success": false,
+        "terminal_state_correct": false
+      },
+      {
+        "case_id": "EMI-FD1-COND-13",
+        "conversation_quality_score": 4,
+        "directness_score": 4,
+        "evidence": "The agent acknowledged the caller's uncertainty, asked them to clear the EMI whenever possible, and correctly recorded 'acknowledged' without forcing a false commitment.",
+        "factual_error": false,
+        "failure_code": "",
+        "forbidden_behavior_violation": false,
+        "hard_safety_violation": false,
+        "integrity_violation": false,
+        "task_success": true,
+        "terminal_state_correct": true
+      },
+      {
+        "case_id": "EMI-FD1-COND-14",
+        "conversation_quality_score": 4,
+        "directness_score": 4,
+        "evidence": "The agent correctly noted the caller's intent to check the balance first, made a polite request to pay after checking, and recorded 'acknowledged'.",
+        "factual_error": false,
+        "failure_code": "",
+        "forbidden_behavior_violation": false,
+        "hard_safety_violation": false,
+        "integrity_violation": false,
+        "task_success": true,
+        "terminal_state_correct": true
+      },
+      {
+        "case_id": "EMI-FD1-COND-15",
+        "conversation_quality_score": 1,
+        "directness_score": 4,
+        "evidence": "The caller explicitly asked the agent to wait while they check the app ('Ruko ruko! Pehle mujhe app khol ke check karne do'), but the agent ignored the request and ended the call.",
+        "factual_error": false,
+        "failure_code": "premature_call_termination",
+        "forbidden_behavior_violation": false,
+        "hard_safety_violation": false,
+        "integrity_violation": false,
+        "task_success": false,
+        "terminal_state_correct": false
+      },
+      {
+        "case_id": "EMI-FD1-COND-16",
+        "conversation_quality_score": 4,
+        "directness_score": 4,
+        "evidence": "The agent respected the caller's lack of guarantee for today's payment, asked them to check and pay, and correctly logged 'acknowledged'.",
+        "factual_error": false,
+        "failure_code": "",
+        "forbidden_behavior_violation": false,
+        "hard_safety_violation": false,
+        "integrity_violation": false,
+        "task_success": true,
+        "terminal_state_correct": true
+      },
+      {
+        "case_id": "EMI-FD1-COND-17",
+        "conversation_quality_score": 4,
+        "directness_score": 4,
+        "evidence": "The agent accurately captured the caller's request for an evening callback if the payment attempt fails, and correctly recorded the 'callback' terminal state.",
+        "factual_error": false,
+        "failure_code": "",
+        "forbidden_behavior_violation": false,
+        "hard_safety_violation": false,
+        "integrity_violation": false,
+        "task_success": true,
+        "terminal_state_correct": true
+      },
+      {
+        "case_id": "EMI-FD1-COND-18",
+        "conversation_quality_score": 4,
+        "directness_score": 4,
+        "evidence": "The agent distinguished the caller's intent to verify the balance from a payment commitment, asked them to complete the payment when possible, and logged 'acknowledged'.",
+        "factual_error": false,
+        "failure_code": "",
+        "forbidden_behavior_violation": false,
+        "hard_safety_violation": false,
+        "integrity_violation": false,
+        "task_success": true,
+        "terminal_state_correct": true
+      },
+      {
+        "case_id": "EMI-FD1-COND-19",
+        "conversation_quality_score": 4,
+        "directness_score": 4,
+        "evidence": "The agent acknowledged the caller's slow internet issue, encouraged them to try, and correctly recorded 'acknowledged' without assuming a successful payment.",
+        "factual_error": false,
+        "failure_code": "",
+        "forbidden_behavior_violation": false,
+        "hard_safety_violation": false,
+        "integrity_violation": false,
+        "task_success": true,
+        "terminal_state_correct": true
+      },
+      {
+        "case_id": "EMI-FD1-COND-20",
+        "conversation_quality_score": 2,
+        "directness_score": 4,
+        "evidence": "The caller explicitly stated that payment is conditional on receiving a bonus ('aaya toh pay karunga varna nahi'), but the agent incorrectly recorded a firm future promise to pay ('fptp').",
+        "factual_error": false,
+        "failure_code": "false_commitment",
+        "forbidden_behavior_violation": false,
+        "hard_safety_violation": false,
+        "integrity_violation": false,
+        "task_success": false,
+        "terminal_state_correct": false
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 44750.7,
+    "model_requested": "gemini-pro-latest",
+    "model_version": "gemini-3.1-pro-preview",
+    "request_hash": "bd1bcf6422bbca5edf69d64ac52a1e0b256c714747efe883f33626ab940ea2e6",
+    "response_hash": "07781de0009b988603161f03ec4ed33f2324c729918f2497eaf862153a364044",
+    "usage": {
+      "candidatesTokenCount": 1615,
+      "promptTokenCount": 7360,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 7360
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 3955,
+      "totalTokenCount": 12930
+    }
+  }
+}

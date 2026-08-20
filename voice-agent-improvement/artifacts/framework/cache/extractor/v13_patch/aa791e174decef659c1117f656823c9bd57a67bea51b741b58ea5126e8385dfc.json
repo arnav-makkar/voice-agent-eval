@@ -1,0 +1,68 @@
+{
+  "data": {
+    "extractions": [
+      {
+        "call_summary": "Customer confirmed identity but stated they do not have the official app to make the EMI payment of 4416 INR for Samsung TV and ended the call saying they will see later.",
+        "disposition": "acknowledged",
+        "escalation_reason": "NA",
+        "evidence": "बाद में देखूंगा, bye.",
+        "trace_id": "BL-V12-16",
+        "unsupported_action_in_summary": false
+      },
+      {
+        "call_summary": "Customer confirmed identity and agreed to open the official app and pay the overdue Samsung TV EMI of 4416 INR immediately.",
+        "disposition": "payment_ready",
+        "escalation_reason": "NA",
+        "evidence": "ठीक है अभी खोल रहा हूं कर दूंगा फिर।",
+        "trace_id": "BL-V12-02-R1",
+        "unsupported_action_in_summary": false
+      },
+      {
+        "call_summary": "Customer confirmed identity, expressed hesitation about clicking links, but agreed to open the official app directly to make the overdue payment.",
+        "disposition": "payment_ready",
+        "escalation_reason": "NA",
+        "evidence": "ठीक है मैं आप खोल के pay करता हूँ।",
+        "trace_id": "BL-V12-03-R1",
+        "unsupported_action_in_summary": false
+      },
+      {
+        "call_summary": "Customer confirmed identity, questioned the genuineness of the call, and stated they were opening the app to check their account.",
+        "disposition": "acknowledged",
+        "escalation_reason": "NA",
+        "evidence": "मैं app open करके check कर रहा हूँ।",
+        "trace_id": "BL-V12-04-R1",
+        "unsupported_action_in_summary": false
+      },
+      {
+        "call_summary": "Customer confirmed identity, questioned call authenticity, and agreed to check the official EasyCredit Finance app.",
+        "disposition": "acknowledged",
+        "escalation_reason": "NA",
+        "evidence": "Okay, okay, okay, okay, I'll check, I'll check.",
+        "trace_id": "BL-V12-04-R1-en",
+        "unsupported_action_in_summary": false
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 14296.7,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "aa791e174decef659c1117f656823c9bd57a67bea51b741b58ea5126e8385dfc",
+    "response_hash": "a009c227eeafe2611564f9cd0b27bfbc610e5b8898467d93ca14446da3a96e58",
+    "usage": {
+      "candidatesTokenCount": 430,
+      "promptTokenCount": 2144,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 2144
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 2459,
+      "totalTokenCount": 5033
+    }
+  }
+}

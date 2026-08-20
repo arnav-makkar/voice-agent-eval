@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Thik hai Riya ji, aap 22 August ko payment karenge. Kya main 22 August ki date confirm kar doon?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 25491.1,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "68d95b32bd9ccd20026d7947fbdc12197ecd48325f915d015c2d2dc72c117b5b",
+    "response_hash": "4efc475b4dcafe73de14415d9b017172bb99e129f895c17a7c99f0c210f1bbcc",
+    "usage": {
+      "candidatesTokenCount": 53,
+      "promptTokenCount": 1823,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1823
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 4866,
+      "totalTokenCount": 6742
+    }
+  }
+}

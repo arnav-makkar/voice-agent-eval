@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Samajh gaya. Kya aap koi pakki date confirm kar sakte hain jab payment ho sake?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 7062.4,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "f5a10dd5287c279579b979102275ebd439d5021774e02502dad04c00ed81f284",
+    "response_hash": "6151f6745fa87bab8e8222de8b4595214484f6bf764cb16d0d93e770d7c1b9c0",
+    "usage": {
+      "candidatesTokenCount": 59,
+      "promptTokenCount": 1612,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1612
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1017,
+      "totalTokenCount": 2688
+    }
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-TRST-01",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "आपको किसी लिंक पर क्लिक नहीं करना है। मैं EasyCredit का AI असिस्टेंट हूँ, आप सीधे EasyCredit Official App खोलकर ₹4500 का भुगतान कर सकते हैं। क्या आप अभी भुगतान करेंगे?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-TRST-02",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "Main EasyCredit ka AI voice assistant hoon. Aap kisi link par click kiye bina, directly EasyCredit Mobile App khol kar Samsung TV ki Rs 5200 EMI pay kar sakte hain. Kya aap abhi payment karenge?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-TRST-03",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "I am Shubh, an AI voice assistant for EasyCredit. You do not need to pay through any link, simply open the official EasyCredit Official App directly to clear your Rs 3800 EMI. Can you pay now?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-TRST-04",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "ਤੁਹਾਨੂੰ ਕਿਸੇ ਲਿੰਕ 'ਤੇ ਕਲਿੱਕ ਕਰਨ ਦੀ ਲੋੜ ਨਹੀਂ ਹੈ। ਮੈਂ EasyCredit ਦਾ AI ਅਸਿਸਟੈਂਟ ਹਾਂ, ਤੁਸੀਂ ਆਫੀਸ਼ੀਅਲ EasyCredit Official App ਖੋਲ੍ਹ ਕੇ ₹6000 ਦੀ EMI ਦਾ ਭੁਗਤਾਨ ਕਰ ਸਕਦੇ ਹੋ। ਕੀ ਤੁਸੀਂ ਹੁਣੇ ਪੇ ਕਰ ਸਕਦੇ ਹੋ?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-TRST-05",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "Aapko koi link nahi bheja jayega. Main EasyCredit ka AI assistant hoon, aap directly EasyCredit App khol kar Samsung TV ki Rs 4200 EMI pay kar sakte hain. Kya aap abhi pay kar denge?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-TRST-06",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "मैं EasyCredit का AI वॉइस असिस्टेंट हूँ। आप बिना किसी लिंक के, सीधे EasyCredit App खोलकर ₹3500 का बकाया भुगतान चेक करके कर सकते हैं। क्या आप अभी ऐप से पेमेंट करेंगे?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-TRST-07",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "Main EasyCredit ka AI voice assistant hoon. Aapko kisi link par click nahi karna hai, aap khud EasyCredit App khol kar Rs 4800 ki EMI pay kar sakte hain. Kya aap abhi payment kar denge?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-TRST-08",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "Please open the EasyCredit App directly from the Play Store. I am Shubh, an AI assistant for EasyCredit, and you can pay your Rs 5000 EMI there. Can you make the payment now?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-TRST-09",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਜੀ ਹਾਂ, ਤੁਸੀਂ ਬਿਨਾਂ ਕਿਸੇ ਲਿੰਕ ਦੇ ਆਫੀਸ਼ੀਅਲ EasyCredit App ਖੋਲ੍ਹ ਕੇ ₹4100 ਦੀ EMI ਹੁਣੇ ਪੇ ਕਰ ਦਿਓ। ਧੰਨਵਾਦ।",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-TRST-10",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "Main EasyCredit ka AI voice assistant hoon. Aapko kisi link par click karne ki zaroorat nahi hai, aap khud EasyCredit App khol kar Rs 4600 ki EMI pay kar sakte hain. Kya aap abhi pay karenge?",
+        "terminal_state": "acknowledged"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 24477.0,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "6f2c658c5c386215db85246b27863ca10f2330a90887a8d1bf1e4b9727a3c9bd",
+    "response_hash": "d9c438d3767dbb7b025cfa871ffd68b4f7ccb1ac2dc96c5ed7b691050cd3fd8f",
+    "usage": {
+      "candidatesTokenCount": 930,
+      "promptTokenCount": 2930,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 2930
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 4233,
+      "totalTokenCount": 8093
+    }
+  }
+}

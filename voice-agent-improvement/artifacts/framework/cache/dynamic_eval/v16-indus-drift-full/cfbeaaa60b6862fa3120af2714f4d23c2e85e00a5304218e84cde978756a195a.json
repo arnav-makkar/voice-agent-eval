@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "fptp",
+    "should_end_call": true,
+    "spoken_response": "Dhanyavaad, 20 August ko EasyCredit app se payment zaroor kar dijiyega.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "date": "20-08-2026"
+        },
+        "name": "record_promise_to_pay"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 9362.8,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "cfbeaaa60b6862fa3120af2714f4d23c2e85e00a5304218e84cde978756a195a",
+    "response_hash": "bdc08e51e8f5df566b7b828ee677bcafd6e66654bc6e942cd99759fad7842843",
+    "usage": {
+      "candidatesTokenCount": 74,
+      "promptTokenCount": 1992,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1992
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1559,
+      "totalTokenCount": 3625
+    }
+  }
+}

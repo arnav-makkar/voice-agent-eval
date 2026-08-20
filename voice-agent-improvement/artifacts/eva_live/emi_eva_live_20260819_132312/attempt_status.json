@@ -1,0 +1,35 @@
+{
+  "schema_version": "eva-live-attempt.v1",
+  "run_id": "emi_eva_live_20260819_132312",
+  "record_id": "EMI-LIVE-001",
+  "classification": "invalid_provider_infrastructure_attempt",
+  "eligible_for_agent_quality_scoring": false,
+  "valid_realtime_bot_to_bot_conversation": false,
+  "system_under_test": {
+    "provider": "Sarvam Samvaad",
+    "agent": "Shubh",
+    "app_version": 12,
+    "connected": true,
+    "interaction_id": "20260819/c3c104b0-13:23:17-609c43bb",
+    "opening_audio_observed": true
+  },
+  "user_simulator": {
+    "provider": "ElevenLabs Agents",
+    "persona": "Arnav",
+    "connected": true,
+    "status": "failed",
+    "error_code": 1002,
+    "error_type": "dependency_error",
+    "termination_reason": "This request cannot be processed due to a payment issue.",
+    "reported_cost": 0
+  },
+  "observed_exchange": {
+    "assistant_audio_seconds": 2.378,
+    "caller_clean_audio_seconds": 1.52,
+    "substantive_completed_turns": 0,
+    "task_outcome": null,
+    "latency_eligible": false
+  },
+  "next_action": "Enable billing or add usable Conversational AI balance on the ElevenLabs account, then run the guarded command once. Do not score or present this attempt as an agent failure.",
+  "record_artifacts": "records/EMI-LIVE-001_failed_attempt_1"
+}

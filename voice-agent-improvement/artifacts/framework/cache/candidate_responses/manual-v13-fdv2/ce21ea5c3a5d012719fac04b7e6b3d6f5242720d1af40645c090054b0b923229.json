@@ -1,0 +1,98 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-COND-01",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "जी ठीक है, कृपया भुगतान के लिए केवल EasyCredit ऑफिशियल ऐप का ही उपयोग करें। धन्यवाद।",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-COND-02",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Ji thik hai, kripya keval EasyCredit official app se hi payment karein. Dhanyawad.",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-COND-03",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Alright, please make the payment tomorrow morning using only the EasyCredit official app. Thank you.",
+        "terminal_state": "fptp"
+      },
+      {
+        "case_id": "EMI-FD1-COND-04",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਠੀਕ ਹੈ, ਕਿਰਪਾ ਕਰਕੇ 22 ਅਗਸਤ ਨੂੰ ਕੇਵਲ EasyCredit ਆਫੀਸ਼ੀਅਲ ਐਪ ਰਾਹੀਂ ਭੁਗਤਾਨ ਕਰੋ। ਧੰਨਵਾਦ।",
+        "terminal_state": "fptp"
+      },
+      {
+        "case_id": "EMI-FD1-COND-05",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thik hai, kripya keval EasyCredit official app ka hi upayog karein. Dhanyawad.",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-COND-06",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "जी ठीक है, कृपया केवल EasyCredit ऑफिशियल ऐप से ही भुगतान करें। धन्यवाद।",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-COND-07",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thik hai, main shaam ke callback ki preference note kar leta hoon. Kripya keval EasyCredit official app ka upayog karein. Dhanyawad.",
+        "terminal_state": "callback"
+      },
+      {
+        "case_id": "EMI-FD1-COND-08",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Alright, please use only the official EasyCredit app for making any payment. Thank you.",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-COND-09",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਠੀਕ ਹੈ, ਮੈਂ 2 ਵਜੇ ਕਾਲ ਦੀ ਤਰਜੀਹ ਨੋਟ ਕਰ ਲੈਂਦਾ ਹਾਂ। ਕਿਰਪਾ ਕਰਕੇ ਕੇਵਲ EasyCredit ਆਫੀਸ਼ੀਅਲ ਐਪ ਰਾਹੀਂ ਭੁਗਤਾਨ ਕਰੋ। ਧੰਨਵਾਦ।",
+        "terminal_state": "callback"
+      },
+      {
+        "case_id": "EMI-FD1-COND-10",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thik hai, kripya keval EasyCredit official app ka hi upayog karein. Dhanyawad.",
+        "terminal_state": "acknowledged"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 52135.1,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "ce21ea5c3a5d012719fac04b7e6b3d6f5242720d1af40645c090054b0b923229",
+    "response_hash": "9dff5dd4ec3ccf0153646c02f40d96db89756df441605f6d0f0b45a0b9cf50f7",
+    "usage": {
+      "candidatesTokenCount": 936,
+      "promptTokenCount": 4812,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 4812
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 9773,
+      "totalTokenCount": 15521
+    }
+  }
+}

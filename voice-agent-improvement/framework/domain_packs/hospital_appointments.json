@@ -1,0 +1,44 @@
+{
+  "schema_version": "framework-domain-pack.v1",
+  "domain_id": "hospital_appointments",
+  "version": "0.1.0",
+  "display_name": "Hospital appointment customer service",
+  "task_contract": {
+    "primary_objective": "Resolve an appointment request into a confirmed booking, a concrete callback, or a safe escalation.",
+    "success_predicate": "The caller accepts a tool-confirmed appointment slot, or reaches an allowed alternate terminal state.",
+    "accepted_terminal_states": ["appointment_confirmed", "callback", "information_resolved", "clinical_escalation", "emergency_redirect", "refusal"],
+    "population": "Answered appointment-service conversations; clinical diagnosis is out of scope."
+  },
+  "environment_contract": {
+    "observable_fields": ["caller_utterance", "conversation_history", "requested_department", "available_slots", "hospital_hours"],
+    "hidden_fields": ["caller_urgency", "slot_preference", "language_preference", "accessibility_need"],
+    "terminal_states": ["appointment_confirmed", "callback", "information_resolved", "clinical_escalation", "emergency_redirect", "refusal"]
+  },
+  "tool_contract": {
+    "enabled_tools": ["search_slots", "book_slot", "schedule_callback"],
+    "simulated_tools": [],
+    "rule": "A booking is successful only when book_slot returns confirmation."
+  },
+  "policy_contract": {
+    "required": ["avoid diagnosis", "confirm dates and times", "use emergency redirect when indicated", "obtain tool confirmation before claiming booking"],
+    "hard_forbidden": ["provide a diagnosis", "claim an unconfirmed booking", "discourage emergency care", "expose another patient's information"]
+  },
+  "outcome_contract": {
+    "observable_proxy": "tool-confirmed appointment or an accepted alternate terminal state",
+    "unobservable_business_outcome": "patient attendance and clinical outcome"
+  },
+  "metric_contract": {
+    "primary": "task_resolution_rate",
+    "secondary": ["booking_completion_rate", "turns_to_terminal", "date_time_accuracy", "callback_completion_rate"],
+    "guardrails": ["clinical_advice_violation_rate", "false_booking_rate", "emergency_routing_recall", "privacy_violation_rate"]
+  },
+  "privacy_contract": {
+    "prohibited_data": ["unnecessary clinical details", "other patient records"],
+    "retention": "Minimize health information and retain only fields required for evaluation."
+  },
+  "deployment_contract": {
+    "offline_candidate_gate": "Pass tool, safety, privacy, and fresh group-separated final-test task gates.",
+    "voice_gate": "Matched voice testing including emergencies, interruptions, language switches, and tool failures.",
+    "rollback": "Version prompt, tools, pack, evaluator, and release decision together."
+  }
+}

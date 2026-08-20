@@ -1,0 +1,98 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-TREF-01",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ठीक है, आप सहायता के लिए हमारी कस्टमर केयर टीम से संपर्क कर सकते हैं। धन्यवाद।",
+        "terminal_state": "escalation"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-02",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thik hai, aap EasyCredit app se payment kar sakte hain. Thank you.",
+        "terminal_state": "rtp"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-03",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "I understand. What is the earliest realistic date you can make this payment?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-04",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਠੀਕ ਹੈ ਜੀ, ਤੁਸੀਂ ਸਾਡੀ ਕਸਟਮਰ ਕੇਅਰ ਟੀਮ ਨਾਲ ਸੰਪਰਕ ਕਰ ਸਕਦੇ ਹੋ। ਧੰਨਵਾਦ।",
+        "terminal_state": "escalation"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-05",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thik hai, aap EasyCredit app se payment kar sakte hain. Thank you.",
+        "terminal_state": "rtp"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-06",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "मैं समझता हूँ। आप किस तारीख तक भुगतान कर सकते हैं?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-07",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thik hai, aap hamari customer care team se contact kar sakte hain. Thank you.",
+        "terminal_state": "escalation"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-08",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "I understand. You can pay anytime through the official EasyCredit app. Thank you.",
+        "terminal_state": "rtp"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-09",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "ਮੈਂ ਸਮਝ ਸਕਦਾ ਹਾਂ ਜੀ। ਤੁਸੀਂ ਕਿਹੜੀ ਤਾਰੀਖ ਤੱਕ ਭੁਗਤਾਨ ਕਰ ਸਕਦੇ ਹੋ?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-10",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thik hai, aap hamari customer care team se contact kar sakte hain. Thank you.",
+        "terminal_state": "escalation"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 39966.3,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "21cdd00cea2703708bb1f86a63c80596ae112b50731042f7f60cf2d74e91090a",
+    "response_hash": "51a75b67bd29998536e2b3412dedce1c43482936211f6bb3b4c858a4704aa421",
+    "usage": {
+      "candidatesTokenCount": 852,
+      "promptTokenCount": 4794,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 4794
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 7742,
+      "totalTokenCount": 13388
+    }
+  }
+}

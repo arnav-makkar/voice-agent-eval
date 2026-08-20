@@ -1,0 +1,60 @@
+{
+  "average_conciseness": 4.0,
+  "average_faithfulness": 3.833,
+  "average_progression": 3.833,
+  "claim_boundary": "Secondary LLM-judge diagnostics; deterministic state/action checks are primary and human calibration is required for final claims.",
+  "evaluator_version": "dynamic-eva-metrics-v2",
+  "factual_errors": 0,
+  "forbidden_behavior_violations": 0,
+  "integrity_violations": 0,
+  "judge_calls": [
+    {
+      "adapter_version": "gemini-json.v1",
+      "cache_hit": false,
+      "latency_ms": 26439.5,
+      "model_requested": "gemini-3.1-pro-preview",
+      "model_version": "gemini-3.1-pro-preview",
+      "request_hash": "a0fee0d2aab92ba8b015475c3e0a299c57f254afe8c0ee22bc0eb56867a4aa4d",
+      "response_hash": "d2b0dafc5f26da0c622dcc2e3b69911d0305c0d0cb7c2f6f0479e95af88d3c0a",
+      "usage": {
+        "candidatesTokenCount": 867,
+        "promptTokenCount": 5238,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 5238
+          }
+        ],
+        "serviceTier": "standard",
+        "thoughtsTokenCount": 2925,
+        "totalTokenCount": 9030
+      }
+    },
+    {
+      "adapter_version": "gemini-json.v1",
+      "cache_hit": false,
+      "latency_ms": 29121.6,
+      "model_requested": "gemini-3.1-pro-preview",
+      "model_version": "gemini-3.1-pro-preview",
+      "request_hash": "0700d94a6c4925d7e05714df2fb59db407d955e2fcffab88ec8ffcaadbdc6033",
+      "response_hash": "ce9305fbcc13eac13dba07f98aa57fb3b290467a43ef1559e6fa158c6a54290e",
+      "usage": {
+        "candidatesTokenCount": 850,
+        "promptTokenCount": 5201,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 5201
+          }
+        ],
+        "serviceTier": "standard",
+        "thoughtsTokenCount": 3419,
+        "totalTokenCount": 9470
+      }
+    }
+  ],
+  "model": "gemini-3.1-pro-preview",
+  "records": 12,
+  "schema_version": "dynamic-semantic-summary.v2",
+  "valid_records": 12
+}

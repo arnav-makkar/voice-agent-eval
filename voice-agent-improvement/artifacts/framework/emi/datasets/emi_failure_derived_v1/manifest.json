@@ -1,0 +1,56 @@
+{
+  "artifacts": [
+    {
+      "bytes": 265586,
+      "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/datasets/emi_failure_derived_v1/development.jsonl",
+      "records": 120,
+      "sha256": "f13dafa647c1d1cb798371967b916f111e9f58894c4b57b1a8e83327e04d1885"
+    },
+    {
+      "bytes": 67029,
+      "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/datasets/emi_failure_derived_v1/regression.jsonl",
+      "records": 30,
+      "sha256": "77462a0405c5b51bc664d46c278ec8c498932f637ca40d6a42e8ff87778398f8"
+    },
+    {
+      "bytes": 65377,
+      "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/datasets/emi_failure_derived_v1/held_out.jsonl",
+      "records": 30,
+      "sha256": "c6af43e6a8813832fdc12b10adb99a5bf5849d8ed020edf1457759aac23a322a"
+    },
+    {
+      "bytes": 44865,
+      "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/datasets/emi_failure_derived_v1/anchor_failure.jsonl",
+      "records": 15,
+      "sha256": "9fc659810d5c1dd1255f1657ce5f82cc0c5d63730b5df5547603916c945865a0"
+    },
+    {
+      "bytes": 16276,
+      "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/datasets/emi_failure_derived_v1/anchor_win.jsonl",
+      "records": 5,
+      "sha256": "e29902affc945396a149d617220fdcbe935622baed8631f8f470dbf5d8bcad8c"
+    },
+    {
+      "bytes": 610,
+      "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/datasets/emi_failure_derived_v1/validation.json",
+      "sha256": "435fc8f458eb02b3c15159399c77fa941d91d19d964e8c0dcf22f756a8f7a378"
+    },
+    {
+      "bytes": 17802,
+      "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/datasets/emi_failure_derived_v1/generation_runs.json",
+      "sha256": "7d5dfe723c03bf0745f6db42a3c839b392dd78bca37d9451221220f561d40d56"
+    }
+  ],
+  "created_at": "2026-08-17T19:21:00.278705+00:00",
+  "metadata": {
+    "dataset_id": "emi_failure_derived_v1",
+    "domain_pack_hash": "fc7c634bde5625aa40e220d3616a75705396b12321b1d21d0f2e3a5062bee8fb",
+    "held_out_seal_sha256": "c6af43e6a8813832fdc12b10adb99a5bf5849d8ed020edf1457759aac23a322a",
+    "input_reference_file_sha256": "7922ec56b245126cf907e50637a9d0988d92ed7de1f0f4af2aa201d202a91f55",
+    "input_trace_file_sha256": "e1d2c55cf76cba9cbeac83c4ca152078fcdd54a85fa6f485daf130bdacbdbba1",
+    "reference_status": "provisional",
+    "warning": "Dataset structure is validated; semantic labels and exact anchors require owner review before being called reference truth."
+  },
+  "schema_version": "framework-manifest.v1",
+  "stage": "derive_failure_dataset"
+}

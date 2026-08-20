@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Main EasyCredit ka AI voice assistant hoon. Aap official EasyCredit app khol kar Rs 3069 ka payment kar sakte hain. Kya aap abhi pay kar paayenge?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4976.1,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "ebcaddefa6cf82e2c9b7fa13db3e33703f6c32192ffe46908120cd571f92b4d6",
+    "response_hash": "2b18f46e227eebbccf786b6031719f1c73511b27dac0c4118f4dedd5c7ae7760",
+    "usage": {
+      "candidatesTokenCount": 63,
+      "promptTokenCount": 1761,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1761
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 642,
+      "totalTokenCount": 2466
+    }
+  }
+}

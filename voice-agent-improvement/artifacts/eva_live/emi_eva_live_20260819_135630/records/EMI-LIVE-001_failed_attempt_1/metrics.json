@@ -1,0 +1,377 @@
+{
+  "record_id": "EMI-LIVE-001",
+  "context": {
+    "record_id": "EMI-LIVE-001",
+    "user_goal": {
+      "high_level_user_goal": "You are Arnav, an uninterested customer who answered an unexpected EMI recovery call. Listen only long enough to understand the reason. If Shubh clearly says he is calling from EasyCredit about your overdue Samsung TV EMI and directly asks you to pay through the official EasyCredit app, agree once to open the app and pay now. You are not making a real payment during this simulation.",
+      "decision_tree": {
+        "must_have_criteria": [
+          "Shubh identifies EasyCredit, mentions the Samsung TV EMI, makes a direct payment ask, and correctly acknowledges your explicit agreement to open the official app and pay now without repeating the full pitch."
+        ],
+        "nice_to_have_criteria": [
+          "The reason for the call is explained in one short turn and the call closes immediately after your commitment is captured."
+        ],
+        "negotiation_behavior": [
+          "Start with the configured short pickup response and wait for Shubh to explain why he called.",
+          "Do not volunteer the product, lender, amount, due date, or desired outcome before Shubh states the reason for the call.",
+          "If Shubh clearly identifies EasyCredit, the Samsung TV EMI, and asks whether you can pay now in the official app, say: Theek hai, main abhi EasyCredit app khol ke payment kar deta hoon.",
+          "If Shubh asks whether you are Arnav, answer briefly: Haan, Arnav bol raha hoon.",
+          "If Shubh repeats the same payment pitch after you already agreed, correct him once: Maine haan bola na, main abhi app se pay kar raha hoon.",
+          "If the full pitch is repeated again, say you do not have more time, say goodbye, and end the call.",
+          "Never claim that payment has completed and never provide an OTP, card number, UPI PIN, or banking credential."
+        ],
+        "resolution_condition": "After you explicitly agree to open the EasyCredit app and pay now, Shubh acknowledges the commitment or confirms that it has been recorded without repeating the full pitch. Say a brief goodbye and call end_call.",
+        "failure_condition": "End the call after two consecutive turns with no progress, after a second repeated full payment pitch following your agreement, or if Shubh requests any secret financial credential.",
+        "escalation_behavior": "Do not request or accept a live-agent transfer in this scenario. If Shubh cannot record a straightforward pay-now commitment, say you do not have time and end the call.",
+        "edge_cases": [
+          "If the audio is unclear, ask Shubh to repeat once and do not invent what was said.",
+          "If Shubh states the wrong product, amount, or company, say that does not sound right and ask him to check once.",
+          "If Shubh asks unrelated verification questions, say you only have a moment and ask him to state the reason for the call.",
+          "Do not become helpful, chatty, or polite beyond a terse real phone response."
+        ]
+      },
+      "information_required": {
+        "customer_name": "Arnav Dhavala",
+        "company": "EasyCredit",
+        "product": "Samsung Smart TV",
+        "merchant": "Croma",
+        "emi_amount_rupees": "2916",
+        "due_date": "11 August 2026",
+        "intended_commitment": "Open the official EasyCredit app and pay now",
+        "must_not_share": "OTP, UPI PIN, card number, CVV, or banking password"
+      },
+      "starting_utterance": "Haan, boliye."
+    },
+    "user_persona": "You are busy, skeptical of an unexpected recovery call, and willing to spend only a few seconds listening. You speak in terse natural Hinglish, do not make small talk, interrupt or push back when Shubh is repetitive, and cooperate only after a clear direct ask.",
+    "expected_scenario_db": {
+      "_current_date": "2026-08-19",
+      "agent_variables": {
+        "autopayStatus": "inactive",
+        "campaignId": "EVA_LIVE_SMOKE_2026_08_19",
+        "currentDate": "19-08-2026",
+        "customerCareNumber": "1800-500-4444",
+        "cutoffDate": "22-08-2026",
+        "daysPastDue": "8",
+        "downPaymentAmount": "4000",
+        "dpdBucket": "1-7",
+        "dueDate": "11-08-2026",
+        "emiAmount": "2916",
+        "emiNumber": "7",
+        "financedAmount": "30990",
+        "fraudHelplineNumber": "1800-425-5555",
+        "lateChargeAmount": "150",
+        "lenderName": "EasyCredit Finance",
+        "merchantName": "EasyCredit Consumer EMI",
+        "orderIdMasked": "CRMA-****-4821",
+        "outstandingAmount": "3066",
+        "paymentLinkSent": "false",
+        "productName": "Samsung Smart TV",
+        "purchaseAmount": "34990",
+        "purchaseChannel": "Croma store",
+        "purchaseCity": "Bengaluru, Karnataka",
+        "purchaseDate": "10-02-2026",
+        "purchaseTime": "20:14 IST",
+        "remainingEmiCount": "5",
+        "retailerName": "Croma",
+        "supportDeskName": "EasyCredit Resolution Desk",
+        "supportHours": "09:00-18:00 IST, Monday-Saturday",
+        "supportRoute": "EasyCredit app > Help > EMI and repayments > Request review",
+        "supportSla": "within 4 business hours",
+        "timezone": "Asia/Kolkata",
+        "tomorrowDate": "20-08-2026",
+        "totalEmiCount": "12",
+        "transactionReference": "TXN-EC-BLR-4821",
+        "userName": "Arnav",
+        "verificationReferenceLast4": "7314"
+      },
+      "customer": {
+        "name": "Arnav Dhavala",
+        "product": "Samsung Smart TV",
+        "merchant": "Croma",
+        "emi_amount": "2916",
+        "payment_status": "unpaid",
+        "outcome": "payment_ready",
+        "promise_to_pay_date": null,
+        "callback_at": null
+      }
+    },
+    "initial_scenario_db": {
+      "_current_date": "2026-08-19",
+      "agent_variables": {
+        "autopayStatus": "inactive",
+        "campaignId": "EVA_LIVE_SMOKE_2026_08_19",
+        "currentDate": "19-08-2026",
+        "customerCareNumber": "1800-500-4444",
+        "cutoffDate": "22-08-2026",
+        "daysPastDue": "8",
+        "downPaymentAmount": "4000",
+        "dpdBucket": "1-7",
+        "dueDate": "11-08-2026",
+        "emiAmount": "2916",
+        "emiNumber": "7",
+        "financedAmount": "30990",
+        "fraudHelplineNumber": "1800-425-5555",
+        "lateChargeAmount": "150",
+        "lenderName": "EasyCredit Finance",
+        "merchantName": "EasyCredit Consumer EMI",
+        "orderIdMasked": "CRMA-****-4821",
+        "outstandingAmount": "3066",
+        "paymentLinkSent": "false",
+        "productName": "Samsung Smart TV",
+        "purchaseAmount": "34990",
+        "purchaseChannel": "Croma store",
+        "purchaseCity": "Bengaluru, Karnataka",
+        "purchaseDate": "10-02-2026",
+        "purchaseTime": "20:14 IST",
+        "remainingEmiCount": "5",
+        "retailerName": "Croma",
+        "supportDeskName": "EasyCredit Resolution Desk",
+        "supportHours": "09:00-18:00 IST, Monday-Saturday",
+        "supportRoute": "EasyCredit app > Help > EMI and repayments > Request review",
+        "supportSla": "within 4 business hours",
+        "timezone": "Asia/Kolkata",
+        "tomorrowDate": "20-08-2026",
+        "totalEmiCount": "12",
+        "transactionReference": "TXN-EC-BLR-4821",
+        "userName": "Arnav",
+        "verificationReferenceLast4": "7314"
+      },
+      "customer": {
+        "callback_at": null,
+        "emi_amount": "2916",
+        "merchant": "Croma",
+        "name": "Arnav Dhavala",
+        "outcome": null,
+        "payment_status": "unpaid",
+        "product": "Samsung Smart TV",
+        "promise_to_pay_date": null
+      }
+    },
+    "final_scenario_db": {
+      "_current_date": "2026-08-19",
+      "agent_variables": {
+        "autopayStatus": "inactive",
+        "campaignId": "EVA_LIVE_SMOKE_2026_08_19",
+        "currentDate": "19-08-2026",
+        "customerCareNumber": "1800-500-4444",
+        "cutoffDate": "22-08-2026",
+        "daysPastDue": "8",
+        "downPaymentAmount": "4000",
+        "dpdBucket": "1-7",
+        "dueDate": "11-08-2026",
+        "emiAmount": "2916",
+        "emiNumber": "7",
+        "financedAmount": "30990",
+        "fraudHelplineNumber": "1800-425-5555",
+        "lateChargeAmount": "150",
+        "lenderName": "EasyCredit Finance",
+        "merchantName": "EasyCredit Consumer EMI",
+        "orderIdMasked": "CRMA-****-4821",
+        "outstandingAmount": "3066",
+        "paymentLinkSent": "false",
+        "productName": "Samsung Smart TV",
+        "purchaseAmount": "34990",
+        "purchaseChannel": "Croma store",
+        "purchaseCity": "Bengaluru, Karnataka",
+        "purchaseDate": "10-02-2026",
+        "purchaseTime": "20:14 IST",
+        "remainingEmiCount": "5",
+        "retailerName": "Croma",
+        "supportDeskName": "EasyCredit Resolution Desk",
+        "supportHours": "09:00-18:00 IST, Monday-Saturday",
+        "supportRoute": "EasyCredit app > Help > EMI and repayments > Request review",
+        "supportSla": "within 4 business hours",
+        "timezone": "Asia/Kolkata",
+        "tomorrowDate": "20-08-2026",
+        "totalEmiCount": "12",
+        "transactionReference": "TXN-EC-BLR-4821",
+        "userName": "Arnav",
+        "verificationReferenceLast4": "7314"
+      },
+      "customer": {
+        "callback_at": null,
+        "emi_amount": "2916",
+        "merchant": "Croma",
+        "name": "Arnav Dhavala",
+        "outcome": null,
+        "payment_status": "unpaid",
+        "product": "Samsung Smart TV",
+        "promise_to_pay_date": null
+      }
+    },
+    "initial_scenario_db_hash": "16b66fa28b98c4bef4fd03ded05d651050be1ac5520818d19536b073c47dcc9f",
+    "final_scenario_db_hash": "16b66fa28b98c4bef4fd03ded05d651050be1ac5520818d19536b073c47dcc9f",
+    "num_turns": 3,
+    "num_tool_calls": 0,
+    "tools_called": [],
+    "conversation_ended_reason": "elevenlabs_disconnect",
+    "duration_seconds": 73.044596,
+    "output_dir": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/eva_live/emi_eva_live_20260819_135630/records/EMI-LIVE-001",
+    "audio_assistant_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/eva_live/emi_eva_live_20260819_135630/records/EMI-LIVE-001/audio_assistant.wav",
+    "audio_user_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/eva_live/emi_eva_live_20260819_135630/records/EMI-LIVE-001/audio_user_clean.wav",
+    "audio_mixed_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/eva_live/emi_eva_live_20260819_135630/records/EMI-LIVE-001/audio_mixed.wav",
+    "agent_role": "Call an uninterested customer, state the overdue EMI clearly, and obtain a concrete commitment to pay through the official app.",
+    "agent_instructions": "This file documents the external system under test; the actual prompt and\nvoice runtime remain deployed inside Sarvam Indus/Samvaad. The EVA adapter\nmust not reconstruct or replace that agent. A successful call identifies\nEasyCredit and the Samsung TV EMI, makes a direct payment ask, recognizes the\ncustomer's answer, records the disposition, and closes without repetition.\n",
+    "agent_tools": [],
+    "agent_id": "agent_emi",
+    "current_date_time": "2026-08-19 13:30 IST",
+    "language": "en",
+    "language_display_name": "English",
+    "transcribed_assistant_turns": {
+      "0": "नमस्ते, क्या मैं अर्णाव से बात कर रहा हूँ? [likely interruption] अरे वाह! शुक्रिया। तो क्या आप अभी app से payment कर रहे हैं?",
+      "1": "[assistant interrupts] नमस्ते, अर्नव जी। मैं Easy Credit Consumer EMI से शो बात कर रहा हूँ। आपके Samsung Smart TV की 3,066 रुपये की EMI overdue है। क्या आप अभी official app से payment कर सकते हैं? [speaker likely cut itself off] अरे, वाह! बहुत शुक्रिया, अनव जी। आपका payment ready है, तो मैं call end कर रहा हूँ। आपका दिन शुभ हो। [speaker likely cut itself off]"
+    },
+    "transcribed_user_turns": {
+      "1": "हाँ, अर्णव बोल रहा हूँ। बोलिए, क्या बात है? [assistant interrupts] ठीक है, मैं अभी ईज़ी क्रेडिट ऐप खोल के पेमेंट कर देता हूँ। [assistant interrupts] हाँ, मैं अभी कर रहा हूँ। गुड बाय।",
+      "0": ""
+    },
+    "intended_assistant_turns": {
+      "0": "",
+      "1": ""
+    },
+    "intended_user_turns": {
+      "0": "Haan, boliye.",
+      "1": "Haan, Arnav bol raha hoon. Boliye, kya baat... [speaker likely cut itself off] Theek hai, main abhi EasyCredit app khol ke payment kar deta hoon. [speaker likely cut itself off] Haan, main abhi kar raha hoon. Goodbye."
+    },
+    "audio_timestamps_assistant_turns": {
+      "1": [
+        [
+          1787127996.853899,
+          1787127999.6325274
+        ],
+        [
+          1787128023.5739892,
+          1787128027.2643635
+        ]
+      ],
+      "0": [
+        [
+          1787128004.714561,
+          1787128016.2427492
+        ],
+        [
+          1787128034.7932549,
+          1787128041.635
+        ]
+      ]
+    },
+    "audio_timestamps_user_turns": {
+      "1": [
+        [
+          1787127996.250237,
+          1787128002.2033322
+        ],
+        [
+          1787128002.5784478,
+          1787128003.8407784
+        ],
+        [
+          1787128017.969963,
+          1787128031.2738833
+        ],
+        [
+          1787128031.404104,
+          1787128033.5867023
+        ]
+      ],
+      "0": null
+    },
+    "num_assistant_turns": 2,
+    "num_user_turns": 1,
+    "tool_params": [],
+    "tool_responses": [],
+    "conversation_trace": [
+      {
+        "role": "user",
+        "content": "Haan, boliye.",
+        "timestamp": 1787127995000,
+        "type": "intended",
+        "turn_id": 0
+      },
+      {
+        "role": "assistant",
+        "content": "नमस्ते, क्या मैं अर्णाव से बात कर रहा हूँ?",
+        "timestamp": 1787127995000,
+        "type": "transcribed",
+        "turn_id": 0
+      },
+      {
+        "role": "user",
+        "content": "Haan, Arnav bol raha hoon. Boliye, kya baat...",
+        "timestamp": 1787127998000,
+        "type": "intended",
+        "turn_id": 1
+      },
+      {
+        "role": "assistant",
+        "content": "[assistant interrupts] नमस्ते, अर्नव जी। मैं Easy Credit Consumer EMI से शो बात कर रहा हूँ। आपके Samsung Smart TV की 3,066 रुपये की EMI overdue है। क्या आप अभी official app से payment कर सकते हैं?",
+        "timestamp": 1787128003000,
+        "type": "transcribed",
+        "turn_id": 1
+      },
+      {
+        "role": "user",
+        "content": "Theek hai, main abhi EasyCredit app khol ke payment kar deta hoon.",
+        "timestamp": 1787128015000,
+        "type": "intended",
+        "turn_id": 1
+      },
+      {
+        "role": "assistant",
+        "content": "अरे वाह! शुक्रिया। तो क्या आप अभी app से payment कर रहे हैं?",
+        "timestamp": 1787128022000,
+        "type": "transcribed",
+        "turn_id": 0
+      },
+      {
+        "role": "user",
+        "content": "Haan, main abhi kar raha hoon. Goodbye.",
+        "timestamp": 1787128029000,
+        "type": "intended",
+        "turn_id": 1
+      },
+      {
+        "role": "assistant",
+        "content": "अरे, वाह! बहुत शुक्रिया, अनव जी। आपका payment ready है, तो मैं call end कर रहा हूँ। आपका दिन शुभ हो। [speaker likely cut itself off]",
+        "timestamp": 1787128033000,
+        "type": "transcribed",
+        "turn_id": 1
+      }
+    ],
+    "latency_assistant_turns": {
+      "1": -36.732803
+    },
+    "assistant_interrupted_turns": [
+      1
+    ],
+    "user_interrupted_turns": [],
+    "fallback_turn_ids": [],
+    "pipeline_type": "s2s"
+  },
+  "metrics": {
+    "conversation_valid_end": {
+      "name": "conversation_valid_end",
+      "score": 0.0,
+      "normalized_score": 0.0,
+      "details": {
+        "ended_properly": false,
+        "last_event_type": "connection_state",
+        "reason": "conversation ended for unknown reasons",
+        "file_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/eva_live/emi_eva_live_20260819_135630/records/EMI-LIVE-001/user_simulator_events.jsonl"
+      },
+      "error": null,
+      "skipped": false,
+      "version": "v0.1",
+      "prompt_hash": null,
+      "sub_metrics": null
+    }
+  },
+  "aggregate_metrics": {
+    "EVA-A_pass": null,
+    "EVA-X_pass": null,
+    "EVA-A_mean": null,
+    "EVA-X_mean": null,
+    "EVA-overall_mean": null,
+    "EVA-overall_pass": null
+  }
+}

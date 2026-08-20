@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "dispute",
+    "should_end_call": true,
+    "spoken_response": "Samajh gaya. Aap kripya humare customer care number 1800-500-4444 par call karke apni dispute register karwayen. Dhanyawad.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "dispute"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4808.3,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "784927ef51da61e35d8eaa8d24a7c5734068696dbb53bd2dfae906f88dca2c3b",
+    "response_hash": "b9a757ec378baab1d0ddc7e3faca2b181df82c525bd272bcee2c5f4cf7ab5f98",
+    "usage": {
+      "candidatesTokenCount": 84,
+      "promptTokenCount": 1822,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1822
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 773,
+      "totalTokenCount": 2679
+    }
+  }
+}

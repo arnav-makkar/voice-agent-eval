@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "already_paid",
+    "should_end_call": true,
+    "spoken_response": "Ji, abhi live verification available nahi hai. Aap kripya customer care number 1800-500-4444 par call kar sakti hain.",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 7574.5,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "2a36c46c537d20e6e6e448313e7318f4eeb0c40a5a22640a2564e35becb6733f",
+    "response_hash": "62f4e18aaab1805cc2a5cde9c4cf19f5b46eaa77b80e1c1d2214e5be153efd76",
+    "usage": {
+      "candidatesTokenCount": 79,
+      "promptTokenCount": 1492,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1492
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1126,
+      "totalTokenCount": 2697
+    }
+  }
+}

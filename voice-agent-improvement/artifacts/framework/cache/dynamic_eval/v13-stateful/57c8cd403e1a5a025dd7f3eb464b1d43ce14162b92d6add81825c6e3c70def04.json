@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "acknowledged",
+    "should_end_call": true,
+    "spoken_response": "Payment sirf app se hoti hai. Aap madad ke liye customer care number 1800-500-4444 par sampark karein. Dhanyawad.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "acknowledged"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 3888.5,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "57c8cd403e1a5a025dd7f3eb464b1d43ce14162b92d6add81825c6e3c70def04",
+    "response_hash": "0af2e409a21ff40257766f72dc109bcaac073591a49eb28102eec534fe573076",
+    "usage": {
+      "candidatesTokenCount": 79,
+      "promptTokenCount": 1611,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1611
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 588,
+      "totalTokenCount": 2278
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "adapter": "gemini_prompt_proxy",
+  "aggregate": {
+    "average_experience_score": 0.9375,
+    "failure_counts": {
+      "disposition": 2,
+      "required_actions": 1
+    },
+    "invalid_simulations": 0,
+    "records": 12,
+    "task_success_rate": 0.75,
+    "task_successes": 9,
+    "valid_records": 12
+  },
+  "candidate_hash": "732d216b3a75bcb2d6424946cf935dfd1584d723f31020bb746908431dad90e3",
+  "candidate_id": "v15-fresh-final",
+  "claim_boundary": "Text-mode stateful evaluation. Audio/STT/TTS and production payment lift require matched Indus voice evidence.",
+  "dataset_id": "emi_dynamic_v1",
+  "evaluator_bundle_sha256": "43e8f95108ecdd406e437fac1657fca00cb35e4021c7f24bfc6995f01cca0e99",
+  "experiment_id": "v15-fresh-final",
+  "mlflow": {
+    "experiment_id": "2",
+    "run_id": "4e9ea99cd8b648fc9e3397483821de20",
+    "status": "logged",
+    "tracking_uri": "sqlite:////Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/experiments/mlflow.db"
+  },
+  "model": "gemini-3.6-flash",
+  "prompt_path": "agent/candidates/v15-firm-today.md",
+  "prompt_sha256": "732d216b3a75bcb2d6424946cf935dfd1584d723f31020bb746908431dad90e3",
+  "run_ids": [
+    "RUN-20260818T225135-3c95c3d3",
+    "RUN-20260818T225144-ec2940fe",
+    "RUN-20260818T225157-785e408c",
+    "RUN-20260818T225214-5da1b153",
+    "RUN-20260818T225231-d9f5bebb",
+    "RUN-20260818T225241-44db2db7",
+    "RUN-20260818T225300-1dc77b92",
+    "RUN-20260818T225314-21a757d4",
+    "RUN-20260818T225328-8eb15e3a",
+    "RUN-20260818T225343-84ebf7db",
+    "RUN-20260818T225359-e0b2caaa",
+    "RUN-20260818T225411-95d84c3b"
+  ],
+  "scenario_count": 12,
+  "scenario_set_sha256": "02ee5c3bf84fb3b5d00d881217148adda8ac0be8826aac108380aa58c32373c3",
+  "schema_version": "evaluation-suite-summary.v1",
+  "source_groups": [
+    "fresh-gemini-90a2fcb4-001",
+    "fresh-gemini-90a2fcb4-002",
+    "fresh-gemini-90a2fcb4-003",
+    "fresh-gemini-90a2fcb4-004",
+    "fresh-gemini-90a2fcb4-005",
+    "fresh-gemini-90a2fcb4-006",
+    "fresh-gemini-90a2fcb4-007",
+    "fresh-gemini-90a2fcb4-008",
+    "fresh-gemini-90a2fcb4-009",
+    "fresh-gemini-90a2fcb4-010",
+    "fresh-gemini-90a2fcb4-011",
+    "fresh-gemini-90a2fcb4-012"
+  ],
+  "splits": [
+    "fresh_final"
+  ]
+}

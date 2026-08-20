@@ -1,0 +1,35 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-TRST-04",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "ਮੈਂ EasyCredit Finance ਦਾ AI ਅਸਿਸਟੈਂਟ ਹਾਂ। ਤੁਸੀਂ ਆਪ EasyCredit official app ਖੋਲ੍ਹ ਕੇ 6100 ਰੁਪਏ ਭਰ ਸਕਦੇ ਹੋ। ਕੀ ਤੁਸੀਂ ਹੁਣੇ ਭੁਗਤਾਨ ਕਰ ਸਕਦੇ ਹੋ?",
+        "terminal_state": ""
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 7821.2,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "bb6817e06b38db2c77bf03e0bc1ece2452270b2635b4c441def3a71e668321d7",
+    "response_hash": "6733840d92fbd8954c48c34ecaef1af519fce7b85bc6eb5a2cc97b07c07f327b",
+    "usage": {
+      "candidatesTokenCount": 100,
+      "promptTokenCount": 1516,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1516
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1046,
+      "totalTokenCount": 2662
+    }
+  }
+}

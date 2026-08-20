@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Thik hai ji, ki main 20 August 2026 di date confirm kar devan?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 7359.5,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "e8ee09ae4549b2807ffe1a07f1f6323fc40dc136d010a4bb5fe17858d9126a85",
+    "response_hash": "911f6207fae550b3b61c508442d6116e63d0d360437e9808ed31a2fffcdcc848",
+    "usage": {
+      "candidatesTokenCount": 48,
+      "promptTokenCount": 1954,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1954
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1172,
+      "totalTokenCount": 3174
+    }
+  }
+}

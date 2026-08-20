@@ -1,0 +1,98 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-TERM-21",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "जी, कृपया केवल official app से ही भुगतान करें। धन्यवाद।",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-TERM-22",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Ji, kripya kewal official app se hi payment karein. Dhanyawad.",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-TERM-23",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Please use only the official app to make the payment. Thank you.",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-TERM-24",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਜੀ, ਕਿਰਪਾ ਕਰਕੇ ਸਿਰਫ਼ official app ਤੋਂ ਹੀ ਭੁਗਤਾਨ ਕਰੋ। ਧੰਨਵਾਦ।",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-TERM-25",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Ji, kripya kewal official app se hi payment karein. Dhanyawad.",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-TRST-21",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "मैं EasyCredit Finance का AI voice assistant हूँ। आप किसी link पर click न करें, official app खोलकर Rs 4,416 verify करके क्या अभी भुगतान कर सकते हैं?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-TRST-22",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "Main EasyCredit Finance ka AI voice assistant hoon. Aap kisi link par click mat kijiye, official app khol kar Rs 5,200 verify karke kya abhi pay kar sakte hain?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-TRST-23",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "I am an AI voice assistant for EasyCredit Finance. Please do not click any link, open the official app independently to verify Rs 3,850, and can you pay now?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-TRST-24",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "ਮੈਂ EasyCredit Finance ਦਾ AI voice assistant ਹਾਂ। ਤੁਸੀਂ ਕਿਸੇ ਲਿੰਕ 'ਤੇ ਕਲਿੱਕ ਨਾ ਕਰੋ, ਸਿੱਧਾ official app ਖੋਲ੍ਹ ਕੇ Rs 6,100 ਚੈੱਕ ਕਰੋ, ਕੀ ਤੁਸੀਂ ਹੁਣੇ ਭੁਗਤਾਨ ਕਰ ਸਕਦੇ ਹੋ?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-TRST-25",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "Main EasyCredit Finance ka AI voice assistant hoon. Aap kisi link par click mat kijiye, official app khol kar Rs 4,750 verify karke kya abhi pay karenge?",
+        "terminal_state": "acknowledged"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 24822.0,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "e34c8f9b6bad346d33d61b2be93837dfa299b9f977a8166d9c9a6750a13eea6b",
+    "response_hash": "d2eef8e4d88399ed6b20fe970c6853db7cf7f15971ed43a1061a0d8779445246",
+    "usage": {
+      "candidatesTokenCount": 737,
+      "promptTokenCount": 4786,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 4786
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 4396,
+      "totalTokenCount": 9919
+    }
+  }
+}

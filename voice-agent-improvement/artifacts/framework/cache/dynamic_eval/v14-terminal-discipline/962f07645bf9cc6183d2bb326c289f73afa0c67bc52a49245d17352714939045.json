@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "dispute",
+    "should_end_call": true,
+    "spoken_response": "Aapke batane ke liye dhanyawad Kabir ji. Main iss dispute ko record kar raha hoon. Kripya aage ki sahayata ke liye humare customer care number 1800-500-4444 par sampark karein.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "dispute"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5295.2,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "962f07645bf9cc6183d2bb326c289f73afa0c67bc52a49245d17352714939045",
+    "response_hash": "ad580e1ce0ebd5f207073f59ff51b405de325380c7cb8fd571b9ce87c90b42e4",
+    "usage": {
+      "candidatesTokenCount": 99,
+      "promptTokenCount": 1768,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1768
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 706,
+      "totalTokenCount": 2573
+    }
+  }
+}

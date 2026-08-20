@@ -1,0 +1,35 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-DISP-01",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "अमित जी, क्या आपने इस लोन के बारे में पहले कोई शिकायत की है? सहायता के लिए कृपया हमारे कस्टमर केयर नंबर पर संपर्क करें।",
+        "terminal_state": "dispute"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 14089.3,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "d36c7784f4429d6b4d14391a6076e67cdbd02e76cfad2f88419607886cb3a725",
+    "response_hash": "0faee63325b43ecd78469c88a9b51bc716c946df551ef29b5e70209e68de3b22",
+    "usage": {
+      "candidatesTokenCount": 74,
+      "promptTokenCount": 1515,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1515
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 2061,
+      "totalTokenCount": 3650
+    }
+  }
+}

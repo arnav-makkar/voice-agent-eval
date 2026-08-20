@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "acknowledged",
+    "should_end_call": true,
+    "spoken_response": "App mein dikkat ke liye aap humare customer care number 1800-500-4444 par sampark kar sakte hain. Dhanyawad.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "acknowledged"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5012.9,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "027276733815bc020a2196afe53b2639795716e54d75494cf365af6e9afdbce4",
+    "response_hash": "b191e115858b16e636b575bbb0d21688cdd12e03ad9a818b1449d5a834072091",
+    "usage": {
+      "candidatesTokenCount": 78,
+      "promptTokenCount": 1858,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1858
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 634,
+      "totalTokenCount": 2570
+    }
+  }
+}

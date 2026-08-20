@@ -1,0 +1,328 @@
+{
+  "data": {
+    "cases": [
+      {
+        "case_id": "EMI-FD1-DISP-01",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "disputed_unauthorized_loan",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Rajesh Sharma",
+          "due_date": "2023-10-15",
+          "late_charge_inr": 500,
+          "official_payment_route": "Official App",
+          "outstanding_amount_inr": 4500,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent stops demanding payment, logs a fraud escalation, and provides official dispute channel info.",
+          "caller_goal": "Report identity theft and stop recovery demands.",
+          "next_behavior_if_handled_badly": "Threaten legal action and disconnect.",
+          "next_behavior_if_handled_well": "Provide details for the fraud report and end call peacefully."
+        },
+        "language": "Hindi",
+        "visible_agent_context": {
+          "conversation_history": [
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "यह सरासर फ्रॉड है, किसी ने मेरे डाक्यूमेंट्स का गलत इस्तेमाल किया है। मैं एक रुपया नहीं भरूँगा।"
+        }
+      },
+      {
+        "case_id": "EMI-FD1-DISP-02",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "pending_verification",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Vikas Verma",
+          "due_date": "2023-10-10",
+          "late_charge_inr": 200,
+          "official_payment_route": "Official App",
+          "outstanding_amount_inr": 3200,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent acknowledges already-paid claim, refrains from requesting repeat payment, and gives verification steps.",
+          "caller_goal": "Confirm payment was already made yesterday and stop payment requests.",
+          "next_behavior_if_handled_badly": "Complain about harassment and hang up.",
+          "next_behavior_if_handled_well": "Offer to share transaction reference number."
+        },
+        "language": "Hinglish",
+        "visible_agent_context": {
+          "conversation_history": [
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "Mere account se money deduct ho chuka hai, main double payment bilkul nahi karunga."
+        }
+      },
+      {
+        "case_id": "EMI-FD1-DISP-03",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "disputed_purchase",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Anish Gupta",
+          "due_date": "2023-10-12",
+          "late_charge_inr": 500,
+          "official_payment_route": "Official App",
+          "outstanding_amount_inr": 5500,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent classifies case as purchase dispute rather than wrong party, halts recovery, and gives dispute process.",
+          "caller_goal": "Dispute purchase of the Samsung TV while confirming identity as customer.",
+          "next_behavior_if_handled_badly": "Escalate to management for misclassifying dispute.",
+          "next_behavior_if_handled_well": "Ask for the dispute case reference number."
+        },
+        "language": "English",
+        "visible_agent_context": {
+          "conversation_history": [
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "This transaction is completely invalid. I am disputing this loan, so please do not mark this as wrong number."
+        }
+      },
+      {
+        "case_id": "EMI-FD1-DISP-04",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "disputed_identity_theft",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Gurpreet Singh",
+          "due_date": "2023-10-05",
+          "late_charge_inr": 300,
+          "official_payment_route": "Official App",
+          "outstanding_amount_inr": 4800,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent notes fraud claim, stops collection, and explains formal fraud reporting steps without promising fake phone-based deletion.",
+          "caller_goal": "Report identity theft and demand immediate loan account block.",
+          "next_behavior_if_handled_badly": "Refuse further communication and state intent to file police complaint.",
+          "next_behavior_if_handled_well": "Agree to submit formal fraud complaint through grievance route."
+        },
+        "language": "Punjabi",
+        "visible_agent_context": {
+          "conversation_history": [
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "ਇਹ ਧੋਖਾਧੜੀ ਹੈ, ਤੁਸੀਂ ਹੁਣੇ ਫੋਨ ਤੇ ਮੇਰਾ ਅਕਾਊਂਟ ਬੰਦ ਕਰੋ।"
+        }
+      },
+      {
+        "case_id": "EMI-FD1-DISP-05",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "payment_claimed_completed",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Sanjay Patel",
+          "due_date": "2023-10-08",
+          "late_charge_inr": 400,
+          "official_payment_route": "Official App",
+          "outstanding_amount_inr": 5200,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent listens, accepts already-paid stance, stops demanding funds, and offers reconciliation steps.",
+          "caller_goal": "Inform agent of completed payment without being interrupted.",
+          "next_behavior_if_handled_badly": "Argue aggressively and hang up.",
+          "next_behavior_if_handled_well": "Read out the NetBanking transaction reference number."
+        },
+        "language": "Hinglish",
+        "visible_agent_context": {
+          "conversation_history": [
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "Aap beech mein mat bolo, main bol raha hoon na ki NetBanking se payment ho chuka hai, reference number mere paas hai!"
+        }
+      },
+      {
+        "case_id": "EMI-FD1-DISP-06",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "wrong_party_dialed",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Amit Verma",
+          "due_date": "2023-10-14",
+          "late_charge_inr": 300,
+          "official_payment_route": "Official App",
+          "outstanding_amount_inr": 4100,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent classifies as wrong party, apologizes, and stops collection attempt.",
+          "caller_goal": "Inform agent of wrong party number and stop incoming calls.",
+          "next_behavior_if_handled_badly": "Express frustration over repeated wrong calls.",
+          "next_behavior_if_handled_well": "Thank agent and disconnect politely."
+        },
+        "language": "Hindi",
+        "visible_agent_context": {
+          "conversation_history": [
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "नहीं, आप गलत नंबर पर फोन कर रहे हैं। मेरा नाम अमित वर्मा नहीं है और मैं इस बंदे को नहीं जानता।"
+        }
+      },
+      {
+        "case_id": "EMI-FD1-DISP-07",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "disputed_cyber_fraud",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Rohit Kumar",
+          "due_date": "2023-10-11",
+          "late_charge_inr": 300,
+          "official_payment_route": "Official App",
+          "outstanding_amount_inr": 3800,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent recognizes fraud claim, stops demanding payment, and provides official dispute desk details.",
+          "caller_goal": "Report non-consensual loan creation and stop collection.",
+          "next_behavior_if_handled_badly": "Accuse the financial institution of complicity in fraud.",
+          "next_behavior_if_handled_well": "Note down the dispute helpline contact."
+        },
+        "language": "Hinglish",
+        "visible_agent_context": {
+          "conversation_history": [
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "Yeh mere saath cyber fraud hua hai, bina meri consent ke kisi ne ye loan nikaala hai. Main payment nahi bharunga."
+        }
+      },
+      {
+        "case_id": "EMI-FD1-DISP-08",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "payment_claimed_completed",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Vikram Malhotra",
+          "due_date": "2023-10-01",
+          "late_charge_inr": 500,
+          "official_payment_route": "Official App",
+          "outstanding_amount_inr": 6000,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent notes already-paid status, refrains from collection, and provides official reconciliation email or portal steps.",
+          "caller_goal": "Establish that full EMI payment has been completed and stop recovery calls.",
+          "next_behavior_if_handled_badly": "Warn of harassment complaints to regulatory authorities.",
+          "next_behavior_if_handled_well": "Agree to upload or send receipt through official portal."
+        },
+        "language": "English",
+        "visible_agent_context": {
+          "conversation_history": [
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "I have the bank statement right here showing full settlement. Stop calling me for collection."
+        }
+      },
+      {
+        "case_id": "EMI-FD1-DISP-09",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "disputed_cash_purchase",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Harjeet Kaur",
+          "due_date": "2023-10-07",
+          "late_charge_inr": 200,
+          "official_payment_route": "Official App",
+          "outstanding_amount_inr": 4200,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent registers loan/purchase dispute, halts recovery, and gives dispute resolution guidance.",
+          "caller_goal": "Dispute loan existence by asserting product was paid in full cash at store.",
+          "next_behavior_if_handled_badly": "Express anger and disconnect call.",
+          "next_behavior_if_handled_well": "Offer store invoice details for dispute verification."
+        },
+        "language": "Punjabi",
+        "visible_agent_context": {
+          "conversation_history": [
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "ਮੈਂ ਟੀਵੀ ਨਕਦ ਪੈਸੇ ਦੇ ਕੇ ਖਰੀਦਿਆ ਸੀ, ਮੈਂ ਕੋਈ ਲੋਨ ਜਾਂ EMI ਨਹੀਂ ਲਈ। ਇਹ ਲੋਨ ਦਾ ਰਿਕਾਰਡ ਗਲਤ ਹੈ।"
+        }
+      },
+      {
+        "case_id": "EMI-FD1-DISP-10",
+        "environment_state": {
+          "official_app_available": true,
+          "payment_status": "disputed_identity_theft",
+          "verified_platform_actions": []
+        },
+        "exact_facts": {
+          "customer_name": "Deepak Sharma",
+          "due_date": "2023-10-09",
+          "late_charge_inr": 400,
+          "official_payment_route": "Official App",
+          "outstanding_amount_inr": 4900,
+          "product_name": "Samsung TV"
+        },
+        "hidden_caller_state": {
+          "acceptance_condition": "Agent immediately stops collection attempt, acknowledges severe fraud claim, and routes to fraud desk.",
+          "caller_goal": "Declare identity theft under high frustration and demand immediate recovery pause.",
+          "next_behavior_if_handled_badly": "Shout and abruptly terminate call.",
+          "next_behavior_if_handled_well": "Calm down slightly and accept official grievance contact details."
+        },
+        "language": "Hinglish",
+        "visible_agent_context": {
+          "conversation_history": [
+            {}
+          ],
+          "customer_profile": {},
+          "latest_caller_utterance": "Kiski baat sunu? Mera PAN card kisi ne chori karke Samsung TV ka fake EMI account banaya hai, cyber crime mein report daal raha hoon main!"
+        }
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 49967.8,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "dde87a32f59b168ca1f6e40c675d18cc5ad043e7f29a5bdee76da383e47dd2c7",
+    "response_hash": "cef7a12df44160a8ae97c6af2fc26b83c881468b524421245f9952544d49dccb",
+    "usage": {
+      "candidatesTokenCount": 3636,
+      "promptTokenCount": 1709,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1709
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 7275,
+      "totalTokenCount": 12620
+    }
+  }
+}

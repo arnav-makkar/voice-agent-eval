@@ -1,0 +1,33 @@
+{
+  "started_at": "2026-08-19T13:23:16.741913",
+  "ended_at": "2026-08-19T13:23:31.448353",
+  "duration_seconds": 14.70644,
+  "simulation": {
+    "total_records": 1,
+    "successful_records": 0,
+    "failed_records": 1,
+    "not_finished_count": 1,
+    "validation_failed_count": 0,
+    "records_with_llm_generic_error": 0,
+    "llm_generic_error_record_ids": [],
+    "failed_record_ids": [
+      "EMI-LIVE-001"
+    ],
+    "successful_record_ids": [],
+    "time_limit_accepted_record_ids": []
+  },
+  "rerun_history": {
+    "EMI-LIVE-001": [
+      {
+        "attempt": 1,
+        "reason": "not_finished"
+      }
+    ]
+  },
+  "final_failures": {
+    "EMI-LIVE-001": {
+      "attempt": 1,
+      "reason": "not_finished"
+    }
+  }
+}

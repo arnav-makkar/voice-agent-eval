@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Achha, kya aap 20 August ko confirm payment kar denge?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 3876.2,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "062afe19f918c6547b6f0d2484d3413f4b14441176a2326cdd478e964810afc2",
+    "response_hash": "1debe78beb1ce930696684b0d00491b96d50c94fb1ec5ffecbc9de69f53d7a07",
+    "usage": {
+      "candidatesTokenCount": 40,
+      "promptTokenCount": 1748,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1748
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 611,
+      "totalTokenCount": 2399
+    }
+  }
+}

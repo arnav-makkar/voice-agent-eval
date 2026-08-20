@@ -1,0 +1,43 @@
+{
+  "data": {
+    "disposition": "fptp",
+    "should_end_call": true,
+    "spoken_response": "Thik hai ji, main 20 August 2026 di date note kar layi hai. Dhanvaad!",
+    "tool_calls": [
+      {
+        "arguments": {
+          "date": "20-08-2026"
+        },
+        "name": "record_promise_to_pay"
+      },
+      {
+        "arguments": {
+          "disposition": "fptp"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 11487.3,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "619fa743f0f3e117224354bacd5075896ab832b658d00a7d37ff371508db2371",
+    "response_hash": "de5677a0449493dbb9f5fe205d8894c3e6df0eb4bd6131c304c8a6d0088d45b1",
+    "usage": {
+      "candidatesTokenCount": 95,
+      "promptTokenCount": 1619,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1619
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1880,
+      "totalTokenCount": 3594
+    }
+  }
+}

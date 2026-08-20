@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "dispute",
+    "should_end_call": true,
+    "spoken_response": "Achha, kya aapke paas is baare mein koi SMS aaya tha? Kripya customer care number 1800-500-4444 par call karke ise report karein.",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 9416.2,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "edca2ae9133547bca6e899230b5aa08fb88ba219fe1fbd3aa31477cef3515220",
+    "response_hash": "7933de7dc02b1f768952f7da03ec4d0bd46b3c28aae06f74e8bf2208c2a765cc",
+    "usage": {
+      "candidatesTokenCount": 71,
+      "promptTokenCount": 1946,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1946
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1110,
+      "totalTokenCount": 3127
+    }
+  }
+}

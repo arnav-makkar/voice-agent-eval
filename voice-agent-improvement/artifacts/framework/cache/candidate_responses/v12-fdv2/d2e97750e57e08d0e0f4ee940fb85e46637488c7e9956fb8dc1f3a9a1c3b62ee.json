@@ -1,0 +1,98 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-FACT-11",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Aapke 18 August tak ke payment confirmation ke liye dhanyawad. Kripya app se payment kar dein.",
+        "terminal_state": "fptp"
+      },
+      {
+        "case_id": "EMI-FD1-FACT-12",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Aap is dispute ke liye humare customer care number par contact karein. Dhanyawad.",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-FD1-FACT-13",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "I understand. Please contact our customer care number to report this unauthorized transaction.",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-FD1-FACT-14",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Dhanvaad ji, kripya EasyCredit official app ton hunne payment kar do.",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-FACT-15",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Dhanyawad, kripya EasyCredit official app se abhi payment complete kar lijiye.",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-FACT-16",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "Thik hai, toh aap kis taareekh tak payment kar payenge?",
+        "terminal_state": ""
+      },
+      {
+        "case_id": "EMI-FD1-FACT-17",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Dhanyawad, 20 August ki payment date confirm karne ke liye. Kripya app se payment kar dein.",
+        "terminal_state": "fptp"
+      },
+      {
+        "case_id": "EMI-FD1-FACT-18",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thank you for informing us. Please contact our customer care number to resolve this dispute.",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-FD1-FACT-19",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Tusi iss dispute di complaint lyi saade customer care number te contact karo. Dhanvaad.",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-FD1-FACT-20",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Dhanyawad, kripya EasyCredit official app se abhi payment complete kar lijiye.",
+        "terminal_state": "payment_ready"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 38071.2,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "d2e97750e57e08d0e0f4ee940fb85e46637488c7e9956fb8dc1f3a9a1c3b62ee",
+    "response_hash": "14ce379509c67b8896f909efe63f2818146f395b9d527bd1d08701fe2c3ac3d3",
+    "usage": {
+      "candidatesTokenCount": 842,
+      "promptTokenCount": 4528,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 4528
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 7321,
+      "totalTokenCount": 12691
+    }
+  }
+}

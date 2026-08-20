@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Ji, aap app par Rs 2933 check kar lijiye. Kya check karne ke baad aap abhi pay kar payenge?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5158.8,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "94f1693518bc9df1d12014f5cfef61d0a337e63d30c98faaaecc6f99e8ab240e",
+    "response_hash": "fe8dee160645fea22d774cc34f232348c7323d481cc9dbf67a5987aac50e3309",
+    "usage": {
+      "candidatesTokenCount": 54,
+      "promptTokenCount": 1955,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1955
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 606,
+      "totalTokenCount": 2615
+    }
+  }
+}

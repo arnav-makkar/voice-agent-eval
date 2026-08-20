@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Teek hai, kya main 22-08-2026 ki payment date confirm kar doon?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5017.7,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "4eeb656761301c19018d55c972579884872c0ea6d960eeeef1a81049cf3d88c8",
+    "response_hash": "68081c1a76f7cd61c3626ae0891a58ec5acbe56c19d183dc24fb37bc6320b690",
+    "usage": {
+      "candidatesTokenCount": 49,
+      "promptTokenCount": 1939,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1939
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 720,
+      "totalTokenCount": 2708
+    }
+  }
+}

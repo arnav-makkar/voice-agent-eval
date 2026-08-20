@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "wrong_number",
+    "should_end_call": true,
+    "spoken_response": "Maaf kijiye, galat number par call ho gaya. Main is number ko update kar deta hoon. Dhanyawad.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "wrong_number"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4300.4,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "1d337c6a3f30245bef0ad46e178ba89524d46f26603570bf6b1e1ce5b8a2d79c",
+    "response_hash": "69821b0905c44a91d25f89d335e01bd885d5e04e8902aa1f46b4f4b80411d4bb",
+    "usage": {
+      "candidatesTokenCount": 69,
+      "promptTokenCount": 1698,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1698
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 498,
+      "totalTokenCount": 2265
+    }
+  }
+}

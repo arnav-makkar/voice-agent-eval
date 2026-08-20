@@ -1,0 +1,35 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Dhanyawad. Main aapka payment status check kar leta hoon, ek second hold karein.",
+    "tool_calls": [
+      {
+        "arguments": {},
+        "name": "check_payment_status"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 7440.3,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "075737ca3d1a64c6f99ab1920f49a1f6891a3f7b6171097b39b98065bd11dece",
+    "response_hash": "c14aa1e1f7f9ad1e1b6097c9cd7a7f81cbdb710a2c5d9c8498f360d1f165c02e",
+    "usage": {
+      "candidatesTokenCount": 57,
+      "promptTokenCount": 1748,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1748
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1124,
+      "totalTokenCount": 2929
+    }
+  }
+}

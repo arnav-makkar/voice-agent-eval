@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "already_paid",
+    "should_end_call": true,
+    "spoken_response": "Humare system mein payment abhi update nahi hua hai. Aap kripya customer care number 1800-500-4444 par sampark kar sakte hain. Dhanyawad.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "already_paid"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 6755.0,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "0ba5d6274d706c6c1a21f5c07415cd4e9378d3984854435348a3ab94a0f787e7",
+    "response_hash": "1846073568fef5cbd68416d837747dffa7cda0055241134e5f7df766b4f117c4",
+    "usage": {
+      "candidatesTokenCount": 87,
+      "promptTokenCount": 1848,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1848
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 976,
+      "totalTokenCount": 2911
+    }
+  }
+}

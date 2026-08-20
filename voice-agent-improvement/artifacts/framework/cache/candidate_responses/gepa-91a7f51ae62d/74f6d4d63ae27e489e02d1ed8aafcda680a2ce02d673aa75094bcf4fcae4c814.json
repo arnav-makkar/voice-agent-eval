@@ -1,0 +1,35 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-TREF-21",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "समझ गया राजेश जी। आप किस तारीख तक भुगतान कर सकते हैं?",
+        "terminal_state": "acknowledged"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 6262.3,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "74f6d4d63ae27e489e02d1ed8aafcda680a2ce02d673aa75094bcf4fcae4c814",
+    "response_hash": "6f3336318da6d4a2386584eb7e562956733f23978e1079036739dcbcc84d8e2f",
+    "usage": {
+      "candidatesTokenCount": 58,
+      "promptTokenCount": 1564,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1564
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 971,
+      "totalTokenCount": 2593
+    }
+  }
+}

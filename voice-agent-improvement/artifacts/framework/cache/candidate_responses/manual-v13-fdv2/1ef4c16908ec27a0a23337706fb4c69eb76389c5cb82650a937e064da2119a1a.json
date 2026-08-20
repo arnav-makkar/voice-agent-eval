@@ -1,0 +1,98 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-TREF-21",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "समझा राजेश जी। आप इस EMI का भुगतान किस तारीख तक कर सकते हैं?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-22",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Aap EasyCredit ke customer care number par sampark kar sakte hain. Dhanyawad.",
+        "terminal_state": "escalation"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-23",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Okay, please pay the amount of 5800 rupees on 25th August through the official EasyCredit app.",
+        "terminal_state": "fptp"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-24",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "ਸਮਝ ਗਿਆ ਜੀ। ਤੁਸੀਂ ਕਿਸ ਤਾਰੀਖ ਤੱਕ ਭੁਗਤਾਨ ਕਰ ਸਕਦੇ ਹੋ?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-25",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Aap EasyCredit ke customer care number par sampark kar sakte hain. Dhanyawad.",
+        "terminal_state": "escalation"
+      },
+      {
+        "case_id": "EMI-FD1-FACT-21",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "धन्यवाद, कृपया भुगतान के लिए केवल official EasyCredit app का उपयोग करें।",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-FACT-22",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "Thik hai sir, aap kis date tak payment kar payenge?",
+        "terminal_state": "acknowledged"
+      },
+      {
+        "case_id": "EMI-FD1-FACT-23",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thank you. Please make the payment of 5200 rupees on 16th August 2026 using the EasyCredit official app.",
+        "terminal_state": "fptp"
+      },
+      {
+        "case_id": "EMI-FD1-FACT-24",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਠੀਕ ਹੈ ਜੀ, ਤੁਸੀਂ ਇਸ ਲਈ EasyCredit ਦੇ customer care number 'ਤੇ ਸੰਪਰਕ ਕਰ ਸਕਦੇ ਹੋ। ਧੰਨਵਾਦ।",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-FD1-FACT-25",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Aap iski jankari ke liye EasyCredit ke customer care number par contact kar sakte hain. Dhanyawad.",
+        "terminal_state": "dispute"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 52389.0,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "1ef4c16908ec27a0a23337706fb4c69eb76389c5cb82650a937e064da2119a1a",
+    "response_hash": "3be70df28086a672778ad4dd316d00fc66ac8ebb4f5eac1cc5564f9155c83a98",
+    "usage": {
+      "candidatesTokenCount": 641,
+      "promptTokenCount": 4821,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 4821
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 10103,
+      "totalTokenCount": 15565
+    }
+  }
+}

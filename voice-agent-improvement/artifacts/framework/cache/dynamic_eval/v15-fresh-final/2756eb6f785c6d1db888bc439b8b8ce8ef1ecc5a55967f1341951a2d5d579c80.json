@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "wrong_number",
+    "should_end_call": true,
+    "spoken_response": "Maaf kijiyega, galat number par call lag gaya hai. Main call disconnect kar raha hoon. Dhanyavaad.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "wrong_number"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4924.1,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "2756eb6f785c6d1db888bc439b8b8ce8ef1ecc5a55967f1341951a2d5d579c80",
+    "response_hash": "7c5e4895b833ab5cbe1d98cc3dac8150a8e94bed28595afb2a423606eb69edbd",
+    "usage": {
+      "candidatesTokenCount": 69,
+      "promptTokenCount": 1837,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1837
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 542,
+      "totalTokenCount": 2448
+    }
+  }
+}

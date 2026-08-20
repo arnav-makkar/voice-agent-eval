@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Understood. What is the earliest date you can make this payment?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 6038.2,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "6d8af711999f55515f20c64f09d5a613e76fd55279005fc5e521b1e9777277c2",
+    "response_hash": "99584101b88067552691f81a6866b9c500d911c4c44b8abdd568fd7197052907",
+    "usage": {
+      "candidatesTokenCount": 38,
+      "promptTokenCount": 1530,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1530
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 798,
+      "totalTokenCount": 2366
+    }
+  }
+}

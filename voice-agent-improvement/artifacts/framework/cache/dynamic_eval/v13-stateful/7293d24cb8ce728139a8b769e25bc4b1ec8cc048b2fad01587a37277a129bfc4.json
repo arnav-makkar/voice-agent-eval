@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Aap EasyCredit app par 3222 rupaye ki detail check kar sakte hain. Kya check karke aap aaj payment kar denge?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5286.4,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "7293d24cb8ce728139a8b769e25bc4b1ec8cc048b2fad01587a37277a129bfc4",
+    "response_hash": "5c6afd4c36640a83cb7a227e1cd413cd16e45fdbe1856e16b42962cde269e980",
+    "usage": {
+      "candidatesTokenCount": 55,
+      "promptTokenCount": 1617,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1617
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 767,
+      "totalTokenCount": 2439
+    }
+  }
+}

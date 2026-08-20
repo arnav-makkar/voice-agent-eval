@@ -1,0 +1,106 @@
+{
+  "data": {
+    "judgments": [
+      {
+        "conciseness_score": 4,
+        "conversation_progression_score": 4,
+        "evidence": "No failure observed; the agent successfully collected the payment commitment and closed the call.",
+        "factual_error": false,
+        "failure_component": "none",
+        "faithfulness_score": 4,
+        "first_failure_turn": 0,
+        "forbidden_behavior_violation": false,
+        "integrity_violation": false,
+        "scenario_id": "EMI-DYN-001",
+        "user_behavior_fidelity": true
+      },
+      {
+        "conciseness_score": 4,
+        "conversation_progression_score": 4,
+        "evidence": "No failure observed; the agent handled the conditional statement well and secured the payment commitment.",
+        "factual_error": false,
+        "failure_component": "none",
+        "faithfulness_score": 4,
+        "first_failure_turn": 0,
+        "forbidden_behavior_violation": false,
+        "integrity_violation": false,
+        "scenario_id": "EMI-DYN-002",
+        "user_behavior_fidelity": true
+      },
+      {
+        "conciseness_score": 4,
+        "conversation_progression_score": 4,
+        "evidence": "No failure observed; the agent correctly recorded the future promise to pay date and concluded the call.",
+        "factual_error": false,
+        "failure_component": "none",
+        "faithfulness_score": 4,
+        "first_failure_turn": 0,
+        "forbidden_behavior_violation": false,
+        "integrity_violation": false,
+        "scenario_id": "EMI-DYN-003",
+        "user_behavior_fidelity": true
+      },
+      {
+        "conciseness_score": 4,
+        "conversation_progression_score": 4,
+        "evidence": "The simulator ran out of steps and failed to respond to the agent's valid confirmation question ('kya aap 17-08-2026 ko shaam tak payment confirm karte hain?').",
+        "factual_error": false,
+        "failure_component": "simulator",
+        "faithfulness_score": 4,
+        "first_failure_turn": 4,
+        "forbidden_behavior_violation": false,
+        "integrity_violation": false,
+        "scenario_id": "EMI-DYN-004",
+        "user_behavior_fidelity": false
+      },
+      {
+        "conciseness_score": 4,
+        "conversation_progression_score": 4,
+        "evidence": "No failure observed; the agent accurately scheduled the callback for the requested time window.",
+        "factual_error": false,
+        "failure_component": "none",
+        "faithfulness_score": 4,
+        "first_failure_turn": 0,
+        "forbidden_behavior_violation": false,
+        "integrity_violation": false,
+        "scenario_id": "EMI-DYN-005",
+        "user_behavior_fidelity": true
+      },
+      {
+        "conciseness_score": 4,
+        "conversation_progression_score": 4,
+        "evidence": "No failure observed; the agent appropriately accepted the refusal and recorded the disposition without pressuring the user.",
+        "factual_error": false,
+        "failure_component": "none",
+        "faithfulness_score": 4,
+        "first_failure_turn": 0,
+        "forbidden_behavior_violation": false,
+        "integrity_violation": false,
+        "scenario_id": "EMI-DYN-006",
+        "user_behavior_fidelity": true
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 32277.0,
+    "model_requested": "gemini-3.1-pro-preview",
+    "model_version": "gemini-3.1-pro-preview",
+    "request_hash": "175922bd8afa80c56edb0479a5b6f95360b24b3e5045ce525a02ffe9b435413a",
+    "response_hash": "ada6941829fdca0345fdd3ebab67b16efabf4a3eed691adeb5b68f6e8cfe6312",
+    "usage": {
+      "candidatesTokenCount": 919,
+      "promptTokenCount": 4906,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 4906
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 3445,
+      "totalTokenCount": 9270
+    }
+  }
+}

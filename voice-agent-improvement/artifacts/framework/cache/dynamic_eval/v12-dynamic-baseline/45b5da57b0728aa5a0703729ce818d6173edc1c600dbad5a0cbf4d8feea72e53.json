@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "acknowledged",
+    "should_end_call": true,
+    "spoken_response": "Thik hai, aap EasyCredit app se check karke payment kar sakte hain. Dhanyawad.",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 7575.4,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "45b5da57b0728aa5a0703729ce818d6173edc1c600dbad5a0cbf4d8feea72e53",
+    "response_hash": "202f78e4f9e522f01f565cc683d5481dea9640f39b274a9bcc80662084f53f80",
+    "usage": {
+      "candidatesTokenCount": 48,
+      "promptTokenCount": 1539,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1539
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1128,
+      "totalTokenCount": 2715
+    }
+  }
+}

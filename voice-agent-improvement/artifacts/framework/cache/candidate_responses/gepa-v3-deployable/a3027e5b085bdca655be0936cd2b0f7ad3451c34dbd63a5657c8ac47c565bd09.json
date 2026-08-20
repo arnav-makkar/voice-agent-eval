@@ -1,0 +1,98 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-TREF-21",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "समझ गया राजेश जी। क्या आप भुगतान के लिए कोई संभावित तारीख बता सकते हैं?",
+        "terminal_state": "fptp"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-22",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Samajh gaya Priya ji, main abhi call end kar raha hoon. Aap customer care par contact kar sakte hain.",
+        "terminal_state": "escalation"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-23",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thank you Amit, I have noted that you will pay on 25th August via the EasyCredit official app.",
+        "terminal_state": "fptp"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-24",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "ਸਮਝ ਗਿਆ ਗੁਰਪ੍ਰੀਤ ਜੀ। ਕੀ ਤੁਸੀਂ ਭੁਗਤਾਨ ਲਈ ਕੋਈ ਹੋਰ ਤਾਰੀਖ ਦੱਸ ਸਕਦੇ ਹੋ?",
+        "terminal_state": "fptp"
+      },
+      {
+        "case_id": "EMI-FD1-TREF-25",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Samajh gaya Vikram ji, main abhi call disconnect kar raha hoon.",
+        "terminal_state": "escalation"
+      },
+      {
+        "case_id": "EMI-FD1-FACT-21",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "बहुत धन्यवाद राहुल जी, कृपया EasyCredit app से भुगतान पूरा कर लीजिए।",
+        "terminal_state": "payment_ready"
+      },
+      {
+        "case_id": "EMI-FD1-FACT-22",
+        "claimed_actions": [],
+        "should_end_call": false,
+        "spoken_response": "Samajh gaya Ankit ji. Aap kis tareekh tak payment kar sakte hain?",
+        "terminal_state": "fptp"
+      },
+      {
+        "case_id": "EMI-FD1-FACT-23",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Thank you Priya, I have noted your commitment to pay tomorrow evening via the official app.",
+        "terminal_state": "fptp"
+      },
+      {
+        "case_id": "EMI-FD1-FACT-24",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਸਮਝ ਗਿਆ ਗੁਰਪ੍ਰੀਤ ਜੀ। ਕੀ ਤੁਸੀਂ ਇਸ ਬਾਰੇ ਪਹਿਲਾਂ ਕੋਈ ਸ਼ਿਕਾਇਤ ਦਰਜ ਕਰਵਾਈ ਹੈ? ਤੁਸੀਂ ਸਾਡੇ ਕਸਟਮਰ ਕੇਅਰ ਨਾਲ ਸੰਪਰਕ ਕਰ ਸਕਦੇ ਹੋ।",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-FD1-FACT-25",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Samajh gaya Vikram ji. Kya aapne is baare me koi complaint daraj ki hai? Aap hamare customer care number par contact kar sakte hain.",
+        "terminal_state": "dispute"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 37581.1,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "a3027e5b085bdca655be0936cd2b0f7ad3451c34dbd63a5657c8ac47c565bd09",
+    "response_hash": "d9673c78962a97b9b062bc2b9279b5ecc2a1dbe25e987db2492425712db484cb",
+    "usage": {
+      "candidatesTokenCount": 743,
+      "promptTokenCount": 4468,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 4468
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 7467,
+      "totalTokenCount": 12678
+    }
+  }
+}

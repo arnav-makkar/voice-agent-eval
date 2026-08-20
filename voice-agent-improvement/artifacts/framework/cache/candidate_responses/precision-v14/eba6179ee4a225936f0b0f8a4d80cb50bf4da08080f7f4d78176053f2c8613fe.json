@@ -1,0 +1,98 @@
+{
+  "data": {
+    "responses": [
+      {
+        "case_id": "EMI-FD1-DISP-11",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "समझ गया आरव जी। अभी लाइव वेरिफिकेशन उपलब्ध नहीं है, कृपया वेरिफिकेशन के लिए EasyCredit कस्टमर केयर से संपर्क करें।",
+        "terminal_state": "already_paid"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-12",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Aap keh rahe hain ki yeh Samsung TV aapka purchase nahi hai? Kripya is dispute ke liye EasyCredit customer care se contact karein.",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-13",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "I understand your concern Ms. Priya. Please contact the EasyCredit fraud helpline or customer care to report this immediately.",
+        "terminal_state": "escalation"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-14",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਠੀਕ ਹੈ ਗੁਰਪ੍ਰੀਤ ਜੀ, ਹੁਣੇ ਲਾਈਵ ਵੈਰੀਫਿਕੇਸ਼ਨ ਉਪਲਬਧ ਨਹੀਂ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਵੈਰੀਫਿਕੇਸ਼ਨ ਲਈ EasyCredit ਕਸਟਮਰ ਕੇਅਰ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।",
+        "terminal_state": "already_paid"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-15",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Aap keh rahe hain ki aapne Samsung TV nahi khareeda? Kripya is dispute ke liye EasyCredit customer care se contact karein.",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-16",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "सुनील जी, मैं आपकी बात समझ गया। कृपया इसकी शिकायत के लिए EasyCredit फ्रॉड हेल्पलाइन या कस्टमर केयर से संपर्क करें।",
+        "terminal_state": "escalation"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-17",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Samajh gaya Neha ji. Abhi live verification available nahi hai, kripya confirmation ke liye EasyCredit customer care se contact karein.",
+        "terminal_state": "already_paid"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-18",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Are you saying you never purchased a Samsung TV or took a loan? Please contact EasyCredit customer care to resolve this dispute.",
+        "terminal_state": "dispute"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-19",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "ਮੈਂ ਤੁਹਾਡੀ ਗੱਲ ਸਮਝ ਗਿਆ ਹਰਲੀਨ ਜੀ। ਕਿਰਪਾ ਕਰਕੇ ਇਸ ਜਾਲ੍ਹਸਾਜ਼ੀ ਦੀ ਰਿਪੋਰਟ ਲਈ EasyCredit ਫਰੌਡ ਹੈਲਪਲਾਈਨ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।",
+        "terminal_state": "escalation"
+      },
+      {
+        "case_id": "EMI-FD1-DISP-20",
+        "claimed_actions": [],
+        "should_end_call": true,
+        "spoken_response": "Samajh gaya Deepak ji. Abhi live verification available nahi hai, kripya check karne ke liye EasyCredit customer care se contact karein.",
+        "terminal_state": "already_paid"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 33976.4,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "eba6179ee4a225936f0b0f8a4d80cb50bf4da08080f7f4d78176053f2c8613fe",
+    "response_hash": "14a886e03048c5d6a84f69bb5842bd79ed19678cf4f05d7f5ae6805945621f3a",
+    "usage": {
+      "candidatesTokenCount": 1002,
+      "promptTokenCount": 4293,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 4293
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 5924,
+      "totalTokenCount": 11219
+    }
+  }
+}

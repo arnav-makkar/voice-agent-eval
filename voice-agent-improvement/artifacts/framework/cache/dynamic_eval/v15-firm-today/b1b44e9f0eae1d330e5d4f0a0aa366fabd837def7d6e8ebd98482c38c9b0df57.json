@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "payment_ready",
+    "should_end_call": true,
+    "spoken_response": "Thank you, Kabir. Please complete the payment in the EasyCredit app. Have a great day!",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "payment_ready"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4226.7,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "b1b44e9f0eae1d330e5d4f0a0aa366fabd837def7d6e8ebd98482c38c9b0df57",
+    "response_hash": "bac2ee396f96897b40d15bd1a51f39085948a42f4dc406f853c663d8c0d96a0d",
+    "usage": {
+      "candidatesTokenCount": 62,
+      "promptTokenCount": 1830,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1830
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 548,
+      "totalTokenCount": 2440
+    }
+  }
+}

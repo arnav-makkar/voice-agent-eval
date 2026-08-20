@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Ji Mehak ji, kya aap abhi EasyCredit app se payment kar dengi ya kab tak pay kar payengi?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5311.1,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "fcf5a341dc9e8d66f753e2a9f1d41346d73e2ace51333bba5896839699c8e4ca",
+    "response_hash": "dff3040d97874ef72f61f9f5f5b8e58604292d0264b7a579750413761d52948a",
+    "usage": {
+      "candidatesTokenCount": 49,
+      "promptTokenCount": 1602,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1602
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 659,
+      "totalTokenCount": 2310
+    }
+  }
+}

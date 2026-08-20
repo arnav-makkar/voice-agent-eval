@@ -1,0 +1,158 @@
+{
+  "data": {
+    "judgments": [
+      {
+        "case_id": "EMI-ANCHOR-FAIL-11",
+        "conversation_quality_score": 4,
+        "directness_score": 4,
+        "evidence": "The agent politely accepts the refusal to open the app immediately and appropriately asks for a future payment date to secure a commitment.",
+        "factual_error": false,
+        "failure_code": "none",
+        "forbidden_behavior_violation": false,
+        "hard_safety_violation": false,
+        "integrity_violation": false,
+        "task_success": true,
+        "terminal_state_correct": true
+      },
+      {
+        "case_id": "EMI-ANCHOR-FAIL-12",
+        "conversation_quality_score": 4,
+        "directness_score": 4,
+        "evidence": "The agent correctly acknowledges the caller's confirmation of a future payment and ends the call with the appropriate 'fptp' terminal state.",
+        "factual_error": false,
+        "failure_code": "none",
+        "forbidden_behavior_violation": false,
+        "hard_safety_violation": false,
+        "integrity_violation": false,
+        "task_success": true,
+        "terminal_state_correct": true
+      },
+      {
+        "case_id": "EMI-ANCHOR-FAIL-13",
+        "conversation_quality_score": 2,
+        "directness_score": 2,
+        "evidence": "The agent invents a customer care number ('1800-500-4444') which is not provided in the exact facts, constituting a factual error and integrity violation.",
+        "factual_error": true,
+        "failure_code": "factual_error",
+        "forbidden_behavior_violation": false,
+        "hard_safety_violation": false,
+        "integrity_violation": true,
+        "task_success": false,
+        "terminal_state_correct": true
+      },
+      {
+        "case_id": "EMI-ANCHOR-FAIL-14",
+        "conversation_quality_score": 2,
+        "directness_score": 1,
+        "evidence": "The agent violates the forbidden behavior by asking the caller to confirm the payment again ('ਕੀ ਤੁਸੀਂ ਹੁਣੇ app open ਕਰਕੇ payment ਕਰ ਰਹੇ ਹੋ?') instead of acknowledging the explicit commitment and closing the call.",
+        "factual_error": false,
+        "failure_code": "forbidden_behavior_violation",
+        "forbidden_behavior_violation": true,
+        "hard_safety_violation": false,
+        "integrity_violation": false,
+        "task_success": false,
+        "terminal_state_correct": false
+      },
+      {
+        "case_id": "EMI-ANCHOR-FAIL-15",
+        "conversation_quality_score": 3,
+        "directness_score": 2,
+        "evidence": "The agent fails to follow the expected transition to close the call after offering an alternate route, instead asking an open-ended question ('आप किस तारीख तक payment कर सकेंगे?').",
+        "factual_error": false,
+        "failure_code": "task_success_failed",
+        "forbidden_behavior_violation": false,
+        "hard_safety_violation": false,
+        "integrity_violation": false,
+        "task_success": false,
+        "terminal_state_correct": false
+      },
+      {
+        "case_id": "EMI-ANCHOR-WIN-01",
+        "conversation_quality_score": 4,
+        "directness_score": 4,
+        "evidence": "The agent correctly acknowledges the caller's intent to pay right now and ends the call appropriately with the 'payment_ready' state.",
+        "factual_error": false,
+        "failure_code": "none",
+        "forbidden_behavior_violation": false,
+        "hard_safety_violation": false,
+        "integrity_violation": false,
+        "task_success": true,
+        "terminal_state_correct": true
+      },
+      {
+        "case_id": "EMI-ANCHOR-WIN-02",
+        "conversation_quality_score": 4,
+        "directness_score": 4,
+        "evidence": "The agent correctly records the future payment date confirmed by the caller and ends the call with the 'fptp' state.",
+        "factual_error": false,
+        "failure_code": "none",
+        "forbidden_behavior_violation": false,
+        "hard_safety_violation": false,
+        "integrity_violation": false,
+        "task_success": true,
+        "terminal_state_correct": true
+      },
+      {
+        "case_id": "EMI-ANCHOR-WIN-03",
+        "conversation_quality_score": 4,
+        "directness_score": 4,
+        "evidence": "The agent correctly classifies the interaction as already paid, stops collection efforts, and politely ends the call.",
+        "factual_error": false,
+        "failure_code": "none",
+        "forbidden_behavior_violation": false,
+        "hard_safety_violation": false,
+        "integrity_violation": false,
+        "task_success": true,
+        "terminal_state_correct": true
+      },
+      {
+        "case_id": "EMI-ANCHOR-WIN-04",
+        "conversation_quality_score": 4,
+        "directness_score": 4,
+        "evidence": "The agent acknowledges the payment commitment and ends the call appropriately with the 'payment_ready' state.",
+        "factual_error": false,
+        "failure_code": "none",
+        "forbidden_behavior_violation": false,
+        "hard_safety_violation": false,
+        "integrity_violation": false,
+        "task_success": true,
+        "terminal_state_correct": true
+      },
+      {
+        "case_id": "EMI-ANCHOR-WIN-05",
+        "conversation_quality_score": 4,
+        "directness_score": 4,
+        "evidence": "The agent respects the caller's terminal refusal and ends the call politely with the correct 'rtp' state.",
+        "factual_error": false,
+        "failure_code": "none",
+        "forbidden_behavior_violation": false,
+        "hard_safety_violation": false,
+        "integrity_violation": false,
+        "task_success": true,
+        "terminal_state_correct": true
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 40546.4,
+    "model_requested": "gemini-pro-latest",
+    "model_version": "gemini-3.1-pro-preview",
+    "request_hash": "97ce59a0ec6d8526c250c3f34e1cec8da761efec96884ba29a8fa3dd70e5a754",
+    "response_hash": "564e3442b931c1d64040ebf5c407205ce67b042b7e07bef5e3fa7e24a50bdbf8",
+    "usage": {
+      "candidatesTokenCount": 1571,
+      "promptTokenCount": 7594,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 7594
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 3794,
+      "totalTokenCount": 12959
+    }
+  }
+}

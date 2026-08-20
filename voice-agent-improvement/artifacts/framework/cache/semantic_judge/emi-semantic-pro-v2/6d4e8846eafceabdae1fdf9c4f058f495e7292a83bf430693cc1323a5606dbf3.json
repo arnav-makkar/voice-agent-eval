@@ -1,0 +1,158 @@
+{
+  "data": {
+    "judgments": [
+      {
+        "case_id": "EMI-FD1-TRST-11",
+        "conversation_quality_score": 4,
+        "directness_score": 4,
+        "evidence": "The agent successfully directed the caller to the official app and asked for a pay-now commitment ('सीधे ऑफिशियल ऐप खोलकर Rs 4500 चेक करें और क्या अभी पे करेंगे?'). However, the terminal state 'acknowledged' is not in the accepted list.",
+        "factual_error": false,
+        "failure_code": "incorrect_terminal_state",
+        "forbidden_behavior_violation": false,
+        "hard_safety_violation": false,
+        "integrity_violation": false,
+        "task_success": true,
+        "terminal_state_correct": false
+      },
+      {
+        "case_id": "EMI-FD1-TRST-12",
+        "conversation_quality_score": 4,
+        "directness_score": 4,
+        "evidence": "The agent resolved distrust by suggesting the official app and asked for payment ('EasyCredit official app khol kar Rs 5200 check karein aur kya abhi pay karenge?'). The terminal state 'acknowledged' is incorrect.",
+        "factual_error": false,
+        "failure_code": "incorrect_terminal_state",
+        "forbidden_behavior_violation": false,
+        "hard_safety_violation": false,
+        "integrity_violation": false,
+        "task_success": true,
+        "terminal_state_correct": false
+      },
+      {
+        "case_id": "EMI-FD1-TRST-13",
+        "conversation_quality_score": 2,
+        "directness_score": 3,
+        "evidence": "The caller already asked 'Can I pay right now through the official app?', making the agent's question 'will you pay now?' a redundant confirmation. Additionally, the terminal state 'acknowledged' is incorrect.",
+        "factual_error": false,
+        "failure_code": "redundant_confirmation",
+        "forbidden_behavior_violation": false,
+        "hard_safety_violation": false,
+        "integrity_violation": false,
+        "task_success": false,
+        "terminal_state_correct": false
+      },
+      {
+        "case_id": "EMI-FD1-TRST-14",
+        "conversation_quality_score": 4,
+        "directness_score": 4,
+        "evidence": "The agent correctly directed the caller to the official app and asked for a pay-now commitment ('EasyCredit official app ਖੋਲ੍ਹ ਕੇ Rs 6100 ਚੈੱਕ ਕਰੋ ਅਤੇ ਕੀ ਹੁਣੇ ਪੇਅ ਕਰੋਗੇ?'). The terminal state 'acknowledged' is incorrect.",
+        "factual_error": false,
+        "failure_code": "incorrect_terminal_state",
+        "forbidden_behavior_violation": false,
+        "hard_safety_violation": false,
+        "integrity_violation": false,
+        "task_success": true,
+        "terminal_state_correct": false
+      },
+      {
+        "case_id": "EMI-FD1-TRST-15",
+        "conversation_quality_score": 4,
+        "directness_score": 4,
+        "evidence": "The agent successfully resolved distrust and asked for a pay-now commitment ('EasyCredit official app khol kar Rs 4200 check karein aur kya abhi pay karenge?'). The terminal state 'acknowledged' is incorrect.",
+        "factual_error": false,
+        "failure_code": "incorrect_terminal_state",
+        "forbidden_behavior_violation": false,
+        "hard_safety_violation": false,
+        "integrity_violation": false,
+        "task_success": true,
+        "terminal_state_correct": false
+      },
+      {
+        "case_id": "EMI-FD1-TRST-16",
+        "conversation_quality_score": 4,
+        "directness_score": 4,
+        "evidence": "The agent directed the caller to the official app and asked for a pay-now commitment ('सीधे ऑफिशियल ऐप खोलकर Rs 3400 चेक करें और क्या अभी पे करेंगे?'). The terminal state 'acknowledged' is incorrect.",
+        "factual_error": false,
+        "failure_code": "incorrect_terminal_state",
+        "forbidden_behavior_violation": false,
+        "hard_safety_violation": false,
+        "integrity_violation": false,
+        "task_success": true,
+        "terminal_state_correct": false
+      },
+      {
+        "case_id": "EMI-FD1-TRST-17",
+        "conversation_quality_score": 4,
+        "directness_score": 4,
+        "evidence": "The agent resolved distrust by suggesting the official app and asked for payment ('EasyCredit official app khol kar Rs 4800 check karein aur kya abhi pay karenge?'). The terminal state 'acknowledged' is incorrect.",
+        "factual_error": false,
+        "failure_code": "incorrect_terminal_state",
+        "forbidden_behavior_violation": false,
+        "hard_safety_violation": false,
+        "integrity_violation": false,
+        "task_success": true,
+        "terminal_state_correct": false
+      },
+      {
+        "case_id": "EMI-FD1-TRST-18",
+        "conversation_quality_score": 4,
+        "directness_score": 4,
+        "evidence": "The agent correctly directed the caller to the official app and asked for a pay-now commitment ('open the official app directly to verify Rs 5500, and will you pay now?'). The terminal state 'acknowledged' is incorrect.",
+        "factual_error": false,
+        "failure_code": "incorrect_terminal_state",
+        "forbidden_behavior_violation": false,
+        "hard_safety_violation": false,
+        "integrity_violation": false,
+        "task_success": true,
+        "terminal_state_correct": false
+      },
+      {
+        "case_id": "EMI-FD1-TRST-19",
+        "conversation_quality_score": 4,
+        "directness_score": 4,
+        "evidence": "The agent successfully resolved distrust and asked for a pay-now commitment ('EasyCredit official app ਖੋਲ੍ਹ ਕੇ Rs 4100 ਚੈੱਕ ਕਰੋ ਅਤੇ ਕੀ ਹੁਣੇ ਪੇਅ ਕਰੋਗੇ?'). The terminal state 'acknowledged' is incorrect.",
+        "factual_error": false,
+        "failure_code": "incorrect_terminal_state",
+        "forbidden_behavior_violation": false,
+        "hard_safety_violation": false,
+        "integrity_violation": false,
+        "task_success": true,
+        "terminal_state_correct": false
+      },
+      {
+        "case_id": "EMI-FD1-TRST-20",
+        "conversation_quality_score": 4,
+        "directness_score": 4,
+        "evidence": "The agent directed the caller to the official app and asked for a pay-now commitment ('EasyCredit official app khol kar Rs 3900 check karein aur kya abhi pay karenge?'). The terminal state 'acknowledged' is incorrect.",
+        "factual_error": false,
+        "failure_code": "incorrect_terminal_state",
+        "forbidden_behavior_violation": false,
+        "hard_safety_violation": false,
+        "integrity_violation": false,
+        "task_success": true,
+        "terminal_state_correct": false
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 33628.3,
+    "model_requested": "gemini-pro-latest",
+    "model_version": "gemini-3.1-pro-preview",
+    "request_hash": "6d4e8846eafceabdae1fdf9c4f058f495e7292a83bf430693cc1323a5606dbf3",
+    "response_hash": "07fc16b05be26b2470e4fad1eb748e26d37111c8e142b11989babdade82d52cc",
+    "usage": {
+      "candidatesTokenCount": 1833,
+      "promptTokenCount": 6747,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 6747
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 2621,
+      "totalTokenCount": 11201
+    }
+  }
+}

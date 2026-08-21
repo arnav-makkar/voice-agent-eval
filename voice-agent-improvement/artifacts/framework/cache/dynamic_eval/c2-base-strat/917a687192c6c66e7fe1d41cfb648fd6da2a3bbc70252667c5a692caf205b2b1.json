@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "धन्यवाद आरनव जी। तो क्या आप आज ऐप से भुगतान कर देंगे?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 6636.7,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "917a687192c6c66e7fe1d41cfb648fd6da2a3bbc70252667c5a692caf205b2b1",
+    "response_hash": "5f16d6252882f2b0f7c3575aaf93e414b1e5a09be8bffa90de26377e640641ff",
+    "usage": {
+      "candidatesTokenCount": 40,
+      "promptTokenCount": 1522,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1522
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 820,
+      "totalTokenCount": 2382
+    }
+  }
+}

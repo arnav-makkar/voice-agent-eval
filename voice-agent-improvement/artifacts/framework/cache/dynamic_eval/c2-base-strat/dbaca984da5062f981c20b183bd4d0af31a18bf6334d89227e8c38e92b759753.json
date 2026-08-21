@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "payment_ready",
+    "should_end_call": true,
+    "spoken_response": "Dhanyawad Arnav ji, aap abhi EasyCredit app par payment kar dijiye.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "payment_ready"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 3776.1,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "dbaca984da5062f981c20b183bd4d0af31a18bf6334d89227e8c38e92b759753",
+    "response_hash": "ff1f99b7f7f06341380120d8de419e7ff24bf6f18a2567a51441e37e574a3a27",
+    "usage": {
+      "candidatesTokenCount": 62,
+      "promptTokenCount": 1460,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1460
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 495,
+      "totalTokenCount": 2017
+    }
+  }
+}

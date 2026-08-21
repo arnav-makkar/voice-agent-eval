@@ -1,0 +1,35 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Samajh gaya Simran ji. Main aapka account status check kar leta hoon.",
+    "tool_calls": [
+      {
+        "arguments": {},
+        "name": "check_payment_status"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 7898.5,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "83a2fa83d4a07fc6ad059f9205bb0510eaa057a745286c66ae86b5019a05c36c",
+    "response_hash": "7ce9897bd4e8b7f6b2dc24dddaefc9d75c82c97a4cf663a0989b71acfa3847df",
+    "usage": {
+      "candidatesTokenCount": 54,
+      "promptTokenCount": 1467,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1467
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1080,
+      "totalTokenCount": 2601
+    }
+  }
+}

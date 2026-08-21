@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Ji Simran ji, kal kis samay call karoon?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 12289.4,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "0092fb768099c6e6b9303c4c4217a17162d7d4434e1b3a88654ff6698a742a80",
+    "response_hash": "28aeccc7e66c8635f157bc3c54fc85071435b521ca85c6cd929f1660d63600e4",
+    "usage": {
+      "candidatesTokenCount": 42,
+      "promptTokenCount": 1473,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1473
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1709,
+      "totalTokenCount": 3224
+    }
+  }
+}

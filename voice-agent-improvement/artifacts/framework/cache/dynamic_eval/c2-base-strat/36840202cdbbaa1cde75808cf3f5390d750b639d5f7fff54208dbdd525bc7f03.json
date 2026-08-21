@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "acknowledged",
+    "should_end_call": true,
+    "spoken_response": "अर्णव जी, मैं आपकी परेशानी समझ सकता हूँ। आप हमारे कस्टमर केयर नंबर 1800-500-4444 पर संपर्क कर सकते हैं।",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "acknowledged"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 8866.1,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "36840202cdbbaa1cde75808cf3f5390d750b639d5f7fff54208dbdd525bc7f03",
+    "response_hash": "800f39d3f2cdda6f8678462a466b76653c663d04e1beef4d9ad7c3f3a42ccbf4",
+    "usage": {
+      "candidatesTokenCount": 78,
+      "promptTokenCount": 1471,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1471
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1448,
+      "totalTokenCount": 2997
+    }
+  }
+}

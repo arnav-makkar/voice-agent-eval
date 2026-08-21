@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "dispute",
+    "should_end_call": true,
+    "spoken_response": "Simran ji, system mein abhi 6,607 rupaye pending dikha raha hai. Aap dispute update karwane ke liye customer care number 1800-500-4444 par contact karein.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "dispute"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 13816.0,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "db94173bb2c0192e5205e83dce0e4f2f8d5d5032d34ee2339b9d7aed725f8e16",
+    "response_hash": "9c6b2edb2e5009a8dedbe17bc4c71bff9a9ecd7393396ee93dc4eb197e2730d1",
+    "usage": {
+      "candidatesTokenCount": 91,
+      "promptTokenCount": 1563,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1563
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 2055,
+      "totalTokenCount": 3709
+    }
+  }
+}

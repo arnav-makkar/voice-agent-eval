@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "escalation",
+    "should_end_call": true,
+    "spoken_response": "Aap safety ke liye hamare fraud helpline number 1800-425-5555 par contact kar sakte hain. Main is call ko escalate kar raha hoon.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "escalation"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5102.5,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "f92c11f5f7b79c33ca4c2a7db5180acebf1d27a1a62b5e215237603553361b3d",
+    "response_hash": "6bc64f873713e740d7f0acd9f79a5c29553c409fe142c48b28f1b82b778cae89",
+    "usage": {
+      "candidatesTokenCount": 79,
+      "promptTokenCount": 1466,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1466
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 639,
+      "totalTokenCount": 2184
+    }
+  }
+}

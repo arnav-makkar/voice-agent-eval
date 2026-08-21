@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "acknowledged",
+    "should_end_call": true,
+    "spoken_response": "ਧੰਨਵਾਦ ਗੁਰਪ੍ਰੀਤ ਜੀ। EasyCredit ਵਿੱਚ ਕਾਲ ਕਰਨ ਲਈ ਧੰਨਵਾਦ।",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "acknowledged"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5671.7,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "ee703c33fbbe82d26813078b02d5a9d498b717fff2feae64ab606f6dad258561",
+    "response_hash": "e398b42fd997434f3fe85db4fe66284df4a76abd58765b60db31d3f0ea301bd8",
+    "usage": {
+      "candidatesTokenCount": 68,
+      "promptTokenCount": 1768,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1768
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 795,
+      "totalTokenCount": 2631
+    }
+  }
+}

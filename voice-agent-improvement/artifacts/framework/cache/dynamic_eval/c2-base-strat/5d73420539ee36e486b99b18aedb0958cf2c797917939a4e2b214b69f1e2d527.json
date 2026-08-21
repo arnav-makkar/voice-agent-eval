@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "wrong_number",
+    "should_end_call": true,
+    "spoken_response": "माफ़ कीजिएगा, गलत नंबर लग गया। धन्यवाद।",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "wrong_number"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 3146.4,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "5d73420539ee36e486b99b18aedb0958cf2c797917939a4e2b214b69f1e2d527",
+    "response_hash": "eb993aaecb836046f6391503affa9e1368c75ab29e1110bf13feef138bd95b28",
+    "usage": {
+      "candidatesTokenCount": 53,
+      "promptTokenCount": 1393,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1393
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 344,
+      "totalTokenCount": 1790
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "dispute",
+    "should_end_call": true,
+    "spoken_response": "Understood Gurpreet ji. Please contact our customer care at 1800-500-4444 to resolve the amount discrepancy. Thank you.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "dispute"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 14035.3,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "ddf2ba6d16c40fcdcdf237fb7208f3f1f07e78025197917b3e0b5d57449b2042",
+    "response_hash": "37e107efc1bbbe2c00c802af3770bbc5b6b72b7297a7ffafbe6eb6916e8c8ed8",
+    "usage": {
+      "candidatesTokenCount": 75,
+      "promptTokenCount": 1620,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1620
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 2276,
+      "totalTokenCount": 3971
+    }
+  }
+}

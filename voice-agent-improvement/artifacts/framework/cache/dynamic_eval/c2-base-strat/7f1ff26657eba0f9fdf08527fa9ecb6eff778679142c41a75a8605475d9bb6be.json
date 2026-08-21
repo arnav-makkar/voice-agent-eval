@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "acknowledged",
+    "should_end_call": true,
+    "spoken_response": "ਧੰਨਵਾਦ ਗੁਰਪ੍ਰੀਤ ਜੀ।",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "acknowledged"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 8264.6,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "7f1ff26657eba0f9fdf08527fa9ecb6eff778679142c41a75a8605475d9bb6be",
+    "response_hash": "2d34618067eba232bbe4b89b7ed8ec81ef2e874ea1890ebfb28f3460afc4f9ce",
+    "usage": {
+      "candidatesTokenCount": 54,
+      "promptTokenCount": 1564,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1564
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1230,
+      "totalTokenCount": 2848
+    }
+  }
+}

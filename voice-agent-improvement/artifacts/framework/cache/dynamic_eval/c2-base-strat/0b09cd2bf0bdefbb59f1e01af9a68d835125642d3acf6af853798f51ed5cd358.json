@@ -1,0 +1,43 @@
+{
+  "data": {
+    "disposition": "ptp_today",
+    "should_end_call": true,
+    "spoken_response": "Thank you, Arnav ji. Please complete the payment of Rs 2634 today through the EasyCredit app.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "date": "27-08-2026"
+        },
+        "name": "record_promise_to_pay"
+      },
+      {
+        "arguments": {
+          "disposition": "ptp_today"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5689.1,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "0b09cd2bf0bdefbb59f1e01af9a68d835125642d3acf6af853798f51ed5cd358",
+    "response_hash": "90e4f6496c43ce40a1378e3affbca7e09185baabc189b66fd61a53776c900776",
+    "usage": {
+      "candidatesTokenCount": 95,
+      "promptTokenCount": 1460,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1460
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 698,
+      "totalTokenCount": 2253
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "payment_ready",
+    "should_end_call": true,
+    "spoken_response": "धन्यवाद गुरप्रीत जी, कृपया EasyCredit ऐप खोलकर भुगतान पूरा कर लें।",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "payment_ready"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 8254.6,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "e18daa49386399c55d147d7a4e2eeb5ed82b01ac558a1b0f1a846264ddc6f796",
+    "response_hash": "d1007366ad2d4482760ca4d158634542ff4cf3913e8b09e2eff9502dfb464e94",
+    "usage": {
+      "candidatesTokenCount": 59,
+      "promptTokenCount": 1632,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1632
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1314,
+      "totalTokenCount": 3005
+    }
+  }
+}

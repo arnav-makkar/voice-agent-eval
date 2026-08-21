@@ -1,0 +1,43 @@
+{
+  "data": {
+    "disposition": "fptp",
+    "should_end_call": true,
+    "spoken_response": "Thank you Gurpreet ji for confirming. Please pay by 30-08-2026 using the EasyCredit app.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "date": "30-08-2026"
+        },
+        "name": "record_promise_to_pay"
+      },
+      {
+        "arguments": {
+          "disposition": "fptp"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4716.0,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "428ab8aa8feff9c73d9d51ead4bba13f9b5d60eed97a16c6354baa17e0e44c21",
+    "response_hash": "5c011e52618d81ecafd4629b7daf221f5a83238579d6044b4e19786c488d4cb3",
+    "usage": {
+      "candidatesTokenCount": 97,
+      "promptTokenCount": 1533,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1533
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 683,
+      "totalTokenCount": 2313
+    }
+  }
+}

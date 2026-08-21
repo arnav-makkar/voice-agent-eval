@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "wrong_number",
+    "should_end_call": true,
+    "spoken_response": "ਜੀ ਮਾਫ਼ ਕਰਨਾ, ਧੰਨਵਾਦ।",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "wrong_number"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4425.3,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "37379cbc87879b4d76a8f42f004694acb3adea45a320531ecc4d7e1e9de6b625",
+    "response_hash": "76e1d4e19d0471a56cf9bd5c3eee4905e9e3313d5e07829fa40c5c82b9ebd2c9",
+    "usage": {
+      "candidatesTokenCount": 97,
+      "promptTokenCount": 1402,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1402
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 550,
+      "totalTokenCount": 2049
+    }
+  }
+}

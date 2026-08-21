@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "जी, मैंने चेक कर लिया है, आपकी बकाया राशि 5,926 रुपये ही है। क्या आप अभी EasyCredit ऐप से भुगतान कर सकते हैं?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 26662.1,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "b63ee8d44f72b88b1b4e356e32ea6bc9a0fa7675cda16a0a041bd1d14fe9df47",
+    "response_hash": "51558b9177bb83d17e405724d4b72a9157c9f22097f9954fb7a7b139cc370941",
+    "usage": {
+      "candidatesTokenCount": 57,
+      "promptTokenCount": 1572,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1572
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 4474,
+      "totalTokenCount": 6103
+    }
+  }
+}

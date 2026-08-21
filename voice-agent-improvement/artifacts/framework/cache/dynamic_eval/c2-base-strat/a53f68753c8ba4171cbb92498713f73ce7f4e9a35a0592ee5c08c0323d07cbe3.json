@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "payment_ready",
+    "should_end_call": true,
+    "spoken_response": "Bahut dhanyawad Riya ji. Kripya EasyCredit app khol kar payment poori kar lijiye.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "payment_ready"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4638.8,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "a53f68753c8ba4171cbb92498713f73ce7f4e9a35a0592ee5c08c0323d07cbe3",
+    "response_hash": "8ffaa59e8a7ce910a8ee826f07fffd44046b3a9106898a9f00a2e85b4c56752f",
+    "usage": {
+      "candidatesTokenCount": 69,
+      "promptTokenCount": 1470,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1470
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 650,
+      "totalTokenCount": 2189
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "escalation",
+    "should_end_call": true,
+    "spoken_response": "ਮੈਨੂੰ ਇਹ ਸੁਣ ਕੇ ਬਹੁਤ ਦੁੱਖ ਹੋਇਆ। ਤੁਸੀਂ ਸਾਡੇ ਕਸਟਮਰ ਕੇਅਰ ਨੰਬਰ 1800-500-4444 'ਤੇ ਸੰਪਰਕ ਕਰ ਸਕਦੇ ਹੋ।",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "escalation"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 10100.7,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "67a560c6f5b5d01addf3803d3a62299ff7cb2b34af678407750d9cc0bfc1bbb9",
+    "response_hash": "c306dc322c0925c9e0b1444881c79df07ba0ab4d8e5068f175b381577eb9efa5",
+    "usage": {
+      "candidatesTokenCount": 97,
+      "promptTokenCount": 1470,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1470
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1660,
+      "totalTokenCount": 3227
+    }
+  }
+}

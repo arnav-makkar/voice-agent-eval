@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "acknowledged",
+    "should_end_call": true,
+    "spoken_response": "धन्यवाद गुरप्रीत जी, आपका दिन शुभ हो।",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "acknowledged"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 7701.8,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "82a8aa3a80f3860bd6b1c435e73b9de0286362216c10906138a193c5f6c8c795",
+    "response_hash": "7566efc1ddcd95a25574b605749a5b515c787810385d05aaa9c53899627b4e78",
+    "usage": {
+      "candidatesTokenCount": 61,
+      "promptTokenCount": 1581,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1581
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1214,
+      "totalTokenCount": 2856
+    }
+  }
+}

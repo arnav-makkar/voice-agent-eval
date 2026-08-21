@@ -1,0 +1,44 @@
+{
+  "data": {
+    "disposition": "callback",
+    "should_end_call": true,
+    "spoken_response": "Thik hai Simran ji, main kal subah 10 se 11 baje ke beech aapko call karunga. Dhanyawad.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "date": "22-08-2026",
+          "time_window": "10:00 AM - 11:00 AM"
+        },
+        "name": "schedule_callback"
+      },
+      {
+        "arguments": {
+          "disposition": "callback"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 6960.5,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "8303e6c63471686559cb5a792479a827f380262f3ee8a29eac13deae41d82a56",
+    "response_hash": "027d022793336117d0dee9c86d927820824e913176b843baf7fdf9b1ea12e836",
+    "usage": {
+      "candidatesTokenCount": 113,
+      "promptTokenCount": 1518,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1518
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 937,
+      "totalTokenCount": 2568
+    }
+  }
+}

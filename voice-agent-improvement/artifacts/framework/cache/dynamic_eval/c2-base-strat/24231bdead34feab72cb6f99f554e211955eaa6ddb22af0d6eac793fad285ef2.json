@@ -1,0 +1,43 @@
+{
+  "data": {
+    "disposition": "ptp_today",
+    "should_end_call": true,
+    "spoken_response": "धन्यवाद आरनव जी, आपका दिन शुभ हो।",
+    "tool_calls": [
+      {
+        "arguments": {
+          "date": "19-08-2026"
+        },
+        "name": "record_promise_to_pay"
+      },
+      {
+        "arguments": {
+          "disposition": "ptp_today"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 13496.9,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "24231bdead34feab72cb6f99f554e211955eaa6ddb22af0d6eac793fad285ef2",
+    "response_hash": "b3b0e9cbc57f6b9ac0347edad444acb937740aad0d18d09142b22eb10d832a9b",
+    "usage": {
+      "candidatesTokenCount": 82,
+      "promptTokenCount": 1566,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1566
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 2181,
+      "totalTokenCount": 3829
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Sir, late fee waiver is not possible as per policy. Can you confirm payment on 30-08-2026 using the EasyCredit app?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5862.4,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "9539e80128580c45f7c9c72c895f4d26810a93b4a50948942a8f11478ec94c6a",
+    "response_hash": "760602eff1da649cd14c03bb4a9e4710b6d5660365ddc646e04fd3c9a71c42da",
+    "usage": {
+      "candidatesTokenCount": 63,
+      "promptTokenCount": 1472,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1472
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 612,
+      "totalTokenCount": 2147
+    }
+  }
+}

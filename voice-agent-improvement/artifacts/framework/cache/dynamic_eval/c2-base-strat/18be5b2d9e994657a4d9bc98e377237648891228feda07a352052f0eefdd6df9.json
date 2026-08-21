@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "acknowledged",
+    "should_end_call": true,
+    "spoken_response": "Thank you for your time, Arnav ji. Have a good day.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "acknowledged"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 10879.6,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "18be5b2d9e994657a4d9bc98e377237648891228feda07a352052f0eefdd6df9",
+    "response_hash": "2579071385e13269b24e76f16cf1f7ff76ae59f1a11f594556493b269fba490a",
+    "usage": {
+      "candidatesTokenCount": 54,
+      "promptTokenCount": 1613,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1613
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1849,
+      "totalTokenCount": 3516
+    }
+  }
+}

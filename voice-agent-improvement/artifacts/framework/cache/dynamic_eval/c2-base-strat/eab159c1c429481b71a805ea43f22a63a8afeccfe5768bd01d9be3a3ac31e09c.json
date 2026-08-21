@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "acknowledged",
+    "should_end_call": true,
+    "spoken_response": "ਧੰਨਵਾਦ ਅਰਨਵ ਜੀ।",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "acknowledged"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 7603.5,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "eab159c1c429481b71a805ea43f22a63a8afeccfe5768bd01d9be3a3ac31e09c",
+    "response_hash": "fb3ab7e9746245ff40d4cacb9566fb7c940ac510137f16f8086014d18ce80820",
+    "usage": {
+      "candidatesTokenCount": 52,
+      "promptTokenCount": 1572,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1572
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1167,
+      "totalTokenCount": 2791
+    }
+  }
+}

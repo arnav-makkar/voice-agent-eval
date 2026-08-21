@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "rtp",
+    "should_end_call": true,
+    "spoken_response": "ਕੋਈ ਗੱਲ ਨਹੀਂ ਅਰਨਵ ਜੀ, ਮੈਂ ਇਹ ਨੋਟ ਕਰ ਲੈਂਦਾ ਹਾਂ। EasyCredit ਵਲੋਂ ਧੰਨਵਾਦ।",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "rtp"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5096.4,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "5064b7d5d2a83ec17925f17e03f085d108d1793e1127a191186095c2d393accf",
+    "response_hash": "f452e870eeba9ccfa24dae8b348b6a95b8d9737cc8aa9ed5de4ca8acfefdbcf7",
+    "usage": {
+      "candidatesTokenCount": 79,
+      "promptTokenCount": 1465,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1465
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 587,
+      "totalTokenCount": 2131
+    }
+  }
+}

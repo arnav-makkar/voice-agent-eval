@@ -231,6 +231,9 @@
       <div class="note bad"><b>No journal line, no campaign.</b> Nothing paid runs until that gate passes.</div>
       <div class="accept"><b>Done when</b>Journal line from <code>4.213.167.70</code> dated today on the stable URL · recording retrieval confirmed · smoke sane · Indus committed at v1.</div>
       <div class="who"><span class="chip warn">you: create agent, paste secret, authorise commit (~30 min)</span><span class="chip acc">claude: everything else</span></div>
+      <div class="note good"><b>Partly done 22 Aug — agent <code>EasyCredit--4e112b0d-9931</code>.</b> Instructions and Variables are configured and verified, nothing committed. Prompt: 3,570 characters with all eight variables resolving as chips. Greeting replaced (the default said "calling from Sarvam" in English and skipped the identity check the prompt requires). Eleven input variables created, including the two that scope a tool call to one isolated run — <code>campaignId → run_id</code> and <code>transactionReference → account_id</code>. Two defects caught and fixed during setup: <code>transactionReference</code> had picked up the previous dialog's value, and the template's leftover <code>user_name = Manan</code> was deleted.
+      <br><br><b>Done manually, not through Genie.</b> Genie rewriting the prompt is exactly what produced the drift defect last campaign, so every field was set directly and read back.
+      <br><br><b>Blocked on transport.</b> Tools cannot be configured yet: no stable public URL exists, and no tunnel binary is installed (<code>cloudflared</code>, <code>ngrok</code>, <code>tailscale</code> all absent; only <code>ssh</code>). Creating the three tools against a placeholder URL would reproduce the mock-tool defect exactly, so they are deliberately left empty until a real endpoint exists.</div>
     </div>
   </details>
 

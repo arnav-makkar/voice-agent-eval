@@ -1,0 +1,35 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Thank you for letting me know. Let me check your payment status right away.",
+    "tool_calls": [
+      {
+        "arguments": {},
+        "name": "check_payment_status"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4848.2,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "281a90d81a816874caf59d93e61b5fc212c36454be81846d60d658cb17403d25",
+    "response_hash": "0cb075f8b6b1bc4a0e130067b32bc08aad6ea8d803accfa795d51b45a7c0fad7",
+    "usage": {
+      "candidatesTokenCount": 82,
+      "promptTokenCount": 1455,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1455
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 462,
+      "totalTokenCount": 1999
+    }
+  }
+}

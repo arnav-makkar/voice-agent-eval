@@ -1,0 +1,43 @@
+{
+  "data": {
+    "disposition": "fptp",
+    "should_end_call": true,
+    "spoken_response": "ਧੰਨਵਾਦ ਅਰਨਵ ਜੀ, ਮੈਂ 22 ਅਗਸਤ ਦੀ ਤਾਰੀਖ ਨੋਟ ਕਰ ਲਈ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ EasyCredit ਐਪ ਰਾਹੀਂ ਭੁਗਤਾਨ ਕਰ ਦੇਣਾ।",
+    "tool_calls": [
+      {
+        "arguments": {
+          "date": "22-08-2026"
+        },
+        "name": "record_promise_to_pay"
+      },
+      {
+        "arguments": {
+          "disposition": "fptp"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 8162.0,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "0bc71dbe893619c4e14050aaa0d0cae5b1c1edf58ce38af58acb205c05d3f9e8",
+    "response_hash": "fdb0a9a1d079677ddccc4d590766df2abe81b61852cb55b47c25d8a5ba0ea450",
+    "usage": {
+      "candidatesTokenCount": 123,
+      "promptTokenCount": 1482,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1482
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1392,
+      "totalTokenCount": 2997
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Arnav ji, as per our records, the payment of Rs 5,922 is still showing unpaid. Could you please check the EasyCredit app for the transaction status?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5278.4,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "cad0ce04c7af38604d72c50133a95136ab563a92d504fc302c966cb44c38169d",
+    "response_hash": "d417d3e50379f1821e3c5c6216117536cc0e54bb499ef50a52a5e914acb100ed",
+    "usage": {
+      "candidatesTokenCount": 61,
+      "promptTokenCount": 1549,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1549
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 765,
+      "totalTokenCount": 2375
+    }
+  }
+}

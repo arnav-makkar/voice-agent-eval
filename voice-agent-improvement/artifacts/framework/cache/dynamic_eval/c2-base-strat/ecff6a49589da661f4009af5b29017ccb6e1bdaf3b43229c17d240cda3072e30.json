@@ -1,0 +1,43 @@
+{
+  "data": {
+    "disposition": "fptp",
+    "should_end_call": true,
+    "spoken_response": "धन्यवाद अर्णव जी, मैंने 25-08-2026 की तारीख नोट कर ली है। आपका दिन शुभ हो।",
+    "tool_calls": [
+      {
+        "arguments": {
+          "date": "25-08-2026"
+        },
+        "name": "record_promise_to_pay"
+      },
+      {
+        "arguments": {
+          "disposition": "fptp"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 3923.4,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "ecff6a49589da661f4009af5b29017ccb6e1bdaf3b43229c17d240cda3072e30",
+    "response_hash": "4ba630b39b482925c111d7f7390463d080fa9881154a74021d69610f223dfbcc",
+    "usage": {
+      "candidatesTokenCount": 114,
+      "promptTokenCount": 1475,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1475
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 481,
+      "totalTokenCount": 2070
+    }
+  }
+}

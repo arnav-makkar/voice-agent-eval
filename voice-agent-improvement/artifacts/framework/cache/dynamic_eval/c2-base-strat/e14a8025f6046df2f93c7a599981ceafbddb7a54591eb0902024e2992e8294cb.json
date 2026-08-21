@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Dhanyawad Riya ji. Aap kab tak payment kar sakti hain?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 8487.9,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "e14a8025f6046df2f93c7a599981ceafbddb7a54591eb0902024e2992e8294cb",
+    "response_hash": "fd7924e37be45d28881f23f12af6c88e03c92ef0a4805cc7768bf1cb9acf6f7c",
+    "usage": {
+      "candidatesTokenCount": 56,
+      "promptTokenCount": 1636,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1636
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1272,
+      "totalTokenCount": 2964
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "धन्यवाद। क्या आप अभी EasyCredit app से 3,550 रुपये का भुगतान कर सकते हैं?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5722.5,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "89bccf420fcb809471c06e31975bb6e5af89b4126a167e79be9c9073605dcada",
+    "response_hash": "6dfab780c8f7ff3159ace628a27a0a4700d2f5b3145bcb16be5d677258619f72",
+    "usage": {
+      "candidatesTokenCount": 48,
+      "promptTokenCount": 1530,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1530
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 755,
+      "totalTokenCount": 2333
+    }
+  }
+}

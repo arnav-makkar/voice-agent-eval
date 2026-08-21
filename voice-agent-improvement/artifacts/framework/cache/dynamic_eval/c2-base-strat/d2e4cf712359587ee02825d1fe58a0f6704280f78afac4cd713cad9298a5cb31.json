@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "ਹੈਲੋ, ਕੀ ਮੈਂ ਅਰਨਵ ਜੀ ਨਾਲ ਗੱਲ ਕਰ ਰਿਹਾ ਹਾਂ? ਮੈਂ EasyCredit ਤੋਂ ਸ਼ੁਭ ਬੋਲ ਰਿਹਾ ਹਾਂ।",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 3912.2,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "d2e4cf712359587ee02825d1fe58a0f6704280f78afac4cd713cad9298a5cb31",
+    "response_hash": "d233294e53cbbcadf7065381dccf0ed4d663d67a1b960c4c1b8910cfb3ae8ea2",
+    "usage": {
+      "candidatesTokenCount": 83,
+      "promptTokenCount": 1391,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1391
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 517,
+      "totalTokenCount": 1991
+    }
+  }
+}

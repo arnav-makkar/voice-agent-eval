@@ -1,0 +1,35 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "ਤੁਹਾਡੇ Samsung Smart TV ਦੀ 2,822 ਰੁਪਏ ਦੀ EMI ਬਾਕੀ ਹੈ। ਕੀ ਤੁਸੀਂ ਹੁਣੇ EasyCredit ਐਪ ਰਾਹੀਂ ਭੁਗਤਾਨ ਕਰ ਸਕਦੇ ਹੋ?",
+    "tool_calls": [
+      {
+        "arguments": {},
+        "name": "check_payment_status"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 7404.7,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "a0ec121e0f0960cbf995328f347b3192007351066cc89bcbb7d15ed72df92c8b",
+    "response_hash": "334917756e0a9709f132806218e78698a92d7e7ad13a8ccdc53998cedc1a3902",
+    "usage": {
+      "candidatesTokenCount": 83,
+      "promptTokenCount": 1458,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1458
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1039,
+      "totalTokenCount": 2580
+    }
+  }
+}

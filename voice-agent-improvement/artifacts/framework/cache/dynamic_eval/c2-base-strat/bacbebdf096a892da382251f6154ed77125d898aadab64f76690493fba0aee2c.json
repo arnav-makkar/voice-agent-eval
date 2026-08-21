@@ -1,0 +1,43 @@
+{
+  "data": {
+    "disposition": "fptp",
+    "should_end_call": true,
+    "spoken_response": "Thik hai Simran ji, maine 23-08-2026 ki date note kar li hai. Dhanyawad!",
+    "tool_calls": [
+      {
+        "arguments": {
+          "date": "23-08-2026"
+        },
+        "name": "record_promise_to_pay"
+      },
+      {
+        "arguments": {
+          "disposition": "fptp"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 12133.1,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "bacbebdf096a892da382251f6154ed77125d898aadab64f76690493fba0aee2c",
+    "response_hash": "51feaa1639fe8891e20027b151c07342ea1ddb5af7cc03c3696525393001a67f",
+    "usage": {
+      "candidatesTokenCount": 100,
+      "promptTokenCount": 1480,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1480
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1940,
+      "totalTokenCount": 3520
+    }
+  }
+}

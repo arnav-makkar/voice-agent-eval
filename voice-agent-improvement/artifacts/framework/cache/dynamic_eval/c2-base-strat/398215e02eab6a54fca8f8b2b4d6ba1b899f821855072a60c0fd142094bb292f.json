@@ -1,0 +1,35 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Achha, main system mein aapka payment status check kar leta hoon. Ek minute rukiyega.",
+    "tool_calls": [
+      {
+        "arguments": {},
+        "name": "check_payment_status"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4910.8,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "398215e02eab6a54fca8f8b2b4d6ba1b899f821855072a60c0fd142094bb292f",
+    "response_hash": "03eaf5af90cec1490378c07a87f9135d5f767006698767a0df46f46b12524262",
+    "usage": {
+      "candidatesTokenCount": 57,
+      "promptTokenCount": 1469,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1469
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 483,
+      "totalTokenCount": 2009
+    }
+  }
+}

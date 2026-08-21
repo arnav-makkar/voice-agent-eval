@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "हम एसएमएस पर भुगतान लिंक नहीं भेज सकते। क्या आप प्ले स्टोर से EasyCredit ऐप डाउनलोड करके आज भुगतान कर सकते हैं?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 6224.2,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "b5e4d2325c6bc571263febd7523f2b569800b4cff05dfff6a82f2d0c315df615",
+    "response_hash": "8a4517a2c9ebde9040cb3a02debbdf02012ba378d087b0c81611c60b379e2b8a",
+    "usage": {
+      "candidatesTokenCount": 64,
+      "promptTokenCount": 1470,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1470
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 747,
+      "totalTokenCount": 2281
+    }
+  }
+}

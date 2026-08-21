@@ -1,0 +1,44 @@
+{
+  "data": {
+    "disposition": "callback",
+    "should_end_call": true,
+    "spoken_response": "Sure Gurpreet, I will call you tomorrow morning. Thank you.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "date": "18-08-2026",
+          "time_window": "09:00 AM - 11:00 AM"
+        },
+        "name": "schedule_callback"
+      },
+      {
+        "arguments": {
+          "disposition": "callback"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 7365.7,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "e1b290ddc0b29cc7a03f37215939db08dfe7cf82f0e3abfcef9a42b5898a5a13",
+    "response_hash": "ee394d960605905d4a157f2171f4e3f61a06bb09ba814a288a8a7d0330445af9",
+    "usage": {
+      "candidatesTokenCount": 94,
+      "promptTokenCount": 1461,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1461
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1071,
+      "totalTokenCount": 2626
+    }
+  }
+}

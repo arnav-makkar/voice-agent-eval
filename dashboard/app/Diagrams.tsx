@@ -14,7 +14,7 @@ type Tone = "plain" | "brand" | "gain" | "loss" | "hold" | "tool";
 
 const TONES: Record<Tone, { fill: string; stroke: string; accent: string }> = {
   plain: { fill: "var(--surface)", stroke: "var(--rule-2)", accent: "var(--ink-3)" },
-  brand: { fill: "var(--brand-soft)", stroke: "var(--brand-line)", accent: "var(--brand)" },
+  brand: { fill: "var(--accent-soft)", stroke: "var(--accent-line)", accent: "var(--accent)" },
   gain: { fill: "var(--gain-soft)", stroke: "var(--gain-line)", accent: "var(--gain)" },
   loss: { fill: "var(--loss-soft)", stroke: "var(--loss-line)", accent: "var(--loss)" },
   hold: { fill: "var(--hold-soft)", stroke: "var(--hold-line)", accent: "var(--hold)" },
@@ -28,11 +28,11 @@ function Defs() {
         <path d="M0 0 L10 5 L0 10 z" fill={INK3} />
       </marker>
       <marker id="arb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-        <path d="M0 0 L10 5 L0 10 z" fill="var(--brand)" />
+        <path d="M0 0 L10 5 L0 10 z" fill="var(--accent)" />
       </marker>
       <linearGradient id="brandgrad" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stopColor="var(--brand)" />
-        <stop offset="100%" stopColor="var(--brand-3)" />
+        <stop offset="0%" stopColor="var(--accent)" />
+        <stop offset="100%" stopColor="var(--accent-2)" />
       </linearGradient>
     </defs>
   );
@@ -69,7 +69,7 @@ function Arrow({ d, label, brand = false, dashed = false }: { d: string; label?:
       <path
         d={d}
         fill="none"
-        stroke={brand ? "var(--brand)" : RULE}
+        stroke={brand ? "var(--accent)" : RULE}
         strokeWidth={1.6}
         markerEnd={brand ? "url(#arb)" : "url(#ar)"}
         strokeDasharray={dashed ? "5 5" : undefined}

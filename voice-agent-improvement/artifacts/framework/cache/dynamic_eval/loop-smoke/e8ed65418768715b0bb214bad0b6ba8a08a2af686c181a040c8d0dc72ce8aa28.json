@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Aap EasyCredit app par amount check kar sakte hain. Kya abhi check karke pay kar denge?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5766.2,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "e8ed65418768715b0bb214bad0b6ba8a08a2af686c181a040c8d0dc72ce8aa28",
+    "response_hash": "b2a5bcf3c9690ffa53b876f63396c9e78453cf760f9f9fe00a18661341a7b137",
+    "usage": {
+      "candidatesTokenCount": 47,
+      "promptTokenCount": 1474,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1474
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 892,
+      "totalTokenCount": 2413
+    }
+  }
+}

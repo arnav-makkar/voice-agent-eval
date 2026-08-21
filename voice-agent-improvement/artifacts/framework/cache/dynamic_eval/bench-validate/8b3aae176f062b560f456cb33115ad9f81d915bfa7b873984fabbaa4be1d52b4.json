@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "payment_ready",
+    "should_end_call": true,
+    "spoken_response": "Bahut dhanyawad! Kripya EasyCredit app kholkar abhi payment kar lijiye.",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4105.8,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "8b3aae176f062b560f456cb33115ad9f81d915bfa7b873984fabbaa4be1d52b4",
+    "response_hash": "f47ead5763b82465240c24ede5d60481a19928c280fee5efd64666229335d3fd",
+    "usage": {
+      "candidatesTokenCount": 55,
+      "promptTokenCount": 1495,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1495
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 526,
+      "totalTokenCount": 2076
+    }
+  }
+}

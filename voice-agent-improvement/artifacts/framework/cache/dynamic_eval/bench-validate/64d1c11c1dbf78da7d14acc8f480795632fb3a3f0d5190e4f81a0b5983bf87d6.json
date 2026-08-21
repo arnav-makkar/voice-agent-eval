@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "escalation",
+    "should_end_call": true,
+    "spoken_response": "Main samajh sakta hoon. Aap kisi bhi help ya jankari ke liye humari fraud helpline 1800-425-5555 par call kar sakte hain.",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5927.4,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "64d1c11c1dbf78da7d14acc8f480795632fb3a3f0d5190e4f81a0b5983bf87d6",
+    "response_hash": "d6a061262b1cd4b0e224d576fdf6103b365fab45d349db7e4c9c0cc6e925b84c",
+    "usage": {
+      "candidatesTokenCount": 65,
+      "promptTokenCount": 1499,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1499
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 872,
+      "totalTokenCount": 2436
+    }
+  }
+}

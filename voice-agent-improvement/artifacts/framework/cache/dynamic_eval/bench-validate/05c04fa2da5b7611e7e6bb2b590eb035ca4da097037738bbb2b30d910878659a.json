@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Samajh gaya Simran ji. Kya aap koi pakki tarikh confirm kar sakte hain jab aap payment karenge?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 8425.7,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "05c04fa2da5b7611e7e6bb2b590eb035ca4da097037738bbb2b30d910878659a",
+    "response_hash": "215ac1957ff54cba602d9f78108bc84bd1c50a50393dd78d6a609346c539f346",
+    "usage": {
+      "candidatesTokenCount": 63,
+      "promptTokenCount": 1503,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1503
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1119,
+      "totalTokenCount": 2685
+    }
+  }
+}

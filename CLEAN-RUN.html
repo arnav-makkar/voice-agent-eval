@@ -1,0 +1,259 @@
+<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, initial-scale=1">\n<title>Loopline — The Plan to Approve</title>\n<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">\n<style>
+  :root{
+    --bg:#0A0D13;--panel:#11161F;--panel2:#161D29;--inset:#0C1119;
+    --line:rgba(150,163,186,.15);--line2:rgba(150,163,186,.30);
+    --ink:#E8EDF5;--mut:#96A0B5;--dim:#69738C;
+    --acc:#6EA8FE;--vio:#A98BFA;--tool:#E0A34E;
+    --good:#3FCE96;--warn:#EFB65C;--bad:#F27690;
+    --good-bg:rgba(63,206,150,.10);--warn-bg:rgba(239,182,92,.10);--bad-bg:rgba(242,118,144,.10);--acc-bg:rgba(110,168,254,.10);--tool-bg:rgba(224,163,78,.10);--vio-bg:rgba(169,139,250,.10);
+    --disp:"Archivo","IBM Plex Sans",system-ui,sans-serif;
+    --body:"IBM Plex Sans",system-ui,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,monospace;
+  }
+  *{box-sizing:border-box;margin:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{background:var(--bg);color:var(--ink);font:15px/1.62 var(--body);-webkit-font-smoothing:antialiased}
+  a{color:var(--acc);text-decoration:none}a:hover{text-decoration:underline}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+  code{font:500 12.5px var(--mono);background:var(--inset);border:1px solid var(--line);border-radius:5px;padding:1px 6px;color:#C6D4F0}
+
+  nav.top{position:sticky;top:0;z-index:20;background:rgba(10,13,19,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav.top .wrap{display:flex;align-items:center;gap:16px;height:52px;overflow-x:auto;white-space:nowrap}
+  nav.top b{font:700 13px var(--disp);letter-spacing:.03em}nav.top b span{color:var(--acc)}
+  nav.top a{font:500 11.5px var(--mono);letter-spacing:.05em;color:var(--mut);text-transform:uppercase}
+  nav.top a:hover{color:var(--ink);text-decoration:none}
+
+  header.hero{padding:60px 0 38px;border-bottom:1px solid var(--line)}
+  .kicker{font:600 11.5px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--acc)}
+  header.hero h1{font:800 clamp(29px,4.4vw,44px)/1.09 var(--disp);letter-spacing:-.016em;margin:14px 0 16px;text-wrap:balance}
+  header.hero h1 em{font-style:normal;color:var(--acc)}
+  .lede{max-width:74ch;color:var(--mut);font-size:16px}
+  .heroStats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:26px}
+  .hs{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:14px 16px}
+  .hs b{display:block;font:800 24px var(--disp);font-variant-numeric:tabular-nums}
+  .hs span{font:500 11px var(--mono);letter-spacing:.05em;text-transform:uppercase;color:var(--dim)}
+  .hs.crit b{color:var(--bad)}.hs.warn b{color:var(--warn)}.hs.ok b{color:var(--good)}.hs.acc b{color:var(--acc)}
+
+  section{padding:52px 0;border-bottom:1px solid var(--line)}
+  .sec-head{margin-bottom:24px}
+  .sec-head h2{font:700 clamp(21px,3vw,28px)/1.16 var(--disp);letter-spacing:-.01em;margin:9px 0 8px;text-wrap:balance}
+  .sec-head p{color:var(--mut);max-width:78ch}
+
+  .chip{display:inline-block;font:600 10.5px var(--mono);letter-spacing:.07em;text-transform:uppercase;padding:3px 9px;border-radius:999px;border:1px solid;white-space:nowrap}
+  .chip.good{color:var(--good);border-color:rgba(63,206,150,.4);background:var(--good-bg)}
+  .chip.warn{color:var(--warn);border-color:rgba(239,182,92,.4);background:var(--warn-bg)}
+  .chip.bad{color:var(--bad);border-color:rgba(242,118,144,.4);background:var(--bad-bg)}
+  .chip.acc{color:var(--acc);border-color:rgba(110,168,254,.4);background:var(--acc-bg)}
+  .chip.tool{color:var(--tool);border-color:rgba(224,163,78,.4);background:var(--tool-bg)}
+  .chip.vio{color:var(--vio);border-color:rgba(169,139,250,.4);background:var(--vio-bg)}
+  .chip.dim{color:var(--dim);border-color:var(--line2);background:transparent}
+
+  .phase{background:var(--panel);border:1px solid var(--line2);border-radius:14px;margin-bottom:16px;overflow:hidden}
+  .phase-head{display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:18px 24px;background:var(--panel2);border-bottom:1px solid var(--line)}
+  .phase-head .id{font:800 13px var(--mono);color:var(--acc);letter-spacing:.06em}
+  .phase-head h3{font:700 17px var(--disp);flex:1;min-width:200px}
+  .phase-head .meta{font:500 11.5px var(--mono);color:var(--dim);letter-spacing:.03em}
+  .phase-body{padding:20px 24px}
+  .phase-body>p.goal{color:var(--mut);font-size:14.5px;max-width:84ch;margin-bottom:16px}
+  .task{display:grid;grid-template-columns:26px 1fr;gap:12px;padding:12px 0;border-top:1px solid var(--line)}
+  .task:first-of-type{border-top:0;padding-top:0}
+  .task .n{font:600 11px var(--mono);color:var(--dim);padding-top:3px}
+  .task b{font:600 14.5px var(--body);display:block;margin-bottom:3px}
+  .task p{color:var(--mut);font-size:13.5px;max-width:84ch}
+  .task p strong{color:var(--ink);font-weight:600}
+  .task .who{display:inline-flex;gap:6px;margin-top:6px;flex-wrap:wrap}
+  .accept{margin-top:16px;background:var(--inset);border:1px solid var(--line);border-radius:10px;padding:13px 16px;font-size:13.5px;color:var(--mut)}
+  .accept b{color:var(--good);font:600 10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;display:block;margin-bottom:5px}
+  pre.cmd{background:var(--inset);border:1px solid var(--line);border-radius:9px;padding:13px 16px;font:12.5px/1.75 var(--mono);color:#C6D4F0;overflow-x:auto;margin-top:11px}
+  pre.cmd b{color:var(--good);font-weight:600}
+  pre.cmd i{color:var(--dim);font-style:normal}
+
+  .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+  table{border-collapse:collapse;width:100%;font-size:13.5px}
+  th{font:600 11px var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--dim);text-align:left;padding:12px 14px;border-bottom:1px solid var(--line2);white-space:nowrap}
+  td{padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+  tr:last-child td{border-bottom:none}
+  td.num{font:500 13px var(--mono);white-space:nowrap;font-variant-numeric:tabular-nums}
+  td .sub{display:block;color:var(--mut);font-size:12.5px;margin-top:3px}
+
+  .foot{padding:34px 0 60px;color:var(--dim);font-size:12.5px}
+  .note{margin-top:14px;padding:13px 16px;background:var(--acc-bg);border:1px solid rgba(110,168,254,.3);border-radius:10px;color:var(--ink);font-size:13.5px}
+  .note b{color:var(--acc)}
+  .note.good{background:var(--good-bg);border-color:rgba(63,206,150,.3)}.note.good b{color:var(--good)}
+  .note.warn{background:var(--warn-bg);border-color:rgba(239,182,92,.3)}.note.warn b{color:var(--warn)}
+  .note.bad{background:var(--bad-bg);border-color:rgba(242,118,144,.3)}.note.bad b{color:var(--bad)}
+</style>\n</head>\n<body>\n
+<nav class="top"><div class="wrap">
+  <b>∿ <span>Loopline</span> · Final Plan · Campaign 2</b>
+  <a href="#seq">Sequence</a><a href="#p1">1 Agent</a><a href="#p2">2 Bot×15</a><a href="#p3">3 Your 15</a><a href="#p4">4 · 170 text</a><a href="#p5">5 GEPA</a><a href="#p6">6 · 15+15</a><a href="#site">7 Ship</a><a href="#site">The site</a><a href="#money">Cost</a><a href="#approve">Approve</a>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <span class="kicker">The plan to approve · campaign 2 · supersedes every earlier plan · 21 August 2026</span>
+  <h1>Seven steps. <em>200 conversations. One coherent result.</em></h1>
+  <p class="lede">Your sequence, made executable. Everything is reused — evaluator, tool service, voice harness, GEPA, MLflow, dashboard. What is new is a clean agent, one frozen protocol, and a single before/after measured the same way on all three tiers. Old numbers are archived, not shown.</p>
+  <div class="heroStats">
+    <div class="hs acc"><b>200</b><span>Conversations per arm</span></div>
+    <div class="hs acc"><b>2</b><span>Agent versions, ever</span></div>
+    <div class="hs ok"><b>5</b><span>Tabs on the final site</span></div>
+    <div class="hs warn"><b>~100</b><span>Bot-to-bot credits</span></div>
+    <div class="hs warn"><b>2–3</b><span>Days</span></div>
+  </div>
+</div></header>
+
+<section id="seq"><div class="wrap">
+  <div class="sec-head"><span class="kicker">The sequence</span>
+    <h2>Seven steps, in your order</h2>
+    <p>Voice first, because it is the risky part and it tells us what to build the synthetic suite from. Text second, so the optimiser learns from failures we actually observed. Improvement third. Then the identical measurement again.</p></div>
+  <div class="tablewrap"><table>
+    <thead><tr><th>#</th><th>Step</th><th>Who</th><th>Output</th><th>Cost</th></tr></thead>
+    <tbody>
+      <tr><td class="num">0</td><td><b>Protocol freeze</b><span class="sub">evaluator, rules, scripts, manifest</span></td><td class="num">me</td><td>Frozen evaluator hash + campaign manifest</td><td class="num">free</td></tr>
+      <tr><td class="num">1</td><td><b>Agent + rails</b><span class="sub">BASE prompt, 3 tools, stable route</span></td><td class="num">you + me</td><td>Indus v1 committed + journal proof</td><td class="num">~0–2 cr</td></tr>
+      <tr><td class="num">2</td><td><b>15 bot-to-bot on BASE</b></td><td class="num">me · your go</td><td>Baseline voice, full EVA panel</td><td class="num">~50 cr</td></tr>
+      <tr><td class="num">3</td><td><b>You record 15</b><span class="sub">I write the scripts</span></td><td class="num">you + me</td><td>Baseline human, journal-checked</td><td class="num">telephony</td></tr>
+      <tr><td class="num">4</td><td><b>170 synthetic text</b><span class="sub">built from what 2–3 exposed</span></td><td class="num">me</td><td>Frozen suite + BASE text baseline</td><td class="num">metered API</td></tr>
+      <tr><td class="num">5</td><td><b>GEPA + arms + gate</b></td><td class="num">me · your commit</td><td>Indus v2 committed</td><td class="num">free</td></tr>
+      <tr><td class="num">6</td><td><b>15 + 15 + 170 again</b></td><td class="num">you + me</td><td>Paired result + release decision</td><td class="num">~50 cr</td></tr>
+      <tr><td class="num">7</td><td><b>Simplify + ship</b></td><td class="num">me</td><td>Five-tab site, one brief</td><td class="num">free</td></tr>
+    </tbody>
+  </table></div>
+  <div class="note warn"><b>One methodological flag, stated now rather than found later.</b> Building the 170 after seeing BASE fail could inflate the before/after gap — a suite written to catch known failures is easier to improve on. Two mitigations, both binding: the families come from the <em>domain taxonomy</em> (the same 14 used all along) rather than from specific observed failures, and the manifest records which families were pre-specified versus discovered in steps 2–3. The 86 blind scenarios and the sealed 12 are authored before any candidate exists, so the headline number is never tuned.</div>
+</div></section>
+
+<section id="p0"><div class="wrap">
+  <div class="sec-head"><span class="kicker">Step 0 · ~3 h · free · starts immediately</span><h2>Protocol freeze</h2>
+    <p>Everything declared before anything runs. This is the step that makes the numbers cohere.</p></div>
+  <div class="phase"><div class="phase-head"><span class="id">0</span><h3>Freeze the rules, write the scripts</h3><span class="meta">me · nothing from you</span></div>
+    <div class="phase-body">
+      <div class="task"><span class="n">01</span><div><b>Fix the generator, then freeze the evaluator</b><p>Samsung Smart TV / EasyCredit only · dates derived per scenario · closing turns so calls can terminate. Fold in the two harness lessons — <code>tool_transport_invalid</code> as a validity verdict, and the enriched metrics panel — then hash the evaluator bundle. <strong>That hash appears on every number this campaign produces and does not change again.</strong></p></div></div>
+      <div class="task"><span class="n">02</span><div><b>Sarvam text adapter</b><p>Small client for the Sarvam text API — structured output plus response cache, same contract as the Gemini client, so the text tier's system-under-test is the same model family as the deployed runtime. Gemini keeps the caller simulator, the judges and GEPA's reflection, so the optimiser never grades the family it runs on.</p></div></div>
+      <div class="task"><span class="n">03</span><div><b>Write your 15 call scripts</b><p>One card per failure family: the situation, your goal, what you should push back on, and the tool effect the agent must produce. You improvise the words; the card fixes the situation, so before and after cover identical ground. Same 15 cards in step 6.</p></div></div>
+      <div class="task"><span class="n">04</span><div><b>Declare the rules and emit the manifest</b><p>Validity (a session counts only if evaluator-valid <em>and</em> transport-healthy), decision rules (text = blind-split paired win, zero severe regressions; voice = grounded-claim rate and required-effect completion; human tier = descriptive, n too small to gate), the synthetic-data rule (<strong>generated scenarios enter the development split only, tagged synthetic</strong>), and the budget ceiling. One JSON every later artifact references.</p></div></div>
+      <div class="accept"><b>Acceptance</b>Manifest committed, evaluator hashed, 15 scripts in your hands, Sarvam adapter smoke-tested.</div>
+    </div></div>
+</div></section>
+
+<section id="p1"><div class="wrap">
+  <div class="sec-head"><span class="kicker">Step 1 · ~3 h · ~0–2 credits</span><h2>The agent, and the rails that failed last time</h2></div>
+  <div class="phase"><div class="phase-head"><span class="id">1</span><h3>New agent → tools → proof → commit BASE</h3><span class="meta">you create it · I wire it</span></div>
+    <div class="phase-body">
+      <p class="goal">Binding order, learned the hard way: <strong>transport → tools → platform proof → commit → only then measurement.</strong></p>
+      <div class="task"><span class="n">01</span><div><b>You create the Indus agent; I write BASE</b><p>Same EMI domain — Shubh, EasyCredit, Samsung Smart TV, the real variable contract. BASE is a genuinely competent, <strong>tool-aware</strong> collections prompt that calls tools but imperfectly: wrong or missing dates, misses on edge cases, claims success before confirming. Not sandbagged — a tool-blind BASE would score near zero and that is a rigged demo, not a baseline. Expect roughly 40–55%.</p><div class="who"><span class="chip warn">you: create the agent</span><span class="chip acc">me: prompt + config</span></div></div></div>
+      <div class="task"><span class="n">02</span><div><b>Stable route, three tools, one secret</b><p>Named tunnel with a fixed hostname — the 60-minute URL is what killed the last campaign. Then <code>check_payment_status</code>, <code>record_promise_to_pay</code>, <code>schedule_callback</code> against the run-scoped service, api-key auth via a workspace Secret you paste once through the masked input, <code>save_to_variables</code> mapped, config snapshotted into the manifest.</p><div class="who"><span class="chip warn">you: paste the secret, ~5 min</span></div></div></div>
+      <div class="task"><span class="n">03</span><div><b>Platform-originated proof — the hard gate</b><p>Indus test console fires each tool once. The journal must show <code>4.213.167.70</code>, credential presented, 200, state delta, dated today. <strong>No line, no campaign</strong> — nothing paid runs until this passes.</p></div></div>
+      <div class="task"><span class="n">04</span><div><b>Free 14-scenario smoke, then commit BASE as v1</b><p>One text scenario per family against BASE before any credits are spent — it costs nothing and catches a broken agent before the voice round. Then commit immutably; the deployment manifest records the local prompt text and hash, since Indus exposes no export and the drift lesson stands.</p><div class="who"><span class="chip warn">you authorise the commit</span></div></div></div>
+      <div class="accept"><b>Acceptance</b>Journal line on stable infrastructure · smoke sane · Indus v1 committed.</div>
+    </div></div>
+</div></section>
+
+<section id="p2"><div class="wrap">
+  <div class="sec-head"><span class="kicker">Step 2 · ~1 h · ~50 credits · your go required</span><h2>15 bot-to-bot on BASE</h2></div>
+  <div class="phase"><div class="phase-head"><span class="id">2</span><h3>Baseline voice</h3><span class="meta">ElevenLabs caller ↔ Samvaad agent, duplex audio</span></div>
+    <div class="phase-body">
+      <p class="goal">Fifteen frozen records, one per family, <strong>every one requiring a tool write</strong>. Preflight verifies the tool route through its public URL, then three pilots run and stop.</p>
+      <div class="task"><span class="n">01</span><div><b>Three pilots, then you decide</b><p>I show you audio, transcripts, termination reasons and tool events. If transport or evaluator problems appear I fix and re-pilot. <strong>If the agent behaves badly, that is preserved as a result</strong> — I do not fix the agent to make the baseline look better.</p><div class="who"><span class="chip warn">go / no-go</span></div></div></div>
+      <div class="task"><span class="n">02</span><div><b>The 15</b><p>Hard session cap, no automatic paid retries, mid-run transport re-check. Every record preserves mixed and per-speaker audio, transcript, Samvaad events, tool calls, initial and final state, termination reason, per-turn latency and the full EVA set. Provider failures are recorded infrastructure-invalid, never counted as agent failures.</p></div></div>
+      <div class="accept"><b>Acceptance</b>15 evaluator-valid records with execution truth from the journal. This is arm one of a matched pair.</div>
+    </div></div>
+</div></section>
+
+<section id="p3"><div class="wrap">
+  <div class="sec-head"><span class="kicker">Step 3 · your ~60 min + my labelling</span><h2>You record 15</h2></div>
+  <div class="phase"><div class="phase-head"><span class="id">3</span><h3>Baseline human</h3><span class="meta">I hand you the scripts from step 0</span></div>
+    <div class="phase-body">
+      <div class="task"><span class="n">01</span><div><b>Fifteen calls, one per card</b><p>You call the deployed agent and play each situation. Recordings preserved. I transcribe and label through the review app; <strong>you confirm the labels</strong> — owner truth from day one, no “provisional” phase to walk back later.</p><div class="who"><span class="chip warn">you: the calls</span></div></div></div>
+      <div class="task"><span class="n">02</span><div><b>Journal check — the upgrade over last time</b><p>Each call's required tool effect is checked against the append-only journal: did the write actually happen while you were on the line. Your recordings become <strong>executable evidence</strong>, not transcripts. The previous campaign's 20 calls had no tool truth at all.</p></div></div>
+      <div class="accept"><b>Acceptance</b>15 owner-confirmed labels + per-call tool-effect verdicts.</div>
+    </div></div>
+</div></section>
+
+<section id="p4"><div class="wrap">
+  <div class="sec-head"><span class="kicker">Step 4 · ~4 h · metered Sarvam text API</span><h2>170 synthetic conversations, then the text baseline</h2></div>
+  <div class="phase"><div class="phase-head"><span class="id">4</span><h3>Build, freeze, measure</h3><span class="meta">the tier that gives the optimiser something to learn from</span></div>
+    <div class="phase-body">
+      <div class="task"><span class="n">01</span><div><b>Generate 170</b><p>14 families × 4 languages × 3 variants, plus two language-switch scenarios. Splits <strong>84 development / 43 validation / 43 regression</strong>. Every scenario requires an explicit <code>record_disposition</code> with the exact outcome; ~60 additionally require a business write with exact arguments. Every scenario's rubric carries the <strong>full tool catalogue</strong> — unused tools stay listed, per your rule.</p></div></div>
+      <div class="task"><span class="n">02</span><div><b>Why all-tools is strict, not cosmetic</b><p>When an agent merely <em>declares</em> an outcome without calling the tool, the runner writes that state itself and the write never enters the tool log. So state passes while the required-action check fails. <strong>Say-versus-do becomes the pass condition on all 170.</strong></p></div></div>
+      <div class="task"><span class="n">03</span><div><b>Freeze, then measure BASE on all 170</b><p>Suite hashed before any candidate exists. Validation and regression are never shown to any optimiser. Full panel: task success, five accuracy components, tool execution, experience, first-break owners — sliced by language, family and persona. First five episodes price the Sarvam API before the rest run.</p></div></div>
+      <div class="accept"><b>Acceptance</b>Frozen 170 + BASE text baseline. Combined with steps 2–3: <strong>200 conversations measured on BASE</strong>.</div>
+    </div></div>
+</div></section>
+
+<section id="p5"><div class="wrap">
+  <div class="sec-head"><span class="kicker">Step 5 · ~4 h · free</span><h2>GEPA, with a control that proves the method mattered</h2></div>
+  <div class="phase"><div class="phase-head"><span class="id">5</span><h3>Diagnose → three arms → blind gate → commit v2</h3><span class="meta">all arms see development data only</span></div>
+    <div class="phase-body">
+      <div class="task"><span class="n">01</span><div><b>Diagnose all three tiers into one taxonomy</b><p>Every failure becomes a packet: verbatim evidence turn, first breaking turn, owning component, severity. Text, human and voice failures rank together. This is a deliverable in itself — the ranked failure taxonomy is what a real engagement produces in month one.</p></div></div>
+      <div class="task"><span class="n">02</span><div><b>GEPA, properly resourced this time</b><p>~200 metric calls against the 84 development scenarios (the last campaign gave it 48), Pro-model reflection over real failure packets, multiple proposals, full MLflow lineage under <code>campaign-2</code>.</p></div></div>
+      <div class="task"><span class="n">03</span><div><b>Two competing arms</b><p><strong>Manual repair</strong> from the same packets. And a <strong>no-diagnosis control</strong> — same model, same budget, raw failing transcripts, no routing. That control is the bar the framework must beat: it answers “would one call to a good model have done this anyway?” If the control wins, I report that.</p></div></div>
+      <div class="task"><span class="n">04</span><div><b>The gate picks, blind, then you commit</b><p>Candidates scored on the <strong>86 optimizer-blind</strong> scenarios, per case, no severe regression averaged away. Sealed 12 opened once for the winner. Losers preserved in MLflow. Then the exact gated prompt goes into Indus as <strong>v2</strong>, rollback target v1.</p><div class="who"><span class="chip warn">you authorise the commit</span></div></div></div>
+      <div class="accept"><b>Acceptance</b>One accepted candidate with full lineage; Indus at v2; every rejected arm retained as evidence.</div>
+    </div></div>
+</div></section>
+
+<section id="p6"><div class="wrap">
+  <div class="sec-head"><span class="kicker">Step 6 · ~50 credits + your 60 min</span><h2>15 + 15 + 170 again — identical measurement</h2></div>
+  <div class="phase"><div class="phase-head"><span class="id">6</span><h3>The after, then the decision</h3><span class="meta">same suites, same evaluator hash, same rules</span></div>
+    <div class="phase-body">
+      <div class="task"><span class="n">01</span><div><b>Same 15 bot-to-bot records</b><p>Preflight → 3 pilots → your go → 15. Matched EVA plus execution truth. Lead metric: <strong>grounded-claim rate</strong> — every terminal success claim backed by a successful tool result.</p><div class="who"><span class="chip warn">go / no-go</span></div></div></div>
+      <div class="task"><span class="n">02</span><div><b>Same 15 cards, you call again</b><p>Same labelling flow, same journal check. Before/after on real human calls with execution truth — the tier no other candidate will have.</p><div class="who"><span class="chip warn">you: the calls</span></div></div></div>
+      <div class="task"><span class="n">03</span><div><b>Same 170 text, model pinned</b><p>Hash-verified unchanged. Paired per-case comparison; headline from the blind 86; sealed 12 opened for its single time on v2.</p></div></div>
+      <div class="task"><span class="n">04</span><div><b>Release decision</b><p>The controller reads all three paired tiers against the rules declared in step 0 and emits promote / hold / rollback — <strong>published whichever way it lands</strong>. A hold with three coherent tiers behind it is a strong ending; the last campaign proved that.</p></div></div>
+      <div class="accept"><b>Acceptance</b>One final table: BASE vs IMPROVED across text (170), your calls (15+15), voice (15+15) — one evaluator hash on all of it.</div>
+    </div></div>
+</div></section>
+
+<section id="site"><div class="wrap">
+  <div class="sec-head"><span class="kicker">Step 7 · ~4 h · free</span><h2>Cut the site down until it is obvious</h2>
+    <p>You are right that it became complicated. I added tabs, a loop map, design-decision cards, a call browser and a scatter on top of a site that was already dense. The fix is subtraction, and it is a rule rather than a preference.</p></div>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Now · 9 tabs</th><th>Ship · 5 tabs</th><th>What it says</th></tr></thead>
+    <tbody>
+      <tr><td class="num">Intro + Architecture</td><td class="num"><b>1 · Overview</b></td><td>What it is, the headline number, the three tiers. One screen.</td></tr>
+      <tr><td class="num">Methodology + The loop</td><td class="num"><b>2 · How it works</b></td><td>The six steps with one diagram. Metric contract behind expandables, not inline.</td></tr>
+      <tr><td class="num">Results + Voice</td><td class="num"><b>3 · Results</b></td><td>Before/after across all three tiers, the accuracy-versus-experience scatter, per-check rates.</td></tr>
+      <tr><td class="num">Calls + Evidence</td><td class="num"><b>4 · Calls</b></td><td>All 30 calls, both arms, tools and metrics per call. The strongest thing on the site.</td></tr>
+      <tr><td class="num">Production + Limits</td><td class="num"><b>5 · Limits</b></td><td>What is not proven, and what production would need.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="note"><b>The rules I will hold to.</b> One headline number per tab, stated in the first screen. Prose cut by roughly half — every paragraph that explains a caveat twice loses one copy. No section that exists only to prove diligence. Diagrams earn their place or go. If a reviewer cannot state what a tab proved after ten seconds, the tab is wrong.</div>
+</div></section>
+
+<section id="money"><div class="wrap">
+  <div class="sec-head"><span class="kicker">Cost</span><h2>What this spends</h2></div>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Item</th><th>Volume</th><th>Estimate</th></tr></thead>
+    <tbody>
+      <tr><td>Step 1 platform tool proof</td><td class="num">test console</td><td class="num">~0–2 credits</td></tr>
+      <tr><td>Step 2 bot-to-bot BASE</td><td class="num">3 pilots + 15</td><td class="num">~81 credits</td></tr>
+      <tr><td>Steps 3 + 6 your calls</td><td class="num">30 calls</td><td class="num">telephony — call 1 sets the rate</td></tr>
+      <tr><td>Steps 4 + 6 text tier</td><td class="num">2 × 170 episodes</td><td class="num">metered — first 5 episodes price it</td></tr>
+      <tr><td>Step 6 bot-to-bot IMPROVED</td><td class="num">3 pilots + 15</td><td class="num">~81 credits</td></tr>
+      <tr><td><b>Total bot-to-bot</b></td><td class="num"><b>36 sessions</b></td><td class="num"><b>~162 credits</b></td></tr>
+    </tbody>
+  </table></div>
+  <div class="note warn"><b>The ₹500 question, answered honestly.</b> 36 sessions at the observed ~4.5 credits each is ~162 credits, and <b>I do not know your rupee-per-credit rate</b> — so step 2 reads the balance and prices one pilot before anything else runs, then stops and shows you the arithmetic. If 15+15 does not fit, the fallback is declared now rather than improvised: <b>N=10 matched</b> (~117 credits) or <b>N=8</b> (~100), never a half-run arm, because an unmatched arm is worthless. Text-tier API spend is capped the same way.</div>
+</div></section>
+
+<section id="approve"><div class="wrap">
+  <div class="sec-head"><span class="kicker">Approval</span><h2>What I need from you</h2></div>
+  <div class="tablewrap"><table>
+    <thead><tr><th>When</th><th>What</th><th>Time</th></tr></thead>
+    <tbody>
+      <tr><td class="num">Now</td><td><b>Approve this plan</b> — then step 0 starts immediately and needs nothing from you</td><td class="num">—</td></tr>
+      <tr><td class="num">Step 1</td><td>Create the Indus agent · paste the tool secret · authorise the v1 commit</td><td class="num">~30 min</td></tr>
+      <tr><td class="num">Step 2</td><td>Confirm balance, inspect 3 pilots, say go</td><td class="num">~15 min</td></tr>
+      <tr><td class="num">Step 3</td><td>Record 15 calls from the scripts · confirm the labels</td><td class="num">~60 min</td></tr>
+      <tr><td class="num">Step 5</td><td>Authorise the v2 commit</td><td class="num">~10 min</td></tr>
+      <tr><td class="num">Step 6</td><td>Say go · record 15 again</td><td class="num">~75 min</td></tr>
+    </tbody>
+  </table></div>
+  <div class="note good"><b>Rules carried into this campaign unchanged.</b> No headline from in-sample data · supersede, never overwrite · a HOLD ships as a HOLD · no invented domain facts · tools before commit, commit before voice · two agent versions only · one evaluator hash on every number.</div>
+</div></section>
+
+<div class="foot"><div class="wrap">
+  Loopline · The plan to approve · campaign 2 · 21 August 2026.<br>
+  Supersedes BUILD-PLAN v1/v2/v3, BUILD-PLAN-FINAL, the readiness review and the earlier CLEAN-RUN sequencing. Campaign 1 is archived as the run that built the machine and exposed every way a result can lie. EasyCredit and all customer data are fictional.
+</div></div>
+\n</body>\n</html>\n

@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "escalation",
+    "should_end_call": true,
+    "spoken_response": "Main samajh sakta hoon aap pareshan hain. Aap kripya humare customer care number 1800-500-4444 par baat kar lein.",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 9846.3,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "6d3f4ef70753091db6cde27183c45cd02a34e81556f7d0db69d565a0b9b0831a",
+    "response_hash": "e565f171aa4878da59d7a8d5c4b4135cdb2942410ba173458c758ea8e0319eee",
+    "usage": {
+      "candidatesTokenCount": 65,
+      "promptTokenCount": 1494,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1494
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1548,
+      "totalTokenCount": 3107
+    }
+  }
+}

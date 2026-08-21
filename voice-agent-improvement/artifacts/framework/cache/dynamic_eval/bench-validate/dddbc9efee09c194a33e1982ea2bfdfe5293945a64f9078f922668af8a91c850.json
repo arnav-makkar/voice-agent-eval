@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Kul overdue amount Rs 5515 hai. Kya aap abhi EasyCredit app se payment kar sakti hain?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 3629.3,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "dddbc9efee09c194a33e1982ea2bfdfe5293945a64f9078f922668af8a91c850",
+    "response_hash": "8ecfa64eb3b26a29ddc2b1c8d0505ca5c911a93221dcfe3055fe0810582537ae",
+    "usage": {
+      "candidatesTokenCount": 49,
+      "promptTokenCount": 1498,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1498
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 387,
+      "totalTokenCount": 1934
+    }
+  }
+}

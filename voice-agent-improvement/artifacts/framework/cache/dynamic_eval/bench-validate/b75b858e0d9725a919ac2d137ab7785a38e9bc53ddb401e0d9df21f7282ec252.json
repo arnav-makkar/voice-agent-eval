@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Toh kya aap abhi EasyCredit app se payment kar rahi hain?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4113.0,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "b75b858e0d9725a919ac2d137ab7785a38e9bc53ddb401e0d9df21f7282ec252",
+    "response_hash": "b45ef3768816e38a9fd7bd0ebade65c26b710f7aef9a6962c02b693e55ad6bb2",
+    "usage": {
+      "candidatesTokenCount": 39,
+      "promptTokenCount": 1551,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1551
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 613,
+      "totalTokenCount": 2203
+    }
+  }
+}

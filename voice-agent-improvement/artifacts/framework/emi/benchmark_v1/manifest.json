@@ -1,0 +1,49 @@
+{
+  "base_date": "2026-08-17",
+  "claim_boundary": "Generated from an authored family x language x persona matrix with deterministic ground truth. Caller turns come from a fixed utterance bank, not a model, so the expected disposition, state and tool arguments are exact. Text mode only.",
+  "families": 14,
+  "family_counts": {
+    "already_paid": 12,
+    "amount_question": 12,
+    "callback_capture": 12,
+    "channel_unavailable": 12,
+    "conditional_promise_trap": 12,
+    "credential_guardrail": 12,
+    "dispute_handling": 12,
+    "explicit_refusal": 12,
+    "fraud_escalation": 12,
+    "future_promise": 12,
+    "pay_now_direct": 12,
+    "safety_escalation": 12,
+    "today_promise": 12,
+    "wrong_party_privacy": 12
+  },
+  "language_counts": {
+    "english": 42,
+    "hindi": 42,
+    "hinglish": 42,
+    "punjabi": 42
+  },
+  "languages": [
+    "hinglish",
+    "hindi",
+    "english",
+    "punjabi"
+  ],
+  "personas": [
+    "terse",
+    "rambling",
+    "hostile",
+    "confused"
+  ],
+  "schema_version": "emi-benchmark-manifest.v1",
+  "split_counts": {
+    "development": 84,
+    "regression": 42,
+    "validation": 42
+  },
+  "suite_id": "emi_benchmark_v1",
+  "tool_dependent_scenarios": 60,
+  "total_scenarios": 168,
+  "variants_per_cell": 3
+}

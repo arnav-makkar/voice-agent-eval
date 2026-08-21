@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Theek hai, aap kis specific tareekh tak payment kar denge?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 19134.4,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "e021280f1506f8796dcf4f3d20f0c0cb389e9e964ef0477149e45a5592a00606",
+    "response_hash": "8c9dc71b8241aa80093a8a514719d923e88e70899e9cffe410c8baa0a5c8428b",
+    "usage": {
+      "candidatesTokenCount": 40,
+      "promptTokenCount": 1491,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1491
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 3143,
+      "totalTokenCount": 4674
+    }
+  }
+}

@@ -319,11 +319,44 @@ def _forbidden_hits(agent_turns: list[Any], phrases: list[str]) -> list[str]:
     return hits
 
 
+def _rate(hits: int, total: int) -> float | None:
+    """Pass rate, or None when the check was never exercised."""
+    return round(hits / total, 4) if total else None
+
+
+def _mean(values: list[float]) -> float | None:
+    return round(sum(values) / len(values), 4) if values else None
+
+
 def aggregate(metrics: list[dict[str, Any]]) -> dict[str, Any]:
     valid = [item for item in metrics if item["valid_simulation"]]
     successes = sum(item["task_success"] for item in valid)
     failures = Counter(item["first_failure"] for item in valid if item["first_failure"])
+
+    # Per-component accuracy pass rates. Each is scored on the same valid denominator
+    # as task success, so the panel reads as one consistent picture rather than a
+    # set of numbers with different bases.
+    components = ["disposition", "environment_state", "required_actions", "required_communication", "forbidden_behavior"]
+    accuracy_rates = {
+        name: _rate(sum(bool(item["accuracy"][name]) for item in valid), len(valid))
+        for name in components
+    }
+
+    # Tool-call validity only exists on records that actually invoked a tool. Keeping
+    # its own denominator is deliberate: averaging "not exercised" as zero would
+    # understate an agent that correctly declined to call anything.
+    tool_scored = [item for item in valid if item["eva"]["diagnostic"]["tool_call_validity"]["score"] is not None]
+    records_with_tools = len(tool_scored)
+
+    latencies = [
+        item["experience"]["average_response_latency_ms"]
+        for item in valid
+        if item["experience"]["average_response_latency_ms"] is not None
+    ]
+    finished = sum(bool(item["eva"]["validation"]["conversation_finished"]) for item in valid)
+
     return {
+        # --- existing keys, unchanged ---
         "records": len(metrics),
         "valid_records": len(valid),
         "invalid_simulations": len(metrics) - len(valid),
@@ -331,4 +364,37 @@ def aggregate(metrics: list[dict[str, Any]]) -> dict[str, Any]:
         "task_success_rate": round(successes / len(valid), 4) if valid else 0.0,
         "average_experience_score": round(sum(item["experience"]["score"] for item in valid) / len(valid), 4) if valid else 0.0,
         "failure_counts": dict(sorted(failures.items())),
+        # --- rolled-up panel ---
+        "simulation_validity_rate": _rate(len(valid), len(metrics)),
+        "accuracy_component_rates": accuracy_rates,
+        "execution": {
+            "records_with_tool_calls": records_with_tools,
+            "records_with_tool_calls_rate": _rate(records_with_tools, len(valid)),
+            "average_tool_call_validity": _mean(
+                [item["eva"]["diagnostic"]["tool_call_validity"]["score"] for item in tool_scored]
+            ),
+            "required_action_pass_rate": accuracy_rates["required_actions"],
+        },
+        "experience_detail": {
+            "average_agent_turns": _mean([float(item["experience"]["agent_turns"]) for item in valid]),
+            "average_words_per_agent_turn": _mean(
+                [float(item["experience"]["average_words_per_agent_turn"]) for item in valid]
+            ),
+            "records_with_overlong_turns": sum(bool(item["experience"]["overlong_turns"]) for item in valid),
+            "records_with_repetition": sum(bool(item["experience"]["exact_repetitions"]) for item in valid),
+            "average_response_latency_ms": _mean(latencies),
+        },
+        "validation_detail": {
+            "conversation_finished_rate": _rate(finished, len(valid)),
+            "caller_fidelity_rate": _rate(len(valid), len(metrics)),
+        },
+        "failure_owners": dict(
+            sorted(
+                Counter(
+                    item["failure_localization"]["component"]
+                    for item in valid
+                    if item.get("failure_localization")
+                ).items()
+            )
+        ),
     }

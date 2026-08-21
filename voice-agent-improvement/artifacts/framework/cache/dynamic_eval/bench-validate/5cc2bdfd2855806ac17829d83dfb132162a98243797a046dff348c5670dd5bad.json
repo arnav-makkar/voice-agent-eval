@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Aap EasyCredit app Play Store se download kar sakte hain. Kya aap abhi payment kar sakte hain?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 7263.7,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "5cc2bdfd2855806ac17829d83dfb132162a98243797a046dff348c5670dd5bad",
+    "response_hash": "f36ca31a40efcd84057b2011c232cca3804b380c9c37dfc0d294295caae2a24c",
+    "usage": {
+      "candidatesTokenCount": 46,
+      "promptTokenCount": 1492,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1492
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 935,
+      "totalTokenCount": 2473
+    }
+  }
+}

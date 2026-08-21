@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Loopline Consolidation Plan v3</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --bg:#0A0D13;--panel:#11161F;--panel2:#161D29;--inset:#0C1119;
+    --line:rgba(150,163,186,.15);--line2:rgba(150,163,186,.30);
+    --ink:#E8EDF5;--mut:#96A0B5;--dim:#69738C;
+    --acc:#6EA8FE;--vio:#A98BFA;--tool:#E0A34E;
+    --good:#3FCE96;--warn:#EFB65C;--bad:#F27690;
+    --good-bg:rgba(63,206,150,.10);--warn-bg:rgba(239,182,92,.10);--bad-bg:rgba(242,118,144,.10);--acc-bg:rgba(110,168,254,.10);--tool-bg:rgba(224,163,78,.10);--vio-bg:rgba(169,139,250,.10);
+    --disp:"Archivo","IBM Plex Sans",system-ui,sans-serif;
+    --body:"IBM Plex Sans",system-ui,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,monospace;
+  }
+  *{box-sizing:border-box;margin:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{background:var(--bg);color:var(--ink);font:15px/1.62 var(--body);-webkit-font-smoothing:antialiased}
+  a{color:var(--acc);text-decoration:none}a:hover{text-decoration:underline}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset:2px;border-radius:4px}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+  code{font:500 12.5px var(--mono);background:var(--inset);border:1px solid var(--line);border-radius:5px;padding:1px 6px;color:#C6D4F0}
+
+  nav.top{position:sticky;top:0;z-index:20;background:rgba(10,13,19,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav.top .wrap{display:flex;align-items:center;gap:16px;height:52px;overflow-x:auto;white-space:nowrap}
+  nav.top b{font:700 13px var(--disp);letter-spacing:.03em}nav.top b span{color:var(--acc)}
+  nav.top a{font:500 11.5px var(--mono);letter-spacing:.05em;color:var(--mut);text-transform:uppercase}
+  nav.top a:hover{color:var(--ink);text-decoration:none}
+
+  header.hero{padding:60px 0 38px;border-bottom:1px solid var(--line)}
+  .kicker{font:600 11.5px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--acc)}
+  header.hero h1{font:800 clamp(29px,4.4vw,44px)/1.09 var(--disp);letter-spacing:-.016em;margin:14px 0 16px;text-wrap:balance}
+  header.hero h1 em{font-style:normal;color:var(--acc)}
+  .lede{max-width:72ch;color:var(--mut);font-size:16px}
+  .heroStats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:26px}
+  .hs{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:14px 16px}
+  .hs b{display:block;font:800 24px var(--disp);font-variant-numeric:tabular-nums}
+  .hs span{font:500 11px var(--mono);letter-spacing:.05em;text-transform:uppercase;color:var(--dim)}
+  .hs.crit b{color:var(--bad)}.hs.warn b{color:var(--warn)}.hs.ok b{color:var(--good)}.hs.acc b{color:var(--acc)}
+
+  section{padding:52px 0;border-bottom:1px solid var(--line)}
+  .sec-head{margin-bottom:24px}
+  .sec-head h2{font:700 clamp(21px,3vw,28px)/1.16 var(--disp);letter-spacing:-.01em;margin:9px 0 8px;text-wrap:balance}
+  .sec-head p{color:var(--mut);max-width:78ch}
+
+  .chip{display:inline-block;font:600 10.5px var(--mono);letter-spacing:.07em;text-transform:uppercase;padding:3px 9px;border-radius:999px;border:1px solid;white-space:nowrap}
+  .chip.good{color:var(--good);border-color:rgba(63,206,150,.4);background:var(--good-bg)}
+  .chip.warn{color:var(--warn);border-color:rgba(239,182,92,.4);background:var(--warn-bg)}
+  .chip.bad{color:var(--bad);border-color:rgba(242,118,144,.4);background:var(--bad-bg)}
+  .chip.acc{color:var(--acc);border-color:rgba(110,168,254,.4);background:var(--acc-bg)}
+  .chip.tool{color:var(--tool);border-color:rgba(224,163,78,.4);background:var(--tool-bg)}
+  .chip.vio{color:var(--vio);border-color:rgba(169,139,250,.4);background:var(--vio-bg)}
+  .chip.dim{color:var(--dim);border-color:var(--line2);background:transparent}
+
+  .alert{background:var(--panel);border:1px solid rgba(242,118,144,.45);border-radius:13px;padding:22px 24px;margin-bottom:14px}
+  .alert.warn{border-color:rgba(239,182,92,.45)}
+  .alert.acc{border-color:rgba(110,168,254,.45)}
+  .alert h3{font:700 17px var(--disp);margin:10px 0 8px}
+  .alert p{color:var(--mut);max-width:84ch;font-size:14.5px}
+  .alert p+p{margin-top:9px}
+  .alert .ev{margin-top:12px;background:var(--inset);border-left:3px solid var(--bad);border-radius:0 8px 8px 0;padding:12px 15px;font:500 12.5px/1.65 var(--mono);color:#C6D4F0;overflow-x:auto}
+  .alert.warn .ev{border-left-color:var(--warn)}
+  .alert.acc .ev{border-left-color:var(--acc)}
+  .alert .fix{margin-top:12px;font-size:14px;color:var(--ink)}
+  .alert .fix b{color:var(--good)}
+
+  .phase{background:var(--panel);border:1px solid var(--line2);border-radius:14px;padding:0;margin-bottom:16px;overflow:hidden}
+  .phase-head{display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:18px 24px;background:var(--panel2);border-bottom:1px solid var(--line)}
+  .phase-head .id{font:800 13px var(--mono);color:var(--acc);letter-spacing:.06em}
+  .phase-head h3{font:700 17px var(--disp);flex:1;min-width:200px}
+  .phase-head .meta{font:500 11.5px var(--mono);color:var(--dim);letter-spacing:.03em}
+  .phase-body{padding:20px 24px}
+  .phase-body>p.goal{color:var(--mut);font-size:14.5px;max-width:84ch;margin-bottom:16px}
+  .task{display:grid;grid-template-columns:26px 1fr;gap:12px;padding:12px 0;border-top:1px solid var(--line)}
+  .task:first-of-type{border-top:0;padding-top:0}
+  .task .n{font:600 11px var(--mono);color:var(--dim);padding-top:3px}
+  .task b{font:600 14.5px var(--body);display:block;margin-bottom:3px}
+  .task p{color:var(--mut);font-size:13.5px;max-width:84ch}
+  .task p strong{color:var(--ink);font-weight:600}
+  .task .who{display:inline-flex;gap:6px;margin-top:6px;flex-wrap:wrap}
+  .accept{margin-top:16px;background:var(--inset);border:1px solid var(--line);border-radius:10px;padding:13px 16px;font-size:13.5px;color:var(--mut)}
+  .accept b{color:var(--good);font:600 10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;display:block;margin-bottom:5px}
+  pre.cmd{background:var(--inset);border:1px solid var(--line);border-radius:9px;padding:13px 16px;font:12.5px/1.75 var(--mono);color:#C6D4F0;overflow-x:auto;margin-top:11px}
+  pre.cmd b{color:var(--good);font-weight:600}
+  pre.cmd i{color:var(--dim);font-style:normal}
+
+  .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+  table{border-collapse:collapse;width:100%;font-size:13.5px}
+  th{font:600 11px var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--dim);text-align:left;padding:12px 14px;border-bottom:1px solid var(--line2);white-space:nowrap}
+  td{padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+  tr:last-child td{border-bottom:none}
+  td.num{font:500 13px var(--mono);white-space:nowrap;font-variant-numeric:tabular-nums}
+  td .sub{display:block;color:var(--mut);font-size:12.5px;margin-top:3px}
+
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:14px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+  .card h4{font:700 14.5px var(--disp);margin:9px 0 7px}
+  .card p{color:var(--mut);font-size:13.5px}
+  .card ul{margin:8px 0 0 17px;color:var(--mut);font-size:13px;display:flex;flex-direction:column;gap:4px}
+
+  .ladder{display:grid;gap:12px}
+  .rung{display:grid;grid-template-columns:132px 1fr;gap:16px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 20px}
+  .rung .lbl{font:600 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--dim)}
+  .rung .lbl b{display:block;font:800 15px var(--disp);letter-spacing:0;text-transform:none;color:var(--ink);margin-top:4px}
+  .rung h4{font:700 14.5px var(--disp);margin-bottom:5px}
+  .rung p{color:var(--mut);font-size:13.5px;max-width:78ch}
+  .rung.have{border-color:rgba(150,163,186,.30)}
+  .rung.next{border-color:rgba(110,168,254,.45)}
+  .rung.then{border-color:rgba(169,139,250,.40)}
+  @media(max-width:640px){.rung{grid-template-columns:1fr;gap:8px}}
+
+  .foot{padding:34px 0 60px;color:var(--dim);font-size:12.5px}
+  .note{margin-top:14px;padding:13px 16px;background:var(--acc-bg);border:1px solid rgba(110,168,254,.3);border-radius:10px;color:var(--ink);font-size:13.5px}
+  .note b{color:var(--acc)}
+  .note.good{background:var(--good-bg);border-color:rgba(63,206,150,.3)}.note.good b{color:var(--good)}
+  .note.warn{background:var(--warn-bg);border-color:rgba(239,182,92,.3)}.note.warn b{color:var(--warn)}
+  .note.bad{background:var(--bad-bg);border-color:rgba(242,118,144,.3)}.note.bad b{color:var(--bad)}
+</style>
+</head>
+<body>
+
+<nav class="top"><div class="wrap">
+  <b>∿ <span>Loopline</span> · Plan v3 · Consolidation</b>
+  <a href="#root">Root cause</a><a href="#bar">The bar</a><a href="#ladder">The ladder</a><a href="#p0">P0 Repo</a><a href="#p1">P1 Telemetry</a><a href="#p2">P2 Transport</a><a href="#p3">P3 Lock</a><a href="#p4">P4 Dry run</a><a href="#p5">P5 Paid</a><a href="#p6">P6 Story</a><a href="#sched">Schedule</a><a href="#truth">Claims</a>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <span class="kicker">Consolidation plan · supersedes v2 · 21 August 2026</span>
+  <h1>The gate held for the <em>wrong reason</em>.</h1>
+  <p class="lede">You are right that there is no showable loop. But the v19 pilot did not fail because the agent refused to use its tools — it failed because <strong>nothing could reach the tool service during the run</strong>, and the harness has no way to see the difference. That is one infrastructure defect plus one measurement blind spot, not an unfixable agent. This plan closes both, then buys a real voice “after” for six calls.</p>
+  <div class="heroStats">
+    <div class="hs crit"><b>0</b><span>Requests during v19 pilot</span></div>
+    <div class="hs ok"><b>12</b><span>Real platform tool calls, earlier</span></div>
+    <div class="hs crit"><b>0 / 9</b><span>Records with tool telemetry, ever</span></div>
+    <div class="hs acc"><b>6</b><span>Paid calls to a real “after”</span></div>
+    <div class="hs warn"><b>4</b><span>Gitlinks, no .gitmodules</span></div>
+  </div>
+</div></header>
+
+<section id="root"><div class="wrap">
+  <div class="sec-head"><span class="kicker">00 · What the evidence actually says</span>
+    <h2>Two P0s collapse into one root cause and one blind spot</h2>
+    <p>All of this comes from artifacts already on disk. No new runs, no new model calls. I reconciled the append-only inbound journal against the pilot's own timestamps.</p></div>
+
+  <div class="alert">
+    <span class="chip bad">ROOT CAUSE · INFRASTRUCTURE</span>
+    <h3>The tool path was dead for the entire v19 pilot window</h3>
+    <p>The append-only journal at <code>artifacts/tool_service/inbound_requests.jsonl</code> holds 46 requests. Sarvam's documented tool-caller IP <code>4.213.167.70</code> appears <strong>12 times</strong> — real platform-originated calls, with 401s failing closed, 200s succeeding, and genuine state mutation. That path demonstrably worked.</p>
+    <p>Then it stopped. The last platform-originated tool call was <strong>09:46:25Z</strong>. The last inbound request of any kind was 10:04:09Z, from localhost. The v19 pilot ran <strong>10:38:32Z → 10:46:12Z</strong>.</p>
+    <div class="ev">requests from 4.213.167.70   first 08:24:17Z   last <b>09:46:25Z</b>
+requests from tunnel origin   first 08:19:28Z   last 09:58:18Z
+last inbound request, any origin                10:04:09Z
+
+v19 pilot window                     10:38:32Z → 10:46:12Z
+inbound requests during that window  <b>0</b>   <i>— not one. not even a 401.</i></div>
+    <p>The tunnel was a free pinggy session with a 60-minute TTL, opened around 08:19Z. By 10:38Z it had been dead for roughly 40 minutes, and the Indus tool config still pointed at its hostname. Every tool invocation would have failed at the network layer, before ever reaching your service — which is exactly why the journal is silent rather than full of errors.</p>
+    <p class="fix"><b>Consequence:</b> the post-flight recorded <code>required_tool_missing</code> as a P0 agent defect. It is very likely an environment defect. The framework has an “infrastructure-invalid vs agent-failure” concept, but it only covers <em>provider</em> failures — not <em>tool-transport</em> failures. So a dead tunnel was scored as a badly behaved agent.</p>
+  </div>
+
+  <div class="alert warn">
+    <span class="chip warn">BLIND SPOT · MEASUREMENT</span>
+    <h3>The harness cannot see a tool call it does not receive</h3>
+    <p>Across every pilot ever run — v16, v18, v19, nine records total — <code>num_tool_calls</code> is <strong>0</strong> and <code>tools_called</code> is <strong>empty</strong>, in all of them. And <code>samvaad_events.jsonl</code> contains <strong>zero</strong> tool-related events in all eight streams.</p>
+    <div class="ev">grep -c tool  samvaad_events.jsonl   <i>→</i> 0   <i>(v16 ×2, v18 ×3, v19 ×3)</i>
+num_tool_calls across 9 records      <i>→</i> 0, tools_called: []
+
+<b>therefore "0 tool calls" is inferred from our own state, never observed from the platform.</b></div>
+    <p>That single number is currently doing three incompatible jobs. It cannot distinguish <b>(a)</b> the agent never decided to call the tool, from <b>(b)</b> the agent called and the request died in transit, from <b>(c)</b> the call succeeded but state did not update. The v19 HOLD was issued without knowing which of the three happened.</p>
+    <p class="fix"><b>This is the finding worth presenting.</b> A grading system that cannot separate “the agent misbehaved” from “my plumbing was down” is not yet trustworthy. Finding that in your own harness, naming it, and closing it <em>is</em> the self-improvement loop — applied one level up, to the evaluator instead of the agent.</p>
+  </div>
+
+  <div class="alert acc">
+    <span class="chip acc">HONEST CAVEAT</span>
+    <h3>The evidence does not prove the agent is innocent</h3>
+    <p>Hypothesis (b) is the most likely reading, but it is not proven. It remains entirely possible the agent never attempted a call, and the dead tunnel is a coincidence. <strong>Do not write the exoneration into the deck before the experiment runs.</strong> P1 and P4 exist precisely to separate the two, and they cost nothing.</p>
+    <p>The second P0 — <code>terminal_claim_without_tool_evidence</code>, the agent saying “मैंने callback schedule कर दिया है” with no state write — <strong>stands regardless</strong>. Whether the tool was unreachable or never called, the agent asserted a completed side effect it had no confirmation of. That is a genuine, serious, product-owned defect, and P3 fixes it.</p>
+  </div>
+</div></section>
+
+<section id="bar"><div class="wrap">
+  <div class="sec-head"><span class="kicker">01 · Definition of done</span>
+    <h2>What “a loop I can showcase” actually requires</h2>
+    <p>The reason this feels unfinished is that the loop was never given an acceptance test. Here is one. A demonstrable loop needs five things, on the same axis, with the same denominator.</p></div>
+
+  <div class="tablewrap"><table>
+    <thead><tr><th>Requirement</th><th>Have it?</th><th>Where it stands</th></tr></thead>
+    <tbody>
+      <tr><td><b>A measured “before”</b></td><td class="num"><span class="chip good">yes</span></td><td>v19, three live Hinglish calls with audio, transcripts, state and scores. Preserved.</td></tr>
+      <tr><td><b>A diagnosis that names an owner</b></td><td class="num"><span class="chip good">yes</span></td><td>Deterministic post-flight names four rules and their severities. Now sharpened by the root-cause finding above.</td></tr>
+      <tr><td><b>A bounded repair</b></td><td class="num"><span class="chip warn">partial</span></td><td>Transport fix and terminal-claim lock are designed, not built. <a href="#p2">P2</a>, <a href="#p3">P3</a>.</td></tr>
+      <tr><td><b>A re-measure under an unchanged gate</b></td><td class="num"><span class="chip bad">no</span></td><td>This is the missing piece. Six paid calls. <a href="#p5">P5</a>.</td></tr>
+      <tr><td><b>A decision that could have gone either way</b></td><td class="num"><span class="chip good">yes</span></td><td>Release controller already emits promote / hold / rollback and has rejected a 28/30 candidate before.</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="note"><p><b>The reframe that makes this winnable.</b> You have been treating EVA-X as the “after” metric. It is the wrong one to lead with — it is a soft experience score, judge-mediated, and it is the hardest thing to move in three calls. The metric that is hard, live, voice-only, currently zero, and directly fixable is <strong>execution truth</strong>: does the agent's terminal claim have a matching tool result behind it?</p>
+  <p style="margin-top:9px">Before: <b>0 of 3</b> calls produced a tool effect; 2 of 3 asserted a completed action anyway. After a working transport and a claim lock, the honest target is <b>3 of 3 grounded</b>. That is a real, voice-layer, production-relevant improvement with a hard denominator, and it is not a text result being dressed up as a voice result.</p></div>
+</div></section>
+
+<section id="ladder"><div class="wrap">
+  <div class="sec-head"><span class="kicker">02 · The core idea</span>
+    <h2>Three rungs, not one leap — so each repair gets its own credit</h2>
+    <p>The temptation is to fix everything and run one “after”. Don't. That bundles an infrastructure fix with a prompt change and gives you a confounded result any competent interviewer will take apart. Separate them. It costs three extra calls and buys clean attribution.</p></div>
+
+  <div class="ladder">
+    <div class="rung have">
+      <div class="lbl">Rung 1 · have it<b>v19 · dead path</b></div>
+      <div><h4>The before, already on disk</h4>
+      <p>Three Hinglish calls, 2 evaluator-valid, 0 task passes, 0 tool events, 1 timeout. EVA-A 0.417 / EVA-X 0.461. <strong>Cost: already spent.</strong> No re-run needed — this is your baseline arm.</p></div>
+    </div>
+    <div class="rung next">
+      <div class="lbl">Rung 2 · 3 calls<b>v19 · live path</b></div>
+      <div><h4>Same prompt, working transport — the diagnostic that settles it</h4>
+      <p>Identical agent version, identical frozen records, only the tool route repaired. This isolates the environment fix and <strong>answers the (a)-vs-(b) question directly</strong>: if tool events now appear, the agent was always trying and the harness was blind. If they still don't, the defect is genuinely in the agent and P3 is where the work is.</p></div>
+    </div>
+    <div class="rung then">
+      <div class="lbl">Rung 3 · 3 calls<b>v20 · claim lock</b></div>
+      <div><h4>The prompt/workflow repair, measured on its own</h4>
+      <p>Adds the terminal-claim lock and the opening-once rule on top of a known-good transport. Any delta from rung 2 is attributable to the repair, not the plumbing. <strong>This is the “after” you present.</strong></p></div>
+    </div>
+  </div>
+
+  <div class="note good"><b>Why this is the strongest version of your story.</b> A three-rung ladder shows something a single before/after cannot: that you can <em>attribute</em> a change to a cause. Rung 2 is a control. Most candidates never build one. And if rung 2 already fixes execution truth, you have discovered — with evidence — that your headline P0 was an artifact of your own test rig, which is a better finding than a green number.</div>
+</div></section>
+
+<section id="p0"><div class="wrap">
+  <div class="sec-head"><span class="kicker">Phase 0 · do this first, it is cheap</span>
+    <h2>One reproducible repository</h2>
+    <p>Confirmed by inspection: the repo is not clonable. This blocks nothing technically and everything reputationally — if you send a link, it must work.</p></div>
+
+  <div class="phase">
+    <div class="phase-head"><span class="id">P0</span><h3>Repository consolidation</h3><span class="meta">~45 min · no paid calls · fully local</span></div>
+    <div class="phase-body">
+      <p class="goal">Current state: <code>master</code> tracks <strong>four gitlinks</strong> — <code>dashboard</code>, <code>research/upstream/eva</code>, <code>riley-agent</code>, <code>tau-bench</code> — and there is <strong>no <code>.gitmodules</code></strong>. Zero remotes on any repo. <code>gh</code> is not authenticated. A fresh clone yields four empty directories and a broken build.</p>
+
+      <div class="task"><span class="n">01</span><div><b>Decide vendor-vs-submodule per gitlink, then commit the decision</b>
+        <p><strong>Vendor</strong> <code>dashboard</code> — it is your code, it must be in the clone, and a submodule for first-party code is pure friction. Remove the gitlink and commit the files directly. <strong>Submodule</strong> the three upstream research clones with a real <code>.gitmodules</code> pinned to their commits, or drop them from the tree entirely and record their SHAs in <code>UPSTREAM_SOURCES.md</code>. The EVA branch <code>codex/loopline-hinglish-voice-suite</code> holds your frozen Hinglish suites and <strong>must not</strong> be lost — if you drop the clone, copy those 18 scenario JSONs into the main tree first.</p>
+        <div class="who"><span class="chip acc">claude</span><span class="chip dim">reversible</span></div></div></div>
+
+      <div class="task"><span class="n">02</span><div><b>Verify by clone, not by inspection</b>
+        <p>The only acceptable proof is a clean clone into a temp directory that builds and tests green. Anything else is an assertion.</p>
+        <pre class="cmd">git clone /Users/Arnav/Claude/Projects/Sarvam /tmp/loopline-verify
+cd /tmp/loopline-verify && <b>test -f dashboard/package.json</b>   <i># must exist</i>
+cd dashboard && npm ci && npm run build && npm test</pre>
+        <div class="who"><span class="chip acc">claude</span></div></div></div>
+
+      <div class="task"><span class="n">03</span><div><b>Delete the generated share image and its references</b>
+        <p><code>dashboard/public/loopline-social.png</code> — 1.4 MB, 1674×941, referenced twice in <code>dashboard/app/layout.tsx</code> (<code>openGraph.images</code> and <code>twitter.images</code>). It is decorative metal with no relationship to the evidence. Remove the file, remove both references, and either leave no OG image or generate one from <code>story.json</code> so the preview is a real number. Also delete the stale copy in <code>dashboard/dist/</code> and the root <code>loopline-demo-v8.png</code> if it is no longer cited.</p>
+        <div class="who"><span class="chip acc">claude</span></div></div></div>
+
+      <div class="task"><span class="n">04</span><div><b>Private GitHub remote — your hands, once</b>
+        <p>I cannot authenticate <code>gh</code> for you; that is a credential step and it is yours. Run <code>gh auth login</code>, then tell me and I will create the private repo, push, and verify the clone from GitHub rather than from local disk.</p>
+        <pre class="cmd">gh auth login          <i># you, once</i>
+<i># then I run:</i>
+gh repo create loopline --private --source=. --push</pre>
+        <div class="who"><span class="chip warn">arnav</span><span class="chip acc">then claude</span></div></div></div>
+
+      <div class="task"><span class="n">05</span><div><b>Resolve the ChatGPT-published site</b>
+        <p>The Codex-published URL requires owner sign-in, which makes it useless as an interview link, and it sits outside your control. Decide: either it is decommissioned and the demo is “clone and <code>npm run dev</code>”, or you publish the static build somewhere you own. Do not leave a link in the deck that an interviewer cannot open.</p>
+        <div class="who"><span class="chip warn">arnav decides</span></div></div></div>
+
+      <div class="accept"><b>Acceptance</b>A clone from GitHub into an empty directory builds, serves the dashboard, and runs 85 Python tests plus the dashboard suite green — with no manual file copying and no submodule surprises.</div>
+    </div>
+  </div>
+</div></section>
+
+<section id="p1"><div class="wrap">
+  <div class="sec-head"><span class="kicker">Phase 1 · the framework improves itself</span>
+    <h2>Close the telemetry blind spot</h2>
+    <p>Before spending another rupee, make the harness able to tell the three failure modes apart. This is free, and it is the most defensible engineering in the whole project.</p></div>
+
+  <div class="phase">
+    <div class="phase-head"><span class="id">P1</span><h3>Tool-attempt observability and a paid-run preflight</h3><span class="meta">~2 h · no paid calls</span></div>
+    <div class="phase-body">
+      <p class="goal">Turn one ambiguous number into three unambiguous ones, and make it structurally impossible to spend money against a dead tool path again.</p>
+
+      <div class="task"><span class="n">01</span><div><b>Split <code>num_tool_calls</code> into observed channels</b>
+        <p>Record per record: <strong>attempts seen at the service</strong> (any inbound request tagged with that <code>run_id</code>, including 4xx/5xx), <strong>successful effects</strong> (state actually moved), and <strong>transport reachability</strong> (was the endpoint answering during the window). Persist all three in <code>result.json</code>. A record with 0 attempts and an unreachable endpoint must never again be scored the same as a record with 0 attempts and a healthy endpoint.</p>
+        <div class="who"><span class="chip acc">claude</span></div></div></div>
+
+      <div class="task"><span class="n">02</span><div><b>Add <code>tool_transport_invalid</code> as a first-class validity verdict</b>
+        <p>The runner already excludes provider failures from agent scoring. Extend the same principle: if the tool endpoint was unreachable during a record, that record is <strong>infrastructure-invalid</strong> for any tool-dependent assertion, and the post-flight must say so instead of blaming the agent. Retro-apply it to v19 and publish the corrected reading alongside the original — supersede, never overwrite.</p>
+        <div class="who"><span class="chip acc">claude</span><span class="chip vio">supersedes v19 reading</span></div></div></div>
+
+      <div class="task"><span class="n">03</span><div><b>Preflight gate that refuses to spend</b>
+        <p>Before any paid session: health-check the tool endpoint <em>through its public URL</em>, fire one authenticated round-trip against a throwaway run, assert 401-without-credential and 200-with, and confirm the state moved. If any check fails, <strong>abort before the first ElevenLabs session</strong>. Also re-assert the endpoint mid-suite so a mid-run expiry is caught rather than silently poisoning later records.</p>
+        <div class="who"><span class="chip acc">claude</span><span class="chip good">prevents recurrence</span></div></div></div>
+
+      <div class="task"><span class="n">04</span><div><b>Write the regression test that encodes the lesson</b>
+        <p>A test that constructs a record with an unreachable tool endpoint and asserts the post-flight returns <code>tool_transport_invalid</code>, not <code>required_tool_missing</code>. This is the failure becoming a durable test — the thing the whole framework claims to do, done to itself.</p>
+        <div class="who"><span class="chip acc">claude</span></div></div></div>
+
+      <div class="accept"><b>Acceptance</b>The v19 run re-scored under the new logic reports its tool-dependent assertions as infrastructure-invalid with a stated reason; the preflight aborts a simulated paid run against a dead endpoint; test count rises from 85 and stays green.</div>
+    </div>
+  </div>
+</div></section>
+
+<section id="p2"><div class="wrap">
+  <div class="sec-head"><span class="kicker">Phase 2 · stop losing the tool path</span>
+    <h2>A transport that outlives the run</h2></div>
+
+  <div class="phase">
+    <div class="phase-head"><span class="id">P2</span><h3>Durable public endpoint</h3><span class="meta">~40 min · free tier is fine</span></div>
+    <div class="phase-body">
+      <p class="goal">A 60-minute free tunnel with a hostname that changes on every restart is the single point of failure that produced this whole mess. Replace it with something whose URL is stable, so the Indus tool config stops going stale.</p>
+
+      <div class="task"><span class="n">01</span><div><b>Pick a stable-hostname route</b>
+        <p>A named Cloudflare tunnel gives a fixed hostname on the free tier and survives restarts — that stability is the actual requirement, more than uptime. A small always-on host works equally well. Whatever you choose, the URL must not change between the dry run and the paid run, because that is precisely the failure being fixed.</p>
+        <div class="who"><span class="chip warn">arnav approves tool</span><span class="chip acc">claude configures</span></div></div></div>
+
+      <div class="task"><span class="n">02</span><div><b>Re-point all three Indus tools and record the config</b>
+        <p><code>check_payment_status</code>, <code>record_promise_to_pay</code>, <code>schedule_callback</code>. Keep <code>api_key</code> auth against the workspace Secret — that part already works and must not be disturbed. Snapshot the resulting config into the deployment manifest so the URL in force during a run is auditable afterwards. Optionally allowlist <code>4.213.167.70</code>.</p>
+        <div class="who"><span class="chip acc">claude in browser</span></div></div></div>
+
+      <div class="task"><span class="n">03</span><div><b>Keep the service alive and the journal continuous</b>
+        <p>The tool service is currently a foreground process on <code>127.0.0.1:8788</code> that dies with its terminal. Run it under something that restarts it, and make sure the append-only journal keeps a single continuous history across restarts — the journal is your evidence, and a gap in it is what let this go unnoticed.</p>
+        <div class="who"><span class="chip acc">claude</span></div></div></div>
+
+      <div class="accept"><b>Acceptance</b>The preflight from P1 passes against the public URL, then passes again 90 minutes later without human intervention and without the hostname changing.</div>
+    </div>
+  </div>
+</div></section>
+
+<section id="p3"><div class="wrap">
+  <div class="sec-head"><span class="kicker">Phase 3 · the repair that survives the caveat</span>
+    <h2>Make the false claim unsayable</h2></div>
+
+  <div class="phase">
+    <div class="phase-head"><span class="id">P3</span><h3>Terminal-claim lock → Indus v20</h3><span class="meta">~2 h build · commit is your call</span></div>
+    <div class="phase-body">
+      <p class="goal">This defect is real whatever the transport did. In v19 the agent said a callback was scheduled when nothing was written. Prompt prose has now failed to prevent this across v15, v16, v18 and v19 — four attempts. Stop asking the prompt nicely.</p>
+
+      <div class="task"><span class="n">01</span><div><b>Move the rule from prose into state</b>
+        <p>Success language for an action must be <strong>unreachable</strong> until that action's tool has returned success. Implement as explicit workflow state: each terminal claim has a precondition on a recorded tool result. If the tool failed, timed out, or was never called, the only permitted endings are the truthful fallbacks — “मैं अभी record नहीं कर पाया” or a callback offer — never a confirmation.</p>
+        <div class="who"><span class="chip acc">claude</span><span class="chip tool">workflow, not prompt</span></div></div></div>
+
+      <div class="task"><span class="n">02</span><div><b>Same treatment for opening-once</b>
+        <p>Repeated openings dragged conversation progression down across every pilot. It is the same class of bug: a rule stated in prose that the model drops under real-time pressure. Make the opening a state transition that can fire once.</p>
+        <div class="who"><span class="chip acc">claude</span></div></div></div>
+
+      <div class="task"><span class="n">03</span><div><b>Fix the date and language defects while you are in there</b>
+        <p>Rebase all pilot dates so they are internally consistent — <code>stale_expected_date</code> fired on records still carrying 17-08 and 18-08. And the Gujarati opening on VOICE-003 needs a hard language constraint, since the Hinglish-only contract was declared and then violated on the first turn.</p>
+        <div class="who"><span class="chip acc">claude</span></div></div></div>
+
+      <div class="task"><span class="n">04</span><div><b>Validate in text before spending on voice</b>
+        <p>Run the new candidate through the existing 30 stateful scenarios first. It costs nothing and catches regressions before they burn a paid session. If it regresses in text, it does not earn a voice slot.</p>
+        <div class="who"><span class="chip acc">claude</span></div></div></div>
+
+      <div class="task"><span class="n">05</span><div><b>Commit as Indus v20 — your authorisation</b>
+        <p>Committing an immutable Indus version is irreversible. I will show the exact diff and wait. Rollback target stays 19.</p>
+        <div class="who"><span class="chip warn">arnav authorises</span></div></div></div>
+
+      <div class="accept"><b>Acceptance</b>In text, zero unsupported terminal claims across 30 scenarios; no task regression versus v19; a unit test proves the success phrase is structurally unreachable without a successful tool result.</div>
+    </div>
+  </div>
+</div></section>
+
+<section id="p4"><div class="wrap">
+  <div class="sec-head"><span class="kicker">Phase 4 · free proof before paid proof</span>
+    <h2>One Indus-originated tool call, on the record</h2></div>
+
+  <div class="phase">
+    <div class="phase-head"><span class="id">P4</span><h3>Zero-cost dry run</h3><span class="meta">~30 min · no ElevenLabs sessions</span></div>
+    <div class="phase-body">
+      <p class="goal">The gate before any spend: prove the platform can reach the tools <em>now</em>, on the current URL, with the current config. You have done this before — 12 requests from <code>4.213.167.70</code> are in the journal — so the bar is “do it again and keep it working”, not “discover whether it is possible”.</p>
+
+      <div class="task"><span class="n">01</span><div><b>Trigger tool invocation from the Indus side without a paid caller</b>
+        <p>Use the platform's own test/preview path against a throwaway <code>run_id</code>. What must appear in the journal: client host <code>4.213.167.70</code>, credential presented, correct run and account mapping, HTTP 200, and a state delta. Anything less and the paid round does not start.</p>
+        <div class="who"><span class="chip acc">claude</span></div></div></div>
+
+      <div class="task"><span class="n">02</span><div><b>Capture it as a dated artifact</b>
+        <p>Supersede <code>live_tool_effect.json</code> with a new dated record rather than editing it. The old one stays — it is true, it is just about a URL that no longer exists, and that context is itself part of the story.</p>
+        <div class="who"><span class="chip acc">claude</span></div></div></div>
+
+      <div class="accept"><b>Acceptance</b>A journal line from <code>4.213.167.70</code>, dated today, status 200, with a matching state delta — captured <em>after</em> P2's stable URL is in force. This is the hard gate on P5.</div>
+      <div class="note bad"><b>Do not skip this.</b> Skipping the equivalent of this check is the entire reason v19 produced an uninterpretable result and a HOLD you cannot present as an agent finding.</div>
+    </div>
+  </div>
+</div></section>
+
+<section id="p5"><div class="wrap">
+  <div class="sec-head"><span class="kicker">Phase 5 · the loop you can showcase</span>
+    <h2>Six calls, two rungs, one decision</h2>
+    <p>Only after P4 passes. Rung 1 is already on disk, so six paid sessions complete the ladder.</p></div>
+
+  <div class="phase">
+    <div class="phase-head"><span class="id">P5</span><h3>The paid ladder</h3><span class="meta">6 sessions · ~30 Sarvam credits · ~15 min ElevenLabs</span></div>
+    <div class="phase-body">
+      <p class="goal">Same three frozen Hinglish records throughout. Same evaluator freeze. Same post-flight. The only things that change between rungs are the ones named.</p>
+
+      <div class="tablewrap" style="margin-bottom:16px"><table>
+        <thead><tr><th>Rung</th><th>Agent</th><th>Transport</th><th>Calls</th><th>What it isolates</th></tr></thead>
+        <tbody>
+          <tr><td><b>1 · before</b><span class="sub">already spent</span></td><td class="num">v19</td><td class="num"><span class="chip bad">dead</span></td><td class="num">3 <span class="chip dim">have</span></td><td>The observed failure. 0 tool events, 2 unsupported claims, 1 timeout.</td></tr>
+          <tr><td><b>2 · control</b></td><td class="num">v19</td><td class="num"><span class="chip good">live</span></td><td class="num">3</td><td>The environment fix alone. Settles whether the agent was ever trying to call tools.</td></tr>
+          <tr><td><b>3 · after</b></td><td class="num">v20</td><td class="num"><span class="chip good">live</span></td><td class="num">3</td><td>The workflow repair alone, on a known-good path. This is the presented “after”.</td></tr>
+        </tbody>
+      </table></div>
+
+      <div class="task"><span class="n">01</span><div><b>Declare the decision rule before running</b>
+        <p>Written down and committed <em>first</em>, so the outcome cannot be reinterpreted afterwards. <strong>Primary:</strong> grounded-claim rate — every terminal success claim has a matching successful tool result. <strong>Secondary:</strong> required-effect completion on the two tool-dependent records. <strong>Guardrail:</strong> no new severe defect, and EVA-X must not fall materially below rung 1. Task completion and EVA means are reported but are not the headline at n=3.</p>
+        <div class="who"><span class="chip acc">claude</span><span class="chip vio">pre-registered</span></div></div></div>
+
+      <div class="task"><span class="n">02</span><div><b>Run rung 2, then stop and read it</b>
+        <p>Three sessions. Then stop. If tool events appear, rung 2 has already proved the root cause and rung 3 measures the claim lock on top. If they still do not appear, <strong>do not run rung 3</strong> — the defect is in the agent's tool selection and that is a different repair. Reading rung 2 before buying rung 3 is the whole point of splitting them.</p>
+        <div class="who"><span class="chip warn">arnav says go</span></div></div></div>
+
+      <div class="task"><span class="n">03</span><div><b>Run rung 3 and publish whatever it says</b>
+        <p>Three sessions. The release controller emits promote / hold / rollback. It is not re-run for a nicer answer, and a second HOLD gets presented as confidently as a promote — the difference is that this time you will know <em>why</em>, which you did not on v19.</p>
+        <div class="who"><span class="chip warn">arnav says go</span></div></div></div>
+
+      <div class="task"><span class="n">04</span><div><b>Optional: the frozen 18×2 matched suite</b>
+        <p>Only if rung 3 is clean and only if you want population-level evidence. <code>eva_voice_suite_v3_hinglish_fixed</code>, manifest <code>38e3d3be…</code>, is already frozen and ready. ~36 sessions, ~170 credits. <strong>It is not required for a showable loop</strong> and should not gate the interview.</p>
+        <div class="who"><span class="chip dim">optional</span></div></div></div>
+
+      <div class="accept"><b>Acceptance</b>Three rungs on identical records under an unchanged evaluator, with each delta attributable to exactly one named change, and a signed machine decision published whichever way it lands.</div>
+      <div class="note warn"><b>Expectation setting.</b> At n=3 per rung this is directional, not statistical, and the plan says so on the slide. Grounded-claim rate is chosen precisely because it is a hard binary per call rather than a mean that needs a confidence interval to be honest.</div>
+    </div>
+  </div>
+</div></section>
+
+<section id="p6"><div class="wrap">
+  <div class="sec-head"><span class="kicker">Phase 6 · the retelling</span>
+    <h2>Lead with the loop, not the ladder of caveats</h2>
+    <p>The current brief is honest but reads as a list of things that are not proven. Same facts, different spine.</p></div>
+
+  <div class="cards">
+    <div class="card"><span class="chip bad">now</span><h4>What the deck currently says</h4>
+      <ul><li>Text passed, voice held</li><li>Here are five things I do not claim</li><li>Here is a failed candidate</li><li>κ is published, MIPROv2 was not run</li></ul>
+      <p style="margin-top:9px">Every line is true. Together they read as a project that stopped.</p></div>
+    <div class="card"><span class="chip good">after P5</span><h4>What it should say</h4>
+      <ul><li>I measured a deployed agent and it failed</li><li>My own harness could not tell me why</li><li>I fixed the harness, then the path, then the agent</li><li>I re-measured each fix separately</li><li>Here is what moved, and what did not</li></ul>
+      <p style="margin-top:9px">Same evidence. It now reads as a loop that turned once, on purpose.</p></div>
+  </div>
+
+  <div class="phase" style="margin-top:16px">
+    <div class="phase-head"><span class="id">P6</span><h3>Presentation consolidation</h3><span class="meta">~2 h · after P5 lands</span></div>
+    <div class="phase-body">
+      <div class="task"><span class="n">01</span><div><b>Collapse six documents into two</b>
+        <p>You have BUILD-PLAN, BUILD-PLAN-V2, FINAL-PLAN, FINAL-EXECUTION-REPORT, PRESENTATION-READY, INTERVIEW-READINESS, FINAL-INTERVIEW-DECISION, EXECUTION-AUDIT, LOOPLINE-FINAL and this file. Ship <strong>one</strong> live product (the dashboard) and <strong>one</strong> written brief. Move the rest to <code>docs/history/</code> — keep them, they are lineage, but they must not compete for the reader.</p></div></div>
+      <div class="task"><span class="n">02</span><div><b>Add the blind-spot case to the episode gallery</b>
+        <p>It is the best case you have: a first-class finding about the measurement system, discovered from preserved artifacts at zero cost, with a before reading and a corrected reading side by side.</p></div></div>
+      <div class="task"><span class="n">03</span><div><b>Rebuild the ninety-second pitch around the ladder</b>
+        <p>Open on the loop turning. The caveats stay — they are why the work is credible — but they belong after the story, not instead of it.</p></div></div>
+      <div class="accept"><b>Acceptance</b>One URL, one brief, one story arc, no dead links, no image that is not evidence.</div>
+    </div>
+  </div>
+</div></section>
+
+<section id="sched"><div class="wrap">
+  <div class="sec-head"><span class="kicker">03 · Sequencing</span>
+    <h2>Critical path</h2>
+    <p>Ordering is binding. Each phase's acceptance is the next one's precondition — that is what was missing when v19 ran against a dead endpoint.</p></div>
+
+  <div class="tablewrap"><table>
+    <thead><tr><th>#</th><th>Phase</th><th>Effort</th><th>Paid</th><th>Blocked by</th><th>Needs you</th></tr></thead>
+    <tbody>
+      <tr><td class="num">P0</td><td><b>Repo consolidation</b><span class="sub">clonable, image removed, private remote</span></td><td class="num">45 min</td><td class="num">—</td><td>nothing</td><td><span class="chip warn">gh auth login</span></td></tr>
+      <tr><td class="num">P1</td><td><b>Telemetry + preflight</b><span class="sub">the framework fixing itself</span></td><td class="num">2 h</td><td class="num">—</td><td>nothing</td><td><span class="chip dim">no</span></td></tr>
+      <tr><td class="num">P2</td><td><b>Durable transport</b><span class="sub">stable hostname</span></td><td class="num">40 min</td><td class="num">—</td><td>nothing</td><td><span class="chip warn">approve tool</span></td></tr>
+      <tr><td class="num">P3</td><td><b>Claim lock → v20</b><span class="sub">workflow state, not prose</span></td><td class="num">2 h</td><td class="num">—</td><td>P1</td><td><span class="chip warn">authorise commit</span></td></tr>
+      <tr><td class="num">P4</td><td><b>Dry run</b><span class="sub">one platform tool call, today's URL</span></td><td class="num">30 min</td><td class="num">—</td><td>P1, P2</td><td><span class="chip dim">no</span></td></tr>
+      <tr><td class="num">P5</td><td><b>The paid ladder</b><span class="sub">rung 2, read it, then rung 3</span></td><td class="num">1.5 h</td><td class="num"><span class="chip tool">6 calls</span></td><td>P4 green</td><td><span class="chip warn">go / stop ×2</span></td></tr>
+      <tr><td class="num">P6</td><td><b>Presentation</b><span class="sub">two documents, one story</span></td><td class="num">2 h</td><td class="num">—</td><td>P5</td><td><span class="chip dim">no</span></td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="note"><b>Total: about nine working hours and six paid calls</b> — roughly 30 Sarvam credits and 15 minutes of ElevenLabs. P0, P1 and P2 are independent and can all be done before you next look at this. The first thing that needs you is <code>gh auth login</code>; the first thing that needs money is P5, and it will not start until P4 is green.</div>
+</div></section>
+
+<section id="truth"><div class="wrap">
+  <div class="sec-head"><span class="kicker">04 · The claim ledger</span>
+    <h2>What each outcome licenses you to say</h2>
+    <p>Written before the run, so no result gets talked up afterwards.</p></div>
+
+  <div class="tablewrap"><table>
+    <thead><tr><th>If P5 shows…</th><th>You may claim</th><th>You may not claim</th></tr></thead>
+    <tbody>
+      <tr><td><b>Rung 2 restores tool events</b></td><td>The v19 P0 was an artifact of tool-transport failure; the harness now separates infrastructure from agent behaviour, proven by a control arm.</td><td>That the agent improved. Nothing about the agent changed between rungs 1 and 2.</td></tr>
+      <tr><td><b>Rung 2 does not</b></td><td>Tool selection is genuinely broken in the deployed agent — a sharper, better-localised finding than v19 gave you.</td><td>That the transport fix was unnecessary. It was, and it is what made the finding trustworthy.</td></tr>
+      <tr><td><b>Rung 3 grounds every claim</b></td><td>A live, voice-layer improvement in execution truth: 0/3 grounded → 3/3, on identical records under an unchanged gate.</td><td>Live task-completion lift, EVA lift, or population validity at n=3.</td></tr>
+      <tr><td><b>Rung 3 still fails</b></td><td>Two independent repairs were tried and measured; the gate held twice on evidence. The loop ran — the candidate lost.</td><td>That the approach is validated. Report the HOLD as the result.</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="note good" style="margin-top:16px"><b>The line that survives any outcome.</b> “My evaluation harness told me the agent had failed. It could not tell me whether the agent misbehaved or my plumbing was down — so I fixed the harness first, added a control arm, and only then re-measured.” That is the sentence a Lead PM says. It holds whether or not the number moves, and it is the one thing in this project that no amount of extra spending could have bought.</div>
+
+  <div class="note warn" style="margin-top:12px"><b>Still unclaimed, deliberately.</b> Independent second-family judging and judge-vs-judge κ. MIPROv2 — never run, never advertised. Settled-cash and roll-rate lift — the outcome join is designed, not measured. The 18×2 matched suite — frozen and ready, not required for a showable loop.</div>
+</div></section>
+
+<div class="foot"><div class="wrap">
+  Loopline · Consolidation plan v3 · 21 August 2026 · Supersedes BUILD-PLAN-V2.<br>
+  Every figure on this page was read from preserved artifacts on disk. The root-cause finding in section 00 is reconciled from <code>artifacts/tool_service/inbound_requests.jsonl</code> against <code>artifacts/eva_pilots/emi_eva_v19_pilots_20260821_160827/</code>. EasyCredit and all customer data are fictional.
+</div></div>
+
+</body>
+</html>

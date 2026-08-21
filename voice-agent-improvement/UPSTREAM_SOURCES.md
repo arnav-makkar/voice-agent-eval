@@ -24,3 +24,15 @@ These repositories are pinned research references. Product code lives under `fra
 - EVA audio/results dataset: https://huggingface.co/datasets/ServiceNow-AI/eva
 - tau-Voice paper: https://arxiv.org/abs/2603.13686
 - VAmoS paper: https://arxiv.org/abs/2607.27453
+
+## Research clones — pinned, not vendored
+
+These upstream repositories were cloned locally for study. They total ~2.1 GB
+and are excluded from this repository. Pinned commits at time of use:
+
+- **eva** — `f11c8d63844f6e9e11a9fc3df0837917fc5fe19f`  <https://github.com/ServiceNow/eva.git>
+- **riley-agent** — `a22e0e96e68778c16761e05ebd2d3931d713f525`  <https://github.com/veris-ai/riley-agent.git>
+- **tau-bench** — `a2c024725189473d2d7cea3a5cfdbcc67478e41f`  <https://github.com/sierra-research/tau2-bench.git>
+
+EVA-derived EMI suites used by this project are vendored at
+`voice-agent-improvement/dataset/eva_suites/` with their own provenance note.

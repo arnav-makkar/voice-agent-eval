@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Thik hai, kal 22 August ko kis time call karein? Koi preferred time window bata dijiye.",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 6239.2,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "bc004d672124e075cf015207d4352d8514b5e3855123af175414cf2441eb1445",
+    "response_hash": "3df1ec39fe904c085eac18dd5d5f8f91d10975edee632fdca6307dc8fe0b0c11",
+    "usage": {
+      "candidatesTokenCount": 49,
+      "promptTokenCount": 1491,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1491
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 866,
+      "totalTokenCount": 2406
+    }
+  }
+}

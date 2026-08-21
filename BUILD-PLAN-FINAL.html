@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Loopline Final Plan — closing Build Plan v2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --bg:#0A0D13;--panel:#11161F;--panel2:#161D29;--inset:#0C1119;
+    --line:rgba(150,163,186,.15);--line2:rgba(150,163,186,.30);
+    --ink:#E8EDF5;--mut:#96A0B5;--dim:#69738C;
+    --acc:#6EA8FE;--vio:#A98BFA;--tool:#E0A34E;
+    --good:#3FCE96;--warn:#EFB65C;--bad:#F27690;
+    --good-bg:rgba(63,206,150,.10);--warn-bg:rgba(239,182,92,.10);--bad-bg:rgba(242,118,144,.10);--acc-bg:rgba(110,168,254,.10);--tool-bg:rgba(224,163,78,.10);--vio-bg:rgba(169,139,250,.10);
+    --disp:"Archivo","IBM Plex Sans",system-ui,sans-serif;
+    --body:"IBM Plex Sans",system-ui,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,monospace;
+  }
+  *{box-sizing:border-box;margin:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{background:var(--bg);color:var(--ink);font:15px/1.62 var(--body);-webkit-font-smoothing:antialiased}
+  a{color:var(--acc);text-decoration:none}a:hover{text-decoration:underline}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset:2px;border-radius:4px}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+  code{font:500 12.5px var(--mono);background:var(--inset);border:1px solid var(--line);border-radius:5px;padding:1px 6px;color:#C6D4F0}
+
+  nav.top{position:sticky;top:0;z-index:20;background:rgba(10,13,19,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav.top .wrap{display:flex;align-items:center;gap:16px;height:52px;overflow-x:auto;white-space:nowrap}
+  nav.top b{font:700 13px var(--disp);letter-spacing:.03em}nav.top b span{color:var(--acc)}
+  nav.top a{font:500 11.5px var(--mono);letter-spacing:.05em;color:var(--mut);text-transform:uppercase}
+  nav.top a:hover{color:var(--ink);text-decoration:none}
+
+  header.hero{padding:60px 0 38px;border-bottom:1px solid var(--line)}
+  .kicker{font:600 11.5px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--acc)}
+  header.hero h1{font:800 clamp(29px,4.4vw,44px)/1.09 var(--disp);letter-spacing:-.016em;margin:14px 0 16px;text-wrap:balance}
+  header.hero h1 em{font-style:normal;color:var(--acc)}
+  .lede{max-width:72ch;color:var(--mut);font-size:16px}
+  .heroStats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:26px}
+  .hs{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:14px 16px}
+  .hs b{display:block;font:800 24px var(--disp);font-variant-numeric:tabular-nums}
+  .hs span{font:500 11px var(--mono);letter-spacing:.05em;text-transform:uppercase;color:var(--dim)}
+  .hs.crit b{color:var(--bad)}.hs.warn b{color:var(--warn)}.hs.ok b{color:var(--good)}.hs.acc b{color:var(--acc)}
+
+  section{padding:52px 0;border-bottom:1px solid var(--line)}
+  .sec-head{margin-bottom:24px}
+  .sec-head h2{font:700 clamp(21px,3vw,28px)/1.16 var(--disp);letter-spacing:-.01em;margin:9px 0 8px;text-wrap:balance}
+  .sec-head p{color:var(--mut);max-width:78ch}
+
+  .chip{display:inline-block;font:600 10.5px var(--mono);letter-spacing:.07em;text-transform:uppercase;padding:3px 9px;border-radius:999px;border:1px solid;white-space:nowrap}
+  .chip.good{color:var(--good);border-color:rgba(63,206,150,.4);background:var(--good-bg)}
+  .chip.warn{color:var(--warn);border-color:rgba(239,182,92,.4);background:var(--warn-bg)}
+  .chip.bad{color:var(--bad);border-color:rgba(242,118,144,.4);background:var(--bad-bg)}
+  .chip.acc{color:var(--acc);border-color:rgba(110,168,254,.4);background:var(--acc-bg)}
+  .chip.tool{color:var(--tool);border-color:rgba(224,163,78,.4);background:var(--tool-bg)}
+  .chip.vio{color:var(--vio);border-color:rgba(169,139,250,.4);background:var(--vio-bg)}
+  .chip.dim{color:var(--dim);border-color:var(--line2);background:transparent}
+
+  .phase{background:var(--panel);border:1px solid var(--line2);border-radius:14px;margin-bottom:16px;overflow:hidden}
+  .phase-head{display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:18px 24px;background:var(--panel2);border-bottom:1px solid var(--line)}
+  .phase-head .id{font:800 13px var(--mono);color:var(--acc);letter-spacing:.06em}
+  .phase-head h3{font:700 17px var(--disp);flex:1;min-width:200px}
+  .phase-head .meta{font:500 11.5px var(--mono);color:var(--dim);letter-spacing:.03em}
+  .phase-body{padding:20px 24px}
+  .phase-body>p.goal{color:var(--mut);font-size:14.5px;max-width:84ch;margin-bottom:16px}
+  .task{display:grid;grid-template-columns:26px 1fr;gap:12px;padding:12px 0;border-top:1px solid var(--line)}
+  .task:first-of-type{border-top:0;padding-top:0}
+  .task .n{font:600 11px var(--mono);color:var(--dim);padding-top:3px}
+  .task b{font:600 14.5px var(--body);display:block;margin-bottom:3px}
+  .task p{color:var(--mut);font-size:13.5px;max-width:84ch}
+  .task p strong{color:var(--ink);font-weight:600}
+  .task .who{display:inline-flex;gap:6px;margin-top:6px;flex-wrap:wrap}
+  .accept{margin-top:16px;background:var(--inset);border:1px solid var(--line);border-radius:10px;padding:13px 16px;font-size:13.5px;color:var(--mut)}
+  .accept b{color:var(--good);font:600 10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;display:block;margin-bottom:5px}
+  pre.cmd{background:var(--inset);border:1px solid var(--line);border-radius:9px;padding:13px 16px;font:12.5px/1.75 var(--mono);color:#C6D4F0;overflow-x:auto;margin-top:11px}
+  pre.cmd b{color:var(--good);font-weight:600}
+  pre.cmd i{color:var(--dim);font-style:normal}
+
+  .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+  table{border-collapse:collapse;width:100%;font-size:13.5px}
+  th{font:600 11px var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--dim);text-align:left;padding:12px 14px;border-bottom:1px solid var(--line2);white-space:nowrap}
+  td{padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+  tr:last-child td{border-bottom:none}
+  td.num{font:500 13px var(--mono);white-space:nowrap;font-variant-numeric:tabular-nums}
+  td .sub{display:block;color:var(--mut);font-size:12.5px;margin-top:3px}
+
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:14px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+  .card h4{font:700 14.5px var(--disp);margin:9px 0 7px}
+  .card p{color:var(--mut);font-size:13.5px}
+
+  .foot{padding:34px 0 60px;color:var(--dim);font-size:12.5px}
+  .note{margin-top:14px;padding:13px 16px;background:var(--acc-bg);border:1px solid rgba(110,168,254,.3);border-radius:10px;color:var(--ink);font-size:13.5px}
+  .note b{color:var(--acc)}
+  .note.good{background:var(--good-bg);border-color:rgba(63,206,150,.3)}.note.good b{color:var(--good)}
+  .note.warn{background:var(--warn-bg);border-color:rgba(239,182,92,.3)}.note.warn b{color:var(--warn)}
+  .note.bad{background:var(--bad-bg);border-color:rgba(242,118,144,.3)}.note.bad b{color:var(--bad)}
+</style>
+</head>
+<body>
+
+<nav class="top"><div class="wrap">
+  <b>∿ <span>Loopline</span> · Final Plan</b>
+  <a href="#ledger">V2 ledger</a><a href="#versions">Versions &amp; 30/30</a><a href="#remaining">Remaining work</a><a href="#budget">₹500 budget</a><a href="#rules">Rules</a><a href="#done">Done means</a>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <span class="kicker">The closing ledger of Build Plan v2 · 21 August 2026 · the last plan document</span>
+  <h1>V2 was right. This is what's left of it — <em>and nothing else.</em></h1>
+  <p class="lede">Build Plan v2 remains the plan of record; this file closes it. Of its seven phases, four are fully shipped, one is shipped-then-reopened by a transport failure, and two carry the open lines. The readiness review's four gates are absorbed here with their done-marks. Plan v3 is archived — its one surviving contribution is the transport root cause, folded into the P6 gate below. Six work items remain. Three are free and start immediately; the paid ones sit behind gates and a hard <strong>₹500 Sarvam cap</strong>.</p>
+  <div class="heroStats">
+    <div class="hs ok"><b>4 / 7</b><span>V2 phases fully shipped</span></div>
+    <div class="hs warn"><b>6</b><span>Work items remaining</span></div>
+    <div class="hs ok"><b>3</b><span>Of them cost nothing</span></div>
+    <div class="hs warn"><b>₹500</b><span>Hard Sarvam cap</span></div>
+    <div class="hs crit"><b>0</b><span>New plan docs after this</span></div>
+  </div>
+</div></header>
+
+<section id="ledger"><div class="wrap">
+  <div class="sec-head"><span class="kicker">00 · The V2 execution ledger</span>
+    <h2>Every phase of Build Plan v2, verified against artifacts today</h2>
+    <p>Checked this session against disk, MLflow (25 runs), the deployment manifests, the inbound-request journal, and the rendered site on localhost:3000 — not against chat logs.</p></div>
+
+  <div class="tablewrap"><table>
+    <thead><tr><th>V2 phase</th><th>Status</th><th>Evidence · what remains</th></tr></thead>
+    <tbody>
+      <tr><td><b>P1 · Truth and integrity</b><span class="sub">owner labels, calibration, key rotation</span></td><td class="num"><span class="chip good">closed</span></td><td>All 20 labels owner-approved (<code>bulk_confirmation</code>), versioned JSONL, provisional artifact untouched, key rotation attested. Calibration published against owner truth — the weak diagnostic agreement (0.25 / 0.25 / 0.35) is now an evaluator repair target, not label noise. <b>Nothing remains.</b></td></tr>
+      <tr><td><b>P2 · Real execution truth</b><span class="sub">authenticated tools in the production runtime</span></td><td class="num"><span class="chip warn">closed, then reopened</span></td><td>Tools rebuilt with workspace-Secret auth; 9/9 direct checks; <strong>12 genuine platform-originated calls from <code>4.213.167.70</code></strong> in the append-only journal, with state mutation. Then the free tunnel expired and v19 piloted against a dead URL — zero requests during its window, which the harness scored as agent failure. <b>Remains: a route that persists, and the platform-originated proof reproved on it (R4).</b></td></tr>
+      <tr><td><b>P3 · The demo</b><span class="sub">beat the EVA page</span></td><td class="num"><span class="chip good">shipped 21 Aug</span></td><td>Linear-narrative site live on :3000 — eight evidence-tiered cases (6 stateful text, 1 live audio, 1 real production call), methodology with pass rules, 95% CIs, 30-cell matrix, architecture diagrams, no hardcoded figures (tested). <b>Remains: only the R3 benchmark act extends it.</b></td></tr>
+      <tr><td><b>P4 · Verdict lines to A+</b></td><td class="num"><span class="chip warn">3 lines open</span></td><td>Done: execution truth (direct), label ownership, statistical intervals, business-outcome contract, product UI. <b>Open: second judge family + judge-vs-judge κ (R1) · MIPROv2 second optimizer arm (R2) · live voice line, still C/HOLD (R5).</b></td></tr>
+      <tr><td><b>P5 · Self-improvement L0–L5</b></td><td class="num"><span class="chip good">shipped as scoped</span></td><td>L0 engine, L1 GEPA+manual, L2 lessons (2 minted, family-scoped), L3 turn verifier (precision 1.0 / recall 0.83, revisions published). L4 argued, L5 refused — by design. <b>Remains: the L1 extension = MIPROv2 (R2).</b></td></tr>
+      <tr><td><b>P6 · Matched voice round</b></td><td class="num"><span class="chip bad">held at its own gate</span></td><td>Three pilot rounds (v16 · v18 · v19) all HOLD. Corrected 18-record Hinglish suite + deterministic post-flight frozen (<code>38e3d3be…</code>). V2's own rule stands: <em>no further paid run until platform-originated tool invocation is proven.</em> <b>Remains: R4 gate, then R5 pilots under the cap.</b></td></tr>
+      <tr><td><b>P7 · Production story</b></td><td class="num"><span class="chip good">shipped 21 Aug</span></td><td>90-day plan, outcome-join contract, scale architecture — on the site, in the flow of the argument. <b>Nothing remains.</b></td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="note"><b>The readiness review, absorbed.</b> Its four gates map to: labels <span class="chip good">done</span> · tool effect <span class="chip warn">done, reprove on a stable route</span> · exact commit <span class="chip good">done (v15 → … → v19 lineage preserved)</span> · matched voice suite <span class="chip bad">open, behind R4/R5</span>. Its scorecard rows are P4's lines above. Nothing else in it is still actionable.</div>
+</div></section>
+
+<section id="versions"><div class="wrap">
+  <div class="sec-head"><span class="kicker">01 · The ledger you asked for</span>
+    <h2>Every version to V20, and what 30/30 actually was</h2>
+    <p>Two numbering systems, never to be conflated: local prompt candidates (evaluated in text) and Indus platform app versions (committed deployments).</p></div>
+
+  <div class="tablewrap"><table>
+    <thead><tr><th>Version</th><th>What it was</th><th>Score</th><th>Fate</th></tr></thead>
+    <tbody>
+      <tr><td class="num"><b>V12</b> <span class="sub">platform + local</span></td><td>Deployed baseline. Produced your 20 recorded calls, the valid live EVA run, and every baseline number.</td><td class="num">16/30 dev · 5/12 sealed</td><td><span class="chip dim">baseline</span></td></tr>
+      <tr><td class="num"><b>V13</b></td><td>Manual stateful repair, two iterations.</td><td class="num">20/30 → 23/30</td><td><span class="chip bad">rejected — trust regressions</span></td></tr>
+      <tr><td class="num"><b>V14</b></td><td>Terminal-discipline repair.</td><td class="num">29/30</td><td><span class="chip bad">rejected — 1 severe</span></td></tr>
+      <tr><td class="num"><b>GEPA finalist</b></td><td>Optimize Anything search seeded from V14; 48 metric calls, 2 engine candidates, strict-improvement criterion. Driven by failures mined from the 20-call corpus.</td><td class="num">28/30</td><td><span class="chip bad">rejected — P0 guardrail + P1 state</span></td></tr>
+      <tr><td class="num"><b>V15</b></td><td>Selected manual candidate <code>v15-firm-today</code> (sha <code>732d216b…</code>). Committed to Indus.</td><td class="num">30/30 dev · 9/12 sealed</td><td><span class="chip good">accepted — the text pass</span></td></tr>
+      <tr><td class="num"><b>V16</b> <span class="sub">two meanings</span></td><td>Local: the Indus copilot's drift, captured and scored as its own candidate — the evidence that justified restoring V15. Platform: the live-tool-configuration commit that ran the first pilot.</td><td class="num">22/30 · pilot 1/3</td><td><span class="chip warn">drift restored · pilot held</span></td></tr>
+      <tr><td class="num"><b>V17</b></td><td>Does not exist — no artifact anywhere carries it; platform numbering moved past it.</td><td class="num">—</td><td><span class="chip dim">skipped</span></td></tr>
+      <tr><td class="num"><b>V18</b></td><td>Pilot-repair commit: opening-once and tool-before-claim in prose; evaluator NA-normalisation.</td><td class="num">1 valid of 3</td><td><span class="chip warn">held</span></td></tr>
+      <tr><td class="num"><b>V19</b></td><td>Hinglish-only pilot candidate. Rejected by its own three-call gate — later shown to have run while the tool tunnel was dead, a failure the harness could not distinguish from the agent's.</td><td class="num">0/2 valid · 0 tools</td><td><span class="chip bad">rejected · preserved · rollback→18</span></td></tr>
+      <tr><td class="num"><b>V20</b> <span class="sub">planned only</span></td><td>The claim-lock candidate: success language structurally unreachable without a matching successful tool result. Exists only if R5's gate opens. The last version, whatever happens.</td><td class="num">—</td><td><span class="chip acc">conditional</span></td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="note warn"><b>What 30/30 means — say it exactly this way.</b> 30/30 is V15's task completion on the 30-scenario <em>development</em> suite — the scenarios its repairs were built against, so it is in-sample and close to circular. The original run recorded 29/30; the frozen deterministic v3 rescore records 30/30 (traces unchanged, lineage disclosed in <code>dynamic_release_v15.json</code>). The number to argue from is the sealed final: <strong>5/12 → 9/12</strong>, four repairs, zero regressions, exact paired p = 0.125 reported as a diagnostic. The site already frames it this way.</div>
+</div></section>
+
+<section id="remaining"><div class="wrap">
+  <div class="sec-head"><span class="kicker">02 · The last mile</span>
+    <h2>Six items. Three free ones start now; the paid ones wait behind their gates.</h2>
+    <p>Every item below carries its V2 lineage. R1–R3 run today without permission or money. R4 is the free hard gate V2 itself demanded. R5 is the only spend. R6 wraps.</p></div>
+
+  <div class="phase">
+    <div class="phase-head"><span class="id">R1</span><h3>Second judge family + judge-vs-judge κ</h3><span class="meta">closes P4 "judge independence" · ~3 h · tokens only</span></div>
+    <div class="phase-body">
+      <p class="goal">Re-score the 24 sealed-final episodes and the live transcript with a second judge family; publish agreement, the disagreement list, and Cohen's κ exactly the way the judge-vs-executable table is already published. No new provider calls — preserved artifacts only. The current κ table (0.46 detection, −0.13 ownership) finally gets its independent counterpart, and the "one judge family" caveat comes off the site.</p>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-head"><span class="id">R2</span><h3>MIPROv2 as the second optimizer arm</h3><span class="meta">closes P4/P5 "optimizer breadth" · ~2 h · tokens only</span></div>
+    <div class="phase-body">
+      <p class="goal">One bounded MIPROv2 run on the same development split GEPA used, same budget class, same gate. Whichever way it lands is reported: "GEPA beat a real baseline" or "MIPROv2 beat GEPA and the gate judged them both." The deck stops having to say "MIPROv2 was not run."</p>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-head"><span class="id">R3</span><h3>The benchmark at scale — your first-run → auto-improve → re-run arc</h3><span class="meta">extends P4 "statistical power" + P5 L1 · ~half a day · tokens only</span></div>
+    <div class="phase-body">
+      <p class="goal">The 168-conversation generated suite (14 families × 4 languages × 3 variants, 60 tool-dependent, deterministic ground truth) answers the "substantial number of convos" requirement without touching Sarvam. Three defects were caught in validation before any number was quoted, and they gate the run.</p>
+      <div class="task"><span class="n">01</span><div><b>Fix the generator: TV only, real dates, closable calls</b><p>Samsung Smart TV and EasyCredit exclusively (the invented products are gone); every utterance resolves its own derived dates; closing turns added so a call can reach a terminal disposition instead of being truncated into a false failure. Gate: the 14-scenario validation rerun is clean.</p></div></div>
+      <div class="task"><span class="n">02</span><div><b>Baseline run — the deployed prompt × 168</b><p>Full enriched panel (already merged, 85 tests green): task success, five accuracy components, tool validity, experience, first-break owners — sliced by language, family, persona. Expected shape: decent averages with one fatal, named hole (0 tool calls). Not tuned in either direction.</p></div></div>
+      <div class="task"><span class="n">03</span><div><b>Automated improvement, blind to half the suite</b><p>GEPA (and R2's MIPROv2) see only the 84 development scenarios; V15 and the lessons arm enter as competing candidates. The gate judges on the 84 optimizer-blind scenarios, per-case, no severe regression averaged away. Headline only ever from the blind half.</p></div></div>
+      <div class="task"><span class="n">04</span><div><b>One command, one new act</b><p><code>python -m framework.loop run</code> executes measure → diagnose → improve → re-measure → gate with checkpoints and <code>--limit</code> for a fast demo pass. The dashboard gains one benchmark act (before/after panel + slices), generated from artifacts, covered by the no-hardcoding test.</p></div></div>
+      <div class="accept"><b>Acceptance</b>A fresh terminal reproduces the whole loop in one command; the site tells the scaled story; every figure traces to an artifact.</div>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-head"><span class="id">R4</span><h3>The P2/P6 hard gate — a tool route that persists, proven from the platform</h3><span class="meta">reproves P2 on stable infrastructure · ~1 h · free</span></div>
+    <div class="phase-body">
+      <p class="goal">V2's binding rule: tools before commit, commit before voice. It was satisfied once — then the 60-minute tunnel silently expired and v19 was scored against the silence. The gate is rebuilt on infrastructure that does not expire.</p>
+      <div class="task"><span class="n">01</span><div><b>Stable hostname</b><p>Named Cloudflare tunnel or equivalent fixed-URL route to the running tool service; Indus tools re-pointed once; the URL snapshotted into the deployment manifest. Secret auth untouched — that part already works.</p><div class="who"><span class="chip warn">arnav approves the tool</span><span class="chip acc">claude configures</span></div></div></div>
+      <div class="task"><span class="n">02</span><div><b>Preflight that refuses to spend</b><p>Authenticated round-trip through the public URL (401 closed / 200 open / state moved) immediately before any session and re-checked mid-run. Plus the harness fix: an unreachable tool endpoint now yields <code>tool_transport_invalid</code>, never <code>required_tool_missing</code> — the v19 blind spot, closed and regression-tested.</p></div></div>
+      <div class="task"><span class="n">03</span><div><b>Platform-originated proof, again</b><p>Indus test console fires one call; the gate is a journal line from <code>4.213.167.70</code>, credential presented, 200, state delta — dated today, on the stable URL. Done before (12 such lines exist); the bar is doing it on infrastructure that will still be alive an hour later.</p></div></div>
+      <div class="accept"><b>Hard gate</b>No journal line → no paid calls, and the story ships on R1–R3 plus the existing governed HOLD. That is a complete, presentable outcome.</div>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-head"><span class="id">R5</span><h3>P6 under the cap — pilots first, the 18×2 only if money and evidence both allow</h3><span class="meta">the only paid item · your go required at each step</span></div>
+    <div class="phase-body">
+      <p class="goal">V2's P6 sequence (pilot 3 → 18×2 → signed decision) survives intact — the ₹500 cap just makes the pilot the priority and the 18×2 conditional. Balance is read from the Sarvam dashboard before each rung; nothing runs that would breach the cap.</p>
+      <div class="task"><span class="n">01</span><div><b>Control pilot — V19 unchanged, transport fixed · 3 calls</b><p>Same agent, same three frozen records, only the route repaired. This settles what v19 actually proved: tool events appearing means the environment was the defect (and the harness now says so); still-zero means the agent's tool selection is truly broken, sharply localised. Either answer is a finding.</p><div class="who"><span class="chip warn">go / no-go #1</span><span class="chip tool">~13 credits</span></div></div></div>
+      <div class="task"><span class="n">02</span><div><b>V20 claim-lock pilot · 3 calls — only if the control showed tool events</b><p>V20 = claim lock (success language unreachable without a successful tool result), opening-once, truthful fallbacks. Validated on the text suite free, committed with your authorisation (rollback → 19), then the same three records. Advance rule, pre-declared: 3/3 evaluator-valid, all required effects, zero unsupported terminal claims. Lead metric: <strong>grounded-claim rate</strong>, currently 0/3.</p><div class="who"><span class="chip warn">go / no-go #2 + commit authorisation</span><span class="chip tool">~13 credits</span></div></div></div>
+      <div class="task"><span class="n">03</span><div><b>The 18×2 matched suite — only if both pilots are clean AND the balance covers it inside ₹500</b><p>~36 sessions ≈ ~165 credits at the observed rate. If the remaining budget cannot cover it, V2's fallback runs instead: the reliability slice (3 trials × 4 core records ≈ 12 sessions) or a clean stop at the pilot result. A pilot-passed-suite-deferred outcome is presented exactly as that.</p><div class="who"><span class="chip warn">go / no-go #3</span><span class="chip tool">≤ remaining cap</span></div></div></div>
+      <div class="accept"><b>Acceptance</b>A signed machine decision (promote / hold / rollback) exists for whatever level was reached, published whichever way it lands. A HOLD ships as a HOLD.</div>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-head"><span class="id">R6</span><h3>Wrap — V2's item 10, plus the paper-trail cleanup</h3><span class="meta">~3 h · free</span></div>
+    <div class="phase-body">
+      <div class="task"><span class="n">01</span><div><b>One brief, one plan, history archived</b><p>LOOPLINE-FINAL.html updated with the final numbers; BUILD-PLAN v1/v3 and the readiness review move to <code>docs/history/</code> (V2 stays beside this file as the plan of record it was); the decorative social image and its layout references deleted; <code>handoff.md</code> final update.</p></div></div>
+      <div class="task"><span class="n">02</span><div><b>Repository made whole, locally</b><p>The four <code>.gitmodules</code>-less gitlinks resolved (dashboard vendored, upstream clones pinned in <code>UPSTREAM_SOURCES.md</code>), one tagged commit, full verify battery green. No GitHub — per your call; the tag makes the local repo the submission artifact.</p></div></div>
+      <div class="task"><span class="n">03</span><div><b>Demo script</b><p>The five-minute walkthrough, updated for the benchmark act and the R5 outcome, matching the site's act order.</p></div></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="budget"><div class="wrap">
+  <div class="sec-head"><span class="kicker">03 · The money</span>
+    <h2>₹500 is a ceiling with a gate in front of it, not a target</h2></div>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Item</th><th>Sessions</th><th>Credits (observed ~4.5/session)</th><th>Runs when</th></tr></thead>
+    <tbody>
+      <tr><td>R1 · second judge</td><td class="num">0</td><td class="num">0 — Gemini tokens only</td><td>now</td></tr>
+      <tr><td>R2 · MIPROv2 arm</td><td class="num">0</td><td class="num">0 — Gemini tokens only</td><td>now</td></tr>
+      <tr><td>R3 · 168-convo benchmark loop</td><td class="num">0</td><td class="num">0 — Gemini tokens only</td><td>now</td></tr>
+      <tr><td>R4 · stable route + platform proof</td><td class="num">0 paid</td><td class="num">~0–2 (test console)</td><td>after R3 starts, parallel</td></tr>
+      <tr><td>R5.1 · control pilot</td><td class="num">3</td><td class="num">~13</td><td>R4 green + your go</td></tr>
+      <tr><td>R5.2 · V20 pilot</td><td class="num">3</td><td class="num">~13</td><td>R5.1 shows tool events + your go</td></tr>
+      <tr><td>R5.3 · 18×2 (or reliability slice)</td><td class="num">36 (or 12)</td><td class="num">~165 (or ~55)</td><td>both pilots clean + balance fits inside cap + your go</td></tr>
+    </tbody>
+  </table></div>
+  <div class="note warn"><b>Stop rules, binding.</b> Balance read from the Sarvam dashboard before every paid rung; cumulative spend tracked in the decision artifact; no automatic retries; provider failures logged infrastructure-invalid, never bought again; if any preflight fails mid-run, the run aborts rather than finishing on hope. If ₹500 turns out to buy less than a rung needs, that rung does not run — the conclusion does not depend on it.</div>
+</div></section>
+
+<section id="rules"><div class="wrap">
+  <div class="sec-head"><span class="kicker">04 · The contract</span>
+    <h2>Rules I will stick to</h2></div>
+  <div class="tablewrap"><table>
+    <tbody>
+      <tr><td class="num"><b>1</b></td><td><b>No new plan documents.</b> V2 is the plan of record; this file closes it; progress is reported against R1–R6. Plan v3 is archived and will not be argued for.</td></tr>
+      <tr><td class="num"><b>2</b></td><td><b>V2's ordering rule is inviolable.</b> Tools before commit, commit before voice. R4's journal line precedes every paid call, every time.</td></tr>
+      <tr><td class="num"><b>3</b></td><td><b>No versions beyond V20,</b> and V20 only if R5.1 opens its gate.</td></tr>
+      <tr><td class="num"><b>4</b></td><td><b>No headline from in-sample data.</b> Benchmark headlines come from the optimizer-blind 84. 30/30 stays labelled development evidence. The sealed 5/12 → 9/12 stays the text headline.</td></tr>
+      <tr><td class="num"><b>5</b></td><td><b>No invented domain facts.</b> Samsung Smart TV, EasyCredit, the real Indus variable contract. Nothing else, ever again.</td></tr>
+      <tr><td class="num"><b>6</b></td><td><b>Supersede, never overwrite.</b> Corrected readings publish beside originals — as the v19 transport finding already does.</td></tr>
+      <tr><td class="num"><b>7</b></td><td><b>A HOLD ships as a HOLD.</b> Nothing is re-run for a nicer number. The gate's independence is the product being demonstrated.</td></tr>
+    </tbody>
+  </table></div>
+</div></section>
+
+<section id="done"><div class="wrap">
+  <div class="sec-head"><span class="kicker">05 · Definition of done</span>
+    <h2>The project concludes when these five boxes tick</h2></div>
+  <div class="tablewrap"><table>
+    <thead><tr><th>#</th><th>Deliverable</th><th>Check</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1</td><td><code>python -m framework.loop run</code> reproduces measure → improve → re-measure → gate on the 168-conversation benchmark, headline from the blind half</td><td class="num">exits 0 · decision artifact written</td></tr>
+      <tr><td class="num">2</td><td>P4's three open lines closed or honestly bounded: second-judge κ published, MIPROv2 executed and reported, live line resolved at whatever level R5 reached</td><td class="num">artifacts on the site</td></tr>
+      <tr><td class="num">3</td><td>R4's platform-originated journal line exists on stable infrastructure — P2 closed for good</td><td class="num">journal entry, dated, 200 + state delta</td></tr>
+      <tr><td class="num">4</td><td>One brief, one plan of record + this ledger, history archived, image gone, handoff final, tagged local commit, full verify green</td><td class="num">ls + git tag + test battery</td></tr>
+      <tr><td class="num">5</td><td>Total Sarvam spend ≤ ₹500, itemised in the decision artifact</td><td class="num">session count × observed rate</td></tr>
+    </tbody>
+  </table></div>
+  <div class="note good"><b>Sequence.</b> R1, R2, R3 start now, in parallel, free. R4 follows the same day. R5 needs only your three go/no-gos. R6 wraps. The conclusion — a showable, reproducible, governed loop with the strongest honest voice story available — is reachable today on the free items alone; R5 decides only how the voice chapter ends.</div>
+</div></section>
+
+<div class="foot"><div class="wrap">
+  Loopline · Final plan — the closing ledger of Build Plan v2 · 21 August 2026.<br>
+  Supersedes BUILD-PLAN.html, BUILD-PLAN-V3.html and the INTERVIEW-READINESS-REVIEW gate list; BUILD-PLAN-V2.html remains the plan of record this file closes. Every verified figure traces to a preserved artifact: MLflow (25 runs), dynamic-experiment summaries, deployment manifests, the inbound-request journal, and the rendered site. EasyCredit and all customer data are fictional.
+</div></div>
+
+</body>
+</html>

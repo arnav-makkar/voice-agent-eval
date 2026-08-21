@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Main EasyCredit se Shubh. LG Washing Machine ki Rs 3139 overdue EMI kya abhi app se pay kar sakte hain?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4881.9,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "6bba679322590d0231f58d3024ac8476585776a48c4cbfa0e244c43d2962b09a",
+    "response_hash": "e2f53889daf5e495a92de410f7e24698d36463c92142a2aceede92c355e11a5b",
+    "usage": {
+      "candidatesTokenCount": 53,
+      "promptTokenCount": 1429,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1429
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 589,
+      "totalTokenCount": 2071
+    }
+  }
+}

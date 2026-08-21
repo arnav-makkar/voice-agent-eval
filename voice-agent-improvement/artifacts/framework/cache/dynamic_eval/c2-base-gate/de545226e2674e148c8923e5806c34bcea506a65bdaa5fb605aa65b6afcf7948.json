@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Riya ji, humare system mein payment abhi unpaid dikh raha hai. Kya aap EasyCredit app par check karke batayengi?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5330.2,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "de545226e2674e148c8923e5806c34bcea506a65bdaa5fb605aa65b6afcf7948",
+    "response_hash": "a17ffbd793dcd8f6011fcc0ebfe3acb4d3f88511cc418aacdebc2f6ee3490cfd",
+    "usage": {
+      "candidatesTokenCount": 54,
+      "promptTokenCount": 1664,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1664
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 747,
+      "totalTokenCount": 2465
+    }
+  }
+}

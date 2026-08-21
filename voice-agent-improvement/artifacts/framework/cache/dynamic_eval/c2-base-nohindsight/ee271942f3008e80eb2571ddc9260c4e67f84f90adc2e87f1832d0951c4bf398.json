@@ -1,0 +1,35 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Main aapka payment status check kar leta hoon, ek second hold kijiye.",
+    "tool_calls": [
+      {
+        "arguments": {},
+        "name": "check_payment_status"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 3580.3,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "ee271942f3008e80eb2571ddc9260c4e67f84f90adc2e87f1832d0951c4bf398",
+    "response_hash": "4098c3b413d8f7616fdd24fbad3c71acc08c10366844660d0696cb6824738452",
+    "usage": {
+      "candidatesTokenCount": 83,
+      "promptTokenCount": 1472,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1472
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 357,
+      "totalTokenCount": 1912
+    }
+  }
+}

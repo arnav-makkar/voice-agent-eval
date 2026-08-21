@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Thik hai Simran ji, main kal 22 August ko call kar leta hoon. Kis samay baat karna convenient hoga?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 7760.8,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "c652599bb67f2c8b835b15f06edbd3ee97c0f106fbc25b5b9505022258ec0324",
+    "response_hash": "a9b57e57fa9626e1965c81dabf306fd1185316b83b3f44a339f177aba6ef27a9",
+    "usage": {
+      "candidatesTokenCount": 66,
+      "promptTokenCount": 1568,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1568
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1135,
+      "totalTokenCount": 2769
+    }
+  }
+}

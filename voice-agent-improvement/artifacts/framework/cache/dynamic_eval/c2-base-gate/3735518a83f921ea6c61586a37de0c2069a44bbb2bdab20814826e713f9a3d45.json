@@ -1,0 +1,35 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Main abhi aapka payment status check kar leta hoon, kripya ek minute rukiyega.",
+    "tool_calls": [
+      {
+        "arguments": {},
+        "name": "check_payment_status"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 3903.1,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "3735518a83f921ea6c61586a37de0c2069a44bbb2bdab20814826e713f9a3d45",
+    "response_hash": "b3619d68d8728719f3d7d0141918c76972a31d0ad9000afb6d13b68202a2d782",
+    "usage": {
+      "candidatesTokenCount": 57,
+      "promptTokenCount": 1565,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1565
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 458,
+      "totalTokenCount": 2080
+    }
+  }
+}

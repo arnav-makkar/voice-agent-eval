@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "rtp",
+    "should_end_call": true,
+    "spoken_response": "Samajh gaya Simran ji, aapki baat record kar li hai. Dhanyawad.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "rtp"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 6339.8,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "b24a219c312e193e517af03ac0214f75e0ff15a439710e63b8e54b93812ad274",
+    "response_hash": "cf8af46293b04bd610b62b33405295b742611ac12e00cfad05ccd86ae19c4583",
+    "usage": {
+      "candidatesTokenCount": 61,
+      "promptTokenCount": 1567,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1567
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 780,
+      "totalTokenCount": 2408
+    }
+  }
+}

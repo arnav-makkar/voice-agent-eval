@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "acknowledged",
+    "should_end_call": true,
+    "spoken_response": "Dhanyawad Simran ji. Aapka din shubh ho.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "acknowledged"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 8766.6,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "bcce5d1a1b151bab8fc94fb9a778ab5b3c0b58279bb0907f005e8221204aff35",
+    "response_hash": "0dade21ca00960d622fc4f2283b1b69e5a93965c4fa1bfe8320fb9a459643127",
+    "usage": {
+      "candidatesTokenCount": 55,
+      "promptTokenCount": 1673,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1673
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1414,
+      "totalTokenCount": 3142
+    }
+  }
+}

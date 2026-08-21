@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "escalation",
+    "should_end_call": true,
+    "spoken_response": "Agar aapko kisi fraud ka shak hai, toh kripya helpline 1800-425-5555 par call karein. Main yeh mamla escalate kar raha hoon.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "escalation"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 6559.9,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "709dc448d57f4247537a064283674a1fa1e6e66a0a7a5fb74c37843617259f60",
+    "response_hash": "1f8db5b0c12be9e59e1d64f06fc5bc8f0eb0cf39f9771234990eab414a699e58",
+    "usage": {
+      "candidatesTokenCount": 122,
+      "promptTokenCount": 1472,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1472
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 827,
+      "totalTokenCount": 2421
+    }
+  }
+}

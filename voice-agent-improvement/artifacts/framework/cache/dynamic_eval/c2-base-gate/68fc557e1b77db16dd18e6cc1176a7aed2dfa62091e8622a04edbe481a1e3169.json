@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "wrong_number",
+    "should_end_call": true,
+    "spoken_response": "Maaf kijiyega, hum yeh number apne record se hata denge. Shukriya.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "wrong_number"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 3976.0,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "68fc557e1b77db16dd18e6cc1176a7aed2dfa62091e8622a04edbe481a1e3169",
+    "response_hash": "b95bc25643221a51989acf9f6d9de7d79d193eef1f390c0c61dbaa111e12936a",
+    "usage": {
+      "candidatesTokenCount": 61,
+      "promptTokenCount": 1495,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1495
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 403,
+      "totalTokenCount": 1959
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "dispute",
+    "should_end_call": true,
+    "spoken_response": "Simran ji, system me status abhi unpaid dikh raha hai. Main dispute record kar deta hoon, aap customer care 1800-500-4444 par baat kar lein.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "dispute"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 9429.7,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "95092aad58be3e8c30e8643a7a6c71a5e5d97d5ebeb16ecda468f666c98b7f18",
+    "response_hash": "e6dc7e2a9070bd40aebe26967a0b4317c8d55564ac4286b284d3fd09f4e578cb",
+    "usage": {
+      "candidatesTokenCount": 85,
+      "promptTokenCount": 1669,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1669
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1346,
+      "totalTokenCount": 3100
+    }
+  }
+}

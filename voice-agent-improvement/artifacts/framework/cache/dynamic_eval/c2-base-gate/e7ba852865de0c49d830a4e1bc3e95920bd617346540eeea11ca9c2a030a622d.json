@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Shukriya. Kya aap abhi EasyCredit app se payment kar sakti hain?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5935.6,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "e7ba852865de0c49d830a4e1bc3e95920bd617346540eeea11ca9c2a030a622d",
+    "response_hash": "9e44c54e96ce8977331b12611743161837db5d8b2e7e79e1b5e06bcf68125b04",
+    "usage": {
+      "candidatesTokenCount": 42,
+      "promptTokenCount": 1641,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1641
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 876,
+      "totalTokenCount": 2559
+    }
+  }
+}

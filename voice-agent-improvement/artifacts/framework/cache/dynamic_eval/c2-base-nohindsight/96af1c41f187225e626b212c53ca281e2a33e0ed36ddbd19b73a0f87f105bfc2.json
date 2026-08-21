@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Thik hai Simran ji. Kal kis samay call karun?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 9636.1,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "96af1c41f187225e626b212c53ca281e2a33e0ed36ddbd19b73a0f87f105bfc2",
+    "response_hash": "3d3d435eea598a16f86f8c90c22b8e800130aaa1f0184aec505708448f4f2aed",
+    "usage": {
+      "candidatesTokenCount": 39,
+      "promptTokenCount": 1468,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1468
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1350,
+      "totalTokenCount": 2857
+    }
+  }
+}

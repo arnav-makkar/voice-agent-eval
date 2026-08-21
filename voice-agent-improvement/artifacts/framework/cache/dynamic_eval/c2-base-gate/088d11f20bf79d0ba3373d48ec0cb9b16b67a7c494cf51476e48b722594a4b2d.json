@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Simran ji, kya main 23 August ki payment date confirm kar doon?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 6552.9,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "088d11f20bf79d0ba3373d48ec0cb9b16b67a7c494cf51476e48b722594a4b2d",
+    "response_hash": "2758b99fed55e72d8739ab90df870913063482ee4c8f3345250afd3b2c90f48f",
+    "usage": {
+      "candidatesTokenCount": 42,
+      "promptTokenCount": 1581,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1581
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1055,
+      "totalTokenCount": 2678
+    }
+  }
+}

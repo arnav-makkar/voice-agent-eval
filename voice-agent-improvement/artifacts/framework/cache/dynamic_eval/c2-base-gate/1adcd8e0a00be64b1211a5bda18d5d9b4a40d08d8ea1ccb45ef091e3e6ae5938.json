@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "acknowledged",
+    "should_end_call": true,
+    "spoken_response": "Shukriya Riya ji, EasyCredit se baat karne ke liye dhanyawad. Aapka din shubh ho.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "acknowledged"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5935.8,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "1adcd8e0a00be64b1211a5bda18d5d9b4a40d08d8ea1ccb45ef091e3e6ae5938",
+    "response_hash": "b4f7e6fbcef612edbd9a10cdf6cf697f044e361493fa4a3b24ccc9ac7c2df265",
+    "usage": {
+      "candidatesTokenCount": 66,
+      "promptTokenCount": 1688,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1688
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 766,
+      "totalTokenCount": 2520
+    }
+  }
+}

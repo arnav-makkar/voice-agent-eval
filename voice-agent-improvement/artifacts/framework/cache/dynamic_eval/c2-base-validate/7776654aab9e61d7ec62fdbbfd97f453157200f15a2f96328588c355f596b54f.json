@@ -1,0 +1,35 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Aap keh rahe hain payment ho chuka hai? Main status check karta hoon.",
+    "tool_calls": [
+      {
+        "arguments": {},
+        "name": "check_payment_status"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4204.9,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "7776654aab9e61d7ec62fdbbfd97f453157200f15a2f96328588c355f596b54f",
+    "response_hash": "6dc57eb426fec512dfd2660329e13c7be780528ab1114c42e08e07a0d3d899b2",
+    "usage": {
+      "candidatesTokenCount": 53,
+      "promptTokenCount": 1570,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1570
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 449,
+      "totalTokenCount": 2072
+    }
+  }
+}

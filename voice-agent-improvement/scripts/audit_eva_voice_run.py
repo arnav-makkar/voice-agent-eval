@@ -44,6 +44,24 @@ def _parse_date(value: str | None) -> date | None:
         return None
 
 
+def _transport_verdict(record_dir: Path) -> dict[str, Any]:
+    """Was the tool endpoint actually reachable while this record ran?
+
+    Written by the runner's preflight and mid-run re-check. When the field is
+    absent — every pre-campaign-2 record — the endpoint is assumed reachable, so
+    historical audits keep their original readings rather than being silently
+    rewritten.
+    """
+    state = _json(record_dir / "loopline_tool_state.json") if (record_dir / "loopline_tool_state.json").exists() else {}
+    transport = state.get("transport") or {}
+    if "reachable" not in transport:
+        return {"reachable": True, "reason": "transport_health_not_recorded"}
+    return {
+        "reachable": bool(transport["reachable"]),
+        "reason": transport.get("reason", "tool_endpoint_unreachable_during_record"),
+    }
+
+
 def audit_record(record_dir: Path) -> dict[str, Any]:
     initial = _json(record_dir / "initial_scenario_db.json")
     final = _json(record_dir / "final_scenario_db.json")
@@ -54,8 +72,18 @@ def audit_record(record_dir: Path) -> dict[str, Any]:
     tool_names = [event.get("tool_name") for event in events]
     findings: list[dict[str, Any]] = []
 
+    # A tool the agent could not reach is not a tool the agent declined to call.
+    # Campaign 1 scored a dead tunnel as `required_tool_missing` on every record
+    # of a paid round; the transport verdict keeps that mistake impossible.
+    transport = _transport_verdict(record_dir)
     missing = [action["name"] for action in required if action.get("name") not in tool_names]
-    if missing:
+    if missing and not transport["reachable"]:
+        findings.append({
+            "rule": "tool_transport_invalid",
+            "severity": "invalid",
+            "evidence": [transport["reason"], *missing],
+        })
+    elif missing:
         findings.append({"rule": "required_tool_missing", "severity": "P0", "evidence": missing})
 
     current = date.fromisoformat(initial.get("_current_date", "2026-08-19"))
@@ -99,6 +127,8 @@ def audit_record(record_dir: Path) -> dict[str, Any]:
         "tool_events": tool_names,
         "state_changed": state_changed,
         "findings": findings,
+        "transport": transport,
+        "scorable": transport["reachable"],
         "passes_postflight": not findings,
     }
 

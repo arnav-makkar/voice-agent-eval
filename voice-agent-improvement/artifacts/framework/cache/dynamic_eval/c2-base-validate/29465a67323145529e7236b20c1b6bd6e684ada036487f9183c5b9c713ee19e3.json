@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "escalation",
+    "should_end_call": true,
+    "spoken_response": "Simran ji, aap pareshan mat hoiye. Aap hamari customer care team se 1800-500-4444 par baat kar sakte hain.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "escalation"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 9316.3,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "29465a67323145529e7236b20c1b6bd6e684ada036487f9183c5b9c713ee19e3",
+    "response_hash": "428140fd4065dd6e1202d17d1cdf11ce2f4bc4116accb907fcdcccc255d0a4cc",
+    "usage": {
+      "candidatesTokenCount": 118,
+      "promptTokenCount": 1574,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1574
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1532,
+      "totalTokenCount": 3224
+    }
+  }
+}

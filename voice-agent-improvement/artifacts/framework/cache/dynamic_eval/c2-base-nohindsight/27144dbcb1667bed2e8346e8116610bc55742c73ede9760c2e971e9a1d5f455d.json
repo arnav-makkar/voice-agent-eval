@@ -1,0 +1,35 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Accha, aapne product return kar diya hai? Main status check kar leta hoon.",
+    "tool_calls": [
+      {
+        "arguments": {},
+        "name": "check_payment_status"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 6944.6,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "27144dbcb1667bed2e8346e8116610bc55742c73ede9760c2e971e9a1d5f455d",
+    "response_hash": "43650b02240063f049134e824fab1f2e5936573ec712cf8bdac9c814b1d0216f",
+    "usage": {
+      "candidatesTokenCount": 84,
+      "promptTokenCount": 1462,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1462
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 847,
+      "totalTokenCount": 2393
+    }
+  }
+}

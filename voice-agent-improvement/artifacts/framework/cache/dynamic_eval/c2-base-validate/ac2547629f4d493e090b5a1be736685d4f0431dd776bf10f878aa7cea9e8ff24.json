@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "wrong_number",
+    "should_end_call": true,
+    "spoken_response": "Maaf kijiyega, galat number par call lag gaya. Dhanyawad.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "wrong_number"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4049.7,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "ac2547629f4d493e090b5a1be736685d4f0431dd776bf10f878aa7cea9e8ff24",
+    "response_hash": "2e63a6f67eef1f0ed7117a2b698d8ee53c5560038f95b9d2f42db16aa797b145",
+    "usage": {
+      "candidatesTokenCount": 61,
+      "promptTokenCount": 1495,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1495
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 442,
+      "totalTokenCount": 1998
+    }
+  }
+}

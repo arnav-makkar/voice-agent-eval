@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "wrong_number",
+    "should_end_call": true,
+    "spoken_response": "Maaf kijiyega, galat number par call karne ke liye. Shukriya.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "wrong_number"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 6405.8,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "5c4694647f4cbf4d49bbc8a3b6ff8d7a9baa1580799f90981bb4c52720e11397",
+    "response_hash": "9a04a6a378e2a39cfc3ba2bf2746dc3e80c99a65d61af763302d5e5f852fd4ea",
+    "usage": {
+      "candidatesTokenCount": 69,
+      "promptTokenCount": 1394,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1394
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 715,
+      "totalTokenCount": 2178
+    }
+  }
+}

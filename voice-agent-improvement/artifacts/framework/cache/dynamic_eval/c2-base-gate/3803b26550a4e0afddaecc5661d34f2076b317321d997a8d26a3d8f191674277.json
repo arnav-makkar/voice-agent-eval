@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "acknowledged",
+    "should_end_call": true,
+    "spoken_response": "Dhanyawad Simran ji, kripya EasyCredit app se payment kar dijiyega.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "acknowledged"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 20478.2,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "3803b26550a4e0afddaecc5661d34f2076b317321d997a8d26a3d8f191674277",
+    "response_hash": "800ab43be13b7902a060eaf848714906630d5e1331bf9756e15800004f1116fe",
+    "usage": {
+      "candidatesTokenCount": 100,
+      "promptTokenCount": 1628,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1628
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 3482,
+      "totalTokenCount": 5210
+    }
+  }
+}

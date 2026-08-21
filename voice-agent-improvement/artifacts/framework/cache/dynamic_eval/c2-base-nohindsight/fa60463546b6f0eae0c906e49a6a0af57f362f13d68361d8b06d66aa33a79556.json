@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "dispute",
+    "should_end_call": true,
+    "spoken_response": "Simran ji, system mein abhi bhi Rs 6,607 unpaid dikha raha hai. Kripya customer care 1800-500-4444 par contact karke return update karayein.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "dispute"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 10386.4,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "fa60463546b6f0eae0c906e49a6a0af57f362f13d68361d8b06d66aa33a79556",
+    "response_hash": "75028f7b251c7a91d94004aa3c8e9b7cb76c73056519cb7fab2392afbefc7bea",
+    "usage": {
+      "candidatesTokenCount": 130,
+      "promptTokenCount": 1558,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1558
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1876,
+      "totalTokenCount": 3564
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Riya ji, aapka kul baaki amount 5,515 rupaye hai. Kya aap abhi EasyCredit app se payment kar sakti hain?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 11566.4,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "6ae535089c128d43454438f9aa4d96039126f5c9c9aaca688058a6fb2ae2e0ae",
+    "response_hash": "e43667d5d571da3eaa6d4890387047aaa4dfcb226cdebd4528fbcb473233fe9c",
+    "usage": {
+      "candidatesTokenCount": 58,
+      "promptTokenCount": 1680,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1680
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1635,
+      "totalTokenCount": 3373
+    }
+  }
+}

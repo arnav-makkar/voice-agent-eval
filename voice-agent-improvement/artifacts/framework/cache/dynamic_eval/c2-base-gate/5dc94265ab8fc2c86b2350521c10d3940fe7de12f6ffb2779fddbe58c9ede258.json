@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Riya ji, kya aap aaj shaam tak payment kar denge ya koi tareekh batayenge?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 7088.1,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "5dc94265ab8fc2c86b2350521c10d3940fe7de12f6ffb2779fddbe58c9ede258",
+    "response_hash": "570ae458ba209918ca77b1bbbf38d42db277f3d7b13c25d939452a84474d515e",
+    "usage": {
+      "candidatesTokenCount": 48,
+      "promptTokenCount": 1743,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1743
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1033,
+      "totalTokenCount": 2824
+    }
+  }
+}

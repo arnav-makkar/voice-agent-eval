@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "rtp",
+    "should_end_call": true,
+    "spoken_response": "Theek hai Simran ji, aapka samay dene ke liye dhanyavaad.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "rtp"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 6005.3,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "7486df1c4a9d2bb2475f632d0f2140eb2c536ca00bd8c93b82d93f9c40391854",
+    "response_hash": "5ea5b9e576a6d0c322669c0b434d2e2aa8456077ec392ac6196481cca5cfa8a0",
+    "usage": {
+      "candidatesTokenCount": 59,
+      "promptTokenCount": 1573,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1573
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 695,
+      "totalTokenCount": 2327
+    }
+  }
+}

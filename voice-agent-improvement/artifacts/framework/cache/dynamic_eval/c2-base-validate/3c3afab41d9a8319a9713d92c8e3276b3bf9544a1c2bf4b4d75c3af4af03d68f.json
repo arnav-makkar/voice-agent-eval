@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Riya ji, hamare system mein payment reflect nahi ho raha hai. Kya aap app se abhi pay kar sakti hain?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 6046.4,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "3c3afab41d9a8319a9713d92c8e3276b3bf9544a1c2bf4b4d75c3af4af03d68f",
+    "response_hash": "47a105aa72fb195eff6c8a2c0d0016423d8ebb886f978bfba8c8e569e4b09617",
+    "usage": {
+      "candidatesTokenCount": 51,
+      "promptTokenCount": 1665,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1665
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 870,
+      "totalTokenCount": 2586
+    }
+  }
+}

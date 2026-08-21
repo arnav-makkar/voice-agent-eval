@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "ptp_today",
+    "should_end_call": true,
+    "spoken_response": "Bahut dhanyawad Riya ji. Kripya aaj raat tak EasyCredit app se bhugtan kar dijiye.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "date": "20-08-2026"
+        },
+        "name": "record_promise_to_pay"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5272.7,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "788001582f1f3b5f774cf5308e6ae3511efe8f3e13d3139586736a1ca95c6322",
+    "response_hash": "acf73c6b3e2145c882e985685c9b6b802a862f4fa9829c8f1c82aaee8b9b1025",
+    "usage": {
+      "candidatesTokenCount": 80,
+      "promptTokenCount": 1464,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1464
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 666,
+      "totalTokenCount": 2210
+    }
+  }
+}

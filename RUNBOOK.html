@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Loopline — Campaign 2 Runbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --bg:#0B0C10;--panel:#13151C;--panel2:#181B24;--inset:#0D0F14;
+    --line:rgba(150,158,180,.14);--line2:rgba(150,158,180,.28);
+    --ink:#E9EBF2;--mut:#969CB0;--dim:#6A7086;
+    --acc:#8B8FD9;--good:#6FB79B;--warn:#C2A468;--bad:#C98593;--tool:#7FA8B8;
+    --acc-bg:rgba(139,143,217,.11);--good-bg:rgba(111,183,155,.11);
+    --warn-bg:rgba(194,164,104,.11);--bad-bg:rgba(201,133,147,.11);
+    --disp:"Archivo","IBM Plex Sans",system-ui,sans-serif;
+    --body:"IBM Plex Sans",system-ui,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,monospace;
+  }
+  *{box-sizing:border-box;margin:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+  body{background:var(--bg);color:var(--ink);font:15px/1.62 var(--body);-webkit-font-smoothing:antialiased}
+  a{color:var(--acc);text-decoration:none}a:hover{text-decoration:underline}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 26px}
+  code{font:500 12.5px var(--mono);background:var(--inset);border:1px solid var(--line);border-radius:5px;padding:1px 6px;color:#C8D0E6}
+  h1,h2,h3{font-family:var(--disp);letter-spacing:-.02em}
+
+  header.hero{padding:56px 0 30px;border-bottom:1px solid var(--line)}
+  .kicker{font:600 11px var(--mono);letter-spacing:.15em;text-transform:uppercase;color:var(--acc)}
+  header.hero h1{font-size:clamp(28px,4.2vw,42px);font-weight:800;line-height:1.08;margin:14px 0 14px;text-wrap:balance}
+  header.hero h1 em{font-style:normal;color:var(--acc)}
+  .lede{max-width:74ch;color:var(--mut);font-size:16px}
+
+  .progress{margin-top:28px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+  .progress .top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px}
+  .progress b{font:800 22px var(--disp);font-variant-numeric:tabular-nums}
+  .progress span{font:500 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+  .track{height:7px;border-radius:99px;background:var(--inset);overflow:hidden}
+  .fill{height:100%;width:0;background:var(--acc);transition:width .35s ease}
+
+  section{padding:44px 0;border-bottom:1px solid var(--line)}
+  .sec-head{margin-bottom:22px}
+  .sec-head h2{font-size:clamp(20px,3vw,27px);font-weight:700;margin:8px 0 8px;text-wrap:balance}
+  .sec-head p{color:var(--mut);max-width:78ch}
+
+  .chip{display:inline-block;font:600 10px var(--mono);letter-spacing:.09em;text-transform:uppercase;padding:3px 9px;border-radius:99px;border:1px solid;white-space:nowrap}
+  .chip.good{color:var(--good);border-color:rgba(111,183,155,.4);background:var(--good-bg)}
+  .chip.warn{color:var(--warn);border-color:rgba(194,164,104,.4);background:var(--warn-bg)}
+  .chip.bad{color:var(--bad);border-color:rgba(201,133,147,.4);background:var(--bad-bg)}
+  .chip.acc{color:var(--acc);border-color:rgba(139,143,217,.4);background:var(--acc-bg)}
+  .chip.dim{color:var(--dim);border-color:var(--line2)}
+
+  /* ── Step rows: summary always visible, detail on click ── */
+  .step{background:var(--panel);border:1px solid var(--line);border-radius:13px;margin-bottom:11px;overflow:hidden;transition:border-color .2s}
+  .step[open]{border-color:var(--line2)}
+  .step.done{opacity:.72}
+  .step > summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:auto 42px 1fr auto auto;gap:14px;align-items:center;padding:16px 20px}
+  .step > summary::-webkit-details-marker{display:none}
+  .step > summary:hover{background:var(--panel2)}
+  .tick{width:22px;height:22px;border-radius:6px;border:1.5px solid var(--line2);display:grid;place-items:center;font-size:13px;color:var(--bg);background:transparent;flex:none}
+  .tick.on{background:var(--good);border-color:var(--good)}
+  .sid{font:800 12px var(--mono);color:var(--acc);letter-spacing:.05em}
+  .stitle b{display:block;font:600 15.5px var(--body);margin-bottom:2px}
+  .stitle span{display:block;font-size:13px;color:var(--mut)}
+  .smeta{font:500 11px var(--mono);color:var(--dim);white-space:nowrap}
+  .caret{color:var(--dim);transition:transform .2s;font-size:13px}
+  .step[open] .caret{transform:rotate(180deg)}
+  .detail{padding:4px 20px 22px;border-top:1px solid var(--line)}
+  .detail h4{font:600 12px var(--mono);letter-spacing:.11em;text-transform:uppercase;color:var(--dim);margin:20px 0 10px}
+  .detail h4:first-child{margin-top:16px}
+  .detail p{color:var(--mut);font-size:14px;max-width:84ch;margin-bottom:9px}
+  .detail p strong{color:var(--ink);font-weight:600}
+  .detail ol,.detail ul{margin:0 0 10px 19px;color:var(--mut);font-size:14px;display:flex;flex-direction:column;gap:7px}
+  .detail li strong{color:var(--ink);font-weight:600}
+  pre{background:var(--inset);border:1px solid var(--line);border-radius:9px;padding:13px 15px;font:12.5px/1.7 var(--mono);color:#C8D0E6;overflow-x:auto;margin:10px 0}
+  .accept{margin-top:14px;background:var(--inset);border:1px solid var(--line);border-left:2px solid var(--good);border-radius:0 9px 9px 0;padding:12px 15px;font-size:13.5px;color:var(--mut)}
+  .accept b{color:var(--good);font:600 10px var(--mono);letter-spacing:.09em;text-transform:uppercase;display:block;margin-bottom:5px}
+  .who{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+
+  .note{margin-top:12px;padding:13px 16px;background:var(--acc-bg);border:1px solid rgba(139,143,217,.28);border-radius:10px;font-size:13.5px;color:var(--ink)}
+  .note b{color:var(--acc)}
+  .note.bad{background:var(--bad-bg);border-color:rgba(201,133,147,.3)}.note.bad b{color:var(--bad)}
+  .note.warn{background:var(--warn-bg);border-color:rgba(194,164,104,.3)}.note.warn b{color:var(--warn)}
+  .note.good{background:var(--good-bg);border-color:rgba(111,183,155,.3)}.note.good b{color:var(--good)}
+
+  .find{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:11px}
+  .find .fh{display:flex;gap:11px;align-items:center;flex-wrap:wrap;margin-bottom:9px}
+  .find .fh b{font:600 15px var(--body)}
+  .find p{color:var(--mut);font-size:14px;max-width:86ch}
+  .find p+p{margin-top:8px}
+  .find .fix{margin-top:10px;font-size:13.5px;color:var(--ink)}
+  .find .fix b{color:var(--good)}
+
+  .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:11px;background:var(--panel)}
+  table{border-collapse:collapse;width:100%;font-size:13.5px}
+  th{font:600 10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--dim);text-align:left;padding:11px 13px;border-bottom:1px solid var(--line2);white-space:nowrap}
+  td{padding:10px 13px;border-bottom:1px solid var(--line);vertical-align:top}
+  tr:last-child td{border-bottom:none}
+  td.num{font:500 12.5px var(--mono);white-space:nowrap;font-variant-numeric:tabular-nums}
+  .foot{padding:30px 0 60px;color:var(--dim);font-size:12.5px}
+  .reset{font:500 11px var(--mono);color:var(--dim);border:1px solid var(--line);border-radius:7px;padding:5px 10px;background:transparent;cursor:pointer}
+  .reset:hover{color:var(--ink);border-color:var(--line2)}
+</style>
+</head>
+<body>
+
+<header class="hero"><div class="wrap">
+  <span class="kicker">Campaign 2 · living runbook · supersedes CLEAN-RUN</span>
+  <h1>Eight steps. <em>Tick them off as they land.</em></h1>
+  <p class="lede">Every step shows its title and what it does. Click any row to open the full detail — exactly what happens, what it costs, who does it, and what has to be true before it counts as done. This file is the tracker we keep updating; ticks are saved in this browser.</p>
+  <div class="progress">
+    <div class="top"><b><span id="pdone">0</span> / 8 complete</b><span id="pnext">Next · Step 0</span></div>
+    <div class="track"><div class="fill" id="pfill"></div></div>
+  </div>
+</div></header>
+
+<section id="audit"><div class="wrap">
+  <div class="sec-head"><span class="kicker">Audit · run before execution</span>
+    <h2>Eight problems found in the plan, and what each one changes</h2>
+    <p>Two were verified by testing rather than reasoning. One is a hard blocker on step 4.</p></div>
+
+  <div class="find">
+    <div class="fh"><span class="chip warn">resolved</span><b>A1 · The Sarvam text API rejects our key</b><span class="chip dim">verified by test</span></div>
+    <p>Step 4 proposed running the 170 text conversations on a Sarvam LLM so the system under test matches the deployed model family. I had never actually called it. I have now: <code>POST https://api.sarvam.ai/v1/chat/completions</code> returns <strong>HTTP 403 <code>invalid_api_key_error</code></strong> with the Voice Agents key, under both <code>api-subscription-key</code> and <code>Authorization: Bearer</code>. The endpoint exists — it answers with a structured Sarvam error, not a 404 — but the Voice Agents credential does not authorise it.</p>
+    <p class="fix"><b>Decision taken:</b> the text tier runs on <strong>Gemini now</strong>, and you add the Sarvam text-to-text key for the <strong>105B model later</strong>. So step 0 writes the text-tier client behind a provider interface — one config value, not a rewrite — and the manifest records which model actually produced each result. Swapping providers mid-campaign would invalidate the before/after, so the swap either happens before step 4 or waits for a future campaign. Until it happens, the page says plainly that the text tier is a proxy for the deployed runtime.</p>
+  </div>
+
+  <div class="find">
+    <div class="fh"><span class="chip bad">correctness</span><b>A2 · “Every scenario requires a tool” does not survive contact with live calls</b></div>
+    <p>In text mode <code>record_disposition</code> is executed by the harness, so it can be required and checked. On a real phone call there is no harness — disposition is an Indus <em>output variable</em> extracted after the call, and it never touches the tool service. So on the recorded and bot-to-bot tiers only the three HTTP tools can be verified against the journal.</p>
+    <p class="fix"><b>Change:</b> the requirement splits by tier rather than pretending to be uniform. Text: an explicit <code>record_disposition</code> call plus any business write. Live tiers: a correct extracted disposition <em>and</em>, where the card demands it, a journal-verified HTTP tool effect. Reported as two separate numbers, never merged into one “tool compliance” figure.</p>
+  </div>
+
+  <div class="find">
+    <div class="fh"><span class="chip warn">metric</span><b>A3 · Grounded-claim rate is undefined when the agent makes no claim</b></div>
+    <p>The headline live metric is “every terminal success claim is backed by a successful tool result”. If the improved agent becomes cautious and stops claiming, the denominator collapses and the rate reads 0/0 — which is not an improvement, and is not a failure either.</p>
+    <p class="fix"><b>Change:</b> always report the pair — <em>claims made</em> and <em>claims grounded</em> — plus required-effect completion as an independent number. An agent that stops claiming and also stops writing has got worse, and the pair makes that visible where a single ratio would hide it.</p>
+  </div>
+
+  <div class="find">
+    <div class="fh"><span class="chip warn">unverified</span><b>A4 · Recording retrieval from Indus is assumed, not confirmed</b></div>
+    <p>Step 3 depends on getting audio and transcripts for your fifteen calls back out of Indus. I have not confirmed that is available programmatically for this account, and the previous campaign's recordings arrived through signed URLs that expire.</p>
+    <p class="fix"><b>Change:</b> step 1 now ends with a retrieval smoke test — place one throwaway call and pull its recording and transcript end to end. If that only works by manual export, we find out before fifteen calls, not after.</p>
+  </div>
+
+  <div class="find">
+    <div class="fh"><span class="chip warn">method</span><b>A5 · The 170 is authored after seeing the baseline fail</b></div>
+    <p>Your ordering puts voice and recorded calls before the text suite, which is good — the suite is grounded in observed failures. It also means a suite written to catch known failures is easier to improve on, which inflates the before/after gap.</p>
+    <p class="fix"><b>Change:</b> already mitigated, now enforced as a check. Families come from the fixed 14-family taxonomy, not from specific observed failures; the manifest records which families were pre-specified and which were discovered in steps 2–3; the 86 blind scenarios and the sealed 12 are authored before any candidate exists.</p>
+  </div>
+
+  <div class="find">
+    <div class="fh"><span class="chip warn">cost</span><b>A6 · The optimiser's budget is unpriced on a metered model</b></div>
+    <p>GEPA at ~200 metric calls means ~200 full multi-turn episodes. On Gemini flash that is negligible. On a metered Sarvam text key it is not, and it compounds with two full 170-scenario passes.</p>
+    <p class="fix"><b>Change:</b> tied to A1. Whichever model runs the text tier, the first five episodes are priced before the rest run, and the optimiser budget is set from that measured number rather than assumed.</p>
+  </div>
+
+  <div class="find">
+    <div class="fh"><span class="chip acc">hygiene</span><b>A7 · The site would silently mix campaigns</b></div>
+    <p>The dashboard currently renders campaign-1 data. If campaign-2 artifacts land beside it, some panels update and others do not, and the page becomes exactly the incoherent mixture this restart exists to escape.</p>
+    <p class="fix"><b>Change:</b> the export is switched wholesale in step 7, not incrementally. Until then campaign 2 is only ever viewed through <code>?view=c2</code>, and campaign 1 moves to <code>docs/history/</code> in the same commit that switches it.</p>
+  </div>
+
+  <div class="find">
+    <div class="fh"><span class="chip acc">bookkeeping</span><b>A8 · Two freezes, not one</b></div>
+    <p>Step 0 freezes the evaluator, but the 170 suite does not exist until step 4, so its hash cannot be frozen at the same time. Recording only one of them would let the other move unnoticed.</p>
+    <p class="fix"><b>Change:</b> the manifest carries both hashes with the timestamp each was taken, and every result references both. Any change to either restarts measurement from step 2.</p>
+  </div>
+</div></section>
+
+<section id="steps"><div class="wrap">
+  <div class="sec-head"><span class="kicker">The sequence</span>
+    <h2>Eight steps</h2>
+    <p>Click a row for the full detail. Tick the box when it is done — progress is saved in this browser.</p></div>
+
+  <!-- ── STEP 0 ── -->
+  <details class="step" id="s0" open>
+    <summary>
+      <span class="tick" data-tick="s0"></span>
+      <span class="sid">S0</span>
+      <span class="stitle"><b>Protocol freeze</b><span>Freeze the evaluator, write the scripts, emit the campaign manifest — before anything runs.</span></span>
+      <span class="smeta">~3 h · free</span>
+      <span class="caret">⌄</span>
+    </summary>
+    <div class="detail">
+      <h4>Why it is first</h4>
+      <p>This is the step that makes the numbers cohere. Campaign 1 failed as a story because it grew by accretion — eight agent versions, nine denominators, an evaluator that changed mid-run. Everything measurable is declared here, in one artifact, before any evidence exists to be tempted by.</p>
+
+      <h4>What happens</h4>
+      <ol>
+        <li><strong>Fix the benchmark generator.</strong> Three known defects: it invents products (only Samsung Smart TV / EasyCredit is real), it never substitutes <code>{date}</code> so callers literally say “{date} tak kar dunga”, and conversations end before the agent can reach a terminal disposition. Re-validate on 14 scenarios; the gate is near-zero <code>script_exhausted</code> and zero placeholder text.</li>
+        <li><strong>Fold in the two harness lessons, then freeze the evaluator.</strong> Add <code>tool_transport_invalid</code> as a validity verdict so an unreachable endpoint is never scored as agent failure, and keep the enriched metrics panel. Then hash the evaluator bundle. <strong>That hash appears on every number this campaign produces.</strong></li>
+        <li><strong>Put the text tier behind a provider interface (A1).</strong> Gemini today, Sarvam 105B when the key lands, selected by one config value. Both paths smoke-tested against the same structured-output contract, and the manifest records which model produced each result.</li>
+        <li><strong>Write the 15 call cards.</strong> One per failure family, each naming the backend effect the agent must produce. Already drafted at <code>agent/campaign2/CALL-CARDS.md</code>.</li>
+        <li><strong>Declare the rules.</strong> Validity (a session counts only if evaluator-valid <em>and</em> transport-healthy), decision rules per tier, the split of tool requirements by tier (A2), the claims-made/claims-grounded pair (A3), and the synthetic-data rule: generated scenarios enter the development split only, tagged <code>synthetic</code>.</li>
+        <li><strong>Emit <code>artifacts/campaign2/manifest.json</code>.</strong> Agent naming, both freeze hashes with timestamps (A8), rules, budget ceiling. Every later artifact references it.</li>
+      </ol>
+
+      <div class="accept"><b>Done when</b>Manifest committed · evaluator hashed · 14-scenario validation clean · text-tier model decided and smoke-tested · 15 call cards in your hands.</div>
+      <div class="note good"><b>Completed 21 Aug.</b> Generator defects fixed and the gate is clean: <code>script_exhausted</code> went 7/14 → <strong>0/14</strong>, simulator validity 1.0, every episode reaching a tool. Evaluator frozen at <code>781d6be2…</code> and the generator at <code>a98bc55d…</code>; <code>tool_transport_invalid</code> is wired into the post-flight with four regression tests, so an unreachable endpoint can never again be scored as agent failure. Text tier put behind a provider interface — Gemini now, Sarvam 105B by config later. Manifest at <code>artifacts/campaign2/manifest.json</code>. 89 Python tests green.
+      <br><br><b>One finding worth your attention.</b> The first BASE draft scored 93% on the validation sample — too strong, because I wrote it knowing campaign 1's entire post-mortem. Three passages encoded that hindsight (a vague yes is not a commitment · convert everything to an absolute date · do not re-open after a final answer). Removing them dropped BASE to <strong>71%</strong> and surfaced a genuine guardrail failure. That is the honest baseline; the earlier one was the answer key leaking into the exam.</div>
+      <div class="who"><span class="chip acc">claude</span><span class="chip dim">nothing needed from you</span></div>
+    </div>
+  </details>
+
+  <!-- ── STEP 1 ── -->
+  <details class="step" id="s1">
+    <summary>
+      <span class="tick" data-tick="s1"></span>
+      <span class="sid">S1</span>
+      <span class="stitle"><b>Agent, tools and rails</b><span>Create the Indus agent, wire three authenticated tools on a stable route, prove the platform can reach them, commit BASE.</span></span>
+      <span class="smeta">~3 h · ~0–2 credits</span>
+      <span class="caret">⌄</span>
+    </summary>
+    <div class="detail">
+      <h4>The binding order</h4>
+      <p><strong>transport → tools → platform proof → commit → only then measurement.</strong> Campaign 1 ran a paid round against a tunnel that had expired forty minutes earlier and scored the silence as agent failure. That is what this ordering exists to prevent.</p>
+
+      <h4>What happens</h4>
+      <ol>
+        <li><strong>You create the agent; I supply the prompt.</strong> <code>agent/campaign2/BASE-SYSTEM-PROMPT.md</code> — a competent first-draft collections prompt, tool-aware, deliberately <em>not</em> pre-patched with campaign 1's lessons. Expect roughly 40–55%. A tool-blind baseline would score near zero on an all-tools suite and that is a rigged demo, not a baseline.</li>
+        <li><strong>Stable public route.</strong> A named tunnel or small always-on host with a hostname that survives a restart. Not a 60-minute free tunnel.</li>
+        <li><strong>Three tools.</strong> <code>check_payment_status</code>, <code>record_promise_to_pay</code>, <code>schedule_callback</code> against the run-scoped service, api-key auth with the secret entered through the <em>masked input</em> so it lands in workspace Secrets. A header typed into the tool config does not survive into the test runtime — that is what lost the credential last time. Map <code>campaignId → run_id</code> and <code>transactionReference → account_id</code>, and enable <code>save_to_variables</code>.</li>
+        <li><strong>Platform-originated proof — the hard gate.</strong> Fire each tool once from the Indus test console. The journal must show <code>client_host 4.213.167.70</code>, credential presented, HTTP 200, and a real state delta. A <code>curl</code> from this machine proves the service works; it does not prove the platform can reach it.</li>
+        <li><strong>Recording retrieval smoke test (A4).</strong> One throwaway call; pull its audio and transcript end to end before committing to fifteen.</li>
+        <li><strong>Free 14-scenario smoke, then commit BASE as version 1.</strong> One text scenario per family costs nothing and catches a broken agent before any paid round. The deployment manifest records the prompt text and its hash, since Indus exposes no export.</li>
+      </ol>
+
+      <div class="note bad"><b>No journal line, no campaign.</b> Nothing paid runs until that gate passes.</div>
+      <div class="accept"><b>Done when</b>Journal line from <code>4.213.167.70</code> dated today on the stable URL · recording retrieval confirmed · smoke sane · Indus committed at v1.</div>
+      <div class="who"><span class="chip warn">you: create agent, paste secret, authorise commit (~30 min)</span><span class="chip acc">claude: everything else</span></div>
+    </div>
+  </details>
+
+  <!-- ── STEP 2 ── -->
+  <details class="step" id="s2">
+    <summary>
+      <span class="tick" data-tick="s2"></span>
+      <span class="sid">S2</span>
+      <span class="stitle"><b>15 bot-to-bot on BASE</b><span>Baseline voice: an ElevenLabs caller talks to the deployed agent over duplex audio.</span></span>
+      <span class="smeta">~1 h · ~81 credits</span>
+      <span class="caret">⌄</span>
+    </summary>
+    <div class="detail">
+      <h4>What happens</h4>
+      <ol>
+        <li><strong>Preflight.</strong> Authenticated round-trip through the public URL: 401 without credential, 200 with, state actually moved. Re-checked mid-run so a mid-suite expiry is caught rather than silently poisoning later records.</li>
+        <li><strong>Three pilots, then I stop.</strong> You see audio, transcripts, termination reasons and tool events. If transport or evaluator problems appear I fix them and re-pilot. <strong>If the agent behaves badly, that is preserved as a result</strong> — I do not fix the agent to make the baseline look better.</li>
+        <li><strong>The fifteen.</strong> One per failure family, every one requiring a tool effect. Hard session cap, no automatic paid retries. Each record preserves mixed and per-speaker audio, transcript, Samvaad events, tool calls, initial and final state, termination reason, per-turn latency and the full EVA metric set.</li>
+      </ol>
+      <div class="note warn"><b>Budget checkpoint.</b> Balance is read from the Sarvam dashboard and one pilot session is priced before the rest run. If 15+15 does not fit, the fallback is declared now rather than improvised: <strong>N=10</strong> or <strong>N=8</strong> matched, never a half-run arm — an unmatched arm is worthless.</div>
+      <div class="accept"><b>Done when</b>15 evaluator-valid records with execution truth from the journal. This is arm one of a matched pair.</div>
+      <div class="who"><span class="chip warn">you: confirm balance, inspect pilots, say go</span></div>
+    </div>
+  </details>
+
+  <!-- ── STEP 3 ── -->
+  <details class="step" id="s3">
+    <summary>
+      <span class="tick" data-tick="s3"></span>
+      <span class="sid">S3</span>
+      <span class="stitle"><b>You record 15 calls</b><span>Baseline human: you call the agent from the scripts, and each call is checked against the journal.</span></span>
+      <span class="smeta">~60 min · telephony</span>
+      <span class="caret">⌄</span>
+    </summary>
+    <div class="detail">
+      <h4>What happens</h4>
+      <ol>
+        <li><strong>Fifteen calls, one per card.</strong> You improvise the words; the card fixes the situation, so before and after cover identical ground. Two rules that make the data usable: do not help the agent, and stay in the card's language unless it says to switch.</li>
+        <li><strong>Labelling.</strong> I transcribe and label through the review app; <strong>you confirm</strong>. Owner truth from day one — no “provisional” phase to walk back later.</li>
+        <li><strong>Journal check.</strong> Each card's required effect is verified against the append-only journal: did the write actually happen while you were on the line. This is the upgrade over campaign 1, where twenty recorded calls carried no execution truth at all.</li>
+      </ol>
+      <div class="note"><b>The traps are deliberate.</b> Card 9 offers the agent an OTP — it must refuse. Card 14 offers a conditional maybe — <em>recording</em> a promise there is the failure. Card 12 discloses genuine distress — extracting a promise is a failure, not a win.</div>
+      <div class="accept"><b>Done when</b>15 owner-confirmed labels plus a per-call tool-effect verdict.</div>
+      <div class="who"><span class="chip warn">you: the calls (~60 min)</span><span class="chip acc">claude: transcription + labelling</span></div>
+    </div>
+  </details>
+
+  <!-- ── STEP 4 ── -->
+  <details class="step" id="s4">
+    <summary>
+      <span class="tick" data-tick="s4"></span>
+      <span class="sid">S4</span>
+      <span class="stitle"><b>170 synthetic conversations</b><span>Build the text benchmark from the observed failure families, freeze it, then measure BASE on all 170.</span></span>
+      <span class="smeta">~4 h · model-metered</span>
+      <span class="caret">⌄</span>
+    </summary>
+    <div class="detail">
+      <h4>What happens</h4>
+      <ol>
+        <li><strong>Generate 170.</strong> 14 families × 4 languages × 3 variants, plus two language-switch scenarios. Splits <strong>84 development / 43 validation / 43 regression</strong>. Every scenario requires an explicit <code>record_disposition</code> with the exact outcome; around 60 additionally require a business write with exact arguments. Each rubric carries the <em>full</em> tool catalogue — unused tools stay listed.</li>
+        <li><strong>Freeze and hash</strong> before any candidate exists. Validation and regression are never shown to any optimiser.</li>
+        <li><strong>Measure BASE on all 170.</strong> Full panel: task success, five accuracy components, tool execution, experience, first-break owners — sliced by language, family and persona.</li>
+      </ol>
+
+      <h4>Why all-tools is strict rather than cosmetic</h4>
+      <p>When an agent merely <em>declares</em> an outcome without calling the tool, the runner writes that state itself and the write never enters the tool log. State passes while the required-action check fails. <strong>Say-versus-do becomes the pass condition on all 170.</strong></p>
+
+      <div class="note warn"><b>Model provider (A1, resolved).</b> Runs on <strong>Gemini</strong>; the Sarvam 105B text-to-text key arrives later and drops in as a config change, because step 0 puts the client behind a provider interface. Whichever model runs, the first five episodes price it before the rest run, and the manifest records which one produced the numbers. The provider must not change between the BASE and IMPROVED passes.</div>
+      <div class="accept"><b>Done when</b>Frozen 170 with its hash in the manifest, and a BASE text baseline. With steps 2–3 that is <strong>200 conversations measured on BASE</strong>.</div>
+      <div class="who"><span class="chip acc">claude</span><span class="chip dim">nothing needed from you</span></div>
+    </div>
+  </details>
+
+  <!-- ── STEP 5 ── -->
+  <details class="step" id="s5">
+    <summary>
+      <span class="tick" data-tick="s5"></span>
+      <span class="sid">S5</span>
+      <span class="stitle"><b>Improve, with a control arm</b><span>Diagnose all three tiers, run GEPA against two competitors, gate on data the optimiser never saw, commit v2.</span></span>
+      <span class="smeta">~4 h · free-ish</span>
+      <span class="caret">⌄</span>
+    </summary>
+    <div class="detail">
+      <h4>What happens</h4>
+      <ol>
+        <li><strong>Diagnose into one taxonomy.</strong> Every failure becomes a packet: verbatim evidence turn, first breaking turn, owning component, severity. Text, human and voice failures rank together. The ranked failure taxonomy is a deliverable in itself — it is what a real engagement produces in month one.</li>
+        <li><strong>Synthetic expansion where data is thin.</strong> Families with too few episodes get generated scenarios, validated by the same simulator-validity gate. <strong>Development split only, tagged <code>synthetic</code></strong>, so the gate never grades the optimiser on data the optimiser's own model family invented.</li>
+        <li><strong>Three arms, all seeing development data only.</strong> <em>GEPA</em> at ~200 metric calls with reflection over real failure packets — campaign 1 gave it 48. <em>Manual repair</em> from the same packets. And a <em>no-diagnosis control</em>: same model, same budget, raw failing transcripts, no routing.</li>
+        <li><strong>The gate picks, blind.</strong> Scored on the <strong>86 optimizer-blind</strong> scenarios, per case, no severe regression averaged away. Sealed 12 opened once for the winner. Losers preserved in MLflow.</li>
+        <li><strong>Commit IMPROVED as v2</strong>, rollback target v1.</li>
+      </ol>
+      <div class="note"><b>The control arm is the point.</b> It answers the question an interviewer will ask: “would one call to a good model saying ‘here are the failing transcripts, fix the prompt’ have done this anyway?” If the control wins, I report that. Without it, the framework's value is asserted rather than measured.</div>
+      <div class="accept"><b>Done when</b>One accepted candidate with full MLflow lineage, every rejected arm retained, Indus at v2.</div>
+      <div class="who"><span class="chip acc">claude</span><span class="chip warn">you: authorise the v2 commit</span></div>
+    </div>
+  </details>
+
+  <!-- ── STEP 6 ── -->
+  <details class="step" id="s6">
+    <summary>
+      <span class="tick" data-tick="s6"></span>
+      <span class="sid">S6</span>
+      <span class="stitle"><b>Re-measure and decide</b><span>The identical 170 + 15 + 15 against v2, then a signed promote / hold / rollback.</span></span>
+      <span class="smeta">~2 h + 60 min yours · ~81 credits</span>
+      <span class="caret">⌄</span>
+    </summary>
+    <div class="detail">
+      <h4>What happens</h4>
+      <ol>
+        <li><strong>Text.</strong> Same 170, hash-verified unchanged, same model pinned. Paired per-case comparison; headline from the blind 86; sealed 12 opened for its single time on v2.</li>
+        <li><strong>Your calls.</strong> Same 15 cards, same labelling flow, same journal check.</li>
+        <li><strong>Bot-to-bot.</strong> Preflight → 3 pilots → your go → same 15 records. Lead metric is the <em>claims made / claims grounded</em> pair plus required-effect completion (A3).</li>
+        <li><strong>Release decision.</strong> The controller reads all three paired tiers against the rules declared in step 0 and emits promote, hold or rollback — <strong>published whichever way it lands</strong>.</li>
+      </ol>
+      <div class="note good"><b>A hold is a real outcome.</b> Campaign 1 proved that a well-supported hold, with the root cause named, is stronger evidence of judgement than a green number nobody can audit.</div>
+      <div class="accept"><b>Done when</b>One final table — BASE vs IMPROVED across text (170), your calls (15+15), voice (15+15) — with one evaluator hash and one suite hash on all of it.</div>
+      <div class="who"><span class="chip warn">you: say go, record 15 again (~75 min)</span></div>
+    </div>
+  </details>
+
+  <!-- ── STEP 7 ── -->
+  <details class="step" id="s7">
+    <summary>
+      <span class="tick" data-tick="s7"></span>
+      <span class="sid">S7</span>
+      <span class="stitle"><b>Ship</b><span>Switch the site to campaign 2 wholesale, write the brief and demo script, archive campaign 1, tag.</span></span>
+      <span class="smeta">~4 h · free</span>
+      <span class="caret">⌄</span>
+    </summary>
+    <div class="detail">
+      <h4>What happens</h4>
+      <ol>
+        <li><strong>Switch the export wholesale (A7).</strong> <code>story.json</code>, <code>calls.json</code> and the gallery regenerate from campaign-2 artifacts in a single commit that also moves campaign 1 to <code>docs/history/</code>. No incremental mixing, ever.</li>
+        <li><strong>One brief.</strong> Rewritten from the campaign manifest, so every figure traces to an artifact.</li>
+        <li><strong>The five-minute demo script</strong>, matching the site's tab order.</li>
+        <li><strong>Repo final.</strong> Tagged commit, full verify battery, handoff updated.</li>
+      </ol>
+      <div class="accept"><b>Done when</b>One URL, one brief, one story arc; no dead links; no figure on the page that is not in an artifact.</div>
+      <div class="who"><span class="chip acc">claude</span><span class="chip dim">nothing needed from you</span></div>
+    </div>
+  </details>
+</div></section>
+
+<section id="cost"><div class="wrap">
+  <div class="sec-head"><span class="kicker">Cost and involvement</span><h2>What it spends and what it needs from you</h2></div>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Step</th><th>Paid</th><th>Your time</th><th>Your decision</th></tr></thead>
+    <tbody>
+      <tr><td class="num">S0 protocol</td><td class="num">—</td><td class="num">—</td><td class="num">—</td></tr>
+      <tr><td class="num">S1 agent + rails</td><td class="num">~0–2 cr</td><td class="num">~30 min</td><td>create agent · secret · commit v1</td></tr>
+      <tr><td class="num">S2 bot-to-bot BASE</td><td class="num">~81 cr</td><td class="num">~15 min</td><td>balance · pilots · go</td></tr>
+      <tr><td class="num">S3 your 15 calls</td><td class="num">telephony</td><td class="num">~60 min</td><td>—</td></tr>
+      <tr><td class="num">S4 170 text</td><td class="num">Gemini</td><td class="num">—</td><td>—</td></tr>
+      <tr><td class="num">S5 improve</td><td class="num">metered</td><td class="num">~10 min</td><td>commit v2</td></tr>
+      <tr><td class="num">S6 re-measure</td><td class="num">~81 cr</td><td class="num">~75 min</td><td>go</td></tr>
+      <tr><td class="num">S7 ship</td><td class="num">—</td><td class="num">—</td><td>—</td></tr>
+      <tr><td class="num"><b>Total</b></td><td class="num"><b>~162 credits + metered text</b></td><td class="num"><b>~3 h</b></td><td>—</td></tr>
+    </tbody>
+  </table></div>
+  <div class="note warn"><b>The rupee rate is still unknown.</b> 36 bot-to-bot sessions at the observed ~4.5 credits each is ~162 credits. Step 2 reads the balance and prices one pilot before anything else runs, then stops and shows you the arithmetic.</div>
+</div></section>
+
+<div class="foot"><div class="wrap">
+  <p>Loopline · campaign 2 runbook · supersedes CLEAN-RUN.html and every earlier plan · <a href="https://github.com/arnav-makkar/voice-agent-eval">github.com/arnav-makkar/voice-agent-eval</a></p>
+  <p style="margin-top:10px">Rules carried forward: no headline from in-sample data · supersede, never overwrite · a HOLD ships as a HOLD · no invented domain facts · tools before commit, commit before voice · two agent versions only.</p>
+  <p style="margin-top:14px"><button class="reset" id="reset">Reset all ticks</button></p>
+</div></div>
+
+<script>
+(function(){
+  var KEY='loopline-runbook-c2';
+  var state={};
+  try{ state=JSON.parse(localStorage.getItem(KEY)||'{}'); }catch(e){ state={}; }
+  var ids=['s0','s1','s2','s3','s4','s5','s6','s7'];
+
+  function render(){
+    var done=0, next=null;
+    ids.forEach(function(id){
+      var on=!!state[id];
+      if(on) done++; else if(next===null) next=id;
+      var tick=document.querySelector('[data-tick="'+id+'"]');
+      var step=document.getElementById(id);
+      if(tick){ tick.classList.toggle('on',on); tick.textContent=on?'✓':''; }
+      if(step){ step.classList.toggle('done',on); }
+    });
+    document.getElementById('pdone').textContent=done;
+    document.getElementById('pfill').style.width=(done/ids.length*100)+'%';
+    document.getElementById('pnext').textContent=next===null?'All steps complete':'Next · Step '+next.slice(1);
+  }
+
+  document.querySelectorAll('[data-tick]').forEach(function(el){
+    el.setAttribute('role','checkbox');
+    el.setAttribute('tabindex','0');
+    function toggle(ev){
+      ev.preventDefault(); ev.stopPropagation();
+      var id=el.getAttribute('data-tick');
+      state[id]=!state[id];
+      try{ localStorage.setItem(KEY,JSON.stringify(state)); }catch(e){}
+      render();
+    }
+    el.addEventListener('click',toggle);
+    el.addEventListener('keydown',function(ev){ if(ev.key===' '||ev.key==='Enter') toggle(ev); });
+  });
+
+  document.getElementById('reset').addEventListener('click',function(){
+    state={}; try{ localStorage.removeItem(KEY); }catch(e){}; render();
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>

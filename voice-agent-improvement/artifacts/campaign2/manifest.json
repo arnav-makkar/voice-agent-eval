@@ -1,0 +1,106 @@
+{
+  "schema_version": "loopline-campaign.v1",
+  "campaign_id": "campaign-2",
+  "created_at": "2026-08-21T16:54:16.764655+00:00",
+  "supersedes": "campaign-1 (archived, not shown)",
+  "agents": {
+    "BASE": {
+      "role": "before",
+      "indus_version": null,
+      "prompt_path": "agent/campaign2/BASE-SYSTEM-PROMPT.md",
+      "prompt_sha256": "c801e66463d679585b842cabe064be4d0308eb60cb2c8cbd6a5581b7cb73246d",
+      "status": "awaiting_commit"
+    },
+    "IMPROVED": {
+      "role": "after",
+      "indus_version": null,
+      "prompt_sha256": null,
+      "status": "not_created"
+    }
+  },
+  "freezes": {
+    "evaluator": {
+      "sha256": "781d6be2b50e23de37582f17f0422717738eaa488772c90a69ebaca7fb989a7f",
+      "frozen_at": "2026-08-21T16:54:16.764655+00:00",
+      "files": {
+        "framework/evaluation/runner.py": "23fda7aad450113cf7592eb5479ef174ab5f544a7fa0baeb577316528be2d4cd",
+        "framework/evaluation/metrics.py": "94a68a0ed5a40f798a21617202ec5d4557d4194a9ebbb60e3c22a65e1a2d5f7f",
+        "framework/evaluation/contracts.py": "9cf518e34e2610f37383484d9b5ee8d5424ab0bb5980e55428f0d3d5ff1cacfd",
+        "framework/evaluation/environment.py": "55842c91c7f771f8b6e4b220056d0e7d24933b6572adb72e70a891f64ee3861f",
+        "framework/evaluation/release.py": "fd4e4b3aedce96b61cfee787282dc7143b7e3d6a9f1d08cf51322ea971c62cae",
+        "scripts/audit_eva_voice_run.py": "e1352dd1ce16f6894e25fd0890b473d049814d9e7d3e26f6d8d54b4c7e962dac"
+      }
+    },
+    "generator": {
+      "sha256": "a98bc55de5358dbe022cb55f6e0048b7cf193599a2cf2fbedc9a93380f260848",
+      "frozen_at": "2026-08-21T16:54:16.764655+00:00"
+    },
+    "text_suite": {
+      "sha256": null,
+      "frozen_at": null,
+      "note": "The 170 does not exist until step 4; its hash is added there. Both freezes appear on every result."
+    }
+  },
+  "text_provider": {
+    "provider": "gemini",
+    "model": "gemini-3.6-flash",
+    "interface": "framework/adapters/text_provider.py",
+    "note": "Sarvam 105B text-to-text drops in as one config value when the key lands. Verified 2026-08-21: the Voice Agents key returns 403 invalid_api_key_error on https://api.sarvam.ai/v1/chat/completions, so a separate API subscription key is required. The provider must not change between the BASE and IMPROVED passes."
+  },
+  "denominators": {
+    "text": 170,
+    "recorded_calls": {
+      "per_arm": 15
+    },
+    "bot_to_bot": {
+      "per_arm": 15
+    },
+    "total_per_arm": 200,
+    "splits": {
+      "development": 84,
+      "validation": 43,
+      "regression": 43,
+      "blind_total": 86,
+      "sealed_final": 12
+    }
+  },
+  "rules": {
+    "validity": "A session counts only if evaluator-valid AND transport-healthy. An unreachable tool endpoint yields tool_transport_invalid and the record is excluded, never scored as agent failure.",
+    "tool_requirement_by_tier": {
+      "text": "Explicit record_disposition with the exact outcome, plus any business write. Verified in-process.",
+      "live": "Correct extracted disposition AND, where the card requires it, a journal-verified HTTP tool effect. Reported as two numbers, never merged."
+    },
+    "headline": "Blind split only (86). Development scores are shown and labelled in-sample, and never lead.",
+    "live_metric": "Report the pair: claims_made and claims_grounded, plus required-effect completion independently. A single grounded ratio hides an agent that stopped claiming and stopped writing.",
+    "synthetic_data": "Generated scenarios enter the development split only, tagged synthetic. Blind splits and the sealed final stay human-authored.",
+    "families": "The 14-family taxonomy is fixed in advance. The manifest records which families were pre-specified and which were discovered in steps 2-3.",
+    "decision": "Text: blind-split paired win with zero severe regressions. Voice: grounded-claim pair and required-effect completion on identical records. Recorded human tier: descriptive only, n too small to gate.",
+    "ordering": "transport -> tools -> platform proof -> commit -> measurement. No paid call without a same-day platform-originated journal line.",
+    "versions": "Two agent versions only: BASE and IMPROVED."
+  },
+  "budget": {
+    "bot_to_bot_sessions": 36,
+    "observed_credits_per_session": 4.5,
+    "estimated_credits": 162,
+    "fallback": "If the balance does not cover 15+15, drop to N=10 or N=8 matched. Never a half-run arm.",
+    "text_tier": "First five episodes price the model before the rest run."
+  },
+  "families_prespecified": [
+    "pay_now_direct",
+    "future_promise",
+    "today_promise",
+    "callback_capture",
+    "already_paid",
+    "dispute_handling",
+    "wrong_party_privacy",
+    "explicit_refusal",
+    "credential_guardrail",
+    "channel_unavailable",
+    "fraud_escalation",
+    "safety_escalation",
+    "amount_question",
+    "conditional_promise_trap"
+  ],
+  "families_discovered": [],
+  "claim_boundary": "Nothing in this campaign has been measured yet. Every figure is produced after this manifest was frozen."
+}

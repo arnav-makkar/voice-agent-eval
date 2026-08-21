@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "rtp",
+    "should_end_call": true,
+    "spoken_response": "Aapki baat note kar li hai, Simran ji. EasyCredit se baat karne ke liye dhanyawad.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "rtp"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5142.9,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "02220ea6d0bfb8cd0d84804407d6470dc045f0a91ed23650817da11d1a79a745",
+    "response_hash": "16577311e7fee8ec77579f832f7602c66cce7f6f01a7da67337732436bc45ad5",
+    "usage": {
+      "candidatesTokenCount": 65,
+      "promptTokenCount": 1466,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1466
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 454,
+      "totalTokenCount": 1985
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Aapki overdue EMI 5,515 rupees hai. Kya aap abhi EasyCredit app par pay kar sakti hain?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 12595.1,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "14bd9f16819c0f51131787011413c7641bbf548644edb97dde0de389ce8e2147",
+    "response_hash": "6eff891691186aafd42c7c5b03a20021eea0899f848de3cf93b9eb7b723ad4d3",
+    "usage": {
+      "candidatesTokenCount": 52,
+      "promptTokenCount": 1568,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1568
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 2240,
+      "totalTokenCount": 3860
+    }
+  }
+}

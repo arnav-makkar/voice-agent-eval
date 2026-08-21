@@ -1,0 +1,35 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Achha, main system me aapka status check kar leta hoon. Kya aapko return ki koi confirmation mili thi?",
+    "tool_calls": [
+      {
+        "arguments": {},
+        "name": "check_payment_status"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5220.8,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "7a3e249573fd6d7128f63ad9dbd45426273c388c5f8ced1eeed2315ad21d891a",
+    "response_hash": "9f1b9a77fe554ffeda8d0f4eb2cc32c32863820e9ad9382eaa85d8bf3f00955e",
+    "usage": {
+      "candidatesTokenCount": 90,
+      "promptTokenCount": 1567,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1567
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 421,
+      "totalTokenCount": 2078
+    }
+  }
+}

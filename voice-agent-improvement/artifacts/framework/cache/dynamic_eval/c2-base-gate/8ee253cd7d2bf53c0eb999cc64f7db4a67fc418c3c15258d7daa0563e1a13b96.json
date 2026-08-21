@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "escalation",
+    "should_end_call": true,
+    "spoken_response": "Simran ji, aap bilkul pareshan mat hoiye. Kripya hamare customer care number 1800-500-4444 par sampark karein.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "escalation"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 7379.0,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "8ee253cd7d2bf53c0eb999cc64f7db4a67fc418c3c15258d7daa0563e1a13b96",
+    "response_hash": "e4a85f5b060a817cbf49c91dd2897b335eee80ab14ec288462571fbccdd19bc1",
+    "usage": {
+      "candidatesTokenCount": 82,
+      "promptTokenCount": 1575,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1575
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1121,
+      "totalTokenCount": 2778
+    }
+  }
+}

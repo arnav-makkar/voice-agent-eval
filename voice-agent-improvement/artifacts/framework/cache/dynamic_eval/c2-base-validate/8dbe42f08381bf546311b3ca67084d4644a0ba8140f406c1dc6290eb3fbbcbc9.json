@@ -1,0 +1,35 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Ji Simran ji, main system mein aapka status check kar leta hoon. Kripya ek minute rukiyega.",
+    "tool_calls": [
+      {
+        "arguments": {},
+        "name": "check_payment_status"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 4942.4,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "8dbe42f08381bf546311b3ca67084d4644a0ba8140f406c1dc6290eb3fbbcbc9",
+    "response_hash": "7f09b0284ec2fb5cc48820d358360fc76a17c202c63419cf7a47da290b4ec27e",
+    "usage": {
+      "candidatesTokenCount": 91,
+      "promptTokenCount": 1564,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1564
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 526,
+      "totalTokenCount": 2181
+    }
+  }
+}

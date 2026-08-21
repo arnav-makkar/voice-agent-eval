@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Riya ji, system mein abhi status unpaid hi dikh raha hai. Kya aap batayengi ki payment kab hui thi?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5859.8,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "53c123c086b45ea1fbe74783e4012c5dc06f7f728ad66bde7002d11b7cc52d03",
+    "response_hash": "896b4bf612b525f2d3fb34399024336e649a997daa64e248ac6894390aa61b02",
+    "usage": {
+      "candidatesTokenCount": 51,
+      "promptTokenCount": 1567,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1567
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 871,
+      "totalTokenCount": 2489
+    }
+  }
+}

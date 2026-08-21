@@ -1,0 +1,37 @@
+{
+  "data": {
+    "disposition": "dispute",
+    "should_end_call": true,
+    "spoken_response": "Simran ji, system mein Rs 6607 unpaid dikh raha hai. Return ki jankari ke liye kripya customer care 1800-500-4444 par contact karein.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "disposition": "dispute"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 9471.3,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "fc7cd7d416c5b12f40c3304e331179710262d166a41120a3a54b9c4a353739a9",
+    "response_hash": "14efa22907d63c89f332b736df26a7824b30092c6d4a4e81ba569ab434da1a35",
+    "usage": {
+      "candidatesTokenCount": 98,
+      "promptTokenCount": 1667,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1667
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1397,
+      "totalTokenCount": 3162
+    }
+  }
+}

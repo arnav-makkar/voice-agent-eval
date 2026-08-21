@@ -1,0 +1,43 @@
+{
+  "data": {
+    "disposition": "fptp",
+    "should_end_call": true,
+    "spoken_response": "Bahut dhanyawad Simran ji, maine 22 August ki tareekh note kar li hai. Kripya EasyCredit app se payment kar dijiyega.",
+    "tool_calls": [
+      {
+        "arguments": {
+          "date": "22-08-2026"
+        },
+        "name": "record_promise_to_pay"
+      },
+      {
+        "arguments": {
+          "disposition": "fptp"
+        },
+        "name": "record_disposition"
+      }
+    ]
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 8683.6,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "b66188de9780b070020685b74fbc13fbea6f4dd7b3ca4cf1c40c28845576d12c",
+    "response_hash": "19c24d27607663b4663a28b072792268a57279fcb13ac67325c50f12be8159eb",
+    "usage": {
+      "candidatesTokenCount": 106,
+      "promptTokenCount": 1478,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1478
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1537,
+      "totalTokenCount": 3121
+    }
+  }
+}

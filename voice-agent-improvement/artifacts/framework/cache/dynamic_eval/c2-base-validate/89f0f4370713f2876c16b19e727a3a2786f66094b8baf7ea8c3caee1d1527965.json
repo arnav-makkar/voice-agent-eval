@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Kya aap aaj hi EasyCredit app se payment kar denge?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 7973.2,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "89f0f4370713f2876c16b19e727a3a2786f66094b8baf7ea8c3caee1d1527965",
+    "response_hash": "a7baceb261930f9c763d4f650a180e872ce4f0bd67cd49da9b2577668020ff07",
+    "usage": {
+      "candidatesTokenCount": 37,
+      "promptTokenCount": 1721,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1721
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1001,
+      "totalTokenCount": 2759
+    }
+  }
+}

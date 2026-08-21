@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Shukriya Riya ji. Toh kya aap abhi EasyCredit app se payment kar rahi hain?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 7368.0,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "ec76d2c557f76667bff267edf2adc62943c473d0a14139f8e5a2086e41ace1ee",
+    "response_hash": "da4a1756cf72f7e547a175bd5837accd99a24365d81e3ae498a7f07af2e8e706",
+    "usage": {
+      "candidatesTokenCount": 50,
+      "promptTokenCount": 1741,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1741
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 934,
+      "totalTokenCount": 2725
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Shukriya. Toh kya aap aaj hi app download karke payment kar denge?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 7616.5,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "590c983c8e477ebea6e4e4f385ddd14d22d914d388b35c7cc6013fcfb5c94a38",
+    "response_hash": "f97c576749eb70748ec331ee0c0e3e773edb24adfa21b93d82ac94948dada624",
+    "usage": {
+      "candidatesTokenCount": 48,
+      "promptTokenCount": 1629,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1629
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1179,
+      "totalTokenCount": 2856
+    }
+  }
+}

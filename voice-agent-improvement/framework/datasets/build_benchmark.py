@@ -175,6 +175,24 @@ UTTERANCES: dict[str, dict[str, list[str]]] = {
         "english": ["alright, understood", "yes that's all", "okay done"],
         "punjabi": ["ਠੀਕ ਹੈ, ਸਮਝ ਗਿਆ", "ਹਾਂ ਬੱਸ ਇੰਨਾ ਹੀ", "ਠੀਕ ਹੈ ਧੰਨਵਾਦ"],
     },
+    "restate_date": {
+        "hinglish": ["haan {date}, wahi date likh lo", "{date} bola na maine", "ji {date}, pakka"],
+        "hindi": ["हाँ {date}, वही तारीख लिख लीजिए", "{date} ही कहा था मैंने", "जी {date}, पक्का"],
+        "english": ["yes, {date} — note that date", "I said {date}", "{date}, that's confirmed"],
+        "punjabi": ["ਹਾਂ {date}, ਉਹੀ ਤਾਰੀਖ਼ ਲਿਖ ਲਓ", "{date} ਹੀ ਕਿਹਾ ਸੀ", "ਜੀ {date}, ਪੱਕਾ"],
+    },
+    "restate_window": {
+        "hinglish": ["haan kal subah dus se gyarah ke beech", "kal 10 se 11, wahi theek hai", "subah dus baje ke aas paas"],
+        "hindi": ["हाँ कल सुबह दस से ग्यारह के बीच", "कल दस से ग्यारह, वही ठीक है", "सुबह दस बजे के आसपास"],
+        "english": ["yes, tomorrow between ten and eleven", "ten to eleven tomorrow works", "around ten in the morning"],
+        "punjabi": ["ਹਾਂ ਕੱਲ੍ਹ ਸਵੇਰੇ ਦਸ ਤੋਂ ਗਿਆਰਾਂ", "ਕੱਲ੍ਹ ਦਸ ਤੋਂ ਗਿਆਰਾਂ ਠੀਕ ਹੈ", "ਸਵੇਰੇ ਦਸ ਵਜੇ ਦੇ ਕਰੀਬ"],
+    },
+    "final_word": {
+        "hinglish": ["bas itna hi, main rakhta hoon", "theek hai, aur kuch nahi", "chalo, rakhta hoon"],
+        "hindi": ["बस इतना ही, मैं रखता हूँ", "ठीक है, और कुछ नहीं", "चलिए, रखता हूँ"],
+        "english": ["that's all, I'm hanging up now", "okay, nothing else", "right, I'll go now"],
+        "punjabi": ["ਬੱਸ ਇੰਨਾ ਹੀ, ਮੈਂ ਰੱਖਦਾ ਹਾਂ", "ਠੀਕ ਹੈ, ਹੋਰ ਕੁਝ ਨਹੀਂ", "ਚਲੋ, ਰੱਖਦਾ ਹਾਂ"],
+    },
     "interrupt": {
         "hinglish": ["ruko ruko, pehle meri baat suno", "arre suno to sahi", "ek minute, main bol raha hoon"],
         "hindi": ["रुकिए रुकिए, पहले मेरी बात सुनिए", "अरे सुनिए तो सही", "एक मिनट, मैं बोल रहा हूँ"],
@@ -204,6 +222,7 @@ FAMILIES: list[dict[str, Any]] = [
     },
     {
         "name": "future_promise",
+        "closing": ["restate_date", "confirm_close", "final_word"],
         "steps": ["identity_ack", "future_date_promise"],
         "dispositions": ["fptp"],
         "state": {"disposition": "fptp", "promise_to_pay_date": "{nearFutureDate}"},
@@ -213,6 +232,7 @@ FAMILIES: list[dict[str, Any]] = [
     },
     {
         "name": "today_promise",
+        "closing": ["confirm_close", "final_word"],
         "steps": ["identity_ack", "today_promise"],
         "dispositions": ["ptp_today"],
         "state": {"disposition": "ptp_today", "promise_to_pay_date": "{currentDate}"},
@@ -222,6 +242,7 @@ FAMILIES: list[dict[str, Any]] = [
     },
     {
         "name": "callback_capture",
+        "closing": ["restate_window", "confirm_close", "final_word"],
         "steps": ["identity_ack", "callback_request"],
         "dispositions": ["callback"],
         "state": {"disposition": "callback"},
@@ -316,13 +337,14 @@ FAMILIES: list[dict[str, Any]] = [
 
 def _context(index: int, dates: dict[str, str]) -> dict[str, Any]:
     names = ["Arnav", "Riya", "Kabir", "Mehak", "Gurpreet", "Simran", "Rohit", "Anjali"]
-    products = ["Samsung Smart TV", "LG Washing Machine", "Dell Laptop", "Bosch Refrigerator"]
+    # One product. Every authored scenario and all 20 real calls are TV EMIs;
+    # inventing others would test a distribution the agent was never built for.
     amount = 2450 + (index * 137) % 4200
     return {
         "userName": names[index % len(names)],
         "merchantName": "EasyCredit",
         "outstandingAmount": str(amount),
-        "productName": products[index % len(products)],
+        "productName": "Samsung Smart TV",
         "lateChargeAmount": str(100 + (index * 13) % 200),
         "customerCareNumber": "1800-500-4444",
         "fraudHelplineNumber": "1800-425-5555",
@@ -388,10 +410,17 @@ def build(*, variants_per_cell: int = 3, base_date: str = "2026-08-17") -> dict[
                 if "interruption" in perturbations:
                     bank = UTTERANCES["interrupt"][language]
                     steps.append(UserStep(text=bank[counter % len(bank)], intent="interrupt"))
-                for intent in family["steps"]:
+                # Each family names the date it talks about; expose it as {date}
+                # so an utterance can reference it without knowing the key.
+                step_dates = dict(dates)
+                date_key = family.get("date_key")
+                if date_key:
+                    step_dates["date"] = dates[date_key]
+                sequence = list(family["steps"]) + list(family.get("closing", ["confirm_close", "final_word"]))
+                for intent in sequence:
                     bank = UTTERANCES[intent][language]
                     text = bank[(counter + len(steps)) % len(bank)]
-                    steps.append(UserStep(text=_fill(text, dates), intent=intent))
+                    steps.append(UserStep(text=_fill(text, step_dates), intent=intent))
 
                 scenarios.append(
                     EvaluationScenario(
@@ -417,7 +446,7 @@ def build(*, variants_per_cell: int = 3, base_date: str = "2026-08-17") -> dict[
                         communication_assertions=[],
                         forbidden_phrases=list(COMMON_FORBIDDEN),
                         perturbations=list(perturbations),
-                        max_agent_turns=6,
+                        max_agent_turns=9,
                         reviewer_status="generated",
                     )
                 )

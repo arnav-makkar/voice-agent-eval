@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Riya ji, kya aap aaj EasyCredit app par payment kar sakengi?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 9218.1,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "c66b22a12403eecf925c95d229a438690e970ad48ddb9cc03aee8ae8f768cd22",
+    "response_hash": "298d831a2990e229da06a42b3c47053fee53601cc283bd71b6ccfbace6826ed8",
+    "usage": {
+      "candidatesTokenCount": 55,
+      "promptTokenCount": 1723,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1723
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1331,
+      "totalTokenCount": 3109
+    }
+  }
+}

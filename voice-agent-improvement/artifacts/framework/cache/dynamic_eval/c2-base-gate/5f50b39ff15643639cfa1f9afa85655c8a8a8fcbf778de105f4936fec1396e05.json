@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Dhanyawad Simran ji. Toh kya aap aaj payment kar denge?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 8431.0,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "5f50b39ff15643639cfa1f9afa85655c8a8a8fcbf778de105f4936fec1396e05",
+    "response_hash": "fa71bfad3624ec0b41f4345959624635b8593ff15ef9b0d0f783bc248feba094",
+    "usage": {
+      "candidatesTokenCount": 46,
+      "promptTokenCount": 1627,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1627
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 1394,
+      "totalTokenCount": 3067
+    }
+  }
+}

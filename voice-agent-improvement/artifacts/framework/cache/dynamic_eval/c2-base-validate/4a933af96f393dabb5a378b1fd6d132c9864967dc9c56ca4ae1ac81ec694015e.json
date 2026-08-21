@@ -1,0 +1,30 @@
+{
+  "data": {
+    "disposition": "continue",
+    "should_end_call": false,
+    "spoken_response": "Simran ji, kya hum 23-08-2026 ko payment ki final date samajhein?",
+    "tool_calls": []
+  },
+  "metadata": {
+    "adapter_version": "gemini-json.v1",
+    "cache_hit": false,
+    "latency_ms": 5276.0,
+    "model_requested": "gemini-3.6-flash",
+    "model_version": "gemini-3.6-flash",
+    "request_hash": "4a933af96f393dabb5a378b1fd6d132c9864967dc9c56ca4ae1ac81ec694015e",
+    "response_hash": "c1e56b1026ff4c928f43ae7eecd0a545af64229a9dd070498cc24a8c1b8ad580",
+    "usage": {
+      "candidatesTokenCount": 64,
+      "promptTokenCount": 1584,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1584
+        }
+      ],
+      "serviceTier": "standard",
+      "thoughtsTokenCount": 708,
+      "totalTokenCount": 2356
+    }
+  }
+}

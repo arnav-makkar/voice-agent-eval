@@ -94,7 +94,7 @@ def _historical_freeze_check() -> dict[str, Any]:
 
 
 def _live_evaluator_freeze_check() -> dict[str, Any]:
-    freeze_path = ROOT / "artifacts" / "framework" / "emi" / "eva_adapter_v10" / "evaluator_freeze.json"
+    freeze_path = ROOT / "artifacts" / "framework" / "emi" / "eva_adapter_v11" / "evaluator_freeze.json"
     freeze = json.loads(freeze_path.read_text(encoding="utf-8"))
     items: list[tuple[str, dict[str, str]]] = []
     for collection in ("evaluator_files", "scenario_suite", "live_voice_suite"):

@@ -1,0 +1,97 @@
+{
+  "schema_version": "loopline.live-voice-pilot-decision.v1",
+  "decided_at": "2026-08-21T15:35:00+05:30",
+  "decision": "hold",
+  "decision_owner": "release_controller",
+  "candidate": {
+    "agent_name": "Conversation Agent 6820",
+    "initial_indus_version": 16,
+    "repair_indus_version": 18,
+    "initial_deployment_manifest": "agent/deployments/indus-v16.json",
+    "repair_deployment_manifest": "agent/deployments/indus-v18-pilot-repair.json"
+  },
+  "protocol": {
+    "transport": "ElevenLabs realtime caller to Sarvam Samvaad duplex audio",
+    "pilot_record_ids": [
+      "EMI-VOICE-001",
+      "EMI-VOICE-002",
+      "EMI-VOICE-009"
+    ],
+    "initial_run": "artifacts/eva_pilots/emi_eva_v16_pilots_20260821_150628",
+    "repair_run": "artifacts/eva_pilots/emi_eva_v18_pilots_20260821_152832",
+    "advance_rule": "Advance only after all three pilot records are evaluator-valid and every required tool effect is correct."
+  },
+  "initial_round": {
+    "attempted": 3,
+    "evaluator_valid": 3,
+    "task_passes": 1,
+    "eva_a_passes": 1,
+    "eva_x_passes": 0,
+    "eva_a_mean": 0.5556,
+    "eva_x_mean": 0.3278,
+    "eva_overall_mean": 0.4417,
+    "required_write_effects": {
+      "expected": 2,
+      "observed": 1,
+      "detail": "EMI-VOICE-002 wrote record_promise_to_pay once; EMI-VOICE-009 did not."
+    }
+  },
+  "repair_round": {
+    "attempted": 3,
+    "evaluator_valid": 1,
+    "task_passes_among_valid": 1,
+    "eva_a_passes_among_valid": 1,
+    "eva_x_passes_among_valid": 0,
+    "eva_a_mean_among_valid": 0.8333,
+    "eva_x_mean_among_valid": 0.31,
+    "eva_overall_mean_among_valid": 0.5717,
+    "excluded": [
+      {
+        "record_id": "EMI-VOICE-001",
+        "reason": "120-second WebSocket transport time limit; no scoreable conversation"
+      },
+      {
+        "record_id": "EMI-VOICE-009",
+        "reason": "simulator language-contract failure; required record_promise_to_pay effect also absent"
+      }
+    ],
+    "required_write_effects": {
+      "expected_in_completed_conversations": 2,
+      "observed": 1,
+      "detail": "EMI-VOICE-002 wrote record_promise_to_pay once; EMI-VOICE-009 did not."
+    }
+  },
+  "paired_case_read": [
+    {
+      "record_id": "EMI-VOICE-001",
+      "initial": "Native disposition was payment_ready; evaluator adapter misread NA sentinels as state changes.",
+      "repair": "Sentinel filter is unit-tested; prospective rerun was transport-invalid.",
+      "verdict": "repair_not_prospectively_verified"
+    },
+    {
+      "record_id": "EMI-VOICE-002",
+      "initial": "Task passed with one exact PTP write in five agent turns and 143.23 seconds.",
+      "repair": "Task pass and exact write preserved in four agent turns and 74.96 seconds; EVA-X still failed.",
+      "verdict": "task_preserved_experience_gate_failed"
+    },
+    {
+      "record_id": "EMI-VOICE-009",
+      "initial": "Punjabi future-promise tool effect was missing.",
+      "repair": "Tool effect remained missing and the user-simulator language contract was invalid.",
+      "verdict": "not_repaired"
+    }
+  ],
+  "why_hold": [
+    "Two of three repair trials are not valid evidence.",
+    "The Punjabi tool-dependent scenario still has no required backend write.",
+    "The sole valid repair trial still fails the EVA-X experience gate.",
+    "An n=1 repair-round mean cannot be compared with the initial n=3 mean."
+  ],
+  "next_actions": [
+    "Fix the synthetic caller language declaration so Punjabi is a valid target language.",
+    "Remove opening repetition through deterministic turn-state or workflow control rather than prompt wording alone.",
+    "Make tool-before-claim enforceable in the orchestration layer and expose tool events directly to the evaluator.",
+    "Run the same three pilots again; run the 18-case matched suite only after all three are valid and required effects pass."
+  ],
+  "claim_boundary": "The project proves deployed Indus prompt/version control, authenticated live tool mutation, realtime bot-to-bot evaluation and a functioning release gate. It does not prove live voice lift or production readiness."
+}

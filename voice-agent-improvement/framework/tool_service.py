@@ -56,6 +56,23 @@ class CallbackRequest(ToolContext):
         return value
 
 
+class DispositionRequest(ToolContext):
+    disposition: Literal[
+        "payment_ready",
+        "ptp_today",
+        "fptp",
+        "callback",
+        "dispute",
+        "already_paid",
+        "wrong_number",
+        "alternate_number",
+        "rtp",
+        "acknowledged",
+        "escalation",
+        "call_disconnected",
+    ]
+
+
 def _utc_now() -> str:
     return datetime.now(UTC).isoformat()
 
@@ -287,6 +304,19 @@ def create_app(
         return execute_or_error(
             context=request,
             tool_name="schedule_callback",
+            arguments=request.model_dump(),
+            mutate=record,
+        )
+
+    @app.post("/v1/tools/record-disposition", dependencies=[Depends(authorize_tool)])
+    def record_disposition(request: DispositionRequest) -> dict[str, Any]:
+        def record(state: dict[str, Any]) -> dict[str, Any]:
+            state["disposition"] = request.disposition
+            return {"recorded": True, "disposition": request.disposition}
+
+        return execute_or_error(
+            context=request,
+            tool_name="record_disposition",
             arguments=request.model_dump(),
             mutate=record,
         )

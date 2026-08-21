@@ -49,9 +49,15 @@ class CompletionAuditTests(unittest.TestCase):
         else:
             self.assertEqual(tool_effect["status"], "external_blocked")
 
-        # Matched live voice has not run, so this one must still be open.
-        self.assertEqual(record["phases"]["P5_re_evaluation_and_gate"][2]["status"], "external_pending")
-        self.assertIn("no live candidate lift", record["claim_boundary"])
+        # The matched suite can be externally pending or deliberately not run
+        # after a preserved pilot HOLD. Neither state may be called complete.
+        matched_voice = record["phases"]["P5_re_evaluation_and_gate"][2]
+        self.assertIn(matched_voice["status"], {"external_pending", "not_run_by_gate"})
+        if matched_voice["status"] == "not_run_by_gate":
+            decision_path = ARTIFACTS / "framework" / "emi" / "live_voice_pilot_decision.json"
+            self.assertTrue(decision_path.exists(), "suite skipped without a pilot decision artifact")
+            self.assertEqual(json.loads(decision_path.read_text(encoding="utf-8"))["decision"], "hold")
+        self.assertIn("no live candidate lift", record["claim_boundary"].lower())
 
     def test_owner_label_gate_requires_a_complete_reviewed_set(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:

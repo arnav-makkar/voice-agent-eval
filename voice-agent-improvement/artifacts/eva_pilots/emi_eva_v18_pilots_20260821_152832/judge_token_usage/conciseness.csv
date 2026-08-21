@@ -1,0 +1,156 @@
+record_id,model_name,model_id,input_tokens,output_tokens,timestamp,model_params,input_prompt,output_response
+EMI-VOICE-002,gemini-3.1-pro-preview,gemini-3.1-pro-preview,2471,1820,2026-08-21T10:04:17.656543+00:00,"{""max_tokens"": 100000, ""service_tier"": ""flex""}","You are an expert evaluator judging the conciseness and voice-appropriateness of assistant responses in a voice conversation.
+
+## Conversation
+Turn 0:
+  user: Haan, boliye.
+  assistant: क्या मैं अर्णव से बात कर रहा हूँ?
+
+Turn 1:
+  user: [annoyed] Haan ji, main Arnav hoon. Boliye, kya baat hai?
+  assistant: नमस्ते, अर्नव जी। मैं Easy Credit Consumer EMI से शो बात कर रहा हूँ। आपके Samsung Smart TV की 2,950 रुपये की EMI overdue है। क्या आप अभी official Easy Credit app से payment कर सकते हैं?
+
+Turn 2:
+  user: [annoyed] Abhi nahi, bees August ko payment kar dunga.
+  assistant: नमस्ते, अनुज जी। मैं Easy Credit Consumer EMI से शो बात कर रहा हूँ। आपके Samsung Smart TV की 2,950 रुपये की EMI overdue है। क्या आप अभी official Easy Credit app से pay कर सकते हैं?
+
+Turn 3:
+  user: [annoyed] Haan, 20 August ko pakka.
+  assistant: ठीक है, अनाजी। मैंने 20 August की date record कर लिया है। यहाँ से payment कर दीजिएग
+
+## Understanding the Conversation Format
+
+The conversation is grouped by turn_id. Each turn may contain:
+- **user**: What the user said
+- **assistant**: What the assistant said (there may be multiple assistant entries within a single turn — e.g., the assistant speaks, calls a tool, then speaks again)
+- **tool_call**: A tool invocation made by the assistant
+- **tool_response**: The result returned by the tool
+
+When a turn contains multiple assistant entries, evaluate them **together as a single unit** — they represent the assistant's complete response within that turn. Tool calls and responses between assistant entries explain why the assistant spoke in multiple parts (it was waiting for data). It could also be due to interruptions from the user.
+
+## Understanding Interruption Tags
+
+These are non-spoken metadata tags inserted during post-processing to annotate speech overlap events. They are NOT part of the spoken text.
+
+Tag definitions:
+- `[assistant interrupts]` — The assistant started speaking while the user was still talking. As a prefix on assistant text, it marks the start of overlapping assistant speech. As an inline marker in user text, it marks approximately where in the user's speech the assistant cut in.
+- `[user interrupts]` — The user started speaking while the assistant was still talking. As a prefix on user text, it marks the start of overlapping user speech. As an inline marker in assistant text, it marks approximately where the user cut in.
+- `[likely cut off by user]` — Appears in assistant text. The assistant's speech was probably cut off by the user starting to speak. Text before this tag may not have been fully spoken. Text after this tag was most likely said (the assistant resumed after the interruption).
+- `[likely cut off by assistant]` — Appears in user text. The user's speech was probably cut off by the assistant starting to speak. Text before this tag may not have been fully spoken.
+- `[speaker likely cut itself off]` — The speaker likely stopped on its own, possibly after detecting overlap or for other reasons. If the tag appears mid-turn, text after it is what the speaker said after resuming. If the tag appears at the end of the turn, the speaker did not resume in this turn. Text before this tag may not have been fully spoken.
+- `[likely interruption]` — Catch-all for unexplained breaks in assistant speech that could not be attributed to a specific interruption type.
+
+**Scope of ""text before this tag"":** For all four cut-off tags (`[likely cut off by user]`, `[likely cut off by assistant]`, `[speaker likely cut itself off]`, `[likely interruption]`), ""text before this tag"" means **all text from the start of the turn (or from the previous resumption point) up to the tag** — not just the few adjacent words. This region can span multiple sentences and contain multiple entities (confirmation codes, dollar amounts, names, etc.). Any or all of it may have been silently dropped from the audio. The tag is just a signal that an interruption occurred; it might not be at the right place and do not assume the cut-off was small.
+
+
+**Key principle:** When interruption tags are present, the assistant may not have been able to finish what it was saying. Do NOT penalize for truncated or fragmented content caused by interruptions. Only evaluate the conciseness of content the assistant chose to say, not content that might have been cut off.
+
+## Instructions
+The conversation includes user, assistant, tool_call, and tool_response entries. Rate only the assistant's spoken content. User turns, tool calls, and tool responses are provided for context only.
+
+For each turn that contains assistant content, evaluate whether the assistant's response is appropriately concise and easy to digest when spoken aloud to a human.
+
+The assistant is expected to follow conversational voice guidelines:
+- Keep responses brief and conversational (typically 2–4 sentences of meaningful conversation content; this may vary by language — some languages have obligatory politeness phrases or structural conventions that naturally add length without adding cognitive load)
+- Summarize long lists rather than reading them exhaustively
+- Avoid overwhelming the listener with too much information at once
+- Spread multiple requests across turns when possible
+- Present options conversationally and avoid cramming excessive detail into one turn
+
+## Evaluation Criteria
+When evaluating each turn, consider:
+- Does the response get to the point without filler, rambling, or unnecessary content?
+- Is all the information relevant and necessary given the conversation context?
+- Is the amount of detail reasonable for someone listening to — not reading — the response?
+- If the response enumerates options or items (e.g., ""Option one is… Option two is…""), does the structure help the user? The volume should not be overwhelming.
+- Is the provided information justified by context (e.g., confirming a detail the user may have misheard)? Or is it inappropriate (e.g., excessive itemization or explanation when the user may only care about the end result)?
+- Within turns, is repetition avoided? Across turns there may be valid reasons for repetition, but it should usually not occur within a single turn.
+- Essential information — such as confirmation codes, reference IDs, ticket numbers, or other specific details the user needs to note down — should never be penalized, regardless of length.
+
+## Allowed Exceptions (Voice Interaction Realities)
+The assistant may occasionally produce longer turns when the context requires precise information transfer. The following cases should NOT be penalized for verbosity or information density. The turn itself may still be penalized for other reasons.
+1. **Phonetic Confirmation of Codes**
+- When confirming a confirmation code, reference number, ticket number, or similar identifier, the assistant may spell characters using the NATO phonetic alphabet (e.g., ""B as in Bravo, F as in Foxtrot"").
+- This is especially appropriate when the user previously misheard or asked for clarification.
+2. **Reference or Identifier Delivery**
+- When providing an identifier the user needs to note down (e.g., a ticket number, reference code, or voucher code), the assistant may read the whole code out loud.
+- This information is essential and should not be penalized regardless of length.
+3. **End-of-Call Wrap-Up**
+- The final assistant turn in a conversation may include a slightly longer recap or confirmation of next steps (e.g., summarizing the action taken, confirming what will be sent or followed up on, thanking the user).
+- Minor additional detail in this final wrap-up should not be penalized unless it becomes excessively long or introduces unrelated information.
+
+Important principle: Information given in assistant turns must be short enough for an average person to easily follow in real-time conversation and retain in working memory.
+
+## Failure Modes
+When a response is not optimally concise, identify which of the following failure modes are present. A turn may have multiple failure modes.
+
+**verbosity_or_filler**
+Contains unnecessary wording, repetition within the same turn, hedging, or explanation beyond what the context requires.
+Exception: do NOT flag following of cultural norms, such as obligatory politeness structures (e.g. in Japanese and Korean: keigo, honorifics, set opening/closing phrases).
+
+**excess_information_density**
+Presents too many distinct facts, options, numbers, steps, or requests at once, making it difficult for a listener to process in real time. Note: bundling closely related transactional details that the user needs to act on or remember together (e.g., confirming a reference number, date, and one or two key details in a single turn) is expected behavior — only flag this when the volume of information genuinely exceeds what a listener can comfortably retain.
+
+**over_enumeration_or_list_exhaustion**
+Reads out long lists instead of summarizing, or presents multiple options with excessive detail rather than inviting follow-up.
+
+**contextually_disproportionate_detail**
+Provides more background, clarification, or explanation than the situation warrants.
+
+## Contextual Leniency and Failure Mode Priority
+Conciseness should be evaluated with respect to the conversational context. If additional wording or detail is clearly necessary for the user to understand or act on the information, a modest increase in verbosity should be considered acceptable and should NOT be penalized.
+
+If none of the above are present, return an empty list for failure_modes.
+
+## Rating Scale For Each Turn With Assistant Content
+- 3 (Highly Concise / No Cognitive Overload) – The response is clear, appropriately scoped for voice, and comfortably digestible in real time. No failure modes are present. A turn that delivers a few closely related facts as part of a single transactional step (e.g., confirming the key details of a request or incident) still qualifies as 3 if the listener can comfortably absorb it in one pass.
+- 2 (Adequate but Not Optimally Concise) – One minor failure mode is present, but the response remains reasonably processable in a voice setting and does not meaningfully overwhelm the listener. Reserve this rating for turns where you can identify specific content that should have been omitted or deferred to a later turn — not merely for turns that happen to contain several necessary details.
+- 1 (Not Concise / Causes Cognitive Overload) – One or more significant failure modes are present that materially increase cognitive load and would hinder comprehension in a voice conversation.
+
+Provide one entry per turn_id in the conversation.
+
+## Response Format
+Provide your response as a valid JSON array, one entry per turn. Each entry must include the turn_id matching the turn number shown in the conversation above.
+- If the turn contains assistant content, rate it with 1, 2, or 3.
+- If the turn does not contain assistant content (e.g., user-only turn), set rating to null.
+[
+  {
+    ""turn_id"": <int: the turn number from the conversation>,
+    ""explanation"": ""<Detailed analysis in English referencing the evaluation criteria and explicitly linking identified weaknesses to the listed failure modes to justify the selected rating (1–3). Empty string if rating is null.>"",
+    ""failure_modes"": [""<failure_mode_1>"", ""<failure_mode_2>"", ...],
+    ""rating"": <int: 1, 2, or 3, or null if no assistant content>
+  }
+]
+
+If the turn is rated 3 or null, failure_modes must be an empty list: [].
+","```json
+[
+  {
+    ""turn_id"": 0,
+    ""explanation"": ""The assistant asks a direct and very brief question to confirm the user's identity. It is highly concise and easy to process."",
+    ""failure_modes"": [],
+    ""rating"": 3
+  },
+  {
+    ""turn_id"": 1,
+    ""explanation"": ""The assistant provides a standard introduction, states the reason for the call (overdue EMI amount), and asks for payment. The response is appropriately scoped for voice and delivers the necessary context without overwhelming the user."",
+    ""failure_modes"": [],
+    ""rating"": 3
+  },
+  {
+    ""turn_id"": 2,
+    ""explanation"": ""The assistant unnecessarily repeats its entire introduction, caller identity, and the overdue amount from the previous turn. Re-establishing this already known context introduces significant unnecessary wording and is entirely disproportionate to the conversational state, acting as filler that disrupts the natural flow."",
+    ""failure_modes"": [
+      ""verbosity_or_filler"",
+      ""contextually_disproportionate_detail""
+    ],
+    ""rating"": 1
+  },
+  {
+    ""turn_id"": 3,
+    ""explanation"": ""The assistant concisely confirms that the user's promised payment date has been recorded and provides a brief closing instruction. The response is short and to the point."",
+    ""failure_modes"": [],
+    ""rating"": 3
+  }
+]
+```"

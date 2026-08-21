@@ -1,0 +1,41 @@
+{
+  "run_id": "EMI-VOICE-002",
+  "account_id": "EC-DEMO-2950",
+  "initial_state": {
+    "account_id": "EC-DEMO-2950",
+    "payment_status": "unpaid",
+    "outstanding_amount": "2950",
+    "promise_to_pay_date": null,
+    "callback": null,
+    "disposition": null
+  },
+  "state": {
+    "account_id": "EC-DEMO-2950",
+    "payment_status": "unpaid",
+    "outstanding_amount": "2950",
+    "promise_to_pay_date": "20-08-2026",
+    "callback": null,
+    "disposition": "fptp"
+  },
+  "created_at": "2026-08-21T09:37:53.260131+00:00",
+  "updated_at": "2026-08-21T09:39:12.940675+00:00",
+  "events": [
+    {
+      "sequence": 15,
+      "event_id": null,
+      "tool_name": "record_promise_to_pay",
+      "arguments": {
+        "run_id": "EMI-VOICE-002",
+        "account_id": "EC-DEMO-2950",
+        "event_id": null,
+        "date": "20-08-2026"
+      },
+      "result": {
+        "recorded": true,
+        "date": "20-08-2026",
+        "disposition": "fptp"
+      },
+      "created_at": "2026-08-21T09:39:12.940675+00:00"
+    }
+  ]
+}

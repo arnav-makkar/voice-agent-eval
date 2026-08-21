@@ -12,7 +12,7 @@ from framework.core.io import write_json
 
 
 ROOT = Path(__file__).resolve().parents[2]
-DEFAULT_VERSION = 10
+DEFAULT_VERSION = 11
 
 
 def _default_output(version: int) -> Path:
@@ -69,7 +69,14 @@ def freeze(output: Path, *, version: int = DEFAULT_VERSION) -> dict:
     bundle_hash = hashlib.sha256(
         json.dumps(components, sort_keys=True, separators=(",", ":")).encode("utf-8")
     ).hexdigest()
-    if version == 10:
+    if version == 11:
+        supersedes = (
+            "eva_adapter_v10: V11 is the post-pilot evaluator. It adds NA/null output-sentinel "
+            "normalisation in the Samvaad adapter and the audited terminal-disposition endpoint in "
+            "the isolated tool service. V10 and both pilot runs remain immutable under their original "
+            "hashes; V11 governs only the next repair rerun."
+        )
+    elif version == 10:
         supersedes = (
             "eva_adapter_v9: V10 changes only the prospective synthetic caller identity from "
             "'Arnav Dhavala' to 'Arnav' across the 18-record voice suite and its generator. "

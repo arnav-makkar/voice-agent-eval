@@ -1,0 +1,274 @@
+[
+  {
+    "event": "tool_state_seeded",
+    "timestamp_ms": "1787306564452",
+    "run_id": "EMI-VOICE-009",
+    "account_id": "EC-DEMO-3120"
+  },
+  {
+    "event": "samvaad_connected",
+    "timestamp_ms": "1787306564828",
+    "interaction_id": null
+  },
+  {
+    "event": "twilio_start",
+    "timestamp_ms": "1787306564828",
+    "stream_sid": "EMI-VOICE-009"
+  },
+  {
+    "event": "user_audio_start",
+    "timestamp_ms": "1787306566021",
+    "source_timestamp_ms": "1787306566019"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787306566106",
+    "type": "server.action.interaction_connected",
+    "interaction_id": "20260821/1d064e23-15:32:44-9700cfbe"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787306566511",
+    "sample_rate": 16000
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787306569130"
+  },
+  {
+    "event": "user_audio_stop",
+    "timestamp_ms": "1787306571217",
+    "source_timestamp_ms": "157673179"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787306571245",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "user_audio_start",
+    "timestamp_ms": "1787306571399",
+    "source_timestamp_ms": "1787306571397"
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787306572758",
+    "role": "user",
+    "text": "हां जी, मैं अर्नव हूं।"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787306572959",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787306573665",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787306574370",
+    "role": "user",
+    "text": "हाँ जी, मैं अर्णव हूँ। बोलिए, क्या काम है?"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787306574887",
+    "sample_rate": 16000
+  },
+  {
+    "event": "user_audio_stop",
+    "timestamp_ms": "1787306574978",
+    "source_timestamp_ms": "157676941"
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787306579514",
+    "role": "bot",
+    "text": "नमस्ते अर्णव जी, मैं EasyCredit Consumer EMI से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की तीन हज़ार एक सौ बीस रुपये की EMI overdue है। क्या आप अभी official EasyCredit app से payment कर सकते हैं?"
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787306587161"
+  },
+  {
+    "event": "user_audio_start",
+    "timestamp_ms": "1787306589206",
+    "source_timestamp_ms": "1787306589203"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787306589584",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787306591400",
+    "role": "user",
+    "text": "हाँ जी, मैं अर्णव हूँ। बोलिए, क्या काम है? नहीं जी, अभी नहीं कर सकता।"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787306591702",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787306591905",
+    "role": "bot",
+    "text": "नमस्ते अर्णव जी, मैं EasyCredit Consumer EMI से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की तीन हज़ार एक सौ बीस रुपये की EMI overdue है, क्या आप अभी official"
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787306593745",
+    "role": "user",
+    "text": "हाँ जी, मैं अर्णव हूँ। बोलिए, क्या काम है? नहीं जी, अभी नहीं कर सकता। मैं वी अगस्त नू पेमेंट कर दूँगा।"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787306594352",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787306598175",
+    "role": "bot",
+    "text": "नमस्ते अर्णव जी, मैं EasyCredit Consumer EMI से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की तीन हज़ार एक सौ बीस रुपये की EMI overdue है, क्या आप अभी official EasyCredit app से payment कर सकते हैं?\n\nवैसे आपने कहा कि आप इक्कीस अगस्त को payment कर देंगे, तो क्या मैं इस तारीख़ को confirm कर लूँ?"
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787306612761"
+  },
+  {
+    "event": "user_audio_stop",
+    "timestamp_ms": "1787306615076",
+    "source_timestamp_ms": "157717039"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787306615182",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "user_audio_start",
+    "timestamp_ms": "1787306615200",
+    "source_timestamp_ms": "1787306615199"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787306615484",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787306617040",
+    "role": "user",
+    "text": "हाँ जी, मैं अर्णव हूँ। बोलिए, क्या काम है? नहीं जी, अभी नहीं कर सकता। मैं भी अगस्त नू पेमेंट कर दूँगा। नहीं जी, इक्कीस अगस्त नहीं।"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787306617241",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787306617444",
+    "role": "bot",
+    "text": "अच्छा, मैं शुभ बात कर रहा हूँ EasyCredit Consumer EMI से। आपके Samsung Smart TV की तीन हज़ार एक सौ बीस रुपये की EMI overdue है।"
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787306619488",
+    "role": "user",
+    "text": "हाँ जी, मैं अर्णव हूँ। बोलिए, क्या काम है? नहीं जी, अभी नहीं कर सकता। मैं वी अगस्त नू पेमेंट कर दूँगा। नहीं जी, इक्कीस अगस्त नहीं। मैं वी अगस्त नू पेमेंट कर दूँगा।"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787306619690",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787306619893",
+    "role": "bot",
+    "text": "अच्छा, मैं शुभ बात कर रहा हूँ EasyCredit Consumer EMI से। आपके Samsung Smart TV की तीन हज़ार एक सौ बीस रुपये की EMI overdue"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787306621114",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787306621423",
+    "role": "user",
+    "text": "हाँ जी, मैं अर्णव हूँ। बोलिए, क्या काम है? नहीं जी, अभी नहीं कर सकता। मैं वी अगस्त नू पेमेंट कर दूँगा। नहीं जी, इक्कीस अगस्त नहीं। मैं वी अगस्त नू पेमेंट कर दूँगा। हाँ जी, बीस अगस्त पक्का।"
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787306621839",
+    "role": "user",
+    "text": "हाँ जी, मैं अर्णव हूँ। बोलिए, क्या काम है? नहीं जी, अभी नहीं कर सकता। मैं वी अगस्त नू पेमेंट कर दूँगा। नहीं जी, इक्कीस अगस्त नहीं। मैं वी अगस्त नू पेमेंट कर दूँगा। हाँ जी, बीस अगस्त पक्का।"
+  },
+  {
+    "event": "user_audio_stop",
+    "timestamp_ms": "1787306622062",
+    "source_timestamp_ms": "157724024"
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787306622879",
+    "role": "bot",
+    "text": "ठीक है अर्णव जी, मैंने बीस अगस्त की date record कर ली है। धन्यवाद।"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787306623487",
+    "sample_rate": 16000
+  },
+  {
+    "event": "twilio_stop_sent",
+    "timestamp_ms": "1787306628031",
+    "reason": "assistant_completed"
+  },
+  {
+    "event": "conversation_ending",
+    "timestamp_ms": "1787306628034",
+    "reason": "assistant_completed"
+  },
+  {
+    "event": "samvaad_disconnected",
+    "timestamp_ms": "1787306628089",
+    "interaction_id": "20260821/1d064e23-15:32:44-9700cfbe"
+  },
+  {
+    "event": "analytics_attempt_resolved",
+    "timestamp_ms": "1787306649932",
+    "interaction_id": "20260821/1d064e23-15:32:44-9700cfbe"
+  },
+  {
+    "event": "tool_state_resolved",
+    "timestamp_ms": "1787306649992",
+    "event_count": 0
+  },
+  {
+    "event": "audio_perturbation_summary",
+    "timestamp_ms": "1787306650002",
+    "config": {
+      "kind": "clean"
+    },
+    "chunks": 1026,
+    "dropped_chunks": 0
+  }
+]

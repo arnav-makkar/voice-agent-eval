@@ -1,6 +1,6 @@
 # Claude Code Handoff: Loopline — Self-Improving Voice-Agent Framework
 
-Last reconciled: **2026-08-19, Asia/Kolkata**
+Last reconciled: **2026-08-21, Asia/Kolkata**
 
 Primary workspace: `/Users/Arnav/Claude/Projects/Sarvam`
 
@@ -12,7 +12,48 @@ Primary plan: `/Users/Arnav/Claude/Projects/Sarvam/FINAL-INTERVIEW-DECISION.html
 
 Audience: Claude Code or another coding agent taking over the project without access to the original chat history.
 
-This file is intentionally long, explicit, and machine-oriented. It replaces the older `handoff.md`, which predated the completed EVA–Samvaad integration, the V10 evaluator freeze, the stateful text final, and the current Loopline UI.
+This file is intentionally long, explicit, and machine-oriented. The update below is the current source of truth; later sections preserve the earlier implementation lineage.
+
+## 2026-08-21 final takeover update
+
+### Current decision
+
+**PASS the sealed text improvement. HOLD the live voice release.**
+
+- The frozen stateful text final remains **5/12 → 9/12**, with four repaired cases and zero observed task regression. This is the headline result, not the in-sample 30/30.
+- The selected prompt was committed in Indus. Authenticated Sarvam-originated tool requests reached the run-scoped service and produced real state mutation.
+- A three-call v16 live pilot produced **1/3 task passes**, **1/3 EVA-A passes**, **0/3 EVA-X passes**, and EVA overall mean **0.4417**.
+- A targeted v18 repair rerun produced only **one evaluator-valid call out of three**. The valid future-PTP case preserved its task pass and one exact tool write, but still failed EVA-X. One pay-now trial timed out at the WebSocket layer; the Punjabi PTP trial was simulator-invalid and still missed its required write.
+- The 18-case matched live suite was deliberately not run. Its pilot advance rule failed. This is a complete HOLD decision, not unfinished analysis and not a production promotion.
+
+Machine decision: `voice-agent-improvement/artifacts/framework/emi/live_voice_pilot_decision.json`.
+
+### What changed after the earlier handoff
+
+1. Owner review of all 20 discovery labels is versioned, and the owner confirmed the previously exposed key was rotated.
+2. Indus deployment manifests now preserve v15 prompt identity, v16 live tool configuration and the v18 pilot repair.
+3. The three Indus tools use distinct runtime mappings and an authenticated workspace secret; `record_promise_to_pay` executed during live bot-to-bot calls.
+4. The EVA–Samvaad adapter now rejects `NA`, `N/A`, empty and null sentinels instead of projecting them as false state mutations.
+5. Evaluator **v11** freezes the post-pilot adapter/tool changes. V10 is unchanged and remains the pilot lineage.
+6. Loopline now includes a prospective voice-pilot section with exact denominators, a HOLD decision, three replayable recordings, tool-effect evidence and proven/unproven repair ledgers.
+7. Latest verification passes **82 Python tests**, dashboard lint, four render tests, production build, freeze checks, final-protocol checks and secret scan.
+
+### Current claim boundary
+
+> I built and deployed a governed failure-to-release loop around a Sarvam Indus voice agent. It improved exact task completion on a sealed stateful text final, proved authenticated live tool mutation, and ran prospective realtime bot-to-bot pilots. The live gate correctly held the candidate because the repair round was not reliable or complete. I do not claim live lift, settled-cash lift, or production readiness.
+
+### Demo sequence
+
+1. Run `cd dashboard && npm run dev`, then open `http://localhost:3000`.
+2. Start with **5/12 → 9/12**, immediately state that 30/30 is in-sample and not the headline.
+3. Show the three independent engines: Evaluation, Improvement, Release.
+4. In Episodes, show at least five preserved cases; use the promise-write comparison, ledger contradiction, callback, Punjabi and rejected-GEPA cases.
+5. In Voice pilot, play the PTP recording, show its exact tool/state write, then show the Punjabi miss and the transport-invalid call.
+6. Close on **PASS TEXT · HOLD VOICE PILOT** and the 30/60/90-day production plan.
+
+### Only remaining production gate
+
+Fix caller-language validation, make opening/tool-before-claim behavior workflow-enforceable, and repeat the same three live pilots. Run the 18-case matched suite only after all three are evaluator-valid and every required effect passes.
 
 ---
 

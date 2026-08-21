@@ -1,0 +1,37 @@
+{
+  "schema_version": "loopline.indus-deployment.v1",
+  "agent_name": "Conversation Agent 6820",
+  "indus_app_version": 15,
+  "status": "committed_prompt_checkpoint",
+  "committed_on": "2026-08-21",
+  "base_candidate": "agent/candidates/v15-firm-today.md",
+  "base_candidate_sha256": "732d216b3a75bcb2d6424946cf935dfd1584d723f31020bb746908431dad90e3",
+  "deployed_normalized_sha256": "0d92b314eb8b0e5f298c7520fbcac97f1eafe3f11db8e9527126ef1a96fdd01f",
+  "deployed_normalized_characters": 6318,
+  "platform_adaptations": [
+    {
+      "from": "the Samsung TV",
+      "to": "productName input variable",
+      "reason": "Preserve scenario portability instead of hardcoding one product."
+    },
+    {
+      "from": "currentDate and tomorrowDate",
+      "to": "current_date and tomorrow_date input variables",
+      "reason": "Indus requires lowercase snake_case for newly-created input variable names."
+    },
+    {
+      "from": "record_disposition tool",
+      "to": "existing disposition output variable",
+      "reason": "The platform extracts terminal disposition natively; no record_disposition HTTP tool exists."
+    }
+  ],
+  "unchanged_surfaces": [
+    "greeting",
+    "three existing HTTP tools",
+    "existing variables other than the two new date inputs",
+    "settings",
+    "tests"
+  ],
+  "commit_note": "Loopline selected candidate: terminal discipline, honest outcomes, tool-grounded PTP/callback, dynamic product and runtime date inputs; matched voice release candidate.",
+  "claim_boundary": "This checkpoint proves prompt identity. Its inherited HTTP tool definitions were still scaffolds, so it was not used for live validation; Indus v16 supersedes it."
+}

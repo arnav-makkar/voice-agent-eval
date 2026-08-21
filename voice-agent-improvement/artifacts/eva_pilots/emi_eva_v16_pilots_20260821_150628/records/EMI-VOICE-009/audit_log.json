@@ -1,0 +1,175 @@
+{
+  "transcript": [
+    {
+      "value": "हाँ जी, मैं अर्नव हूँ। जल्दी बोलिए।",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787305223435",
+      "message_type": "user"
+    },
+    {
+      "value": "हाँ जी, मैं अर्नव हूँ। जल्दी बोलिए, मुझे काम है।",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787305223435",
+      "message_type": "user"
+    },
+    {
+      "value": "नमस्ते अर्नव जी, मैं EasyCredit Consumer EMI से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की तीन हज़ार एक सौ बी",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787305224703",
+      "message_type": "assistant"
+    },
+    {
+      "value": "नमस्ते अर्नव जी, मैं EasyCredit Consumer EMI से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की तीन हज़ार एक सौ बीस रुपये की EMI overdue है। क्या आप अभी official EasyCredit app से payment कर सकते हैं?",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787305227097",
+      "message_type": "assistant"
+    },
+    {
+      "value": "नहीं अभी नहीं कर सकता।",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787305241341",
+      "message_type": "user"
+    },
+    {
+      "value": "मैं अभी अगस्त में payment कर दूंगा।",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787305241341",
+      "message_type": "user"
+    },
+    {
+      "value": "अच्छा, कोई बात नहीं। क्या आप बता सकते हैं कि अभी payment करने में क्या दिक्कत आ रही है?",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787305243880",
+      "message_type": "assistant"
+    },
+    {
+      "value": "अच्छा, मैं समझ सकता हूँ। पर क्या आप अगस्त की कोई पक्की तारीख बता सकते हैं जब तक आप payment कर देंगे?",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787305246746",
+      "message_type": "assistant"
+    },
+    {
+      "value": "नहीं अभी नहीं कर सकता। मैं भी अगस्त नू पेमेंट कर दूंगा। मैं भी अगस्त नू पेमेंट कर दूंगा।",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787305256327",
+      "message_type": "user"
+    },
+    {
+      "value": "अच्छा, मैं समझ गया। मतलब आप अगस्त के आखिर तक payment कर देंगे। क्या आप मुझे कोई पक्की तारीख बता सकते हैं जब तक आप payment कर देंगे?",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787305259242",
+      "message_type": "assistant"
+    },
+    {
+      "value": "जी, तो वो तारीख क्या",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787305259242",
+      "message_type": "assistant"
+    },
+    {
+      "value": "हां जी।",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787305271448",
+      "message_type": "user"
+    },
+    {
+      "value": "हां जी, बीस अगस्त वक्त पक्का।",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787305271448",
+      "message_type": "user"
+    },
+    {
+      "value": "ठीक है, तो बीस अगस्त को payment पक्का है। मैं इसे note कर लेता हूँ। धन्यवाद अर्नव जी।",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787305274693",
+      "message_type": "assistant"
+    }
+  ],
+  "llm_prompts": [],
+  "conversation_messages": [
+    {
+      "role": "user",
+      "content": "हाँ जी, मैं अर्नव हूँ। जल्दी बोलिए।"
+    },
+    {
+      "role": "assistant",
+      "content": "नमस्ते अर्नव जी, मैं EasyCredit Consumer EMI से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की तीन हज़ार एक सौ बी"
+    },
+    {
+      "role": "user",
+      "content": "हाँ जी, मैं अर्नव हूँ। जल्दी बोलिए, मुझे काम है।"
+    },
+    {
+      "role": "assistant",
+      "content": "नमस्ते अर्नव जी, मैं EasyCredit Consumer EMI से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की तीन हज़ार एक सौ बीस रुपये की EMI overdue है। क्या आप अभी official EasyCredit app से payment कर सकते हैं?"
+    },
+    {
+      "role": "user",
+      "content": "नहीं अभी नहीं कर सकता।"
+    },
+    {
+      "role": "assistant",
+      "content": "अच्छा, कोई बात नहीं। क्या आप बता सकते हैं कि अभी payment करने में क्या दिक्कत आ रही है?"
+    },
+    {
+      "role": "user",
+      "content": "मैं अभी अगस्त में payment कर दूंगा।"
+    },
+    {
+      "role": "assistant",
+      "content": "अच्छा, मैं समझ सकता हूँ। पर क्या आप अगस्त की कोई पक्की तारीख बता सकते हैं जब तक आप payment कर देंगे?"
+    },
+    {
+      "role": "user",
+      "content": "नहीं अभी नहीं कर सकता। मैं भी अगस्त नू पेमेंट कर दूंगा। मैं भी अगस्त नू पेमेंट कर दूंगा।"
+    },
+    {
+      "role": "assistant",
+      "content": "अच्छा, मैं समझ गया। मतलब आप अगस्त के आखिर तक payment कर देंगे। क्या आप मुझे कोई पक्की तारीख बता सकते हैं जब तक आप payment कर देंगे?"
+    },
+    {
+      "role": "user",
+      "content": "हां जी।"
+    },
+    {
+      "role": "assistant",
+      "content": "जी, तो वो तारीख क्या"
+    },
+    {
+      "role": "user",
+      "content": "हां जी, बीस अगस्त वक्त पक्का।"
+    },
+    {
+      "role": "assistant",
+      "content": "ठीक है, तो बीस अगस्त को payment पक्का है। मैं इसे note कर लेता हूँ। धन्यवाद अर्नव जी।"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": "loopline.indus-deployment.v1",
+  "agent_name": "Conversation Agent 6820",
+  "indus_app_version": 16,
+  "status": "committed_live_candidate",
+  "committed_on": "2026-08-21",
+  "prompt_identity": "agent/deployments/indus-v15.json",
+  "deployed_normalized_sha256": "0d92b314eb8b0e5f298c7520fbcac97f1eafe3f11db8e9527126ef1a96fdd01f",
+  "tool_configuration": {
+    "authentication": "X-Loopline-Tool-Key via Indus workspace secret",
+    "tools": [
+      {
+        "name": "check_payment_status",
+        "path": "/v1/tools/check-payment-status",
+        "body": {
+          "run_id": "campaignId",
+          "account_id": "transactionReference"
+        },
+        "platform_test": "http_200"
+      },
+      {
+        "name": "record_promise_to_pay",
+        "path": "/v1/tools/record-promise-to-pay",
+        "body": {
+          "run_id": "campaignId",
+          "account_id": "transactionReference",
+          "date": "agent-confirmed DD-MM-YYYY"
+        },
+        "platform_test": "http_200_state_write"
+      },
+      {
+        "name": "schedule_callback",
+        "path": "/v1/tools/schedule-callback",
+        "body": {
+          "run_id": "campaignId",
+          "account_id": "transactionReference",
+          "date": "agent-confirmed DD-MM-YYYY",
+          "time_window": "agent-confirmed narrow IST window"
+        },
+        "platform_test": "http_200_state_write"
+      }
+    ]
+  },
+  "tool_route": "temporary authenticated HTTPS tunnel for controlled demo validation",
+  "production_route_requirement": "Replace the temporary tunnel with a stable managed HTTPS endpoint and IP allowlisting before customer traffic.",
+  "commit_note": "Loopline live candidate: exact selected prompt plus authenticated stateful payment, PTP and callback tools; platform-tested responses and runtime date inputs.",
+  "claim_boundary": "This commit proves deployability and platform tool execution. Live voice quality remains governed by the frozen pilot and matched release evidence."
+}

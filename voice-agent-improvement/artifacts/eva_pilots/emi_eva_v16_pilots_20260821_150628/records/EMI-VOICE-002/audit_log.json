@@ -1,0 +1,127 @@
+{
+  "transcript": [
+    {
+      "value": "हाँ जी, मैं अर्नव हूँ। बोलिए, क्या बात है?",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787305080251",
+      "message_type": "user"
+    },
+    {
+      "value": "नमस्ते अर्नव जी, मैं EasyCredit Consumer EMI से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की दो हज़ार नौ सौ पचास रुपये की EMI overdue है। क्या आप अभी official EasyCredit app से payment कर सकते हैं?",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787305083923",
+      "message_type": "assistant"
+    },
+    {
+      "value": "अभी नहीं, 20 अगस्त को पेमेंट कर दूँगा।",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787305097399",
+      "message_type": "user"
+    },
+    {
+      "value": "नमस्ते अर्नव जी, मैं EasyCredit Consumer EMI से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की दो हज़ार नौ सौ पचास रुपये की EMI overdue है।\n\nअच्छा, आपने बीस अगस्त की date बताई है। मतलब आप कल payment कर देंगे?",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787305101131",
+      "message_type": "assistant"
+    },
+    {
+      "value": "हाँ, 20 अगस्त को पक्का।",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787305118252",
+      "message_type": "user"
+    },
+    {
+      "value": "नमस्ते अर्नव जी, मैं EasyCredit Consumer EMI से शुभ बात कर रहा हूँ। यह call आपके Samsung Smart TV की दो हज़ार नौ सौ पचास रुपये की overdue EMI के बारे में है।\n\nअच्छा, तो आपने बीस अगस्त की date दी है। मतलब कल आप payment कर देंगे?",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787305120673",
+      "message_type": "assistant"
+    },
+    {
+      "value": "अच्छा, धन्यवाद। मैं EasyCredit Consumer EMI से शुभ बात कर रहा हूँ। यह call आपके Samsung Smart TV की दो हज़ार नौ सौ पचास रुपये की overdue EMI के बारे में है।\n\nआपने बीस अगस्त की date पक्की की है, तो मैं इसे record कर लेता हूँ। बीस अगस्त को payment हो जाएगी ना?",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787305144097",
+      "message_type": "assistant"
+    },
+    {
+      "value": "हाँ जी, मैं अर्णव हूँ। बोलिए, क्या बात है? अभी नहीं, 20 अगस्त को पेमेंट कर दूँगा। हाँ, 20 अगस्त को पक्का। हाँ, बिल्कुल। मैं कल सुबह 10 बजे के अंदर पेमेंट कर दूँगा। कोई टेंशन मत लीजिए।",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787305150522",
+      "message_type": "user"
+    },
+    {
+      "value": "ओके, थैंक यू।",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787305150522",
+      "message_type": "user"
+    },
+    {
+      "value": "अच्छा, धन्यवाद Arnav जी। मैं शुभ बात कर रहा हूँ EasyCredit Consumer EMI से। यह call आपके Samsung Smart TV की दो हज़ार नौ सौ पचास रुपये की overdue EMI के बारे में थी। आपने कल यानी बीस अगस्त को payment करने का पक्का वादा किया है, तो मैं इसे record कर लेता हूँ।",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787305152612",
+      "message_type": "assistant"
+    }
+  ],
+  "llm_prompts": [],
+  "conversation_messages": [
+    {
+      "role": "user",
+      "content": "हाँ जी, मैं अर्नव हूँ। बोलिए, क्या बात है?"
+    },
+    {
+      "role": "assistant",
+      "content": "नमस्ते अर्नव जी, मैं EasyCredit Consumer EMI से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की दो हज़ार नौ सौ पचास रुपये की EMI overdue है। क्या आप अभी official EasyCredit app से payment कर सकते हैं?"
+    },
+    {
+      "role": "user",
+      "content": "अभी नहीं, 20 अगस्त को पेमेंट कर दूँगा।"
+    },
+    {
+      "role": "assistant",
+      "content": "नमस्ते अर्नव जी, मैं EasyCredit Consumer EMI से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की दो हज़ार नौ सौ पचास रुपये की EMI overdue है।\n\nअच्छा, आपने बीस अगस्त की date बताई है। मतलब आप कल payment कर देंगे?"
+    },
+    {
+      "role": "user",
+      "content": "हाँ, 20 अगस्त को पक्का।"
+    },
+    {
+      "role": "assistant",
+      "content": "नमस्ते अर्नव जी, मैं EasyCredit Consumer EMI से शुभ बात कर रहा हूँ। यह call आपके Samsung Smart TV की दो हज़ार नौ सौ पचास रुपये की overdue EMI के बारे में है।\n\nअच्छा, तो आपने बीस अगस्त की date दी है। मतलब कल आप payment कर देंगे?"
+    },
+    {
+      "role": "user",
+      "content": "हाँ जी, मैं अर्णव हूँ। बोलिए, क्या बात है? अभी नहीं, 20 अगस्त को पेमेंट कर दूँगा। हाँ, 20 अगस्त को पक्का। हाँ, बिल्कुल। मैं कल सुबह 10 बजे के अंदर पेमेंट कर दूँगा। कोई टेंशन मत लीजिए।"
+    },
+    {
+      "role": "assistant",
+      "content": "अच्छा, धन्यवाद। मैं EasyCredit Consumer EMI से शुभ बात कर रहा हूँ। यह call आपके Samsung Smart TV की दो हज़ार नौ सौ पचास रुपये की overdue EMI के बारे में है।\n\nआपने बीस अगस्त की date पक्की की है, तो मैं इसे record कर लेता हूँ। बीस अगस्त को payment हो जाएगी ना?"
+    },
+    {
+      "role": "user",
+      "content": "ओके, थैंक यू।"
+    },
+    {
+      "role": "assistant",
+      "content": "अच्छा, धन्यवाद Arnav जी। मैं शुभ बात कर रहा हूँ EasyCredit Consumer EMI से। यह call आपके Samsung Smart TV की दो हज़ार नौ सौ पचास रुपये की overdue EMI के बारे में थी। आपने कल यानी बीस अगस्त को payment करने का पक्का वादा किया है, तो मैं इसे record कर लेता हूँ।"
+    }
+  ]
+}

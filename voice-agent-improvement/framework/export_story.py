@@ -362,24 +362,97 @@ def build(output: Path = OUTPUT) -> dict[str, Any]:
             },
             {
                 "id": "live",
-                "label": "Live voice",
-                "n": 0,
-                "before": "—",
-                "after": "—",
-                "independence": "not run",
+                "label": "Live voice pilot",
+                "n": 3,
+                "before": "1/3 task pass",
+                "after": "1 valid / 3 attempts",
+                "independence": "hold",
                 "caveat": (
-                    "One validated realtime call exists against the deployed agent. No matched comparison has been "
-                    "run, so no voice improvement is claimed at all."
+                    "The first three-call pilot exposed real defects. A repair rerun produced one valid task pass, one "
+                    "transport timeout and one simulator-invalid Punjabi trial whose required tool still did not fire. "
+                    "The matched suite was correctly held; no live lift is claimed."
                 ),
             },
         ],
+        "live_pilot": {
+            "decision": "HOLD",
+            "decision_detail": (
+                "Do not run the 18-case matched suite yet. The pilot gate requires three evaluator-valid calls and "
+                "correct required tool effects; the repair rerun delivered one valid call out of three."
+            ),
+            "transport": "Realtime ElevenLabs caller ↔ Sarvam Samvaad agent over duplex audio",
+            "rounds": [
+                {
+                    "label": "Initial deployed pilot",
+                    "version": "Indus v16",
+                    "attempted": 3,
+                    "valid": 3,
+                    "task_passes": 1,
+                    "eva_a_passes": 1,
+                    "eva_x_passes": 0,
+                    "eva_a_mean": 0.5556,
+                    "eva_x_mean": 0.3278,
+                    "overall_mean": 0.4417,
+                    "note": "Discovery round: all calls were scorable; only the future-promise case completed its required write.",
+                },
+                {
+                    "label": "Repair rerun",
+                    "version": "Indus v18",
+                    "attempted": 3,
+                    "valid": 1,
+                    "task_passes": 1,
+                    "eva_a_passes": 1,
+                    "eva_x_passes": 0,
+                    "eva_a_mean": 0.8333,
+                    "eva_x_mean": 0.31,
+                    "overall_mean": 0.5717,
+                    "note": "Not comparable as an aggregate: two trials were excluded. The only valid case preserved its task pass but still failed EVA-X.",
+                },
+            ],
+            "scenarios": [
+                {
+                    "id": "EMI-VOICE-001",
+                    "name": "Pay now",
+                    "initial": "Native disposition was payment_ready, but an NA sentinel was misread as state mutation.",
+                    "repair": "Adapter now ignores NA/null sentinels; its rerun hit a 120-second WebSocket timeout.",
+                    "result": "infrastructure-invalid",
+                    "audio": "/evidence/pilots/EMI-VOICE-001-v16.wav",
+                },
+                {
+                    "id": "EMI-VOICE-002",
+                    "name": "Future promise to pay",
+                    "initial": "Task pass; record_promise_to_pay wrote 20-08-2026 exactly once in 5 agent turns / 143 seconds.",
+                    "repair": "Task pass preserved; same write occurred exactly once in 4 agent turns / 75 seconds.",
+                    "result": "task-pass-experience-fail",
+                    "audio": "/evidence/pilots/EMI-VOICE-002-v18.wav",
+                },
+                {
+                    "id": "EMI-VOICE-009",
+                    "name": "Punjabi + future promise",
+                    "initial": "The agent acknowledged the date but never called record_promise_to_pay.",
+                    "repair": "The rerun still missed the tool and was invalidated because the caller harness declared English while speaking Punjabi.",
+                    "result": "agent-and-harness-fail",
+                    "audio": "/evidence/pilots/EMI-VOICE-009-v16.wav",
+                },
+            ],
+            "repairs_proven": [
+                "Authenticated Indus tool execution and isolated state mutation",
+                "NA/null output normalisation in the EVA–Samvaad adapter (unit tested)",
+                "One required PTP write executed exactly once in both rounds",
+            ],
+            "repairs_not_proven": [
+                "Opening repetition was not eliminated in the valid rerun",
+                "Punjabi switching and tool-before-claim did not pass prospectively",
+                "Transport reliability is below the pilot threshold",
+            ],
+        },
         "acts": [
             {
                 "id": "measure",
                 "eyebrow": "Act one",
                 "title": "Measure the agent that is actually deployed",
                 "summary": (
-                    f"The live agent ran {baseline['episodes']} authored scenarios with hidden caller goals, seeded "
+                    f"The deployed agent's exact prompt ran {baseline['episodes']} authored scenarios with hidden caller goals, seeded "
                     f"account state and executable tools. It completed {baseline['task_successes']}."
                 ),
                 "metrics": [
@@ -468,23 +541,27 @@ def build(output: Path = OUTPUT) -> dict[str, Any]:
                     {"label": "Every baseline win preserved", "passed": bool(gate.get("conditions", {}).get("all_baseline_task_wins_preserved"))},
                     {"label": "Conversation quality within the declared floor", "passed": bool(gate.get("conditions", {}).get("experience_drop_within_10pp"))},
                 ],
-                "decision": final.get("decision"),
-                "next_gate": final.get("next_gate"),
-                "claim_boundary": final.get("claim_boundary"),
+                "decision": "PASS TEXT · HOLD VOICE PILOT",
+                "next_gate": "repair_and_repeat_three_live_pilots",
+                "claim_boundary": (
+                    "The frozen candidate improved exact text-mode task completion on the sealed final with no "
+                    "observed task regression. The prospective live pilot did not pass its advance rule, so the "
+                    "matched voice suite and production promotion are held."
+                ),
             },
         ],
         "still_open": [
             {
-                "title": "The improved agent has not been committed in the live platform",
-                "detail": "The deployed draft had drifted from the frozen candidate. That drift was captured, scored and rejected on evidence; restoring the exact candidate is a one-step action.",
+                "title": "The voice pilot gate is HOLD, not promote",
+                "detail": "The repaired round yielded one evaluator-valid call out of three. The Punjabi tool path still failed and a separate call hit the transport time limit, so running the larger matched suite would spend budget without decision-quality evidence.",
             },
             {
-                "title": "No tool has yet executed against the live platform",
-                "detail": "The run-scoped tool service is built, authenticated and tested, but the platform's tools still point at echo endpoints. Until one real side effect is captured, execution truth is proven in evaluation and not in production.",
+                "title": "The temporary tunnel is a demo route, not production infrastructure",
+                "detail": "Sarvam reached the authenticated service and produced real state changes. Production requires a stable managed endpoint, secret rotation policy, IP allowlisting, observability, retries and an uptime objective.",
             },
             {
-                "title": "The improvement is measured in evaluation, not over live audio",
-                "detail": "One genuine realtime bot-to-bot call is preserved and scored. A matched round across both agents is frozen and ready, and has not been run.",
+                "title": "The text improvement is proven; live voice lift is not",
+                "detail": "The sealed text result remains 5/12 to 9/12. The live pilots validate the evaluation plumbing and reveal production defects, but do not form a clean matched comparison.",
             },
             {
                 "title": "Commitment is the proxy; settled payment is not observed",
@@ -624,7 +701,8 @@ def build(output: Path = OUTPUT) -> dict[str, Any]:
         },
         "claim_boundary": (
             "Every figure on this page comes from a preserved evaluation artifact. The improvement is measured in a "
-            "stateful text-mode environment with executable tools and isolated state; it is not a live voice result."
+            "stateful text-mode environment with executable tools and isolated state. Live Indus tool execution is "
+            "proven; the prospective voice pilot is a documented HOLD and no live lift is claimed."
         ),
     }
     for act in story["acts"]:

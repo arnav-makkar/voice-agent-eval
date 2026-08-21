@@ -1,0 +1,103 @@
+{
+  "transcript": [
+    {
+      "value": "नमस्ते",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787306491452",
+      "message_type": "assistant"
+    },
+    {
+      "value": "हाँ जी, मैं अर्णव हूँ।",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787306495554",
+      "message_type": "user"
+    },
+    {
+      "value": "बोलिए, क्या बात है?",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787306495554",
+      "message_type": "user"
+    },
+    {
+      "value": "नमस्ते अर्णव जी, मैं EasyCredit Consumer EMI से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की दो हज़ार नौ सौ पचास रुपये की EMI overdue है, क्या आप अभी official EasyCredit app से payment कर सकते हैं?",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787306499115",
+      "message_type": "assistant"
+    },
+    {
+      "value": "अभी नहीं, 20 अगस्त को पेमेंट कर दूँगा।",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787306513350",
+      "message_type": "user"
+    },
+    {
+      "value": "नमस्ते अर्णव जी, मैं EasyCredit Consumer EMI से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की दो हज़ार नौ सौ पचास रुपये की EMI overdue है। क्या आप अभी official EasyCredit app से payment कर सकते हैं?",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787306516859",
+      "message_type": "assistant"
+    },
+    {
+      "value": "हाँ, 20 अगस्त को पक्का।",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787306531778",
+      "message_type": "user"
+    },
+    {
+      "value": "ठीक है अर्णव जी, मैंने बीस अगस्त की date record कर ली है। याद से payment कर दीजिएगा। धन्यवाद!",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787306536677",
+      "message_type": "assistant"
+    }
+  ],
+  "llm_prompts": [],
+  "conversation_messages": [
+    {
+      "role": "user",
+      "content": "हाँ जी, मैं अर्णव हूँ।"
+    },
+    {
+      "role": "assistant",
+      "content": "नमस्ते"
+    },
+    {
+      "role": "user",
+      "content": "बोलिए, क्या बात है?"
+    },
+    {
+      "role": "assistant",
+      "content": "नमस्ते अर्णव जी, मैं EasyCredit Consumer EMI से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की दो हज़ार नौ सौ पचास रुपये की EMI overdue है, क्या आप अभी official EasyCredit app से payment कर सकते हैं?"
+    },
+    {
+      "role": "user",
+      "content": "अभी नहीं, 20 अगस्त को पेमेंट कर दूँगा।"
+    },
+    {
+      "role": "assistant",
+      "content": "नमस्ते अर्णव जी, मैं EasyCredit Consumer EMI से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की दो हज़ार नौ सौ पचास रुपये की EMI overdue है। क्या आप अभी official EasyCredit app से payment कर सकते हैं?"
+    },
+    {
+      "role": "user",
+      "content": "हाँ, 20 अगस्त को पक्का।"
+    },
+    {
+      "role": "assistant",
+      "content": "ठीक है अर्णव जी, मैंने बीस अगस्त की date record कर ली है। याद से payment कर दीजिएगा। धन्यवाद!"
+    }
+  ]
+}

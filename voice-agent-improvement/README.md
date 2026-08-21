@@ -1,5 +1,11 @@
 # Loopline: self-improving voice-agent framework
 
+## Current release decision (21 Aug 2026)
+
+The sealed text improvement passes; the prospective live voice release is **HOLD**. The first three-call live pilot scored 1/3 task passes and 0/3 EVA-X passes. A targeted repair rerun yielded one evaluator-valid call out of three; that call preserved its task/tool pass but still failed EVA-X, while the Punjabi required write remained missing. The larger matched suite was correctly not run.
+
+See `artifacts/framework/emi/live_voice_pilot_decision.json`. Loopline's Voice pilot section contains the three replayable recordings and exact valid/invalid denominators. No live lift or production-readiness claim is supported.
+
 Loopline is an executable interview MVP for evaluating, diagnosing, improving, and governing conversational agents. Sarvam Indus EMI recovery is the validation domain; the learning loop is case-agnostic.
 
 The repository keeps three jobs separate:
@@ -76,7 +82,7 @@ python -m framework.pipeline export-dashboard
 7. `artifacts/framework/emi/voice_stress_v1/live/voice_summary.json` — baseline acoustic diagnostics.
 8. `artifacts/framework/execution_manifest.json` — hash-linked stakeholder manifest.
 9. `../FINAL-EXECUTION-REPORT.html` — final interview narrative and demo script.
-10. `artifacts/framework/emi/eva_adapter_v10/evaluator_freeze.json` — frozen live evaluator, transport, tool-state and 18-scenario voice protocol.
+10. `artifacts/framework/emi/eva_adapter_v11/evaluator_freeze.json` — post-pilot frozen evaluator with sentinel normalisation, transport, tool-state and 18-scenario voice protocol. V10 remains immutable pilot lineage.
 11. `artifacts/framework/emi/eva_voice_suite_v1/manifest.json` — prospective record IDs, source contracts and dataset hash.
 12. `INDUS-TOOL-CONNECTION.md` — exact remaining Indus API-tool connection procedure.
 13. `artifacts/framework/completion_audit.json` — machine-readable status of every phase in `FINAL-INTERVIEW-DECISION.html`.

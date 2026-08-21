@@ -1,0 +1,230 @@
+[
+  {
+    "event": "tool_state_seeded",
+    "timestamp_ms": "1787306489468",
+    "run_id": "EMI-VOICE-002",
+    "account_id": "EC-DEMO-2950"
+  },
+  {
+    "event": "samvaad_connected",
+    "timestamp_ms": "1787306489858",
+    "interaction_id": null
+  },
+  {
+    "event": "twilio_start",
+    "timestamp_ms": "1787306489858",
+    "stream_sid": "EMI-VOICE-002"
+  },
+  {
+    "event": "user_audio_start",
+    "timestamp_ms": "1787306490938",
+    "source_timestamp_ms": "1787306490936"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787306491048",
+    "type": "server.action.interaction_connected",
+    "interaction_id": "20260821/331edd37-15:31:29-6711b810"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787306491453",
+    "sample_rate": 16000
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787306494069"
+  },
+  {
+    "event": "user_audio_stop",
+    "timestamp_ms": "1787306495401",
+    "source_timestamp_ms": "157597362"
+  },
+  {
+    "event": "user_audio_start",
+    "timestamp_ms": "1787306495556",
+    "source_timestamp_ms": "1787306495554"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787306495593",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787306495800",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787306496905",
+    "role": "user",
+    "text": "हाँ जी, मैं अर्णव हूँ।"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787306497025",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787306497227",
+    "role": "bot",
+    "text": "नमस्ते"
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787306498480",
+    "role": "user",
+    "text": "हाँ जी, मैं अर्णव हूँ। बोलिए, क्या बात है?"
+  },
+  {
+    "event": "user_audio_stop",
+    "timestamp_ms": "1787306498977",
+    "source_timestamp_ms": "157600937"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787306499116",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787306502948",
+    "role": "bot",
+    "text": "नमस्ते अर्णव जी, मैं EasyCredit Consumer EMI से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की दो हज़ार नौ सौ पचास रुपये की EMI overdue है, क्या आप अभी official EasyCredit app से payment कर सकते हैं?"
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787306511716"
+  },
+  {
+    "event": "user_audio_start",
+    "timestamp_ms": "1787306513351",
+    "source_timestamp_ms": "1787306513350"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787306513730",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787306516346",
+    "role": "user",
+    "text": "हाँ जी, मैं अर्णव हूँ। बोलिए, क्या बात है? अभी नहीं, 20 अगस्त को पेमेंट कर दूँगा।"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787306516859",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787306522902",
+    "role": "bot",
+    "text": "नमस्ते अर्णव जी, मैं EasyCredit Consumer EMI से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की दो हज़ार नौ सौ पचास रुपये की EMI overdue है। क्या आप अभी official EasyCredit app से payment कर सकते हैं?"
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787306529161"
+  },
+  {
+    "event": "user_audio_stop",
+    "timestamp_ms": "1787306531645",
+    "source_timestamp_ms": "157633606"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787306531702",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "user_audio_start",
+    "timestamp_ms": "1787306531780",
+    "source_timestamp_ms": "1787306531778"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787306532105",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787306532911",
+    "role": "user",
+    "text": "हाँ जी, मैं अर्णव हूँ। बोलिए, क्या बात है? अभी नहीं, 20 अगस्त को पेमेंट कर दूँगा। हाँ, 20 अगस्त को।"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787306533111",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787306533413",
+    "role": "user",
+    "text": "हाँ जी, मैं अर्णव हूँ। बोलिए, क्या बात है? अभी नहीं, 20 अगस्त को पेमेंट कर दूँगा। हाँ, 20 अगस्त को पक्का।"
+  },
+  {
+    "event": "user_audio_stop",
+    "timestamp_ms": "1787306533840",
+    "source_timestamp_ms": "157635800"
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787306536171",
+    "role": "bot",
+    "text": "ठीक है अर्णव जी, मैंने बीस अगस्त की date record कर ली है। याद से payment कर दीजिएगा। धन्यवाद!"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787306536678",
+    "sample_rate": 16000
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787306542416"
+  },
+  {
+    "event": "twilio_stop_sent",
+    "timestamp_ms": "1787306542518",
+    "reason": "assistant_completed"
+  },
+  {
+    "event": "conversation_ending",
+    "timestamp_ms": "1787306542519",
+    "reason": "assistant_completed"
+  },
+  {
+    "event": "samvaad_disconnected",
+    "timestamp_ms": "1787306542566",
+    "interaction_id": "20260821/331edd37-15:31:29-6711b810"
+  },
+  {
+    "event": "analytics_attempt_resolved",
+    "timestamp_ms": "1787306564278",
+    "interaction_id": "20260821/331edd37-15:31:29-6711b810"
+  },
+  {
+    "event": "tool_state_resolved",
+    "timestamp_ms": "1787306564328",
+    "event_count": 1
+  },
+  {
+    "event": "audio_perturbation_summary",
+    "timestamp_ms": "1787306564338",
+    "config": {
+      "kind": "clean"
+    },
+    "chunks": 824,
+    "dropped_chunks": 0
+  }
+]

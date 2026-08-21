@@ -1,0 +1,213 @@
+record_id,model_name,model_id,input_tokens,output_tokens,timestamp,model_params,input_prompt,output_response
+EMI-VOICE-002,gemini-3.1-pro-preview,gemini-3.1-pro-preview,4250,1316,2026-08-21T10:04:29.358333+00:00,"{""max_tokens"": 100000, ""service_tier"": ""flex""}","You are an expert evaluator analyzing whether a voice assistant effectively moved a conversation forward. You will evaluate the conversation across four dimensions, each scored as a binary flag (true = issue present, false = no issue).
+
+Each dimension evaluates a **different type of action**. Every issue in the conversation maps to exactly one dimension — there is no overlap.
+Ensure to consider both the assistant agent instructions and the following agent dimensions when evaluating the conversation.
+
+**IMPORTANT — Scope boundary with faithfulness:** This metric evaluates whether the conversation moved forward efficiently. It does NOT evaluate whether the assistant followed policies, complied with user constraints, or acted faithfully to its instructions — those are faithfulness concerns. 
+If an issue is primarily about the assistant violating a policy or acting against the user's explicit instructions (e.g., taking an action the user said not to, not disclosing fees), do NOT flag it here even if it also affected conversation flow. Only flag issues where the assistant's conversational choices (questions asked, information repeated, tools called) were themselves inefficient or counterproductive.
+
+**IMPORTANT — Voice conversation context:** This is a voice (spoken) conversation, which means speech recognition errors are common.
+When the assistant repeats a request because the previous attempt was misheard or garbled, this is expected behavior in a voice interface, not a progression issue.
+
+**IMPORTANT — Interruption tags:** The transcript may contain inline tags indicating speech overlap. These are informational metadata about the voice interaction — they are NOT conversation progression issues by themselves:
+
+These are non-spoken metadata tags inserted during post-processing to annotate speech overlap events. They are NOT part of the spoken text.
+
+Tag definitions:
+- `[assistant interrupts]` — The assistant started speaking while the user was still talking. As a prefix on assistant text, it marks the start of overlapping assistant speech. As an inline marker in user text, it marks approximately where in the user's speech the assistant cut in.
+- `[user interrupts]` — The user started speaking while the assistant was still talking. As a prefix on user text, it marks the start of overlapping user speech. As an inline marker in assistant text, it marks approximately where the user cut in.
+- `[likely cut off by user]` — Appears in assistant text. The assistant's speech was probably cut off by the user starting to speak. Text before this tag may not have been fully spoken. Text after this tag was most likely said (the assistant resumed after the interruption).
+- `[likely cut off by assistant]` — Appears in user text. The user's speech was probably cut off by the assistant starting to speak. Text before this tag may not have been fully spoken.
+- `[speaker likely cut itself off]` — The speaker likely stopped on its own, possibly after detecting overlap or for other reasons. If the tag appears mid-turn, text after it is what the speaker said after resuming. If the tag appears at the end of the turn, the speaker did not resume in this turn. Text before this tag may not have been fully spoken.
+- `[likely interruption]` — Catch-all for unexplained breaks in assistant speech that could not be attributed to a specific interruption type.
+
+**Scope of ""text before this tag"":** For all four cut-off tags (`[likely cut off by user]`, `[likely cut off by assistant]`, `[speaker likely cut itself off]`, `[likely interruption]`), ""text before this tag"" means **all text from the start of the turn (or from the previous resumption point) up to the tag** — not just the few adjacent words. This region can span multiple sentences and contain multiple entities (confirmation codes, dollar amounts, names, etc.). Any or all of it may have been silently dropped from the audio. The tag is just a signal that an interruption occurred; it might not be at the right place and do not assume the cut-off was small.
+
+
+When evaluating, treat these tags as natural voice interaction phenomena. Do NOT penalize interruptions themselves. Only flag an issue if the interruption caused observable consequences (e.g., information loss because the agent's cut-off speech contained critical details that were never restated, or unnecessary repetition because the agent repeated already-heard information after being interrupted).
+
+## Understanding the Conversation Trace
+**About user turns:** This is a **speech-to-speech** system — the assistant receives raw audio directly, not a text transcript. The user turns shown here are the **intended text** (what the user simulator was instructed to say), not what the assistant heard. The assistant is responsible for its own audio understanding. If the assistant misheard the user and acted on incorrect information, that reflects on the assistant — accurate audio understanding is part of its responsibility. The only mitigation is proper disambiguation: if the assistant was unsure about what it heard, it should have asked the user to confirm or clarify.
+
+**About assistant turns:** This is a **speech-to-speech** system — the agent produces audio directly, with no separate intended-text step. The assistant turns shown here are **STT transcriptions of the agent's audio**, not text the LLM wrote. Audio articulation fidelity (whether the agent *spoke* an entity clearly and correctly) is scored separately by the `agent_speech_fidelity` metric on the actual audio — do not penalize the agent here for what may be TTS-rendering or STT-transcription artifacts in its turns. Tool call parameters and tool responses shown in the trace are the literal values the agent sent and received via the API, not audio — if a tool parameter looks wrong, the agent really sent it that way; if the agent's claim contradicts a tool response, the tool truly returned the value shown.
+
+## Full Conversation with Tools
+Turn 0:
+  user: Haan, boliye.
+  assistant: क्या मैं अर्णव से बात कर रहा हूँ?
+
+Turn 1:
+  user: [annoyed] Haan ji, main Arnav hoon. Boliye, kya baat hai?
+  assistant: नमस्ते, अर्नव जी। मैं Easy Credit Consumer EMI से शो बात कर रहा हूँ। आपके Samsung Smart TV की 2,950 रुपये की EMI overdue है। क्या आप अभी official Easy Credit app से payment कर सकते हैं?
+
+Turn 2:
+  user: [annoyed] Abhi nahi, bees August ko payment kar dunga.
+  assistant: नमस्ते, अनुज जी। मैं Easy Credit Consumer EMI से शो बात कर रहा हूँ। आपके Samsung Smart TV की 2,950 रुपये की EMI overdue है। क्या आप अभी official Easy Credit app से pay कर सकते हैं?
+
+Turn 3:
+  user: [annoyed] Haan, 20 August ko pakka.
+  assistant: ठीक है, अनाजी। मैंने 20 August की date record कर लिया है। यहाँ से payment कर दीजिएग
+
+## Evaluation Dimensions
+
+### 1. unnecessary_tool_calls
+**Scope: Tool call actions only.** Were any tool calls unjustified — repeated without reason, made without required information, or made for data already available?
+
+**IS a flag:**
+- Calling the same tool with the same parameters after a prior successful response (no new user input or error in between)
+- Calling a tool with empty or missing required parameters, causing a predictable error (e.g., calling a lookup tool with empty strings before asking the user for the required identifier)
+- Calling a tool when the needed information was already returned by a previous tool response
+- Calling a tool to verify something a prior tool response already confirmed
+
+**Is NOT a flag:**
+- Retrying a tool call after a tool error with corrected parameters
+- Calling the same tool with different parameters (e.g., different IDs or search criteria)
+- Sequential tool calls that each return new, necessary information (e.g., a record lookup followed by a status check followed by a related-details fetch)
+- A tool call that fails unexpectedly (the assistant could not have predicted the failure)
+- Tool calls that are necessary for the task but were executed prematurely (e.g., before the user confirmed) — premature execution is a faithfulness/policy compliance issue, not a conversation progression issue
+- Tool calls that follow standard agent instructions (e.g., automatically carrying over related attributes or defaults when taking an action) even if the user did not explicitly request those specific actions
+
+**CAVEAT: If the model makes 3 or more unnecessary tool calls, this dimension should be rated 1.**
+
+### 2. information_loss
+**Scope: The assistant's memory of established facts.** Did the assistant fail to retain or act on information already established in the conversation — whether from the user's statements or from prior tool responses?
+
+This dimension is about the assistant **forgetting or ignoring known facts**, regardless of how that failure manifests (re-asking, wrong assumptions, ignoring constraints).
+
+**Speech-to-speech scoping for this dimension.** Because assistant turns in the trace are STT-transcribed audio (see *About assistant turns* above), variant token-level readings of the same alphanumeric identifier across nearby assistant turns — dropped/added dashes, single-character substitutions, missing or extra digits within long IDs, altered spacing or capitalization — typically reflect TTS-rendering or STT-transcription artifacts on a value the agent is reading consistently in audio. These are scored by `agent_speech_fidelity`, not here. Only flag `information_loss` when the discrepancy is structural/semantic (different entity, wrong field, wrong category — e.g., addressing the user by an entirely different first name, or referencing a different person/record than the tool returned), or when downstream signals — subsequent tool calls made with a wrong value, follow-up actions taken on stale data, user objections that the agent then fails to incorporate — show the agent was internally operating on a wrong value or had genuinely lost track of the established fact.
+
+**IS a flag:**
+- Re-asking the user for information they already provided (e.g., asking for the confirmation number or reference ID after the user stated it and it was used successfully).
+- Ignoring a constraint the user explicitly stated (e.g., the user ruled out a particular action but the assistant still asks about it or asks for the details that would only be needed to take that action)
+- Failing to use relevant data from a prior tool response when it was needed for the next step (e.g., not using an identifier returned by an earlier lookup when making a follow-up tool call that requires it)
+
+**Is NOT a flag:**
+- Asking for information the user has not yet provided
+- Asking a clarifying question about genuinely ambiguous information
+- Asking for authentication or identification details required by the agent instructions (e.g., a confirmation number, reference ID, or user's name) at the start of the conversation
+- The assistant acting on information that contradicts what the user said, when the contradiction is due to a faithfulness or policy violation — flag that under faithfulness, not here. Only flag here if the assistant demonstrably forgot or ignored previously established facts within the conversation flow.
+
+**Disambiguation from other dimensions:**
+- If the assistant re-asks for user-provided info → flag here (not redundant_statements)
+- If the assistant makes an unnecessary tool call because it forgot a prior result → flag under unnecessary_tool_calls (the tool action is the observable problem)
+- If the assistant proceeds with an action that contradicts the user's stated preference (e.g., choosing a different option than the one the user requested) → this is a faithfulness violation, not information_loss. Only flag here if the assistant clearly forgot the user's input, not if it chose to override it.
+
+### 3. redundant_statements
+**Scope: The assistant repeating its own previous output.** Did the assistant restate information it had already communicated to the user?
+
+This dimension ONLY covers the assistant repeating **its own prior utterances** — not forgetting user input (that is information_loss) and not tool call issues (that is unnecessary_tool_calls).
+
+**IS a flag:**
+- Restating details, times, amounts, or status information the assistant already told the user in an earlier turn (outside of a final recap) when the user did not ask for it
+- Repeating the same explanation or instruction in multiple turns when the user has acknowledged and moved on
+
+**Is NOT a flag:**
+- A brief recap or summary at the end of the conversation (this is helpful, not redundant). However, if the assistant provides multiple recaps across different turns, only the final one is exempt — earlier recaps that restate already-communicated information are still flagged.
+- Confirming back details to the user once for verification (e.g., reading back a confirmation number the user just provided)
+- Stating information for the first time, even if it was available from a tool response earlier
+- Repeating information in direct response to the user explicitly requesting confirmation or asking to hear it again (the user must clearly ask — simply continuing the conversation is not a request for repetition)
+- Re-explaining a policy or constraint when the user continues to challenge, dispute, or insist against it — the assistant must reiterate its position in these cases and should not be penalized for doing so. However, if the assistant repeats the exact same explanation verbatim across multiple turns, flag it — the assistant should vary its phrasing.
+- Repeating a request for information (e.g., confirmation code, spelling) when speech recognition or transcription errors clearly caused the previous attempt to fail (e.g., garbled text, partial characters, obvious mishearing visible in the transcript). Do NOT apply this exception when the transcript shows no evidence of ASR failure — the assistant re-asking without cause is still a flag.
+
+### 4. question_quality
+**Scope: The quality and appropriateness of the assistant's questions, where the issue is NOT caused by forgetting information (that is information_loss).** Did the assistant ask poorly formed questions or fail to ask a necessary clarifying question?
+
+**IS a flag:**
+- Asking an overly broad or vague question when the assistant had enough information to take action (e.g., ""What would you like to do?"" when the user already stated a clear goal that the assistant remembers but chose not to act on)
+- Asking multiple questions at once when a single tool call could have resolved the need
+- Failing to ask for clarification when the user's request was genuinely ambiguous, and instead proceeding with assumptions
+- Failing to ask for clarification when there are multiple options that meet the users requirements
+- Failing to ask for required information before taking an action (e.g., not asking for required details for a tool call before making the tool call, when those details have not been made available through a previous tool call, or inputs from the user)
+- Failing to provide necessary information for the user to make a decision (e.g not providing clear information about the details of the options available to the user)
+- Taking an irreversible action (e.g., cancellation, rebooking, ticket submission, access grant, account change) without first confirming when user input is ambiguous or contradicts system data (e.g., user claims a 4-hour delay but system shows 45 minutes — assistant should clarify before acting)
+
+**Is NOT a flag:**
+- Asking for required authentication or identification information required by the agent instructions (e.g., confirmation number, reference ID, user's name)
+- Asking a clarifying question when the user's intent is genuinely ambiguous
+- Asking a follow-up question based on new information from a tool response
+- Asking the user to confirm an error-prone value (alphanumeric ID, code, date, dollar amount, spelled-out name) just provided — read-backs of error-prone values are standard voice-agent practice required by typical agent policies and are NOT a question quality issue. This holds even when the transcript shows the assistant's read-back as matching what the user said: STT may render different spoken audio as identical text, so the read-back can still be catching a real audio-level mismatch.
+- Not disclosing fees, costs, or other policy-required details before taking an action — policy compliance (e.g., whether the assistant explained consequences before an irreversible action) is a faithfulness concern, not a conversation progression issue. This dimension only evaluates whether the assistant's questions and information-sharing effectively moved the conversation forward.
+- Referencing information that exists in the agent instructions (e.g., standard fees, policies) without verifying it via a tool call — the agent is expected to know its own instructions. Only flag if the information was genuinely unknown and required a tool call or user input.
+
+**Disambiguation from information_loss:**
+- If the assistant asks ""What would you like to do?"" because it FORGOT the user already stated their goal → flag under information_loss
+- If the assistant asks ""What would you like to do?"" when the user's goal is clear and remembered but the assistant chose a vague question over taking action → flag here
+
+## Rating Scale
+For all four dimensions, determine if there is evidence that one or more issues should be flagged and rate that dimension based on the following guidelines:
+
+- **3** (No progression issue):
+  - No issue with this dimension
+
+- **2** (Minor progression issue):
+  - A single isolated issue that does not significantly impact the conversation flow (e.g., one unnecessary tool call that didn't slow things down, a single redundant restatement, one vague question)
+  - A borderline case where it is unclear whether the issue constitutes a real progression problem
+
+- **1** (Clear progression issue):
+  - Multiple instances of the same type of issue in this dimension
+  - A single severe issue that clearly derailed or stalled the conversation (e.g., ignoring a stated constraint or user requirement before carrying out a write operation, failing to ask for required information before taking action, asking an overly vague question when the user's goal was clear, making an overly vague assumption not supported by user inputs/conversation history when multiple options exist)
+
+## Overall Rating
+The final rating considers BOTH the severity within each dimension AND the total number of flagged dimensions:
+
+- **3**: No dimension is flagged (all dimensions rated 3)
+- **2**: One or two dimensions are flagged at rating 2 (minor), AND no dimension is rated 1
+- **1**: Any of the following:
+  - Any dimension is rated 1 (clear issue within a single dimension)
+  - Three or more dimensions are flagged (even if each is individually minor, widespread issues across many areas constitute a clear overall progression problem)
+
+## Response Format
+Respond in JSON format. The ""evidence"" field must ALWAYS contain 1-2 sentences referencing specific parts of the transcript, even when flagged is false. When not flagged, briefly explain why no issue was found. The evidence should always be in English but keep the citations in the original language.
+{
+    ""dimensions"": {
+        ""unnecessary_tool_calls"": {
+           ""evidence"": ""<string: REQUIRED — cite transcript examples if flagged, or explain why clean if not>"",
+           ""flagged"": <bool: true if issue is present, false otherwise>,
+           ""rating"": <int: 1, 2, or 3>
+        },
+        ""information_loss"": {
+            ""evidence"": ""<string: REQUIRED>"",
+            ""flagged"": <bool: true if issue is present, false otherwise>,
+            ""rating"": <int: 1, 2, or 3>
+        },
+        ""redundant_statements"": {
+            ""evidence"": ""<string: REQUIRED>"",
+            ""flagged"": <bool: true if issue is present, false otherwise>,
+            ""rating"": <int: 1, 2, or 3>
+        },
+        ""question_quality"": {
+            ""evidence"": ""<string: REQUIRED>"",
+            ""flagged"": <bool: true if issue is present, false otherwise>,
+            ""rating"": <int: 1, 2, or 3>
+        }
+    },
+    ""rating"": <int: 1, 2, or 3>
+}
+","```json
+{
+    ""dimensions"": {
+        ""unnecessary_tool_calls"": {
+            ""evidence"": ""There are no tool calls present in the conversation trace."",
+            ""flagged"": false,
+            ""rating"": 3
+        },
+        ""information_loss"": {
+            ""evidence"": ""In Turn 2, the assistant completely ignores the user's statement that they will pay on 'bees August' (20 August) and instead re-asks if the user can pay right now."",
+            ""flagged"": true,
+            ""rating"": 1
+        },
+        ""redundant_statements"": {
+            ""evidence"": ""In Turn 2, the assistant repeats its introductory greeting, context, and question ('मैं Easy Credit Consumer EMI से... क्या आप अभी...') almost verbatim from Turn 1, without the user asking for it to be repeated."",
+            ""flagged"": true,
+            ""rating"": 1
+        },
+        ""question_quality"": {
+            ""evidence"": ""The assistant's questions were clear and direct. The issue was that it ignored the user's answer and repeated itself, which is captured under information loss and redundant statements, rather than the questions being poorly formed."",
+            ""flagged"": false,
+            ""rating"": 3
+        }
+    },
+    ""rating"": 1
+}
+```"

@@ -1,0 +1,392 @@
+[
+  {
+    "event": "tool_state_seeded",
+    "timestamp_ms": "1787306318124",
+    "run_id": "EMI-VOICE-001",
+    "account_id": "EC-DEMO-2916"
+  },
+  {
+    "event": "samvaad_connected",
+    "timestamp_ms": "1787306318545",
+    "interaction_id": null
+  },
+  {
+    "event": "twilio_start",
+    "timestamp_ms": "1787306318546",
+    "stream_sid": "EMI-VOICE-001"
+  },
+  {
+    "event": "user_audio_start",
+    "timestamp_ms": "1787306319852",
+    "source_timestamp_ms": "1787306319851"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787306319915",
+    "type": "server.action.interaction_connected",
+    "interaction_id": "20260821/791c42fd-15:28:38-87255031"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787306320358",
+    "sample_rate": 16000
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787306323033"
+  },
+  {
+    "event": "user_audio_stop",
+    "timestamp_ms": "1787306324986",
+    "source_timestamp_ms": "157426945"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787306325051",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "user_audio_start",
+    "timestamp_ms": "1787306325140",
+    "source_timestamp_ms": "1787306325138"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787306325366",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787306326181",
+    "role": "user",
+    "text": "हाँ, मैं अर्णव हूँ।"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787306326696",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787306327364",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787306327464"
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787306327766",
+    "role": "user",
+    "text": "हाँ, मैं अर्णव हूँ। क्या बात है?"
+  },
+  {
+    "event": "user_audio_stop",
+    "timestamp_ms": "1787306328160",
+    "source_timestamp_ms": "157430119"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787306328377",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787306332214",
+    "role": "bot",
+    "text": "नमस्ते अर्णव जी, मैं EasyCredit Consumer EMI से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की दो हज़ार नौ सौ सोलह रुपये की EMI overdue है, क्या आप अभी official EasyCredit app से payment कर सकते हैं?"
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787306339958"
+  },
+  {
+    "event": "user_audio_start",
+    "timestamp_ms": "1787306341863",
+    "source_timestamp_ms": "1787306341862"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787306342282",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787306342582",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787306342783",
+    "role": "user",
+    "text": "हाँ मैं मैं अर्णव हूँ। क्या बात है? अरे"
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787306345801",
+    "role": "user",
+    "text": "हाँ मैं अर्णव हूँ। क्या बात है? अरे एक कंपनी का नाम ईज़ी क्रेडिट है, ईज़ी क्रेडिट नहीं।"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787306346307",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787306347312",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787306347412"
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787306349483",
+    "role": "user",
+    "text": "हाँ मैं अर्णव हूँ। क्या बात है? अरे एक कंपनी का नाम ईज़ी क्रेडिट है, ईज़ी क्रेडिट नहीं। सैमसंग स्मार्ट टीवी है, स्मार्ट ईयर नहीं।"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787306349786",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787306350002",
+    "role": "bot",
+    "text": "हाँ जी, मैं EasyCredit Consumer EMI से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की दो हज़ार नौ सौ सोलह रुपये की EMI overdue है। क्या आप"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787306350303",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787306350504",
+    "role": "user",
+    "text": "हाँ मैं अर्णव हूँ। क्या बात है? अरे अरे कंपनी का नाम ईज़ी क्रेडिट है, ईज़ी क्रेडिट नहीं। सैमसंग स्मार्ट टीवी है, स्मार्ट ईयर नहीं। अमाउंट?"
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787306352382",
+    "role": "user",
+    "text": "हाँ मैं अर्णव हूँ। क्या बात है? अरे अरे कंपनी का नाम ईज़ी क्रेडिट है, ईज़ी क्रेडिट नहीं। सैमसंग स्मार्ट टीवी है, स्मार्ट ईयर नहीं। अमाउंट 2900 सुगला रुपये है।"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787306352485",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787306353993",
+    "role": "user",
+    "text": "हाँ मैं अर्णव हूँ। क्या बात है? अरे अरे कंपनी का नाम ईज़ी क्रेडिट है, ईज़ी क्रेडिट नहीं। सैमसंग स्मार्ट टीवी है, स्मार्ट ईयर नहीं। अमाउंट 2900 सुगला रुपये है। अब बताइए मैं क्या करूँ?"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787306354096",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787306354301",
+    "role": "bot",
+    "text": "जी, मैं EasyCredit Consumer EMI से शुभ"
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787306356633",
+    "role": "user",
+    "text": "हाँ मैं अर्णव हूँ। क्या बात है? अरे अरे कंपनी का नाम ईज़ी क्रेडिट है, ईज़ी क्रेडिट नहीं। सैमसंग स्मार्ट टीवी है, स्मार्ट ईयर नहीं। अमाउंट 2900 सुगला रुपए है। अब बताइए मैं क्या करूँ? अरे मेरा नाम अर्णव है, अनव नहीं।"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787306356731",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787306356967",
+    "role": "bot",
+    "text": "मा"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787306358929",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787306359364",
+    "role": "user",
+    "text": "हाँ मैं अर्णव हूँ। क्या बात है? अरे अरे कंपनी का नाम ईज़ी क्रेडिट है, ईज़ी क्रेडिट नहीं। सैमसंग स्मार्ट टीवी है, स्मार्ट ईयर नहीं। अमाउंट 2900 सुगला रुपए है। अब बताइए मैं क्या करूँ? अरे मेरा नाम अर्णव है, अनव नहीं। और मैंने पहले ही बता दिया था कि कंपनी का नाम"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787306360280",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787306360582",
+    "role": "user",
+    "text": "हाँ, मैं अर्णव हूँ। क्या बात है? अरे, अरे कंपनी का नाम ईज़ी क्रेडिट है, ईज़ी क्रेडिट नहीं। सैमसंग स्मार्ट टीवी है, स्मार्ट ईयर नहीं। अमाउंट 2900 सुगला रुपए है। अब बताइए मैं क्या करूँ? अरे मेरा नाम अर्णव है, अनव नहीं। और मैंने पहले ही बता दिया था कि कंपनी का नाम ईज़ी क्रेडिट है।"
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787306361711",
+    "role": "user",
+    "text": "हाँ, मैं अर्णव हूँ। क्या बात है? अरे, अरे कंपनी का नाम ईज़ी क्रेडिट है, ईज़ी क्रेडिट नहीं। सैमसंग स्मार्ट टीवी है, स्मार्ट ईयर नहीं। अमाउंट 2900 सुगला रुपए है। अब बताइए मैं क्या करूँ? अरे, मेरा नाम अर्णव है, अनव नहीं। और मैंने पहले ही बता दिया था कि कंपनी का नाम ईज़ी क्रेडिट है, ईज़ी क्रेडिट नहीं।"
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787306362043",
+    "role": "bot",
+    "text": "माफी चाहता हूँ अर्णव जी। मैं शुभ बात कर रहा हूँ EasyCredit Consumer EMI से। आपके Samsung Smart TV की दो हज़ार नौ सौ सोलह रुपये की EMI overdue है। क्या आप अभी official EasyCredit app से payment कर सकते हैं?"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787306362550",
+    "sample_rate": 16000
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787306375797"
+  },
+  {
+    "event": "user_audio_stop",
+    "timestamp_ms": "1787306377072",
+    "source_timestamp_ms": "157479032"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787306377111",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "user_audio_start",
+    "timestamp_ms": "1787306377338",
+    "source_timestamp_ms": "1787306377337"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787306377616",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787306377916",
+    "role": "user",
+    "text": "हाँ मैं अर्णव हूँ। क्या बात है? अरे अरे कंपनी का नाम ईज़ी क्रेडिट है, ईज़ी क्रेडिट नहीं। सैमसंग स्मार्ट टीवी है, स्मार्ट ईयर नहीं। अमाउंट 2900 सुगला रुपए है। अब बताइए मैं क्या करूँ? अरे मेरा नाम अर्णव है, अनव नहीं। और मैंने पहले ही बता दिया था कि कंपनी का नाम ईज़ी क्रेडिट है, ईज़ी क्रेडिट नहीं। अरे मैं"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787306382397",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787306382601",
+    "role": "user",
+    "text": "हाँ, मैं अर्णव हूँ। क्या बात है? अरे, अरे कंपनी का नाम ईज़ी क्रेडिट है, ईज़ी क्रेडिट नहीं। सैमसंग स्मार्ट टीवी है, स्मार्ट ईयर नहीं। अमाउंट 2900 सुगला रुपए है। अब बताइए मैं क्या करूँ? अरे, मेरा नाम अर्णव है, अनव नहीं। और मैंने पहले ही बता दिया था कि कंपनी का नाम ईज़ी क्रेडिट है, ईज़ी क्रेडिट नहीं। अरे, मैंने पहले ही बता दिया था कि कंपनी का नाम ईज़ी क्रेडिट है, ईज़ी क्रेडिट नहीं।"
+  },
+  {
+    "event": "user_audio_stop",
+    "timestamp_ms": "1787306385718",
+    "source_timestamp_ms": "157487678"
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787306385854",
+    "role": "user",
+    "text": "हाँ, मैं अर्णव हूँ। क्या बात है? अरे, अरे कंपनी का नाम ईज़ी क्रेडिट है, ईज़ी क्रेडिट नहीं। सैमसंग स्मार्ट टीवी है, स्मार्ट ईयर नहीं। अमाउंट 2900 सुगला रुपए है। अब बताइए मैं क्या करूँ? अरे, मेरा नाम अर्णव है, अनव नहीं। और मैंने पहले ही बता दिया था कि कंपनी का नाम ईज़ी क्रेडिट है, ईज़ी क्रेडिट नहीं। अरे, मैंने पहले ही बता दिया था कि कंपनी का नाम ईज़ी क्रेडिट है, ईज़ी क्रेडिट नहीं। और क्रेडिट है इजी क्रेडिट नहीं और प्रोडक्ट Samsung स्मार्ट टीवी है स्मार्ट ईयर नहीं"
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787306386152",
+    "role": "bot",
+    "text": "अरे, sorry अर्णव जी। मैं शुभ बात कर रहा हूँ EasyCredit Consumer EMI से। आपके Samsung Smart TV की दो हज़ार नौ सौ सोलह रुपये की EMI overdue है। क्या आप अभी official EasyCredit app में जाकर payment कर सकते हैं?"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787306386682",
+    "sample_rate": 16000
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787306400288"
+  },
+  {
+    "event": "user_audio_start",
+    "timestamp_ms": "1787306401660",
+    "source_timestamp_ms": "1787306401660"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787306402000",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787306403718",
+    "role": "user",
+    "text": "ठीक है, मैं अभी Easy Credit app खोल दूंगी।"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787306403818",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "conversation_ending",
+    "timestamp_ms": "1787306458050",
+    "reason": "unknown"
+  },
+  {
+    "event": "samvaad_disconnected",
+    "timestamp_ms": "1787306458115",
+    "interaction_id": "20260821/791c42fd-15:28:38-87255031"
+  },
+  {
+    "event": "analytics_attempt_not_found",
+    "timestamp_ms": "1787306489290",
+    "interaction_id": "20260821/791c42fd-15:28:38-87255031"
+  },
+  {
+    "event": "tool_state_resolved",
+    "timestamp_ms": "1787306489350",
+    "event_count": 0
+  },
+  {
+    "event": "audio_perturbation_summary",
+    "timestamp_ms": "1787306489370",
+    "config": {
+      "kind": "clean"
+    },
+    "chunks": 2043,
+    "dropped_chunks": 0
+  }
+]

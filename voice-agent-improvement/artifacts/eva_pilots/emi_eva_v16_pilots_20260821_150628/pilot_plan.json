@@ -1,0 +1,18 @@
+{
+  "schema_version": "eva-samvaad-pilot-plan.v1",
+  "created_at": "2026-08-21T09:36:28.717638+00:00",
+  "mode": "live_pilots",
+  "run_id": "emi_eva_v16_pilots_20260821_150628",
+  "app_version": 16,
+  "record_ids": [
+    "EMI-VOICE-001",
+    "EMI-VOICE-002",
+    "EMI-VOICE-009"
+  ],
+  "requested_provider_sessions": {
+    "elevenlabs": 3,
+    "samvaad": 3
+  },
+  "max_sessions": 3,
+  "manifest_sha256": "7fc70becbfc4d1a4bc37fd4b7c36187b28344688b2fe16f8f9f3f5ed1a32c5bf"
+}

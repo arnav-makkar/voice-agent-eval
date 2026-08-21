@@ -140,7 +140,7 @@ def build(output: Path = OUTPUT) -> dict[str, Any]:
             "valid_run": _ref(ROOT / "artifacts" / "eva_live" / "emi_eva_live_20260819_135630" / "attempt_status.json"),
             "scope": "one valid realtime ElevenLabs caller to deployed Samvaad V12 evaluation; not a reliability estimate or candidate comparison",
         },
-        "prospective_evaluator": _ref(EMI / "eva_adapter_v10" / "evaluator_freeze.json"),
+        "prospective_evaluator": _ref(EMI / "eva_adapter_v11" / "evaluator_freeze.json"),
         "completion_audit": _ref(ARTIFACTS / "completion_audit.json"),
         "portability": _ref(ARTIFACTS / "hospital_appointments" / "summary.json"),
         "verification": _ref(verification_path),

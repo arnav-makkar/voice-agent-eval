@@ -70,6 +70,18 @@ def _canon(value: Any) -> str | None:
     return CANON.get(str(value).strip().lower(), str(value).strip().lower())
 
 
+def _cohen_kappa(left: list[Any], right: list[Any]) -> float | None:
+    """Chance-corrected agreement for two aligned categorical label lists."""
+    if not left or len(left) != len(right):
+        return None
+    observed = sum(a == b for a, b in zip(left, right, strict=True)) / len(left)
+    labels = set(left) | set(right)
+    expected = sum((left.count(label) / len(left)) * (right.count(label) / len(right)) for label in labels)
+    if expected == 1:
+        return 1.0 if observed == 1 else None
+    return round((observed - expected) / (1 - expected), 4)
+
+
 def audit(experiments: tuple[str, ...] = ("v12-dynamic-full", "v15-firm-today-full")) -> dict[str, Any]:
     rows: list[dict[str, Any]] = []
     for experiment in experiments:
@@ -108,6 +120,14 @@ def audit(experiments: tuple[str, ...] = ("v12-dynamic-full", "v15-firm-today-fu
         for row in both_failed
         if not row["owner_agrees"]
     ]
+    detection_kappa = _cohen_kappa(
+        [row["deterministic_failed"] for row in detection],
+        [row["judge_failed"] for row in detection],
+    )
+    ownership_kappa = _cohen_kappa(
+        [row["deterministic_owner"] for row in both_failed],
+        [row["judge_owner"] for row in both_failed],
+    )
 
     summary = {
         "schema_version": "judge-audit.v1",
@@ -121,11 +141,13 @@ def audit(experiments: tuple[str, ...] = ("v12-dynamic-full", "v15-firm-today-fu
             "question": "Did the judge and the executable checker agree on whether the episode failed at all?",
             "agreement": round(sum(row["detection_agrees"] for row in detection) / len(detection), 4) if detection else None,
             "n": len(detection),
+            "cohen_kappa": detection_kappa,
         },
         "ownership": {
             "question": "When both said it failed, did they agree on which component owns the failure?",
             "agreement": round(sum(row["owner_agrees"] for row in both_failed) / len(both_failed), 4) if both_failed else None,
             "n": len(both_failed),
+            "cohen_kappa": ownership_kappa,
         },
         "confusion": dict(
             Counter(f"deterministic={row['deterministic_owner']}|judge={row['judge_owner']}" for row in both_failed)
@@ -135,6 +157,10 @@ def audit(experiments: tuple[str, ...] = ("v12-dynamic-full", "v15-firm-today-fu
             "The judge is reliable at noticing that something went wrong and materially less reliable at saying what "
             "owns it. That is precisely why ownership routing is advisory and the executable checker controls the "
             "release gate. Publishing the number is the point: a grader whose accuracy is unstated should not be trusted."
+        ),
+        "independence_limit": (
+            "Kappa here compares one semantic judge with the deterministic executable checker. It is not agreement "
+            "between two independent LLM judge families; that remains a separate open experiment."
         ),
     }
     write_json(OUTPUT, summary)

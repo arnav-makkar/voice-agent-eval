@@ -284,6 +284,7 @@ def build(output: Path = OUTPUT) -> dict[str, Any]:
     judge_audit = _read(EMI / "judge_audit" / "summary.json", {})
     lessons = _read(EMI / "lessons" / "lessons.v1.json", {})
     verifier = _read(EMI / "verifier" / "summary.json", {})
+    voice_decision = _read(EMI / "live_voice_pilot_decision.v2.json", {})
 
     arms = []
     for label, path, note in (
@@ -365,20 +366,21 @@ def build(output: Path = OUTPUT) -> dict[str, Any]:
                 "label": "Live voice pilot",
                 "n": 3,
                 "before": "1/3 task pass",
-                "after": "1 valid / 3 attempts",
+                "after": f"{voice_decision.get('task_completion', {}).get('passes', 0)}/{voice_decision.get('evaluator_valid', 0)} valid task passes",
                 "independence": "hold",
                 "caveat": (
-                    "The first three-call pilot exposed real defects. A repair rerun produced one valid task pass, one "
-                    "transport timeout and one simulator-invalid Punjabi trial whose required tool still did not fire. "
-                    "The matched suite was correctly held; no live lift is claimed."
+                    "The latest Hinglish-only pilot attempted three calls: two were scorable, neither completed its "
+                    "task, and one timed out. The agent made zero tool calls and claimed a callback was scheduled anyway. "
+                    "The gate rejected the candidate; no voice lift is claimed."
                 ),
             },
         ],
         "live_pilot": {
-            "decision": "HOLD",
+            "decision": voice_decision.get("decision", "HOLD"),
             "decision_detail": (
                 "Do not run the 18-case matched suite yet. The pilot gate requires three evaluator-valid calls and "
-                "correct required tool effects; the repair rerun delivered one valid call out of three."
+                "correct required tool effects; the latest candidate delivered two valid calls, zero task passes and "
+                "zero deployed tool events."
             ),
             "transport": "Realtime ElevenLabs caller ↔ Sarvam Samvaad agent over duplex audio",
             "rounds": [
@@ -408,42 +410,56 @@ def build(output: Path = OUTPUT) -> dict[str, Any]:
                     "overall_mean": 0.5717,
                     "note": "Not comparable as an aggregate: two trials were excluded. The only valid case preserved its task pass but still failed EVA-X.",
                 },
+                {
+                    "label": "Hinglish-only candidate",
+                    "version": "Indus v19",
+                    "attempted": voice_decision.get("attempted", 3),
+                    "valid": voice_decision.get("evaluator_valid", 2),
+                    "task_passes": voice_decision.get("task_completion", {}).get("passes", 0),
+                    "eva_a_passes": 0,
+                    "eva_x_passes": 0,
+                    "eva_a_mean": voice_decision.get("eva", {}).get("eva_a_mean"),
+                    "eva_x_mean": voice_decision.get("eva", {}).get("eva_x_mean"),
+                    "overall_mean": voice_decision.get("eva", {}).get("overall_mean"),
+                    "note": "Rejected. The tool backend passed its direct control test, but the deployed agent emitted no tool calls and made an unsupported callback-success claim.",
+                },
             ],
             "scenarios": [
                 {
-                    "id": "EMI-VOICE-001",
+                    "id": "EMI-HINGLISH-VOICE-001",
                     "name": "Pay now",
-                    "initial": "Native disposition was payment_ready, but an NA sentinel was misread as state mutation.",
-                    "repair": "Adapter now ignores NA/null sentinels; its rerun hit a 120-second WebSocket timeout.",
+                    "initial": "The caller explicitly committed to paying now in the official app.",
+                    "repair": "The candidate repeated the opening and never produced a disposition or state outcome.",
+                    "result": "task-fail",
+                    "audio": "",
+                },
+                {
+                    "id": "EMI-HINGLISH-VOICE-002",
+                    "name": "Later-today promise",
+                    "initial": "The frozen contract required a PTP state write.",
+                    "repair": "The conversation hit the 120-second limit before producing usable evidence.",
                     "result": "infrastructure-invalid",
-                    "audio": "/evidence/pilots/EMI-VOICE-001-v16.wav",
+                    "audio": "",
                 },
                 {
-                    "id": "EMI-VOICE-002",
-                    "name": "Future promise to pay",
-                    "initial": "Task pass; record_promise_to_pay wrote 20-08-2026 exactly once in 5 agent turns / 143 seconds.",
-                    "repair": "Task pass preserved; same write occurred exactly once in 4 agent turns / 75 seconds.",
-                    "result": "task-pass-experience-fail",
-                    "audio": "/evidence/pilots/EMI-VOICE-002-v18.wav",
-                },
-                {
-                    "id": "EMI-VOICE-009",
-                    "name": "Punjabi + future promise",
-                    "initial": "The agent acknowledged the date but never called record_promise_to_pay.",
-                    "repair": "The rerun still missed the tool and was invalidated because the caller harness declared English while speaking Punjabi.",
-                    "result": "agent-and-harness-fail",
-                    "audio": "/evidence/pilots/EMI-VOICE-009-v16.wav",
+                    "id": "EMI-HINGLISH-VOICE-003",
+                    "name": "Hinglish callback window",
+                    "initial": "The caller supplied a date and narrow IST window.",
+                    "repair": "The agent said it scheduled the callback; no tool event or state mutation exists.",
+                    "result": "task-fail-integrity-fail",
+                    "audio": "",
                 },
             ],
             "repairs_proven": [
-                "Authenticated Indus tool execution and isolated state mutation",
+                "Authenticated tool-service writes and isolated state mutation under direct control testing",
                 "NA/null output normalisation in the EVA–Samvaad adapter (unit tested)",
                 "One required PTP write executed exactly once in both rounds",
             ],
             "repairs_not_proven": [
-                "Opening repetition was not eliminated in the valid rerun",
-                "Punjabi switching and tool-before-claim did not pass prospectively",
-                "Transport reliability is below the pilot threshold",
+                "The deployed v19 agent did not invoke any configured tool",
+                "Terminal claims are not yet coupled to successful tool results",
+                "Opening repetition and non-Hinglish script switching remain",
+                "Transport reliability is below the three-of-three pilot threshold",
             ],
         },
         "acts": [
@@ -553,15 +569,15 @@ def build(output: Path = OUTPUT) -> dict[str, Any]:
         "still_open": [
             {
                 "title": "The voice pilot gate is HOLD, not promote",
-                "detail": "The repaired round yielded one evaluator-valid call out of three. The Punjabi tool path still failed and a separate call hit the transport time limit, so running the larger matched suite would spend budget without decision-quality evidence.",
+                "detail": "The v19 Hinglish-only round produced two evaluator-valid calls, zero task passes, zero tool events, one unsupported callback-success claim and one timeout. The candidate is rejected, not polished into a success story.",
             },
             {
                 "title": "The temporary tunnel is a demo route, not production infrastructure",
-                "detail": "Sarvam reached the authenticated service and produced real state changes. Production requires a stable managed endpoint, secret rotation policy, IP allowlisting, observability, retries and an uptime objective.",
+                "detail": "The authenticated service passed direct stateful control tests. The latest deployed voice agent did not call it. Production still requires a stable managed endpoint, secret rotation, allowlisting, observability, retries and an uptime objective.",
             },
             {
                 "title": "The text improvement is proven; live voice lift is not",
-                "detail": "The sealed text result remains 5/12 to 9/12. The live pilots validate the evaluation plumbing and reveal production defects, but do not form a clean matched comparison.",
+                "detail": "The sealed text result remains 5/12 to 9/12. The latest live pilot is a failed repair experiment, not a matched improvement result; it revealed defects in both the deployed invocation path and the prior date fixture.",
             },
             {
                 "title": "Commitment is the proxy; settled payment is not observed",
@@ -692,6 +708,7 @@ def build(output: Path = OUTPUT) -> dict[str, Any]:
             "disagreements": judge_audit.get("disagreements"),
             "interpretation": judge_audit.get("interpretation"),
             "method": judge_audit.get("method"),
+            "independence_limit": judge_audit.get("independence_limit"),
         },
         "calibration": {
             "reference_status": calibration.get("reference_status"),
@@ -701,8 +718,8 @@ def build(output: Path = OUTPUT) -> dict[str, Any]:
         },
         "claim_boundary": (
             "Every figure on this page comes from a preserved evaluation artifact. The improvement is measured in a "
-            "stateful text-mode environment with executable tools and isolated state. Live Indus tool execution is "
-            "proven; the prospective voice pilot is a documented HOLD and no live lift is claimed."
+            "stateful text-mode environment with executable tools and isolated state. The tool backend is proven by a "
+            "direct authenticated control; deployed v19 tool invocation failed. Voice remains HOLD and no live lift is claimed."
         ),
     }
     for act in story["acts"]:

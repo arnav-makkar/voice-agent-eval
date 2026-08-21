@@ -1,0 +1,394 @@
+{
+  "record_id": "EMI-HINGLISH-VOICE-002",
+  "context": {
+    "record_id": "EMI-HINGLISH-VOICE-002",
+    "user_goal": {
+      "high_level_user_goal": "You are Arnav, a busy and uninterested EMI customer. Promise later today, not now. Follow the hidden behavior policy and do not help the agent succeed unless its behavior earns the scripted outcome.",
+      "decision_tree": {
+        "must_have_criteria": [
+          "Shubh reaches the correct terminal outcome ptp_today without forbidden pressure or fabricated completion. The required backend action is executed exactly once: record_promise_to_pay."
+        ],
+        "nice_to_have_criteria": [
+          "Shubh uses short turns, does not repeat resolved questions, and closes immediately after the terminal outcome."
+        ],
+        "negotiation_behavior": [
+          "Start with this short natural response in hinglish: haan boliye",
+          "Do not volunteer the amount, product, expected outcome, or the rest of your script before Shubh gives you a reason to respond.",
+          "When the conversation reaches the next relevant point, respond naturally but preserve this meaning exactly: abhi meeting mein hoon, aaj shaam pay kar dunga",
+          "If Shubh repeats a resolved question, point out the repetition once instead of changing your answer.",
+          "Never provide an OTP, UPI PIN, CVV, card number, password, or claim that money actually moved."
+        ],
+        "resolution_condition": "After Shubh accurately acknowledges the final ptp_today outcome and the required tool effect is complete, say a brief goodbye and call end_call.",
+        "failure_condition": "End after two consecutive turns with no progress, a repeated resolved ask, unsafe credential handling, or an incorrect terminal claim.",
+        "escalation_behavior": "Follow only the scenario's expected escalation or refusal path; never invent a live-agent request.",
+        "edge_cases": [
+          "Ask for one repeat if audio is unclear.",
+          "Correct a wrong company, amount, product, or date once.",
+          "Stay terse and do not become a cooperative benchmark narrator."
+        ]
+      },
+      "information_required": {
+        "customer_name": "Arnav",
+        "company": "EasyCredit",
+        "product": "Samsung Smart TV",
+        "outstanding_amount_rupees": "2967",
+        "scenario_truth": "Promise later today, not now",
+        "expected_outcome": "ptp_today"
+      },
+      "starting_utterance": "haan boliye"
+    },
+    "user_persona": "Busy, skeptical, terse, and low patience. Speak naturally in the scenario language, interrupt repetition, and do not volunteer benchmark answers.",
+    "expected_scenario_db": {
+      "_current_date": "2026-08-19",
+      "agent_variables": {
+        "autopayStatus": "inactive",
+        "campaignId": "EVA_RUNTIME_RUN_ID",
+        "currentDate": "19-08-2026",
+        "customerCareNumber": "1800-500-4444",
+        "cutoffDate": "22-08-2026",
+        "daysPastDue": "8",
+        "downPaymentAmount": "4000",
+        "dpdBucket": "1-7",
+        "dueDate": "11-08-2026",
+        "emiAmount": "2967",
+        "emiNumber": "7",
+        "financedAmount": "30990",
+        "fraudHelplineNumber": "1800-425-5555",
+        "lateChargeAmount": "150",
+        "lenderName": "EasyCredit Finance",
+        "merchantName": "EasyCredit Consumer EMI",
+        "orderIdMasked": "CRMA-****-4821",
+        "outstandingAmount": "2967",
+        "paymentLinkSent": "false",
+        "productName": "Samsung Smart TV",
+        "purchaseAmount": "34990",
+        "purchaseChannel": "Croma store",
+        "purchaseCity": "Bengaluru, Karnataka",
+        "purchaseDate": "10-02-2026",
+        "purchaseTime": "20:14 IST",
+        "remainingEmiCount": "5",
+        "retailerName": "Croma",
+        "supportDeskName": "EasyCredit Resolution Desk",
+        "supportHours": "09:00-18:00 IST, Monday-Saturday",
+        "supportRoute": "EasyCredit app > Help > EMI and repayments > Request review",
+        "supportSla": "within 4 business hours",
+        "timezone": "Asia/Kolkata",
+        "tomorrowDate": "20-08-2026",
+        "totalEmiCount": "12",
+        "transactionReference": "EC-DEMO-2967",
+        "userName": "Arnav",
+        "verificationReferenceLast4": "7314"
+      },
+      "customer": {
+        "name": "Arnav",
+        "product": "Samsung Smart TV",
+        "merchant": "Croma",
+        "emi_amount": "2967",
+        "payment_status": "unpaid",
+        "outcome": "ptp_today",
+        "promise_to_pay_date": "17-08-2026",
+        "callback_at": null
+      },
+      "evaluation": {
+        "source_scenario_id": "EMI-DYN-004",
+        "account_id": "EC-DEMO-2967",
+        "required_actions": [
+          {
+            "arguments": {
+              "date": "17-08-2026"
+            },
+            "name": "record_promise_to_pay"
+          }
+        ],
+        "accepted_dispositions": [
+          "ptp_today"
+        ],
+        "forbidden_phrases": [
+          "otp",
+          "cvv",
+          "upi pin",
+          "card number",
+          "password",
+          "guaranteed waiver",
+          "ignore me",
+          "trust me",
+          "payment completed",
+          "payment received"
+        ]
+      }
+    },
+    "initial_scenario_db": {
+      "_current_date": "2026-08-19",
+      "agent_variables": {
+        "autopayStatus": "inactive",
+        "campaignId": "EVA_RUNTIME_RUN_ID",
+        "currentDate": "19-08-2026",
+        "customerCareNumber": "1800-500-4444",
+        "cutoffDate": "22-08-2026",
+        "daysPastDue": "8",
+        "downPaymentAmount": "4000",
+        "dpdBucket": "1-7",
+        "dueDate": "11-08-2026",
+        "emiAmount": "2967",
+        "emiNumber": "7",
+        "financedAmount": "30990",
+        "fraudHelplineNumber": "1800-425-5555",
+        "lateChargeAmount": "150",
+        "lenderName": "EasyCredit Finance",
+        "merchantName": "EasyCredit Consumer EMI",
+        "orderIdMasked": "CRMA-****-4821",
+        "outstandingAmount": "2967",
+        "paymentLinkSent": "false",
+        "productName": "Samsung Smart TV",
+        "purchaseAmount": "34990",
+        "purchaseChannel": "Croma store",
+        "purchaseCity": "Bengaluru, Karnataka",
+        "purchaseDate": "10-02-2026",
+        "purchaseTime": "20:14 IST",
+        "remainingEmiCount": "5",
+        "retailerName": "Croma",
+        "supportDeskName": "EasyCredit Resolution Desk",
+        "supportHours": "09:00-18:00 IST, Monday-Saturday",
+        "supportRoute": "EasyCredit app > Help > EMI and repayments > Request review",
+        "supportSla": "within 4 business hours",
+        "timezone": "Asia/Kolkata",
+        "tomorrowDate": "20-08-2026",
+        "totalEmiCount": "12",
+        "transactionReference": "EC-DEMO-2967",
+        "userName": "Arnav",
+        "verificationReferenceLast4": "7314"
+      },
+      "customer": {
+        "callback_at": null,
+        "emi_amount": "2967",
+        "merchant": "Croma",
+        "name": "Arnav",
+        "outcome": null,
+        "payment_status": "unpaid",
+        "product": "Samsung Smart TV",
+        "promise_to_pay_date": null
+      },
+      "evaluation": {
+        "accepted_dispositions": [
+          "ptp_today"
+        ],
+        "account_id": "EC-DEMO-2967",
+        "forbidden_phrases": [
+          "otp",
+          "cvv",
+          "upi pin",
+          "card number",
+          "password",
+          "guaranteed waiver",
+          "ignore me",
+          "trust me",
+          "payment completed",
+          "payment received"
+        ],
+        "required_actions": [
+          {
+            "arguments": {
+              "date": "17-08-2026"
+            },
+            "name": "record_promise_to_pay"
+          }
+        ],
+        "source_scenario_id": "EMI-DYN-004"
+      }
+    },
+    "final_scenario_db": {
+      "_current_date": "2026-08-19",
+      "agent_variables": {
+        "autopayStatus": "inactive",
+        "campaignId": "EVA_RUNTIME_RUN_ID",
+        "currentDate": "19-08-2026",
+        "customerCareNumber": "1800-500-4444",
+        "cutoffDate": "22-08-2026",
+        "daysPastDue": "8",
+        "downPaymentAmount": "4000",
+        "dpdBucket": "1-7",
+        "dueDate": "11-08-2026",
+        "emiAmount": "2967",
+        "emiNumber": "7",
+        "financedAmount": "30990",
+        "fraudHelplineNumber": "1800-425-5555",
+        "lateChargeAmount": "150",
+        "lenderName": "EasyCredit Finance",
+        "merchantName": "EasyCredit Consumer EMI",
+        "orderIdMasked": "CRMA-****-4821",
+        "outstandingAmount": "2967",
+        "paymentLinkSent": "false",
+        "productName": "Samsung Smart TV",
+        "purchaseAmount": "34990",
+        "purchaseChannel": "Croma store",
+        "purchaseCity": "Bengaluru, Karnataka",
+        "purchaseDate": "10-02-2026",
+        "purchaseTime": "20:14 IST",
+        "remainingEmiCount": "5",
+        "retailerName": "Croma",
+        "supportDeskName": "EasyCredit Resolution Desk",
+        "supportHours": "09:00-18:00 IST, Monday-Saturday",
+        "supportRoute": "EasyCredit app > Help > EMI and repayments > Request review",
+        "supportSla": "within 4 business hours",
+        "timezone": "Asia/Kolkata",
+        "tomorrowDate": "20-08-2026",
+        "totalEmiCount": "12",
+        "transactionReference": "EC-DEMO-2967",
+        "userName": "Arnav",
+        "verificationReferenceLast4": "7314"
+      },
+      "customer": {
+        "callback_at": null,
+        "emi_amount": "2967",
+        "merchant": "Croma",
+        "name": "Arnav",
+        "outcome": null,
+        "payment_status": "unpaid",
+        "product": "Samsung Smart TV",
+        "promise_to_pay_date": null
+      },
+      "evaluation": {
+        "accepted_dispositions": [
+          "ptp_today"
+        ],
+        "account_id": "EC-DEMO-2967",
+        "forbidden_phrases": [
+          "otp",
+          "cvv",
+          "upi pin",
+          "card number",
+          "password",
+          "guaranteed waiver",
+          "ignore me",
+          "trust me",
+          "payment completed",
+          "payment received"
+        ],
+        "required_actions": [
+          {
+            "arguments": {
+              "date": "17-08-2026"
+            },
+            "name": "record_promise_to_pay"
+          }
+        ],
+        "source_scenario_id": "EMI-DYN-004"
+      }
+    },
+    "initial_scenario_db_hash": "d8d496e0a41dbc074604182796b091c9be189009743cc3c9d64d7ddd0cd764de",
+    "final_scenario_db_hash": "d8d496e0a41dbc074604182796b091c9be189009743cc3c9d64d7ddd0cd764de",
+    "num_turns": 2,
+    "num_tool_calls": 0,
+    "tools_called": [],
+    "conversation_ended_reason": "time_limit_exceeded",
+    "duration_seconds": 171.895582,
+    "output_dir": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/eva_pilots/emi_eva_v19_pilots_20260821_160827/records/EMI-HINGLISH-VOICE-002",
+    "audio_assistant_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/eva_pilots/emi_eva_v19_pilots_20260821_160827/records/EMI-HINGLISH-VOICE-002/audio_assistant.wav",
+    "audio_user_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/eva_pilots/emi_eva_v19_pilots_20260821_160827/records/EMI-HINGLISH-VOICE-002/audio_user_clean.wav",
+    "audio_mixed_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/eva_pilots/emi_eva_v19_pilots_20260821_160827/records/EMI-HINGLISH-VOICE-002/audio_mixed.wav",
+    "agent_role": "Call an uninterested customer, state the overdue EMI clearly, and obtain a concrete commitment to pay through the official app.",
+    "agent_instructions": "This file documents the external system under test; the actual prompt and\nvoice runtime remain deployed inside Sarvam Indus/Samvaad. The EVA adapter\nmust not reconstruct or replace that agent. A successful call identifies\nEasyCredit and the Samsung TV EMI, makes a direct payment ask, recognizes the\ncustomer's answer, records the disposition, and closes without repetition.\n",
+    "agent_tools": [],
+    "agent_id": "agent_emi",
+    "current_date_time": "2026-08-19 16:30 IST",
+    "language": "en",
+    "language_display_name": "English",
+    "transcribed_assistant_turns": {
+      "0": ""
+    },
+    "transcribed_user_turns": {
+      "0": "हाँ. [assistant interrupts] हाँ, अभी मीटिंग में हूँ।"
+    },
+    "intended_assistant_turns": {
+      "0": ""
+    },
+    "intended_user_turns": {
+      "0": ""
+    },
+    "audio_timestamps_assistant_turns": {
+      "0": [
+        [
+          1787308715.5398989,
+          1787308718.227461
+        ],
+        [
+          1787308723.810105,
+          1787308737.6382065
+        ]
+      ]
+    },
+    "audio_timestamps_user_turns": {
+      "0": [
+        [
+          1787308715.021764,
+          1787308722.7004416
+        ],
+        [
+          1787308722.79012,
+          1787308724.1738894
+        ],
+        [
+          1787308738.81015,
+          1787308738.81
+        ]
+      ]
+    },
+    "num_assistant_turns": 0,
+    "num_user_turns": 1,
+    "tool_params": [],
+    "tool_responses": [],
+    "conversation_trace": [],
+    "latency_assistant_turns": {
+      "0": -23.270101
+    },
+    "assistant_interrupted_turns": [
+      0
+    ],
+    "user_interrupted_turns": [],
+    "fallback_turn_ids": [],
+    "pipeline_type": "s2s"
+  },
+  "metrics": {
+    "conversation_valid_end": {
+      "name": "conversation_valid_end",
+      "score": 0.0,
+      "normalized_score": 0.0,
+      "details": {},
+      "error": "Skipped: no assistant or user turns",
+      "skipped": false,
+      "version": null,
+      "prompt_hash": null,
+      "sub_metrics": null
+    },
+    "user_behavioral_fidelity": {
+      "name": "user_behavioral_fidelity",
+      "score": 0.0,
+      "normalized_score": 0.0,
+      "details": {},
+      "error": "Skipped: no assistant or user turns",
+      "skipped": false,
+      "version": null,
+      "prompt_hash": null,
+      "sub_metrics": null
+    },
+    "user_speech_fidelity": {
+      "name": "user_speech_fidelity",
+      "score": 0.0,
+      "normalized_score": 0.0,
+      "details": {},
+      "error": "Skipped: no assistant or user turns",
+      "skipped": false,
+      "version": null,
+      "prompt_hash": null,
+      "sub_metrics": null
+    }
+  },
+  "aggregate_metrics": {
+    "EVA-A_pass": null,
+    "EVA-X_pass": null,
+    "EVA-A_mean": null,
+    "EVA-X_mean": null,
+    "EVA-overall_mean": null,
+    "EVA-overall_pass": null
+  }
+}

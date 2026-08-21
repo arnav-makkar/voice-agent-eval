@@ -1,0 +1,129 @@
+{
+  "model_list": [
+    {
+      "model_name": "gemini-3.1-pro-preview",
+      "litellm_params": {
+        "model": "gemini/gemini-3.1-pro-preview",
+        "max_parallel_requests": 1,
+        "api_key": "***"
+      }
+    },
+    {
+      "model_name": "gemini-3-flash-preview",
+      "litellm_params": {
+        "model": "gemini/gemini-3-flash-preview",
+        "max_parallel_requests": 1,
+        "api_key": "***"
+      }
+    }
+  ],
+  "model": {
+    "s2s": "sarvam-samvaad-v19",
+    "s2s_params": {
+      "model": "sarvam-samvaad-v19",
+      "api_key": "***",
+      "org_id": "019fe148-1997-7cc7-bb7a-8029929d4008",
+      "workspace_id": "019fe148-199b-787e-b8d7-b0c2d4e6acda",
+      "app_id": "Conversatio-87b9b435-b466",
+      "app_version": 19
+    },
+    "turn_start_strategy": "vad",
+    "turn_start_strategy_params": {},
+    "turn_stop_strategy": "turn_analyzer",
+    "turn_stop_strategy_params": {},
+    "vad": "silero",
+    "vad_params": {},
+    "pre_tool_speech": "off",
+    "llm_streaming": false
+  },
+  "framework": "samvaad",
+  "run_id": "emi_eva_v19_pilots_20260821_160827",
+  "domain": "emi",
+  "max_rerun_attempts": 1,
+  "force_revalidation": false,
+  "rerun_failed_metrics": false,
+  "force_rerun_metrics": false,
+  "tool_module_path": "eva.assistant.tools.emi_tools",
+  "provenance": {
+    "eva_version": "2.1.0",
+    "simulation_version": "2.0.2",
+    "metrics_version": "2.2.2",
+    "git_commit_sha": "5fc6bae31f6b418b5a104e7434fc119ebdeebd9e",
+    "git_branch": null,
+    "git_dirty": true,
+    "git_diff_hash": "d5fa4a5a54e0",
+    "dataset": {
+      "path": "data/emi_dataset.json",
+      "sha256": "93e22cb0021afdb17a460d826f642469345d94c133fcb5c899767350fce670b3"
+    },
+    "agent_config": {
+      "path": "configs/agents/emi_agent.yaml",
+      "sha256": "efe820b8f40e96a7e8469e329512e4f100ad7273a1a7af56c80216e36d9ff160"
+    },
+    "tool_module": {
+      "path": "src/eva/assistant/tools/emi_tools.py",
+      "sha256": "bb341d73d669567cae3504e41610096e0c1f784ae3d14d9f2fe348218cd87d0e"
+    },
+    "scenario_db": {
+      "path": "data/emi_scenarios",
+      "sha256": "b2bd9581ef067c7b7a24fd53cae726dccfde5913693d9da9fe9af5c2a190c540"
+    },
+    "python_version": "3.11.9 (v3.11.9:de54cf5be3, Apr  2 2024, 07:12:50) [Clang 13.0.0 (clang-1300.0.29.30)]",
+    "platform": "macOS-26.5.1-arm64-arm-64bit",
+    "captured_at": "2026-08-21T16:08:32.968829",
+    "prompts": [
+      {
+        "path": "configs/prompts/judge.yaml",
+        "sha256": "e88d4fed8b318b9f73f58077838d6e31a4771ab4bb043b00a394932caefd7a6d"
+      },
+      {
+        "path": "configs/prompts/simulation.yaml",
+        "sha256": "39251ae09e054f02b4e6f933da1718af6a3b487ef7ffa5e49a9ef834dbc24f90"
+      }
+    ]
+  },
+  "resolved_models": null,
+  "validation_thresholds": {
+    "conversation_valid_end": 1.0,
+    "user_behavioral_fidelity": 1.0,
+    "max_time_limit_attempts": 1
+  },
+  "num_trials": 1,
+  "metrics": [
+    "task_completion",
+    "faithfulness",
+    "agent_speech_fidelity",
+    "turn_taking",
+    "conciseness",
+    "conversation_progression"
+  ],
+  "aggregate_only": false,
+  "perturbation": null,
+  "user_simulator": {
+    "provider": "elevenlabs"
+  },
+  "language": "en",
+  "debug": false,
+  "record_ids": [
+    "EMI-HINGLISH-VOICE-001",
+    "EMI-HINGLISH-VOICE-002",
+    "EMI-HINGLISH-VOICE-003"
+  ],
+  "max_concurrent_conversations": 1,
+  "conversation_time_limit_seconds": 120,
+  "turn_end_fallback_time": null,
+  "output_dir": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/eva_pilots",
+  "base_port": 10000,
+  "port_pool_size": 150,
+  "log_level": "INFO",
+  "dry_run": false,
+  "preflight": true,
+  "preflight_timeout_seconds": 20.0,
+  "dataset_path": "data/emi_dataset.json",
+  "tool_mocks_path": "data/emi_scenarios",
+  "aliases_path": "data/emi_aliases",
+  "agent_config_path": "configs/agents/emi_agent.yaml",
+  "pipeline_parts": {
+    "s2s": "sarvam-samvaad-v19"
+  }
+}

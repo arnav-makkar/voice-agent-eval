@@ -1,0 +1,46 @@
+{
+  "schema_version": "loopline-live-voice-decision.v2",
+  "decision": "HOLD",
+  "decided_on": "2026-08-21",
+  "candidate": "Indus app version 19",
+  "run": "artifacts/eva_pilots/emi_eva_v19_pilots_20260821_160827",
+  "attempted": 3,
+  "evaluator_valid": 2,
+  "task_completion": {
+    "passes": 0,
+    "denominator": 2,
+    "rate": 0.0
+  },
+  "eva": {
+    "eva_a_mean": 0.4167,
+    "eva_x_mean": 0.4613,
+    "overall_mean": 0.439,
+    "eva_a_pass_rate": 0.0,
+    "eva_x_pass_rate": 0.0
+  },
+  "deterministic_postflight": {
+    "decision": "HOLD",
+    "reasons": [
+      "required_tool_missing",
+      "terminal_claim_without_tool_evidence",
+      "stale_expected_date",
+      "non_hinglish_indic_script"
+    ]
+  },
+  "tool_service_control": {
+    "passed": true,
+    "artifact": "artifacts/framework/emi/tool_service_verification.json",
+    "interpretation": "The backend contract works directly; the defect is in deployed invocation and the v2 harness."
+  },
+  "next_gate": {
+    "suite": "eva_voice_suite_v3_hinglish_fixed",
+    "manifest_sha256": "38e3d3be152acbe8f37c2fcacc2124993e6f8530097daef6ff5bfd43c43fa48a",
+    "conditions_before_paid_rerun": [
+      "A platform-originated tool call is visible in the append-only journal.",
+      "All three frozen pilot dates are internally consistent.",
+      "A terminal success phrase is impossible without a matching successful tool result.",
+      "The three-call dry run passes the deterministic post-flight preconditions."
+    ]
+  },
+  "claim_boundary": "The v19 pilot is evidence that the release gate works: it rejected a plausible prompt. It is not evidence of voice improvement."
+}

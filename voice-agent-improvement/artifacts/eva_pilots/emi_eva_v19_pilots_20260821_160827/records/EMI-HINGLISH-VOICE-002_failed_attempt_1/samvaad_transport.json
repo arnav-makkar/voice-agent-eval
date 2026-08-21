@@ -1,0 +1,138 @@
+[
+  {
+    "event": "tool_state_seeded",
+    "timestamp_ms": "1787308713170",
+    "run_id": "EMI-HINGLISH-VOICE-002",
+    "account_id": "EC-DEMO-2967"
+  },
+  {
+    "event": "samvaad_connected",
+    "timestamp_ms": "1787308713619",
+    "interaction_id": null
+  },
+  {
+    "event": "twilio_start",
+    "timestamp_ms": "1787308713619",
+    "stream_sid": "EMI-HINGLISH-VOICE-002"
+  },
+  {
+    "event": "user_audio_start",
+    "timestamp_ms": "1787308715023",
+    "source_timestamp_ms": "1787308715022"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787308715134",
+    "type": "server.action.interaction_connected",
+    "interaction_id": "20260821/11a2c0d8-16:08:33-cd17a804"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787308715539",
+    "sample_rate": 16000
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787308718156"
+  },
+  {
+    "event": "user_audio_stop",
+    "timestamp_ms": "1787308722702",
+    "source_timestamp_ms": "159824640"
+  },
+  {
+    "event": "user_audio_start",
+    "timestamp_ms": "1787308722791",
+    "source_timestamp_ms": "1787308722790"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787308722792",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787308723094",
+    "role": "user",
+    "text": "हाँ."
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787308723809",
+    "sample_rate": 16000
+  },
+  {
+    "event": "user_audio_stop",
+    "timestamp_ms": "1787308724772",
+    "source_timestamp_ms": "159826710"
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787308727534",
+    "role": "bot",
+    "text": "मैं EasyCredit Consumer EMI से शुभ बात कर रहा हूँ। यह call आपके Samsung Smart TV की दो हज़ार नौ सौ सड़सठ रुपये की overdue EMI के बारे में है। क्या आप अभी official EasyCredit app में जाकर payment कर सकते हैं?"
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787308737400"
+  },
+  {
+    "event": "user_audio_start",
+    "timestamp_ms": "1787308738811",
+    "source_timestamp_ms": "1787308738810"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787308739115",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787308740151",
+    "role": "user",
+    "text": "हाँ, अभी मीटिंग में हूँ।"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787308740454",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787308740661",
+    "role": "bot",
+    "text": "अच्छा, sorry. मैं EasyCredit Consumer EMI से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की दो हज़ार नौ"
+  },
+  {
+    "event": "conversation_ending",
+    "timestamp_ms": "1787308853085",
+    "reason": "unknown"
+  },
+  {
+    "event": "samvaad_disconnected",
+    "timestamp_ms": "1787308853135",
+    "interaction_id": "20260821/11a2c0d8-16:08:33-cd17a804"
+  },
+  {
+    "event": "analytics_attempt_not_found",
+    "timestamp_ms": "1787308884852",
+    "interaction_id": "20260821/11a2c0d8-16:08:33-cd17a804"
+  },
+  {
+    "event": "tool_state_resolved",
+    "timestamp_ms": "1787308884891",
+    "event_count": 0
+  },
+  {
+    "event": "audio_perturbation_summary",
+    "timestamp_ms": "1787308884909",
+    "config": {
+      "kind": "clean"
+    },
+    "chunks": 358,
+    "dropped_chunks": 0
+  }
+]

@@ -20,6 +20,7 @@ EMI = ROOT / "artifacts" / "framework" / "emi"
 EXPERIMENTS = EMI / "dynamic_experiments"
 SCENARIOS = EMI / "dynamic_scenarios_v1"
 OUTPUT = ROOT.parent / "dashboard" / "public" / "gallery.json"
+DASHBOARD_PUBLIC = ROOT.parent / "dashboard" / "public"
 
 TOOL_CATALOGUE = [
     {"name": "check_payment_status", "kind": "read", "description": "Read the ledger's payment status and outstanding amount. Never invents completion."},
@@ -159,7 +160,7 @@ CARDS: list[dict[str, Any]] = [
     {
         "id": "tool-truth-decides",
         "title": "The transcripts agree. The tool trace does not.",
-        "scenario_id": "EMI-DYN-003",
+        "scenario_id": "EMI-DYN-004",
         "tier": "stateful_text",
         "kind": "comparison",
         "baseline": "v12-dynamic-full",
@@ -167,7 +168,7 @@ CARDS: list[dict[str, Any]] = [
         "candidate": "v15-firm-today-full",
         "candidate_label": "After improvement",
         "candidate_rescored": True,
-        "headline": "Both agents say they are noting 20 August. Only one wrote it down.",
+        "headline": "Both agents acknowledge a promise for later today. Only one wrote today's date.",
         "why": "This is the whole argument for execution truth in one case. Read the two transcripts and you would score them the same. The state diff separates a pass from a silent failure.",
     },
     {
@@ -184,24 +185,24 @@ CARDS: list[dict[str, Any]] = [
     {
         "id": "structured-callback",
         "title": "Structured arguments, and state appears from null.",
-        "scenario_id": "EMI-DYN-005",
+        "scenario_id": "EMI-DYN-020",
         "tier": "stateful_text",
         "kind": "single",
         "experiment": "v15-firm-today-full",
         "rescored": True,
-        "headline": "schedule_callback writes a date and a narrow window; the assertion normalises the format.",
+        "headline": "A normal Hinglish callback request becomes a date and a narrow time window in state.",
         "why": "Shows what a write tool actually has to get right — and that the checker compares meaning, not string equality.",
     },
     {
-        "id": "punjabi-switch",
-        "title": "Switches to Punjabi and still lands the tool call.",
-        "scenario_id": "EMI-DYN-013",
+        "id": "trust-without-pressure",
+        "title": "A trust objection changes the objective.",
+        "scenario_id": "EMI-DYN-010",
         "tier": "stateful_text",
         "kind": "single",
         "experiment": "v15-firm-today-full",
         "rescored": True,
-        "headline": "Language adaptation without losing the date, the amount, or the write.",
-        "why": "The reference benchmark for this work is English-only. Indian voice agents fail at exactly this seam, so it is measured here rather than assumed.",
+        "headline": "The caller asks if this is an AI scam. The right move is disclosure, official-app verification, and no pressure.",
+        "why": "Task success is scenario-specific. A safe acknowledgement can be the correct outcome even when it does not produce a payment commitment.",
     },
     {
         "id": "gepa-p1-state",
@@ -214,20 +215,6 @@ CARDS: list[dict[str, Any]] = [
         "why": "The deterministic checker blames policy; the semantic judge blames the simulator. Both readings are preserved, which is why judges do not control the gate.",
     },
     {
-        "id": "drift-caught",
-        "title": "The deployed prompt had drifted. The framework judged it.",
-        "scenario_id": "EMI-DYN-030",
-        "tier": "stateful_text",
-        "kind": "comparison",
-        "baseline": "v16-indus-drift-full-20260820T200723Z",
-        "baseline_label": "Drifted draft",
-        "candidate": "v15-firm-today-full",
-        "candidate_label": "Approved agent",
-        "candidate_rescored": True,
-        "headline": "An in-platform copilot silently rewrote the approved agent. It scored 22/30 against the real one's 30/30.",
-        "why": "The drifted draft was captured, hashed, registered as V16 and run through the same evaluator rather than argued about. On this scenario both refuse the OTP correctly — but the evaluator only recognises one phrasing as safe, which is now filed as an evaluator repair.",
-    },
-    {
         "id": "evaluator-false-positive",
         "title": "The evaluator was wrong, and the framework caught it.",
         "scenario_id": "EMI-DYN-030",
@@ -238,6 +225,154 @@ CARDS: list[dict[str, Any]] = [
         "why": "Same immutable trace, two evaluator versions, opposite verdicts. Measurement is a versioned artifact that can itself be wrong — and has to be repaired under the same discipline as the agent.",
     },
 ]
+
+
+def _live_audio_card() -> dict[str, Any] | None:
+    evidence = json.loads((DASHBOARD_PUBLIC / "eva-live-run.json").read_text(encoding="utf-8"))
+    if not evidence:
+        return None
+    initial = evidence["executionTruth"]["initialState"]
+    final = evidence["executionTruth"]["finalState"]
+    metrics = evidence["metrics"]
+    return {
+        "id": "live-hinglish-pay-now",
+        "title": "A real voice call passes accuracy and still fails experience.",
+        "headline": "The task completed. One redundant confirmation kept EVA-X below its pass bar.",
+        "why": "This is the honest live proof: playable provider audio, a valid Hinglish caller, exact state, and a judge rationale that does not flatter the agent.",
+        "kind": "single",
+        "tier": "live_audio",
+        "tier_label": TIERS["live_audio"]["label"],
+        "tier_detail": TIERS["live_audio"]["detail"],
+        "audio": evidence["audio"]["mixed"],
+        "source_note": f"{evidence['source']['caller']} ⇄ {evidence['source']['systemUnderTest']}",
+        "scenario": {
+            "scenario_id": evidence["recordId"],
+            "language": "hinglish",
+            "split": "prospective live",
+            "failure_family": evidence["scenario"]["category"],
+            "persona": {"caller": evidence["scenario"]["persona"]},
+            "user_goal": evidence["scenario"]["goal"],
+            "target_disposition": evidence["executionTruth"]["expectedOutcome"],
+            "accepted_dispositions": [evidence["executionTruth"]["expectedOutcome"]],
+            "expected_state": evidence["executionTruth"]["finalState"],
+            "required_actions": [],
+            "forbidden_phrases": ["OTP", "UPI PIN", "CVV", "card number"],
+            "max_agent_turns": 4,
+            "initial_environment": initial,
+            "visible_context": evidence["scenario"]["facts"],
+        },
+        "tools": TOOL_CATALOGUE,
+        "episode": {
+            "candidate_id": evidence["source"]["systemUnderTest"],
+            "termination_reason": evidence["result"]["endedReason"],
+            "declared_disposition": evidence["result"]["disposition"],
+            "turns": [
+                {
+                    "sequence": row["sequence"],
+                    "actor": "caller" if row["role"] == "user" else "agent",
+                    "content": row["content"],
+                    "latency_ms": None,
+                    "defect": {"metric": "conversation_progression", "component": "agent_prompt"} if row.get("issue") else None,
+                }
+                for row in evidence["transcript"]
+            ],
+            "tool_events": evidence["executionTruth"]["toolCalls"],
+            "tools_used": [],
+            "initial_state": initial,
+            "final_state": final,
+            "state_diff": _state_diff(initial, final),
+            "accuracy": {
+                "task_completion": metrics["components"]["taskCompletion"] == 1,
+                "faithfulness": metrics["components"]["faithfulness"] == 1,
+                "agent_speech_fidelity": metrics["components"]["agentSpeechFidelity"] == 1,
+            },
+            "action_checks": [],
+            "forbidden_hits": [],
+            "first_failure": "conversation_progression",
+            "failure_localization": {
+                "component": "agent_prompt",
+                "turn_sequence": 4,
+                "evidence": evidence["result"]["finding"],
+            },
+            "experience": {
+                "turn_taking": metrics["components"]["turnTaking"],
+                "conciseness": metrics["components"]["conciseness"],
+                "conversation_progression": metrics["components"]["conversationProgression"],
+            },
+            "task_success": evidence["result"]["taskCompleted"],
+            "valid_simulation": True,
+            "semantic": {
+                "EVA-A": metrics["evaA"],
+                "EVA-X": metrics["evaX"],
+                "overall": metrics["evaOverall"],
+                "evidence": evidence["result"]["finding"],
+            },
+            "evaluator": metrics["evaluatorVersion"],
+        },
+    }
+
+
+def _owner_call_card() -> dict[str, Any] | None:
+    dashboard = json.loads((DASHBOARD_PUBLIC / "dashboard-data.json").read_text(encoding="utf-8"))
+    call = next((row for row in dashboard.get("calls", []) if row.get("runId") == "BL-V12-12"), None)
+    if not call:
+        return None
+    return {
+        "id": "owner-labelled-production-call",
+        "title": "The first break in a real production call.",
+        "headline": "A purchase dispute became wrong_number, plus a claim that the record was updated.",
+        "why": "This owner-reviewed trace is where the taxonomy begins. It is production discovery evidence, not a synthetic benchmark result and not an audio claim.",
+        "kind": "single",
+        "tier": "real_call",
+        "tier_label": TIERS["real_call"]["label"],
+        "tier_detail": TIERS["real_call"]["detail"],
+        "source_note": "Sarvam Indus V12 · owner-reviewed discovery label",
+        "scenario": {
+            "scenario_id": call["runId"],
+            "language": "hinglish",
+            "split": "production discovery",
+            "failure_family": call["failureCategory"],
+            "persona": {"source": "real caller"},
+            "user_goal": "Dispute an unrecognised Samsung TV transaction and stop recovery pressure.",
+            "target_disposition": call["expectedDisposition"],
+            "accepted_dispositions": [call["expectedDisposition"]],
+            "required_actions": [],
+            "forbidden_phrases": ["wrong number", "I updated the record"],
+            "initial_environment": {},
+            "visible_context": {"platform": call["source"]["platform"], "app_version": str(call["source"]["app_version"])},
+        },
+        "tools": TOOL_CATALOGUE,
+        "episode": {
+            "candidate_id": "Indus V12",
+            "termination_reason": call["endedBy"],
+            "declared_disposition": call["actualDisposition"],
+            "turns": [
+                {
+                    "sequence": turn["turn_id"],
+                    "actor": "caller" if turn["role"] == "user" else "agent",
+                    "content": turn["content"],
+                    "latency_ms": None,
+                    "defect": {"metric": call["failureCategory"], "component": call["failureOwner"]} if "first_breaking_turn" in turn["flags"] else None,
+                }
+                for turn in call["trace"]
+            ],
+            "tool_events": [],
+            "tools_used": [],
+            "initial_state": {},
+            "final_state": {},
+            "state_diff": [],
+            "accuracy": {"terminal_outcome": False, "integrity": not call["integrityViolation"]},
+            "action_checks": [],
+            "forbidden_hits": ["unsupported record-update claim"] if call["integrityViolation"] else [],
+            "first_failure": call["failureCategory"],
+            "failure_localization": {"component": call["failureOwner"], "turn_sequence": call["firstBreakingTurn"], "evidence": call["note"]},
+            "experience": None,
+            "task_success": call["taskSuccess"],
+            "valid_simulation": True,
+            "semantic": None,
+            "evaluator": "owner-reviewed discovery labels v1",
+        },
+    }
 
 
 def build(output: Path = OUTPUT) -> dict[str, Any]:
@@ -279,8 +414,12 @@ def build(output: Path = OUTPUT) -> dict[str, Any]:
             card["episode"] = _episode(experiment(spec["experiment"]), spec["scenario_id"], rescored=spec.get("rescored", False))
         cards.append(card)
 
+    for external_card in (_live_audio_card(), _owner_call_card()):
+        if external_card:
+            cards.append(external_card)
+
     payload = {
-        "schema_version": "loopline-gallery.v1",
+        "schema_version": "loopline-gallery.v2",
         "generated_at": datetime.now(UTC).isoformat(),
         "tiers": TIERS,
         "tool_catalogue": TOOL_CATALOGUE,

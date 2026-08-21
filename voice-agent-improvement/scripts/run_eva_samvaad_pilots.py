@@ -20,8 +20,8 @@ if str(PROJECT_ROOT) not in sys.path:
 from scripts.run_eva_samvaad_live import EVA_ROOT, ROOT, _build_config, _run  # noqa: E402
 
 
-PILOT_RECORD_IDS = ["EMI-VOICE-001", "EMI-VOICE-002", "EMI-VOICE-009"]
-MANIFEST = ROOT / "artifacts" / "framework" / "emi" / "eva_voice_suite_v1" / "manifest.json"
+PILOT_RECORD_IDS = ["EMI-HINGLISH-FIXED-001", "EMI-HINGLISH-FIXED-002", "EMI-HINGLISH-FIXED-003"]
+MANIFEST = ROOT / "artifacts" / "framework" / "emi" / "eva_voice_suite_v3_hinglish_fixed" / "manifest.json"
 OUTPUT_ROOT = ROOT / "artifacts" / "eva_pilots"
 
 
@@ -46,6 +46,7 @@ def main() -> int:
         "run_id": run_id,
         "app_version": args.app_version,
         "record_ids": PILOT_RECORD_IDS,
+        "language_policy": "normal Hinglish only",
         "requested_provider_sessions": {
             "elevenlabs": len(PILOT_RECORD_IDS),
             "samvaad": len(PILOT_RECORD_IDS),

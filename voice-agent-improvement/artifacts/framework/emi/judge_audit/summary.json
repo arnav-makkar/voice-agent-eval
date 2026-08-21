@@ -7,6 +7,7 @@
   },
   "detection": {
     "agreement": 0.8333,
+    "cohen_kappa": 0.4595,
     "n": 60,
     "question": "Did the judge and the executable checker agree on whether the episode failed at all?"
   },
@@ -31,11 +32,13 @@
     }
   ],
   "episodes": 60,
-  "generated_at": "2026-08-20T21:04:23.337140+00:00",
+  "generated_at": "2026-08-21T11:01:02.250207+00:00",
+  "independence_limit": "Kappa here compares one semantic judge with the deterministic executable checker. It is not agreement between two independent LLM judge families; that remains a separate open experiment.",
   "interpretation": "The judge is reliable at noticing that something went wrong and materially less reliable at saying what owns it. That is precisely why ownership routing is advisory and the executable checker controls the release gate. Publishing the number is the point: a grader whose accuracy is unstated should not be trusted.",
   "method": "Recomputed from preserved episode artifacts. No new model calls were made, so this audit costs nothing and cannot drift from the results it describes.",
   "ownership": {
     "agreement": 0.5,
+    "cohen_kappa": -0.125,
     "n": 6,
     "question": "When both said it failed, did they agree on which component owns the failure?"
   },

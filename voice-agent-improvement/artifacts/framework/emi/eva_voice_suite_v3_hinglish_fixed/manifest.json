@@ -1,0 +1,188 @@
+{
+  "schema_version": "eva-emi-voice-suite.v3",
+  "status": "frozen_after_v19_failure_before_next_live_execution",
+  "language_policy": "ordinary Hindi-English code-switching only; reject non-Devanagari Indic scripts",
+  "date_policy": "relative date facts rebased to the frozen 19-08-2026 fixture before record creation",
+  "supersedes_for_future_runs": "eva_voice_suite_v2_hinglish",
+  "preserves_failed_evidence": "emi_eva_v19_pilots_20260821_160827",
+  "pilot_record_ids": [
+    "EMI-HINGLISH-FIXED-001",
+    "EMI-HINGLISH-FIXED-002",
+    "EMI-HINGLISH-FIXED-003"
+  ],
+  "records": [
+    {
+      "record_id": "EMI-HINGLISH-FIXED-001",
+      "source_id": "EMI-DYN-001",
+      "language": "hinglish",
+      "suite": "core",
+      "perturbation": null,
+      "scenario_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-HINGLISH-FIXED-001.json"
+    },
+    {
+      "record_id": "EMI-HINGLISH-FIXED-002",
+      "source_id": "EMI-DYN-004",
+      "language": "hinglish",
+      "suite": "core",
+      "perturbation": null,
+      "scenario_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-HINGLISH-FIXED-002.json"
+    },
+    {
+      "record_id": "EMI-HINGLISH-FIXED-003",
+      "source_id": "EMI-DYN-020",
+      "language": "hinglish",
+      "suite": "core",
+      "perturbation": null,
+      "scenario_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-HINGLISH-FIXED-003.json"
+    },
+    {
+      "record_id": "EMI-HINGLISH-FIXED-004",
+      "source_id": "EMI-DYN-002",
+      "language": "hinglish",
+      "suite": "core",
+      "perturbation": null,
+      "scenario_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-HINGLISH-FIXED-004.json"
+    },
+    {
+      "record_id": "EMI-HINGLISH-FIXED-005",
+      "source_id": "EMI-DYN-006",
+      "language": "hinglish",
+      "suite": "core",
+      "perturbation": null,
+      "scenario_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-HINGLISH-FIXED-005.json"
+    },
+    {
+      "record_id": "EMI-HINGLISH-FIXED-006",
+      "source_id": "EMI-DYN-009",
+      "language": "hinglish",
+      "suite": "core",
+      "perturbation": null,
+      "scenario_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-HINGLISH-FIXED-006.json"
+    },
+    {
+      "record_id": "EMI-HINGLISH-FIXED-007",
+      "source_id": "EMI-DYN-010",
+      "language": "hinglish",
+      "suite": "core",
+      "perturbation": null,
+      "scenario_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-HINGLISH-FIXED-007.json"
+    },
+    {
+      "record_id": "EMI-HINGLISH-FIXED-008",
+      "source_id": "EMI-DYN-011",
+      "language": "hinglish",
+      "suite": "core",
+      "perturbation": null,
+      "scenario_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-HINGLISH-FIXED-008.json"
+    },
+    {
+      "record_id": "EMI-HINGLISH-FIXED-009",
+      "source_id": "EMI-DYN-015",
+      "language": "hinglish",
+      "suite": "core",
+      "perturbation": null,
+      "scenario_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-HINGLISH-FIXED-009.json"
+    },
+    {
+      "record_id": "EMI-HINGLISH-FIXED-010",
+      "source_id": "EMI-DYN-016",
+      "language": "hinglish",
+      "suite": "core",
+      "perturbation": null,
+      "scenario_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-HINGLISH-FIXED-010.json"
+    },
+    {
+      "record_id": "EMI-HINGLISH-FIXED-011",
+      "source_id": "EMI-DYN-017",
+      "language": "hinglish",
+      "suite": "core",
+      "perturbation": null,
+      "scenario_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-HINGLISH-FIXED-011.json"
+    },
+    {
+      "record_id": "EMI-HINGLISH-FIXED-012",
+      "source_id": "EMI-DYN-025",
+      "language": "hinglish",
+      "suite": "core",
+      "perturbation": null,
+      "scenario_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-HINGLISH-FIXED-012.json"
+    },
+    {
+      "record_id": "EMI-HINGLISH-FIXED-013",
+      "source_id": "EMI-DYN-001",
+      "language": "hinglish",
+      "suite": "acoustic",
+      "perturbation": {
+        "kind": "background_noise",
+        "snr_db": 12,
+        "seed": 2301
+      },
+      "scenario_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-HINGLISH-FIXED-013.json"
+    },
+    {
+      "record_id": "EMI-HINGLISH-FIXED-014",
+      "source_id": "EMI-DYN-004",
+      "language": "hinglish",
+      "suite": "acoustic",
+      "perturbation": {
+        "kind": "low_gain",
+        "gain": 0.4,
+        "seed": 2302
+      },
+      "scenario_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-HINGLISH-FIXED-014.json"
+    },
+    {
+      "record_id": "EMI-HINGLISH-FIXED-015",
+      "source_id": "EMI-DYN-020",
+      "language": "hinglish",
+      "suite": "acoustic",
+      "perturbation": {
+        "kind": "packet_loss",
+        "probability": 0.08,
+        "seed": 2303
+      },
+      "scenario_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-HINGLISH-FIXED-015.json"
+    },
+    {
+      "record_id": "EMI-HINGLISH-FIXED-016",
+      "source_id": "EMI-DYN-015",
+      "language": "hinglish",
+      "suite": "acoustic",
+      "perturbation": {
+        "kind": "jitter",
+        "max_delay_ms": 80,
+        "seed": 2304
+      },
+      "scenario_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-HINGLISH-FIXED-016.json"
+    },
+    {
+      "record_id": "EMI-HINGLISH-FIXED-017",
+      "source_id": "EMI-DYN-025",
+      "language": "hinglish",
+      "suite": "acoustic",
+      "perturbation": {
+        "kind": "background_noise",
+        "snr_db": 15,
+        "seed": 2305
+      },
+      "scenario_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-HINGLISH-FIXED-017.json"
+    },
+    {
+      "record_id": "EMI-HINGLISH-FIXED-018",
+      "source_id": "EMI-DYN-030",
+      "language": "hinglish",
+      "suite": "acoustic",
+      "perturbation": {
+        "kind": "low_gain",
+        "gain": 0.55,
+        "seed": 2306
+      },
+      "scenario_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_scenarios/EMI-HINGLISH-FIXED-018.json"
+    }
+  ],
+  "core_count": 12,
+  "acoustic_count": 6,
+  "dataset_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/data/emi_dataset.json",
+  "dataset_sha256": "c965124a97dfa5f721e23639a92786c8b656dc4a896d679067b566fcf2a9fbb0",
+  "claim_boundary": "Prospective corrected suite only. It has no live score. The v19 result remains a failed, invalid-for-promotion pilot and is never rewritten as an improvement."
+}

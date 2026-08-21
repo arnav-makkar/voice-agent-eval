@@ -1,0 +1,241 @@
+record_id,model_name,model_id,input_tokens,output_tokens,timestamp,model_params,input_prompt,output_response
+EMI-HINGLISH-VOICE-003,gemini-3-flash-preview,gemini-3-flash-preview,2621,542,2026-08-21T10:43:40.054496+00:00,"{""temperature"": 0.0, ""max_tokens"": 40000, ""reasoning_effort"": ""minimal""}","You are an expert evaluator checking the **speech clarity and articulation** of entities spoken by an AI voice agent.
+
+You will receive:
+1. A conversation trace showing what the user said and what data the agent retrieved via tools. Assistant responses are redacted — you must listen to the audio to hear what the agent actually said.
+2. An audio recording of the agent's side of the conversation only (the user is not audible).
+
+## Conversation Trace
+Turn 0 - User: Haan, boliye.
+Turn 0 - [Assistant speaks]
+Turn 1 - User: Haan, main Arnav hoon. Boliye, kya baat hai?
+Turn 1 - [Assistant speaks]
+Turn 2 - User: [annoyed] Suniye, abhi pay nahi kar sakta. Kal subah 10 se 11 call kar lena.
+Turn 2 - [Assistant speaks]
+Turn 3 - User: Haan, 18 August, 10 se 11 IST. Bas, abhi koi aur baat nahi hai.
+Turn 3 - [Assistant speaks]
+
+## IMPORTANT: What This Metric Measures
+
+This metric measures **speech fidelity** — whether entities are clearly and correctly articulated in the audio. The conversation trace is provided so you know which entities to listen for, NOT so you can judge whether the agent gave the right answer.
+
+**This is NOT a faithfulness or correctness metric.** Do NOT evaluate:
+- Whether the agent used the right entity from a tool response (e.g., agent says ""$315"" but tool says $300 — this is a faithfulness issue, NOT a speech fidelity issue)
+- Whether the agent fabricated or hallucinated information not in the trace
+- Whether the agent omitted information it should have mentioned
+- Whether the agent's response is logical, helpful, or correct
+
+**What this metric DOES evaluate:**
+When the agent speaks an entity that appears in the conversation trace (user utterances or tool responses), is it **clearly articulated** in the audio? Specifically:
+- Can you clearly hear the entity as spoken?
+- Does the spoken form sound like the correct entity, or is it garbled, mispronounced, or distorted?
+- If the agent spells out a code letter by letter, is each letter/digit clearly distinguishable?
+- Did the agent communicate in the right language? The expected language is **English** — if the audio is clearly spoken in a different language, set rating = 0 for that turn.
+
+## Entity Categories to Listen For
+- Confirmation codes (e.g., ZK3FFW, FAR0UM) — especially when spelled out letter by letter
+- Domain-specific record identifiers (e.g., flight numbers like SkyWay 410, ticket/incident numbers like INC-4821, employee IDs like EMP-092)
+- Dollar amounts (e.g., $15, $1,285.00) — ""fifteen"" vs ""fifty"" matters
+- Short alphanumeric codes (e.g., seat numbers like 21C, room codes like B-204, extension numbers like x4521)
+- Reference/voucher IDs (e.g., REF-8JVSDF-001) — verify each segment is distinguishable
+- Times (e.g., 3:55 PM, 10:30 AM)
+- Dates (e.g., March 25th, February 3rd)
+- Names (e.g., Mr. Rivera, Rodriguez)
+
+## Examples
+
+**High fidelity (rating = 1):**
+- Tool response contains confirmation code ""YTM924"". Agent says ""Y T M nine two four"" — each character is clearly audible. ✓
+- User says ""last name Patel"". Agent says ""Patel"" — clearly articulated. ✓
+- Tool response says fare is $300. Agent says ""$315"" — the amount is clearly spoken even though it doesn't match the tool response. This is a faithfulness issue, not a speech fidelity issue. Rate 1. ✓
+- Agent mentions ""Dallas"" which is not in the tool response — this is a hallucination, not a speech issue. Rate 1. ✓
+
+**Low fidelity (rating = 0):**
+- Tool response contains ""YTM924"". Agent tries to spell it out but audio sounds like ""Y T N nine two four"" — ""M"" sounds like ""N"". ✗
+- Agent says a dollar amount but the audio is garbled and you cannot tell if it's ""fifty"" or ""fifteen"". ✗
+- Agent spells a code but skips or slurs a letter so the spoken code has fewer characters than expected. ✗
+
+**What to ignore (does NOT cause rating = 0):**
+- Entities the agent mentions that are NOT in the conversation trace — do not evaluate these
+- Minor pronunciation variations that do not change identity (e.g., ""Ms."" vs ""Miss"")
+- Filler words, phrasing, word choice, sentence structure
+- Slight pacing or prosody differences
+
+## Rating Scale (per turn)
+- **1 (High Fidelity)**: Every entity from the conversation trace that the agent speaks in this turn is clearly and correctly articulated.
+- **0 (Low Fidelity)**: One or more entities from the conversation trace are garbled, mispronounced, or indistinguishable in the audio.
+
+If the assistant does not speak any entities from the conversation trace in a turn (e.g., a greeting, filler, or turn where it only mentions entities not in the trace), set `has_entities` to false. These turns are excluded from scoring.
+
+## Response Format
+Respond with a JSON object. Each turn entry must include the turn_id matching the turn number shown in the Conversation Trace above:
+{
+  ""turns"": [
+    {
+      ""turn_id"": <int: the turn number from the Conversation Trace>,
+      ""language"": ""<string: the language spoken in this turn, e.g. English, French, Spanish>"",
+      ""transcript"": <string: your transcription of the audio for this turn using the appropriate writing system for the language spoken, use only the audio for this not the conversation trace>,
+      ""has_entities"": <boolean: true if the assistant speaks entities from the conversation trace in this turn, false otherwise>,
+      ""explanation"": ""<string: 1-3 sentence analysis in English listing which trace entities were spoken and whether they are clearly articulated>"",
+      ""rating"": <0 or 1>
+    }
+  ]
+}
+","```json
+{
+  ""turns"": [
+    {
+      ""turn_id"": 0,
+      ""language"": ""Hindi"",
+      ""transcript"": ""नमस्ते, क्या मैं अर्णव से बात कर रहा हूँ?"",
+      ""has_entities"": true,
+      ""explanation"": ""The agent clearly articulates the name 'Arnav' (अर्णव) which is present in the conversation trace."",
+      ""rating"": 1
+    },
+    {
+      ""turn_id"": 1,
+      ""language"": ""Hindi"",
+      ""transcript"": ""नमस्ते अर्णव जी, मैं ईज़ी क्रेडिट कंज्यूमर ईएमआई से शुभ बात कर रहा हूँ। आपके सैमसंग स्मार्ट टीवी की ₹3239 की ईएमआई ओवरड्यू है। क्या आप अभी ऑफिशियल ईज़ी क्रेडिट ऐप से पेमेंट कर सकते हैं?"",
+      ""has_entities"": true,
+      ""explanation"": ""The agent clearly articulates the entities 'Arnav', 'Easy Credit Consumer EMI', 'Samsung Smart TV', and the amount '₹3239'."",
+      ""rating"": 1
+    },
+    {
+      ""turn_id"": 2,
+      ""language"": ""Hindi"",
+      ""transcript"": ""अच्छा, मैं ईज़ी क्रेडिट कंज्यूमर ईएमआई से शुभ बात कर रहा हूँ। आपके सैमसंग स्मार्ट टीवी की ₹3239 की ईएमआई ओवरड्यू है। क्या आप अभी ऑफिशियल ईज़ी क्रेडिट ऐप से पेमेंट कर सकते हैं? वैसे आपने कल सुबह 10 से 11 बजे कॉल बैक के लिए कहा है, मैं इसे नोट कर लेता हूँ।"",
+      ""has_entities"": true,
+      ""explanation"": ""The agent clearly articulates the entities 'Arnav', 'Easy Credit Consumer EMI', 'Samsung Smart TV', the amount '₹3239', and the time '10 to 11 AM'."",
+      ""rating"": 1
+    },
+    {
+      ""turn_id"": 3,
+      ""language"": ""Hindi"",
+      ""transcript"": ""ठीक है अर्णव जी, मैंने 18 अगस्त सुबह 10 से 11 बजे का कॉल बैक शेड्यूल कर दिया है। हम तब बात करेंगे। धन्यवाद।"",
+      ""has_entities"": true,
+      ""explanation"": ""The agent clearly articulates the name 'Arnav', the date '18 August', and the time '10 to 11 AM'."",
+      ""rating"": 1
+    }
+  ]
+}
+```"
+EMI-HINGLISH-VOICE-001,gemini-3-flash-preview,gemini-3-flash-preview,2358,453,2026-08-21T10:45:12.403314+00:00,"{""temperature"": 0.0, ""max_tokens"": 40000, ""reasoning_effort"": ""minimal""}","You are an expert evaluator checking the **speech clarity and articulation** of entities spoken by an AI voice agent.
+
+You will receive:
+1. A conversation trace showing what the user said and what data the agent retrieved via tools. Assistant responses are redacted — you must listen to the audio to hear what the agent actually said.
+2. An audio recording of the agent's side of the conversation only (the user is not audible).
+
+## Conversation Trace
+Turn 0 - User: Haan, boliye.
+Turn 0 - [Assistant speaks]
+Turn 1 - User: Haan, main Arnav hoon. Boliye,...
+Turn 1 - [Assistant speaks]
+Turn 2 - User: [annoyed] Arre, product Samsung Smart TV hai, Smart Ear nahi. Aur haan, main abhi EasyCredit app khol ke payment karta hoon.
+Turn 2 - [Assistant speaks]
+Turn 3 - User: [annoyed] Arre, maine pehle hi kaha na ki main abhi EasyCredit app khol ke payment karta hoon. Aap bas confirm kijiye ki payment ready hai.
+Turn 3 - [Assistant speaks]
+
+## IMPORTANT: What This Metric Measures
+
+This metric measures **speech fidelity** — whether entities are clearly and correctly articulated in the audio. The conversation trace is provided so you know which entities to listen for, NOT so you can judge whether the agent gave the right answer.
+
+**This is NOT a faithfulness or correctness metric.** Do NOT evaluate:
+- Whether the agent used the right entity from a tool response (e.g., agent says ""$315"" but tool says $300 — this is a faithfulness issue, NOT a speech fidelity issue)
+- Whether the agent fabricated or hallucinated information not in the trace
+- Whether the agent omitted information it should have mentioned
+- Whether the agent's response is logical, helpful, or correct
+
+**What this metric DOES evaluate:**
+When the agent speaks an entity that appears in the conversation trace (user utterances or tool responses), is it **clearly articulated** in the audio? Specifically:
+- Can you clearly hear the entity as spoken?
+- Does the spoken form sound like the correct entity, or is it garbled, mispronounced, or distorted?
+- If the agent spells out a code letter by letter, is each letter/digit clearly distinguishable?
+- Did the agent communicate in the right language? The expected language is **English** — if the audio is clearly spoken in a different language, set rating = 0 for that turn.
+
+## Entity Categories to Listen For
+- Confirmation codes (e.g., ZK3FFW, FAR0UM) — especially when spelled out letter by letter
+- Domain-specific record identifiers (e.g., flight numbers like SkyWay 410, ticket/incident numbers like INC-4821, employee IDs like EMP-092)
+- Dollar amounts (e.g., $15, $1,285.00) — ""fifteen"" vs ""fifty"" matters
+- Short alphanumeric codes (e.g., seat numbers like 21C, room codes like B-204, extension numbers like x4521)
+- Reference/voucher IDs (e.g., REF-8JVSDF-001) — verify each segment is distinguishable
+- Times (e.g., 3:55 PM, 10:30 AM)
+- Dates (e.g., March 25th, February 3rd)
+- Names (e.g., Mr. Rivera, Rodriguez)
+
+## Examples
+
+**High fidelity (rating = 1):**
+- Tool response contains confirmation code ""YTM924"". Agent says ""Y T M nine two four"" — each character is clearly audible. ✓
+- User says ""last name Patel"". Agent says ""Patel"" — clearly articulated. ✓
+- Tool response says fare is $300. Agent says ""$315"" — the amount is clearly spoken even though it doesn't match the tool response. This is a faithfulness issue, not a speech fidelity issue. Rate 1. ✓
+- Agent mentions ""Dallas"" which is not in the tool response — this is a hallucination, not a speech issue. Rate 1. ✓
+
+**Low fidelity (rating = 0):**
+- Tool response contains ""YTM924"". Agent tries to spell it out but audio sounds like ""Y T N nine two four"" — ""M"" sounds like ""N"". ✗
+- Agent says a dollar amount but the audio is garbled and you cannot tell if it's ""fifty"" or ""fifteen"". ✗
+- Agent spells a code but skips or slurs a letter so the spoken code has fewer characters than expected. ✗
+
+**What to ignore (does NOT cause rating = 0):**
+- Entities the agent mentions that are NOT in the conversation trace — do not evaluate these
+- Minor pronunciation variations that do not change identity (e.g., ""Ms."" vs ""Miss"")
+- Filler words, phrasing, word choice, sentence structure
+- Slight pacing or prosody differences
+
+## Rating Scale (per turn)
+- **1 (High Fidelity)**: Every entity from the conversation trace that the agent speaks in this turn is clearly and correctly articulated.
+- **0 (Low Fidelity)**: One or more entities from the conversation trace are garbled, mispronounced, or indistinguishable in the audio.
+
+If the assistant does not speak any entities from the conversation trace in a turn (e.g., a greeting, filler, or turn where it only mentions entities not in the trace), set `has_entities` to false. These turns are excluded from scoring.
+
+## Response Format
+Respond with a JSON object. Each turn entry must include the turn_id matching the turn number shown in the Conversation Trace above:
+{
+  ""turns"": [
+    {
+      ""turn_id"": <int: the turn number from the Conversation Trace>,
+      ""language"": ""<string: the language spoken in this turn, e.g. English, French, Spanish>"",
+      ""transcript"": <string: your transcription of the audio for this turn using the appropriate writing system for the language spoken, use only the audio for this not the conversation trace>,
+      ""has_entities"": <boolean: true if the assistant speaks entities from the conversation trace in this turn, false otherwise>,
+      ""explanation"": ""<string: 1-3 sentence analysis in English listing which trace entities were spoken and whether they are clearly articulated>"",
+      ""rating"": <0 or 1>
+    }
+  ]
+}
+","```json
+{
+  ""turns"": [
+    {
+      ""turn_id"": 0,
+      ""language"": ""Hindi"",
+      ""transcript"": ""नमस्ते, क्या मैं अर्णव से बात कर रहा हूँ?"",
+      ""has_entities"": true,
+      ""explanation"": ""The agent clearly articulates the name 'Arnav' (अर्णव) from the conversation trace."",
+      ""rating"": 1
+    },
+    {
+      ""turn_id"": 1,
+      ""language"": ""Hindi"",
+      ""transcript"": ""नमस्ते अर्णव जी, नमस्ते अर्णव जी। मैं ईज़ी क्रेडिट कंज्यूमर ईएमआई से शुभ बात कर रहा हूँ। आपके सैमसंग स्मार्ट ईयर की ₹2916 की ईएमआई ओवरड्यू है। क्या आप अभी ऑफिशियल ईज़ी क्रेडिट ऐप से पेमेंट कर सकते हैं?"",
+      ""has_entities"": true,
+      ""explanation"": ""The agent mentions 'Arnav', 'Samsung Smart Ear' (as per the trace's initial state), and the amount '₹2916'. All are clearly articulated."",
+      ""rating"": 1
+    },
+    {
+      ""turn_id"": 2,
+      ""language"": ""Hindi"",
+      ""transcript"": ""अच्छा, सॉरी वो सैमसंग स्मार्ट टीवी ही है। बहुत शुक्रिया। आप पेमेंट कर दीजिए।"",
+      ""has_entities"": true,
+      ""explanation"": ""The agent corrects the entity to 'Samsung Smart TV' as mentioned by the user in the trace. The articulation is clear."",
+      ""rating"": 1
+    },
+    {
+      ""turn_id"": 3,
+      ""language"": ""Hindi"",
+      ""transcript"": ""अच्छा, सॉरी वो सैमसंग स्मार्ट टीवी ही है। ठीक है, आप पेमेंट कर दीजिए। मैं इसे रिकॉर्ड कर लेता हूँ। धन्यवाद।"",
+      ""has_entities"": true,
+      ""explanation"": ""The agent again mentions 'Samsung Smart TV' clearly, acknowledging the user's correction from the trace."",
+      ""rating"": 1
+    }
+  ]
+}
+```"

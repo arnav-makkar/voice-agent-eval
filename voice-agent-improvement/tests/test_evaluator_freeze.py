@@ -2,7 +2,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from framework.evaluation.freeze_evaluator import freeze
+from framework.evaluation.freeze_evaluator import DEFAULT_VERSION, freeze
 
 
 class EvaluatorFreezeTests(unittest.TestCase):
@@ -10,7 +10,10 @@ class EvaluatorFreezeTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temp:
             path = Path(temp) / "freeze.json"
             record = freeze(path)
-            self.assertEqual(record["evaluator_version"], "evaluation-metrics.v3/loopline-eva-adapter.v1/samvaad-duplex.v11")
+            self.assertEqual(
+                record["evaluator_version"],
+                f"evaluation-metrics.v3/loopline-eva-adapter.v1/samvaad-duplex.v{DEFAULT_VERSION}",
+            )
             self.assertEqual(len(record["bundle_sha256"]), 64)
             self.assertTrue(record["release_rules"]["validation_before_scoring"])
             with self.assertRaises(FileExistsError):

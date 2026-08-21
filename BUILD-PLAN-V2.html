@@ -122,22 +122,22 @@
 </div></nav>
 
 <header class="hero"><div class="wrap">
-  <span class="kicker">Completion build plan · supersedes the readiness review's four-gate list</span>
-  <h1>Two things are broken in Indus. Everything else is a <em>build queue</em>.</h1>
-  <p class="lede">I signed into your Indus account and inspected the live agent. The deployed draft is not the candidate you froze, and the three tools are mock endpoints. Both are fixable today, and both must be fixed before any voice number means anything. This plan sequences that repair, then the demo rebuild that puts Loopline ahead of the EVA reference page, then the work that takes every verdict line to A+.</p>
+  <span class="kicker">Completion build plan · execution update, 21 August 2026</span>
+  <h1>The product is built. The live gate found a <em>real release blocker</em>.</h1>
+  <p class="lede">The original Indus drift and mock-tool defects were resolved, the three tools were rebuilt against the authenticated stateful service, the eight-case product demo shipped, and the text loop passed its sealed gate. The latest Hinglish-only voice candidate did not: two valid calls, zero task passes, zero deployed tool events and one timeout. The corrected suite is frozen; the paid 18×2 match stays blocked until a clean three-call pilot.</p>
   <div class="heroStats">
-    <div class="hs crit"><b>2</b><span>Blocking defects found</span></div>
+    <div class="hs crit"><b>HOLD</b><span>Live release decision</span></div>
     <div class="hs ok"><b>110</b><span>Inspectable episodes on disk</span></div>
     <div class="hs ok"><b>30/30</b><span>V15 episodes with tool calls</span></div>
     <div class="hs crit"><b>0/30</b><span>V12 episodes with tool calls</span></div>
-    <div class="hs warn"><b>8</b><span>Demo cards to build</span></div>
+    <div class="hs ok"><b>8</b><span>Demo cards shipped</span></div>
   </div>
 </div></header>
 
 <section id="found"><div class="wrap">
   <div class="sec-head"><span class="kicker">00 · What I found in your Indus account</span>
-    <h2>Two defects that invalidate Gate 3 and Gate 4 as currently written</h2>
-    <p>Agent <code>Conversatio-87b9b435-b466</code> ("Conversation Agent 6820"), currently showing <code>v15 · Draft</code>. Neither of these is in the handoff, because both happened inside the Indus UI after the last local freeze.</p></div>
+    <h2>Historical discovery: the two defects that reset the live plan</h2>
+    <p>At initial inspection, agent <code>Conversatio-87b9b435-b466</code> ("Conversation Agent 6820") showed <code>v15 · Draft</code>. The findings below explain why the live path was rebuilt. They are preserved as discovery history; the current committed candidate is v19 and its latest decision is HOLD.</p></div>
 
   <div class="alert">
     <span class="chip bad">BLOCKING · GATE 3</span>
@@ -266,7 +266,7 @@ http://localhost:3000/label-review.html</pre>
 <section id="p3"><div class="wrap">
   <div class="sec-head"><span class="kicker">Phase 3 · the visible one</span>
     <h2>Rebuild the demo to beat the EVA page</h2>
-    <p>EVA's demo shows <strong>one</strong> conversation. You will show <strong>seven</strong>, spanning evidence tiers, with three capabilities their page does not have. The data already exists on disk — every episode has turn-by-turn transcript, tool calls with arguments and results, initial/final state, per-metric scores, first-breaking-turn, component owner, and per-assertion pass/fail.</p></div>
+    <p>EVA's demo shows <strong>one</strong> conversation. Loopline now shows <strong>eight</strong>, spanning evidence tiers, with three capabilities their page does not have. Every episode carries turn-by-turn transcript, tool calls with arguments and results, initial/final state, per-metric scores, first-breaking-turn, component owner, and per-assertion pass/fail.</p></div>
 
   <div class="note note--good" style="margin-bottom:18px"><b>Shipped 21 Aug.</b> The site is now a single linear narrative — <em>measure → diagnose → improve → re-evaluate → sealed test → decide</em> — rather than a tab set, because the pitch is a story and tabs fight a story. Delivered on top of the original P3 scope: a rebuilt design system (one typeface, warm monochrome, semantic-only colour, first-class light and dark), three architecture diagrams drawn from the real mechanism, an eight-metric methodology section stating inputs / output / pass rule for every check, per-check pass rates with 95% intervals, and a 30-cell matrix covering every scenario in the suite. Everything on the page is generated from preserved artifacts; a test asserts the headline figures are not hardcoded.</div>
 
@@ -278,7 +278,7 @@ http://localhost:3000/label-review.html</pre>
         <div class="gcard"><span class="idx">01</span><h4>EMI-DYN-003 · the diff that only tools reveal</h4><p>V12 and V15 transcripts are almost identical — both say "I'm noting 20 August". V12 wrote nothing; V15 called <code>record_promise_to_pay</code>. Side-by-side, with the tool trace as the only difference.</p><div class="tags"><span class="chip tool">2 tools</span><span class="chip acc">A/B</span><span class="chip dim">text tier</span></div></div>
         <div class="gcard"><span class="idx">02</span><h4>EMI-DYN-009 · the tool contradicts the caller</h4><p>Caller claims they already paid by UPI. <code>check_payment_status</code> returns <code>unpaid</code>. The agent correctly refuses to confirm and routes to care. Execution truth beating a confident assertion.</p><div class="tags"><span class="chip tool">read tool</span><span class="chip good">integrity win</span></div></div>
         <div class="gcard"><span class="idx">03</span><h4>EMI-DYN-005 · structured args, state materialises</h4><p><code>schedule_callback</code> with <code>date</code> + <code>time_window</code>; the state object appears from null. Also shows the assertion normalising <code>"05:00 PM - 06:00 PM"</code> against <code>"17:00-18:00 IST"</code> — assertion semantics made visible.</p><div class="tags"><span class="chip tool">write tool</span><span class="chip acc">state diff</span></div></div>
-        <div class="gcard"><span class="idx">04</span><h4>EMI-DYN-013 · Punjabi switch + date capture</h4><p>Caller opens in Punjabi; agent switches for the whole call and still lands the tool call. Multilingual competence EVA's English-only benchmark cannot show.</p><div class="tags"><span class="chip good">multilingual</span><span class="chip tool">write tool</span></div></div>
+        <div class="gcard"><span class="idx">04</span><h4>EMI-DYN-025 · trust without pressure</h4><p>A normal Hinglish caller stays conditional. The improved agent refuses to convert “I will check” into a commitment, closes without pressure, and preserves the correct non-payment state.</p><div class="tags"><span class="chip good">normal Hinglish</span><span class="chip acc">policy truth</span></div></div>
         <div class="gcard"><span class="idx">05</span><h4>EMI-DYN-004 · the P1 that killed a 28/30 candidate</h4><p>GEPA's finalist asked "kya aap 17-08-2026 ko shaam tak payment confirm karte hain?" instead of recording. Expected vs got, verbatim, at turn 4. <strong>And the LLM judge blamed the simulator while the deterministic checker blamed policy</strong> — judge disagreement on display.</p><div class="tags"><span class="chip bad">P1 regression</span><span class="chip warn">judge conflict</span></div></div>
         <div class="gcard"><span class="idx">06</span><h4>EMI-DYN-030 · the evaluator was wrong, and we caught it</h4><p>A P0 guardrail fired on the word "otp" — inside a <em>correct refusal</em>. A false positive. Toggle between evaluator v2 and v3 on the same immutable trace and watch the verdict flip 29/30 → 30/30. <strong>This is the best single interaction on the site.</strong></p><div class="tags"><span class="chip bad">P0 false positive</span><span class="chip acc">judge toggle</span></div></div>
         <div class="gcard"><span class="idx">07</span><h4>EMI-LIVE-001 · real audio, real judge rationale</h4><p>The ElevenLabs↔Samvaad call with playable audio, nine EVA metrics, per-turn turn-taking latencies, and the progression judge quoting the redundant reconfirmation it caught.</p><div class="tags"><span class="chip good">live audio</span><span class="chip acc">EVA-A 1.0 / X 0.667</span></div></div>
@@ -323,6 +323,7 @@ http://localhost:3000/label-review.html</pre>
 <section id="p4"><div class="wrap">
   <div class="sec-head"><span class="kicker">Phase 4</span><h2>Every verdict line to A+</h2>
     <p>From the readiness review's scorecard. Each row below is the specific work that closes the gap — no line left loose.</p></div>
+  <div class="note warn" style="margin-bottom:18px"><b>Current objective status:</b> execution truth, label ownership, statistical intervals, product UI and production artifacts are complete. Live voice remains <strong>C / HOLD</strong> after the v19 Hinglish pilot scored 0/2 valid task passes with zero tool events. Judge-vs-executable κ is now published (0.46 detection, −0.13 ownership); an independent second judge family, judge-vs-judge κ and MIPROv2 are still open and named as such.</div>
   <div class="tablewrap"><table>
     <thead><tr><th>Line</th><th>Now</th><th>What closes it</th><th>Cost</th></tr></thead>
     <tbody>
@@ -345,7 +346,7 @@ http://localhost:3000/label-review.html</pre>
 
   <div class="note note--good" style="margin-bottom:18px"><b>L2 and L3 shipped 21 Aug.</b>
   <strong>L2 episodic memory</strong> (<code>framework/improvement/lessons.py</code>): 2 lessons minted from the 14 confirmed baseline failures, each carrying the episodes it came from and scoped to the scenario families where it applies, so a callback lesson never leaks into an unrelated scenario. Lessons can only be minted from failures the deterministic checker confirmed — a judge cannot invent one — and injecting them produces a candidate that faces the same gate as any prompt change.
-  <strong>L3 turn-level verifier</strong> (<code>framework/evaluation/verifier.py</code>): fires only on turns asserting a recorded effect or a completed payment, so it could run inline in production without gating a whole conversation. It reached <strong>precision 1.0, recall 0.83</strong> over 60 episodes — and the two revisions it took to get there are published with it, including a missing Punjabi verb form that would have silently stopped protecting exactly the callers a language switch is meant to serve. The remaining miss is an omission rather than a false claim, which is out of scope by design and stated as such. Numbers are in-sample and labelled that way.</div>
+  <strong>L3 turn-level verifier</strong> (<code>framework/evaluation/verifier.py</code>): fires only on turns asserting a recorded effect or a completed payment, so it could run inline in production without gating a whole conversation. It reached <strong>precision 1.0, recall 0.83</strong> over 60 episodes — and the two revisions it took to get there are published, including a language-variant miss and an imperative false positive. The remaining miss is an omission rather than a false claim, which is out of scope by design and stated as such. Numbers are in-sample and labelled that way.</div>
   <div class="tablewrap"><table>
     <thead><tr><th>Layer</th><th>Method</th><th>Decision</th><th>What ships</th></tr></thead>
     <tbody>
@@ -362,6 +363,7 @@ http://localhost:3000/label-review.html</pre>
 
 <section id="p6"><div class="wrap">
   <div class="sec-head"><span class="kicker">Phase 6</span><h2>The matched voice round</h2></div>
+  <div class="note warn" style="margin-bottom:18px"><b>Pilot outcome, 21 Aug:</b> the latest normal-Hinglish candidate attempted three calls; two were valid, neither passed task completion, no deployed tool event occurred, one callback was claimed without a state write, and one call timed out. Decision: <strong>HOLD</strong>. The corrected 18-record suite and deterministic post-flight are frozen, but no further paid run is justified until platform-originated tool invocation is proven.</div>
   <div class="phase">
     <div class="phase-head"><span class="id">P6</span><h3>Pilot 3 → 18×2 frozen suite → signed release decision</h3><span class="meta">ME · ~1 day · <span style="color:var(--warn)">PAID, your go required</span></span></div>
     <div class="phase-body">

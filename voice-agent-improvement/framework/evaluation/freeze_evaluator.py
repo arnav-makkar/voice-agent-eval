@@ -12,7 +12,7 @@ from framework.core.io import write_json
 
 
 ROOT = Path(__file__).resolve().parents[2]
-DEFAULT_VERSION = 11
+DEFAULT_VERSION = 13
 
 
 def _default_output(version: int) -> Path:
@@ -46,6 +46,9 @@ def freeze(output: Path, *, version: int = DEFAULT_VERSION) -> dict:
         ROOT / "scripts" / "run_eva_samvaad_suite.py",
         ROOT / "scripts" / "rescore_eva_samvaad_run.py",
         ROOT / "scripts" / "build_eva_emi_voice_suite.py",
+        ROOT / "scripts" / "build_eva_hinglish_voice_suite.py",
+        ROOT / "scripts" / "build_eva_hinglish_voice_suite_v3.py",
+        ROOT / "scripts" / "audit_eva_voice_run.py",
         ROOT / "scripts" / "compare_eva_samvaad_suites.py",
         ROOT / "framework" / "tool_service.py",
         ROOT / "research" / "upstream" / "eva" / "src" / "eva" / "assistant" / "samvaad_server.py",
@@ -58,8 +61,8 @@ def freeze(output: Path, *, version: int = DEFAULT_VERSION) -> dict:
     ]
     voice_suite_paths = [
         ROOT / "research" / "upstream" / "eva" / "data" / "emi_dataset.json",
-        ROOT / "artifacts" / "framework" / "emi" / "eva_voice_suite_v1" / "manifest.json",
-        *sorted((ROOT / "research" / "upstream" / "eva" / "data" / "emi_scenarios").glob("EMI-VOICE-*.json")),
+        ROOT / "artifacts" / "framework" / "emi" / "eva_voice_suite_v3_hinglish_fixed" / "manifest.json",
+        *sorted((ROOT / "research" / "upstream" / "eva" / "data" / "emi_scenarios").glob("EMI-HINGLISH-FIXED-*.json")),
     ]
     components = {
         "evaluator_files": [{"path": str(path), "sha256": _sha(path)} for path in evaluator_paths],
@@ -69,7 +72,19 @@ def freeze(output: Path, *, version: int = DEFAULT_VERSION) -> dict:
     bundle_hash = hashlib.sha256(
         json.dumps(components, sort_keys=True, separators=(",", ":")).encode("utf-8")
     ).hexdigest()
-    if version == 11:
+    if version == 13:
+        supersedes = (
+            "eva_adapter_v12: V13 preserves the failed v19/v2 pilot unchanged, rebases stale relative-date facts into "
+            "new record IDs, and adds a deterministic post-flight for missing tools, unsupported terminal claims and "
+            "non-Hinglish Indic-script switches. V13 has no live score until a separately authorised rerun."
+        )
+    elif version == 12:
+        supersedes = (
+            "eva_adapter_v11: V12 preserves all scoring and execution-truth rules and changes only the active prospective "
+            "voice corpus to a separately versioned Hinglish-only suite. The multilingual V1 suite, V10/V11 freezes and "
+            "historical Punjabi pilot remain immutable; none is relabelled as V12 evidence."
+        )
+    elif version == 11:
         supersedes = (
             "eva_adapter_v10: V11 is the post-pilot evaluator. It adds NA/null output-sentinel "
             "normalisation in the Samvaad adapter and the audited terminal-disposition endpoint in "

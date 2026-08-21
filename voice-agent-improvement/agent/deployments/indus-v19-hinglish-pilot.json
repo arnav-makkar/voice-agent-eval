@@ -1,0 +1,44 @@
+{
+  "schema_version": "loopline-indus-deployment.v1",
+  "app_version": 19,
+  "platform_status": "committed",
+  "evaluation_status": "rejected_by_three_call_hinglish_pilot",
+  "commit_date": "2026-08-21",
+  "commit_note": "Loopline Hinglish pilot candidate: opening once, terminal tool-before-claim, exact PTP/callback writes, three authenticated tools; preserves v18 rollback.",
+  "rollback_target": 18,
+  "tools": [
+    "check_payment_status",
+    "record_promise_to_pay",
+    "schedule_callback"
+  ],
+  "prompt_identity": {
+    "platform_reference": "Indus committed app version 19",
+    "local_prompt_hash": null,
+    "reason": "The platform editor did not expose an export or canonical prompt hash; no local hash is claimed."
+  },
+  "evaluator_freeze_used": "eva_adapter_v12",
+  "voice_suite_used": "eva_voice_suite_v2_hinglish",
+  "voice_suite_manifest_sha256": "3aae685b3e30ad00384ac6b260764848717502aa21f3a2f9bd161211ee54343e",
+  "pilot_run": "artifacts/eva_pilots/emi_eva_v19_pilots_20260821_160827",
+  "pilot_result": {
+    "attempted": 3,
+    "evaluator_valid": 2,
+    "timed_out": 1,
+    "task_completion_passes": 0,
+    "task_completion_denominator": 2,
+    "eva_a_mean": 0.4167,
+    "eva_x_mean": 0.4613,
+    "eva_overall_mean": 0.439,
+    "eva_a_passes": 0,
+    "eva_x_passes": 0,
+    "postflight_decision": "HOLD"
+  },
+  "observed_failures": [
+    "No deployed tool call was observed on any attempt.",
+    "The agent claimed a callback was scheduled without a matching state write.",
+    "The v2 harness carried stale relative-date facts into the callback and PTP records.",
+    "The agent opened one call in Gujarati despite the Hinglish-only contract.",
+    "Conversation progression was poor because the opening and resolved asks were repeated."
+  ],
+  "claim_boundary": "Version 19 is a preserved failed candidate. It is not the final improved agent and must not be presented as an accepted release."
+}

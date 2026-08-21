@@ -24,7 +24,7 @@ if str(PROJECT_ROOT) not in sys.path:
 from scripts.run_eva_samvaad_live import EVA_ROOT, ROOT, _build_config, _run  # noqa: E402
 
 
-MANIFEST = ROOT / "artifacts" / "framework" / "emi" / "eva_voice_suite_v1" / "manifest.json"
+MANIFEST = ROOT / "artifacts" / "framework" / "emi" / "eva_voice_suite_v3_hinglish_fixed" / "manifest.json"
 OUTPUT_ROOT = ROOT / "artifacts" / "eva_matched_live"
 
 
@@ -71,6 +71,7 @@ def main() -> int:
         "app_version": args.app_version,
         "suite": args.suite,
         "record_ids": ids,
+        "language_policy": "normal Hinglish only",
         "trials": args.trials,
         "requested_provider_sessions": {"elevenlabs": requested_sessions, "samvaad": requested_sessions},
         "max_sessions": args.max_sessions,

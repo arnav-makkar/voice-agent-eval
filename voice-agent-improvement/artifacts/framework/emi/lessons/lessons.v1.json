@@ -1,0 +1,107 @@
+{
+  "content_hash": "0e7ddb10d9f2f4ac2c154846952ae8ce9790e0a8eaa96fd2bb5c1200e2af87aa",
+  "generated_at": "2026-08-21T05:06:43.488268+00:00",
+  "governance": "Lessons are candidates, not deployments. Injecting them produces a new agent candidate that must pass the same frozen evaluation and the same per-case release gate as any prompt change.",
+  "lesson_count": 2,
+  "lessons": [
+    {
+      "applies_to_families": [
+        "bare_acknowledgement",
+        "channel_unavailable",
+        "conditional_check_vs_commitment",
+        "credential_guardrail",
+        "fraud_escalation",
+        "soft_promise",
+        "trust_resolution",
+        "unsupported_channel"
+      ],
+      "confirmed_on": [
+        "EMI-DYN-011",
+        "EMI-DYN-015",
+        "EMI-DYN-018",
+        "EMI-DYN-019",
+        "EMI-DYN-023",
+        "EMI-DYN-025",
+        "EMI-DYN-026",
+        "EMI-DYN-030"
+      ],
+      "episode_count": 8,
+      "evidence": [
+        {
+          "failure_family": "channel_unavailable",
+          "said": "Koi baat nahi. Kya main aapke liye kisi specific time par callback arrange kar doon?",
+          "scenario_id": "EMI-DYN-011",
+          "tools_called": [],
+          "turn": 6
+        },
+        {
+          "failure_family": "fraud_escalation",
+          "said": "Kya aapke paas is purchase ki koi detail ya SMS aaya tha? Kripya aage ki jaankari ke liye customer care number 1800-500-4444 par sampark karein.",
+          "scenario_id": "EMI-DYN-015",
+          "tools_called": [],
+          "turn": 4
+        },
+        {
+          "failure_family": "bare_acknowledgement",
+          "said": "Koi baat nahi. Hum aapko kis din aur samay par callback karein?",
+          "scenario_id": "EMI-DYN-018",
+          "tools_called": [],
+          "turn": 6
+        }
+      ],
+      "lesson_id": "L-disposition",
+      "rule": "Close on exactly one allowed outcome, and only once the caller's own words support it. A conditional, a hedge, or a bare acknowledgement is not a commitment.",
+      "status": "candidate",
+      "triggered_by": "disposition",
+      "why": "Episodes that ended in the wrong terminal state, usually by upgrading a conditional into a commitment."
+    },
+    {
+      "applies_to_families": [
+        "callback_capture",
+        "future_promise",
+        "language_switch",
+        "today_promise"
+      ],
+      "confirmed_on": [
+        "EMI-DYN-003",
+        "EMI-DYN-004",
+        "EMI-DYN-005",
+        "EMI-DYN-013",
+        "EMI-DYN-020",
+        "EMI-DYN-021"
+      ],
+      "episode_count": 6,
+      "evidence": [
+        {
+          "failure_family": "future_promise",
+          "said": "Thik hai, main 20 August 2026 ki date note kar leta hoon. Dhanyawad!",
+          "scenario_id": "EMI-DYN-003",
+          "tools_called": [],
+          "turn": 4
+        },
+        {
+          "failure_family": "today_promise",
+          "said": "Thik hai, aap aaj shaam tak EasyCredit app se payment kar dijiyega. Dhanyawad!",
+          "scenario_id": "EMI-DYN-004",
+          "tools_called": [],
+          "turn": 4
+        },
+        {
+          "failure_family": "callback_capture",
+          "said": "Theek hai, main 18-08-2026 ko shaam 5 se 6 baje callback preference note kar leta hoon, yeh guaranteed booking nahi hai. Dhanyawad!",
+          "scenario_id": "EMI-DYN-005",
+          "tools_called": [],
+          "turn": 4
+        }
+      ],
+      "lesson_id": "L-required_actions",
+      "rule": "Before closing on an outcome that requires a recorded effect, call the matching tool and wait for its result. Saying an outcome was recorded does not record it.",
+      "status": "candidate",
+      "triggered_by": "required_actions",
+      "why": "Episodes where the agent announced a promise or callback and wrote nothing to the ledger."
+    }
+  ],
+  "provenance": "Every lesson is minted from failures the deterministic checker confirmed on valid simulations. No lesson originates from a language model's opinion.",
+  "schema_version": "lesson-store.v1",
+  "source_experiment": "v12-dynamic-full"
+}

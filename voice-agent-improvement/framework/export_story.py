@@ -282,6 +282,8 @@ def build(output: Path = OUTPUT) -> dict[str, Any]:
     gate = _read(EMI / "dynamic_release_v15.json", {})
     calibration = _read(EMI / "evaluator_calibration_owner" / "summary.json", {})
     judge_audit = _read(EMI / "judge_audit" / "summary.json", {})
+    lessons = _read(EMI / "lessons" / "lessons.v1.json", {})
+    verifier = _read(EMI / "verifier" / "summary.json", {})
 
     arms = []
     for label, path, note in (
@@ -463,6 +465,73 @@ def build(output: Path = OUTPUT) -> dict[str, Any]:
                 "required_communication": "Required disclosures",
                 "forbidden_behavior": "Guardrails",
             },
+        },
+        "layers": {
+            "intro": (
+                "Self-improvement is a portfolio, not a single method. A layer is added when the evidence supports it "
+                "and its cost and reversibility are understood — not because it is fashionable."
+            ),
+            "rows": [
+                {
+                    "id": "L0",
+                    "name": "Evaluation and data engine",
+                    "status": "built",
+                    "detail": "Scenarios, executable verifiers, judges, failure mining, first-break localisation, release gates. Every other layer consumes its signal.",
+                },
+                {
+                    "id": "L1",
+                    "name": "Prompt repair — manual and optimiser",
+                    "status": "built",
+                    "detail": "Four candidates from two independent methods. Three were rejected by the gate, including the optimiser's, and all are retained as evidence.",
+                },
+                {
+                    "id": "L2",
+                    "name": "Episodic memory",
+                    "status": "built",
+                    "detail": (
+                        f"{lessons.get('lesson_count', 0)} lessons minted from confirmed failures, each carrying the episodes it came "
+                        "from and scoped to the scenario families where it applies. Injecting them creates a new candidate that must "
+                        "pass the same gate as any prompt change."
+                    ),
+                    "lessons": lessons.get("lessons", []),
+                },
+                {
+                    "id": "L3",
+                    "name": "Turn-level verifier",
+                    "status": "built",
+                    "detail": (
+                        "Fires only on turns asserting a recorded effect or a completed payment, so it could run inline in "
+                        f"production without gating a whole conversation. Precision {verifier.get('precision')}, recall "
+                        f"{verifier.get('recall')} against the executable checker."
+                    ),
+                    "verifier": {
+                        "precision": verifier.get("precision"),
+                        "recall": verifier.get("recall"),
+                        "history": verifier.get("development_history"),
+                        "scope_limit": verifier.get("scope_limit"),
+                        "honesty_note": verifier.get("honesty_note"),
+                    },
+                },
+                {
+                    "id": "L4",
+                    "name": "Weight updates",
+                    "status": "argued",
+                    "detail": (
+                        "Not built, and claiming otherwise would be the one dishonest thing on this page. The argument is concrete: "
+                        "the release gate already emits the binary pass/fail signal preference tuning consumes, so the data pipeline "
+                        "is a by-product of this loop. It needs volume and a calibrated evaluator first."
+                    ),
+                },
+                {
+                    "id": "L5",
+                    "name": "Autonomous production change",
+                    "status": "refused",
+                    "detail": (
+                        "Deliberately out of scope. In regulated collections, a human-gated loop with bounded, reviewable repair "
+                        "surfaces is what a compliance team can sign. Removing the human is a liability, not a feature."
+                    ),
+                },
+            ],
         },
         "judge_audit": {
             "detection": judge_audit.get("detection"),

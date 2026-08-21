@@ -1,0 +1,85 @@
+{
+  "base_url": "http://127.0.0.1:8788",
+  "checks": [
+    {
+      "expects": "200 without credentials",
+      "name": "health reachable",
+      "observed": 200,
+      "passed": true
+    },
+    {
+      "expects": "200 and an empty starting state",
+      "name": "seed a fresh run",
+      "observed": 200,
+      "passed": true
+    },
+    {
+      "expects": "401 — authentication fails closed",
+      "name": "unauthenticated tool call",
+      "observed": 401,
+      "passed": true
+    },
+    {
+      "expects": "200 and recorded=true",
+      "name": "authenticated tool call",
+      "observed": {
+        "date": "20-08-2026",
+        "disposition": "fptp",
+        "recorded": true
+      },
+      "passed": true
+    },
+    {
+      "expects": "promise_to_pay_date goes from null to the recorded date",
+      "name": "state actually moved",
+      "observed": {
+        "after": "20-08-2026",
+        "before": null
+      },
+      "passed": true
+    },
+    {
+      "expects": "409 — a run belongs to one account only",
+      "name": "account mismatch",
+      "observed": 409,
+      "passed": true
+    },
+    {
+      "expects": "404 — tools cannot invent a run",
+      "name": "unknown run",
+      "observed": 404,
+      "passed": true
+    },
+    {
+      "expects": "200 and callback state written",
+      "name": "second write tool",
+      "observed": 200,
+      "passed": true
+    },
+    {
+      "expects": "every tool call is recorded in order",
+      "name": "append-only event log",
+      "observed": [
+        "record_promise_to_pay",
+        "schedule_callback"
+      ],
+      "passed": true
+    }
+  ],
+  "claim_boundary": "This verifies the service itself. It is not evidence that the deployed voice platform can reach or authenticate against it; that requires a tool call originating from the platform and remains an open gate.",
+  "final_state": {
+    "account_id": "EC-DEMO-9001",
+    "callback": {
+      "date": "18-08-2026",
+      "time_window": "05:00 PM - 06:00 PM"
+    },
+    "disposition": "callback",
+    "outstanding_amount": "4416",
+    "payment_status": "unpaid",
+    "promise_to_pay_date": "20-08-2026"
+  },
+  "passed": true,
+  "run_id": "verify-20260821T050113",
+  "schema_version": "tool-service-verification.v1",
+  "verified_at": "2026-08-21T05:01:13.229060+00:00"
+}

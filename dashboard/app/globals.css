@@ -45,18 +45,18 @@
   --shadow:var(--up);
   --shadow-lg:var(--up-lg);
 
-  --accent:#E1552F;
-  --accent-2:#EE7350;
-  --accent-soft:rgba(225,85,47,.12);
-  --accent-line:rgba(225,85,47,.30);
-  --accent-ink:#B93F1C;
+  --accent:#7E82D6;
+  --accent-2:#9BA0E8;
+  --accent-soft:rgba(126,130,214,.13);
+  --accent-line:rgba(126,130,214,.32);
+  --accent-ink:#5B5FBF;
 
-  --gain:#17835C;   --gain-soft:rgba(23,131,92,.13);   --gain-line:rgba(23,131,92,.30);
-  --loss:#C13D24;   --loss-soft:rgba(193,61,36,.11);   --loss-line:rgba(193,61,36,.28);
-  --hold:#A5720F;   --hold-soft:rgba(165,114,15,.13);  --hold-line:rgba(165,114,15,.30);
-  --tool:#2A4BC4;   --tool-soft:rgba(42,75,196,.10);   --tool-line:rgba(42,75,196,.26);
+  --gain:#5E9E86;   --gain-soft:rgba(94,158,134,.15);   --gain-line:rgba(94,158,134,.34);
+  --loss:#B86E7C;   --loss-soft:rgba(184,110,124,.14);   --loss-line:rgba(184,110,124,.32);
+  --hold:#B0925A;   --hold-soft:rgba(176,146,90,.15);  --hold-line:rgba(176,146,90,.32);
+  --tool:#6D9DAE;   --tool-soft:rgba(109,157,174,.14);   --tool-line:rgba(109,157,174,.32);
 
-  --tint-lav:#E8E4F0; --tint-mint:#D8EDE1; --tint-blush:#F4E4DE;
+  --tint-lav:#E6E4F2; --tint-mint:#DCEBE4; --tint-blush:#F1E3E6;
 
   --sans:"Instrument Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,monospace;
@@ -73,13 +73,13 @@
     --ink:#F2EFE8; --ink-2:#A9A396; --ink-3:#7B7568;
     --rule:rgba(242,239,232,.07);
     --rule-2:rgba(242,239,232,.13);
-    --accent:#FF6F49; --accent-2:#FF8E6E;
-    --accent-soft:rgba(255,111,73,.15); --accent-line:rgba(255,111,73,.36); --accent-ink:#FF8E6E;
-    --gain:#43D69F;  --gain-soft:rgba(67,214,159,.14);  --gain-line:rgba(67,214,159,.34);
-    --loss:#FF7D60;  --loss-soft:rgba(255,125,96,.13);  --loss-line:rgba(255,125,96,.32);
-    --hold:#EDB74F;  --hold-soft:rgba(237,183,79,.13);  --hold-line:rgba(237,183,79,.32);
-    --tool:#7E9BFF;  --tool-soft:rgba(126,155,255,.13); --tool-line:rgba(126,155,255,.32);
-    --tint-lav:#272433; --tint-mint:#152A24; --tint-blush:#2E211C;
+    --accent:#A8ACF0; --accent-2:#C0C3F7;
+    --accent-soft:rgba(168,172,240,.16); --accent-line:rgba(168,172,240,.38); --accent-ink:#C0C3F7;
+    --gain:#87C9AC;  --gain-soft:rgba(135,201,172,.16);  --gain-line:rgba(135,201,172,.36);
+    --loss:#DE97A4;  --loss-soft:rgba(222,151,164,.15);  --loss-line:rgba(222,151,164,.34);
+    --hold:#D6BC85;  --hold-soft:rgba(214,188,133,.15);  --hold-line:rgba(214,188,133,.34);
+    --tool:#93BECD;  --tool-soft:rgba(147,190,205,.15); --tool-line:rgba(147,190,205,.34);
+    --tint-lav:#262434; --tint-mint:#1B2A26; --tint-blush:#2B2126;
   }
 }
 
@@ -91,13 +91,13 @@
   --ink:#F2EFE8; --ink-2:#A9A396; --ink-3:#7B7568;
   --rule:rgba(242,239,232,.07);
   --rule-2:rgba(242,239,232,.13);
-  --accent:#FF6F49; --accent-2:#FF8E6E;
-  --accent-soft:rgba(255,111,73,.15); --accent-line:rgba(255,111,73,.36); --accent-ink:#FF8E6E;
-  --gain:#43D69F;  --gain-soft:rgba(67,214,159,.14);  --gain-line:rgba(67,214,159,.34);
-  --loss:#FF7D60;  --loss-soft:rgba(255,125,96,.13);  --loss-line:rgba(255,125,96,.32);
-  --hold:#EDB74F;  --hold-soft:rgba(237,183,79,.13);  --hold-line:rgba(237,183,79,.32);
-  --tool:#7E9BFF;  --tool-soft:rgba(126,155,255,.13); --tool-line:rgba(126,155,255,.32);
-  --tint-lav:#272433; --tint-mint:#152A24; --tint-blush:#2E211C;
+  --accent:#A8ACF0; --accent-2:#C0C3F7;
+  --accent-soft:rgba(168,172,240,.16); --accent-line:rgba(168,172,240,.38); --accent-ink:#C0C3F7;
+  --gain:#87C9AC;  --gain-soft:rgba(135,201,172,.16);  --gain-line:rgba(135,201,172,.36);
+  --loss:#DE97A4;  --loss-soft:rgba(222,151,164,.15);  --loss-line:rgba(222,151,164,.34);
+  --hold:#D6BC85;  --hold-soft:rgba(214,188,133,.15);  --hold-line:rgba(214,188,133,.34);
+  --tool:#93BECD;  --tool-soft:rgba(147,190,205,.15); --tool-line:rgba(147,190,205,.34);
+  --tint-lav:#262434; --tint-mint:#1B2A26; --tint-blush:#2B2126;
 }
 
 *{box-sizing:border-box;margin:0}

@@ -28,6 +28,29 @@ if str(ROOT) not in sys.path:
 from framework.tool_service import create_app
 
 
+# Sarvam's documented Voice Agents tool-caller. A request from here is the
+# evidence that the deployed agent really invoked the tool, so it is recorded
+# verbatim; it is a published service address, not personal data.
+SARVAM_TOOL_CALLER = "4.213.167.70"
+
+
+def _classify_origin(host: str | None) -> str | None:
+    """Record what an origin *means* rather than who it belongs to.
+
+    The journal is published as evidence, so it must not carry the operator's
+    residential IP — traffic arriving through a personal tunnel would otherwise
+    write it on every call. The analytically meaningful distinction is
+    platform-originated versus local versus tunnel, and that survives intact.
+    """
+    if host is None:
+        return None
+    if host == SARVAM_TOOL_CALLER:
+        return host
+    if host.startswith("127.") or host in {"::1", "localhost"}:
+        return host
+    return "tunnel-origin-redacted"
+
+
 def attach_request_journal(app: FastAPI, journal_path: Path) -> FastAPI:
     """Record every inbound request, including ones that fail.
 
@@ -62,7 +85,7 @@ def attach_request_journal(app: FastAPI, journal_path: Path) -> FastAPI:
                         "status": response.status_code,
                         "credential_presented": bool(request.headers.get("x-loopline-tool-key")),
                         "user_agent": request.headers.get("user-agent"),
-                        "client_host": request.client.host if request.client else None,
+                        "client_host": _classify_origin(request.client.host if request.client else None),
                         "body": payload,
                     },
                     sort_keys=True,

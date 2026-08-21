@@ -230,6 +230,11 @@
 
       <div class="note bad"><b>No journal line, no campaign.</b> Nothing paid runs until that gate passes.</div>
       <div class="accept"><b>Done when</b>Journal line from <code>4.213.167.70</code> dated today on the stable URL · recording retrieval confirmed · smoke sane · Indus committed at v1.</div>
+      <div class="note warn"><b>Partly done — four items remain.</b> The platform-originated gate <b>passed</b>: <code>18:36:01 · 4.213.167.70 · /v1/tools/check-payment-status · 200</code>, credential presented, logged as event 18. Prompt and variables are live and verified in a real chat. Still open before this step closes:
+      <br>· <b>Tool bodies do not interpolate <code>{{variable}}</code></b> — run scoping is pinned to literal <code>c2-run-001</code>. Blocking: without per-run binding every record writes to the same run.
+      <br>· <b>Only <code>check_payment_status</code> carries the correct secret</b> (<code>LOOPLINE_TOOL_SECRET_20260821</code>); the other two still point at a value that returns 401.
+      <br>· <b>The greeting edit did not persist</b> — the agent still opens with the template default.
+      <br>· <b>Recording retrieval is still unverified</b> (audit A4) — no throwaway call has been pulled end to end.</div>
       <div class="who"><span class="chip warn">you: create agent, paste secret, authorise commit (~30 min)</span><span class="chip acc">claude: everything else</span></div>
       <div class="note good"><b>Partly done 22 Aug — agent <code>EasyCredit--4e112b0d-9931</code>.</b> Instructions and Variables are configured and verified, nothing committed. Prompt: 3,570 characters with all eight variables resolving as chips. Greeting replaced (the default said "calling from Sarvam" in English and skipped the identity check the prompt requires). Eleven input variables created, including the two that scope a tool call to one isolated run — <code>campaignId → run_id</code> and <code>transactionReference → account_id</code>. Two defects caught and fixed during setup: <code>transactionReference</code> had picked up the previous dialog's value, and the template's leftover <code>user_name = Manan</code> was deleted.
       <br><br><b>Done manually, not through Genie.</b> Genie rewriting the prompt is exactly what produced the drift defect last campaign, so every field was set directly and read back.

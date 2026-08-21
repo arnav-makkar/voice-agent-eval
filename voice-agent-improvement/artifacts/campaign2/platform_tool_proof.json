@@ -1,0 +1,46 @@
+{
+  "schema_version": "loopline-platform-tool-proof.v1",
+  "captured_at": "2026-08-21T18:36:48.153006+00:00",
+  "agent": "EasyCredit--4e112b0d-9931",
+  "gate": "platform-originated tool invocation",
+  "result": "PASS",
+  "evidence": {
+    "client_host": "4.213.167.70",
+    "note": "Sarvam's documented Voice Agents tool-caller. The request did not originate from this machine.",
+    "path": "/v1/tools/check-payment-status",
+    "status": 200,
+    "credential_presented": true,
+    "at": "2026-08-21T18:36:01Z",
+    "body": {
+      "run_id": "c2-run-001",
+      "account_id": "EC-DEMO-4416"
+    }
+  },
+  "diagnostic_sequence": [
+    {
+      "status": 401,
+      "cause": "secret LOOPLINE_TOOL_SECRET value did not match the service"
+    },
+    {
+      "status": 401,
+      "cause": "secret LOOPLINE_TOOL_SECRET_RUNTIME also did not match"
+    },
+    {
+      "status": 404,
+      "cause": "LOOPLINE_TOOL_SECRET_20260821 authenticated; run not found because the body was not interpolated"
+    },
+    {
+      "status": 200,
+      "cause": "literal run and account values; authenticated read succeeded"
+    }
+  ],
+  "resolved": {
+    "correct_secret": "LOOPLINE_TOOL_SECRET_20260821"
+  },
+  "open": [
+    "Tool body values do not interpolate {{variable}}; run scoping is currently pinned to literal c2-run-001 / EC-DEMO-4416.",
+    "Per-run binding must be solved before the matched arms, or every record would write to the same run.",
+    "Greeting edit did not persist; the agent still opens with the template default."
+  ],
+  "claim_boundary": "Proves the deployed platform can reach and authenticate against the run-scoped service and perform a real read. Does not yet prove per-run isolation or a write."
+}

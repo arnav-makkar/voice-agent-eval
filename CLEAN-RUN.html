@@ -86,7 +86,7 @@
 </style>\n</head>\n<body>\n
 <nav class="top"><div class="wrap">
   <b>∿ <span>Loopline</span> · Final Plan · Campaign 2</b>
-  <a href="#seq">Sequence</a><a href="#p1">1 Agent</a><a href="#p2">2 Bot×15</a><a href="#p3">3 Your 15</a><a href="#p4">4 · 170 text</a><a href="#p5">5 GEPA</a><a href="#p6">6 · 15+15</a><a href="#site">7 Ship</a><a href="#site">The site</a><a href="#money">Cost</a><a href="#approve">Approve</a>
+  <a href="#seq">Sequence</a><a href="#p1">1 Agent</a><a href="#p2">2 Bot×15</a><a href="#p3">3 Your 15</a><a href="#p4">4 · 170 text</a><a href="#p5">5 GEPA</a><a href="#p6">6 · 15+15</a><a href="#site">7 Ship</a><a href="#site">The site</a><a href="#done">Done</a><a href="#money">Cost</a><a href="#approve">Approve</a>
 </div></nav>
 
 <header class="hero"><div class="wrap">
@@ -218,6 +218,7 @@
     </tbody>
   </table></div>
   <div class="note"><b>The rules I will hold to.</b> One headline number per tab, stated in the first screen. Prose cut by roughly half — every paragraph that explains a caveat twice loses one copy. No section that exists only to prove diligence. Diagrams earn their place or go. If a reviewer cannot state what a tab proved after ten seconds, the tab is wrong.</div>
+  <div class="note good" style="margin-top:12px"><b>Already landed, ahead of the campaign.</b> Five tabs are live. The palette is warm paper, near-black and a single coral accent — both themes authored, no gradients. Flowcharts were rebuilt as responsive cards rather than plotted SVG. A hydration bug and literal escape sequences that were making the page look broken are fixed. Every data region is a component with an explicit <em>awaiting data</em> slot, so what remains at the end is plugging in numbers, not building screens.</div>
 </div></section>
 
 <section id="money"><div class="wrap">
@@ -236,16 +237,34 @@
   <div class="note warn"><b>The ₹500 question, answered honestly.</b> 36 sessions at the observed ~4.5 credits each is ~162 credits, and <b>I do not know your rupee-per-credit rate</b> — so step 2 reads the balance and prices one pilot before anything else runs, then stops and shows you the arithmetic. If 15+15 does not fit, the fallback is declared now rather than improvised: <b>N=10 matched</b> (~117 credits) or <b>N=8</b> (~100), never a half-run arm, because an unmatched arm is worthless. Text-tier API spend is capped the same way.</div>
 </div></section>
 
+<section id="done"><div class="wrap">
+  <div class="sec-head"><span class="kicker">Definition of done</span>
+    <h2>The project is finished when these six are true</h2>
+    <p>Everything outside this list is optional. Two are already done.</p></div>
+  <div class="tablewrap"><table>
+    <thead><tr><th>#</th><th>Deliverable</th><th>State</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1</td><td><b>One reproducible campaign</b> — 200 conversations per arm, one evaluator hash, before and after on all three tiers</td><td class="num"><span class="chip warn">steps 1–6</span></td></tr>
+      <tr><td class="num">2</td><td><b>A decision</b> — promote, hold or roll back, from rules declared before the run, published either way</td><td class="num"><span class="chip warn">step 6</span></td></tr>
+      <tr><td class="num">3</td><td><b>The site</b> — five tabs, numbers plugged into finished screens</td><td class="num"><span class="chip good">built · awaiting data</span></td></tr>
+      <tr><td class="num">4</td><td><b>A clonable public repo</b> — no gitlinks, no secrets, correct authorship</td><td class="num"><span class="chip good">done</span></td></tr>
+      <tr><td class="num">5</td><td><b>One written brief and a five-minute demo script</b>, with campaign 1 archived to <code>docs/history/</code></td><td class="num"><span class="chip warn">step 7</span></td></tr>
+      <tr><td class="num">6</td><td><b>Spend inside budget</b>, itemised in the decision artifact</td><td class="num"><span class="chip warn">tracked per rung</span></td></tr>
+    </tbody>
+  </table></div>
+</div></section>
+
 <section id="approve"><div class="wrap">
   <div class="sec-head"><span class="kicker">Approval</span><h2>What I need from you</h2></div>
   <div class="tablewrap"><table>
     <thead><tr><th>When</th><th>What</th><th>Time</th></tr></thead>
     <tbody>
-      <tr><td class="num">Now</td><td><b>Approve this plan</b> — then step 0 starts immediately and needs nothing from you</td><td class="num">—</td></tr>
+      <tr><td class="num">Now</td><td><b>Approve this plan</b> — step 0 then starts immediately and needs nothing from you</td><td class="num">—</td></tr>
       <tr><td class="num">Step 1</td><td>Create the Indus agent · paste the tool secret · authorise the v1 commit</td><td class="num">~30 min</td></tr>
       <tr><td class="num">Step 2</td><td>Confirm balance, inspect 3 pilots, say go</td><td class="num">~15 min</td></tr>
       <tr><td class="num">Step 3</td><td>Record 15 calls from the scripts · confirm the labels</td><td class="num">~60 min</td></tr>
       <tr><td class="num">Step 5</td><td>Authorise the v2 commit</td><td class="num">~10 min</td></tr>
+      <tr><td class="num">Step 7</td><td>Nothing — brief, demo script, archive and final push are mine</td><td class="num">—</td></tr>
       <tr><td class="num">Step 6</td><td>Say go · record 15 again</td><td class="num">~75 min</td></tr>
     </tbody>
   </table></div>
@@ -253,7 +272,7 @@
 </div></section>
 
 <div class="foot"><div class="wrap">
-  Loopline · The plan to approve · campaign 2 · 21 August 2026.<br>
+  Loopline · The plan to approve · campaign 2 · 21 August 2026 · <a href="https://github.com/arnav-makkar/voice-agent-eval">github.com/arnav-makkar/voice-agent-eval</a><br>
   Supersedes BUILD-PLAN v1/v2/v3, BUILD-PLAN-FINAL, the readiness review and the earlier CLEAN-RUN sequencing. Campaign 1 is archived as the run that built the machine and exposed every way a result can lie. EasyCredit and all customer data are fictional.
 </div></div>
 \n</body>\n</html>\n

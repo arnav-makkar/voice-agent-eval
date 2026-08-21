@@ -321,14 +321,58 @@ def build(output: Path = OUTPUT) -> dict[str, Any]:
     story = {
         "schema_version": "loopline-story.v2",
         "generated_at": datetime.now(UTC).isoformat(),
+        # The headline is the SEALED result, not the development suite.  The
+        # development suite is where the repair was built, so scoring well on it
+        # is close to circular; the sealed set was authored after the method was
+        # frozen and opened once per agent.  Leading with the weaker-looking but
+        # honest number is the whole point.
         "headline": {
-            "before": f"{baseline['task_successes']} of {baseline['episodes']}",
-            "after": f"{improved['task_successes']} of {improved['episodes']}",
-            "before_rate": baseline["task_success_rate"],
-            "after_rate": improved["task_success_rate"],
-            "repairs": len(gate.get("repairs", [])),
-            "regressions": len(gate.get("task_regressions", [])),
+            "before": f"{final.get('baseline_task_successes')} of {final.get('matched_scenarios')}",
+            "after": f"{final.get('candidate_task_successes')} of {final.get('matched_scenarios')}",
+            "before_rate": round((final.get("baseline_task_successes", 0)) / max(final.get("matched_scenarios", 1), 1), 4),
+            "after_rate": round((final.get("candidate_task_successes", 0)) / max(final.get("matched_scenarios", 1), 1), 4),
+            "repairs": len(final.get("repairs", [])),
+            "regressions": len(final.get("task_regressions", [])),
+            "source": "sealed held-out test",
         },
+        "evidence_tiers": [
+            {
+                "id": "development",
+                "label": "Development suite",
+                "n": baseline["episodes"],
+                "before": f"{baseline['task_successes']}/{baseline['episodes']}",
+                "after": f"{improved['task_successes']}/{improved['episodes']}",
+                "independence": "in-sample",
+                "caveat": (
+                    "These are the scenarios the repair was built against, so a high score here is partly circular. "
+                    "It shows the failures were understood and fixed — it is not evidence the fix generalises."
+                ),
+            },
+            {
+                "id": "sealed",
+                "label": "Sealed held-out test",
+                "n": final.get("matched_scenarios"),
+                "before": f"{final.get('baseline_task_successes')}/{final.get('matched_scenarios')}",
+                "after": f"{final.get('candidate_task_successes')}/{final.get('matched_scenarios')}",
+                "independence": "out-of-sample",
+                "caveat": (
+                    "Authored after the method was frozen, hashed, never shown to the optimiser, and opened exactly "
+                    "once per agent. This is the number to argue from — and at 12 cases it is a small one."
+                ),
+            },
+            {
+                "id": "live",
+                "label": "Live voice",
+                "n": 0,
+                "before": "—",
+                "after": "—",
+                "independence": "not run",
+                "caveat": (
+                    "One validated realtime call exists against the deployed agent. No matched comparison has been "
+                    "run, so no voice improvement is claimed at all."
+                ),
+            },
+        ],
         "acts": [
             {
                 "id": "measure",
@@ -465,6 +509,38 @@ def build(output: Path = OUTPUT) -> dict[str, Any]:
                 "required_communication": "Required disclosures",
                 "forbidden_behavior": "Guardrails",
             },
+        },
+        # What the EVA-inspired taxonomy actually yields in each mode.  Text-mode
+        # episodes cannot produce audio metrics, and the evaluator records those
+        # as null with a reason rather than substituting a proxy and calling it
+        # a score.
+        "eva_coverage": {
+            "intro": (
+                "The metric taxonomy is adapted from EVA's Accuracy / Experience / Validation split. Text-mode "
+                "evaluation cannot produce the audio-dependent components, and the evaluator writes null with a "
+                "reason rather than substituting a proxy. Only the live call carries the complete set."
+            ),
+            "rows": [
+                {"axis": "Accuracy (EVA-A)", "metric": "Task completion", "text": "deterministic", "live": "deterministic", "note": "State, tools and disposition against the scenario contract."},
+                {"axis": "Accuracy (EVA-A)", "metric": "Faithfulness", "text": "LLM judge, separate pass", "live": "LLM judge", "note": "Scored in the semantic pass, never in the gate."},
+                {"axis": "Accuracy (EVA-A)", "metric": "Agent speech fidelity", "text": "null — needs audio", "live": "audio judge", "note": "Recorded as agent_audio_asr_required in text mode."},
+                {"axis": "Experience (EVA-X)", "metric": "Conciseness", "text": "code metric", "live": "LLM judge", "note": "Length and repetition in text; judged on delivery live."},
+                {"axis": "Experience (EVA-X)", "metric": "Conversation progression", "text": "LLM judge, separate pass", "live": "LLM judge", "note": "Whether each turn moved the call forward."},
+                {"axis": "Experience (EVA-X)", "metric": "Turn taking", "text": "null — needs audio", "live": "deterministic on timings", "note": "Overlap, dead air and latency need a real duplex channel."},
+                {"axis": "Validation", "metric": "Conversation finished", "text": "deterministic", "live": "deterministic", "note": "Runs before scoring; invalid trials are excluded, not failed."},
+                {"axis": "Validation", "metric": "Caller behavioural fidelity", "text": "deterministic", "live": "LLM judge", "note": "Did the simulated caller follow its hidden script?"},
+                {"axis": "Validation", "metric": "Caller speech fidelity", "text": "null — needs audio", "live": "audio judge", "note": "Was what the caller meant to say actually spoken?"},
+                {"axis": "Diagnostic", "metric": "Tool call validity", "text": "deterministic", "live": "deterministic", "note": "Did every tool call succeed?"},
+                {"axis": "Diagnostic", "metric": "Response speed", "text": "harness timing", "live": "provider timing", "note": "Text-mode timings are model latency, not call latency."},
+                {"axis": "Diagnostic", "metric": "Key-entity transcription", "text": "null — needs audio", "live": "LLM judge", "note": "Amounts, dates and names surviving the audio path."},
+                {"axis": "Diagnostic", "metric": "STT word error rate", "text": "null — needs audio", "live": "deterministic", "note": "Undefined without a speech channel."},
+            ],
+            "honesty": (
+                "Five of thirteen components cannot be produced without audio, and they are the ones that decide "
+                "whether a voice agent is usable: speech fidelity, turn taking, entity transcription. That is the "
+                "argument for the matched voice round — the part of the taxonomy currently unmeasured is the part "
+                "where voice agents actually fail."
+            ),
         },
         "layers": {
             "intro": (

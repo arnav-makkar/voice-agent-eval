@@ -17,12 +17,15 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import ssl
 import sys
 import urllib.error
 import urllib.request
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
+
+import certifi
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
@@ -33,14 +36,25 @@ from framework.core.io import write_json  # noqa: E402
 OUTPUT = ROOT / "artifacts" / "framework" / "emi" / "tool_service_verification.json"
 
 
+def _ssl_context() -> ssl.SSLContext:
+    """Verify certificates against certifi's bundle.
+
+    The system Python here has no usable CA store, so the default context fails
+    on any HTTPS tunnel. Using certifi keeps verification on rather than
+    disabling it — a verifier that skips TLS checks is not a verifier.
+    """
+    return ssl.create_default_context(cafile=certifi.where())
+
+
 def _request(base: str, path: str, secret: str | None, payload: Any = None, method: str = "POST") -> tuple[int, Any]:
     data = json.dumps(payload).encode() if payload is not None else None
     request = urllib.request.Request(f"{base}{path}", data=data, method=method)
     request.add_header("Content-Type", "application/json")
     if secret:
         request.add_header("X-Loopline-Tool-Key", secret)
+    context = _ssl_context() if base.startswith("https://") else None
     try:
-        with urllib.request.urlopen(request, timeout=15) as response:
+        with urllib.request.urlopen(request, timeout=25, context=context) as response:
             return response.status, json.loads(response.read())
     except urllib.error.HTTPError as error:
         return error.code, error.read().decode()[:200]

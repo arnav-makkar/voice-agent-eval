@@ -1,0 +1,100 @@
+{
+  "append_only_events": [
+    {
+      "arguments": {
+        "account_id": "EC-DEMO-0001",
+        "date": "20-08-2026",
+        "event_id": null,
+        "run_id": "mvp-v11-tv-control"
+      },
+      "created_at": "2026-08-21T08:27:39.814641+00:00",
+      "event_id": null,
+      "result": {
+        "date": "20-08-2026",
+        "disposition": "fptp",
+        "recorded": true
+      },
+      "sequence": 9,
+      "tool_name": "record_promise_to_pay"
+    }
+  ],
+  "captured_at": "2026-08-21T08:28:27.502621+00:00",
+  "claim": "A tool call originating from the Sarvam Indus platform authenticated against the run-scoped service and mutated isolated per-run state. This closes the credential-propagation blocker that stopped the previous attempt.",
+  "gate": "P1_clone_and_spike / live_tool_effect",
+  "next": "One live EVA conversation on a tool-dependent scenario, where the agent itself decides to call the tool.",
+  "origin_evidence": {
+    "client_host": "4.213.167.70",
+    "credential_presented": true,
+    "note": "Sarvam's documented Voice Agents tool-caller IP, per docs.sarvam.ai. The request did not originate from this machine.",
+    "user_agent": "python-httpx/0.28.1"
+  },
+  "requests_from_platform": [
+    {
+      "at": "2026-08-21T08:24:17.624829+00:00",
+      "body": {
+        "account_id": "EC-DEMO-0001",
+        "date": "",
+        "run_id": "mvp-v11-tv-control"
+      },
+      "client_host": "4.213.167.70",
+      "credential_presented": true,
+      "method": "POST",
+      "path": "/v1/tools/record-promise-to-pay",
+      "status": 422,
+      "user_agent": "python-httpx/0.28.1"
+    },
+    {
+      "at": "2026-08-21T08:27:39.822299+00:00",
+      "body": {
+        "account_id": "EC-DEMO-0001",
+        "date": "20-08-2026",
+        "run_id": "mvp-v11-tv-control"
+      },
+      "client_host": "4.213.167.70",
+      "credential_presented": true,
+      "method": "POST",
+      "path": "/v1/tools/record-promise-to-pay",
+      "status": 200,
+      "user_agent": "python-httpx/0.28.1"
+    }
+  ],
+  "schema_version": "live-tool-effect.v1",
+  "state_after": {
+    "disposition": "fptp",
+    "outstanding_amount": "4416",
+    "payment_status": "unpaid",
+    "promise_to_pay_date": "20-08-2026"
+  },
+  "state_before": {
+    "disposition": null,
+    "promise_to_pay_date": null
+  },
+  "state_diff": [
+    {
+      "after": "20-08-2026",
+      "before": null,
+      "field": "promise_to_pay_date"
+    },
+    {
+      "after": "fptp",
+      "before": null,
+      "field": "disposition"
+    }
+  ],
+  "variable_mapping_proved": {
+    "campaignId -> run_id": "mvp-v11-tv-control",
+    "note": "Both values arrived distinct, confirming the repaired mapping. Before the repair both fields drew from campaignId.",
+    "transactionReference -> account_id": "EC-DEMO-0001"
+  },
+  "what_this_does_not_prove": [
+    "That the agent chooses to call the tool unprompted during a live conversation. This was fired from the platform's tool tester with a supplied date, not by the agent mid-call.",
+    "Anything about voice quality, latency, or task success."
+  ],
+  "what_this_proves": [
+    "The platform can reach the service over authenticated public HTTPS.",
+    "The workspace-secret credential propagates into the tool runtime.",
+    "Run and account identifiers map from distinct agent variables.",
+    "A write tool produces a real, inspectable state change.",
+    "A malformed argument is rejected (422) rather than silently accepted — see the first request."
+  ]
+}

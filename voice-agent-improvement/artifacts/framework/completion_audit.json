@@ -1,23 +1,25 @@
 {
   "binding_open_gates": [
-    "Arnav reviews and versions the 20 provisional discovery labels and confirms Sarvam key rotation.",
-    "A secure public tool route works from the deployed Indus runtime and one real tool side effect is captured.",
-    "V15 is committed as an exact immutable Indus version.",
-    "The frozen matched V12/V15 live voice suite runs and the independent gate emits the final decision."
+    "The selected candidate is committed as an exact immutable Indus version.",
+    "The frozen matched baseline/candidate live voice suite runs and the independent gate emits the final decision."
   ],
-  "claim_boundary": "The local framework and prospective protocol verify cleanly. The project is not evidence-complete until the binding open gates are satisfied; no live candidate lift or live tool execution is claimed.",
+  "claim_boundary": "The local framework and prospective protocol verify cleanly. The project is not evidence-complete until the binding open gates are satisfied; no live candidate lift is claimed. Execution truth is now demonstrated end to end through the platform, but the agent autonomously choosing to call a tool during a live conversation has not yet been captured.",
+  "closed_gates": [
+    "Owner-reviewed discovery labels and key rotation.",
+    "A tool call from the platform's own caller authenticated and mutated run-scoped state."
+  ],
   "current_evaluator": "evaluation-metrics.v3/loopline-eva-adapter.v1/samvaad-duplex.v10",
-  "generated_at": "2026-08-21T08:17:34.432826+00:00",
+  "generated_at": "2026-08-21T08:37:05.027911+00:00",
   "phases": {
     "P0_truth_repair": [
       {
         "evidence": [
-          "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/reference_annotations.provisional.jsonl"
+          "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/reference_annotations.owner_reviewed.v1.jsonl"
         ],
         "id": "owner_labels",
         "label": "Owner review of 20 discovery labels",
-        "note": "The 20 labels remain explicitly provisional; only Arnav can convert them into owner truth.",
-        "status": "external_pending"
+        "note": "All 20 labels are owner-reviewed and versioned; the provisional artifact is preserved unchanged. Because the owner confirmed rather than corrected them, the weak diagnostic agreement is attributable to the evaluator rather than to label noise.",
+        "status": "complete"
       },
       {
         "evidence": [
@@ -94,12 +96,12 @@
       },
       {
         "evidence": [
-          "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/framework/tool_service.py"
+          "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/live_tool_effect.json"
         ],
         "id": "live_tool_effect",
         "label": "Captured Indus tool call and state mutation",
-        "note": "The service is authenticated, isolated and tested, but the Indus test runtime omitted the stored credential. No live side effect is claimed.",
-        "status": "external_blocked"
+        "note": "A tool call originating from Sarvam's documented tool-caller IP authenticated against the run-scoped service and mutated isolated per-run state. Credential propagation, which blocked the previous attempt, is resolved. The agent choosing to call a tool unprompted mid-conversation is a separate step and is not claimed here.",
+        "status": "complete"
       }
     ],
     "P2_emi_eval_world": [
@@ -296,10 +298,9 @@
   "schema_version": "final-interview-plan-audit.v1",
   "source_plan": "/Users/Arnav/Claude/Projects/Sarvam/FINAL-INTERVIEW-DECISION.html",
   "status_counts": {
-    "complete": 19,
+    "complete": 21,
     "documented_fallback": 1,
-    "external_blocked": 1,
-    "external_pending": 4,
+    "external_pending": 3,
     "not_required_for_current_gate": 1,
     "owner_confirmation_required": 1,
     "partial": 1,

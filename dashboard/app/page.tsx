@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState, useSyncExternalStore } from "react";
 
 import { EvaluationDiagram, ImprovementDiagram, LoopDiagram, ProductionDiagram, TiersDiagram } from "./Diagrams";
 import Gallery from "./Gallery";
@@ -108,7 +108,7 @@ const STEP_META: Record<string, { name: string; does: string }> = {
   diagnose: { name: "Diagnose", does: "Find the earliest turn after which the right outcome became impossible, and name its owner." },
   improve: { name: "Improve", does: "Open only the repair surface the evidence points at, and make candidates compete." },
   reevaluate: { name: "Re-evaluate", does: "Re-run the identical suite. The agent is the only thing that changed." },
-  seal: { name: "Sealed test", does: "Open scenarios written after the method was frozen \u2014 once per agent." },
+  seal: { name: "Sealed test", does: "Open scenarios written after the method was frozen — once per agent." },
   decide: { name: "Decide", does: "An independent controller emits promote, hold or roll back. A human signs it." },
 };
 
@@ -120,15 +120,15 @@ function tabFromHash(): TabId {
 
 /** One short outcome per step, read off the generated act rather than authored. */
 function stepOutcome(act?: Act): string {
-  if (!act) return "\u2014";
+  if (!act) return "—";
   if (act.decision) return act.decision;
   if (act.metrics?.length) {
-    if (act.id === "seal" && act.metrics.length > 1) return `${act.metrics[0].value} \u2192 ${act.metrics[1].value}`;
+    if (act.id === "seal" && act.metrics.length > 1) return `${act.metrics[0].value} → ${act.metrics[1].value}`;
     return act.metrics[0].value;
   }
-  if (act.arms?.length) return `${act.arms.length} candidates \u00b7 ${act.arms.filter((a) => !a.accepted).length} rejected`;
-  if (act.families?.length) return `${act.families.length} families \u00b7 ${act.families.reduce((s, f) => s + f.count, 0)} failures`;
-  return "\u2014";
+  if (act.arms?.length) return `${act.arms.length} candidates · ${act.arms.filter((a) => !a.accepted).length} rejected`;
+  if (act.families?.length) return `${act.families.length} families · ${act.families.reduce((s, f) => s + f.count, 0)} failures`;
+  return "—";
 }
 
 /* A slot that says plainly when its data has not arrived yet, so the layout is
@@ -160,10 +160,19 @@ function SectionHead({ eyebrow, title, lede }: { eyebrow: string; title: string;
 export default function Home() {
   const [story, setStory] = useState<Story | null>(null);
   const [calls, setCalls] = useState<CallsData | null>(null);
-  const [preview] = useState(
-    () => typeof window !== "undefined" && new URLSearchParams(window.location.search).get("view") === "c2",
+  // The URL is external state. useSyncExternalStore gives the server a stable
+  // snapshot and the client the real one, so hydration cannot mismatch, and the
+  // hash subscription replaces a manual listener.
+  const subscribeHash = useCallback((onChange: () => void) => {
+    window.addEventListener("hashchange", onChange);
+    return () => window.removeEventListener("hashchange", onChange);
+  }, []);
+  const tab = useSyncExternalStore<TabId>(subscribeHash, tabFromHash, () => "overview");
+  const preview = useSyncExternalStore(
+    () => () => {},
+    () => new URLSearchParams(window.location.search).get("view") === "c2",
+    () => false,
   );
-  const [tab, setTab] = useState<TabId>(tabFromHash);
   const [theme, setTheme] = useState<"light" | "dark" | null>(null);
 
   useEffect(() => {
@@ -176,17 +185,12 @@ export default function Home() {
   }, [preview]);
 
   useEffect(() => {
-    const onHash = () => {
-      const hash = window.location.hash.slice(1);
-      if (TAB_IDS.has(hash)) { setTab(hash as TabId); window.scrollTo({ top: 0, behavior: "auto" }); }
-    };
-    window.addEventListener("hashchange", onHash);
-    return () => window.removeEventListener("hashchange", onHash);
-  }, []);
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }, [tab]);
 
   useEffect(() => {
     const label = TABS.find((t) => t.id === tab)?.label ?? "";
-    document.title = tab === "overview" ? "Loopline \u2014 Voice Agent Learning Control Plane" : `Loopline \u2014 ${label}`;
+    document.title = tab === "overview" ? "Loopline — Voice Agent Learning Control Plane" : `Loopline — ${label}`;
   }, [tab]);
 
   const flipTheme = () => {
@@ -209,7 +213,7 @@ export default function Home() {
     <main className="shell">
       {preview && (
         <div className="preview-banner" role="alert">
-          <b>Campaign 2 preview \u2014 every number here is a placeholder.</b> Nothing has been measured; this shows the shape of the
+          <b>Campaign 2 preview — every number here is a placeholder.</b> Nothing has been measured; this shows the shape of the
           final result. <a href="?">Back to the measured page</a>
         </div>
       )}
@@ -223,7 +227,7 @@ export default function Home() {
             ))}
           </nav>
           <button className="theme" onClick={flipTheme} aria-label="Switch between light and dark appearance">
-            {theme === "dark" ? "\u263e" : "\u2600"}
+            {theme === "dark" ? "☾" : "☀"}
           </button>
         </div>
       </header>
@@ -244,15 +248,15 @@ export default function Home() {
                   <a className="primary-action" href="#how">See how it works</a>
                   <a className="secondary-action" href="#calls">Inspect every call</a>
                 </div>
-                <p className="fine">Built on a real Sarvam Indus agent \u00b7 EVA-inspired metrics \u00b7 human-gated release</p>
+                <p className="fine">Built on a real Sarvam Indus agent · EVA-inspired metrics · human-gated release</p>
               </div>
               <div className="hero-card">
-                <div className="hc-top"><span>Headline \u00b7 held-out</span>{head ? <b>{Math.round(head.after_rate * 100)}%</b> : null}</div>
+                <div className="hc-top"><span>Headline · held-out</span>{head ? <b>{Math.round(head.after_rate * 100)}%</b> : null}</div>
                 {head ? (
                   <>
                     <div className="hc-score">
                       <div><small>Original</small><strong className="loss">{head.before}</strong></div>
-                      <span>\u2192</span>
+                      <span>→</span>
                       <div><small>Improved</small><strong className="gain">{head.after}</strong></div>
                     </div>
                     <div className="hc-meta">
@@ -261,7 +265,7 @@ export default function Home() {
                       <div><b>{head.source.includes("blind") ? "blind" : "sealed"}</b><span>split</span></div>
                     </div>
                   </>
-                ) : <Pending what="\u2014 the headline populates from the campaign export." />}
+                ) : <Pending what="— the headline populates from the campaign export." />}
                 <p className="hc-note">
                   The optimiser never saw these scenarios. In-sample scores are reported separately and never lead.
                 </p>
@@ -280,12 +284,12 @@ export default function Home() {
                     <div className="tier" key={t.id}>
                       <span className={`badge ${t.independence === "out-of-sample" ? "gain" : t.independence === "hold" ? "hold" : "dim"}`}>{t.independence}</span>
                       <h4>{t.label}</h4>
-                      <p className="score"><span className="loss">{t.before}</span> <i>\u2192</i> <span className="gain">{t.after}</span></p>
+                      <p className="score"><span className="loss">{t.before}</span> <i>→</i> <span className="gain">{t.after}</span></p>
                       <p className="fine">{t.caveat}</p>
                     </div>
                   ))}
                 </div>
-              ) : <Pending what="\u2014 tier results populate after the before and after runs." />}
+              ) : <Pending what="— tier results populate after the before and after runs." />}
             </div>
           </section>
 
@@ -304,7 +308,7 @@ export default function Home() {
         <>
           <section className="band">
             <div className="bound">
-              <SectionHead eyebrow="The loop \u00b7 six steps" title="Each step produces the evidence the next one consumes."
+              <SectionHead eyebrow="The loop · six steps" title="Each step produces the evidence the next one consumes."
                 lede="Run in order, ending in a decision a human signs." />
               <div className="steps">
                 {STEP_ORDER.map((id, i) => {
@@ -330,8 +334,8 @@ export default function Home() {
                 lede="Validity is checked before anything is scored, executable truth outranks opinion, and the judge never reaches the gate." />
               <EvaluationDiagram />
               <div className="callout">
-                <b>The distinction the whole project turns on.</b> When an agent says \u201cI have noted your promise\u201d and declares an
-                outcome, the state gets written for it \u2014 but that write never enters the tool log. Read the transcript and the call
+                <b>The distinction the whole project turns on.</b> When an agent says “I have noted your promise” and declares an
+                outcome, the state gets written for it — but that write never enters the tool log. Read the transcript and the call
                 looks like a success. Only the tool trace separates a pass from a silent failure.
               </div>
             </div>
@@ -339,7 +343,7 @@ export default function Home() {
 
           <section className="band">
             <div className="bound">
-              <SectionHead eyebrow="Diagnosis \u2192 improvement" title="The evidence picks the repair surface."
+              <SectionHead eyebrow="Diagnosis → improvement" title="The evidence picks the repair surface."
                 lede="A prompt optimiser is one arm here, not the framework." />
               {diagnose?.families ? (
                 <div className="families">
@@ -354,7 +358,7 @@ export default function Home() {
                     </div>
                   ))}
                 </div>
-              ) : <Pending what="\u2014 failure families are grouped after the baseline runs." />}
+              ) : <Pending what="— failure families are grouped after the baseline runs." />}
               <ImprovementDiagram />
               {improve?.arms ? (
                 <div className="arms">
@@ -363,15 +367,15 @@ export default function Home() {
                       <div><h4>{arm.label}</h4><p>{arm.note}</p></div>
                       <span className="score mono">{arm.task_successes}/{arm.episodes}</span>
                       <span className={`badge ${arm.accepted ? "gain" : "loss"}`}>
-                        {arm.accepted ? "accepted" : `rejected \u00b7 ${arm.severe_regressions} severe`}
+                        {arm.accepted ? "accepted" : `rejected · ${arm.severe_regressions} severe`}
                       </span>
                     </div>
                   ))}
                 </div>
-              ) : <Pending what="\u2014 candidate arms populate after the improvement round." />}
+              ) : <Pending what="— candidate arms populate after the improvement round." />}
               <div className="callout">
                 It produced a strong candidate and the gate still rejected it, because a higher average cannot buy back a safety
-                regression. Losing candidates are kept \u2014 a rejection is evidence that the gate works.
+                regression. Losing candidates are kept — a rejection is evidence that the gate works.
               </div>
             </div>
           </section>
@@ -380,7 +384,7 @@ export default function Home() {
             <div className="bound">
               <SectionHead eyebrow="The metric contract" title="What gets checked, by what, and what has to be true to pass."
                 lede="Written down before a candidate runs and unchangeable while candidates are compared. Executable checks decide; a language model grades only what code cannot." />
-              {story?.metric_contract ? <Methodology metrics={story.metric_contract} /> : <Pending what="\u2014 the metric contract renders from the frozen evaluator." />}
+              {story?.metric_contract ? <Methodology metrics={story.metric_contract} /> : <Pending what="— the metric contract renders from the frozen evaluator." />}
             </div>
           </section>
         </>
@@ -392,15 +396,15 @@ export default function Home() {
           <section className="band">
             <div className="bound">
               <SectionHead eyebrow="Results" title="Not one headline number. Every check, and every call."
-                lede="A single success rate hides which checks moved. Development scores are shown, labelled, and never allowed to lead \u2014 those are the scenarios the repair was built against, so a high score there is close to circular." />
+                lede="A single success rate hides which checks moved. Development scores are shown, labelled, and never allowed to lead — those are the scenarios the repair was built against, so a high score there is close to circular." />
               <div className="statrow">
                 {measure?.metrics?.slice(0, 3).map((m) => <Stat key={m.label} label={m.label} value={m.value} detail={m.detail} tone="loss" />)}
               </div>
-              <p className="arrowdown">after the repair \u2193</p>
+              <p className="arrowdown">after the repair ↓</p>
               <div className="statrow">
                 {reevaluate?.metrics?.slice(0, 3).map((m) => <Stat key={m.label} label={m.label} value={m.value} detail={m.detail} tone="gain" />)}
               </div>
-              {!measure && <Pending what="\u2014 before and after panels populate from the two measurement rounds." />}
+              {!measure && <Pending what="— before and after panels populate from the two measurement rounds." />}
             </div>
           </section>
 
@@ -408,14 +412,14 @@ export default function Home() {
             <div className="bound">
               <SectionHead eyebrow="Accuracy versus experience" title="Every live call, both agents, on the two axes that matter."
                 lede="One dot per call per agent. The diamond is the arm mean; the line is the shift the repair bought." />
-              {calls ? <ComparisonScatter data={calls} /> : <Pending what="\u2014 the scatter draws from per-call live results." />}
+              {calls ? <ComparisonScatter data={calls} /> : <Pending what="— the scatter draws from per-call live results." />}
             </div>
           </section>
 
           <section className="band">
             <div className="bound">
               <SectionHead eyebrow="Per-check pass rates" title="Which checks actually moved." />
-              {story?.component_rates ? <ComponentBars rates={story.component_rates} /> : <Pending what="\u2014 per-check rates populate with the paired comparison." />}
+              {story?.component_rates ? <ComponentBars rates={story.component_rates} /> : <Pending what="— per-check rates populate with the paired comparison." />}
             </div>
           </section>
 
@@ -426,7 +430,7 @@ export default function Home() {
               <div className="statrow">
                 {seal?.metrics?.map((m) => <Stat key={m.label} label={m.label} value={m.value} detail={m.detail} />)}
               </div>
-              {!seal && <Pending what="\u2014 the sealed result appears once both agents have opened it." />}
+              {!seal && <Pending what="— the sealed result appears once both agents have opened it." />}
               <div className="verdict">
                 <span>Release decision</span>
                 <b>{decide?.decision ?? "awaiting the gate"}</b>
@@ -438,7 +442,7 @@ export default function Home() {
           <section className="band">
             <div className="bound">
               <SectionHead eyebrow="Every scenario" title="The full suite, one row at a time." />
-              {story?.scenario_matrix ? <ScenarioMatrix rows={story.scenario_matrix} /> : <Pending what="\u2014 the scenario matrix renders per-case results." />}
+              {story?.scenario_matrix ? <ScenarioMatrix rows={story.scenario_matrix} /> : <Pending what="— the scenario matrix renders per-case results." />}
             </div>
           </section>
         </>
@@ -449,15 +453,15 @@ export default function Home() {
         <>
           <section className="band">
             <div className="bound">
-              <SectionHead eyebrow="The call browser" title="Every call, inspectable \u2014 original and improved, side by side."
-                lede="Pick any call: the scenario briefing, the full tool catalogue with what each agent actually used, and every metric with how it was scored. Unused tools stay listed \u2014 that is the rubric." />
-              {calls ? <CallsBrowser data={calls} /> : <Pending what="\u2014 the browser fills with the recorded and bot-to-bot calls." />}
+              <SectionHead eyebrow="The call browser" title="Every call, inspectable — original and improved, side by side."
+                lede="Pick any call: the scenario briefing, the full tool catalogue with what each agent actually used, and every metric with how it was scored. Unused tools stay listed — that is the rubric." />
+              {calls ? <CallsBrowser data={calls} /> : <Pending what="— the browser fills with the recorded and bot-to-bot calls." />}
             </div>
           </section>
           <section className="band alt">
             <div className="bound">
               <SectionHead eyebrow="Deep cases" title="Auditable down to the assertion."
-                lede="Each card is generated from a preserved artifact \u2014 transcript, tool calls with arguments and results, state before and after, and the turn where the run first broke." />
+                lede="Each card is generated from a preserved artifact — transcript, tool calls with arguments and results, state before and after, and the turn where the run first broke." />
               <Gallery />
             </div>
           </section>
@@ -480,7 +484,7 @@ export default function Home() {
                     </div>
                   ))}
                 </div>
-              ) : <Pending what="\u2014 the limits list is generated with the campaign." />}
+              ) : <Pending what="— the limits list is generated with the campaign." />}
             </div>
           </section>
 
@@ -490,12 +494,12 @@ export default function Home() {
                 lede="Publishing the number is the point." />
               {story?.judge_audit ? (
                 <div className="statrow">
-                  <Stat label="Agreement \u00b7 did it fail at all" value={`${Math.round(story.judge_audit.detection.agreement * 100)}%`} detail={`n=${story.judge_audit.detection.n}`} />
-                  <Stat label="Agreement \u00b7 which component owns it" value={`${Math.round(story.judge_audit.ownership.agreement * 100)}%`} detail={`n=${story.judge_audit.ownership.n}`} />
-                  <Stat label="Cohen\u2019s \u03ba \u00b7 detection" value={String(story.judge_audit.detection.cohen_kappa ?? "\u2014")} detail="vs the executable checker" />
-                  <Stat label="Cohen\u2019s \u03ba \u00b7 ownership" value={String(story.judge_audit.ownership.cohen_kappa ?? "\u2014")} detail="advisory routing only" />
+                  <Stat label="Agreement · did it fail at all" value={`${Math.round(story.judge_audit.detection.agreement * 100)}%`} detail={`n=${story.judge_audit.detection.n}`} />
+                  <Stat label="Agreement · which component owns it" value={`${Math.round(story.judge_audit.ownership.agreement * 100)}%`} detail={`n=${story.judge_audit.ownership.n}`} />
+                  <Stat label="Cohen’s κ · detection" value={String(story.judge_audit.detection.cohen_kappa ?? "—")} detail="vs the executable checker" />
+                  <Stat label="Cohen’s κ · ownership" value={String(story.judge_audit.ownership.cohen_kappa ?? "—")} detail="advisory routing only" />
                 </div>
-              ) : <Pending what="\u2014 judge agreement is recomputed from preserved episodes." />}
+              ) : <Pending what="— judge agreement is recomputed from preserved episodes." />}
               <div className="callout">{story?.judge_audit?.interpretation ?? "The judge is reliable at noticing that something went wrong and materially less reliable at saying what owns it. That is why ownership routing is advisory and the executable checker controls the gate."}</div>
             </div>
           </section>
@@ -506,7 +510,7 @@ export default function Home() {
                 lede="The control loop is domain-independent. What does not exist yet at production scale is set out here rather than waved at." />
               <ProductionDiagram />
               <div className="callout">
-                First deliverable on a real corpus is a calibrated baseline and a ranked failure taxonomy \u2014 not a prompt rewrite.
+                First deliverable on a real corpus is a calibrated baseline and a ranked failure taxonomy — not a prompt rewrite.
               </div>
             </div>
           </section>
@@ -516,7 +520,7 @@ export default function Home() {
       <footer className="foot">
         <div className="bound">
           <p>{story?.claim_boundary ?? "Every figure comes from a preserved evaluation artifact."}</p>
-          <p className="fine">Built by Arnav for Sarvam \u00b7 EMI recovery is the reference domain \u00b7 all customer data is fictional.</p>
+          <p className="fine">Built by Arnav for Sarvam · EMI recovery is the reference domain · all customer data is fictional.</p>
         </div>
       </footer>
     </main>

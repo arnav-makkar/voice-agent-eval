@@ -35,12 +35,49 @@
     }
   ],
   "resolved": {
-    "correct_secret": "LOOPLINE_TOOL_SECRET_20260821"
+    "correct_secret": "LOOPLINE_TOOL_SECRET_20260821",
+    "applied_to": [
+      "check_payment_status",
+      "record_promise_to_pay",
+      "schedule_callback"
+    ]
   },
   "open": [
-    "Tool body values do not interpolate {{variable}}; run scoping is currently pinned to literal c2-run-001 / EC-DEMO-4416.",
-    "Per-run binding must be solved before the matched arms, or every record would write to the same run.",
-    "Greeting edit did not persist; the agent still opens with the template default."
+    "Tool body values do not interpolate {{variable}}; run scoping is pinned to literal c2-run-001 / EC-DEMO-4416. Blocking for matched arms: every record would share one run.",
+    "A platform-originated write is still unproven, because BASE does not reliably call the write tools.",
+    "The greeting edit reports saved but the test agent still opens with the template default.",
+    "Recording retrieval remains unverified (audit A4)."
   ],
-  "claim_boundary": "Proves the deployed platform can reach and authenticate against the run-scoped service and perform a real read. Does not yet prove per-run isolation or a write."
+  "claim_boundary": "Proves the deployed platform can reach and authenticate against the run-scoped service and perform a real read. Does not yet prove per-run isolation or a write.",
+  "updated_at": "2026-08-21T18:50:43.134365+00:00",
+  "write_path": {
+    "endpoint_verified": true,
+    "method": "direct authenticated call to the same endpoint the tool posts to",
+    "result": {
+      "recorded": true,
+      "date": "23-08-2026",
+      "disposition": "fptp"
+    },
+    "state_delta": {
+      "promise_to_pay_date": [
+        null,
+        "23-08-2026"
+      ],
+      "disposition": [
+        null,
+        "fptp"
+      ]
+    },
+    "platform_originated": false,
+    "why": "The agent never invoked it. In a chat where the caller committed to 23 August, BASE replied 'theek hai, main note kar leta hoon', took the confirmation, closed with thanks, and wrote nothing. The endpoint is proven; a platform-originated write is not."
+  },
+  "baseline_finding": {
+    "defect": "terminal claim without execution",
+    "observed": [
+      "Told the caller it had re-checked payment status after a tool returned 401, having made no call at all.",
+      "Said it would note a promise, accepted confirmation of 23-08-2026, and ended the call with no record_promise_to_pay."
+    ],
+    "evidence": "Journal shows one platform call all session; run state carried no promise until a direct call was made by hand.",
+    "note": "This is the untouched baseline behaving as a baseline should \u2014 the defect the improvement round exists to repair."
+  }
 }

@@ -3,143 +3,181 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Execution Truth — The Improvement Loop</title>
+<title>How it improved</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="site.css?v=4">
+<style>
+.steps{counter-reset:s;display:flex;flex-direction:column;gap:2px;margin:26px 0}
+.step{display:grid;grid-template-columns:44px 1fr;gap:16px;padding:18px 0;
+  border-bottom:1px solid var(--line)}
+.step:last-child{border-bottom:0}
+.step .n{counter-increment:s;width:32px;height:32px;border-radius:8px;
+  background:var(--accent-soft);color:var(--accent);display:flex;align-items:center;
+  justify-content:center;font:600 14px var(--mono)}
+.step .n::before{content:counter(s)}
+.step h3{margin:0 0 4px;font-size:16.5px}
+.step p{margin:0;font-size:14.5px}
+.step .who{font-size:12.5px;color:var(--ink-3);margin-top:6px}
+</style>
 </head>
 <body>
 <div class="shell">
 
-<p class="eyebrow">Section 4 · The improvement loop</p>
-<h1>The search that wrote the fix — with no human writing a word</h1>
-<p class="lede">A prompt-search algorithm on its own is not a self-improving system. It needs something
-to tell it what is broken, something to decide whether a change is real, and something to ship or
-revert. Five stages close that loop around the deployed agent, and every candidate word of the
-champion prompt was produced by the search — none by hand.</p>
+<p class="kicker">How it improved</p>
+<h1>Nobody wrote the fix</h1>
+<p class="lede">The agent's instructions are a long document. Improving it means rewriting that
+document. Every word of the rewrite came out of an automated search, tested against a real live
+agent, and gated on cases the search was never allowed to see.</p>
 
-<h2>The loop</h2>
-<svg class="diagram" viewBox="0 0 1000 430" role="img" aria-label="Five-stage loop: sense, distill, search, gate, deploy, back to sense">
-  <defs>
-    <marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M0 0 L10 5 L0 10 z" fill="#8a8577"/>
-    </marker>
-  </defs>
-  <rect x="40"  y="60" width="168" height="96" rx="16" fill="none" stroke="#5B5FBF" stroke-width="1.7"/>
-  <text x="124" y="92" text-anchor="middle" font-size="14.5" font-weight="600" fill="currentColor">1 · Sense</text>
-  <text x="124" y="113" text-anchor="middle" font-size="11" fill="#8a8577">say-vs-do monitor over</text>
-  <text x="124" y="129" text-anchor="middle" font-size="11" fill="#8a8577">the journal · precision 1.00</text>
-
-  <rect x="238" y="60" width="168" height="96" rx="16" fill="none" stroke="#5B5FBF" stroke-width="1.7"/>
-  <text x="322" y="92" text-anchor="middle" font-size="14.5" font-weight="600" fill="currentColor">2 · Distill</text>
-  <text x="322" y="113" text-anchor="middle" font-size="11" fill="#8a8577">violations cluster into</text>
-  <text x="322" y="129" text-anchor="middle" font-size="11" fill="#8a8577">failure packets → replay scenarios</text>
-
-  <rect x="436" y="60" width="168" height="96" rx="16" fill="none" stroke="#5B5FBF" stroke-width="1.7"/>
-  <text x="520" y="92" text-anchor="middle" font-size="14.5" font-weight="600" fill="currentColor">3 · Search</text>
-  <text x="520" y="113" text-anchor="middle" font-size="11" fill="#8a8577">reflective prompt evolution</text>
-  <text x="520" y="129" text-anchor="middle" font-size="11" fill="#8a8577">against the live agent</text>
-
-  <rect x="634" y="60" width="168" height="96" rx="16" fill="none" stroke="#8A6D2F" stroke-width="1.8"/>
-  <text x="718" y="92" text-anchor="middle" font-size="14.5" font-weight="600" fill="currentColor">4 · Gate</text>
-  <text x="718" y="113" text-anchor="middle" font-size="11" fill="#8a8577">blind split · guardrail veto</text>
-  <text x="718" y="129" text-anchor="middle" font-size="11" fill="#8a8577">paired flips · noise floor</text>
-
-  <rect x="832" y="60" width="140" height="96" rx="16" fill="none" stroke="#3F7B62" stroke-width="1.8"/>
-  <text x="902" y="92" text-anchor="middle" font-size="14.5" font-weight="600" fill="currentColor">5 · Deploy</text>
-  <text x="902" y="113" text-anchor="middle" font-size="11" fill="#8a8577">authoring API · sha pinned</text>
-  <text x="902" y="129" text-anchor="middle" font-size="11" fill="#8a8577">rollback = parent sha</text>
-
-  <path d="M208 108 L 236 108" stroke="#8a8577" stroke-width="1.4" marker-end="url(#a3)"/>
-  <path d="M406 108 L 434 108" stroke="#8a8577" stroke-width="1.4" marker-end="url(#a3)"/>
-  <path d="M604 108 L 632 108" stroke="#8a8577" stroke-width="1.4" marker-end="url(#a3)"/>
-  <path d="M802 108 L 830 108" stroke="#8a8577" stroke-width="1.4" marker-end="url(#a3)"/>
-
-  <path d="M902 156 L 902 250 C 902 300, 700 320, 520 320 C 320 320, 124 300, 124 220 L 124 158"
-        fill="none" stroke="#8a8577" stroke-width="1.4" stroke-dasharray="6 5" marker-end="url(#a3)"/>
-  <text x="520" y="345" text-anchor="middle" font-size="12" fill="#8a8577">the deployed champion becomes the next baseline — the memory grows, the loop repeats</text>
-
-  <path d="M718 156 L 718 210 L 560 210 L 560 160" fill="none" stroke="#9E4655" stroke-width="1.3" stroke-dasharray="4 4" marker-end="url(#a3)"/>
-  <text x="640" y="200" text-anchor="middle" font-size="11" fill="#9E4655">gate fails → candidate dies, search continues</text>
-</svg>
-
-<h2>Inside the search</h2>
-<div class="card">
-<p style="margin-top:0">The search stage is <b>GEPA</b> — reflective prompt evolution — run against the
-deployed agent itself, not a simulation. Each iteration: propose a candidate prompt, run it on a
-minibatch of live conversations, read the full evaluation traces, and let a reflector model reason
-about <em>why</em> failures happened before proposing the next mutation. Selection is Pareto — a
-candidate survives by being best at something, not average at everything — with merge crossing the
-best branches.</p>
-<div class="tw"><table>
-<tr><th>Choice</th><th>Value</th><th>Why</th></tr>
-<tr><td>Reflector</td><td>Gemini 3.1 Pro</td><td>Reads full traces; writes the mutation rationale</td></tr>
-<tr><td>Trainset</td><td>90 scenarios, severity-weighted</td><td>Escalations ×3, guardrails/privacy ×2 — the search earns most where failures cost most</td></tr>
-<tr><td>Evaluator</td><td>The journal grader, verbatim</td><td>The search optimises exactly what the benchmark measures — no proxy metric to game</td></tr>
-<tr><td>Feedback</td><td>Score + per-scenario journal evidence</td><td>The reflector sees which write was missing, not just a number</td></tr>
-</table></div>
+<div class="callout">
+  <span class="ic">💡</span>
+  <div class="bd">
+    <p style="margin:0"><strong>Plainly:</strong> the system reads its own failures, proposes a
+    reworded instruction manual, tries it on live conversations, keeps it only if it wins on
+    unseen cases without breaking anything, and ships it. Then it starts again with the winner as
+    the new baseline.</p>
+  </div>
 </div>
 
-<h2>Two-component candidates</h2>
-<p>Generation 2 grafts the one idea worth stealing from <b>MIPROv2</b>: a candidate is not just
-instructions but <code>{instructions, exemplars}</code>, evolved separately. Exemplars are mined from
-the champion's own best transcripts — real calls where the write pattern was perfect — and the search
-learns which demonstrations teach the tool-calling model most.</p>
-<svg class="diagram" viewBox="0 0 1000 250" role="img" aria-label="Candidate anatomy: instructions and exemplars evolve separately and concatenate into one prompt">
-  <defs>
-    <marker id="a4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M0 0 L10 5 L0 10 z" fill="#8a8577"/>
-    </marker>
-  </defs>
-  <rect x="60" y="40" width="250" height="76" rx="14" fill="none" stroke="#5B5FBF" stroke-width="1.6"/>
-  <text x="185" y="70" text-anchor="middle" font-size="14" font-weight="600" fill="currentColor">Instructions</text>
-  <text x="185" y="92" text-anchor="middle" font-size="11" fill="#8a8577">rules · sequencing · closing discipline</text>
-  <rect x="60" y="140" width="250" height="76" rx="14" fill="none" stroke="#5B5FBF" stroke-width="1.6"/>
-  <text x="185" y="170" text-anchor="middle" font-size="14" font-weight="600" fill="currentColor">Exemplars</text>
-  <text x="185" y="192" text-anchor="middle" font-size="11" fill="#8a8577">mined from real passing calls · redacted</text>
-  <path d="M310 78 L 420 118" stroke="#8a8577" stroke-width="1.4" marker-end="url(#a4)"/>
-  <path d="M310 178 L 420 138" stroke="#8a8577" stroke-width="1.4" marker-end="url(#a4)"/>
-  <rect x="422" y="92" width="230" height="72" rx="14" fill="none" stroke="#8a8577" stroke-width="1.4"/>
-  <text x="537" y="122" text-anchor="middle" font-size="13.5" font-weight="600" fill="currentColor">One deployed prompt</text>
-  <text x="537" y="143" text-anchor="middle" font-size="11" fill="#8a8577">15,347 chars · sha 667ce12e2626c75e</text>
-  <path d="M652 128 L 760 128" stroke="#8a8577" stroke-width="1.4" marker-end="url(#a4)"/>
-  <rect x="762" y="92" width="180" height="72" rx="14" fill="none" stroke="#3F7B62" stroke-width="1.7"/>
-  <text x="852" y="122" text-anchor="middle" font-size="13.5" font-weight="600" fill="currentColor">Ablation</text>
-  <text x="852" y="143" text-anchor="middle" font-size="11" fill="#8a8577">33 → 49 → 59 of 60</text>
-</svg>
-<p>The ablation isolates each component's worth on the blind split: baseline 33/60, instructions alone
-49/60, both components 59/60. <b>The exemplar component carries 38% of the total gain</b> — the graft
-earned its place.</p>
+<h2>The five stages</h2>
 
-<h2>The gate ladder</h2>
-<p>No candidate ships on trainset performance. Each rung must clear every gate:</p>
+<div class="steps">
+  <div class="step"><span class="n"></span><div>
+    <h3>Notice</h3>
+    <p>A detector reads every conversation and flags each promise the agent made aloud with no
+    matching record.</p>
+    <p class="who">Finds the gap between talk and action</p>
+  </div></div>
+  <div class="step"><span class="n"></span><div>
+    <h3>Group</h3>
+    <p>Those violations cluster into recurring patterns, and each pattern becomes a test case that
+    can be replayed on demand.</p>
+    <p class="who">Turns a symptom into something testable</p>
+  </div></div>
+  <div class="step"><span class="n"></span><div>
+    <h3>Search</h3>
+    <p>An optimiser proposes a rewritten instruction manual, runs it on live conversations, reads
+    the full record of what went wrong, and reasons about why before its next attempt.</p>
+    <p class="who">This is the part that writes the fix</p>
+  </div></div>
+  <div class="step"><span class="n"></span><div>
+    <h3>Gate</h3>
+    <p>A candidate must beat the old version on situations held back from the search, must not
+    regress a single safety case, and must clear the measured noise floor.</p>
+    <p class="who">Most candidates die here</p>
+  </div></div>
+  <div class="step"><span class="n"></span><div>
+    <h3>Ship</h3>
+    <p>The winner is deployed to the live agent with its exact fingerprint recorded. Rolling back
+    means restoring the previous fingerprint.</p>
+    <p class="who">Then the winner becomes the new baseline and it all runs again</p>
+  </div></div>
+</div>
+
+<h2>What the search is actually optimising</h2>
+<p>It is scored by the same grader the benchmark uses. There is no proxy metric to game: the thing
+being maximised is the thing being measured.</p>
+
+<div class="grid2">
+  <div class="card">
+    <h3>Instructions</h3>
+    <p class="sub" style="margin-top:6px">The rules: what to do when, which action to take, how to
+    close a call.</p>
+  </div>
+  <div class="card">
+    <h3>Worked examples</h3>
+    <p class="sub" style="margin-top:6px">Real conversations that went perfectly, mined from the
+    agent's own history and used to demonstrate the behaviour.</p>
+  </div>
+</div>
+<p>Those two pieces evolve separately. Splitting them was worth doing, and the evidence is
+measurable:</p>
+
+<div class="bars">
+  <div class="bar-row">
+    <span class="nm">Original agent<span>no changes</span></span>
+    <span class="bar-pair"><span class="bar-track"><span class="bar-fill" data-w="55%"></span></span></span>
+    <span class="fig" style="color:var(--ink-3)">33/60</span>
+  </div>
+  <div class="bar-row">
+    <span class="nm">Rules only<span>instructions rewritten</span></span>
+    <span class="bar-pair"><span class="bar-track"><span class="bar-fill" data-w="81.7%" style="background:var(--hold);opacity:.75"></span></span></span>
+    <span class="fig" style="color:var(--hold)">49/60</span>
+  </div>
+  <div class="bar-row">
+    <span class="nm">Rules and examples<span>both pieces</span></span>
+    <span class="bar-pair"><span class="bar-track"><span class="bar-fill now" data-w="98.3%"></span></span></span>
+    <span class="fig">59/60</span>
+  </div>
+</div>
+<p class="sub">The worked examples are responsible for 38% of the total gain. Without them the
+result stops well short.</p>
+
+<h2>What stops a bad change from shipping</h2>
+
 <div class="tw"><table>
-<tr><th>Gate</th><th>Rule</th><th>Gen 1 → Gen 2 outcome</th></tr>
-<tr><td><strong>Blind split</strong></td><td>60 held-out scenarios, touched once per rung</td><td class="n">33 → 57 → 59 of 60</td></tr>
-<tr><td><strong>Guardrail veto</strong></td><td>Any regression on safety, fraud, credential or privacy families kills the candidate outright</td><td class="n">40 → 62 → 63 of 73</td></tr>
-<tr><td><strong>Paired flips</strong></td><td>McNemar exact test on fixed-vs-broken; wins must beat chance</td><td class="n">+62 fixed / −0 broken · p ≈ 0</td></tr>
-<tr><td><strong>Noise floor</strong></td><td>Deltas under the measured test–retest wobble (±1.6 on a 60-split) are reported as noise, not gains</td><td class="n">observed blind delta 26</td></tr>
+<tr><th style="width:26%">The gate</th><th>What it demands</th><th class="n">Outcome</th></tr>
+<tr><td><strong>Unseen cases</strong></td>
+  <td>60 situations the search is never shown, checked once per round</td>
+  <td class="n">33 → 57 → <strong class="gain">59</strong></td></tr>
+<tr><td><strong>Safety veto</strong></td>
+  <td>Any regression on fraud, distress, privacy or credentials kills the candidate outright</td>
+  <td class="n">40 → 62 → <strong class="gain">63</strong></td></tr>
+<tr><td><strong>Won more than it lost</strong></td>
+  <td>A statistical test on which individual cases flipped, in both directions</td>
+  <td class="n"><strong class="gain">+62</strong> fixed, <strong>0</strong> broken</td></tr>
+<tr><td><strong>Bigger than the wobble</strong></td>
+  <td>Changes smaller than normal run-to-run variation are reported as noise, not progress</td>
+  <td class="n">observed 26 vs 1.6 floor</td></tr>
 </table></div>
 
-<h2>What the loop is not</h2>
-<div class="note">
-<h3>Boundaries, stated plainly</h3>
-<ul style="margin:6px 0 0">
-  <li><b>No human-authored candidate text.</b> The champion prompt is the search's output verbatim. The
-  one human change — naming the platform's <code>end_interaction</code> function in the closing rule —
-  came after the campaign, is declared on every results surface, and touches call termination, which
-  was never a scored objective.</li>
-  <li><b>Persuasion was not an objective.</b> The loop optimised execution truth: right writes, right
-  arguments, exactly once. Objection handling and collection rate are the named next objective, with
-  turns-to-capitulation as the candidate metric.</li>
-  <li><b>Two rungs, not twenty.</b> Gen 1 → Gen 2 added +5 overall at p = 0.18 — positive, regression-free,
-  and honestly below significance. Compounding is a hypothesis the next campaign tests, not a claim
-  this one makes.</li>
-</ul>
+<details class="tg">
+  <summary>The technical names, for the reader who wants them</summary>
+  <div class="bd">
+    <p>The search stage is <strong>GEPA</strong>, a reflective prompt optimiser, run against the
+    deployed agent rather than a simulation. Candidates are selected on a Pareto front, so one
+    survives by being best at something rather than average at everything. A large reasoning model
+    reads full evaluation traces and writes the rationale for each mutation.</p>
+    <p>The two-part candidate design comes from <strong>MIPROv2</strong>, where instructions and
+    demonstrations are optimised as separate but jointly selected components.</p>
+    <p>The "won more than it lost" gate is McNemar's exact test on paired outcomes. The final
+    result had a p value indistinguishable from zero.</p>
+  </div>
+</details>
+
+<h2>Two rounds, not twenty</h2>
+
+<div class="tw"><table>
+<tr><th>Round</th><th class="n">Overall</th><th class="n">Unseen</th><th class="n">Fixed</th>
+  <th class="n">Broken</th><th class="n">Significant?</th></tr>
+<tr><td>First</td><td class="n">98 → 155</td><td class="n">33 → 57</td>
+  <td class="n gain">+59</td><td class="n">2</td><td class="n gain">yes</td></tr>
+<tr><td>Second</td><td class="n">155 → 160</td><td class="n">57 → 59</td>
+  <td class="n gain">+7</td><td class="n">2</td><td class="n dim">no</td></tr>
+<tr class="hl"><td><strong>Combined</strong></td><td class="n"><strong>98 → 160</strong></td>
+  <td class="n"><strong>33 → 59</strong></td><td class="n gain"><strong>+62</strong></td>
+  <td class="n"><strong>0</strong></td><td class="n gain"><strong>yes</strong></td></tr>
+</table></div>
+
+<div class="callout warm">
+  <span class="ic">⚖️</span>
+  <div class="bd">
+    <p style="margin:0"><strong>The second round is honest about itself.</strong> It improved
+    things and broke nothing, but the gain is small enough that it could be chance. Two rounds
+    show the loop can run repeatedly. They do not prove improvement compounds forever, and this
+    site does not claim it.</p>
+  </div>
 </div>
 
+<h2>The one human edit, declared</h2>
+<p>After the campaign finished, one line was added by hand: the closing rule now names the
+platform function that actually hangs up the call. Hanging up was never something the search was
+scored on, so this changes no result on this site. It is flagged wherever it is relevant rather
+than folded quietly into the numbers.</p>
+
 </div>
-<script src="nav.js"></script>
+<script src="nav.js?v=4"></script>
 </body>
 </html>

@@ -3,107 +3,158 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Execution Truth — Limits &amp; References</title>
+<title>Limits</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="site.css?v=4">
 </head>
 <body>
 <div class="shell">
 
-<p class="eyebrow">Section 7 · Limits, roadmap, references</p>
-<h1>What this does not claim — and what comes next</h1>
-<p class="lede">Strong numbers stay credible only if their boundaries are stated by the person
-presenting them, before anyone else finds them. These are the boundaries.</p>
+<p class="kicker">Limits</p>
+<h1>What this does not prove</h1>
+<p class="lede">Strong numbers stay believable only when their boundaries come from the person
+presenting them. These are the boundaries.</p>
 
-<h2>Limits</h2>
-<div class="card">
-<ul style="margin:0">
-  <li><b>The voice tiers are small.</b> n = 15 and n = 5 carry no statistics. They are existence proofs
-  that the text-tier gains transfer to the voice channel — the statistics live in the 180-scenario
-  text tier.</li>
-  <li><b>One phone card's fix is confounded.</b> Baseline card 6 was conducted in English (the caller
-  switched; the agent correctly mirrored); the champion re-run was Hinglish. Its fix is real on the
-  ledger but not isolated from the language change.</li>
-  <li><b>Duplicate writes moved rather than resolved.</b> Exactly-once hygiene is 14/15 on both phone
-  versions: the baseline's triple write on card 11 is gone, a new double write appeared on card 13.
-  On the bot tier it improved 2/5 → 4/5 with one residual.</li>
-  <li><b>Compounding is not established.</b> Gen 1 → Gen 2 is +5 overall at p = 0.18 — positive and
-  regression-free, not significant. Two rungs demonstrate the loop runs repeatedly; they do not prove
-  indefinite improvement.</li>
-  <li><b>Surface form costs something.</b> With every caller line reworded, the champion drops 29 → 26
-  while the baseline drops 18 → 17: about 82% of the advantage survives rewording, and about 18% of it
-  is phrasing-sensitive.</li>
-  <li><b>Persuasion was never an objective.</b> The agent accepts a first refusal because its prompt —
-  including a mined exemplar — teaches exactly that. The loop optimised execution truth, not collection
-  rate. That is a scope choice, stated here so no listener discovers it as a surprise.</li>
-  <li><b>One account, scripted callers, uniform family mix.</b> Right for covering rare and dangerous
-  cases with n = 12 each; not a forecast of production traffic distribution.</li>
-</ul>
+<div class="grid2" style="margin-top:32px">
+  <div class="card">
+    <h3>The voice tests are small</h3>
+    <p class="sub" style="margin-top:6px">Fifteen phone calls and five voice conversations carry
+    no statistics. They show the gains reach real speech. The statistics live in the 180 typed
+    conversations.</p>
+  </div>
+  <div class="card">
+    <h3>One fix has a second explanation</h3>
+    <p class="sub" style="margin-top:6px">The dispute call was conducted in English on the old
+    agent, because the caller switched language and the agent followed. The new run was in
+    Hinglish. That fix is real in the log but not isolated from the language change.</p>
+  </div>
+  <div class="card">
+    <h3>Duplicate records moved, not gone</h3>
+    <p class="sub" style="margin-top:6px">On the phone tier this is 14 of 15 both before and
+    after. A triple write disappeared from one call and a double write appeared on another.</p>
+  </div>
+  <div class="card">
+    <h3>Two rounds is not "forever"</h3>
+    <p class="sub" style="margin-top:6px">The second round improved things and broke nothing, but
+    it is small enough to be chance. The loop demonstrably runs more than once. It has not been
+    shown to keep paying off indefinitely.</p>
+  </div>
+  <div class="card">
+    <h3>Rewording costs a little</h3>
+    <p class="sub" style="margin-top:6px">With every customer line rewritten, about 82% of the
+    advantage survives. The remaining 18% is sensitive to how things are phrased.</p>
+  </div>
+  <div class="card">
+    <h3>Persuasion was never the goal</h3>
+    <p class="sub" style="margin-top:6px">The agent accepts a first refusal because its
+    instructions teach exactly that. Collection rate was not optimised and is not claimed. It is
+    the named next objective.</p>
+  </div>
 </div>
 
-<h2>Platform findings surfaced along the way</h2>
+<h2>Things found in the platform along the way</h2>
+<p>An evaluation this close to a live system finds things that are not the agent's fault. They are
+worth reporting.</p>
+
+<details class="tg">
+  <summary>The "are you still there" prompt is rude in Hindi</summary>
+  <div class="bd">
+    <p>After five seconds of silence the runtime speaks its own line. The stock Hindi text uses
+    the intimate, disrespectful form of "you", injected into a call where the agent has been
+    formal and polite throughout. It is generated from an English source string and was never
+    checked for register.</p>
+    <p>It was caught only because every transcript gets read rather than sampled.</p>
+  </div>
+</details>
+
+<details class="tg">
+  <summary>Two channels handle per-call settings differently</summary>
+  <div class="bd">
+    <p>Phone and live voice channels accept settings passed with each individual call. The typed
+    chat channel quietly ignores them and uses stored defaults instead. Since one of those settings
+    decides which account a call writes to, this determines how every tier keeps its evidence
+    separate. Getting it wrong would silently mix two calls together.</p>
+  </div>
+</details>
+
+<details class="tg">
+  <summary>The runtime serves the draft directly</summary>
+  <div class="bd">
+    <p>There is no separate publish step: the live agent runs whatever the draft currently says,
+    and the version number is a revision counter rather than a release pointer. Version control
+    therefore has to live in this project's own fingerprint checks, not in the platform.</p>
+  </div>
+</details>
+
+<details class="tg">
+  <summary>Two different models, one instruction manual</summary>
+  <div class="bd">
+    <p>Conversation runs on one model; deciding which action to take runs on a smaller, separate
+    one. Every improvement here was achieved by instruction text steering that second, smaller
+    model. Worth knowing before writing rules for this stack.</p>
+  </div>
+</details>
+
+<h2>What comes next</h2>
+
+<div class="grid2">
+  <div class="card">
+    <h3>1. Objection handling</h3>
+    <p class="sub" style="margin-top:6px">Give the agent a real position to hold, and score how
+    many turns it takes before it gives up. The obvious next objective.</p>
+  </div>
+  <div class="card">
+    <h3>2. The last broken call</h3>
+    <p class="sub" style="margin-top:6px">Call 5 still says it will note the response and writes
+    nothing. The failure case is already captured and ready to replay.</p>
+  </div>
+  <div class="card">
+    <h3>3. Quality into the objective</h3>
+    <p class="sub" style="margin-top:6px">The conversation quality judges run today but only
+    report. Wiring them into what the search optimises is designed and calibrated, not yet live.</p>
+  </div>
+  <div class="card">
+    <h3>4. Watch live traffic</h3>
+    <p class="sub" style="margin-top:6px">The say-versus-do detector needs no labelled data, so it
+    can run on production calls as a permanent alarm rather than only on tests.</p>
+  </div>
+</div>
+
+<h2>Built on</h2>
 <div class="tw"><table>
-<tr><th>Finding</th><th>Detail</th></tr>
-<tr><td><strong>Inactivity nudge register</strong></td><td>The runtime's stock Hindi nudge — spoken after
-5 s of caller silence — is "अरे, है क्या तू?": the intimate/disrespectful second person, injected into
-a call that says आप and जी throughout. Caught because the harness reads every transcript. The nudge
-text is platform configuration regenerated from an English source string, outside the agent prompt.</td></tr>
-<tr><td><strong>Channel variable asymmetry</strong></td><td>Phone and duplex-voice channels accept
-per-call agent variables; the text-chat REST channel silently ignores them and uses stored defaults —
-which decides which ledger key a run writes under. Every tier's isolation strategy follows from this.</td></tr>
-<tr><td><strong>Draft-serving runtime</strong></td><td>The runtime serves the mutable draft directly
-(<code>is_deployed: false</code> throughout); the version label is a revision counter, not a release
-pointer. Version pinning therefore lives in this project's sha checks, not in the platform.</td></tr>
-<tr><td><strong>Split-model prompting</strong></td><td>Conversation runs on Sarvam Pro; tool calling runs
-on Llama 3.1 70B. Every tool-discipline gain here was achieved by prompt text steering the smaller
-model — worth knowing when writing tool rules for this stack.</td></tr>
+<tr><th style="width:26%">What</th><th>Used for</th></tr>
+<tr><td><strong>EVA</strong><br><span class="sub">ServiceNow Research</span></td>
+  <td>The voice-to-voice test harness, and the structure of the two conversation quality
+  composites. The task completion core was replaced with log grading.
+  <span class="sub">github.com/ServiceNow/eva, arXiv:2605.13841</span></td></tr>
+<tr><td><strong>GEPA</strong></td>
+  <td>The search stage: reflective prompt evolution reading full evaluation traces.</td></tr>
+<tr><td><strong>MIPROv2</strong><br><span class="sub">DSPy</span></td>
+  <td>The two-part candidate design, rules and worked examples optimised separately.</td></tr>
+<tr><td><strong>tau-bench</strong></td>
+  <td>The pattern of grading by comparing the end state of the world rather than reading the
+  conversation.</td></tr>
+<tr><td><strong>Sarvam Indus</strong></td>
+  <td>The platform the agent is deployed on: runtime, telephony, live audio channel, and the
+  analytics used to retrieve recordings.</td></tr>
 </table></div>
 
-<h2>The deployed prompt, versioned</h2>
+<h2>Version fingerprints</h2>
 <div class="tw"><table>
-<tr><th>Artifact</th><th>Identity</th></tr>
-<tr><td>Baseline (v3)</td><td>Production prompt at campaign start — the agent all baselines measure</td></tr>
-<tr><td>Search output (champion)</td><td>15,347 chars · sha <code>667ce12e2626c75e</code> · generation-2 winner, zero human-authored text</td></tr>
-<tr><td>Declared operational patch</td><td>+263 chars: the closing rule names the platform's
-<code>end_interaction</code> function. Applied after the campaign; call termination was never a scored
-objective; every results surface that touches it says so.</td></tr>
-<tr><td>Deployed (v4)</td><td>15,610 chars · sha <code>9bbbf4bea033063b</code> · verified against the live
-agent before every measured run</td></tr>
+<tr><th style="width:30%">Version</th><th>Identity</th></tr>
+<tr><td><strong>Baseline</strong></td><td>The production instructions in place when the campaign
+  started. Everything labelled "before" was measured against this.</td></tr>
+<tr><td><strong>Search output</strong></td><td>15,347 characters, fingerprint
+  <code>667ce12e</code>. Round two's winner, with no human-written text in it.</td></tr>
+<tr><td><strong>One declared edit</strong></td><td>Plus 263 characters: the closing rule now names
+  the function that hangs up. Applied after the campaign; hanging up was never scored.</td></tr>
+<tr><td><strong>Live now</strong></td><td>15,610 characters, fingerprint <code>9bbbf4be</code>,
+  verified against the deployed agent before every measured run.</td></tr>
 </table></div>
 
-<h2>Next</h2>
-<div class="flow">
-  <div class="s"><b>Objection handling</b><span>The named next objective: a persuasion policy with
-  turns-to-capitulation and objection-recovery rate as scored metrics, under the same guardrail veto.</span></div>
-  <div class="s"><b>Card 5</b><span>The residual P0: closing-turn writes. First target of the next
-  search round; the failure packet already exists.</span></div>
-  <div class="s"><b>Judge layer into the reward path</b><span>The judged metrics run today; wiring them
-  into the search objective (beyond execution truth) is designed and calibrated, not yet live.</span></div>
-  <div class="s"><b>Production telemetry</b><span>The say-vs-do monitor is label-free by design — it can
-  run on live traffic as a standing regression alarm, not only on benchmarks.</span></div>
 </div>
-
-<h2>References</h2>
-<div class="card">
-<ul style="margin:0">
-  <li><b>EVA — Evaluating Voice Agents</b> (ServiceNow Research). The bot-to-bot harness is built on
-  EVA's open-source framework, and the Accuracy / Experience composite structure adapts EVA's metric
-  taxonomy (EVA-A / EVA-X) with the deterministic core replaced by journal-state grading.
-  <span class="dim">github.com/ServiceNow/eva · arXiv:2605.13841</span></li>
-  <li><b>GEPA — reflective prompt evolution.</b> The search stage uses GEPA's optimize-anything API:
-  Pareto candidate selection, reflective mutation from full evaluation traces, and merge.</li>
-  <li><b>MIPROv2</b> (DSPy). Source of the two-component candidate design — instructions and
-  demonstrations optimised as separate, jointly-selected components.</li>
-  <li><b>τ-bench.</b> The deterministic task-completion pattern — comparing hashed end-state of the
-  world rather than reading the conversation — follows τ-bench's design.</li>
-  <li><b>Sarvam Indus / Samvaad.</b> The deployed agent platform: runtime, telephony, duplex websocket
-  channel, and analytics used for transcript and recording retrieval.</li>
-</ul>
-</div>
-
-</div>
-<script src="nav.js"></script>
+<script src="nav.js?v=4"></script>
 </body>
 </html>

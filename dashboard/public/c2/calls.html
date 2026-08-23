@@ -3,62 +3,102 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Execution Truth — Call Evidence</title>
+<title>Listen</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="site.css?v=4">
 <style>
-.picker{display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;margin-bottom:6px}
-.picker label{display:block;font:500 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;
-  color:var(--ink-3);margin-bottom:6px}
-.pair{font:500 12px var(--mono);color:var(--accent);background:var(--accent-soft);
-  border:1px solid var(--accent-line);border-radius:99px;padding:7px 13px;cursor:pointer}
+.picker{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:18px}
+.picker label{font-size:13px;color:var(--ink-3);display:block;margin-bottom:6px}
+.player{border:1px solid var(--line);border-radius:var(--r-lg);padding:22px 24px;
+  background:var(--surface)}
+.player h3{margin:0 0 2px;font-size:19px}
+.player .who{font-size:13.5px;color:var(--ink-3);margin-bottom:14px}
+.pick2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:22px 0}
+@media(max-width:640px){.pick2{grid-template-columns:1fr}}
+.pick2 button{text-align:left;border:1px solid var(--line);background:var(--bg);
+  border-radius:var(--r);padding:14px 16px;cursor:pointer;font:inherit;color:var(--ink)}
+.pick2 button:hover{border-color:var(--accent);background:var(--accent-soft)}
+.pick2 b{display:block;font-size:14.5px;margin-bottom:2px}
+.pick2 span{font-size:12.5px;color:var(--ink-3)}
 </style>
 </head>
 <body>
 <div class="shell">
 
-<p class="eyebrow">Section 6 · Call evidence</p>
-<h1>All forty calls, playable</h1>
-<p class="lede">Fifteen phone cards and five bot-to-bot scenarios, each run on the baseline and on the
-champion: 40 recorded calls. Every entry carries its audio, its full transcript, and — separately —
-what actually reached the journal. The transcript is what was said; the journal is what is graded.</p>
+<p class="kicker">Listen</p>
+<h1>All forty calls, before and after</h1>
+<p class="lede">Fifteen phone situations and five voice situations, each run once on the old agent
+and once on the new one. Audio, full transcript, and separately what actually got written down.</p>
 
-<div class="kpis">
-  <div class="kpi"><div class="l">Phone · baseline</div><div class="v">15</div><div class="d">9 pass · 6 fail</div></div>
-  <div class="kpi"><div class="l">Phone · champion</div><div class="v">15</div><div class="d">14 pass · 1 fail</div></div>
-  <div class="kpi"><div class="l">Bot-to-bot · baseline</div><div class="v">5</div><div class="d">mean accuracy 0.933</div></div>
-  <div class="kpi"><div class="l">Bot-to-bot · champion</div><div class="v">5</div><div class="d">mean accuracy 1.000</div></div>
-</div>
-
-<div class="card">
-  <div class="picker">
-    <div>
-      <label for="callSel">Choose a call</label>
-      <select id="callSel" aria-label="Choose a call to inspect"></select>
-    </div>
-    <button class="pair" id="pairBtn" hidden>Hear the other version of this scenario →</button>
+<div class="callout">
+  <span class="ic">🎧</span>
+  <div class="bd">
+    <p style="margin:0"><strong>Start here.</strong> Pick a call below, then use the button
+    underneath the player to jump straight to the other version of the same situation.</p>
   </div>
-  <div id="callView"></div>
 </div>
 
-<p class="note"><b>How to listen.</b> Pick any baseline call, then use the pair button to jump to the
-champion's run of the same scenario. The clearest contrasts: phone card 11 (fraud — baseline records
-refusal three times and never escalates; champion escalates once), phone card 3 (promise — baseline
-drops the date; champion writes it), and the bot-to-bot distress pair (baseline repeats itself and
-writes five journal entries for a two-write job; champion writes exactly two).</p>
+<div class="pick2">
+  <button data-jump="pv3:card-11">
+    <b>The fraud call</b>
+    <span>Old agent logs "refused to pay" three times and never escalates</span>
+  </button>
+  <button data-jump="bv3:distress">
+    <b>The distressed customer</b>
+    <span>Old agent repeats itself and files five records for a two record job</span>
+  </button>
+</div>
 
-<script src="nav.js"></script>
+<div class="picker">
+  <div style="flex:1;min-width:280px">
+    <label for="callSel">Browse all forty</label>
+    <select id="callSel" style="width:100%" aria-label="Choose a call"></select>
+  </div>
+</div>
+
+<div class="player">
+  <div id="callView"></div>
+  <button class="act" id="pairBtn" hidden style="margin-top:14px"></button>
+</div>
+
+<h2>What the tags mean</h2>
+<div class="tw"><table>
+<tr><th style="width:34%">Tag</th><th>Meaning</th></tr>
+<tr><td><span class="tag gain">pass</span></td><td>Every record this situation required was written</td></tr>
+<tr><td><span class="tag loss">fail</span></td><td>Something required is missing from the log</td></tr>
+<tr><td><span class="tag hold">record_call_outcome</span></td><td>An action that actually reached the log, named as it appears there</td></tr>
+<tr><td><span class="tag gain">wrote exactly once</span></td><td>No duplicated records, which is part of doing the job properly</td></tr>
+<tr><td><span class="tag acc">agent hung up</span></td><td>The agent ended the call itself rather than leaving the line open</td></tr>
+</table></div>
+
+</div>
+<script src="nav.js?v=4"></script>
 <script>
 const $ = s => document.querySelector(s);
 const GROUPS = [
-  ["Phone · v3 baseline", "/evidence/audio/phone-v3/index.json", "pv3"],
-  ["Phone · v4 champion", "/evidence/audio/phone-v4/index.json", "pv4"],
-  ["Bot-to-bot · v3 baseline", "/evidence/audio/bot-v3/index.json", "bv3"],
-  ["Bot-to-bot · v4 champion", "/evidence/audio/bot-v4/index.json", "bv4"],
+  ["Phone, old agent", "/evidence/audio/phone-v3/index.json", "pv3"],
+  ["Phone, new agent", "/evidence/audio/phone-v4/index.json", "pv4"],
+  ["Voice, old agent", "/evidence/audio/bot-v3/index.json", "bv3"],
+  ["Voice, new agent", "/evidence/audio/bot-v4/index.json", "bv4"],
 ];
+const NICE = {
+  pay_now_direct:"Paid on the call", future_promise:"Promised a future date",
+  today_promise:"Promised to pay today", callback_capture:"Asked for a callback",
+  already_paid:"Says already paid", dispute_handling:"Disputed the amount",
+  explicit_refusal:"Flatly refused", wrong_party_privacy:"Wrong person answered",
+  credential_guardrail:"Asked for a password", channel_unavailable:"Wanted another channel",
+  fraud_escalation:"Alleged fraud", safety_escalation:"Customer in distress",
+  amount_question:"Asked what is owed", conditional_promise_trap:'Vague "maybe"',
+  ledger_interrogation:"Quizzed on the account",
+  "pay-now":"Paid on the call", callback:"Booked a callback", refusal:"Flatly refused",
+  dispute:"Disputed the amount", distress:"Customer in distress",
+};
+const VERSION = { pv3:"Old agent, phone", pv4:"New agent, phone",
+                  bv3:"Old agent, voice", bv4:"New agent, voice" };
 const all = {};
+
 Promise.all(GROUPS.map(([, url]) => fetch(url).then(r => r.ok ? r.json() : []).catch(() => [])))
 .then(sets => {
   const sel = $("#callSel");
@@ -71,57 +111,71 @@ Promise.all(GROUPS.map(([, url]) => fetch(url).then(r => r.ok ? r.json() : []).c
       all[key] = c;
       const o = document.createElement("option");
       o.value = key;
-      const dur = c.duration_s ? ` · ${Math.round(c.duration_s)}s` : "";
-      o.textContent = `${(c.title || c.id).replace(/·\s*v\d/, "").trim()}${dur}`;
+      const nm = NICE[c.family] || c.family || c.id;
+      o.textContent = `${nm}${c.duration_s ? ` · ${Math.round(c.duration_s)}s` : ""}`;
       og.appendChild(o);
     });
     if (items.length) sel.appendChild(og);
   });
   sel.addEventListener("change", () => show(sel.value));
+  document.querySelectorAll("[data-jump]").forEach(b =>
+    b.addEventListener("click", () => {
+      if (all[b.dataset.jump]) { sel.value = b.dataset.jump; show(b.dataset.jump);
+        $(".player").scrollIntoView({ behavior: "smooth", block: "center" }); }
+    }));
   const first = sel.querySelector("option");
   if (first) { sel.value = first.value; show(first.value); }
 });
 
 function pairKey(key) {
   const [tag, id] = key.split(":");
-  const other = { pv3: "pv4", pv4: "pv3", bv3: "bv4", bv4: "bv3" }[tag];
+  const other = { pv3:"pv4", pv4:"pv3", bv3:"bv4", bv4:"bv3" }[tag];
   return all[`${other}:${id}`] ? `${other}:${id}` : null;
 }
 
 function show(key) {
   const c = all[key];
   if (!c) return;
-  const pills = [];
   const isBot = key.startsWith("b");
-  if (c.passed === true)  pills.push('<span class="pill gain">PASS</span>');
-  if (c.passed === false) pills.push('<span class="pill loss">FAIL' +
-      (c.missing && c.missing.length ? " — missing " + c.missing.join(", ") : "") + "</span>");
-  (c.tools || []).forEach(t => pills.push(`<span class="pill hold">${t}</span>`));
-  if (c.exactly_once === true)  pills.push('<span class="pill gain">exactly-once writes</span>');
-  if (c.exactly_once === false) pills.push('<span class="pill loss">duplicate writes: ' +
-      Object.entries(c.duplicate_writes || {}).map(([k, v]) => `${k}×${v}`).join(", ") + "</span>");
-  if (isBot) {
-    if (c.eva_a != null) pills.push(`<span class="pill acc">Accuracy ${c.eva_a}</span>`);
-    if (c.task_completion != null) pills.push(`<span class="pill">task ${c.task_completion} · faithfulness ${c.faithfulness}</span>`);
-    if (c.conciseness != null) pills.push(`<span class="pill">concise ${c.conciseness} · progression ${c.progression}</span>`);
-  } else {
-    if (c.end_reason) pills.push(`<span class="pill ${c.end_reason === "AGENT_ENDS" ? "acc" : ""}">${c.end_reason === "AGENT_ENDS" ? "agent hung up" : "caller hung up"}</span>`);
-    if (c.v3_passed !== undefined && key.startsWith("pv4")) {
-      if (c.passed && !c.v3_passed) pills.push('<span class="pill gain">fixed vs baseline</span>');
-      if (!c.passed && !c.v3_passed) pills.push('<span class="pill hold">failed on both versions</span>');
-    }
-  }
+  const tags = [];
+  if (c.passed === true) tags.push('<span class="tag gain">pass</span>');
+  if (c.passed === false) tags.push('<span class="tag loss">fail' +
+    (c.missing && c.missing.length ? ", missing " + c.missing.join(", ") : "") + "</span>");
+  (c.tools || []).forEach(t => tags.push(`<span class="tag hold">${t}</span>`));
+  if (!(c.tools || []).length) tags.push('<span class="tag loss">nothing written</span>');
+  if (c.exactly_once === true) tags.push('<span class="tag gain">wrote exactly once</span>');
+  if (c.exactly_once === false) tags.push('<span class="tag loss">wrote twice: ' +
+    Object.entries(c.duplicate_writes || {}).map(([k, v]) => `${k} ×${v}`).join(", ") + "</span>");
+  if (!isBot && c.end_reason)
+    tags.push(`<span class="tag ${c.end_reason === "AGENT_ENDS" ? "acc" : ""}">` +
+      (c.end_reason === "AGENT_ENDS" ? "agent hung up" : "caller hung up") + "</span>");
+  if (isBot && c.eva_a != null) tags.push(`<span class="tag acc">accuracy ${c.eva_a}</span>`);
+  if (isBot && c.conciseness != null)
+    tags.push(`<span class="tag">concise ${c.conciseness}, progression ${c.progression}</span>`);
+  if (key.startsWith("pv4") && c.passed && c.v3_passed === false)
+    tags.push('<span class="tag gain">fixed</span>');
+
   const turns = (c.transcript || []).map(t =>
-    `<div class="turn ${t.speaker}"><b>${t.speaker}</b><span>${t.text}</span></div>`).join("");
+    `<div class="turn ${t.speaker}"><b>${t.speaker === "agent" ? "Agent" : "Them"}</b>` +
+    `<span>${t.text}</span></div>`).join("");
+
   $("#callView").innerHTML =
-    `<h3 style="margin-top:6px">${c.title || c.id}</h3>` +
-    (c.audio ? `<audio controls preload="none" src="${c.audio}"></audio>` : '<p class="dim">No recording for this entry.</p>') +
-    `<div class="meta">${pills.join("")}</div>` +
+    `<h3>${NICE[c.family] || c.family || c.id}</h3>` +
+    `<div class="who">${VERSION[key.split(":")[0]]}` +
+    (c.duration_s ? ` · ${Math.round(c.duration_s)} seconds` : "") + `</div>` +
+    (c.audio ? `<audio controls preload="none" src="${c.audio}"></audio>`
+             : '<p class="sub">No recording for this entry.</p>') +
+    `<div class="meta">${tags.join("")}</div>` +
     (turns ? `<div class="turns">${turns}</div>` : "");
+
   const pk = pairKey(key);
   const btn = $("#pairBtn");
   btn.hidden = !pk;
-  btn.onclick = () => { $("#callSel").value = pk; show(pk); };
+  if (pk) {
+    btn.textContent = "Hear the " + (key.startsWith("pv3") || key.startsWith("bv3")
+      ? "new agent" : "old agent") + " on this same situation";
+    btn.onclick = () => { $("#callSel").value = pk; show(pk); };
+  }
 }
 </script>
 </body>

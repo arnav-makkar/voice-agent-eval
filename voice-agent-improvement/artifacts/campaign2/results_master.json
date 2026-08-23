@@ -55,7 +55,7 @@
  },
  "ladder": [
   {
-   "rung": "BASE \u2192 Gen 1",
+   "rung": "BASE → Gen 1",
    "overall": [
     98,
     155,
@@ -80,7 +80,7 @@
    ]
   },
   {
-   "rung": "Gen 1 \u2192 Gen 2",
+   "rung": "Gen 1 → Gen 2",
    "overall": [
     155,
     160,
@@ -105,7 +105,7 @@
    ]
   },
   {
-   "rung": "BASE \u2192 Gen 2",
+   "rung": "BASE → Gen 2",
    "overall": [
     98,
     160,
@@ -295,7 +295,9 @@
     ],
     "v4_open_cards": [
      5
-    ]
+    ],
+    "plain_claim": "Handles it perfectly, records nothing",
+    "plain_v4": "The dispute call now files the dispute and the outcome. The already-paid call still says it will note the response and writes nothing."
    },
    {
     "id": "P2",
@@ -311,7 +313,9 @@
     "v4_fixed_cards": [
      11
     ],
-    "v4_open_cards": []
+    "v4_open_cards": [],
+    "plain_claim": "A fraud report filed as refused to pay",
+    "plain_v4": "The fraud call now escalates to a human, once, and records the outcome once. The triple write is gone."
    },
    {
     "id": "P3",
@@ -327,7 +331,9 @@
     "v4_fixed_cards": [
      12
     ],
-    "v4_open_cards": []
+    "v4_open_cards": [],
+    "plain_claim": "Escalation logged, no human actually called",
+    "plain_v4": "The hand-off now happens before the outcome is recorded, so a person is genuinely queued."
    },
    {
     "id": "P4",
@@ -343,7 +349,9 @@
     "v4_fixed_cards": [
      3
     ],
-    "v4_open_cards": []
+    "v4_open_cards": [],
+    "plain_claim": "\"I will pay by this evening\" never became a date",
+    "plain_v4": "The promise and the resolved calendar date are both written now."
    },
    {
     "id": "P5",
@@ -355,11 +363,13 @@
     "evidence": "Asked for the exact outstanding and late charge, it answered without calling check_payment_status.",
     "why_it_matters": "The figure happened to be right because it sits in the prompt variables. On a real account that has moved since the call was queued, it would be confidently wrong.",
     "v4_status": "closed",
-    "v4_note": "check_payment_status is called before answering \u2014 twice, which is a duplicate-write regression on this card, but the ledger is read.",
+    "v4_note": "check_payment_status is called before answering — twice, which is a duplicate-write regression on this card, but the ledger is read.",
     "v4_fixed_cards": [
      13
     ],
-    "v4_open_cards": []
+    "v4_open_cards": [],
+    "plain_claim": "Answered from memory instead of checking the account",
+    "plain_v4": "It looks up the account before answering. It does that twice, which is its own small flaw, but the lookup happens."
    },
    {
     "id": "P6",
@@ -381,7 +391,9 @@
      5,
      6
     ],
-    "v4_open_cards": []
+    "v4_open_cards": [],
+    "plain_claim": "The call would not hang up",
+    "plain_v4": "Fixed by the one declared human edit, not by the search: the closing rule now names the function that ends the call. Hanging up was never something the search was scored on."
    }
   ],
   "v3_passed": 9,

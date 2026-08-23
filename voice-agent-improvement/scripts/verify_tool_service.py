@@ -51,7 +51,7 @@ def _request(base: str, path: str, secret: str | None, payload: Any = None, meth
     request = urllib.request.Request(f"{base}{path}", data=data, method=method)
     request.add_header("Content-Type", "application/json")
     if secret:
-        request.add_header("X-Loopline-Tool-Key", secret)
+        request.add_header("X-Agent-Tool-Key", secret)
     context = _ssl_context() if base.startswith("https://") else None
     try:
         with urllib.request.urlopen(request, timeout=25, context=context) as response:
@@ -62,9 +62,9 @@ def _request(base: str, path: str, secret: str | None, payload: Any = None, meth
 
 def verify(base_url: str, run_id: str, account_id: str) -> dict[str, Any]:
     load_env_file(ROOT / ".env")
-    secret = os.environ.get("LOOPLINE_TOOL_SECRET")
+    secret = os.environ.get("AGENT_TOOL_SECRET")
     if not secret:
-        raise SystemExit("LOOPLINE_TOOL_SECRET is not set; the service cannot be verified without it.")
+        raise SystemExit("AGENT_TOOL_SECRET is not set; the service cannot be verified without it.")
 
     checks: list[dict[str, Any]] = []
 
@@ -124,7 +124,7 @@ def verify(base_url: str, run_id: str, account_id: str) -> dict[str, Any]:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--base-url", default=os.environ.get("LOOPLINE_TOOL_BASE_URL", "http://127.0.0.1:8788"))
+    parser.add_argument("--base-url", default=os.environ.get("AGENT_TOOL_BASE_URL", "http://127.0.0.1:8788"))
     parser.add_argument("--run-id", default=f"verify-{datetime.now(UTC).strftime('%Y%m%dT%H%M%S')}")
     parser.add_argument("--account-id", default="EC-DEMO-9001")
     args = parser.parse_args()

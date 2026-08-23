@@ -75,7 +75,7 @@ class DynamicEvaluationTests(unittest.TestCase):
         ])
         metrics = evaluate_run(scenario(user_steps=[UserStep("20 August ko pay karunga", "promise")]), run_scenario(agent, scenario(user_steps=[UserStep("20 August ko pay karunga", "promise")]), "hash"))
         self.assertEqual(metrics["schema_version"], "evaluation-metrics.v3")
-        self.assertEqual(metrics["evaluator_adapter"]["version"], "loopline-eva-adapter.v1")
+        self.assertEqual(metrics["evaluator_adapter"]["version"], "framework-eva-adapter.v1")
         self.assertEqual(metrics["eva"]["accuracy"]["task_completion"]["score"], 1.0)
         self.assertEqual(metrics["eva"]["accuracy"]["agent_speech_fidelity"]["score"], None)
         self.assertEqual(metrics["eva"]["validation"]["user_speech_fidelity"]["status"], "unavailable")

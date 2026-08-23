@@ -228,18 +228,30 @@ def create_app(
     secret: str | None = None,
     allow_unauthenticated_tools: bool = False,
 ) -> FastAPI:
-    resolved_path = db_path or Path(os.getenv("LOOPLINE_TOOL_DB", "artifacts/tool_service/tools.db"))
-    resolved_secret = secret or os.getenv("LOOPLINE_TOOL_SECRET", "")
+    resolved_path = db_path or Path(
+        os.getenv("AGENT_TOOL_DB")
+        or os.getenv("LOOPLINE_TOOL_DB", "artifacts/tool_service/tools.db"))
+    # AGENT_TOOL_SECRET is the current name; the LOOPLINE_* names are accepted as
+    # fallbacks because the deployed platform's tool definitions still send the
+    # original header, and breaking the live wire contract during a rename would
+    # reproduce the exact silent-transport failure this service exists to expose.
+    resolved_secret = secret or os.getenv("AGENT_TOOL_SECRET") or os.getenv("LOOPLINE_TOOL_SECRET", "")
     if not resolved_secret:
-        raise RuntimeError("LOOPLINE_TOOL_SECRET is required")
+        raise RuntimeError("AGENT_TOOL_SECRET is required")
     store = ToolStore(resolved_path)
-    app = FastAPI(title="Loopline EMI evaluation tools", version="1.0.0")
+    app = FastAPI(title="EMI evaluation tools", version="1.0.0")
 
-    def authorize(x_loopline_tool_key: Annotated[str | None, Header()] = None) -> None:
-        if x_loopline_tool_key != resolved_secret:
+    def authorize(
+        x_agent_tool_key: Annotated[str | None, Header()] = None,
+        x_loopline_tool_key: Annotated[str | None, Header()] = None,
+    ) -> None:
+        if resolved_secret not in (x_agent_tool_key, x_loopline_tool_key):
             raise HTTPException(status_code=401, detail="invalid tool credential")
 
-    def authorize_tool(x_loopline_tool_key: Annotated[str | None, Header()] = None) -> None:
+    def authorize_tool(
+        x_agent_tool_key: Annotated[str | None, Header()] = None,
+        x_loopline_tool_key: Annotated[str | None, Header()] = None,
+    ) -> None:
         """Authorize tool effects, with an explicit synthetic-evaluation escape hatch.
 
         The bypass is deliberately limited to the three tool-effect endpoints. Run
@@ -249,7 +261,7 @@ def create_app(
         """
         if allow_unauthenticated_tools:
             return
-        authorize(x_loopline_tool_key)
+        authorize(x_agent_tool_key, x_loopline_tool_key)
 
     def run_or_404(run_id: str) -> dict[str, Any]:
         try:

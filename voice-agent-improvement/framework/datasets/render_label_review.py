@@ -127,7 +127,7 @@ kbd{font:500 10.5px var(--mono);background:var(--inset);border:1px solid var(--l
 <script>
 const DATA = JSON.parse(document.getElementById('payload').textContent);
 const CATS = __CATS__, OWNERS = __OWNERS__, SEVS = __SEVS__;
-const KEY = 'loopline-owner-label-review-v1';
+const KEY = 'framework-owner-label-review-v1';
 let state = JSON.parse(localStorage.getItem(KEY) || '{}');
 let idx = 0;
 

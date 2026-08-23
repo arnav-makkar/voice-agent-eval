@@ -94,7 +94,7 @@ def main() -> None:
 
     goal = scenario["user_goal"]
     output = {
-        "schemaVersion": "loopline-submission-evidence.v2",
+        "schemaVersion": "framework-submission-evidence.v2",
         "runId": status["run_id"],
         "recordId": record_id,
         "source": {
@@ -136,7 +136,7 @@ def main() -> None:
             "evaXPass": aggregate_score(metrics, "EVA-X_pass") == 1.0,
             "evaOverallPass": aggregate_score(metrics, "EVA-overall_pass") == 1.0,
             "compositeStatus": "computed_v7",
-            "evaluatorVersion": "evaluation-metrics.v3/loopline-eva-adapter.v1/samvaad-duplex.v7",
+            "evaluatorVersion": "evaluation-metrics.v3/framework-eva-adapter.v1/samvaad-duplex.v7",
             "components": {
                 "taskCompletion": metric_score(metrics, "task_completion"),
                 "faithfulness": metric_score(metrics, "faithfulness"),

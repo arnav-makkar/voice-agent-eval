@@ -22,7 +22,7 @@ import certifi
 
 ROOT = Path(__file__).resolve().parents[1]
 API_BASE = "https://api.elevenlabs.io"
-AGENT_NAME = "Loopline EVA Caller — Arnav EMI"
+AGENT_NAME = "Duplex Caller — Arnav EMI"
 VOICE_ID = "jOjeeDVKnAxGl1jZDUwy"  # Aman — Indian male
 CALLER_LLM = "qwen36-35b-a3b"  # gemini-2.0-flash ends the call at ~10s regardless of turn_timeout
 
@@ -66,7 +66,7 @@ def create_payload() -> dict[str, Any]:
     )
     return {
         "name": AGENT_NAME,
-        "tags": ["eva", "loopline", "emi", "user-simulator"],
+        "tags": ["eva", "framework", "emi", "user-simulator"],
         "conversation_config": {
             "asr": {
                 "quality": "high",

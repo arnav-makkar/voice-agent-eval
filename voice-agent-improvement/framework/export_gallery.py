@@ -1,4 +1,4 @@
-"""Build the Loopline demo gallery from preserved evaluation artifacts.
+"""Build the demo gallery from preserved evaluation artifacts.
 
 Every card is generated from immutable episode evidence — transcript, tool events,
 state diff, per-assertion checks, judge scores and first-break localisation.  The
@@ -419,7 +419,7 @@ def build(output: Path = OUTPUT) -> dict[str, Any]:
             cards.append(external_card)
 
     payload = {
-        "schema_version": "loopline-gallery.v2",
+        "schema_version": "framework-gallery.v2",
         "generated_at": datetime.now(UTC).isoformat(),
         "tiers": TIERS,
         "tool_catalogue": TOOL_CATALOGUE,

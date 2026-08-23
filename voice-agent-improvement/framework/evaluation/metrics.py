@@ -10,7 +10,7 @@ from .contracts import EvaluationScenario, ScenarioRun
 from .environment import dotted_get
 
 
-EVA_ADAPTATION_VERSION = "loopline-eva-adapter.v1"
+EVA_ADAPTATION_VERSION = "framework-eva-adapter.v1"
 
 
 def _edit_distance(reference: list[str], hypothesis: list[str]) -> int:

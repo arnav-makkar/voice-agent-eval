@@ -1,4 +1,4 @@
-"""Merge framework artifacts into the existing redacted Loopline snapshot."""
+"""Merge framework artifacts into the existing redacted dashboard snapshot."""
 
 from __future__ import annotations
 

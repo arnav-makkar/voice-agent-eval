@@ -172,7 +172,7 @@ def verify(output_root: Path = OUTPUT_ROOT) -> dict[str, Any]:
     )
     now = datetime.now(UTC)
     record = {
-        "schema_version": "loopline-verification.v2",
+        "schema_version": "framework-verification.v2",
         "verified_at": now.isoformat(),
         "passed": passed,
         "commands": checks,

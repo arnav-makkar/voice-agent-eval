@@ -108,7 +108,7 @@ def freeze(output: Path, *, version: int = DEFAULT_VERSION) -> dict:
         )
     record = {
         "schema_version": "evaluator-freeze.v1",
-        "evaluator_version": f"evaluation-metrics.v3/loopline-eva-adapter.v1/samvaad-duplex.v{version}",
+        "evaluator_version": f"evaluation-metrics.v3/framework-eva-adapter.v1/samvaad-duplex.v{version}",
         "status": "frozen_for_next_loop",
         "frozen_at": datetime.now(UTC).isoformat(),
         "components": components,

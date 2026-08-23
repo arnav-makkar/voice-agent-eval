@@ -176,7 +176,7 @@ def build() -> list[dict]:
         sid = f"EMI-SYNTH-{index:04d}"
         row = {
             "scenario_id": sid,
-            "schema_version": "loopline-benchmark.v1",
+            "schema_version": "framework-benchmark.v1",
             "domain_id": "emi_recovery",
             "split": "development",
             "source_group": "synthetic_s6",

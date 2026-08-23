@@ -137,7 +137,7 @@ def audit_run(run_dir: Path) -> dict[str, Any]:
     records = [audit_record(path) for path in sorted((run_dir / "records").iterdir()) if path.is_dir()]
     completed = [row for row in records if row["completed"]]
     return {
-        "schema_version": "loopline-voice-postflight.v1",
+        "schema_version": "framework-voice-postflight.v1",
         "run_id": run_dir.name,
         "records": records,
         "attempted": len(records),

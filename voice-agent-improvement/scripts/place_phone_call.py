@@ -30,7 +30,7 @@ import certifi
 ROOT = Path(__file__).resolve().parents[1]
 BENCH = ROOT / "artifacts" / "framework" / "emi" / "benchmark_v1" / "development.jsonl"
 OUTBOUND = "https://apps.sarvam.ai/api/outbounds/v1/orgs/{org}/workspaces/{ws}/outbounds"
-TOOL_SERVICE = os.getenv("LOOPLINE_TOOL_BASE_URL", "http://127.0.0.1:8788")
+TOOL_SERVICE = os.getenv("AGENT_TOOL_BASE_URL", "http://127.0.0.1:8788")
 
 # The agent declares exactly these. The outbound API rejects the whole call with a
 # 422 if the payload carries anything else, and scenario context legitimately holds
@@ -140,7 +140,7 @@ def main() -> int:
     env = _env(
         "SARVAM_VOICE_AGENTS_API_KEY", "SARVAM_ORG_ID", "SARVAM_WORKSPACE_ID",
         "SARVAM_APP_ID", "SARVAM_APP_VERSION", "SARVAM_CONNECTION_ID",
-        "SARVAM_AGENT_PHONE_NUMBER", "LOOPLINE_TOOL_SECRET",
+        "SARVAM_AGENT_PHONE_NUMBER", "AGENT_TOOL_SECRET",
     )
     to_number = args.to or os.getenv("SARVAM_TEST_USER_PHONE_NUMBER", "").strip().strip('"')
     if not to_number:
@@ -215,7 +215,7 @@ def main() -> int:
         print("\n--dry-run: no call placed, no ledger seeded.")
         return 0
 
-    seed_ledger(run_id, ctx["transactionReference"], ctx["outstandingAmount"], env["LOOPLINE_TOOL_SECRET"])
+    seed_ledger(run_id, ctx["transactionReference"], ctx["outstandingAmount"], env["AGENT_TOOL_SECRET"])
     url = OUTBOUND.format(org=env["SARVAM_ORG_ID"], ws=env["SARVAM_WORKSPACE_ID"])
     result = _request("POST", url,
                       {"Content-Type": "application/json", "X-API-Key": env["SARVAM_VOICE_AGENTS_API_KEY"]},

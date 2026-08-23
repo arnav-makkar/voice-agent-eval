@@ -53,7 +53,7 @@ from sarvam_voice_agents.config import Settings
 ROOT = Path(__file__).resolve().parents[3]
 DEFAULT_SCENARIOS = ROOT / "artifacts" / "framework" / "emi" / "dynamic_scenarios_v1" / "development.jsonl"
 DEFAULT_OUTPUT = ROOT / "artifacts" / "framework" / "emi" / "indus_chat_smoke"
-DUPLEX_EVALUATOR_VERSION = "evaluation-metrics.v3/loopline-eva-adapter.v1/samvaad-duplex.v8"
+DUPLEX_EVALUATOR_VERSION = "evaluation-metrics.v3/framework-eva-adapter.v1/samvaad-duplex.v8"
 DEFAULT_DUPLEX_FREEZE = ROOT / "artifacts" / "framework" / "emi" / "eva_adapter_v8" / "evaluator_freeze.json"
 
 
@@ -112,7 +112,7 @@ def _runtime_variables(raw_messages: list[dict[str, Any]]) -> dict[str, Any]:
 def synthesize_caller_pcm(text: str, language: str) -> bytes:
     """Use the local macOS voice to produce PCM16 mono 16 kHz test speech."""
     voice = "Lekha" if language in {"hindi", "hinglish"} else "Aman"
-    with tempfile.TemporaryDirectory(prefix="loopline-tts-") as temp:
+    with tempfile.TemporaryDirectory(prefix="framework-tts-") as temp:
         aiff = Path(temp) / "caller.aiff"
         pcm = Path(temp) / "caller.pcm"
         subprocess.run(["say", "-v", voice, "-o", str(aiff), text], check=True, capture_output=True)

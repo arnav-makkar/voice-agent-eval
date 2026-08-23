@@ -1,4 +1,4 @@
-# Connect Loopline execution truth to Indus
+# Connect the framework execution truth to Indus
 
 This is the only remaining Gate-Zero integration step. The service code is in
 `framework/tool_service.py`; these endpoints belong to this project, not to
@@ -6,7 +6,7 @@ Sarvam.
 
 ## 1. Start the isolated tool service
 
-Add a new random value named `LOOPLINE_TOOL_SECRET` to `.env`, then run:
+Add a new random value named `AGENT_TOOL_SECRET` to `.env`, then run:
 
 ```bash
 cd /Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement
@@ -18,7 +18,7 @@ Expose port `8788` through one approved HTTPS deployment or authenticated
 tunnel. Do not expose the SQLite file. If a firewall is used, Sarvam documents
 `4.213.167.70` as the Voice Agents tool-caller IP to allowlist.
 
-Set `LOOPLINE_TOOL_BASE_URL=http://127.0.0.1:8788` for the local EVA adapter.
+Set `AGENT_TOOL_BASE_URL=http://127.0.0.1:8788` for the local EVA adapter.
 Indus itself must use the public HTTPS URL.
 
 ## 2. Create three real API tools in the V15 draft
@@ -42,7 +42,7 @@ Use the builder's `@` variable picker for those two mappings. Do not type an
 invented template syntax. The EVA adapter overwrites both values per trial so
 parallel/repeated tests cannot share state.
 
-Add header `X-Loopline-Tool-Key` through Sarvam's secure API-key auth control.
+Add header `X-Agent-Tool-Key` through Sarvam's secure API-key auth control.
 If the builder requires a header name, use exactly that name.
 
 ## 3. Test before committing

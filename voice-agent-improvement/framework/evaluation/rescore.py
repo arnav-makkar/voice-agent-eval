@@ -42,7 +42,7 @@ def rescore(run_path: Path, output_dir: Path, scenario_dir: Path = DEFAULT_SCENA
     evaluator_hash = hashlib.sha256(b"".join(path.read_bytes() for path in evaluator_paths)).hexdigest()
     summary = {
         "schema_version": "deterministic-rescore.v1",
-        "evaluator_version": "evaluation-metrics.v3/loopline-eva-adapter.v1",
+        "evaluator_version": "evaluation-metrics.v3/framework-eva-adapter.v1",
         "evaluator_sha256": evaluator_hash,
         "source_runs": str(run_path),
         "source_runs_sha256": hashlib.sha256(run_path.read_bytes()).hexdigest(),

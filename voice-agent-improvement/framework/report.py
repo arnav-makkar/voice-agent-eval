@@ -74,14 +74,14 @@ def build(output: Path = OUTPUT) -> dict[str, Any]:
     record = {
         "schema_version": "framework-execution-manifest.v4",
         "generated_at": datetime.now(UTC).isoformat(),
-        "framework_name": "Loopline",
+        "framework_name": "execution-truth framework",
         "framework_version": "1.0.0-interview-mvp",
         "validation_domain": "emi_recovery",
         "architecture": {
             "evaluation": "EVA-inspired stateful episodes with deterministic tool/state/guardrail truth plus a secondary semantic judge",
             "improvement": "failure routing across prompt, extractor, tool, workflow, knowledge, model, channel, and human-policy surfaces; manual and GEPA arms compete",
             "governance": "paired per-case regression gate, independent candidate selection, cryptographic method freeze, once-only group-separated final",
-            "operations": "MLflow lineage, run IDs, immutable traces, first-failure localization, Loopline local dashboard",
+            "operations": "MLflow lineage, run IDs, immutable traces, first-failure localization, the local dashboard",
         },
         "evidence_layers": {
             "real_voice_discovery": {

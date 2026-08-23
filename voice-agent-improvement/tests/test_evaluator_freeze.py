@@ -12,7 +12,7 @@ class EvaluatorFreezeTests(unittest.TestCase):
             record = freeze(path)
             self.assertEqual(
                 record["evaluator_version"],
-                f"evaluation-metrics.v3/loopline-eva-adapter.v1/samvaad-duplex.v{DEFAULT_VERSION}",
+                f"evaluation-metrics.v3/framework-eva-adapter.v1/samvaad-duplex.v{DEFAULT_VERSION}",
             )
             self.assertEqual(len(record["bundle_sha256"]), 64)
             self.assertTrue(record["release_rules"]["validation_before_scoring"])

@@ -101,7 +101,7 @@ def run(seed_path: Path, max_metric_calls: int, max_proposals: int) -> dict[str,
         tracking=TrackingConfig(
             use_mlflow=True,
             mlflow_tracking_uri=f"sqlite:///{(ROOT / 'artifacts' / 'experiments' / 'mlflow.db').resolve()}",
-            mlflow_experiment_name="Loopline Dynamic GEPA",
+            mlflow_experiment_name="the framework Dynamic GEPA",
             key_prefix="dynamic_gepa",
         ),
     )
@@ -137,7 +137,7 @@ def run(seed_path: Path, max_metric_calls: int, max_proposals: int) -> dict[str,
         "native_tracking": {
             "provider": "gepa.optimize_anything.TrackingConfig",
             "backend": "mlflow",
-            "experiment": "Loopline Dynamic GEPA",
+            "experiment": "the framework Dynamic GEPA",
         },
         "engine_candidate_count": len(getattr(result, "candidates", [])),
         "best_candidate_index": int(getattr(result, "best_idx", 0)),

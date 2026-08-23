@@ -46,8 +46,8 @@ except Exception as e:
     print(f"  clock     STALE — {e}"); bad = 1
 
 # 3+4. the tool service is reachable *and* accepts our secret
-base   = os.environ["LOOPLINE_TOOL_BASE_URL"].rstrip("/")
-secret = os.environ["LOOPLINE_TOOL_SECRET"]
+base   = (os.environ.get("AGENT_TOOL_BASE_URL") or os.environ["LOOPLINE_TOOL_BASE_URL"]).rstrip("/")
+secret = (os.environ.get("AGENT_TOOL_SECRET") or os.environ["LOOPLINE_TOOL_SECRET"])
 try:
     r = httpx.get(f"{base}/health", timeout=25)
     print(f"  tunnel    {base}  HTTP {r.status_code}")
@@ -57,7 +57,10 @@ except Exception as e:
 
 try:
     r = httpx.post(f"{base}/v1/tools/record-call-outcome",
-                   headers={"X-Loopline-Tool-Key": secret},
+                   headers={"X-Agent-Tool-Key": secret,
+                            "X-Loopline-Tool-Key": secret},  # deployed platform tools
+                                                             # still send the legacy
+                                                             # header; probe both
                    json={"run_id": "PREFLIGHT", "account_id": "PREFLIGHT",
                          "disposition": "preflight"}, timeout=25)
     # 401 is a rejected key; 422 means the key passed and only the body was thin

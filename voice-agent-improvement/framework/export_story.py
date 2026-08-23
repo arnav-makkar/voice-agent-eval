@@ -320,7 +320,7 @@ def build(output: Path = OUTPUT) -> dict[str, Any]:
 
     delta_tools = improved["episodes_with_any_tool_call"] - baseline["episodes_with_any_tool_call"]
     story = {
-        "schema_version": "loopline-story.v2",
+        "schema_version": "framework-story.v2",
         "generated_at": datetime.now(UTC).isoformat(),
         # The headline is the SEALED result, not the development suite.  The
         # development suite is where the repair was built, so scoring well on it

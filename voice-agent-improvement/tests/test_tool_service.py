@@ -13,7 +13,7 @@ class ToolServiceTest(unittest.TestCase):
     def setUp(self) -> None:
         self.temp = tempfile.TemporaryDirectory()
         self.client = TestClient(create_app(db_path=Path(self.temp.name) / "tools.db", secret="test-secret"))
-        self.headers = {"X-Loopline-Tool-Key": "test-secret"}
+        self.headers = {"X-Agent-Tool-Key": "test-secret"}
 
     def tearDown(self) -> None:
         self.temp.cleanup()

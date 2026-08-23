@@ -1,4 +1,4 @@
-"""Run the isolated Loopline EMI tool service used by Indus API tools.
+"""Run the isolated EMI tool service used by Indus API tools.
 
 Request journalling lives here rather than in ``framework/tool_service.py``
 because that module is part of the frozen evaluator bundle.  Proving that the
@@ -83,7 +83,7 @@ def attach_request_journal(app: FastAPI, journal_path: Path) -> FastAPI:
                         "method": request.method,
                         "path": request.url.path,
                         "status": response.status_code,
-                        "credential_presented": bool(request.headers.get("x-loopline-tool-key")),
+                        "credential_presented": bool(request.headers.get("x-framework-tool-key")),
                         "user_agent": request.headers.get("user-agent"),
                         "client_host": _classify_origin(request.client.host if request.client else None),
                         "body": payload,
@@ -118,9 +118,9 @@ def main() -> None:
     )
     args = parser.parse_args()
     load_dotenv(ROOT / ".env", override=False)
-    secret = os.getenv("LOOPLINE_TOOL_SECRET", "")
+    secret = os.getenv("AGENT_TOOL_SECRET") or os.getenv("AGENT_TOOL_SECRET", "")
     if not secret:
-        raise SystemExit("Set LOOPLINE_TOOL_SECRET in .env before starting the service")
+        raise SystemExit("Set AGENT_TOOL_SECRET in .env before starting the service")
     app = create_app(
         db_path=args.db,
         secret=secret,

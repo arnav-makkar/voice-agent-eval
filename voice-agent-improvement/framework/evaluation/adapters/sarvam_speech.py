@@ -43,7 +43,7 @@ class LocalSpeechSynthesizer:
         voice = "Lekha" if language in {"hindi", "hinglish"} else "Aman"
 
         def render() -> bytes:
-            with tempfile.TemporaryDirectory(prefix="loopline-caller-") as temp:
+            with tempfile.TemporaryDirectory(prefix="framework-caller-") as temp:
                 aiff = Path(temp) / "caller.aiff"
                 pcm = Path(temp) / "caller.pcm"
                 subprocess.run(["say", "-v", voice, "-o", str(aiff), text], check=True, capture_output=True)

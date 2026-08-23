@@ -165,7 +165,7 @@ def build(output: Path = OUTPUT) -> dict[str, Any]:
             ),
         ],
         "P6_unified_ui": [
-            _item("loopline", "Loopline evaluation/improvement/release product UI", "complete", [str(ROOT.parent / "dashboard" / "app" / "page.tsx"), str(ROOT.parent / "dashboard" / "tests" / "rendered-html.test.mjs")], "Production build and render tests pass."),
+            _item("framework", "the evaluation/improvement/release product UI", "complete", [str(ROOT.parent / "dashboard" / "app" / "page.tsx"), str(ROOT.parent / "dashboard" / "tests" / "rendered-html.test.mjs")], "Production build and render tests pass."),
             _item("live_evidence", "Audio, transcript, provider events, first defect and EVA scores", "complete", [str(latest_live_path)], "The valid realtime run is replayable in the UI."),
             _item("tool_and_reliability_panels", "Populated live pilot, tool and reliability decision panels", "complete" if pilot_hold else "external_pending", [str(ROOT.parent / "dashboard" / "app" / "page.tsx"), str(voice_pilot_decision_path)], "The UI shows three replayable pilot cases, exact valid/invalid denominators, tool-effect evidence and the HOLD decision." if pilot_hold else "The views and contracts exist; they remain empty until live tool and matched suite evidence is captured."),
             _item("mlflow", "MLflow experiment lineage", "complete", [str(ARTIFACTS / "experiments" / "mlflow.db")], "Experiment runs and negative candidates are retained for technical drill-down."),

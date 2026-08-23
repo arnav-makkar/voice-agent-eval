@@ -1,0 +1,50 @@
+2026-08-22 12:58:36,845 | INFO     | eva.orchestrator.worker:152 | Starting conversation for record EMI-BENCH-0056 on port 10001
+2026-08-22 12:58:36,846 | INFO     | eva.assistant.tools.tool_executor:148 | Loaded 0 tool functions from src/eva/assistant/tools/emi_tools.py
+2026-08-22 12:58:36,859 | INFO     | eva.assistant.samvaad_server:284 | Samvaad EVA bridge started on ws://localhost:10001/ws
+2026-08-22 12:58:36,859 | INFO     | eva.user_simulator.audio_bridge:137 | Connecting to assistant WebSocket: ws://localhost:10001/ws
+2026-08-22 12:58:36,884 | INFO     | eva.user_simulator.audio_bridge:161 | Connected to assistant, starting audio tasks
+2026-08-22 12:58:36,914 | INFO     | eva.utils.prompt_manager:70 | Loaded prompts from /Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/configs/prompts/judge.yaml
+2026-08-22 12:58:36,925 | INFO     | eva.utils.prompt_manager:70 | Loaded prompts from /Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/configs/prompts/simulation.yaml
+2026-08-22 12:58:36,925 | ERROR    | eva.user_simulator.elevenlabs:265 | Error in ElevenLabs conversation: 'escalation_behavior'
+Traceback (most recent call last):
+  File "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/src/eva/user_simulator/elevenlabs.py", line 178, in _run_elevenlabs_conversation
+    config = ConversationInitiationData(dynamic_variables={"prompt": self._build_prompt()})
+                                                                     ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/src/eva/user_simulator/base.py", line 111, in _build_prompt
+    escalation_behavior=self.goal["decision_tree"]["escalation_behavior"],
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'escalation_behavior'
+2026-08-22 12:58:36,926 | INFO     | eva.user_simulator.elevenlabs:296 | Waiting 4s for assistant STT to finish last utterance...
+2026-08-22 12:58:36,926 | INFO     | eva.user_simulator.audio_bridge:686 | Starting chunked audio sender (chunk=640 bytes, interval=20ms)
+2026-08-22 12:58:36,926 | INFO     | eva.user_simulator.audio_bridge:531 | Starting continuous input stream (chunk: 2000 bytes, interval: 0.25s)
+2026-08-22 12:58:36,928 | ERROR    | eva.user_simulator.audio_bridge:654 | Error receiving from assistant: no close frame received or sent
+Traceback (most recent call last):
+  File "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/src/eva/user_simulator/audio_bridge.py", line 604, in _receive_from_assistant
+    async for message in self.websocket:
+  File "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/.venv/lib/python3.11/site-packages/websockets/asyncio/connection.py", line 242, in __aiter__
+    yield await self.recv()
+          ^^^^^^^^^^^^^^^^^
+  File "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/.venv/lib/python3.11/site-packages/websockets/asyncio/connection.py", line 322, in recv
+    raise self.protocol.close_exc from self.recv_exc
+websockets.exceptions.ConnectionClosedError: no close frame received or sent
+2026-08-22 12:58:36,928 | WARNING  | eva.user_simulator.audio_bridge:670 | ⚠️ WebSocket closed during active conversation - signaling disconnect
+2026-08-22 12:58:36,928 | INFO     | eva.user_simulator.base:145 | Conversation end signaled: elevenlabs_disconnect
+2026-08-22 12:58:40,927 | INFO     | eva.user_simulator.audio_bridge:244 | Audio interface stopped
+2026-08-22 12:58:40,927 | ERROR    | eva.user_simulator.elevenlabs:141 | ElevenLabs conversation error: 'escalation_behavior'
+Traceback (most recent call last):
+  File "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/src/eva/user_simulator/elevenlabs.py", line 139, in run_conversation
+    return await self._run_elevenlabs_conversation(api_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/src/eva/user_simulator/elevenlabs.py", line 178, in _run_elevenlabs_conversation
+    config = ConversationInitiationData(dynamic_variables={"prompt": self._build_prompt()})
+                                                                     ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/src/eva/user_simulator/base.py", line 111, in _build_prompt
+    escalation_behavior=self.goal["decision_tree"]["escalation_behavior"],
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'escalation_behavior'
+2026-08-22 12:58:40,930 | INFO     | eva.user_simulator.event_logger:182 | Saved 2 user simulator events to /Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/eva_live/emi_eva_live_20260822_125827/records/EMI-BENCH-0056/user_simulator_events.jsonl
+2026-08-22 12:58:40,930 | INFO     | eva.orchestrator.worker:173 | Conversation EMI-BENCH-0056 ended: error
+2026-08-22 12:58:41,127 | INFO     | eva.assistant.agentic.audit_log:411 | Audit log saved to /Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/eva_live/emi_eva_live_20260822_125827/records/EMI-BENCH-0056/audit_log.json
+2026-08-22 12:58:41,128 | INFO     | eva.assistant.base_server:319 | Saved scenario database states to /Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/eva_live/emi_eva_live_20260822_125827/records/EMI-BENCH-0056
+2026-08-22 12:58:41,128 | INFO     | eva.assistant.base_server:241 | Outputs saved to /Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/eva_live/emi_eva_live_20260822_125827/records/EMI-BENCH-0056
+2026-08-22 12:58:41,128 | INFO     | eva.orchestrator.worker:234 | Computed scenario DB hashes - Initial: c987df03..., Final: 90c71a69...

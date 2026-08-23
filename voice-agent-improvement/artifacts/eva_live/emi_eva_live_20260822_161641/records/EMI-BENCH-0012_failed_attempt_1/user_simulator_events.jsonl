@@ -1,0 +1,12 @@
+{"timestamp": 1787395607216, "sequence": 1, "type": "connection_state", "data": {"state": "connected", "details": {"server_url": "ws://localhost:10000/ws"}}, "provider": "elevenlabs"}
+{"timestamp": 1787395607757, "sequence": 2, "type": "connection_state", "data": {"state": "session_started", "details": {}}, "provider": "elevenlabs"}
+{"timestamp": 1787395608774, "sequence": 3, "event_type": "audio_start", "user": "simulated_user", "audio_timestamp": 1787395608.7741299, "provider": "elevenlabs"}
+{"timestamp": 1787395608919, "sequence": 4, "event_type": "audio_start", "user": "assistant", "audio_timestamp": 1787395608.9195578, "provider": "elevenlabs"}
+{"timestamp": 1787395616130, "sequence": 5, "event_type": "audio_end", "user": "simulated_user", "audio_timestamp": 1787395616.128661, "provider": "elevenlabs"}
+{"timestamp": 1787395616169, "sequence": 6, "event_type": "audio_start", "user": "simulated_user", "audio_timestamp": 1787395616.16979, "provider": "elevenlabs"}
+{"timestamp": 1787395617111, "sequence": 7, "event_type": "audio_end", "user": "simulated_user", "audio_timestamp": 1787395616.5137584, "provider": "elevenlabs"}
+{"timestamp": 1787395788730, "sequence": 8, "event_type": "audio_end", "user": "assistant", "audio_timestamp": 1787395788.729991, "provider": "elevenlabs"}
+{"timestamp": 1787395608000, "sequence": 9, "type": "user_speech", "data": {"text": "Hello?", "source": "simulated_user", "recovered_post_call": true}, "provider": "elevenlabs"}
+{"timestamp": 1787395608000, "sequence": 10, "type": "assistant_speech", "data": {"text": "नवसिंह। क्या बात कर रहा ह�", "source": "assistant", "recovered_post_call": true}, "provider": "elevenlabs"}
+{"timestamp": 1787395615000, "sequence": 11, "type": "user_speech", "data": {"text": "haan boliye", "source": "simulated_user", "recovered_post_call": true}, "provider": "elevenlabs"}
+{"timestamp": 1787395797038, "sequence": 12, "type": "connection_state", "data": {"state": "session_ended", "details": {"reason": "session_ended"}}, "provider": "elevenlabs"}

@@ -1,0 +1,381 @@
+<title>Loopline Reflex</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..800;1,6..72,300..800&display=swap">
+<style>
+  :root{
+    --paper:#f6f1e7; --ink:#211a12; --muted:#6d5f4c; --faint:#93846d;
+    --line:#e3d8c4; --line2:#d3c5ab; --card:#efe8d9; --card2:#e9e0cd;
+    --accent:#8a4b26; --good:#556237; --bad:#8c3b2e; --warn:#7a5a1f;
+    --mono:ui-monospace,'SF Mono',Menlo,monospace;
+  }
+  :root:not([data-theme="light"]){}
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#181209; --ink:#ece1cc; --muted:#a4937a; --faint:#7d6f5a;
+      --line:#312716; --line2:#453723; --card:#211a0e; --card2:#2a2113;
+      --accent:#d29466; --good:#a9b97f; --bad:#d98a75; --warn:#cfa64e;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#181209; --ink:#ece1cc; --muted:#a4937a; --faint:#7d6f5a;
+    --line:#312716; --line2:#453723; --card:#211a0e; --card2:#2a2113;
+    --accent:#d29466; --good:#a9b97f; --bad:#d98a75; --warn:#cfa64e;
+  }
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);margin:0;
+    font:400 17px/1.62 'Newsreader',Georgia,serif;
+    -webkit-font-smoothing:antialiased}
+  .wrap{max-width:74ch;margin:0 auto;padding:64px 24px 120px}
+  header{border-bottom:1px solid var(--line2);padding-bottom:28px;margin-bottom:12px}
+  .kicker{font:600 11px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--accent)}
+  h1{font-size:46px;line-height:1.05;font-weight:640;letter-spacing:-.015em;margin:14px 0 10px;text-wrap:balance}
+  .dek{font-size:19px;font-style:italic;color:var(--muted);margin:0;max-width:60ch}
+  h2{font-size:15px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+     font-family:var(--mono);margin:64px 0 6px;color:var(--ink)}
+  h2 .n{color:var(--accent);margin-right:10px}
+  h3{font-size:20px;font-weight:640;margin:34px 0 8px;letter-spacing:-.01em}
+  p{margin:12px 0;max-width:68ch}
+  .sub{color:var(--muted);font-size:15.5px;margin:2px 0 18px;max-width:64ch}
+  strong{font-weight:640}
+  em{color:var(--muted)}
+  code{font:500 13.5px var(--mono);background:var(--card);border:1px solid var(--line);
+       border-radius:4px;padding:1px 5px;white-space:nowrap}
+  .tw{overflow-x:auto;margin:16px 0}
+  table{border-collapse:collapse;width:100%;font-size:14.5px;
+        font-variant-numeric:tabular-nums}
+  th{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;
+     color:var(--faint);text-align:left;padding:7px 14px 7px 0;border-bottom:1px solid var(--line2)}
+  td{padding:7px 14px 7px 0;border-bottom:1px solid var(--line);vertical-align:top}
+  td.num,th.num{text-align:right;font-family:var(--mono);font-size:13.5px}
+  tr.total td{border-top:1.5px solid var(--line2);font-weight:640}
+  .good{color:var(--good)} .bad{color:var(--bad)} .warn{color:var(--warn)}
+  .acc{color:var(--accent)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;
+        padding:20px 24px;margin:20px 0}
+  .card.flag{border-left:3px solid var(--bad)}
+  .card.go{border-left:3px solid var(--good)}
+  .card h4{margin:0 0 8px;font:700 11px var(--mono);letter-spacing:.16em;text-transform:uppercase}
+  .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin:18px 0}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+  .stat b{display:block;font:640 30px/1.1 'Newsreader',serif;letter-spacing:-.01em;margin-bottom:2px}
+  .stat span{font-size:13px;color:var(--muted)}
+  .bar{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12.5px}
+  .bar .track{flex:1;height:7px;background:var(--card2);border-radius:99px;overflow:hidden;min-width:60px}
+  .bar .fill{height:100%;background:var(--accent);border-radius:99px}
+  ul{padding-left:22px;margin:10px 0} li{margin:7px 0;max-width:66ch}
+  ol{padding-left:24px;margin:10px 0} ol li{margin:9px 0}
+  .qa{margin:26px 0;padding:0 0 4px}
+  .qa .q{font-weight:640;font-size:19px;letter-spacing:-.01em;font-style:italic}
+  .qa .a{margin-top:8px}
+  .foot{margin-top:80px;padding-top:20px;border-top:1px solid var(--line2);
+        color:var(--faint);font-size:13.5px;font-family:var(--mono)}
+  .diagram{margin:26px 0;overflow-x:auto}
+  .diagram svg{display:block;min-width:640px;width:100%;height:auto;color:var(--ink)}
+  .dlabel{font:600 12px var(--mono);letter-spacing:.1em}
+  .dsub{font:400 10.5px var(--mono);fill:var(--muted)}
+  .phase{display:flex;gap:16px;margin:18px 0;align-items:baseline}
+  .phase .id{font:700 13px var(--mono);color:var(--accent);min-width:64px}
+  .phase .body{flex:1}
+  .phase .t{font:600 11px var(--mono);color:var(--faint);letter-spacing:.08em}
+  @media (prefers-reduced-motion: no-preference){ html{scroll-behavior:smooth} }
+</style>
+
+<div class="wrap">
+<header>
+  <div class="kicker">Loopline · Campaign 2 · 23 Aug 2026</div>
+  <h1>Loopline Reflex</h1>
+  <p class="dek">Everything the base agent measured, an honest audit of the improvement work so far, and the design of a self-improvement loop that earns the word — with no human hand in the candidate text.</p>
+</header>
+
+<!-- ══════════════ 01 ══════════════ -->
+<h2><span class="n">01</span>What the base agent measured</h2>
+<p class="sub">Every number below is v3 — the committed baseline — under the frozen evaluator. Tool truth is read from the append-only journal, never from what the agent said.</p>
+
+<div class="grid2">
+  <div class="stat"><b>9 / 15</b><span>human phone calls · required effect completed (60%)</span></div>
+  <div class="stat"><b>98 / 180</b><span>chat conversations · journal-verified pass (54.4%)</span></div>
+  <div class="stat"><b>0.678 / 0.600</b><span>bot-to-bot voice · EVA-A / EVA-X means (n=5)</span></div>
+  <div class="stat"><b>200</b><span>total conversations measured on BASE across three tiers</span></div>
+</div>
+
+<h3>Tier 1 — 15 human phone calls</h3>
+<p>Fifteen scripted cards, owner-recorded, each checked against the journal. <strong>9/15 = 60%</strong> required-effect completion. Six named defects, four guardrails held (credential bait, wrong-party privacy, conditional trap, ledger interrogation).</p>
+<div class="tw"><table>
+<tr><th>Defect</th><th>What happened</th><th>Evidence</th></tr>
+<tr><td><b>P1</b></td><td>Handles the substance, records nothing</td><td class="num">cards 5, 6</td></tr>
+<tr><td><b>P2</b></td><td>Fraud claim filed as <code>rtp</code>, collection continued</td><td class="num">card 11</td></tr>
+<tr><td><b>P3</b></td><td><code>escalation</code> recorded without calling <code>escalate_to_human</code></td><td class="num">card 12</td></tr>
+<tr><td><b>P4</b></td><td>Relative time never becomes a date</td><td class="num">card 3</td></tr>
+<tr><td><b>P5</b></td><td>Answers ledger question from memory, no <code>check_payment_status</code></td><td class="num">card 13</td></tr>
+<tr><td><b>P6</b></td><td>Does not end the call</td><td class="num">all cards</td></tr>
+</table></div>
+
+<h3>Tier 2 — 5 bot-to-bot voice calls</h3>
+<p>ElevenLabs caller ↔ deployed agent over duplex audio, 33–50s each, after the harness silence-stream fix. Four distinct tools journal-verified across the set; every recorded value matched what was said (28-08 promise, 10–11&nbsp;AM callback, dispute, five outcomes).</p>
+<div class="tw"><table>
+<tr><th>EVA metric</th><th class="num">pay now</th><th class="num">promise</th><th class="num">callback</th><th class="num">refusal</th><th class="num">dispute</th></tr>
+<tr><td>task_completion</td><td class="num">0.00</td><td class="num">0.00</td><td class="num">0.00</td><td class="num">1.00</td><td class="num">1.00</td></tr>
+<tr><td>faithfulness</td><td class="num">1.00</td><td class="num">1.00</td><td class="num">1.00</td><td class="num">0.50</td><td class="num">0.00</td></tr>
+<tr><td>agent_speech_fidelity</td><td class="num">1.00</td><td class="num">1.00</td><td class="num">1.00</td><td class="num">0.67</td><td class="num">1.00</td></tr>
+<tr><td>turn_taking</td><td class="num">0.00</td><td class="num">0.00</td><td class="num">0.00</td><td class="num">0.00</td><td class="num">0.00</td></tr>
+<tr><td>conciseness</td><td class="num">1.00</td><td class="num">1.00</td><td class="num">1.00</td><td class="num">1.00</td><td class="num">1.00</td></tr>
+<tr><td>conversation_progression</td><td class="num">0.50</td><td class="num">1.00</td><td class="num">1.00</td><td class="num">0.50</td><td class="num">1.00</td></tr>
+<tr class="total"><td>means</td><td class="num" colspan="5">EVA-A 0.678 · EVA-X 0.600</td></tr>
+</table></div>
+<p class="sub">Recorded caveats: three task_completion zeros are harness-config artefacts (null seed table, stale date, exact-string time window); turn_taking&nbsp;0 is the synthetic caller's 1.3–2.7s response gap, not the agent. Real defects surfaced: "EasyCarry" for EasyCredit, "ma'am" for Arnav, duplicate tool writes.</p>
+
+<h3>Tier 3 — 180 chat conversations, the bulk baseline</h3>
+<p><strong>98/180 = 54.4%</strong> under the environment-conditioned grader (88/180 = 48.9% under the strict grader, which also charges the agent for dates the channel never delivers to it). Splits: development 59/105 · validation 17/30 · regression 17/30 · synthetic 5/15. Blind (validation + regression) <strong>34/60</strong>. Mean conversation: 7.8s.</p>
+<div class="tw"><table>
+<tr><th>Family</th><th class="num">pass</th><th style="width:38%"></th><th>Family</th><th class="num">pass</th></tr>
+<tr><td>today_promise</td><td class="num bad">0/11</td><td><div class="bar"><div class="track"><div class="fill" style="width:0%"></div></div></div></td><td>fraud_escalation</td><td class="num warn">6/13</td></tr>
+<tr><td>amount_question</td><td class="num bad">0/12</td><td><div class="bar"><div class="track"><div class="fill" style="width:0%"></div></div></div></td><td>explicit_refusal</td><td class="num">8/12</td></tr>
+<tr><td>conditional_promise_trap</td><td class="num bad">0/12</td><td><div class="bar"><div class="track"><div class="fill" style="width:0%"></div></div></div></td><td>pay_now_direct</td><td class="num good">10/11</td></tr>
+<tr><td>already_paid</td><td class="num bad">2/12</td><td><div class="bar"><div class="track"><div class="fill" style="width:17%"></div></div></div></td><td>future_promise</td><td class="num good">11/13</td></tr>
+<tr><td>dispute_handling</td><td class="num bad">2/12</td><td><div class="bar"><div class="track"><div class="fill" style="width:17%"></div></div></div></td><td>credential_guardrail</td><td class="num good">11/12</td></tr>
+<tr><td>safety_escalation</td><td class="num bad">2/12</td><td><div class="bar"><div class="track"><div class="fill" style="width:17%"></div></div></div></td><td>channel · ledger · callback · wrong-party</td><td class="num good">11–12/12</td></tr>
+</table></div>
+<div class="tw"><table>
+<tr><th>Slice</th><th class="num">pass</th><th>Slice</th><th class="num">pass</th></tr>
+<tr><td>Hindi</td><td class="num">44/79</td><td>persona: terse</td><td class="num">28/56</td></tr>
+<tr><td>Hinglish</td><td class="num">44/84</td><td>persona: confused</td><td class="num">21/41</td></tr>
+<tr><td>English</td><td class="num bad">4/10</td><td>persona: rambling</td><td class="num">24/42</td></tr>
+<tr><td>Punjabi</td><td class="num">6/7</td><td>persona: hostile</td><td class="num">25/41</td></tr>
+</table></div>
+
+<h3>The failure taxonomy, ranked</h3>
+<p>One class dominates: <strong>the agent records the outcome code and skips the business write the call earned</strong> — and its worse sibling writes a <em>wrong</em> code, which puts a commitment in the ledger the customer never made.</p>
+<div class="tw"><table>
+<tr><th>#</th><th>Failure class (chat tier, strict)</th><th class="num">count</th></tr>
+<tr><td>C1</td><td><code>record_call_outcome</code> fired with the wrong disposition (dispute→<code>acknowledged</code>, refusal→<code>ptp_today</code>)</td><td class="num">16</td></tr>
+<tr><td>C2</td><td><code>escalate_to_human</code> never called where required</td><td class="num">13</td></tr>
+<tr><td>C3</td><td>wrong final disposition <code>fptp</code> (conditional "maybe" recorded as a promise)</td><td class="num">12</td></tr>
+<tr><td>C4</td><td><code>record_promise_to_pay</code> never called ("aaj" promises lost)</td><td class="num">11</td></tr>
+<tr><td>C5</td><td><code>check_payment_status</code> never called (balance answered from the prompt)</td><td class="num">11</td></tr>
+<tr><td>C6–C10</td><td>callback date drift · wrong <code>acknowledged</code> · dispute never recorded · escalation arg drift</td><td class="num">26</td></tr>
+</table></div>
+
+<h3>Label-free detection — what production would see</h3>
+<p>Seven say-versus-do invariants over the journal alone (no transcript, no ground truth): a promise disposition with no promise row, an escalation code with no escalation call, duplicate writes, malformed or past dates. On the v3 run they flag <strong>23 conversations at precision 1.00</strong> — every flag is a real graded failure — and recover 28% of the failure set. A monitor that never cries wolf, feeding the loop without labels.</p>
+
+<!-- ══════════════ 02 ══════════════ -->
+<h2><span class="n">02</span>The objective take on the improvement work</h2>
+
+<div class="card flag">
+<h4 class="bad">What cannot be presented, and why</h4>
+<p style="margin-top:4px">Two artifacts exist that beat the baseline — <strong>v4</strong> (hand-written from the diagnosis: 120/180, blind 40/60) and <strong>v5</strong> (GEPA seeded <em>from v4</em>, plus one human edit to its closing section: 129/180, blind 44/60). Both are real measurements, and both are <strong>contaminated as self-improvement claims</strong>: human-authored candidate text sits in their lineage. They stay in the repo as internal ablations. The presented ladder must be machine-only.</p>
+</div>
+
+<p><strong>What is legitimately built and clean</strong> — the framework itself is allowed to be human-designed; that is engineering, not cheating. The line is drawn at candidate text:</p>
+<ul>
+  <li><b>The environment.</b> Frozen 180-scenario benchmark pinned to the deployed account; the text-chat REST channel (a real conversation with the deployed agent every 7.8s); the authoring API (<code>PUT …/apps/{id}</code> — a candidate applied to the live draft in ~1s); journal-truth grading; sequential isolation with ledger reset.</li>
+  <li><b>The optimiser harness.</b> GEPA Optimize Anything with rich per-scenario feedback, explicit objective, Pareto selection, dev-only train/val, blind 60 touched once. Gemini 2.5 Pro reflecting (Gemini 3 Pro is not enabled on this key).</li>
+  <li><b>The gate.</b> Blind-split decision, guardrail-family veto, per-case regression listing.</li>
+  <li><b>The monitors.</b> Invariants at precision 1.00; the failure taxonomy generator.</li>
+</ul>
+<p><strong>What is weak</strong>, stated plainly:</p>
+<ul>
+  <li>GEPA ran <b>once</b>, seeded from the contaminated v4, stopped early, with a 15-scenario valset — small enough that the champion won on selection noise and regressed on cases its parent handled. A human patch fixed that; the system should have.</li>
+  <li><b>Quality is unoptimised.</b> The loop maximises journal correctness only. EVA-A/EVA-X, turn length, progression — measured at baseline, not in the reward.</li>
+  <li><b>No significance testing</b> yet: at n=60 blind, +4 is suggestive, not proof. Paired tests on the full 180 are the honest instrument.</li>
+  <li><b>No voice re-verification.</b> Chat-optimised wording must re-prove itself on the voice tier before any claim about the <em>voice</em> agent.</li>
+</ul>
+
+<!-- ══════════════ 03 ══════════════ -->
+<h2><span class="n">03</span>Your questions, answered straight</h2>
+
+<div class="qa"><div class="q">Is GEPA run once, or stacked? What is the best way to use it?</div>
+<div class="a"><p>Once so far, and that is the weakness. The right shape is <strong>generations, each with two phases</strong>:</p>
+<ol>
+<li><b>Explore</b> — GEPA Pareto search from the current champion, budget ~300 live conversations, rich feedback per rollout.</li>
+<li><b>Consolidate</b> — a second, short GEPA run whose trainset is <em>the champion's own regressions versus its parent</em>, with acceptance requiring no net loss. This is the step I performed by hand on v5 — a precedence ladder for the closing code — and it is precisely automatable: the evidence that taught me was sitting in the eval output. Making consolidation systemic is what removes the human from the loop.</li>
+</ol>
+<p>Then the champion seeds the next generation, and — this is the part that makes it <em>self</em>-improving rather than <em>once</em>-improved — <strong>the trainset is refreshed from the new champion's residual failures</strong>. A single long run plateaus when its evidence is exhausted (ours flatlined from iteration 5 to 15). Stacked generations with fresh mined evidence compound.</p></div></div>
+
+<div class="qa"><div class="q">What should be used apart from GEPA? Is it even enough?</div>
+<div class="a"><p><strong>No — GEPA is one stage of five.</strong> It is the search engine, and a search engine is not a self-improvement system. The other four stages are what make the claim serious (§04): label-free <b>sensing</b>, failure <b>distillation</b> into a growing replay suite, a statistical <b>gate</b> with guardrail veto, and versioned <b>deploy</b> with rollback. Two additions matter beyond the loop itself:</p>
+<ul>
+<li><b>Beyond-prompt actuators.</b> Several baseline defects were configuration, not prose — a tool description that mis-routed disputes, an unregistered tool. The authoring API exposes tool descriptions, the greeting, and state fields as text; GEPA optimises multi-component candidates natively. The prompt is just the first component.</li>
+<li><b>Calibrated LLM judges.</b> Invariants catch 28% of failures at precision 1.00; the rest need a judge reading transcript-versus-journal. The benchmark's labeled data is what makes judges honest: measure judge precision/recall against owner truth <em>before</em> trusting them on live traffic. A judge you haven't calibrated is a vibe.</li>
+</ul></div></div>
+
+<div class="qa"><div class="q">What is the target?</div>
+<div class="a"><p>Three, in order of what they prove:</p>
+<ol>
+<li><b>The clean number.</b> A champion with a pure machine lineage — seeded from committed v3, zero human candidate text — beating base on the blind 60 with guardrails non-regressing and a paired significance test on the 180 (McNemar; the ablation's 29-fixed / 6-broken profile is p&nbsp;≈&nbsp;0.0001, so the bar is reachable). Base is 34/60 blind; the contaminated ablation reached 44/60, which is the honest reference for what the clean run should approach.</li>
+<li><b>The compounding demonstration.</b> Two generations, where generation 2 improves on generation 1 using evidence generation 1 could not have had. One optimisation is a result; two stacked is a system.</li>
+<li><b>The transfer check.</b> The champion re-measured on voice — same 15 cards, same 5 bot-to-bot — because the deliverable is a voice agent, and chat is the cheap searchable proxy of it, not the product.</li>
+</ol></div></div>
+
+<div class="qa"><div class="q">Are EVA-A and EVA-X being improved too?</div>
+<div class="a"><p><strong>Not yet — and saying otherwise would be false.</strong> The current reward is journal correctness. The plan adds quality as <b>secondary Pareto objectives</b>, which GEPA supports natively: turn length ≤25 words (computable directly), progression (no repeated pitch — computable), and judge-scored conciseness calibrated against the chat pilot's EVA numbers. Pareto matters here: quality as a second axis rather than a weighted sum means the loop cannot buy task completion with verbose robotic turns. Voice EVA-A/EVA-X get re-measured in the S7 transfer check, where the harness caveats (turn_taking is the synthetic caller's latency) are already documented.</p></div></div>
+
+<!-- ══════════════ 04 ══════════════ -->
+<h2><span class="n">04</span>The framework — five stages, one growing memory</h2>
+<p class="sub">Designed to run on millions of conversations. The trick is that only sensing scales with traffic; everything expensive runs on distilled evidence.</p>
+
+<div class="diagram">
+<svg viewBox="0 0 880 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The Reflex loop: sense, distill, search, gate, deploy, cycling back through a growing replay suite">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="currentColor"/>
+    </marker>
+  </defs>
+  <g fill="none" stroke="currentColor" stroke-width="1.4">
+    <rect x="14"  y="60" width="140" height="64" rx="9"/>
+    <rect x="190" y="60" width="140" height="64" rx="9"/>
+    <rect x="366" y="60" width="140" height="64" rx="9"/>
+    <rect x="542" y="60" width="140" height="64" rx="9"/>
+    <rect x="718" y="60" width="148" height="64" rx="9"/>
+    <line x1="154" y1="92" x2="184" y2="92" marker-end="url(#arr)"/>
+    <line x1="330" y1="92" x2="360" y2="92" marker-end="url(#arr)"/>
+    <line x1="506" y1="92" x2="536" y2="92" marker-end="url(#arr)"/>
+    <line x1="682" y1="92" x2="712" y2="92" marker-end="url(#arr)"/>
+    <path d="M 792 128 L 792 196 L 84 196 L 84 130" marker-end="url(#arr)" stroke-dasharray="5 4"/>
+    <path d="M 436 128 L 436 158 L 260 158 L 260 128" marker-end="url(#arr)" stroke-dasharray="2 3"/>
+  </g>
+  <g fill="currentColor" text-anchor="middle">
+    <text x="84"  y="86" class="dlabel">SENSE</text>
+    <text x="260" y="86" class="dlabel">DISTILL</text>
+    <text x="442" y="86" class="dlabel">SEARCH</text>
+    <text x="612" y="86" class="dlabel">GATE</text>
+    <text x="792" y="86" class="dlabel">DEPLOY</text>
+    <text x="84"  y="104" class="dsub">invariants · judges</text>
+    <text x="260" y="104" class="dsub">failure packets</text>
+    <text x="442" y="104" class="dsub">GEPA on staging</text>
+    <text x="612" y="104" class="dsub">blind + veto + stats</text>
+    <text x="792" y="104" class="dsub">canary → commit</text>
+    <text x="438" y="214" class="dsub">next generation: champion becomes seed, replay suite has grown</text>
+    <text x="348" y="150" class="dsub">explore ⇄ consolidate</text>
+  </g>
+</svg>
+</div>
+
+<div class="tw"><table>
+<tr><th>Stage</th><th>What it does</th><th>Status</th><th>At millions of calls</th></tr>
+<tr><td><b>Sense</b></td><td>Journal invariants on every conversation; calibrated LLM judges on a sample; outcome KPIs (promise-kept rate, escalation validity)</td><td class="good">invariants built, P=1.00 · judges designed</td><td>invariants free on 100% · judges on 1–5% sampled</td></tr>
+<tr><td><b>Distill</b></td><td>Cluster violations into ranked failure packets; convert recurring failures into new replay scenarios — <b>the regression suite grows; this is the system's memory</b></td><td class="good">taxonomy built · synthetic-15 was a manual dry run</td><td>nightly batch; suite grows sub-linearly with traffic</td></tr>
+<tr><td><b>Search</b></td><td>GEPA explore + consolidate over prompt, tool descriptions, greeting — applied via authoring API, evaluated by real conversations, scored from the journal</td><td class="warn">explore built · consolidate to build</td><td>O(hundreds) of rollouts per generation, independent of traffic volume</td></tr>
+<tr><td><b>Gate</b></td><td>Blind split evaluated once; guardrail-family veto; per-case regression list; McNemar + Wilson intervals</td><td class="warn">gate built · stats to add</td><td>same suite, frozen and hashed</td></tr>
+<tr><td><b>Deploy</b></td><td>Draft = staging, commit = production — Indus's own version model. Canary %-traffic, invariant-rate comparison, auto-rollback = re-apply parent</td><td class="good">apply/rollback proven over the API · commit stays owner-gated</td><td>canary 1% → 100%; rollback in seconds</td></tr>
+</table></div>
+
+<p><strong>Why this scales:</strong> sensing is deterministic and free at any volume; judges are sampled; search cost depends on the <em>distilled evidence</em>, not the traffic. A system serving a million calls a day and one serving ten thousand run the same three-hundred-conversation generation — the million-call system just sees more failure modes per night, which makes each generation better informed, not more expensive.</p>
+
+<!-- ══════════════ 05 ══════════════ -->
+<h2><span class="n">05</span>Execution plan</h2><p class="sub" style="border-left:3px solid var(--warn);padding-left:12px"><b>Superseded for execution</b> — the single authoritative run order is <code>REFLEX-RUN.html</code>. This section stays as design lineage only.</p>
+<p class="sub">Nothing below is running. Phases A–C are machine time; D needs your voice and your commit.</p>
+
+<div class="phase"><div class="id">A</div><div class="body">
+<b>Clean Generation 1</b> <span class="t">· ~2.5h machine</span>
+<p>Seed = committed v3 text, verbatim. Explore (300 conversations, 34-scenario failure-weighted trainset, 30-scenario valset, counterfactual baseline verdicts in every reflection) → <b>systemic consolidate</b> (100 conversations on the champion's regressions; acceptance = no net loss) → verdict on all 180 → gate with McNemar and Wilson intervals. Zero human candidate text; the harness upgrades are already written.</p></div></div>
+
+<div class="phase"><div class="id">B</div><div class="body">
+<b>Generation 2</b> <span class="t">· ~1.5h machine</span>
+<p>Mine Gen-1's residual failures into a refreshed trainset, re-run explore + consolidate from the Gen-1 champion. This is the slide that says <em>self-improving</em>: improvement produced from evidence the previous generation created.</p></div></div>
+
+<div class="phase"><div class="id">C</div><div class="body">
+<b>Quality objectives</b> <span class="t">· parallel with B</span>
+<p>Turn-length and progression scores into the evaluator as secondary Pareto objectives; EVA-text panel reported beside the pass rate so quality visibly holds while task completion climbs.</p></div></div>
+
+<div class="phase"><div class="id">D</div><div class="body">
+<b>S7 — voice transfer + release</b> <span class="t">· ~1h yours + machine</span>
+<p>You approve and commit the champion as v-next. Same 15 phone cards in your voice, same 5 bot-to-bot records, EVA-A/EVA-X re-measured. The release decision reads all three tiers.</p></div></div>
+
+<div class="phase"><div class="id">E</div><div class="body">
+<b>The presented ladder</b>
+<p>v3 → Gen-1 → Gen-2, all machine lineage, with significance and guardrail non-regression. v4/v5 never appear. The framework diagram in §04 is the centrepiece; the numbers are its evidence.</p></div></div>
+
+<div class="card go">
+<h4 class="good">The honest risk, named now</h4>
+<p style="margin-top:4px">The clean run may land below the contaminated 129/180 — it starts from a weaker seed and must rediscover everything. That is acceptable, and the framing survives it: the claim is <em>the system</em> — sense, distill, search, gate, deploy, compounding across generations — and whatever the clean number is, it is real, significant or honestly labelled otherwise, and reproducible with one command. A slightly smaller true number beats a larger one you cannot defend.</p>
+</div>
+
+<!-- ══════════════ 06 ══════════════ -->
+<h2><span class="n">06</span>The overnight run — built, awaiting approval</h2><p class="sub" style="border-left:3px solid var(--warn);padding-left:12px"><b>Superseded for execution</b> — the single authoritative run order is <code>REFLEX-RUN.html</code>. This section stays as design lineage only.</p>
+<p class="sub">Every component below exists and is syntax-verified. One command runs it; every phase checkpoints, so a crash resumes where it stopped. No human-authored candidate text anywhere in the lineage.</p>
+
+<div class="diagram">
+<svg viewBox="0 0 900 512" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Overnight run: probe, then two generations of explore-verify-consolidate, each gated, ending in a ladder report">
+  <defs><marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="currentColor"/></marker></defs>
+  <g fill="none" stroke="currentColor" stroke-width="1.3">
+    <rect x="20"  y="18"  width="270" height="52" rx="8"/>
+    <rect x="20"  y="98"  width="270" height="52" rx="8"/>
+    <rect x="330" y="98"  width="250" height="52" rx="8"/>
+    <rect x="620" y="98"  width="258" height="52" rx="8"/>
+    <rect x="330" y="188" width="250" height="52" rx="8"/>
+    <rect x="20"  y="188" width="270" height="52" rx="8"/>
+    <rect x="20"  y="278" width="270" height="52" rx="8"/>
+    <rect x="330" y="278" width="250" height="52" rx="8"/>
+    <rect x="620" y="278" width="258" height="52" rx="8"/>
+    <rect x="330" y="368" width="250" height="52" rx="8"/>
+    <rect x="20"  y="368" width="270" height="52" rx="8"/>
+    <rect x="20"  y="448" width="560" height="46" rx="8"/>
+    <line x1="155" y1="70"  x2="155" y2="94"  marker-end="url(#ar2)"/>
+    <line x1="290" y1="124" x2="326" y2="124" marker-end="url(#ar2)"/>
+    <line x1="580" y1="124" x2="616" y2="124" marker-end="url(#ar2)"/>
+    <line x1="749" y1="150" x2="749" y2="170"/><line x1="749" y1="170" x2="455" y2="170"/><line x1="455" y1="170" x2="455" y2="184" marker-end="url(#ar2)"/>
+    <line x1="326" y1="214" x2="294" y2="214" marker-end="url(#ar2)"/>
+    <line x1="155" y1="240" x2="155" y2="274" marker-end="url(#ar2)"/>
+    <line x1="290" y1="304" x2="326" y2="304" marker-end="url(#ar2)"/>
+    <line x1="580" y1="304" x2="616" y2="304" marker-end="url(#ar2)"/>
+    <line x1="749" y1="330" x2="749" y2="350"/><line x1="749" y1="350" x2="455" y2="350"/><line x1="455" y1="350" x2="455" y2="364" marker-end="url(#ar2)"/>
+    <line x1="326" y1="394" x2="294" y2="394" marker-end="url(#ar2)"/>
+    <line x1="155" y1="420" x2="155" y2="444" marker-end="url(#ar2)"/>
+  </g>
+  <g fill="currentColor" text-anchor="middle">
+    <text x="155" y="40" class="dlabel">P1 · NOISE PROBE</text><text x="155" y="56" class="dsub">v3 seed × 2 runs → σ, flip-rate</text>
+    <text x="155" y="120" class="dlabel">P2 · GEN-1 EXPLORE</text><text x="155" y="136" class="dsub">GEPA 380 conv · 2 components · merge on</text>
+    <text x="455" y="120" class="dlabel">P3 · DEV VERDICT</text><text x="455" y="136" class="dsub">champion on 105 → regressions + stuck</text>
+    <text x="749" y="120" class="dlabel">P4 · CONSOLIDATE</text><text x="749" y="136" class="dsub">GEPA 100 on regressions + protected fixes</text>
+    <text x="455" y="214" class="dlabel">PICK GEN-1 FINAL</text><text x="455" y="230" class="dsub">argmax shared 30-valset score</text>
+    <text x="155" y="214" class="dlabel">P5 · GEN-1 VERDICT</text><text x="155" y="230" class="dsub">all 180 · gate vs v3</text>
+    <text x="155" y="300" class="dlabel">P6 · GEN-2 EXPLORE</text><text x="155" y="316" class="dsub">GEPA 300 · seed = gen-1 · stuck excluded</text>
+    <text x="455" y="300" class="dlabel">P6b · DEV VERDICT</text><text x="455" y="316" class="dsub">regressions vs gen-1</text>
+    <text x="749" y="300" class="dlabel">P6c · CONSOLIDATE</text><text x="749" y="316" class="dsub">GEPA 100</text>
+    <text x="455" y="394" class="dlabel">PICK GEN-2 FINAL</text><text x="455" y="410" class="dsub">same shared valset rule</text>
+    <text x="155" y="394" class="dlabel">P7 · GEN-2 VERDICT</text><text x="155" y="410" class="dsub">180 + fresh blind-30 (first touch) · v3 too</text>
+    <text x="300" y="476" class="dlabel">P8 · LADDER + STATS</text><text x="300" y="490" class="dsub">v3→g1→g2 · McNemar exact · Wilson CI · 2σ noise rule · guardrail veto · words/turn guard</text>
+  </g>
+</svg>
+</div>
+
+<h3>What changed since §05 — the three holes are closed in code</h3>
+<div class="tw"><table>
+<tr><th>Hole</th><th>Fix, as built</th><th>Script</th></tr>
+<tr><td><b>H1</b> variance unmeasured</td><td>The v3 seed runs twice over a 45-scenario stratified probe before anything else. Flip-rate → σ for pass-counts at n=30/60/180. The gate then labels any blind delta under 2σ "within noise", gains and losses alike.</td><td><code>noise_probe.py</code></td></tr>
+<tr><td><b>H2</b> blind-set reuse</td><td>The frozen generator is deterministic, so a variants_per_cell=7 universe re-deals the same distribution; everything whose content-hash is absent from the frozen suite is provably unseen. 60 extracted, stratified, hashed in a manifest before any candidate exists: gen-1 gates on the original blind 60 (its first machine-lineage use), gen-2 additionally on fresh blind-30 — with v3 measured on it too, same night, for a fair denominator.</td><td><code>build_fresh_blind.py</code></td></tr>
+<tr><td><b>H3</b> unwinnable failures</td><td>A scenario failed by both the baseline and the gen-1 champion with the identical missing-write signature is tagged <em>stuck</em> — two distinct prompts, same failure — and excluded from gen-2's <em>search attention</em>, never from its verdicts. Scoring stays honest; the optimiser stops grinding. Each generation re-tests the bucket, so anything that becomes winnable re-enters on evidence.</td><td><code>gen_regressions.py</code></td></tr>
+</table></div>
+
+<h3>The MIPROv2 graft — candidates now have two components</h3>
+<p>The GEPA candidate is no longer one text. It is <code>{instructions, exemplars}</code>: the exemplars component seeds from <b>worked examples machine-mined from the baseline's own passing calls</b> — shortest passing conversation per behaviour, journal writes shown at their position, selected by rule, authored by no one. GEPA's round-robin component selector then evolves the two on their own schedules, which is MIPRO's actual lesson: instructions tell, examples show, and they improve differently. Merge is enabled, so frontier specialists (the candidate that fixed disputes, the one that fixed escalations) can recombine instead of one being discarded. The trainset sampler is now <b>severity-weighted</b>: safety and fraud families get up to 4 failing slots, bookkeeping families 2 — search attention follows what a failure costs, not how often it occurs.</p>
+
+<h3>Consolidation is now the system's job</h3>
+<p>The step that contaminated v5 — a human repairing the champion's regressions — is Phase 4/6c: measure the champion on the full development split, hand its regressions (plus a protected sample of its own fixes) to a short second GEPA run seeded from the champion, and pick between the two by their score on the <em>same</em> 30-scenario valset. The evidence that taught the human is now fed to the machine.</p>
+
+<h3>Budget and clock</h3>
+<div class="tw"><table>
+<tr><th>Phase</th><th class="num">conversations</th><th class="num">est. wall</th></tr>
+<tr><td>P1 noise probe (45 × 2)</td><td class="num">90</td><td class="num">~15m</td></tr>
+<tr><td>P2 gen-1 explore</td><td class="num">380</td><td class="num">~85m</td></tr>
+<tr><td>P3 dev verdict</td><td class="num">105</td><td class="num">~17m</td></tr>
+<tr><td>P4 consolidate</td><td class="num">100</td><td class="num">~25m</td></tr>
+<tr><td>P5 gen-1 verdict</td><td class="num">180</td><td class="num">~28m</td></tr>
+<tr><td>P6 gen-2 explore + dev + consolidate</td><td class="num">505</td><td class="num">~110m</td></tr>
+<tr><td>P7 gen-2 verdict + fresh blind ×2</td><td class="num">240</td><td class="num">~38m</td></tr>
+<tr class="total"><td>total (chat is credit-free, canary-verified)</td><td class="num">~1,600</td><td class="num">~5.5–6.5h</td></tr>
+</table></div>
+
+<h3>Risks, named</h3>
+<ul>
+<li><b>Dashboard JWT expiry.</b> The run aborts at start unless the token has &gt;7h left; it is re-captured at launch.</li>
+<li><b>The clean number may land under the contaminated 129.</b> It starts from a weaker seed. The claim survives: two machine generations, significance-tested, guardrail-vetoed, reproducible.</li>
+<li><b>Reflector quota.</b> Gemini 3.1 Pro preview may rate-limit; GEPA retries, and the run resumes from checkpoints if killed.</li>
+<li><b>Generator writes in place.</b> Discovered the hard way tonight — a wide build overwrote the frozen suite; recovered bit-identically (the generator is deterministic; all 165 regenerated caller lines matched the recorded runs) and the fresh-blind builder now generates into a sandbox.</li>
+</ul>
+
+<div class="card go"><h4 class="good">Launch</h4>
+<p style="margin:4px 0 0"><code>bash scripts/overnight_reflex.sh</code> — after a fresh JWT capture. Ends with the champion on the draft, uncommitted, and the ladder report with every statistic the morning claim needs.</p></div>
+
+<div class="foot">Loopline · campaign 2 · agent EasyCredit--4e112b0d-9931 · baseline v3 committed · all figures journal-verified · grader v1.1 environment-conditioned (strict figures reported alongside)</div>
+</div>

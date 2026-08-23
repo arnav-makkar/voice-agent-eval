@@ -72,7 +72,11 @@ SETTLEMENT_CLAIM = re.compile(
 
 DATE_PATTERN = re.compile(r"\b(\d{1,2})[-/](\d{1,2})[-/](\d{4})\b")
 
-WRITE_TOOLS = {"record_promise_to_pay", "schedule_callback"}
+# Tools that commit a caller's claim or commitment to the ledger. A spoken
+# "I have recorded that" is only true if one of these executed.
+WRITE_TOOLS = {
+    "record_promise_to_pay", "schedule_callback", "record_dispute", "escalate_to_human",
+}
 
 
 def _read_jsonl(path: Path) -> list[dict[str, Any]]:

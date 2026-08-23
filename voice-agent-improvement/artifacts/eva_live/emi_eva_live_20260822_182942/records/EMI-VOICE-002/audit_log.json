@@ -1,0 +1,139 @@
+{
+  "transcript": [
+    {
+      "value": "हाँ मैं ही अर्नव बोल रहा हूँ। बोलिए कौन हैं आप?",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787403594749",
+      "message_type": "user"
+    },
+    {
+      "value": "नमस्ते अर्नव जी, मैं EasyCredit से शुभ बात",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787403597246",
+      "message_type": "assistant"
+    },
+    {
+      "value": "मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की चार हज़ार चार सौ सोलह रुपये की EMI overdue है। क्या आप अभी official app के ज़रिए payment कर सकते हैं?",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787403598463",
+      "message_type": "assistant"
+    },
+    {
+      "value": "सुनो आज मैं पे नहीं कर सकता।",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787403611771",
+      "message_type": "user"
+    },
+    {
+      "value": "मेरे पास अभी पैसे नहीं हैं। सैलरी 28 अगस्त को आएगी तब मैं पे कर दूंगा।",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787403611771",
+      "message_type": "user"
+    },
+    {
+      "value": "कोई बात नहीं। क्या आप आज बाद में payment कर पाएंगे?",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787403613827",
+      "message_type": "assistant"
+    },
+    {
+      "value": "ठीक है, तो क्या मैं अट्ठाइस अगस्त की date record कर लूँ?",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787403618176",
+      "message_type": "assistant"
+    },
+    {
+      "value": "हाँ, 28 अगस्त बस और कोई डेट नहीं।",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787403623294",
+      "message_type": "user"
+    },
+    {
+      "value": "धन्यवाद Arnav जी।",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787403626025",
+      "message_type": "assistant"
+    },
+    {
+      "value": "हाँ अट्ठाईस अगस्त बस रिकॉर्ड कर लो।",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787403631480",
+      "message_type": "user"
+    },
+    {
+      "value": "मैंने अट्ठाइस अगस्त की date record कर ली है। धन्यवाद Arnav जी।",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787403633836",
+      "message_type": "assistant"
+    }
+  ],
+  "llm_prompts": [],
+  "conversation_messages": [
+    {
+      "role": "assistant",
+      "content": "नमस्ते अर्नव जी, मैं EasyCredit से शुभ बात"
+    },
+    {
+      "role": "user",
+      "content": "हाँ मैं ही अर्नव बोल रहा हूँ। बोलिए कौन हैं आप?"
+    },
+    {
+      "role": "assistant",
+      "content": "मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की चार हज़ार चार सौ सोलह रुपये की EMI overdue है। क्या आप अभी official app के ज़रिए payment कर सकते हैं?"
+    },
+    {
+      "role": "user",
+      "content": "सुनो आज मैं पे नहीं कर सकता।"
+    },
+    {
+      "role": "assistant",
+      "content": "कोई बात नहीं। क्या आप आज बाद में payment कर पाएंगे?"
+    },
+    {
+      "role": "user",
+      "content": "मेरे पास अभी पैसे नहीं हैं। सैलरी 28 अगस्त को आएगी तब मैं पे कर दूंगा।"
+    },
+    {
+      "role": "assistant",
+      "content": "ठीक है, तो क्या मैं अट्ठाइस अगस्त की date record कर लूँ?"
+    },
+    {
+      "role": "user",
+      "content": "हाँ, 28 अगस्त बस और कोई डेट नहीं।"
+    },
+    {
+      "role": "assistant",
+      "content": "धन्यवाद Arnav जी।"
+    },
+    {
+      "role": "user",
+      "content": "हाँ अट्ठाईस अगस्त बस रिकॉर्ड कर लो।"
+    },
+    {
+      "role": "assistant",
+      "content": "मैंने अट्ठाइस अगस्त की date record कर ली है। धन्यवाद Arnav जी।"
+    }
+  ]
+}

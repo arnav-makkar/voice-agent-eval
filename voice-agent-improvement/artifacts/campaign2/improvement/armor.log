@@ -1,0 +1,12 @@
+=== A. paraphrase robustness: v3 vs champion on 30 reworded blind ===
+  applied seed_v3_plain.md
+  paraphrase: 15/30 passed
+  applied CHAMPION.json
+  paraphrase: 22/30 passed
+=== B. exemplar ablation: champion minus its exemplars component, on blind 60 ===
+  applied ablation_no_exemplars.json
+  validation: 21/30 passed
+  regression: 21/30 passed
+=== restore champion ===
+  applied CHAMPION.json
+=== ARMOR COMPLETE ===

@@ -1,0 +1,328 @@
+[
+  {
+    "event": "tool_state_seeded",
+    "timestamp_ms": "1787503792577",
+    "run_id": "EMI-VOICE-003",
+    "account_id": "EC-DEMO-2984"
+  },
+  {
+    "event": "samvaad_connected",
+    "timestamp_ms": "1787503793002",
+    "interaction_id": null
+  },
+  {
+    "event": "twilio_start",
+    "timestamp_ms": "1787503793002",
+    "stream_sid": "EMI-VOICE-003"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787503793542",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787503793642",
+    "type": "server.action.interaction_connected",
+    "interaction_id": "20260823/1ce41e84-22:19:53-9af21188"
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787503796357"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787503796461",
+    "sample_rate": 16000
+  },
+  {
+    "event": "user_audio_start",
+    "timestamp_ms": "1787503798849",
+    "source_timestamp_ms": "1787503798847"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787503799278",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787503799379"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787503799480",
+    "sample_rate": 16000
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787503801896"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787503801998",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787503802097",
+    "role": "user",
+    "text": "Sorry, I think you have the wrong number. I am Arnav."
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787503802938",
+    "role": "bot",
+    "text": "I am Shubh from EasyCredit. This is about the overdue EMI of 4 thousand 4 hundred 16 rupees for your Samsung Smart TV.\n\nCan you pay this now through the official EasyCredit app?"
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787503812696"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787503812799",
+    "sample_rate": 16000
+  },
+  {
+    "event": "user_audio_stop",
+    "timestamp_ms": "1787503813880",
+    "source_timestamp_ms": "345085312"
+  },
+  {
+    "event": "user_audio_start",
+    "timestamp_ms": "1787503814058",
+    "source_timestamp_ms": "1787503814056"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787503814209",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787503814310"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787503814414",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787503816321",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787503816423"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787503816524",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787503816624",
+    "role": "user",
+    "text": "Look, I'm driving right now and cannot talk."
+  },
+  {
+    "event": "user_audio_stop",
+    "timestamp_ms": "1787503818118",
+    "source_timestamp_ms": "345089550"
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787503818134"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787503818239",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787503818335",
+    "role": "user",
+    "text": "Look, I'm driving right now and cannot talk. Please call me back tomorrow morning."
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787503818536",
+    "role": "bot",
+    "text": "Sure. What time tomorrow morning should I call you back?"
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787503821558"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787503821661",
+    "sample_rate": 16000
+  },
+  {
+    "event": "user_audio_start",
+    "timestamp_ms": "1787503822257",
+    "source_timestamp_ms": "1787503822255"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787503822564",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787503822665"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787503822769",
+    "sample_rate": 16000
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787503825418"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787503825547",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787503825618",
+    "role": "user",
+    "text": "Call me back tomorrow morning between 9 and 10."
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787503826824",
+    "role": "bot",
+    "text": "Okay, I will call you tomorrow between 9 and 10 AM."
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787503830444"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787503830546",
+    "sample_rate": 16000
+  },
+  {
+    "event": "user_audio_stop",
+    "timestamp_ms": "1787503832568",
+    "source_timestamp_ms": "345103999"
+  },
+  {
+    "event": "user_audio_start",
+    "timestamp_ms": "1787503832698",
+    "source_timestamp_ms": "1787503832696"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787503832859",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787503832963"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787503833062",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787503833393",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787503833495"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787503833598",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787503835809",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787503835911"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787503836013",
+    "sample_rate": 16000
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787503836716"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787503836817",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787503836916",
+    "role": "user",
+    "text": "Thanks. Please call me tomorrow morning between 9 and 10. I have to go now."
+  },
+  {
+    "event": "user_audio_stop",
+    "timestamp_ms": "1787503836918",
+    "source_timestamp_ms": "345108351"
+  },
+  {
+    "event": "twilio_stop_sent",
+    "timestamp_ms": "1787503840513",
+    "reason": "assistant_completed"
+  },
+  {
+    "event": "conversation_ending",
+    "timestamp_ms": "1787503840515",
+    "reason": "assistant_completed"
+  },
+  {
+    "event": "samvaad_disconnected",
+    "timestamp_ms": "1787503840589",
+    "interaction_id": "20260823/1ce41e84-22:19:53-9af21188"
+  },
+  {
+    "event": "analytics_attempt_resolved",
+    "timestamp_ms": "1787503861220",
+    "interaction_id": "20260823/1ce41e84-22:19:53-9af21188"
+  },
+  {
+    "event": "tool_state_resolved",
+    "timestamp_ms": "1787503861271",
+    "event_count": 2
+  },
+  {
+    "event": "audio_perturbation_summary",
+    "timestamp_ms": "1787503861282",
+    "config": {
+      "kind": "clean"
+    },
+    "chunks": 702,
+    "dropped_chunks": 0
+  }
+]

@@ -1,0 +1,22 @@
+{"timestamp": 1787404284130, "sequence": 1, "type": "connection_state", "data": {"state": "connected", "details": {"server_url": "ws://localhost:10000/ws"}}, "provider": "elevenlabs"}
+{"timestamp": 1787404284652, "sequence": 2, "type": "connection_state", "data": {"state": "session_started", "details": {}}, "provider": "elevenlabs"}
+{"timestamp": 1787404285119, "sequence": 3, "event_type": "audio_start", "user": "assistant", "audio_timestamp": 1787404285.119654, "provider": "elevenlabs"}
+{"timestamp": 1787404290489, "sequence": 4, "event_type": "audio_start", "user": "simulated_user", "audio_timestamp": 1787404290.489532, "provider": "elevenlabs"}
+{"timestamp": 1787404292244, "sequence": 5, "event_type": "audio_end", "user": "assistant", "audio_timestamp": 1787404291.8774958, "provider": "elevenlabs"}
+{"timestamp": 1787404292262, "sequence": 6, "event_type": "audio_start", "user": "assistant", "audio_timestamp": 1787404292.262441, "provider": "elevenlabs"}
+{"timestamp": 1787404304885, "sequence": 7, "event_type": "audio_end", "user": "simulated_user", "audio_timestamp": 1787404304.8843532, "provider": "elevenlabs"}
+{"timestamp": 1787404305008, "sequence": 8, "event_type": "audio_start", "user": "simulated_user", "audio_timestamp": 1787404305.0077271, "provider": "elevenlabs"}
+{"timestamp": 1787404306029, "sequence": 9, "event_type": "audio_end", "user": "assistant", "audio_timestamp": 1787404305.7476492, "provider": "elevenlabs"}
+{"timestamp": 1787404306061, "sequence": 10, "event_type": "audio_start", "user": "assistant", "audio_timestamp": 1787404306.061379, "provider": "elevenlabs"}
+{"timestamp": 1787404307974, "sequence": 11, "event_type": "audio_end", "user": "assistant", "audio_timestamp": 1787404307.6899502, "provider": "elevenlabs"}
+{"timestamp": 1787404307986, "sequence": 12, "event_type": "audio_start", "user": "assistant", "audio_timestamp": 1787404307.986111, "provider": "elevenlabs"}
+{"timestamp": 1787404313869, "sequence": 13, "event_type": "audio_end", "user": "simulated_user", "audio_timestamp": 1787404313.2708845, "provider": "elevenlabs"}
+{"timestamp": 1787404322188, "sequence": 14, "event_type": "audio_start", "user": "simulated_user", "audio_timestamp": 1787404322.186728, "provider": "elevenlabs"}
+{"timestamp": 1787404326265, "sequence": 15, "event_type": "audio_end", "user": "assistant", "audio_timestamp": 1787404326.265502, "provider": "elevenlabs"}
+{"timestamp": 1787404284000, "sequence": 16, "type": "assistant_speech", "data": {"text": "नवसिंह, क्या नावजी से बात कर रहा हूँ।", "source": "assistant", "recovered_post_call": true}, "provider": "elevenlabs"}
+{"timestamp": 1787404288000, "sequence": 17, "type": "user_speech", "data": {"text": "[confused] Arnav bol raha hoon, aap kaun hain?", "source": "simulated_user", "recovered_post_call": true}, "provider": "elevenlabs"}
+{"timestamp": 1787404292000, "sequence": 18, "type": "assistant_speech", "data": {"text": "मैं इसी करीब से शुभारंभ कर रहा हूँ। आपके Samsung Smart TV की 4,416 रुपये की EMI overdue है। क्या आप अभी official Easy Credit app के ज़रिए payment कर सकते हैं?", "source": "assistant", "recovered_post_call": true}, "provider": "elevenlabs"}
+{"timestamp": 1787404303000, "sequence": 19, "type": "user_speech", "data": {"text": "[angry] Suno, maine ye TV kabhi nahi khareeda. Ye loan mere naam par galat hua hai. Mujhse paise mat maango, mujhe dispute record karo aur recovery calls band karo.", "source": "simulated_user", "recovered_post_call": true}, "provider": "elevenlabs"}
+{"timestamp": 1787404315000, "sequence": 20, "type": "assistant_speech", "data": {"text": "मैंने आपका dispute record कर लिया है। इसके अलावा मैं आपकी और क्या help कर सकता हूँ?", "source": "assistant", "recovered_post_call": true}, "provider": "elevenlabs"}
+{"timestamp": 1787404320000, "sequence": 21, "type": "user_speech", "data": {"text": "[relieved] Theek hai, ab recovery calls band karo. Goodbye.", "source": "simulated_user", "recovered_post_call": true}, "provider": "elevenlabs"}
+{"timestamp": 1787404342130, "sequence": 22, "type": "connection_state", "data": {"state": "session_ended", "details": {"reason": "goodbye"}}, "provider": "elevenlabs"}

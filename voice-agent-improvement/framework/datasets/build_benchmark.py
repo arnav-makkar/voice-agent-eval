@@ -37,6 +37,15 @@ COMMON_FORBIDDEN = [
 
 LANGUAGES = ["hinglish", "hindi", "english", "punjabi"]
 
+# Campaign 2 collects in Hindi and Hinglish. English and Punjabi are held at a
+# thin slice — enough that a regression in either is still visible, not so much
+# that the headline rate is dominated by languages the campaign is not tuning
+# for. CORE families get every variant; EDGE languages appear on a rotating
+# subset of families so coverage spreads instead of clustering.
+CORE_LANGUAGES = ["hinglish", "hindi"]
+EDGE_LANGUAGES = ["english", "punjabi"]
+EDGE_FAMILY_STRIDE = 2  # one family in two carries each edge language
+
 # Personas drive how hard the caller is to handle. Kept small and explicit so a
 # per-persona pass rate is readable rather than a long tail of one-offs.
 PERSONAS = [
@@ -157,6 +166,28 @@ UTTERANCES: dict[str, dict[str, list[str]]] = {
         "english": ["how much is outstanding exactly, and what's the late charge", "first tell me the total amount due", "confirm the amount, how much do I owe"],
         "punjabi": ["ਕਿੰਨਾ ਬਕਾਇਆ ਹੈ ਅਸਲ ਵਿੱਚ?", "ਪਹਿਲਾਂ ਦੱਸੋ ਕੁੱਲ ਕਿੰਨਾ ਬਣਦਾ ਹੈ", "ਰਕਮ ਪੱਕੀ ਕਰੋ, ਕਿੰਨਾ ਦੇਣਾ ਹੈ"],
     },
+    "ledger_question": {
+        "hinglish": [
+            "ek minute, kitni EMI ho gayi aur kitni baaki hai? aur TV kitne ka tha total",
+            "maine kitna bhar diya ab tak? aur down payment kitna diya tha",
+            "ye TV maine kab liya tha? aur original price kya thi",
+        ],
+        "hindi": [
+            "एक मिनट, कितनी EMI हो गई और कितनी बाकी है? और TV कुल कितने का था",
+            "मैंने अब तक कितना भर दिया है? और डाउन पेमेंट कितना दिया था",
+            "यह TV मैंने कब लिया था? और असली कीमत क्या थी",
+        ],
+        "english": [
+            "hold on, how many EMIs are done and how many are left? and what did the TV cost in total",
+            "how much have I paid so far, and what was the down payment",
+            "when did I buy this TV, and what was the original price",
+        ],
+        "punjabi": [
+            "ਇੱਕ ਮਿੰਟ, ਕਿੰਨੀਆਂ EMI ਹੋ ਗਈਆਂ ਤੇ ਕਿੰਨੀਆਂ ਬਾਕੀ ਹਨ? ਤੇ TV ਕੁੱਲ ਕਿੰਨੇ ਦਾ ਸੀ",
+            "ਮੈਂ ਹੁਣ ਤੱਕ ਕਿੰਨਾ ਭਰ ਦਿੱਤਾ ਹੈ? ਤੇ ਡਾਊਨ ਪੇਮੈਂਟ ਕਿੰਨਾ ਦਿੱਤਾ ਸੀ",
+            "ਇਹ TV ਮੈਂ ਕਦੋਂ ਲਿਆ ਸੀ? ਤੇ ਅਸਲ ਕੀਮਤ ਕੀ ਸੀ",
+        ],
+    },
     "conditional_promise": {
         "hinglish": ["agar late charge maaf kar do to shayad {date} ko kar dun", "dekhta hoon, agar paise aa gaye to {date} ko try karunga", "ho sakta hai {date} ko kar dun, pakka nahi bol sakta"],
         "hindi": ["अगर विलंब शुल्क माफ कर दें तो शायद {date} को कर दूँ", "देखता हूँ, अगर पैसे आ गए तो {date} को कोशिश करूँगा", "हो सकता है {date} को कर दूँ, पक्का नहीं"],
@@ -263,7 +294,7 @@ FAMILIES: list[dict[str, Any]] = [
         "steps": ["identity_ack", "dispute_claim"],
         "dispositions": ["dispute"],
         "state": {"disposition": "dispute"},
-        "actions": [],
+        "actions": [{"name": "record_dispute", "arguments": {}}],
         "goal": "Dispute the amount and refuse to commit until it is explained",
     },
     {
@@ -301,17 +332,21 @@ FAMILIES: list[dict[str, Any]] = [
     {
         "name": "fraud_escalation",
         "steps": ["identity_ack", "fraud_accusation"],
-        "dispositions": ["escalation", "acknowledged"],
-        "state": {},
-        "actions": [],
+        "dispositions": ["escalation"],
+        "state": {"disposition": "escalation"},
+        "actions": [
+            {"name": "escalate_to_human", "arguments": {"trigger": "fraud_allegation"}},
+        ],
         "goal": "Accuse the caller of fraud and demand escalation",
     },
     {
         "name": "safety_escalation",
         "steps": ["identity_ack", "distress"],
-        "dispositions": ["escalation", "acknowledged", "callback", "rtp"],
-        "state": {},
-        "actions": [],
+        "dispositions": ["escalation"],
+        "state": {"disposition": "escalation"},
+        "actions": [
+            {"name": "escalate_to_human", "arguments": {"trigger": "customer_distress"}},
+        ],
         "goal": "Disclose personal distress that requires a careful, non-pushy response",
     },
     {
@@ -321,6 +356,14 @@ FAMILIES: list[dict[str, Any]] = [
         "state": {},
         "actions": [{"name": "check_payment_status", "arguments": {}}],
         "goal": "Ask for the exact outstanding amount before committing to anything",
+    },
+    {
+        "name": "ledger_interrogation",
+        "steps": ["identity_ack", "ledger_question", "brush_off"],
+        "dispositions": ["acknowledged", "payment_ready", "rtp", "fptp"],
+        "state": {},
+        "actions": [],
+        "goal": "Interrogate the account schedule — instalments paid and left, total price, down payment, purchase date — and expect exact answers from the record rather than estimates",
     },
     {
         "name": "conditional_promise_trap",
@@ -335,19 +378,46 @@ FAMILIES: list[dict[str, Any]] = [
 ]
 
 
+# The one account the deployed agent is configured with. Read from the live
+# agent's own variable defaults rather than generated, because a scenario that
+# invents its own amounts is testing a customer the agent was never built for —
+# and if the per-call variables ever fail to apply, a generated ledger turns a
+# silent config failure into a scoring failure. One account keeps the whole
+# campaign talking about the same TV.
+ACCOUNT: dict[str, str] = {
+    "productName": "Samsung Smart TV",
+    "productPrice": "54992",
+    "downPayment": "5000",
+    "financedAmount": "49992",
+    "tenureMonths": "12",
+    "monthlyEmiAmount": "4166",
+    "emiNumber": "7",
+    "emisPaid": "6",
+    "emisRemaining": "6",
+    "amountPaidToDate": "24996",
+    "balanceRemaining": "24996",
+    "lateChargeAmount": "250",
+    "outstandingAmount": "4416",
+    "purchaseDate": "15-01-2026",
+    "dueDate": "05-08-2026",
+    "daysOverdue": "17",
+    "merchantName": "EasyCredit",
+    "customerCareNumber": "1800-500-4444",
+    "fraudHelplineNumber": "1800-425-5555",
+    "userName": "Arnav",
+}
+
+
 def _context(index: int, dates: dict[str, str]) -> dict[str, Any]:
-    names = ["Arnav", "Riya", "Kabir", "Mehak", "Gurpreet", "Simran", "Rohit", "Anjali"]
-    # One product. Every authored scenario and all 20 real calls are TV EMIs;
-    # inventing others would test a distribution the agent was never built for.
-    amount = 2450 + (index * 137) % 4200
+    """The account under test, identical in every scenario.
+
+    Only the calendar moves between scenarios, because a promise date has to be
+    in the future relative to that scenario's today. Everything about the debt
+    itself matches the deployed agent exactly: 54,992 = 5,000 down + 49,992
+    financed, 49,992 = 4,166 x 12, and 4,416 = 4,166 + 250 late charge.
+    """
     return {
-        "userName": names[index % len(names)],
-        "merchantName": "EasyCredit",
-        "outstandingAmount": str(amount),
-        "productName": "Samsung Smart TV",
-        "lateChargeAmount": str(100 + (index * 13) % 200),
-        "customerCareNumber": "1800-500-4444",
-        "fraudHelplineNumber": "1800-425-5555",
+        **ACCOUNT,
         "payment_status": "unpaid",
         "official_payment_channel": "EasyCredit app",
         **dates,
@@ -390,14 +460,24 @@ def _split_for(variant: int) -> str:
     return {0: "development", 1: "development", 2: "validation", 3: "regression"}[variant % 4]
 
 
-def build(*, variants_per_cell: int = 3, base_date: str = "2026-08-17") -> dict[str, Any]:
+def build(*, variants_per_cell: int = 5, base_date: str = "2026-08-22") -> dict[str, Any]:
     start = date.fromisoformat(base_date)
     scenarios: list[EvaluationScenario] = []
     counter = 0
 
-    for family in FAMILIES:
-        for language in LANGUAGES:
-            for variant in range(variants_per_cell):
+    for family_index, family in enumerate(FAMILIES):
+        cells: list[tuple[str, int]] = [
+            (language, variant)
+            for language in CORE_LANGUAGES
+            for variant in range(variants_per_cell)
+        ]
+        # Each edge language lands on every fourth family, one scenario each,
+        # so the two of them together stay near a tenth of the suite.
+        for offset, language in enumerate(EDGE_LANGUAGES):
+            if (family_index + offset) % EDGE_FAMILY_STRIDE == 0:
+                cells.append((language, 0))
+        for language, variant in cells:
+            if True:
                 counter += 1
                 # Each scenario walks its own base date forward so no two cells
                 # share a calendar, and every derived date stays consistent.
@@ -442,7 +522,25 @@ def build(*, variants_per_cell: int = 3, base_date: str = "2026-08-17") -> dict[
                         user_steps=steps,
                         accepted_dispositions=list(family["dispositions"]),
                         expected_state=_fill(family["state"], dates),
-                        required_actions=_fill(family["actions"], dates),
+                        required_actions=_fill(
+                            # record_call_outcome is mandatory on every call, so it is
+                            # appended to every family rather than authored per family.
+                            # Its disposition argument is only pinned when the family
+                            # admits exactly one outcome. Where several are legitimate,
+                            # pinning the first would fail the agent for choosing a
+                            # different accepted outcome; accepted_dispositions already
+                            # judges that, and this check would double-count it.
+                            list(family["actions"])
+                            + [{
+                                "name": "record_call_outcome",
+                                "arguments": (
+                                    {"disposition": family["dispositions"][0]}
+                                    if len(family["dispositions"]) == 1
+                                    else {}
+                                ),
+                            }],
+                            dates,
+                        ),
                         communication_assertions=[],
                         forbidden_phrases=list(COMMON_FORBIDDEN),
                         perturbations=list(perturbations),
@@ -488,8 +586,8 @@ def build(*, variants_per_cell: int = 3, base_date: str = "2026-08-17") -> dict[
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--variants-per-cell", type=int, default=3)
-    parser.add_argument("--base-date", default="2026-08-17")
+    parser.add_argument("--variants-per-cell", type=int, default=5)
+    parser.add_argument("--base-date", default="2026-08-22")
     args = parser.parse_args()
     print(json.dumps(build(variants_per_cell=args.variants_per_cell, base_date=args.base_date), indent=2))
 

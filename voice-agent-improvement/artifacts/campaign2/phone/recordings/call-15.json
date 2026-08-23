@@ -1,0 +1,101 @@
+{
+ "slug": "call-15",
+ "interaction_id": "20260822/0df3cb18-16:00:07-8273aae3",
+ "start": "Aug 22, 2026, 04:00:07 PM",
+ "duration_s": 60.46,
+ "end_reason": "AGENT_ENDS",
+ "language": "Hindi",
+ "num_messages": 13,
+ "channel_direction": "outbound",
+ "has_recording": true,
+ "transcript": [
+  {
+   "speaker": "agent",
+   "text": "नमस्ते, क्या मैं Arnav जी से बात कर रहा हूँ?",
+   "tools": null
+  },
+  {
+   "speaker": "caller",
+   "text": "हाँ जी सर बताइए।",
+   "tools": null
+  },
+  {
+   "speaker": "agent",
+   "text": "मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की चार हज़ार चार सौ सोलह रुपये की EMI overdue है। क्या आप अभी official EasyCredit app के ज़रिए payment कर सकते हैं?",
+   "tools": null
+  },
+  {
+   "speaker": "caller",
+   "text": "कितनी की EMI थी? कितनी EMI हो गई और कितनी बाकी है?",
+   "tools": null
+  },
+  {
+   "speaker": "agent",
+   "text": "आपकी monthly EMI चार हज़ार एक सौ छियासठ रुपये की है। अब तक छह EMI pay हो चुकी हैं और छह बाकी हैं।",
+   "tools": null
+  },
+  {
+   "speaker": "caller",
+   "text": "ठीक है। टीवी कितने का था टोटल?",
+   "tools": null
+  },
+  {
+   "speaker": "agent",
+   "text": "टीवी की total price चौवन हज़ार नौ सौ बानवे रुपये थी।",
+   "tools": null
+  },
+  {
+   "speaker": "caller",
+   "text": "सारा कुछ फाइनेंस किया गया था पूरा पेमेंट।",
+   "tools": null
+  },
+  {
+   "speaker": "agent",
+   "text": "नहीं, आपने पाँच हज़ार रुपये down payment दी थी और बाकी उनचास हज़ार नौ सौ बानवे रुपये finance किए थे।",
+   "tools": null
+  },
+  {
+   "speaker": "caller",
+   "text": "इंटरेस्ट रेट क्या लगता है?",
+   "tools": null
+  },
+  {
+   "speaker": "agent",
+   "text": "मेरे पास interest rate की जानकारी नहीं है। आप इसके लिए customer care number 1 8 0 0 - 5 0 0 - 4 4 4 4 पर call कर सकते हैं।",
+   "tools": null
+  },
+  {
+   "speaker": "caller",
+   "text": "ठीक है, थैंक यू।",
+   "tools": null
+  },
+  {
+   "speaker": "agent",
+   "text": "धन्यवाद Arnav जी, आपका दिन शुभ हो।",
+   "tools": [
+    {
+     "name": "record_call_outcome",
+     "args": {
+      "disposition": "acknowledged"
+     },
+     "output": {
+      "message_to_llm": null,
+      "message_to_user": null,
+      "break_chat_agent_loop": true
+     }
+    },
+    {
+     "name": "end_interaction",
+     "args": {
+      "end_message": "धन्यवाद Arnav जी, आपका दिन शुभ हो।"
+     },
+     "output": {
+      "message_to_llm": null,
+      "message_to_user": null,
+      "break_chat_agent_loop": true
+     }
+    }
+   ]
+  }
+ ]
+}

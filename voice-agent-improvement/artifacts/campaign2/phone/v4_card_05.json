@@ -1,0 +1,20 @@
+{
+ "card": 5,
+ "family": "already_paid",
+ "run_id": "c2-phone-05-v4",
+ "version": 4,
+ "tools": [
+  "check_payment_status"
+ ],
+ "required": [
+  "check_payment_status",
+  "record_call_outcome"
+ ],
+ "missing": [
+  "record_call_outcome"
+ ],
+ "duplicates": null,
+ "passed": false,
+ "exactly_once": true,
+ "v3_passed": false
+}

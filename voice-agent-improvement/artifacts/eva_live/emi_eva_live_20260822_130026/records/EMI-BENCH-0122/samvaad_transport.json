@@ -1,0 +1,595 @@
+[
+  {
+    "event": "tool_state_seeded",
+    "timestamp_ms": "1787384174645",
+    "run_id": "EMI-BENCH-0122",
+    "account_id": "EC-V-0122"
+  },
+  {
+    "event": "samvaad_connected",
+    "timestamp_ms": "1787384175078",
+    "interaction_id": null
+  },
+  {
+    "event": "twilio_start",
+    "timestamp_ms": "1787384175078",
+    "stream_sid": "EMI-BENCH-0122"
+  },
+  {
+    "event": "user_audio_start",
+    "timestamp_ms": "1787384176233",
+    "source_timestamp_ms": "1787384176225"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787384176297",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787384176397",
+    "type": "server.action.interaction_connected",
+    "interaction_id": "20260822/08f83895-13:06:15-aeca6c53"
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787384179163"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787384179270",
+    "sample_rate": 16000
+  },
+  {
+    "event": "user_audio_stop",
+    "timestamp_ms": "1787384180403",
+    "source_timestamp_ms": "225922181"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787384180473",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "user_audio_start",
+    "timestamp_ms": "1787384180529",
+    "source_timestamp_ms": "1787384180527"
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787384180574"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787384180676",
+    "sample_rate": 16000
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787384181479"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787384181578",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787384181782",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787384182399",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787384182500"
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787384182649",
+    "role": "bot",
+    "text": "मैं EasyCredit से शुभ बात"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787384182753",
+    "sample_rate": 16000
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787384182850"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787384182956",
+    "sample_rate": 16000
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787384183314"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787384183412",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787384183513",
+    "role": "user",
+    "text": "हाँ, मैं हूँ। जल्दी बोलिए, काम का है।"
+  },
+  {
+    "event": "user_audio_stop",
+    "timestamp_ms": "1787384183789",
+    "source_timestamp_ms": "225925566"
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787384184546",
+    "role": "bot",
+    "text": "मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की छह हज़ार सात सौ पचास रुपये की EMI overdue है। क्या आप अभी official app के ज़रिए payment कर सकते हैं?"
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787384193567"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787384193669",
+    "sample_rate": 16000
+  },
+  {
+    "event": "user_audio_start",
+    "timestamp_ms": "1787384194445",
+    "source_timestamp_ms": "1787384194443"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787384194773",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787384194873"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787384194974",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787384196990",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787384197091"
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787384197191",
+    "role": "user",
+    "text": "हाँ मैं हूँ। जल्दी बोलिए, काम का है। सुनो मैं अभी पेमेंट नहीं कर सकती।"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787384197298",
+    "sample_rate": 16000
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787384197397"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787384197514",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787384197713",
+    "role": "user",
+    "text": "हाँ मैं हूँ। जल्दी बोलिए, काम का है। सुनो मैं अभी पेमेंट नहीं कर सकता।"
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787384198014",
+    "role": "bot",
+    "text": "मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की छह हज़ार सात सौ पचास रुपये की EMI overdue है। क्या आप अभी official app के ज़रिए payment कर सकते हैं?"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787384198218",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787384198313"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787384198415",
+    "sample_rate": 16000
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787384200030"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787384200132",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787384200232",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787384200331"
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787384200431",
+    "role": "bot",
+    "text": "मुझे यह सुनकर बहुत दुख हुआ"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787384200533",
+    "sample_rate": 16000
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787384200633"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787384200734",
+    "sample_rate": 16000
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787384201557"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787384201660",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787384201964",
+    "role": "user",
+    "text": "हाँ, मैं हूँ। जल्दी बोलिए, काम का है। सुनो, मैं अभी पेमेंट नहीं कर सकता। मेरे घर में सीरियस सिचुएशन है, कोई इमरजेंसी है।"
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787384202360",
+    "role": "bot",
+    "text": "मुझे यह सुनकर बहुत दुख हुआ। आप कृपया customer care number 1 8 0 0-5 0 0-4 4 4 4 पर बात कर लीजिए।"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787384202460",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787384202561"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787384202763",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787384203094",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787384203196"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787384203298",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787384203397",
+    "role": "user",
+    "text": "हाँ, मैं हूँ। जल्दी बोलिए, काम का है। सुनो, मैं अभी पेमेंट नहीं कर सकता। मेरे घर में सीरियस सिचुएशन है, कोई इमरजेंसी है। प्लीज मुझे थोड़ा टाइम दे।"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787384204100",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787384204202"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787384204306",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787384204503",
+    "role": "user",
+    "text": "हाँ, मैं हूँ। जल्दी बोलिए, काम का है। सुनो, मैं अभी पेमेंट नहीं कर सकता। मेरे घर में सीरियस सिचुएशन है, कोई इमरजेंसी है। प्लीज मुझे थोड़ा टाइम दो, मैं..."
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787384205237"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787384205340",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787384205645",
+    "role": "user",
+    "text": "हाँ, मैं हूँ। जल्दी बोलिए, काम का है। सुनो, मैं अभी पेमेंट नहीं कर सकता। मेरे घर में सीरियस सिचुएशन है, कोई इमरजेंसी है। प्लीज मुझे थोड़ा टाइम दो, मैं अरेंज करूँगा।"
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787384207760",
+    "role": "bot",
+    "text": "मुझे यह सुनकर बहुत दुख हुआ। आप कृपया customer care number 1 8 0 0 - 5 0 0 - 4 4 4 4 पर बात कर लीजिए।"
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787384214510"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787384214613",
+    "sample_rate": 16000
+  },
+  {
+    "event": "user_audio_stop",
+    "timestamp_ms": "1787384215658",
+    "source_timestamp_ms": "225957437"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787384215733",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "user_audio_start",
+    "timestamp_ms": "1787384215781",
+    "source_timestamp_ms": "1787384215779"
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787384215834"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787384215936",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787384217493",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787384217593"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787384217703",
+    "sample_rate": 16000
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787384217903"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787384218032",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787384218139",
+    "role": "user",
+    "text": "हाँ, मैं हूँ। जल्दी बोलिए, काम का है। सुनो, मैं अभी पेमेंट नहीं कर सकता। मेरे घर में सीरियस सिचुएशन है, कोई इमरजेंसी है। प्लीज मुझे थोड़ा टाइम दो, मैं अरेंज करूँगा। सुनो, मैं अभी कॉल नहीं कर सकता।"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787384218548",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787384218648"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787384218750",
+    "sample_rate": 16000
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787384218949"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787384219052",
+    "sample_rate": 16000
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787384219956"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787384220058",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787384220358",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787384220458"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787384220564",
+    "sample_rate": 16000
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787384223975"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787384224077",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787384224584",
+    "role": "user",
+    "text": "हाँ, मैं हूँ। जल्दी बोलिए, काम का है। सुनो, मैं अभी पेमेंट नहीं कर सकता। मेरे घर में सीरियस सिचुएशन है, कोई इमरजेंसी है। प्लीज मुझे थोड़ा टाइम दो, मैं अरेंज करूँगा। सुनो, मैं अभी कॉल नहीं कर सकता। मेरे पास टाइम नहीं है और मैं ऑलरेडी एक्सप्लेन कर चुका हूँ कि मेरी सिचुएशन सीरियस है।"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787384225186",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787384225284"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787384225488",
+    "sample_rate": 16000
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787384226508"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787384226608",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787384226729",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787384226830"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787384226932",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787384227031",
+    "role": "user",
+    "text": "हाँ, मैं हूँ। जल्दी बोलिए, काम का है। सुनो, मैं अभी पेमेंट नहीं कर सकता। मेरे घर में सीरियस सिचुएशन है, कोई इमरजेंसी है। प्लीज मुझे थोड़ा टाइम दो, मैं अरेंज करूँगा। सुनो, मैं अभी कॉल नहीं कर सकता, मेरे पास टाइम नहीं है और मैं ऑलरेडी एक्सप्लेन कर चुका हूँ कि मेरी सिचुएशन सीरियस है। प्लीज मुझे कोई और ऑप्शन दो।"
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787384228940"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787384229042",
+    "sample_rate": 16000
+  },
+  {
+    "event": "user_audio_stop",
+    "timestamp_ms": "1787384229202",
+    "source_timestamp_ms": "225970980"
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787384229680",
+    "role": "user",
+    "text": "हाँ, मैं हूँ। जल्दी बोलिए, काम का है। सुनो, मैं अभी पेमेंट नहीं कर सकता। मेरे घर में सीरियस सिचुएशन है, कोई इमरजेंसी है। प्लीज मुझे थोड़ा टाइम दो, मैं अरेंज करूँगा। सुनो, मैं अभी कॉल नहीं कर सकता, मेरे पास टाइम नहीं है और मैं ऑलरेडी एक्सप्लेन कर चुका हूँ कि मेरी सिचुएशन सीरियस है। प्लीज मुझे कोई और ऑप्शन दो या कोई सीनियर पर्सन से बात करने दो।"
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787384230184",
+    "role": "bot",
+    "text": "मैं आपकी परेशानी समझ सकता हूँ। आप customer care number 1 8 0 0 - 5 0 0 - 4 4 4 4 पर बात कर लीजिए।"
+  },
+  {
+    "event": "twilio_stop_sent",
+    "timestamp_ms": "1787384237243",
+    "reason": "assistant_completed"
+  },
+  {
+    "event": "conversation_ending",
+    "timestamp_ms": "1787384237246",
+    "reason": "assistant_completed"
+  },
+  {
+    "event": "samvaad_disconnected",
+    "timestamp_ms": "1787384237304",
+    "interaction_id": "20260822/08f83895-13:06:15-aeca6c53"
+  },
+  {
+    "event": "analytics_attempt_resolved",
+    "timestamp_ms": "1787384259033",
+    "interaction_id": "20260822/08f83895-13:06:15-aeca6c53"
+  },
+  {
+    "event": "tool_state_resolved",
+    "timestamp_ms": "1787384259077",
+    "event_count": 2
+  },
+  {
+    "event": "audio_perturbation_summary",
+    "timestamp_ms": "1787384259093",
+    "config": {
+      "kind": "clean"
+    },
+    "chunks": 1462,
+    "dropped_chunks": 0
+  }
+]

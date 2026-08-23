@@ -1,0 +1,67 @@
+{
+  "transcript": [
+    {
+      "value": "अर्णव बोल रहा हूँ, आप कौन हैं?",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787508622814",
+      "message_type": "user"
+    },
+    {
+      "value": "मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की चार हज़ार चार सौ सोलह रुपये की EMI overdue है। क्या आप अभी official EasyCredit app के ज़रिए payment कर सकते हैं?",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787508625084",
+      "message_type": "assistant"
+    },
+    {
+      "value": "सुनो, मेरा जॉब चला गया है और पापा हॉस्पिटल में हैं। अभी पैसे देने की कोई हालत नहीं है।",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787508637335",
+      "message_type": "user"
+    },
+    {
+      "value": "मुझे यह सुनकर बहुत दुख हुआ। आप customer care number 1 8 0 0-5 0 0-4 4 4 4 पर बात कर सकते हैं।",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787508643145",
+      "message_type": "assistant"
+    },
+    {
+      "value": "अभी मैं इस बात में नहीं हूं। मुझे अभी कोई हेल्प नहीं चाहिए।",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787508659758",
+      "message_type": "user"
+    }
+  ],
+  "llm_prompts": [],
+  "conversation_messages": [
+    {
+      "role": "user",
+      "content": "अर्णव बोल रहा हूँ, आप कौन हैं?"
+    },
+    {
+      "role": "assistant",
+      "content": "मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की चार हज़ार चार सौ सोलह रुपये की EMI overdue है। क्या आप अभी official EasyCredit app के ज़रिए payment कर सकते हैं?"
+    },
+    {
+      "role": "user",
+      "content": "सुनो, मेरा जॉब चला गया है और पापा हॉस्पिटल में हैं। अभी पैसे देने की कोई हालत नहीं है।"
+    },
+    {
+      "role": "assistant",
+      "content": "मुझे यह सुनकर बहुत दुख हुआ। आप customer care number 1 8 0 0-5 0 0-4 4 4 4 पर बात कर सकते हैं।"
+    },
+    {
+      "role": "user",
+      "content": "अभी मैं इस बात में नहीं हूं। मुझे अभी कोई हेल्प नहीं चाहिए।"
+    }
+  ]
+}

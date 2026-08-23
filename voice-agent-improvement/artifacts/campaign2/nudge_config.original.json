@@ -1,0 +1,51 @@
+{
+ "enable_inactivity_nudge": true,
+ "user_nudge_message_configs": [
+  {
+   "timeout_seconds": 5,
+   "nudge_type": "template",
+   "template_messages": null,
+   "multilingual_template_messages": [
+    {
+     "language_text_mapping": {
+      "English": "Hey are you there?",
+      "Hindi": "अरे, है क्या तू?",
+      "Bengali": "এই, আছিস নাকি?",
+      "Gujarati": "એય, છે કે તું?",
+      "Kannada": "ಹೇಗಿದೆ, ಇದ್ದೀಯಾ?",
+      "Malayalam": "എടാ, അവിടെയുണ്ടോ?",
+      "Tamil": "டேய் இருக்கீயா?",
+      "Telugu": "ఒరేయ్ ఉన్నావా?",
+      "Punjabi": "ਓਏ ਤੂੰ ਹੈਗਾ ਐਂ?",
+      "Odia": "ଆରେ ଅଛୁ କି?",
+      "Marathi": "Hey are you there?",
+      "Assamese": "Hey are you there?"
+     },
+     "default_language": "English"
+    }
+   ],
+   "multilingual_template_messages_female": [
+    {
+     "language_text_mapping": {
+      "English": "Hey are you there?",
+      "Hindi": "अरे, है क्या तू?",
+      "Bengali": "এই, আছিস নাকি?",
+      "Gujarati": "એય, છે કે તું?",
+      "Kannada": "ಹೇಗಿದೆ, ಇದ್ದೀಯಾ?",
+      "Malayalam": "എടീ, അവിടെയുണ്ടോ?",
+      "Tamil": "டீ இருக்கீயா?",
+      "Telugu": "ఒరేయ్ ఉన్నావా?",
+      "Punjabi": "ਓਏ ਤੂੰ ਹੈਗੀ ਐਂ?",
+      "Odia": "ଆରେ ଅଛୁ କି?",
+      "Marathi": "Hey are you there?",
+      "Assamese": "Hey are you there?"
+     },
+     "default_language": "English"
+    }
+   ],
+   "choice": "random"
+  }
+ ],
+ "bot_nudge_message_configs": null,
+ "end_interaction_after_consecutive_nudges": true
+}

@@ -1,0 +1,67 @@
+{
+  "transcript": [
+    {
+      "value": "Sorry, you have the wrong number. I am Arnav.",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787497379166",
+      "message_type": "user"
+    },
+    {
+      "value": "I am sorry, but I am calling regarding an overdue EMI for a Samsung Smart TV. Are you the Arnav who purchased this product from EasyCredit?",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787497382064",
+      "message_type": "assistant"
+    },
+    {
+      "value": "I have noted the dispute. I will make sure this is looked into.",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787497397293",
+      "message_type": "assistant"
+    },
+    {
+      "value": "No, I never bought this TV, this loan is not mine. Please raise a dispute and stop these calls.",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787497400186",
+      "message_type": "user"
+    },
+    {
+      "value": "Good, please stop calling me now.",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787497406580",
+      "message_type": "user"
+    }
+  ],
+  "llm_prompts": [],
+  "conversation_messages": [
+    {
+      "role": "user",
+      "content": "Sorry, you have the wrong number. I am Arnav."
+    },
+    {
+      "role": "assistant",
+      "content": "I am sorry, but I am calling regarding an overdue EMI for a Samsung Smart TV. Are you the Arnav who purchased this product from EasyCredit?"
+    },
+    {
+      "role": "user",
+      "content": "No, I never bought this TV, this loan is not mine. Please raise a dispute and stop these calls."
+    },
+    {
+      "role": "assistant",
+      "content": "I have noted the dispute. I will make sure this is looked into."
+    },
+    {
+      "role": "user",
+      "content": "Good, please stop calling me now."
+    }
+  ]
+}

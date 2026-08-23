@@ -1,0 +1,16 @@
+{"timestamp": 1787400826043, "sequence": 1, "type": "connection_state", "data": {"state": "connected", "details": {"server_url": "ws://localhost:10000/ws"}}, "provider": "elevenlabs"}
+{"timestamp": 1787400826590, "sequence": 2, "type": "connection_state", "data": {"state": "session_started", "details": {}}, "provider": "elevenlabs"}
+{"timestamp": 1787400827036, "sequence": 3, "event_type": "audio_start", "user": "assistant", "audio_timestamp": 1787400827.0366468, "provider": "elevenlabs"}
+{"timestamp": 1787400827694, "sequence": 4, "event_type": "audio_start", "user": "simulated_user", "audio_timestamp": 1787400827.693651, "provider": "elevenlabs"}
+{"timestamp": 1787400833426, "sequence": 5, "event_type": "audio_end", "user": "simulated_user", "audio_timestamp": 1787400833.425054, "provider": "elevenlabs"}
+{"timestamp": 1787400833598, "sequence": 6, "event_type": "audio_start", "user": "simulated_user", "audio_timestamp": 1787400833.597891, "provider": "elevenlabs"}
+{"timestamp": 1787400835340, "sequence": 7, "event_type": "audio_end", "user": "simulated_user", "audio_timestamp": 1787400834.7415402, "provider": "elevenlabs"}
+{"timestamp": 1787400848629, "sequence": 8, "event_type": "audio_start", "user": "simulated_user", "audio_timestamp": 1787400848.6288772, "provider": "elevenlabs"}
+{"timestamp": 1787400854229, "sequence": 9, "event_type": "audio_end", "user": "assistant", "audio_timestamp": 1787400854.229017, "provider": "elevenlabs"}
+{"timestamp": 1787400826000, "sequence": 10, "type": "user_speech", "data": {"text": "Haan?", "source": "simulated_user", "recovered_post_call": true}, "provider": "elevenlabs"}
+{"timestamp": 1787400827000, "sequence": 11, "type": "assistant_speech", "data": {"text": "क्या, रानाजी से बात कर रहा हूँ।", "source": "assistant", "recovered_post_call": true}, "provider": "elevenlabs"}
+{"timestamp": 1787400831000, "sequence": 12, "type": "user_speech", "data": {"text": "[annoyed] Haan, boliye kya kaam hai?", "source": "simulated_user", "recovered_post_call": true}, "provider": "elevenlabs"}
+{"timestamp": 1787400835000, "sequence": 13, "type": "assistant_speech", "data": {"text": "मैं इज़ी करेक्ट से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की 4,416 रुपये की EMI overdue है। क्या आप अभी official Easy Credit app के ज़रिए payment कर सकते हैं?", "source": "assistant", "recovered_post_call": true}, "provider": "elevenlabs"}
+{"timestamp": 1787400846000, "sequence": 14, "type": "user_speech", "data": {"text": "[annoyed] Haan, main abhi karta hoon.", "source": "simulated_user", "recovered_post_call": true}, "provider": "elevenlabs"}
+{"timestamp": 1787400850000, "sequence": 15, "type": "assistant_speech", "data": {"text": "धन्यवाद, अर्नब जी। आपका दि�", "source": "assistant", "recovered_post_call": true}, "provider": "elevenlabs"}
+{"timestamp": 1787400869932, "sequence": 16, "type": "connection_state", "data": {"state": "session_ended", "details": {"reason": "assistant_completed"}}, "provider": "elevenlabs"}

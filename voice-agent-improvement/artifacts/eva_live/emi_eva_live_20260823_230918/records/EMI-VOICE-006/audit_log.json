@@ -1,0 +1,67 @@
+{
+  "transcript": [
+    {
+      "value": "अर्णव बोल रहा हूँ, नवदीप नहीं। बताइए।",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787506770306",
+      "message_type": "user"
+    },
+    {
+      "value": "नमस्ते Arnav जी, मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की चार हज़ार चार सौ सोलह रुपये की EMI overdue है। क्या आप अभी official EasyCredit app के ज़र",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787506772715",
+      "message_type": "assistant"
+    },
+    {
+      "value": "नमस्ते Arnav जी, मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की चार हज़ार चार सौ सोलह रुपये की EMI overdue है। क्या आप अभी official EasyCredit app के ज़रिए payment कर सकते हैं?",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787506773321",
+      "message_type": "assistant"
+    },
+    {
+      "value": "सुनिए मुझे अभी पैसा देने की हालत नहीं है। मेरा जॉब चला गया है और पापा हॉस्पिटल में हैं। मैं अभी पेमेंट नहीं कर सकता।",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787506788314",
+      "message_type": "user"
+    },
+    {
+      "value": "मुझे यह सुनकर बहुत दुख हुआ। आप कृपया customer care number 1 8 0 0-5 0 0-4 4 4 4 पर बात कर लीजिए।",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787506796185",
+      "message_type": "assistant"
+    }
+  ],
+  "llm_prompts": [],
+  "conversation_messages": [
+    {
+      "role": "assistant",
+      "content": "नमस्ते Arnav जी, मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की चार हज़ार चार सौ सोलह रुपये की EMI overdue है। क्या आप अभी official EasyCredit app के ज़र"
+    },
+    {
+      "role": "user",
+      "content": "अर्णव बोल रहा हूँ, नवदीप नहीं। बताइए।"
+    },
+    {
+      "role": "assistant",
+      "content": "नमस्ते Arnav जी, मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की चार हज़ार चार सौ सोलह रुपये की EMI overdue है। क्या आप अभी official EasyCredit app के ज़रिए payment कर सकते हैं?"
+    },
+    {
+      "role": "user",
+      "content": "सुनिए मुझे अभी पैसा देने की हालत नहीं है। मेरा जॉब चला गया है और पापा हॉस्पिटल में हैं। मैं अभी पेमेंट नहीं कर सकता।"
+    },
+    {
+      "role": "assistant",
+      "content": "मुझे यह सुनकर बहुत दुख हुआ। आप कृपया customer care number 1 8 0 0-5 0 0-4 4 4 4 पर बात कर लीजिए।"
+    }
+  ]
+}

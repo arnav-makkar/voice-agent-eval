@@ -1,0 +1,9 @@
+{"timestamp": 1787503590073, "sequence": 1, "type": "connection_state", "data": {"state": "connected", "details": {"server_url": "ws://localhost:10000/ws"}}, "provider": "elevenlabs"}
+{"timestamp": 1787503590662, "sequence": 2, "type": "connection_state", "data": {"state": "session_started", "details": {}}, "provider": "elevenlabs"}
+{"timestamp": 1787503590999, "sequence": 3, "event_type": "audio_start", "user": "assistant", "audio_timestamp": 1787503590.999171, "provider": "elevenlabs"}
+{"timestamp": 1787503599369, "sequence": 4, "event_type": "audio_start", "user": "simulated_user", "audio_timestamp": 1787503599.367626, "provider": "elevenlabs"}
+{"timestamp": 1787503600760, "sequence": 5, "event_type": "audio_end", "user": "assistant", "audio_timestamp": 1787503600.760023, "provider": "elevenlabs"}
+{"timestamp": 1787503590000, "sequence": 6, "type": "assistant_speech", "data": {"text": "नवती, क्या नवती", "source": "assistant", "recovered_post_call": true}, "provider": "elevenlabs"}
+{"timestamp": 1787503597000, "sequence": 7, "type": "user_speech", "data": {"text": "[confused] Kaun hai aap...", "source": "simulated_user", "recovered_post_call": true}, "provider": "elevenlabs"}
+{"timestamp": 1787503598000, "sequence": 8, "type": "assistant_speech", "data": {"text": "अरे।", "source": "assistant", "recovered_post_call": true}, "provider": "elevenlabs"}
+{"timestamp": 1787503608108, "sequence": 9, "type": "connection_state", "data": {"state": "session_ended", "details": {"reason": "assistant_completed"}}, "provider": "elevenlabs"}

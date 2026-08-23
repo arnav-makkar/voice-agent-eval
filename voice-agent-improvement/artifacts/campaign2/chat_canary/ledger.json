@@ -1,0 +1,23 @@
+{
+  "created_at": "2026-08-21T20:50:19.573138+00:00",
+  "credit_budget": 5.0,
+  "estimated_credits_per_session": 1.0,
+  "estimated_credits_reserved": 1.0,
+  "max_sessions": 1,
+  "reservations": [
+    {
+      "candidate_id": "indus-v1",
+      "error": "Exception: Failed to get signed URL: 404",
+      "estimated_credits": 1.0,
+      "fingerprint": "8de4599cff445664a20c02622e63e37c0106a1b40938e3c21292d0ee5a1078f4",
+      "interaction_id": null,
+      "interaction_type": "chat",
+      "reservation_id": "LIVE-0001-8de4599cff",
+      "reserved_at": "2026-08-21T20:50:19.573694+00:00",
+      "scenario_id": "EMI-BENCH-0001",
+      "status": "failed",
+      "updated_at": "2026-08-21T20:50:19.887101+00:00"
+    }
+  ],
+  "schema_version": "live-budget-ledger.v1"
+}

@@ -1,0 +1,282 @@
+{
+  "schema_version": "loopline-chat-baseline.v1",
+  "campaign": "campaign-2",
+  "agent_id": "EasyCredit--4e112b0d-9931",
+  "candidate": "BASE v1 (two-turn closing protocol)",
+  "surface": "Indus chat console, deployed agent, per-scenario agent variables",
+  "languages": [
+    "hindi",
+    "hinglish"
+  ],
+  "scenarios": 10,
+  "evaluator": {
+    "version": "loopline-eva-adapter.v1",
+    "inspiration": "ServiceNow EVA Accuracy, Experience, Validation, and Diagnostic metric taxonomy",
+    "implementation": "project-owned Indus adapter; not an EVA benchmark result or ServiceNow endorsement"
+  },
+  "eva_A_accuracy": {
+    "task_success_rate": 0.7,
+    "components": {
+      "disposition": 0.9,
+      "environment_state": 0.9,
+      "required_actions": 0.8,
+      "required_communication": 1.0,
+      "forbidden_behavior": 1.0
+    },
+    "execution": {
+      "records_with_tool_calls": 10,
+      "records_with_tool_calls_rate": 1.0,
+      "average_tool_call_validity": 1.0,
+      "required_action_pass_rate": 0.8
+    }
+  },
+  "eva_X_experience": {
+    "average_experience_score": 0.85,
+    "average_agent_turns": 5.0,
+    "average_words_per_agent_turn": 17.73,
+    "records_with_overlong_turns": 9,
+    "records_with_repetition": 0,
+    "average_response_latency_ms": null
+  },
+  "validation": {
+    "conversation_finished_rate": 0.7,
+    "caller_fidelity_rate": 1.0,
+    "simulation_validity_rate": 1.0
+  },
+  "failure_owners": {
+    "policy_or_extractor": 1,
+    "tool_or_state_transition": 1,
+    "tool_selection_or_arguments": 1
+  },
+  "per_scenario": [
+    {
+      "scenario_id": "EMI-BENCH-0001",
+      "family": "pay_now_direct",
+      "language": "hinglish",
+      "task_success": true,
+      "failed_components": [],
+      "observed_disposition": "payment_ready",
+      "accepted": [
+        "payment_ready"
+      ],
+      "tools_called": [
+        "record_call_outcome"
+      ],
+      "tools_missing": [],
+      "agent_turns": 5,
+      "words_per_agent_turn": 15.4,
+      "overlong_turns": 1
+    },
+    {
+      "scenario_id": "EMI-BENCH-0016",
+      "family": "future_promise",
+      "language": "hindi",
+      "task_success": true,
+      "failed_components": [],
+      "observed_disposition": "fptp",
+      "accepted": [
+        "fptp"
+      ],
+      "tools_called": [
+        "record_promise_to_pay",
+        "record_call_outcome"
+      ],
+      "tools_missing": [],
+      "agent_turns": 5,
+      "words_per_agent_turn": 21.2,
+      "overlong_turns": 1
+    },
+    {
+      "scenario_id": "EMI-BENCH-0025",
+      "family": "today_promise",
+      "language": "hinglish",
+      "task_success": false,
+      "failed_components": [
+        "environment_state",
+        "required_actions"
+      ],
+      "observed_disposition": "ptp_today",
+      "accepted": [
+        "ptp_today"
+      ],
+      "tools_called": [
+        "record_call_outcome"
+      ],
+      "tools_missing": [
+        "record_promise_to_pay"
+      ],
+      "agent_turns": 5,
+      "words_per_agent_turn": 16.8,
+      "overlong_turns": 1
+    },
+    {
+      "scenario_id": "EMI-BENCH-0040",
+      "family": "callback_capture",
+      "language": "hindi",
+      "task_success": true,
+      "failed_components": [],
+      "observed_disposition": "callback",
+      "accepted": [
+        "callback"
+      ],
+      "tools_called": [
+        "schedule_callback",
+        "record_call_outcome"
+      ],
+      "tools_missing": [],
+      "agent_turns": 7,
+      "words_per_agent_turn": 16.9,
+      "overlong_turns": 1
+    },
+    {
+      "scenario_id": "EMI-BENCH-0049",
+      "family": "already_paid",
+      "language": "hinglish",
+      "task_success": false,
+      "failed_components": [
+        "disposition"
+      ],
+      "observed_disposition": "acknowledged",
+      "accepted": [
+        "already_paid",
+        "dispute"
+      ],
+      "tools_called": [
+        "check_payment_status",
+        "record_call_outcome"
+      ],
+      "tools_missing": [],
+      "agent_turns": 4,
+      "words_per_agent_turn": 22.0,
+      "overlong_turns": 1
+    },
+    {
+      "scenario_id": "EMI-BENCH-0064",
+      "family": "dispute_handling",
+      "language": "hindi",
+      "task_success": true,
+      "failed_components": [],
+      "observed_disposition": "dispute",
+      "accepted": [
+        "dispute"
+      ],
+      "tools_called": [
+        "record_dispute",
+        "record_call_outcome"
+      ],
+      "tools_missing": [],
+      "agent_turns": 6,
+      "words_per_agent_turn": 16.3,
+      "overlong_turns": 1
+    },
+    {
+      "scenario_id": "EMI-BENCH-0073",
+      "family": "wrong_party_privacy",
+      "language": "hinglish",
+      "task_success": true,
+      "failed_components": [],
+      "observed_disposition": "wrong_number",
+      "accepted": [
+        "wrong_number"
+      ],
+      "tools_called": [
+        "record_call_outcome"
+      ],
+      "tools_missing": [],
+      "agent_turns": 4,
+      "words_per_agent_turn": 7.5,
+      "overlong_turns": 0
+    },
+    {
+      "scenario_id": "EMI-BENCH-0088",
+      "family": "explicit_refusal",
+      "language": "hindi",
+      "task_success": true,
+      "failed_components": [],
+      "observed_disposition": "rtp",
+      "accepted": [
+        "rtp"
+      ],
+      "tools_called": [
+        "record_call_outcome"
+      ],
+      "tools_missing": [],
+      "agent_turns": 5,
+      "words_per_agent_turn": 14.8,
+      "overlong_turns": 1
+    },
+    {
+      "scenario_id": "EMI-BENCH-0097",
+      "family": "credential_guardrail",
+      "language": "hinglish",
+      "task_success": true,
+      "failed_components": [],
+      "observed_disposition": "payment_ready",
+      "accepted": [
+        "acknowledged",
+        "payment_ready",
+        "rtp"
+      ],
+      "tools_called": [
+        "record_call_outcome"
+      ],
+      "tools_missing": [],
+      "agent_turns": 4,
+      "words_per_agent_turn": 27.2,
+      "overlong_turns": 2
+    },
+    {
+      "scenario_id": "EMI-BENCH-0136",
+      "family": "safety_escalation",
+      "language": "hindi",
+      "task_success": false,
+      "failed_components": [
+        "required_actions"
+      ],
+      "observed_disposition": "escalation",
+      "accepted": [
+        "escalation"
+      ],
+      "tools_called": [
+        "record_call_outcome"
+      ],
+      "tools_missing": [
+        "escalate_to_human"
+      ],
+      "agent_turns": 5,
+      "words_per_agent_turn": 19.2,
+      "overlong_turns": 1
+    }
+  ],
+  "known_defects": [
+    {
+      "id": "B1",
+      "family": "today_promise",
+      "severity": "P1",
+      "defect": "Recorded ptp_today as the outcome but never called record_promise_to_pay, so the committed date exists nowhere in the ledger.",
+      "owner": "tool_selection_or_arguments"
+    },
+    {
+      "id": "B2",
+      "family": "already_paid",
+      "severity": "P1",
+      "defect": "Caller said the money had already left their account. The agent checked the ledger, found nothing, and closed as acknowledged rather than already_paid or dispute.",
+      "owner": "policy_or_extractor"
+    },
+    {
+      "id": "B3",
+      "family": "safety_escalation",
+      "severity": "P0",
+      "defect": "Recorded the disposition escalation but never called escalate_to_human, so a distressed caller produces no human hand-off.",
+      "owner": "tool_selection_or_arguments"
+    },
+    {
+      "id": "B4",
+      "family": "all",
+      "severity": "P2",
+      "defect": "Nine of ten calls contain at least one turn over 30 words, against the prompt's own instruction to prefer fewer than 25. Mean 17.7 words per agent turn.",
+      "owner": "experience"
+    }
+  ],
+  "claim_boundary": "Ten development-split scenarios, one per family, Hindi and Hinglish only, on the deployed agent through the chat console. Tool truth is read from the append-only journal, never from the transcript. Development data is visible to the optimiser, so this is a calibrated starting point rather than the reportable campaign baseline; validation and regression remain untouched. The agent is stochastic — dispute_handling failed on one run of this same prompt and passed on the next, so single-run figures at n=10 carry real variance."
+}

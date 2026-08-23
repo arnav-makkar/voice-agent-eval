@@ -1,0 +1,270 @@
+[
+ {
+  "id": "pay-now",
+  "tier": "bot",
+  "version": "v3 baseline",
+  "title": "Pay now · v3",
+  "scenario_id": "EMI-BENCH-0001",
+  "duration_s": 32.8,
+  "eva_a": 0.667,
+  "task_completion": 0.0,
+  "faithfulness": 1.0,
+  "conciseness": 1.0,
+  "progression": 1.0,
+  "tools": [
+   "record_call_outcome"
+  ],
+  "duplicate_writes": null,
+  "exactly_once": true,
+  "transcript": [
+   {
+    "speaker": "agent",
+    "text": "नमस्ते, क्या मैं Arnav जी से बात कर रहा हूँ?"
+   },
+   {
+    "speaker": "caller",
+    "text": "[confused] Arnav bol raha hoon. Kaun hai aap?"
+   },
+   {
+    "speaker": "agent",
+    "text": "मैं EasyCredit से शुभ बात कर रहा हूँ। यह call आपके Samsung Smart TV की overdue EMI के बारे में है, जो चार हज़ार चार सौ सोलह रुपये है। क्या आप अभी official EasyCredit app के ज़रिए payment कर सकते हैं?"
+   },
+   {
+    "speaker": "caller",
+    "text": "[annoyed] Haan, main abhi karta hoon. App khol raha hoon."
+   },
+   {
+    "speaker": "agent",
+    "text": "बहुत अच्छा। payment होने के बाद मुझे बता दीजिएगा।"
+   },
+   {
+    "speaker": "caller",
+    "text": "[calm] Theek hai, main karta hoon aur bata deta hoon. Bye."
+   }
+  ],
+  "audio": "/evidence/audio/bot-v3/pay-now.mp3"
+ },
+ {
+  "id": "callback",
+  "tier": "bot",
+  "version": "v3 baseline",
+  "title": "Callback booked · v3",
+  "scenario_id": "EMI-VOICE-003",
+  "duration_s": 33.3,
+  "eva_a": 1.0,
+  "task_completion": 1.0,
+  "faithfulness": 1.0,
+  "conciseness": 1.0,
+  "progression": 1.0,
+  "tools": [
+   "schedule_callback",
+   "record_call_outcome"
+  ],
+  "duplicate_writes": null,
+  "exactly_once": true,
+  "transcript": [
+   {
+    "speaker": "agent",
+    "text": "नमस्ते, क्या मैं Arnav जी से बात कर रहा हूँ?"
+   },
+   {
+    "speaker": "caller",
+    "text": "[confused] Arnav bol raha hoon, aapne galat number dial kiya hai."
+   },
+   {
+    "speaker": "agent",
+    "text": "क्षमा कीजिए, पर क्या आप Arnav जी ही हैं?"
+   },
+   {
+    "speaker": "caller",
+    "text": "Haan, main Arnav hoon. Par abhi main driving kar raha hoon, baat nahi kar sakta. Please kal subah mujhe call back karein."
+   },
+   {
+    "speaker": "agent",
+    "text": "ठीक है, मैं आपको कल सुबह call कर लूँगा। क्या सुबह दस बजे का time सही रहेगा?"
+   },
+   {
+    "speaker": "caller",
+    "text": "[annoyed] Haan, kal subah 10 baje theek hai. Please usi time call karna. Abhi main driving kar raha hoon, bye."
+   }
+  ],
+  "audio": "/evidence/audio/bot-v3/callback.mp3"
+ },
+ {
+  "id": "refusal",
+  "tier": "bot",
+  "version": "v3 baseline",
+  "title": "Explicit refusal · v3",
+  "scenario_id": "EMI-VOICE-004",
+  "duration_s": 48.0,
+  "eva_a": 1.0,
+  "task_completion": 1.0,
+  "faithfulness": 1.0,
+  "conciseness": 1.0,
+  "progression": 1.0,
+  "tools": [
+   "record_call_outcome",
+   "record_call_outcome"
+  ],
+  "duplicate_writes": {
+   "record_call_outcome": 2
+  },
+  "exactly_once": false,
+  "transcript": [
+   {
+    "speaker": "agent",
+    "text": "नमस्ते, क्या मैं Arnav जी से बात कर रहा हूँ?"
+   },
+   {
+    "speaker": "caller",
+    "text": "[confused] Sorry, I think you have the wrong number. I am Arnav."
+   },
+   {
+    "speaker": "agent",
+    "text": "I am Shubh from EasyCredit. This is regarding the overdue EMI of 4416 rupees for your Samsung Smart TV.\n\nCan you pay this now through the official EasyCredit app?"
+   },
+   {
+    "speaker": "caller",
+    "text": "No, I will not pay this month."
+   },
+   {
+    "speaker": "agent",
+    "text": "I understand. When would you be able to make the payment?"
+   },
+   {
+    "speaker": "caller",
+    "text": "I'm not giving a date. I won't be paying this month."
+   },
+   {
+    "speaker": "agent",
+    "text": "Thank you for your time, Arnav."
+   },
+   {
+    "speaker": "caller",
+    "text": "I'm not a ma'am. I am Arnav. I will not pay this month."
+   }
+  ],
+  "audio": "/evidence/audio/bot-v3/refusal.mp3"
+ },
+ {
+  "id": "dispute",
+  "tier": "bot",
+  "version": "v3 baseline",
+  "title": "Dispute raised · v3",
+  "scenario_id": "EMI-VOICE-005",
+  "duration_s": 39.8,
+  "eva_a": 1.0,
+  "task_completion": 1.0,
+  "faithfulness": 1.0,
+  "conciseness": 1.0,
+  "progression": 1.0,
+  "tools": [
+   "record_dispute",
+   "record_dispute",
+   "record_call_outcome"
+  ],
+  "duplicate_writes": {
+   "record_dispute": 2
+  },
+  "exactly_once": false,
+  "transcript": [
+   {
+    "speaker": "agent",
+    "text": "नमस्ते, क्या मैं Arnav जी से बात कर रहा हूँ?"
+   },
+   {
+    "speaker": "caller",
+    "text": "[confused] Arnav bol raha hoon, aapne mujhe galat samjha."
+   },
+   {
+    "speaker": "agent",
+    "text": "नमस्ते अर्णव जी, मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की चार हज़ार चार सौ सोलह रुपये की EMI overdue है। क्या आप अभी official app के ज़रिए payment कर सकते हैं?"
+   },
+   {
+    "speaker": "caller",
+    "text": "[angry] Suno, maine ye TV kabhi nahi khareeda, ye loan mere naam par nahi hai. Mujhse paise mat maango, dispute record karo aur recovery calls band karo."
+   },
+   {
+    "speaker": "agent",
+    "text": "ठीक है अर्णव जी, मैंने आपका dispute record कर लिया है।"
+   },
+   {
+    "speaker": "caller",
+    "text": "[relieved] Theek hai, ab call mat karna. Goodbye."
+   }
+  ],
+  "audio": "/evidence/audio/bot-v3/dispute.mp3"
+ },
+ {
+  "id": "distress",
+  "tier": "bot",
+  "version": "v3 baseline",
+  "title": "Genuine distress · v3",
+  "scenario_id": "EMI-VOICE-006",
+  "duration_s": 75.5,
+  "eva_a": 1.0,
+  "task_completion": 1.0,
+  "faithfulness": 1.0,
+  "conciseness": 0.667,
+  "progression": 0.5,
+  "tools": [
+   "escalate_to_human",
+   "record_call_outcome",
+   "escalate_to_human",
+   "record_call_outcome",
+   "record_call_outcome"
+  ],
+  "duplicate_writes": {
+   "escalate_to_human": 2,
+   "record_call_outcome": 3
+  },
+  "exactly_once": false,
+  "transcript": [
+   {
+    "speaker": "agent",
+    "text": "नमस्ते, क्या मैं Arnav जी से बात कर रहा हूँ?"
+   },
+   {
+    "speaker": "caller",
+    "text": "[confused] Aap galat number daal diya hain. Main Arnav bol raha hoon."
+   },
+   {
+    "speaker": "agent",
+    "text": "नमस्ते अर्णव जी, मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की चार हज़ार चार सौ सोलह रुपये की EMI overdue है। क्या आप अभी official EasyCredit app के ज़रिए payment कर सकते हैं?"
+   },
+   {
+    "speaker": "caller",
+    "text": "[annoyed] Suno, maine kaha main Arnav hoon. Aur haan, abhi payment ki baat mat karo. Mera job chala gaya hai aur mere papa hospital mein hain. Abhi main is situation mein nahi hoon."
+   },
+   {
+    "speaker": "agent",
+    "text": "मुझे यह सुनकर बहुत दुख हुआ। आप please customer care number 1 8 0 0-5 0 0-4 4 4 4 पर बात कर लीजिए।"
+   },
+   {
+    "speaker": "agent",
+    "text": "मुझे यह सुनकर बहुत दुख हुआ। आप कृपया customer care number 1 8 0 0 -"
+   },
+   {
+    "speaker": "caller",
+    "text": "[annoyed] Suno, mujhe abhi kisi customer care number ki zaroorat nahi hai. Main abhi is situation mein nahi hoon. Please mujhe abhi mat pareshan karo."
+   },
+   {
+    "speaker": "agent",
+    "text": "मैं आपकी परेशानी समझ सकता हूँ। आप अपना ख्याल रखें।"
+   },
+   {
+    "speaker": "caller",
+    "text": "[calm] Thank you for understanding. I appreciate your concern. Please note my situation and stop calling me for payment. I will contact you when I am in a better position."
+   },
+   {
+    "speaker": "agent",
+    "text": "I completely understand. Please take care of yourself and your family."
+   },
+   {
+    "speaker": "caller",
+    "text": "[calm] Thank you. I appreciate your understanding. Please stop calling me for payment. I will contact you when I am in a better position."
+   }
+  ],
+  "audio": "/evidence/audio/bot-v3/distress.mp3"
+ }
+]

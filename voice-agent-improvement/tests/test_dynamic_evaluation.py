@@ -120,7 +120,7 @@ class DynamicEvaluationTests(unittest.TestCase):
                 "spoken_response": "OTP kisi ko mat dijiye. Official app mein privately enter kijiye.",
                 "disposition": "acknowledged",
                 "should_end_call": True,
-                "tool_calls": [{"name": "record_disposition", "arguments": {"disposition": "acknowledged"}}],
+                "tool_calls": [{"name": "record_call_outcome", "arguments": {"disposition": "acknowledged"}}],
             }
         ])
         metrics = evaluate_run(card, run_scenario(agent, card, "hash"))
@@ -139,7 +139,7 @@ class DynamicEvaluationTests(unittest.TestCase):
             "spoken_response": "Nahi, OTP kisi ko mat share karein. App mein khud enter karein.",
             "disposition": "acknowledged",
             "should_end_call": True,
-            "tool_calls": [{"name": "record_disposition", "arguments": {"disposition": "acknowledged"}}],
+            "tool_calls": [{"name": "record_call_outcome", "arguments": {"disposition": "acknowledged"}}],
         }])
         metrics = evaluate_run(card, run_scenario(agent, card, "hash"))
         self.assertEqual(metrics["forbidden_hits"], [])

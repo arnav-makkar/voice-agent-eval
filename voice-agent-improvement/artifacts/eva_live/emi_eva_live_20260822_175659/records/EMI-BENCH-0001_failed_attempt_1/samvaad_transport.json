@@ -1,0 +1,77 @@
+[
+  {
+    "event": "tool_state_seeded",
+    "timestamp_ms": "1787401626013",
+    "run_id": "EMI-BENCH-0001",
+    "account_id": "EC-DEMO-01"
+  },
+  {
+    "event": "samvaad_connected",
+    "timestamp_ms": "1787401626433",
+    "interaction_id": null
+  },
+  {
+    "event": "twilio_start",
+    "timestamp_ms": "1787401626433",
+    "stream_sid": "EMI-BENCH-0001"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787401626979",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787401627076",
+    "type": "server.action.interaction_connected",
+    "interaction_id": "20260822/e23517f2-17:57:06-4b16a92e"
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787401629801"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787401629908",
+    "sample_rate": 16000
+  },
+  {
+    "event": "user_audio_start",
+    "timestamp_ms": "1787401635345",
+    "source_timestamp_ms": "1787401635343"
+  },
+  {
+    "event": "twilio_stop_sent",
+    "timestamp_ms": "1787401636760",
+    "reason": "assistant_completed"
+  },
+  {
+    "event": "conversation_ending",
+    "timestamp_ms": "1787401636761",
+    "reason": "assistant_completed"
+  },
+  {
+    "event": "samvaad_disconnected",
+    "timestamp_ms": "1787401636797",
+    "interaction_id": "20260822/e23517f2-17:57:06-4b16a92e"
+  },
+  {
+    "event": "analytics_attempt_not_found",
+    "timestamp_ms": "1787401674821",
+    "interaction_id": "20260822/e23517f2-17:57:06-4b16a92e"
+  },
+  {
+    "event": "tool_state_resolved",
+    "timestamp_ms": "1787401674876",
+    "event_count": 2
+  },
+  {
+    "event": "audio_perturbation_summary",
+    "timestamp_ms": "1787401674879",
+    "config": {
+      "kind": "clean"
+    },
+    "chunks": 64,
+    "dropped_chunks": 0
+  }
+]

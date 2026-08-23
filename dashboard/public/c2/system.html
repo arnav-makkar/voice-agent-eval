@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Execution Truth — The Instrument</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<div class="shell">
+
+<p class="eyebrow">Section 2 · The instrument</p>
+<h1>Three channels, one journal, and metrics that cannot be talked into</h1>
+<p class="lede">The evaluation system is built like a measuring instrument: a frozen benchmark, a
+controlled tool backend, deterministic scoring wherever possible, judged scoring where speech quality
+demands it — and an audit trail for the instrument itself.</p>
+
+<h2>Architecture</h2>
+<svg class="diagram" viewBox="0 0 1000 560" role="img" aria-label="System architecture: three channels drive one deployed agent whose tools write to one journal, read by graders">
+  <defs>
+    <marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#8a8577"/>
+    </marker>
+  </defs>
+
+  <text x="30" y="34" font-size="12" class="m" fill="#5B5FBF" letter-spacing="2">DRIVERS</text>
+  <rect x="30" y="50" width="250" height="86" rx="14" fill="none" stroke="#8a8577" stroke-width="1.3"/>
+  <text x="155" y="80" text-anchor="middle" font-size="14" font-weight="600" fill="currentColor">Text-chat REST</text>
+  <text x="155" y="100" text-anchor="middle" font-size="11.5" fill="#8a8577">180 scenarios · scripted callers</text>
+  <text x="155" y="118" text-anchor="middle" font-size="11.5" fill="#8a8577">hidden goals · seeded accounts</text>
+
+  <rect x="30" y="152" width="250" height="86" rx="14" fill="none" stroke="#8a8577" stroke-width="1.3"/>
+  <text x="155" y="182" text-anchor="middle" font-size="14" font-weight="600" fill="currentColor">Outbound telephony</text>
+  <text x="155" y="202" text-anchor="middle" font-size="11.5" fill="#8a8577">15 cards · real handset</text>
+  <text x="155" y="220" text-anchor="middle" font-size="11.5" fill="#8a8577">human caller · dial-time clock</text>
+
+  <rect x="30" y="254" width="250" height="86" rx="14" fill="none" stroke="#8a8577" stroke-width="1.3"/>
+  <text x="155" y="284" text-anchor="middle" font-size="14" font-weight="600" fill="currentColor">Bot-to-bot duplex audio</text>
+  <text x="155" y="304" text-anchor="middle" font-size="11.5" fill="#8a8577">5 scenarios · synthetic caller</text>
+  <text x="155" y="322" text-anchor="middle" font-size="11.5" fill="#8a8577">websocket · 20 ms paced stream</text>
+
+  <path d="M280 93 L 380 160" fill="none" stroke="#8a8577" stroke-width="1.3" marker-end="url(#a2)"/>
+  <path d="M280 195 L 380 195" fill="none" stroke="#8a8577" stroke-width="1.3" marker-end="url(#a2)"/>
+  <path d="M280 297 L 380 230" fill="none" stroke="#8a8577" stroke-width="1.3" marker-end="url(#a2)"/>
+
+  <rect x="382" y="140" width="240" height="112" rx="16" fill="none" stroke="#5B5FBF" stroke-width="1.8"/>
+  <text x="502" y="172" text-anchor="middle" font-size="15" font-weight="600" fill="currentColor">Deployed agent</text>
+  <text x="502" y="193" text-anchor="middle" font-size="11.5" fill="#8a8577">Sarvam Indus · Samvaad runtime</text>
+  <text x="502" y="211" text-anchor="middle" font-size="11.5" fill="#8a8577">conversation: Sarvam Pro</text>
+  <text x="502" y="229" text-anchor="middle" font-size="11.5" fill="#8a8577">tools: Llama 3.1 70B</text>
+
+  <path d="M622 196 L 718 196" fill="none" stroke="#5B5FBF" stroke-width="1.7" marker-end="url(#a2)"/>
+  <text x="670" y="186" text-anchor="middle" font-size="10.5" class="m" fill="#8a8577">HTTPS + key</text>
+
+  <rect x="720" y="140" width="250" height="112" rx="16" fill="none" stroke="#5B5FBF" stroke-width="1.8"/>
+  <text x="845" y="170" text-anchor="middle" font-size="15" font-weight="600" fill="currentColor">Tool service</text>
+  <text x="845" y="191" text-anchor="middle" font-size="11.5" fill="#8a8577">six business tools · gated writes</text>
+  <text x="845" y="209" text-anchor="middle" font-size="11.5" fill="#8a8577">per-run ledger keys</text>
+  <text x="845" y="227" text-anchor="middle" font-size="11.5" fill="#8a8577">seeded account state</text>
+
+  <path d="M845 252 L 845 300" fill="none" stroke="#5B5FBF" stroke-width="1.7" marker-end="url(#a2)"/>
+  <rect x="700" y="302" width="290" height="84" rx="16" fill="none" stroke="#3F7B62" stroke-width="1.9"/>
+  <text x="845" y="332" text-anchor="middle" font-size="15" font-weight="600" fill="currentColor">Append-only journal</text>
+  <text x="845" y="353" text-anchor="middle" font-size="11.5" fill="#8a8577">every write: tool · args · time · run key</text>
+  <text x="845" y="371" text-anchor="middle" font-size="11.5" fill="#8a8577">the agent can write, never read or edit</text>
+
+  <path d="M700 344 L 560 344 L 560 420" fill="none" stroke="#3F7B62" stroke-width="1.6" marker-end="url(#a2)"/>
+  <rect x="330" y="422" width="460" height="108" rx="16" fill="none" stroke="#3F7B62" stroke-width="1.9"/>
+  <text x="560" y="452" text-anchor="middle" font-size="15" font-weight="600" fill="currentColor">Grading</text>
+  <text x="560" y="474" text-anchor="middle" font-size="11.5" fill="#8a8577">deterministic: journal state vs expected state (hash comparison)</text>
+  <text x="560" y="492" text-anchor="middle" font-size="11.5" fill="#8a8577">judged: faithfulness · conciseness · progression — speech only, never tools</text>
+  <text x="560" y="510" text-anchor="middle" font-size="11.5" fill="#8a8577">independent monitor: spoken commitments vs journal, precision 1.00</text>
+
+  <path d="M155 340 C 155 430, 240 470, 328 476" fill="none" stroke="#8a8577" stroke-width="1.2" stroke-dasharray="4 4" marker-end="url(#a2)"/>
+  <text x="150" y="392" font-size="11" fill="#8a8577">transcripts (speech evidence only)</text>
+</svg>
+
+<h2>The benchmark</h2>
+<div class="tw"><table>
+<tr><th>Property</th><th>Design</th></tr>
+<tr><td><strong>200 scenarios</strong></td><td>20 hand-authored originals + 180 generated across 15 failure families — payment, promises, callbacks, disputes, escalations, guardrails, privacy, ledger interrogation. Frozen before any optimisation.</td></tr>
+<tr><td><strong>Hidden goals</strong></td><td>Each scenario carries a caller script and an expected end-state (which writes, with which arguments). The agent sees none of it.</td></tr>
+<tr><td><strong>Seeded state</strong></td><td>Every run starts from a reset ledger row keyed to that run, so two calls can never contaminate each other's evidence.</td></tr>
+<tr><td><strong>Blind splits</strong></td><td>60 scenarios are held out from the search entirely; a further fresh blind-30 was generated after the run finished, so it could not have leaked by construction.</td></tr>
+<tr><td><strong>Severity weights</strong></td><td>Safety and fraud escalation ×3, guardrails and privacy ×2 — the search is paid most for the failures that matter most.</td></tr>
+</table></div>
+
+<h2>The metric contract</h2>
+<p>Two composites summarise each conversation, with thresholds fixed before the campaign. Composite
+definitions are adapted from an open-source voice-agent evaluation harness — credited in
+<a href="notes.html">References</a> — with the deterministic core replaced by journal grading.</p>
+<div class="tw"><table>
+<tr><th>Composite</th><th>Component</th><th>How it is decided</th><th>Threshold</th></tr>
+<tr><td rowspan="3"><strong>Accuracy (A)</strong><br><span class="dim">did the agent do the job</span></td>
+  <td>Task completion</td><td>Deterministic — journal end-state hash vs expected</td><td class="n">= 1.0</td></tr>
+<tr><td>Faithfulness</td><td>Judge — claims match what actually happened</td><td class="n">≥ 0.5</td></tr>
+<tr><td>Speech fidelity</td><td>Judge — names, amounts, dates survive intact</td><td class="n">≥ 0.95</td></tr>
+<tr><td rowspan="3"><strong>Experience (X)</strong><br><span class="dim">was it a good conversation</span></td>
+  <td>Progression</td><td>Judge — the call moves forward, never circles</td><td class="n">≥ 0.5</td></tr>
+<tr><td>Conciseness</td><td>Judge — says what is needed in the space needed</td><td class="n">≥ 0.5</td></tr>
+<tr><td>Turn-taking</td><td>Audio timestamps — overlap, latency, interruptions</td><td class="n">≥ 0.8</td></tr>
+<tr><td rowspan="3"><strong>Validation</strong><br><span class="dim">was the test itself sound</span></td>
+  <td>Valid end</td><td>Judge — the conversation terminated properly</td><td class="n">≥ 0.5</td></tr>
+<tr><td>Caller plausibility</td><td>Judge — the synthetic caller behaved like a person</td><td class="n">≥ 0.5</td></tr>
+<tr><td>Caller speech fidelity</td><td>Audio + judge — grades the test caller, not the agent</td><td class="n">≥ 0.8</td></tr>
+<tr><td><strong>Execution</strong><br><span class="dim">this project's own check</span></td>
+  <td>Exactly-once writes</td><td>Journal — every required write present, none duplicated</td><td class="n">no dupes</td></tr>
+</table></div>
+<p class="note" style="margin-top:10px">Validation metrics grade the <em>test</em>: a failure there voids
+the call as evidence rather than counting against the agent. Turn-taking is reported only where its
+per-turn audio segments exist; where the harness returns none, it is shown as “no data”, never as a
+zero folded into an average.</p>
+
+<h2>Making a silent failure loud: the transport gate</h2>
+<p>The single most dangerous instrument failure found in this project was not a wrong score — it was a
+plausible one. A dead tool tunnel produces exactly the same evidence as an agent that chose not to
+call tools: an empty journal. The system now refuses to confuse the two.</p>
+<div class="flow">
+  <div class="s"><b>Preflight</b><span>Before any measured run: deployed prompt sha matches the pinned champion, agent clock is today's, tool service answers, gate accepts the key.</span></div>
+  <div class="s"><b>End-to-end probe</b><span>A real turn is driven through the deployed agent and must land in the journal. Only this proves the whole path.</span></div>
+  <div class="s"><b>Refusal to score</b><span>An empty journal on an unverified transport is reported as "cannot conclude", never as a zero.</span></div>
+</div>
+
+<h2>The instrument audit</h2>
+<p>Three faults were found in the measuring apparatus itself — not the agent — and each is reported
+because an evaluation that only audits the agent has not audited itself.</p>
+<div class="tw"><table>
+<tr><th>Fault</th><th>How it surfaced</th><th>Fix</th></tr>
+<tr><td><strong>Stale clock</strong></td><td>The agent's injected <code>currentDate</code> went a day stale
+overnight. It resolved "kal" correctly against the real calendar; the grader compared against
+yesterday's. One family read 2/12 when it was 11/11.</td><td>Clock synced from the real calendar at
+every run start and at dial time; the grader reads it live; a regression test greps the scoring path
+for date literals.</td></tr>
+<tr><td><strong>Expired token</strong></td><td>141 conversations returned HTTP 401 and were scored as
+behavioural failures. Caught by checking error fields rather than trusting totals.</td>
+<td>Contaminated rows purged and re-run; token freshness asserted before long runs.</td></tr>
+<tr><td><strong>Wrong transcript source</strong></td><td>In bot-to-bot runs the judged "agent" text was the
+<em>caller's</em> speech recognition of the agent's audio. One call was penalised for a hallucinated
+sentence the agent never said; the baseline's own scores were understated.</td>
+<td>Agent turns rebuilt from the runtime's own transcription; every voice run re-scored from the
+corrected transcript. The correction raised the <em>baseline</em> too — the fix was to the instrument,
+not to the result.</td></tr>
+</table></div>
+
+<h2>Noise floor, measured before any claim</h2>
+<div class="kpis">
+  <div class="kpi"><div class="l">Test–retest flip rate</div><div class="v">2.2%</div>
+    <div class="d">same agent, same scenarios, run twice (n = 45)</div></div>
+  <div class="kpi"><div class="l">σ on a 60-scenario split</div><div class="v">0.82</div>
+    <div class="d">expected wobble with no real change</div></div>
+  <div class="kpi"><div class="l">Reporting threshold</div><div class="v">±1.6</div>
+    <div class="d">blind-split deltas below this are reported as noise</div></div>
+</div>
+<p>The observed blind delta was 26 — sixteen times the threshold.</p>
+
+</div>
+<script src="nav.js"></script>
+</body>
+</html>

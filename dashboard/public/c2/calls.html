@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Execution Truth — Call Evidence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="site.css">
+<style>
+.picker{display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;margin-bottom:6px}
+.picker label{display:block;font:500 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:6px}
+.pair{font:500 12px var(--mono);color:var(--accent);background:var(--accent-soft);
+  border:1px solid var(--accent-line);border-radius:99px;padding:7px 13px;cursor:pointer}
+</style>
+</head>
+<body>
+<div class="shell">
+
+<p class="eyebrow">Section 6 · Call evidence</p>
+<h1>All forty calls, playable</h1>
+<p class="lede">Fifteen phone cards and five bot-to-bot scenarios, each run on the baseline and on the
+champion: 40 recorded calls. Every entry carries its audio, its full transcript, and — separately —
+what actually reached the journal. The transcript is what was said; the journal is what is graded.</p>
+
+<div class="kpis">
+  <div class="kpi"><div class="l">Phone · baseline</div><div class="v">15</div><div class="d">9 pass · 6 fail</div></div>
+  <div class="kpi"><div class="l">Phone · champion</div><div class="v">15</div><div class="d">14 pass · 1 fail</div></div>
+  <div class="kpi"><div class="l">Bot-to-bot · baseline</div><div class="v">5</div><div class="d">mean accuracy 0.933</div></div>
+  <div class="kpi"><div class="l">Bot-to-bot · champion</div><div class="v">5</div><div class="d">mean accuracy 1.000</div></div>
+</div>
+
+<div class="card">
+  <div class="picker">
+    <div>
+      <label for="callSel">Choose a call</label>
+      <select id="callSel" aria-label="Choose a call to inspect"></select>
+    </div>
+    <button class="pair" id="pairBtn" hidden>Hear the other version of this scenario →</button>
+  </div>
+  <div id="callView"></div>
+</div>
+
+<p class="note"><b>How to listen.</b> Pick any baseline call, then use the pair button to jump to the
+champion's run of the same scenario. The clearest contrasts: phone card 11 (fraud — baseline records
+refusal three times and never escalates; champion escalates once), phone card 3 (promise — baseline
+drops the date; champion writes it), and the bot-to-bot distress pair (baseline repeats itself and
+writes five journal entries for a two-write job; champion writes exactly two).</p>
+
+<script src="nav.js"></script>
+<script>
+const $ = s => document.querySelector(s);
+const GROUPS = [
+  ["Phone · v3 baseline", "/evidence/audio/phone-v3/index.json", "pv3"],
+  ["Phone · v4 champion", "/evidence/audio/phone-v4/index.json", "pv4"],
+  ["Bot-to-bot · v3 baseline", "/evidence/audio/bot-v3/index.json", "bv3"],
+  ["Bot-to-bot · v4 champion", "/evidence/audio/bot-v4/index.json", "bv4"],
+];
+const all = {};
+Promise.all(GROUPS.map(([, url]) => fetch(url).then(r => r.ok ? r.json() : []).catch(() => [])))
+.then(sets => {
+  const sel = $("#callSel");
+  sets.forEach((items, gi) => {
+    const [label, , tag] = GROUPS[gi];
+    const og = document.createElement("optgroup");
+    og.label = `${label} (${items.length})`;
+    items.forEach(c => {
+      const key = `${tag}:${c.id}`;
+      all[key] = c;
+      const o = document.createElement("option");
+      o.value = key;
+      const dur = c.duration_s ? ` · ${Math.round(c.duration_s)}s` : "";
+      o.textContent = `${(c.title || c.id).replace(/·\s*v\d/, "").trim()}${dur}`;
+      og.appendChild(o);
+    });
+    if (items.length) sel.appendChild(og);
+  });
+  sel.addEventListener("change", () => show(sel.value));
+  const first = sel.querySelector("option");
+  if (first) { sel.value = first.value; show(first.value); }
+});
+
+function pairKey(key) {
+  const [tag, id] = key.split(":");
+  const other = { pv3: "pv4", pv4: "pv3", bv3: "bv4", bv4: "bv3" }[tag];
+  return all[`${other}:${id}`] ? `${other}:${id}` : null;
+}
+
+function show(key) {
+  const c = all[key];
+  if (!c) return;
+  const pills = [];
+  const isBot = key.startsWith("b");
+  if (c.passed === true)  pills.push('<span class="pill gain">PASS</span>');
+  if (c.passed === false) pills.push('<span class="pill loss">FAIL' +
+      (c.missing && c.missing.length ? " — missing " + c.missing.join(", ") : "") + "</span>");
+  (c.tools || []).forEach(t => pills.push(`<span class="pill hold">${t}</span>`));
+  if (c.exactly_once === true)  pills.push('<span class="pill gain">exactly-once writes</span>');
+  if (c.exactly_once === false) pills.push('<span class="pill loss">duplicate writes: ' +
+      Object.entries(c.duplicate_writes || {}).map(([k, v]) => `${k}×${v}`).join(", ") + "</span>");
+  if (isBot) {
+    if (c.eva_a != null) pills.push(`<span class="pill acc">Accuracy ${c.eva_a}</span>`);
+    if (c.task_completion != null) pills.push(`<span class="pill">task ${c.task_completion} · faithfulness ${c.faithfulness}</span>`);
+    if (c.conciseness != null) pills.push(`<span class="pill">concise ${c.conciseness} · progression ${c.progression}</span>`);
+  } else {
+    if (c.end_reason) pills.push(`<span class="pill ${c.end_reason === "AGENT_ENDS" ? "acc" : ""}">${c.end_reason === "AGENT_ENDS" ? "agent hung up" : "caller hung up"}</span>`);
+    if (c.v3_passed !== undefined && key.startsWith("pv4")) {
+      if (c.passed && !c.v3_passed) pills.push('<span class="pill gain">fixed vs baseline</span>');
+      if (!c.passed && !c.v3_passed) pills.push('<span class="pill hold">failed on both versions</span>');
+    }
+  }
+  const turns = (c.transcript || []).map(t =>
+    `<div class="turn ${t.speaker}"><b>${t.speaker}</b><span>${t.text}</span></div>`).join("");
+  $("#callView").innerHTML =
+    `<h3 style="margin-top:6px">${c.title || c.id}</h3>` +
+    (c.audio ? `<audio controls preload="none" src="${c.audio}"></audio>` : '<p class="dim">No recording for this entry.</p>') +
+    `<div class="meta">${pills.join("")}</div>` +
+    (turns ? `<div class="turns">${turns}</div>` : "");
+  const pk = pairKey(key);
+  const btn = $("#pairBtn");
+  btn.hidden = !pk;
+  btn.onclick = () => { $("#callSel").value = pk; show(pk); };
+}
+</script>
+</body>
+</html>

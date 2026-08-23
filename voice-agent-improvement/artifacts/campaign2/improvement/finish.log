@@ -1,0 +1,20 @@
+--- finish gen-2 on 180 (51 redo) ---
+  applied gen2_final.json
+  development: 84/105 passed
+  validation: 26/30 passed
+  regression: 25/30 passed
+  synthetic: 6/15 passed
+--- fresh blind-30, all three ---
+  applied seed_v3_plain.md
+  blind_g2: 16/30 passed
+  applied gen1_final.json
+  blind_g2: 23/30 passed
+  applied gen2_final.json
+  blind_g2: 25/30 passed
+--- restore gen-1 (gate champion) ---
+  applied gen1_final.json
+=== corrected ladder ===
+  v3c:g1c: overall 98→155/180 | blind 33→57/60 CI(0.863, 0.983) signal | ±59/-2 p=0.0 | guard 40→62 | words/turn 15.9→15.9
+  g1c:g2c: overall 155→160/180 | blind 57→59/60 CI(0.911, 0.997) signal | ±7/-2 p=0.17969 | guard 62→63 | words/turn 15.9→15.6
+  v3c:g2c: overall 98→160/180 | blind 33→59/60 CI(0.911, 0.997) signal | ±62/-0 p=0.0 | guard 40→63 | words/turn 15.9→15.6
+=== FINISH COMPLETE ===

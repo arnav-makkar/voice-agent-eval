@@ -1,0 +1,189 @@
+{
+  "record_id": "EMI-BENCH-0001",
+  "context": {
+    "record_id": "EMI-BENCH-0001",
+    "user_goal": {
+      "high_level_user_goal": "Your phone rang and you picked up. You do not know who is calling. You are willing to pay and you have the app on your phone. The moment they ask you to pay, say yes and that you will do it now. Then say a short goodbye and hang up.",
+      "decision_tree": {
+        "must_have_criteria": [
+          "They tell you who they are and what they want."
+        ],
+        "nice_to_have_criteria": [
+          "The call is under a minute."
+        ],
+        "negotiation_behavior": [
+          "Let them finish speaking before you reply.",
+          "Say yes as soon as they ask you to pay. Do not stall and do not ask questions."
+        ],
+        "resolution_condition": "As soon as they acknowledge that you will pay, say thank you and hang up.",
+        "failure_condition": "Hang up if they ask for a PIN, OTP or card number.",
+        "escalation_behavior": "Do not ask to be transferred to anyone.",
+        "edge_cases": [
+          "If you cannot hear them, ask once. Never invent what they said."
+        ]
+      },
+      "information_required": [
+        "you owe about Rs 4416 on a Samsung TV"
+      ],
+      "starting_utterance": "haan main hi hoon, boliye"
+    },
+    "user_persona": "You answer in very few words and want the call over quickly.",
+    "expected_scenario_db": {
+      "_current_date": "2026-08-23",
+      "agent_variables": {
+        "amountPaidToDate": "24996",
+        "balanceRemaining": "24996",
+        "currentDate": "23-08-2026",
+        "customerCareNumber": "1800-500-4444",
+        "cutoffDate": "28-08-2026",
+        "daysOverdue": "17",
+        "downPayment": "5000",
+        "dueDate": "05-08-2026",
+        "emiNumber": "7",
+        "emisPaid": "6",
+        "emisRemaining": "6",
+        "financedAmount": "49992",
+        "fraudHelplineNumber": "1800-425-5555",
+        "lateChargeAmount": "250",
+        "merchantName": "EasyCredit",
+        "monthlyEmiAmount": "4166",
+        "nearFutureDate": "26-08-2026",
+        "official_payment_channel": "EasyCredit app",
+        "outstandingAmount": "4416",
+        "payment_status": "unpaid",
+        "productName": "Samsung Smart TV",
+        "productPrice": "54992",
+        "purchaseDate": "15-01-2026",
+        "tenureMonths": "12",
+        "tomorrowDate": "24-08-2026",
+        "userName": "Arnav",
+        "campaignId": "c2-demo-01",
+        "transactionReference": "EC-DEMO-01"
+      }
+    },
+    "initial_scenario_db": {
+      "_current_date": "2026-08-23",
+      "agent_variables": {
+        "amountPaidToDate": "24996",
+        "balanceRemaining": "24996",
+        "campaignId": "c2-demo-01",
+        "currentDate": "23-08-2026",
+        "customerCareNumber": "1800-500-4444",
+        "cutoffDate": "28-08-2026",
+        "daysOverdue": "17",
+        "downPayment": "5000",
+        "dueDate": "05-08-2026",
+        "emiNumber": "7",
+        "emisPaid": "6",
+        "emisRemaining": "6",
+        "financedAmount": "49992",
+        "fraudHelplineNumber": "1800-425-5555",
+        "lateChargeAmount": "250",
+        "merchantName": "EasyCredit",
+        "monthlyEmiAmount": "4166",
+        "nearFutureDate": "26-08-2026",
+        "official_payment_channel": "EasyCredit app",
+        "outstandingAmount": "4416",
+        "payment_status": "unpaid",
+        "productName": "Samsung Smart TV",
+        "productPrice": "54992",
+        "purchaseDate": "15-01-2026",
+        "tenureMonths": "12",
+        "tomorrowDate": "24-08-2026",
+        "transactionReference": "EC-DEMO-01",
+        "userName": "Arnav"
+      }
+    },
+    "final_scenario_db": {
+      "_current_date": "2026-08-23",
+      "agent_variables": {
+        "amountPaidToDate": "24996",
+        "balanceRemaining": "24996",
+        "campaignId": "c2-demo-01",
+        "currentDate": "23-08-2026",
+        "customerCareNumber": "1800-500-4444",
+        "cutoffDate": "28-08-2026",
+        "daysOverdue": "17",
+        "downPayment": "5000",
+        "dueDate": "05-08-2026",
+        "emiNumber": "7",
+        "emisPaid": "6",
+        "emisRemaining": "6",
+        "financedAmount": "49992",
+        "fraudHelplineNumber": "1800-425-5555",
+        "lateChargeAmount": "250",
+        "merchantName": "EasyCredit",
+        "monthlyEmiAmount": "4166",
+        "nearFutureDate": "26-08-2026",
+        "official_payment_channel": "EasyCredit app",
+        "outstandingAmount": "4416",
+        "payment_status": "unpaid",
+        "productName": "Samsung Smart TV",
+        "productPrice": "54992",
+        "purchaseDate": "15-01-2026",
+        "tenureMonths": "12",
+        "tomorrowDate": "24-08-2026",
+        "transactionReference": "EC-DEMO-01",
+        "userName": "Arnav"
+      },
+      "customer": {
+        "outcome": "payment_ready"
+      }
+    },
+    "initial_scenario_db_hash": "e665ee574dc1055c6f3cb9bbd42f0cf17e48ad23d8619cd91772a04df5466f14",
+    "final_scenario_db_hash": "6dc863b4d218844193116ac88aa165b8633c367e0594c4096b798aa803339836",
+    "num_turns": 0,
+    "num_tool_calls": 0,
+    "tools_called": [],
+    "conversation_ended_reason": null,
+    "duration_seconds": 49.019507,
+    "output_dir": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/eva_live/emi_eva_live_20260822_175659/records/EMI-BENCH-0001",
+    "audio_assistant_path": null,
+    "audio_user_path": null,
+    "audio_mixed_path": null,
+    "agent_role": "Call an uninterested customer, state the overdue EMI clearly, and obtain a concrete commitment to pay through the official app.",
+    "agent_instructions": "This file documents the external system under test; the actual prompt and\nvoice runtime remain deployed inside Sarvam Indus/Samvaad. The EVA adapter\nmust not reconstruct or replace that agent. A successful call identifies\nEasyCredit and the Samsung TV EMI, makes a direct payment ask, recognizes the\ncustomer's answer, records the disposition, and closes without repetition.\n",
+    "agent_tools": [],
+    "agent_id": "agent_emi",
+    "current_date_time": "2026-08-23 13:30 IST",
+    "language": "en",
+    "language_display_name": "English",
+    "transcribed_assistant_turns": {},
+    "transcribed_user_turns": {},
+    "intended_assistant_turns": {},
+    "intended_user_turns": {},
+    "audio_timestamps_assistant_turns": {},
+    "audio_timestamps_user_turns": {},
+    "num_assistant_turns": 0,
+    "num_user_turns": 0,
+    "tool_params": [],
+    "tool_responses": [],
+    "conversation_trace": [],
+    "latency_assistant_turns": {},
+    "assistant_interrupted_turns": [],
+    "user_interrupted_turns": [],
+    "fallback_turn_ids": [],
+    "pipeline_type": "cascade"
+  },
+  "metrics": {
+    "conversation_valid_end": {
+      "name": "conversation_valid_end",
+      "score": 0.0,
+      "normalized_score": 0.0,
+      "details": {},
+      "error": "Skipped: no assistant or user turns",
+      "skipped": false,
+      "version": null,
+      "prompt_hash": null,
+      "sub_metrics": null
+    }
+  },
+  "aggregate_metrics": {
+    "EVA-A_pass": null,
+    "EVA-X_pass": null,
+    "EVA-A_mean": null,
+    "EVA-X_mean": null,
+    "EVA-overall_mean": null,
+    "EVA-overall_pass": null
+  }
+}

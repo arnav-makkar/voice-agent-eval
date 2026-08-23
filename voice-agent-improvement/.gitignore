@@ -7,3 +7,13 @@ __pycache__/
 dist/
 build/
 *.egg-info/
+.env.bak.c1
+.env.local
+
+# Raw call audio stays on disk, out of git: the site serves mp3 derivatives from
+# dashboard/public/evidence, and multi-MB WAVs would live in history forever.
+artifacts/eva_live/**/*.wav
+artifacts/eva_pilots/**/*.wav
+artifacts/**/*.raw
+artifacts/eva_live/**/elevenlabs_audio_recording.mp3
+.env.bak

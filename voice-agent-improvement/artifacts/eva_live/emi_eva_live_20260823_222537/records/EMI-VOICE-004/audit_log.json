@@ -1,0 +1,79 @@
+{
+  "transcript": [
+    {
+      "value": "अर्णव बोल रहा हूं आप शुभ हैं ना?",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787504150069",
+      "message_type": "user"
+    },
+    {
+      "value": "हाँ जी, मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की चार हज़ार चार सौ सोलह रुपये की EMI overdue है। क्या आप अभी official EasyCredit app के ज़रिए payment कर सकते हैं?",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787504152202",
+      "message_type": "assistant"
+    },
+    {
+      "value": "नहीं, मैं इस महीने पेमेंट नहीं नहीं करूंगा।",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787504164698",
+      "message_type": "user"
+    },
+    {
+      "value": "अच्छा, क्या",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787504167003",
+      "message_type": "assistant"
+    },
+    {
+      "value": "ठीक है, मैं आपका response note कर लेता हूँ। धन्यवाद अर्णव जी।",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787504167705",
+      "message_type": "assistant"
+    },
+    {
+      "value": "ठीक है, बाय।",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787504175025",
+      "message_type": "user"
+    }
+  ],
+  "llm_prompts": [],
+  "conversation_messages": [
+    {
+      "role": "user",
+      "content": "अर्णव बोल रहा हूं आप शुभ हैं ना?"
+    },
+    {
+      "role": "assistant",
+      "content": "हाँ जी, मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की चार हज़ार चार सौ सोलह रुपये की EMI overdue है। क्या आप अभी official EasyCredit app के ज़रिए payment कर सकते हैं?"
+    },
+    {
+      "role": "assistant",
+      "content": "अच्छा, क्या"
+    },
+    {
+      "role": "user",
+      "content": "नहीं, मैं इस महीने पेमेंट नहीं नहीं करूंगा।"
+    },
+    {
+      "role": "assistant",
+      "content": "ठीक है, मैं आपका response note कर लेता हूँ। धन्यवाद अर्णव जी।"
+    },
+    {
+      "role": "user",
+      "content": "ठीक है, बाय।"
+    }
+  ]
+}

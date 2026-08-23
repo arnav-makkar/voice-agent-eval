@@ -27,7 +27,7 @@ RESPONSE_SCHEMA: dict[str, Any] = {
             "items": {
                 "type": "object",
                 "properties": {
-                    "name": {"type": "string", "enum": ["check_payment_status", "record_promise_to_pay", "schedule_callback", "record_disposition"]},
+                    "name": {"type": "string", "enum": ["check_payment_status", "record_promise_to_pay", "schedule_callback", "record_dispute", "escalate_to_human", "record_call_outcome"]},
                     "arguments": {"type": "object", "additionalProperties": True},
                 },
                 "required": ["name", "arguments"],
@@ -71,7 +71,12 @@ class GeminiPromptAgent:
                         "check_payment_status": {},
                         "record_promise_to_pay": {"date": "DD-MM-YYYY"},
                         "schedule_callback": {"date": "DD-MM-YYYY", "time_window": "narrow IST window"},
-                        "record_disposition": {"disposition": "deployed outcome enum"},
+                        "record_dispute": {"reason": "the caller's stated reason, one sentence"},
+                        "escalate_to_human": {
+                            "trigger": "fraud_allegation|customer_distress|abuse|legal_threat|other",
+                            "note": "one factual sentence",
+                        },
+                        "record_call_outcome": {"disposition": "deployed outcome enum"},
                     },
                 },
                 ensure_ascii=False,

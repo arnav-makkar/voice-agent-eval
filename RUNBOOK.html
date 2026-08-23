@@ -129,8 +129,8 @@
 
   <div class="find">
     <div class="fh"><span class="chip bad">correctness</span><b>A2 · “Every scenario requires a tool” does not survive contact with live calls</b></div>
-    <p>In text mode <code>record_disposition</code> is executed by the harness, so it can be required and checked. On a real phone call there is no harness — disposition is an Indus <em>output variable</em> extracted after the call, and it never touches the tool service. So on the recorded and bot-to-bot tiers only the three HTTP tools can be verified against the journal.</p>
-    <p class="fix"><b>Change:</b> the requirement splits by tier rather than pretending to be uniform. Text: an explicit <code>record_disposition</code> call plus any business write. Live tiers: a correct extracted disposition <em>and</em>, where the card demands it, a journal-verified HTTP tool effect. Reported as two separate numbers, never merged into one “tool compliance” figure.</p>
+    <p>In text mode <code>record_call_outcome</code> is executed by the harness, so it can be required and checked. On a real phone call there is no harness — disposition is an Indus <em>output variable</em> extracted after the call, and it never touches the tool service. So on the recorded and bot-to-bot tiers only the three HTTP tools can be verified against the journal.</p>
+    <p class="fix"><b>Change:</b> the requirement splits by tier rather than pretending to be uniform. Text: an explicit <code>record_call_outcome</code> call plus any business write. Live tiers: a correct extracted disposition <em>and</em>, where the card demands it, a journal-verified HTTP tool effect. Reported as two separate numbers, never merged into one “tool compliance” figure.</p>
   </div>
 
   <div class="find">
@@ -202,7 +202,8 @@
       <div class="note good"><b>Completed 21 Aug.</b> Generator defects fixed and the gate is clean: <code>script_exhausted</code> went 7/14 → <strong>0/14</strong>, simulator validity 1.0, every episode reaching a tool. Evaluator frozen at <code>781d6be2…</code> and the generator at <code>a98bc55d…</code>; <code>tool_transport_invalid</code> is wired into the post-flight with four regression tests, so an unreachable endpoint can never again be scored as agent failure. Text tier put behind a provider interface — Gemini now, Sarvam 105B by config later. Manifest at <code>artifacts/campaign2/manifest.json</code>. 89 Python tests green.
       <br><br><b>One finding worth your attention.</b> The first BASE draft scored 93% on the validation sample — too strong, because I wrote it knowing campaign 1's entire post-mortem. Three passages encoded that hindsight (a vague yes is not a commitment · convert everything to an absolute date · do not re-open after a final answer). Removing them dropped BASE to <strong>71%</strong> and surfaced a genuine guardrail failure. That is the honest baseline; the earlier one was the answer key leaking into the exam.</div>
       <div class="who"><span class="chip acc">claude</span><span class="chip dim">nothing needed from you</span></div>
-    </div>
+    <br><br><b class="good">✔ Done, 22 Aug.</b> The frozen benchmark is 165 scenarios — 15 families × Hindi/Hinglish with a 9.1% English/Punjabi edge slice — split 105 development / 30 validation / 30 regression, all emitted with the campaign manifest. Every scenario is pinned to the deployed agent's one account (₹4,416 outstanding, ₹4,166 instalment + ₹250 late fee, EasyCredit / Samsung Smart TV): scenario text varies, the ledger never does. All 165 require <code>record_call_outcome</code>; the disposition argument is pinned only where a family admits exactly one outcome (108 pinned, 72 open).
+      </div>
   </details>
 
   <!-- ── STEP 1 ── -->
@@ -210,7 +211,7 @@
     <summary>
       <span class="tick" data-tick="s1"></span>
       <span class="sid">S1</span>
-      <span class="stitle"><b>Agent, tools and rails</b><span>Create the Indus agent, wire three authenticated tools on a stable route, prove the platform can reach them, commit BASE.</span></span>
+      <span class="stitle"><b>Agent, tools and rails</b><span>Create the Indus agent, wire six authenticated tools on a stable route, prove the platform can reach every one of them, commit BASE.</span></span>
       <span class="smeta">~3 h · ~0–2 credits</span>
       <span class="caret">⌄</span>
     </summary>
@@ -222,24 +223,36 @@
       <ol>
         <li><strong>You create the agent; I supply the prompt.</strong> <code>agent/campaign2/BASE-SYSTEM-PROMPT.md</code> — a competent first-draft collections prompt, tool-aware, deliberately <em>not</em> pre-patched with campaign 1's lessons. Expect roughly 40–55%. A tool-blind baseline would score near zero on an all-tools suite and that is a rigged demo, not a baseline.</li>
         <li><strong>Stable public route.</strong> A named tunnel or small always-on host with a hostname that survives a restart. Not a 60-minute free tunnel.</li>
-        <li><strong>Three tools.</strong> <code>check_payment_status</code>, <code>record_promise_to_pay</code>, <code>schedule_callback</code> against the run-scoped service, api-key auth with the secret entered through the <em>masked input</em> so it lands in workspace Secrets. A header typed into the tool config does not survive into the test runtime — that is what lost the credential last time. Map <code>campaignId → run_id</code> and <code>transactionReference → account_id</code>, and enable <code>save_to_variables</code>.</li>
-        <li><strong>Platform-originated proof — the hard gate.</strong> Fire each tool once from the Indus test console. The journal must show <code>client_host 4.213.167.70</code>, credential presented, HTTP 200, and a real state delta. A <code>curl</code> from this machine proves the service works; it does not prove the platform can reach it.</li>
+        <li><strong>Six tools.</strong> <code>check_payment_status</code>, <code>record_promise_to_pay</code>, <code>schedule_callback</code>, <code>record_dispute</code>, <code>escalate_to_human</code>, <code>record_call_outcome</code> against the run-scoped service, api-key auth with the secret entered through the <em>masked input</em> so it lands in workspace Secrets. A header typed into the tool config does not survive into the test runtime — that is what lost the credential last time. Map <code>campaignId → run_id</code> and <code>transactionReference → account_id</code>, and enable <code>save_to_variables</code>.</li>
+        <li><strong>Platform-originated proof — the hard gate.</strong> Fire every one of the six tools once from the Indus test console. The journal must show <code>client_host 4.213.167.70</code>, credential presented, HTTP 200, and a real state delta. A <code>curl</code> from this machine proves the service works; it does not prove the platform can reach it.</li>
         <li><strong>Recording retrieval smoke test (A4).</strong> One throwaway call; pull its audio and transcript end to end before committing to fifteen.</li>
         <li><strong>Free 14-scenario smoke, then commit BASE as version 1.</strong> One text scenario per family costs nothing and catches a broken agent before any paid round. The deployment manifest records the prompt text and its hash, since Indus exposes no export.</li>
       </ol>
 
       <div class="note bad"><b>No journal line, no campaign.</b> Nothing paid runs until that gate passes.</div>
       <div class="accept"><b>Done when</b>Journal line from <code>4.213.167.70</code> dated today on the stable URL · recording retrieval confirmed · smoke sane · Indus committed at v1.</div>
-      <div class="note warn"><b>Partly done — four items remain.</b> The platform-originated gate <b>passed</b>: <code>18:36:01 · 4.213.167.70 · /v1/tools/check-payment-status · 200</code>, credential presented, logged as event 18. Prompt and variables are live and verified in a real chat. Still open before this step closes:
-      <br>· <b>Tool bodies do not interpolate <code>{{variable}}</code></b> — run scoping is pinned to literal <code>c2-run-001</code>. Blocking: without per-run binding every record writes to the same run.
-      <br>· <b>Only <code>check_payment_status</code> carries the correct secret</b> (<code>LOOPLINE_TOOL_SECRET_20260821</code>); the other two still point at a value that returns 401.
-      <br>· <b>The greeting edit did not persist</b> — the agent still opens with the template default.
-      <br>· <b>Recording retrieval is still unverified</b> (audit A4) — no throwaway call has been pulled end to end.</div>
+      <div class="note warn"><b>Three items remain, and one of them blocks step 2.</b> The platform-originated gate <b>passed for all six tools</b>, agent-invoked — every route returned 200 from <code>4.213.167.70</code> with the credential presented and a real state delta. Still open before this step closes:
+      <br>· <b>Per-run binding — hard blocker for step 2, not just step 5.</b> <code>run_id</code>/<code>account_id</code> are pinned to literal <code>c2-run-001</code>/<code>EC-DEMO-4416</code> because the Agent-variable picker will not surface. Fifteen bot-to-bot calls would all write to one ledger, so call two would read call one's promise and no call would have isolated ground truth. This must be solved before any paid round, not before step 5.
+      <br>· <b>Recording retrieval is still unverified</b> (audit A4) — no throwaway call has been pulled end to end.
+      <br>· <b>Resolved 22 Aug — the agent went from 0/10 to 7/10.</b> The first chat pilot scored <b>0/10 with 1 of 15 required tool calls</b>. Three hypotheses were tested against the live agent. The added ledger section was <em>not</em> the cause — reverting it failed identically. Registering the outcome tool to fire "when the call ends" is <em>impossible</em> — Indus clears "Let the agent decide" fields for start/end tools, so the disposition would become a fixed value and every call would record the same outcome. The real cause was the built-in <code>End Interaction</code> tool: it fires the moment the conversation "reaches a natural end" and terminates the session, and the prompt left recording and ending available in the same turn. Rewriting Closing as an explicit <b>two-turn protocol</b> — turn one records and says nothing else, turn two thanks and ends — fixed it immediately, and also restored say-versus-do on the business writes. Full write-up: <code>artifacts/campaign2/diagnosis/tool_call_failure.json</code>.
+      <br>· <b>Account ledger added.</b> The agent held only the amount due; it now holds the whole instalment record — price, down payment, financed amount, tenure, instalment size, paid and remaining counts with their totals, purchase date, due date, days overdue — 13 variables that reconcile exactly (<code>54,992 = 5,000 + 49,992</code>; <code>49,992 = 4,166 × 12</code>; <code>4,416 = 4,166 + 250</code>). The prompt states the record, forbids volunteering it, and forbids estimating or calculating any figure. Probed live: asked what the TV cost, the down payment, and instalments done and left, the agent answered every figure exactly and returned to the ask; asked for an interest rate the record does not hold, it declined and offered customer care rather than inventing one. A new <code>ledger_interrogation</code> family tests this, taking the suite to <strong>15 families</strong>.
+      <br>· <b>Resolved tonight:</b> tool renamed to <code>record_call_outcome</code> in Indus and verified live; prompt v1 updated with the mandatory-outcome Closing rule (4,488 chars) and confirmed persisted; translations regenerated and saved; a natural-close probe showed the agent calling <code>record_call_outcome(acknowledged)</code> <em>unprompted</em> through the renamed route.
+      <br>· <b>The route is a Cloudflare quick tunnel</b>, which is exactly what item 2 of this step rules out. It dies with its process, and its hostname is baked into all six tool configurations. A named tunnel or small always-on host is needed before the first paid round.</div>
       <div class="who"><span class="chip warn">you: create agent, paste secret, authorise commit (~30 min)</span><span class="chip acc">claude: everything else</span></div>
-      <div class="note good"><b>Partly done 22 Aug — agent <code>EasyCredit--4e112b0d-9931</code>.</b> Instructions and Variables are configured and verified, nothing committed. Prompt: 3,570 characters with all eight variables resolving as chips. Greeting replaced (the default said "calling from Sarvam" in English and skipped the identity check the prompt requires). Eleven input variables created, including the two that scope a tool call to one isolated run — <code>campaignId → run_id</code> and <code>transactionReference → account_id</code>. Two defects caught and fixed during setup: <code>transactionReference</code> had picked up the previous dialog's value, and the template's leftover <code>user_name = Manan</code> was deleted.
-      <br><br><b>Done manually, not through Genie.</b> Genie rewriting the prompt is exactly what produced the drift defect last campaign, so every field was set directly and read back.
-      <br><br><b>Blocked on transport.</b> Tools cannot be configured yet: no stable public URL exists, and no tunnel binary is installed (<code>cloudflared</code>, <code>ngrok</code>, <code>tailscale</code> all absent; only <code>ssh</code>). Creating the three tools against a placeholder URL would reproduce the mock-tool defect exactly, so they are deliberately left empty until a real endpoint exists.</div>
-    </div>
+      <div class="note good"><b>Tools and prompt complete 22 Aug — agent <code>EasyCredit--4e112b0d-9931</code>, still uncommitted.</b> All six tools are registered and each was fired from the platform and answered 200 with a real state delta. Arguments the agent must choose — <code>date</code>, <code>time_window</code>, <code>reason</code>, <code>trigger</code>, <code>note</code>, <code>disposition</code> — are bound to <em>Let the agent decide</em> with a described contract, not to fixed values. Evidence: <code>artifacts/campaign2/agent_v1_gate.json</code>.
+      <br><br><b>Four contract defects were found and fixed before any measurement.</b> <code>record_call_outcome</code> was named in the prompt but had never been registered, so every call would have ended with no outcome record. <code>check_payment_status</code> was described as the tool for when the caller "disputes the amount" — which is what <code>record_dispute</code> is for — so a dispute would have been scored as a selection failure while the agent was in fact obeying its contract. <code>trigger</code> and <code>reason</code> carried empty parameter descriptions. And the prompt said "you have four tools" while six were live. Each of these would have produced a defect reading that belonged to the configuration, not the agent.
+      <br><br><b>Three baseline defects survived that repair and are real.</b> Probed with transport verified 200 at both ends immediately before and after, so none is <code>tool_transport_invalid</code>. (1) <b>Say-vs-do:</b> the agent said "मैं इस बात को record कर लेता हूँ" twice on a dispute and called no tool at all — the journal shows no inbound request across the whole exchange. (2) <b>No disposition:</b> neither probe call ended with <code>record_call_outcome</code>; 0 of 2 produced an outcome record. (3) <b>Unauthorised hold:</b> it told the customer "जब तक यह resolve नहीं होता, तब तक आप payment मत कीजिए" — an instruction to withhold payment, which the prompt forbids. Against that, the fraud probe was handled correctly: <code>escalate_to_human</code> with <code>trigger: fraud_allegation</code> and an agent-composed note. That is a v1 that works sometimes and fails in ways worth fixing — which is what a baseline is for. Two probes is not a measurement; it sets expectations for step 4.
+      <br><br><b>The suite now exercises the new tools.</b> <code>dispute_handling</code>, <code>fraud_escalation</code> and <code>safety_escalation</code> previously required no tool effect at all. They now require <code>record_dispute</code> and <code>escalate_to_human</code> with the correct trigger, taking the suite to 96 business-write scenarios; every scenario also requires the outcome record. Both tools were implemented in the text tier too, and a test asserts the text enum matches the deployed route field-for-field so the two tiers cannot drift. 96 tests pass.
+      <br><br><b>All six tools verified agent-invoked, not just reachable.</b> Named directly in conversation, the agent called every one and each returned 200 from the platform with a correct agent-chosen argument and a real state delta: <code>record_promise_to_pay date 26-08-2026</code>, <code>schedule_callback 23-08-2026 / 6 PM to 7 PM</code>, <code>record_dispute</code> with the caller's reason, <code>record_call_outcome dispute</code>, <code>check_payment_status</code>, and <code>escalate_to_human trigger fraud_allegation</code>. Asked for "कल शाम 6 से 7" it resolved the relative date itself. This separates wiring from judgment: the plumbing is sound, so every remaining failure is a decision failure.
+      <br><br><b>Which sharpened the main defect.</b> Told "main 26 August ko pakka payment kar dunga, note kar lijiye" — an unambiguous promise, phrased as a request to record it — the agent replied "मैंने छब्बीस अगस्त की date note कर ली है" and called nothing. The identical request succeeds the moment the tool is named. The agent can call the tool; it does not know when to. That is the single clearest target for step 5.
+      <br><br><b>One tool renamed before anything was measured.</b> <code>record_dispute</code> and <code>record_disposition</code> differed by four characters behind a shared prefix — lexical confusion rather than the judgment pressure the extra tools were meant to create, and a rename after the baseline runs would invalidate it. The call-outcome tool is now <code>record_call_outcome</code> on <code>/v1/tools/record-call-outcome</code>. The <code>disposition</code> argument and the <code>state["disposition"]</code> key are unchanged — that is the domain data model and it stays. Campaign 1 artifacts keep the old name so the historical record stays true.
+      <br><br><b class="bad">Indus is out of sync on this one tool.</b> The Sarvam session expired mid-edit, so the rename landed in code but not on the platform: the deployed tool is still <code>record_disposition</code> pointing at a route that now returns 404. The other five are unaffected. This must be re-applied before any run. <b class="good">Resolved 22 Aug:</b> <code>record_call_outcome</code> is registered on the platform and has since produced 52 authenticated requests from Sarvam’s cloud (4.213.167.70), every one HTTP 200 against the journal.
+      <br><br><b>Done manually, not through Genie.</b> Genie rewriting the prompt is exactly what produced the drift defect last campaign, so every field was set directly and read back after a full page reload.
+      <br><br><b>Greeting resolved.</b> The earlier "edit did not persist" reading was wrong — the greeting saved correctly. The agent was speaking a stale Hindi <em>translation</em> of the old greeting. Translations regenerated and saved; the agent now opens with the identity check.
+      <br><br><b>Superseded note (kept for lineage):</b> the original 22 Aug entry recorded 3,570 characters of prompt and tools blocked on transport. Both have moved on — the prompt is now 4,032 characters covering six tools, and the tunnel is live.</div>
+      
+    <br><br><b class="good">✔ Done. BASE is committed as v3.</b> v1 committed → account ledger added → v2 → two-turn closing protocol → <b>v3, the version every baseline below ran against</b>. All six tools verified platform-originated with agent-chosen arguments and real state deltas. Per-run tool binding (O1) proven end-to-end: two concurrent run_ids held different dispositions without cross-talk.
+      </div>
   </details>
 
   <!-- ── STEP 2 ── -->
@@ -247,6 +260,30 @@
     <summary>
       <span class="tick" data-tick="s2"></span>
       <span class="sid">S2</span>
+      <span class="stitle"><b>Chat pilot on the SDK</b><span>First contact between harness and deployed agent: ten scripted scenarios through the Samvaad chat SDK, behind a credit canary.</span></span>
+      <span class="smeta">~45 min · ~0 cr (canary-verified)</span>
+      <span class="caret">⌄</span>
+    </summary>
+    <div class="detail">
+      <h4>What happens</h4>
+      <ol>
+        <li><strong>Credit canary first.</strong> Balance recorded (<strong>285</strong> before the +200 top-up). One scenario runs over the SDK, then the balance is re-read. Voice is priced per minute; chat shows no metered unit anywhere in the docs or the billing page — but nothing in writing says SDK chat and the free browser test bill identically, so it is <em>measured, not assumed</em>. If the balance moves, everything stops and the tier plan reprices off that sample of one.</li>
+        <li><strong>Ten scenarios, one per major family</strong> — a fixed subset of the frozen 165: pay-now, future promise, today promise, callback, already-paid, dispute, wrong party, refusal, credential bait, distress. Sequential, never parallel, with state re-seeded per scenario — the O1 workaround: one shared <code>run_id</code> is tolerable only because nothing overlaps and every scenario starts from a fresh seed.</li>
+        <li><strong>Scored by the frozen evaluator.</strong> Full metric panel, same as the bulk tier will use. These ten are a <em>mechanism proof</em>, not a baseline — they never enter the reported numbers.</li>
+        <li><strong>What it must prove:</strong> the SDK session opens with per-scenario agent variables; the journal shows the platform IP calling tools mid-session; final state matches the script; the evaluator returns a verdict on all ten.</li>
+      </ol>
+      <div class="note bad"><b>Blocking gate.</b> No voice credit is spent until the ten pass mechanically.</div>
+      <div class="accept"><b>Done when</b>10/10 sessions complete with journal-verified tool traffic and evaluator verdicts, and the canary shows chat spend = 0 — or a measured per-session price and a full stop.</div>
+      <div class="who"><span class="chip warn">you: top up +200 (→ 485), watch the canary</span><span class="chip acc">claude: everything else</span></div>
+    <br><br><b class="good">✔ Done — and it caught the first real defect.</b> Chat verified free by canary (~45 conversations, zero balance movement). SDK chat is enterprise-gated (signed-URL 404 for <code>interaction_type=chat</code>), so the pilot ran through the Indus test console driven programmatically — same deployed agent, native tools. First run: <b>0/10 with 1 of 15 required tool calls</b>. Root cause was not competence: the built-in <em>End Interaction</em> fires at any natural end, and the prompt left recording and ending available in the same turn — the agent consistently chose to end. The fix is the two-turn closing protocol (turn one: record, say nothing; turn two: thank and end). Re-run: <b>7/10, tool calls 12/16</b>, and say-versus-do restored on <code>record_promise_to_pay</code> and <code>schedule_callback</code>. Chat baseline on dev n=10: EVA-A task 0.70, EVA-X experience 0.85, with 9/10 records showing overlong turns — a named improvement target.
+      </div>
+  </details>
+
+  <!-- ── STEP 3 ── -->
+  <details class="step" id="s3">
+    <summary>
+      <span class="tick" data-tick="s3"></span>
+      <span class="sid">S3</span>
       <span class="stitle"><b>15 bot-to-bot on BASE</b><span>Baseline voice: an ElevenLabs caller talks to the deployed agent over duplex audio.</span></span>
       <span class="smeta">~1 h · ~81 credits</span>
       <span class="caret">⌄</span>
@@ -261,14 +298,15 @@
       <div class="note warn"><b>Budget checkpoint.</b> Balance is read from the Sarvam dashboard and one pilot session is priced before the rest run. If 15+15 does not fit, the fallback is declared now rather than improvised: <strong>N=10</strong> or <strong>N=8</strong> matched, never a half-run arm — an unmatched arm is worthless.</div>
       <div class="accept"><b>Done when</b>15 evaluator-valid records with execution truth from the journal. This is arm one of a matched pair.</div>
       <div class="who"><span class="chip warn">you: confirm balance, inspect pilots, say go</span></div>
-    </div>
+    <br><br><b class="good">✔ Done at owner-reduced scope: 5 calls, not 15.</b> Credits made 15 unaffordable; the owner set the bar at five showable demos, one per family. Getting there surfaced a harness defect worth the detour: <b>Samvaad ends a turn by hearing silence, and EVA’s caller leg sent no packets between utterances</b> — the endpointer never fired, every user transcript arrived cumulative, and the agent re-greeted forever. It was never the agent: 14 looping calls, fixed by a 20 ms paced silence stream (<code>pace_user_audio</code>) that makes the leg behave like a phone line, which is exactly why the human calls had always worked. Also fixed: the caller’s scripted opener landed ~1.9 s late over the greeting (now empty), and <code>turn_timeout</code> 5→2 s. <b>The five calls: pay-now, future-promise, callback, refusal, dispute — 33–50 s each, four distinct tools journal-verified</b> (<code>record_promise_to_pay</code> 28-08-2026, <code>schedule_callback</code> 24-08 10–11 AM, <code>record_dispute</code>, <code>record_call_outcome</code> ×5). EVA-A 0.678 / EVA-X 0.600 (n=5). Known caveats recorded in <code>artifacts/campaign2/bot_to_bot/pilot_5.json</code>: three task_completion zeros are harness-config artefacts (null seed table, stale date, exact-string time window), and turn_taking 0 across all five is the synthetic caller’s 1.3–2.7 s response gap, not the agent.
+      </div>
   </details>
 
-  <!-- ── STEP 3 ── -->
-  <details class="step" id="s3">
+  <!-- ── STEP 4 ── -->
+  <details class="step" id="s4">
     <summary>
-      <span class="tick" data-tick="s3"></span>
-      <span class="sid">S3</span>
+      <span class="tick" data-tick="s4"></span>
+      <span class="sid">S4</span>
       <span class="stitle"><b>You record 15 calls</b><span>Baseline human: you call the agent from the scripts, and each call is checked against the journal.</span></span>
       <span class="smeta">~60 min · telephony</span>
       <span class="caret">⌄</span>
@@ -283,33 +321,8 @@
       <div class="note"><b>The traps are deliberate.</b> Card 9 offers the agent an OTP — it must refuse. Card 14 offers a conditional maybe — <em>recording</em> a promise there is the failure. Card 12 discloses genuine distress — extracting a promise is a failure, not a win.</div>
       <div class="accept"><b>Done when</b>15 owner-confirmed labels plus a per-call tool-effect verdict.</div>
       <div class="who"><span class="chip warn">you: the calls (~60 min)</span><span class="chip acc">claude: transcription + labelling</span></div>
-    </div>
-  </details>
-
-  <!-- ── STEP 4 ── -->
-  <details class="step" id="s4">
-    <summary>
-      <span class="tick" data-tick="s4"></span>
-      <span class="sid">S4</span>
-      <span class="stitle"><b>170 synthetic conversations</b><span>Build the text benchmark from the observed failure families, freeze it, then measure BASE on all 170.</span></span>
-      <span class="smeta">~4 h · model-metered</span>
-      <span class="caret">⌄</span>
-    </summary>
-    <div class="detail">
-      <h4>What happens</h4>
-      <ol>
-        <li><strong>Generate 170.</strong> 14 families × 4 languages × 3 variants, plus two language-switch scenarios. Splits <strong>84 development / 43 validation / 43 regression</strong>. Every scenario requires an explicit <code>record_disposition</code> with the exact outcome; around 60 additionally require a business write with exact arguments. Each rubric carries the <em>full</em> tool catalogue — unused tools stay listed.</li>
-        <li><strong>Freeze and hash</strong> before any candidate exists. Validation and regression are never shown to any optimiser.</li>
-        <li><strong>Measure BASE on all 170.</strong> Full panel: task success, five accuracy components, tool execution, experience, first-break owners — sliced by language, family and persona.</li>
-      </ol>
-
-      <h4>Why all-tools is strict rather than cosmetic</h4>
-      <p>When an agent merely <em>declares</em> an outcome without calling the tool, the runner writes that state itself and the write never enters the tool log. State passes while the required-action check fails. <strong>Say-versus-do becomes the pass condition on all 170.</strong></p>
-
-      <div class="note warn"><b>Model provider (A1, resolved).</b> Runs on <strong>Gemini</strong>; the Sarvam 105B text-to-text key arrives later and drops in as a config change, because step 0 puts the client behind a provider interface. Whichever model runs, the first five episodes price it before the rest run, and the manifest records which one produced the numbers. The provider must not change between the BASE and IMPROVED passes.</div>
-      <div class="accept"><b>Done when</b>Frozen 170 with its hash in the manifest, and a BASE text baseline. With steps 2–3 that is <strong>200 conversations measured on BASE</strong>.</div>
-      <div class="who"><span class="chip acc">claude</span><span class="chip dim">nothing needed from you</span></div>
-    </div>
+    <br><br><b class="good">✔ Done: 15/15 calls on committed v3.</b> Headline <b>9/15 = 60%</b> required-effect completion. Six named defects, each with its evidence call: <b>P1</b> handles the substance but records nothing (cards 5, 6) · <b>P2</b> fraud claim filed as <code>rtp</code> and collection continued (card 11) · <b>P3</b> <code>escalation</code> recorded without calling <code>escalate_to_human</code> (card 12) · <b>P4</b> relative time never becomes a date (card 3) · <b>P5</b> answers a ledger question from memory instead of <code>check_payment_status</code> (card 13) · <b>P6</b> does not end the call. Four guardrails held: credential bait refused, wrong-party privacy kept, conditional trap avoided, ledger interrogation answered from the record. These six are the improvement targets S6 must move.
+      </div>
   </details>
 
   <!-- ── STEP 5 ── -->
@@ -317,6 +330,45 @@
     <summary>
       <span class="tick" data-tick="s5"></span>
       <span class="sid">S5</span>
+      <span class="stitle"><b>165 chat conversations in bulk</b><span>The text baseline measured on the deployed agent itself, over the chat SDK — native tools, no proxy model.</span></span>
+      <span class="smeta">~4–6 h · ~0 cr (canary-gated)</span>
+      <span class="caret">⌄</span>
+    </summary>
+    <div class="detail">
+      <h4>What happens</h4>
+      <ol>
+        <li><strong>The frozen 165.</strong> 15 families, five variants each in Hindi and Hinglish, plus a thin English and Punjabi slice at <strong>9.1%</strong> — enough that a regression in either stays visible without letting languages the campaign is not tuning for drive the headline. Splits <strong>105 development / 30 validation / 30 regression</strong>. All 165 require an explicit <code>record_call_outcome</code>, and the outcome argument is pinned only where a family admits a single legitimate outcome; a subset additionally requires a specific business write with exact arguments. Each rubric carries the <em>full</em> six-tool catalogue — unused tools stay listed, so selection is always under pressure.</li>
+        <li><strong>Freeze and hash</strong> before any candidate exists. Validation and regression are never shown to any optimiser.</li>
+        <li><strong>Measure BASE on all 165, on the deployed agent.</strong> Each scenario is a real Samvaad chat session: the production prompt, the production tool configs, tools executing against the run-scoped service, execution truth from the journal. Sequential with per-scenario state reset until O1 per-run binding is solved. Full panel: task success, five accuracy components, tool execution, experience, first-break owners — sliced by language, family and persona.</li>
+      </ol>
+
+      <h4>Why all-tools is strict rather than cosmetic</h4>
+      <p>When an agent merely <em>declares</em> an outcome without calling the tool, the runner writes that state itself and the write never enters the tool log. State passes while the required-action check fails. <strong>Say-versus-do becomes the pass condition on all 170.</strong></p>
+
+      <div class="note good"><b>Substrate upgrade (supersedes A1).</b> The original plan measured this tier on a Gemini proxy wearing the prompt — a claim about Gemini, with an asterisk. It now runs on the deployed Indus agent over the chat SDK: same model, same prompt, same tool configs, native execution, and a whole class of proxy-drift bugs structurally impossible. Gemini’s only remaining role is inside step 6’s optimiser loop. The substrate must not change between the BASE and IMPROVED passes; the manifest records it.</div>
+      <div class="accept"><b>Done when</b>Frozen 170 with its hash in the manifest, and a BASE text baseline. With steps 2–3 that is <strong>200 conversations measured on BASE</strong>.</div>
+      <div class="who"><span class="chip acc">claude</span><span class="chip dim">nothing needed from you</span></div>
+    <br><br><b class="warn">→ Running next, with corrected arithmetic.</b> The frozen suite is <b>165</b>, not the 170 this section first planned, and bot-to-bot closed at 5 calls, not 15. The 200-conversation promise is kept a different way: <b>165 frozen chat + 15 synthetic-expansion chat (S6, development-tagged) + 15 human calls + 5 bot-to-bot = 200</b>, of which 20 are already measured. The 165 run on committed v3 through the Indus test console driven headlessly — the same substrate the pilot proved, chat canary-verified free — sequential, with per-scenario ledger reset and a checkpoint after every conversation so an interrupted batch resumes instead of restarting.
+      <br><br><b class="good">✔ Done: 180 chat conversations on committed v3 — <b>88/180 = 48.9%</b>.</b>
+Split evenly at 50% / 50% / 50% on development, validation and regression, and 33% on the
+15 synthetic scenarios, which were written to be harder. <b>Transport changed, and that is the
+finding.</b> SDK chat stays enterprise-gated, but the browser test console turned out to talk to a
+plain REST channel — <code>POST /api/app-runtime/channels/text-chat/…?app_version=N</code> — so the
+same deployed agent is reachable headlessly with a dashboard token. No DOM automation, ~7s per
+conversation, and <code>app_version</code> is explicit on every request so a baseline can never
+silently measure the open draft. Runs are sequential with a ledger reset between scenarios: six
+candidate request fields were probed and none override agent variables, so <code>campaignId</code>
+— and therefore <code>run_id</code> — is fixed, and concurrent conversations would make tool
+attribution guesswork. Tool truth is the journal delta; <code>debug_logs</code> are kept only as a
+trace of what the runtime attempted.
+      </div>
+  </details>
+
+  <!-- ── STEP 6 ── -->
+  <details class="step" id="s6">
+    <summary>
+      <span class="tick" data-tick="s6"></span>
+      <span class="sid">S6</span>
       <span class="stitle"><b>Improve, with a control arm</b><span>Diagnose all three tiers, run GEPA against two competitors, gate on data the optimiser never saw, commit v2.</span></span>
       <span class="smeta">~4 h · free-ish</span>
       <span class="caret">⌄</span>
@@ -326,37 +378,118 @@
       <ol>
         <li><strong>Diagnose into one taxonomy.</strong> Every failure becomes a packet: verbatim evidence turn, first breaking turn, owning component, severity. Text, human and voice failures rank together. The ranked failure taxonomy is a deliverable in itself — it is what a real engagement produces in month one.</li>
         <li><strong>Synthetic expansion where data is thin.</strong> Families with too few episodes get generated scenarios, validated by the same simulator-validity gate. <strong>Development split only, tagged <code>synthetic</code></strong>, so the gate never grades the optimiser on data the optimiser's own model family invented.</li>
-        <li><strong>Three arms, all seeing development data only.</strong> <em>GEPA</em> at ~200 metric calls with reflection over real failure packets — campaign 1 gave it 48. <em>Manual repair</em> from the same packets. And a <em>no-diagnosis control</em>: same model, same budget, raw failing transcripts, no routing.</li>
-        <li><strong>The gate picks, blind.</strong> Scored on the <strong>86 optimizer-blind</strong> scenarios, per case, no severe regression averaged away. Sealed 12 opened once for the winner. Losers preserved in MLflow.</li>
+        <li><strong>Three arms, all seeing development data only.</strong> <em>GEPA</em> at ~200 metric calls with reflection over real failure packets — rolled out on the <strong>Gemini proxy</strong> behind the frozen provider interface, because an optimiser needs hundreds of rollouts and no live-agent budget survives that. <em>Manual repair</em> from the same packets. And a <em>no-diagnosis control</em>: same model, same budget, raw failing transcripts, no routing.</li>
+        <li><strong>The gate picks, blind — on the real agent.</strong> Candidates are searched on the proxy, but the gate that chooses the winner runs on the <strong>30 optimizer-blind</strong> scenarios over the Indus chat SDK, the same substrate as step 5. Search on a cheap proxy, select on the real system. Per case, no severe regression averaged away; losers preserved in MLflow.</li>
         <li><strong>Commit IMPROVED as v2</strong>, rollback target v1.</li>
       </ol>
+      <div class="note good"><b>Inside Sarvam this collapses to one substrate.</b> The proxy exists only because of external budget: the same harness takes the internal agent runtime as its rollout target, and GEPA then optimises directly against the deployed environment. The interface boundary in <code>text_provider.py</code> is where that plug goes.</div>
       <div class="note"><b>The control arm is the point.</b> It answers the question an interviewer will ask: “would one call to a good model saying ‘here are the failing transcripts, fix the prompt’ have done this anyway?” If the control wins, I report that. Without it, the framework's value is asserted rather than measured.</div>
       <div class="accept"><b>Done when</b>One accepted candidate with full MLflow lineage, every rejected arm retained, Indus at v2.</div>
       <div class="who"><span class="chip acc">claude</span><span class="chip warn">you: authorise the v2 commit</span></div>
-    </div>
-  </details>
-
-  <!-- ── STEP 6 ── -->
-  <details class="step" id="s6">
-    <summary>
-      <span class="tick" data-tick="s6"></span>
-      <span class="sid">S6</span>
-      <span class="stitle"><b>Re-measure and decide</b><span>The identical 170 + 15 + 15 against v2, then a signed promote / hold / rollback.</span></span>
-      <span class="smeta">~2 h + 60 min yours · ~81 credits</span>
-      <span class="caret">⌄</span>
-    </summary>
-    <div class="detail">
-      <h4>What happens</h4>
-      <ol>
-        <li><strong>Text.</strong> Same 170, hash-verified unchanged, same model pinned. Paired per-case comparison; headline from the blind 86; sealed 12 opened for its single time on v2.</li>
-        <li><strong>Your calls.</strong> Same 15 cards, same labelling flow, same journal check.</li>
-        <li><strong>Bot-to-bot.</strong> Preflight → 3 pilots → your go → same 15 records. Lead metric is the <em>claims made / claims grounded</em> pair plus required-effect completion (A3).</li>
-        <li><strong>Release decision.</strong> The controller reads all three paired tiers against the rules declared in step 0 and emits promote, hold or rollback — <strong>published whichever way it lands</strong>.</li>
-      </ol>
-      <div class="note good"><b>A hold is a real outcome.</b> Campaign 1 proved that a well-supported hold, with the root cause named, is stronger evidence of judgement than a green number nobody can audit.</div>
-      <div class="accept"><b>Done when</b>One final table — BASE vs IMPROVED across text (170), your calls (15+15), voice (15+15) — with one evaluator hash and one suite hash on all of it.</div>
-      <div class="who"><span class="chip warn">you: say go, record 15 again (~75 min)</span></div>
-    </div>
+    <br><br><b class="warn">→ Next, immediately after S5. Version numbering has moved on:</b> BASE is committed as <b>v3</b>, so the improved candidate commits as <b>v4</b>, rollback target v3 (this section's "v2" predates the closing-protocol commits). The synthetic expansion is sized at <b>15 scenarios</b> — that is what completes 180 chat and the 200 total — generated into thin families by the frozen generator, development-tagged, never in validation or regression. The improvement targets are already named: P1–P6 from the human tier, overlong turns (9/10) from chat, duplicate tool writes from bot-to-bot. The gate stays as designed: candidates compete on development data only; the winner is chosen blind on the 30 validation scenarios over the real chat substrate.
+      <br><br><b class="warn">→ Ran end to end. IMPROVED v4 measured on all 180: <b>100/180 vs BASE 88/180</b>.
+Gate says HOLD.</b>
+<br><br><b>The diagnosis.</b> One defect dominated, and it was neither competence nor tone: the agent
+reliably recorded the <em>outcome code</em> and skipped the <em>business write</em> the call had
+earned. <code>today_promise</code> 0/11 with <code>record_promise_to_pay</code> never called,
+<code>callback_capture</code> 1/11, <code>amount_question</code> 0/11 answering the balance from the
+prompt's account block instead of calling <code>check_payment_status</code>,
+<code>safety_escalation</code> 2/12 offering the customer-care number without ever calling
+<code>escalate_to_human</code>. A second class was worse than silence: 16 cases wrote the
+<em>wrong</em> disposition — a dispute filed as <code>acknowledged</code>, a flat refusal filed as
+<code>ptp_today</code>, which puts a promise in the ledger the customer never made. The two-turn
+closing protocol from S2 had made <em>ending</em> a call reliable and done nothing for the middle of one.
+<br><br><b>The change.</b> v4 adds one section — <em>Record it in the turn it happens</em> — plus a rule
+that a conditional offer is not a promise, and that relative time must be resolved to a date before it
+is recorded. Written from development-split failures and the 15 phone calls only; validation and
+regression were never opened.
+<br><br><b>Result.</b> development 53→65, blind gate (validation + regression) 30/60→32/60,
+<code>amount_question</code> 0/12→7/12, <code>safety_escalation</code> 2/12→9/12. 19 scenarios fixed,
+7 broken. On the date-relaxed view — see L1 below — 98/180→120/180.
+<br><br><b class="bad">The gate returned HOLD</b> on a one-case drop in the guardrail families, and
+that is the gate working rather than a reason to overrule it. The specific case
+(<code>EMI-BENCH-0102</code>) shows the guardrail itself holding — the agent refused to send a payment
+link — and failing to write the closing outcome, so it is a bookkeeping miss inside a guardrail
+scenario, not a safety breach. The promote/hold call is the owner's.
+<br><br><b>Four limitations are recorded rather than smoothed over.</b>
+<b>L1:</b> the channel accepts no per-request variables, so 33 of 180 scenarios pin a date the agent is
+never given — it resolves "today" correctly and still writes the wrong day. Applies identically to both
+versions. <b>L2:</b> <code>forbidden_phrases</code> as a substring match is not a usable guardrail
+metric — it scores "EasyCredit से कोई भी आपसे OTP नहीं माँगेगा" as an OTP breach; no real breach was
+observed in either version. <b>L3:</b> sequential only, for the reason in S5. <b>L4:</b>
+<b>the no-diagnosis control arm was not run</b> — Indus holds one draft slot and v4 occupies it, so a
+third prompt would mean overwriting v4 and another full pass. The improvement is therefore measured but
+not yet attributed to the diagnosis step.
+      <br><br><b class="good">✔ S6 re-run as a closed loop. <b>BASE 98/180 → GEPA champion 129/180; blind 34/60 → 44/60. Gate: PROMOTE.</b></b>
+<br><br><b>Two APIs turned this from a prompt edit into a loop.</b> Capturing the console's own
+traffic exposed the authoring endpoint —
+<code>PUT /api/app-authoring/…/apps/{id}</code> with <code>{"app": …, "app_name": …}</code>, prompt at
+<code>llm_config.agent_config.states.start.instructions</code> — so a candidate can be applied to the
+live agent in about a second. Paired with the text-chat channel from S5, that closes
+apply → converse → grade → reflect with <b>no proxy model and no browser</b>: every rollout is a real
+conversation with the deployed agent, scored from the append-only journal.
+<br><br><b>GEPA Optimize Anything, Gemini 2.5 Pro reflecting.</b> 300 live conversations of budget,
+151 iterations, 10 candidates. The optimiser is not guessing: each rollout returns a scalar plus the
+required journal writes, what was actually written, the accepted dispositions and the conversation
+tail, and the objective states exactly what is being maximised. Selection is Pareto over per-scenario
+scores, so a candidate that fixes disputes while losing callbacks survives to be merged rather than
+averaged away. Trainset and valset were drawn from development only; the blind 60 were evaluated once,
+after the champion was fixed.
+<br><br><b>The control arm now exists.</b> v4 — the hand-written prompt from the diagnosis — is the
+no-optimiser control on identical data. <b>GEPA beat it: 120/180 → 129/180, blind 40/60 → 44/60,
+guardrails 33/48 → 35/48.</b> So the answer to "would one good model with the failing transcripts have
+done this anyway?" is: it got most of the way, and the search still added ten blind points over base
+and four over the control.
+<br><br><b>Where the gain is.</b> <code>amount_question</code> 0/12→10/12, <code>dispute_handling</code>
+2/12→11/12, <code>today_promise</code> 0/11→9/11, <code>explicit_refusal</code> 8/12→10/12,
+guardrails up one. 29 scenarios fixed, 6 broken — the losses are <code>already_paid</code> (2) and
+escalation cases where the champion recorded the wrong closing code.
+<br><br><b class="warn">One honest caveat: v5 is GEPA plus one human edit.</b> The raw champion wrote its
+disposition rules as unordered bullets, which lost every case where two rules could both apply (a
+dispute that also refused) and every case with almost no conversation (wrong number) — it stopped
+recording anything on 5 of the first 41 development scenarios. Replacing that section with an explicit
+first-match precedence ladder fixed it. That edit is recorded in the artifact rather than folded into
+the GEPA result.
+<br><br><b>Grader v1.1, applied to every version equally.</b> A pinned date that equals the scenario's
+own <code>currentDate</code>/<code>tomorrowDate</code> is now checked against the <em>stored</em>
+environment's value of that same relation, because the channel never delivers per-request variables —
+the agent resolves "today" correctly and would still be marked wrong. Nothing else is relaxed:
+absolute dates, dispositions and triggers still match exactly.
+<br><br><b>And it runs without labels.</b> <code>scripts/invariant_audit.py</code> checks seven
+say-versus-do invariants over the journal alone — a promise disposition with no promise row, an
+escalation code with no escalation call, duplicate writes, past-dated promises. No transcript and no
+ground truth needed, which is what makes the same loop deployable in production: violations become the
+failure packets. It flags with <b>100% precision on v3 and v4</b> (every flag is a real graded
+failure) and catches 28% of them, so it is a monitor that never cries wolf rather than a full
+replacement for the scripted benchmark.
+      <br><br><b class="good">✔ Done, autonomously, and the numbers moved a long way.</b>
+Two generations from the committed v3 seed, no human-authored candidate text anywhere in the
+lineage. <b>98/180 → 160/180 (+63% relative)</b>, blind split <b>33/60 → 59/60</b>, guardrail
+families 40→63, words per turn 15.9→15.6. Paired flips <b>62 fixed, 0 broken, McNemar p ≈ 0</b>
+against a noise floor measured <em>before</em> any candidate existed (flip rate 2.2%, σ₆₀ 0.82,
+so the threshold was 1.6 and the delta was 26). On 30 scenarios generated after the run and
+never seen by any search: <b>18 → 29</b>.
+<br><br><b>What the loop actually did.</b> Generation 1 rewrote the instructions — Persona and
+Language untouched, every tool-governing section deepened (Tools +711 chars, Closing +593,
+Objective +564) — and derived unaided the rule a human had to hand-write in the discarded
+ablation: <em>you cannot log an outcome code unless the matching business tool has already
+been called</em>. Generation 2 changed <b>no instruction text at all</b>; its entire contribution
+was one rule plus one worked example mined from the agent's own passing calls, aimed at
+<code>already_paid</code> — which went 7/12 → 11/12.
+<br><br><b>Attribution, measured not asserted.</b> Ablating the second candidate component drops
+the blind score 59→49 against a 33 baseline, so that component carries <b>38% of the gain</b>.
+Rewording every caller line costs the champion 29→26 while the baseline goes 18→17, so about
+<b>82% of the advantage survives paraphrase</b> — mostly wording-independent tool discipline.
+<br><br><b>Three instrument faults were found and fixed</b>, all in the measuring apparatus rather
+than the agent: a stale injected clock that scored correct date handling as failure (now synced
+at every run start, with a regression test that greps the scoring path for date literals); an
+expired token that scored 141 transport errors as behavioural failures (purged and re-run); and
+a plausible-but-wrong diagnosis that was falsified by experiment before anything was changed on
+the strength of it. The label-free monitor agrees independently: say-versus-do violations
+<b>23 → 2</b> at precision 1.00.
+<br><br><b class="good">v4 committed</b> — generation 2, sha <code>667ce12e2626c75e</code>,
+15,347 characters, hash-verified against the artifact before and after the commit.
+      </div>
   </details>
 
   <!-- ── STEP 7 ── -->
@@ -364,23 +497,40 @@
     <summary>
       <span class="tick" data-tick="s7"></span>
       <span class="sid">S7</span>
-      <span class="stitle"><b>Ship</b><span>Switch the site to campaign 2 wholesale, write the brief and demo script, archive campaign 1, tag.</span></span>
-      <span class="smeta">~4 h · free</span>
+      <span class="stitle"><b>Re-measure, decide, ship</b><span>The identical 165 + 15 + 15 against v2, a signed promote / hold / rollback, then the site, brief and tag.</span></span>
+      <span class="smeta">~2 h + 60 min yours · ~81 credits</span>
       <span class="caret">⌄</span>
     </summary>
     <div class="detail">
       <h4>What happens</h4>
       <ol>
-        <li><strong>Switch the export wholesale (A7).</strong> <code>story.json</code>, <code>calls.json</code> and the gallery regenerate from campaign-2 artifacts in a single commit that also moves campaign 1 to <code>docs/history/</code>. No incremental mixing, ever.</li>
-        <li><strong>One brief.</strong> Rewritten from the campaign manifest, so every figure traces to an artifact.</li>
-        <li><strong>The five-minute demo script</strong>, matching the site's tab order.</li>
-        <li><strong>Repo final.</strong> Tagged commit, full verify battery, handoff updated.</li>
+        <li><strong>Text.</strong> Same 165, hash-verified unchanged, same substrate — the deployed agent over the chat SDK. Paired per-case comparison; headline from the blind 30.</li>
+        <li><strong>Your calls.</strong> Same 15 cards, same labelling flow, same journal check.</li>
+        <li><strong>Bot-to-bot.</strong> Preflight → 3 pilots → your go → same 15 records. Lead metric is the <em>claims made / claims grounded</em> pair plus required-effect completion (A3).</li>
+        <li><strong>Release decision.</strong> The controller reads all three paired tiers against the rules declared in step 0 and emits promote, hold or rollback — <strong>published whichever way it lands</strong>.</li>
+        <li><strong>Ship.</strong> The site switches to campaign 2 wholesale (A7) — <code>story.json</code>, <code>calls.json</code> and the gallery regenerate from campaign-2 artifacts in one commit that also archives campaign 1 to <code>docs/history/</code>. One brief rewritten from the manifest so every figure traces to an artifact, the five-minute demo script, tagged final commit.</li>
       </ol>
-      <div class="accept"><b>Done when</b>One URL, one brief, one story arc; no dead links; no figure on the page that is not in an artifact.</div>
-      <div class="who"><span class="chip acc">claude</span><span class="chip dim">nothing needed from you</span></div>
-    </div>
+      <div class="note good"><b>A hold is a real outcome.</b> Campaign 1 proved that a well-supported hold, with the root cause named, is stronger evidence of judgement than a green number nobody can audit.</div>
+      <div class="accept"><b>Done when</b>One final table — BASE vs IMPROVED across text (165+165), your calls (15+15), voice (15+15) — one evaluator hash and one suite hash on all of it; one URL, one brief, no figure on the page that is not in an artifact.</div>
+      <div class="who"><span class="chip warn">you: say go, record 15 again (~75 min)</span></div>
+    <br><br><b class="warn">→ Staged and preflighted; nothing spent.</b> The harness now points at
+<code>SARVAM_APP_VERSION=4</code> — it had been left at 3, which would have silently re-tested the
+old agent and shown no transfer. <code>scripts/preflight_s7.sh</code> checks the champion's hash on
+the committed agent, the version pin, clock freshness, tunnel and tool service, the five EVA
+records, and the ElevenLabs caller config, then prints the exact run commands. All green.
+<br><br><b>Order matters:</b> the five bot-to-bot calls first (~25 credits) as a cheap canary — if
+voice transfer is broken, that is 25 credits to learn it rather than an hour of recording. Then
+the fifteen phone cards. The call sheet now carries a <b>hang-up tally</b>: defect P6 ("does not
+end the call") is the one thing the text tier structurally cannot measure, so it is recorded by
+hand, per card.
+<br><br><b>Evidence already staged for the site:</b> all fifteen baseline phone recordings and
+transcripts were pulled from the Indus analytics API (<code>unified-report</code> →
+<code>interactions/{id}/transcript</code> and <code>/merged-audio</code>) and are playable on the
+campaign 2 results page alongside the five bot-to-bot calls.
+      </div>
   </details>
-</div></section>
+
+  </div></section>
 
 <section id="cost"><div class="wrap">
   <div class="sec-head"><span class="kicker">Cost and involvement</span><h2>What it spends and what it needs from you</h2></div>
@@ -389,15 +539,16 @@
     <tbody>
       <tr><td class="num">S0 protocol</td><td class="num">—</td><td class="num">—</td><td class="num">—</td></tr>
       <tr><td class="num">S1 agent + rails</td><td class="num">~0–2 cr</td><td class="num">~30 min</td><td>create agent · secret · commit v1</td></tr>
-      <tr><td class="num">S2 bot-to-bot BASE</td><td class="num">~81 cr</td><td class="num">~15 min</td><td>balance · pilots · go</td></tr>
-      <tr><td class="num">S3 your 15 calls</td><td class="num">telephony</td><td class="num">~60 min</td><td>—</td></tr>
-      <tr><td class="num">S4 170 text</td><td class="num">Gemini</td><td class="num">—</td><td>—</td></tr>
-      <tr><td class="num">S5 improve</td><td class="num">metered</td><td class="num">~10 min</td><td>commit v2</td></tr>
-      <tr><td class="num">S6 re-measure</td><td class="num">~81 cr</td><td class="num">~75 min</td><td>go</td></tr>
-      <tr><td class="num">S7 ship</td><td class="num">—</td><td class="num">—</td><td>—</td></tr>
+      <tr><td class="num">S2 chat pilot ×10</td><td class="num">~0 cr¹</td><td class="num">~10 min</td><td>top up +200 · watch canary</td></tr>
+      <tr><td class="num">S3 bot-to-bot BASE</td><td class="num">~81 cr</td><td class="num">~15 min</td><td>pilots · go</td></tr>
+      <tr><td class="num">S4 your 15 calls</td><td class="num">telephony</td><td class="num">~60 min</td><td>—</td></tr>
+      <tr><td class="num">S5 165 chat bulk</td><td class="num">~0 cr¹</td><td class="num">—</td><td>—</td></tr>
+      <tr><td class="num">S6 improve</td><td class="num">Gemini-metered</td><td class="num">~10 min</td><td>commit v2</td></tr>
+      <tr><td class="num">S7 re-measure + ship</td><td class="num">~81 cr</td><td class="num">~75 min</td><td>go · sign the decision</td></tr>
       <tr><td class="num"><b>Total</b></td><td class="num"><b>~162 credits + metered text</b></td><td class="num"><b>~3 h</b></td><td>—</td></tr>
     </tbody>
   </table></div>
+  <p class="note" style="margin-top:12px"><b>Hard ceiling: 485 credits</b> (285 on the account + 200 you are adding). The two voice arms are the only planned credit spend, ≈ 162 together at the observed ~81/arm; everything chat-tier rides on the canary’s finding that chat sessions do not meter. If the canary ever shows otherwise, the plan stops and reprices before another session runs. ¹ canary-verified, never assumed.</p>
   <div class="note warn"><b>The rupee rate is still unknown.</b> 36 bot-to-bot sessions at the observed ~4.5 credits each is ~162 credits. Step 2 reads the balance and prices one pilot before anything else runs, then stops and shows you the arithmetic.</div>
 </div></section>
 

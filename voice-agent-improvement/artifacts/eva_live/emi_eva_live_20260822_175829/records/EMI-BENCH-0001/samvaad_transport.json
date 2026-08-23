@@ -1,0 +1,253 @@
+[
+  {
+    "event": "tool_state_seeded",
+    "timestamp_ms": "1787401716228",
+    "run_id": "EMI-BENCH-0001",
+    "account_id": "EC-DEMO-01"
+  },
+  {
+    "event": "samvaad_connected",
+    "timestamp_ms": "1787401716770",
+    "interaction_id": null
+  },
+  {
+    "event": "twilio_start",
+    "timestamp_ms": "1787401716771",
+    "stream_sid": "EMI-BENCH-0001"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787401717183",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787401717283",
+    "type": "server.action.interaction_connected",
+    "interaction_id": "20260822/e23517f2-17:58:36-70feebd3"
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787401719997"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787401720100",
+    "sample_rate": 16000
+  },
+  {
+    "event": "user_audio_start",
+    "timestamp_ms": "1787401722338",
+    "source_timestamp_ms": "1787401722336"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787401722727",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787401722817"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787401722919",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787401723756",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787401723856"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787401723959",
+    "sample_rate": 16000
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787401724567"
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787401724668",
+    "role": "user",
+    "text": "अर्णव बोल रहा हूं। कौन हैं आप?"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787401724770",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787401727502",
+    "role": "bot",
+    "text": "मैं EasyCredit से शुभ बात कर रहा हूँ। यह call आपके Samsung Smart TV की overdue EMI के बारे में है, जो चार हज़ार चार सौ सोलह रुपये है। क्या आप अभी official EasyCredit app के ज़रिए payment कर सकते हैं?"
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787401735832"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787401735935",
+    "sample_rate": 16000
+  },
+  {
+    "event": "user_audio_stop",
+    "timestamp_ms": "1787401736996",
+    "source_timestamp_ms": "243479004"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787401737341",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "user_audio_start",
+    "timestamp_ms": "1787401737369",
+    "source_timestamp_ms": "1787401737367"
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787401737443"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787401737544",
+    "sample_rate": 16000
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787401739354"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787401739455",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787401739554",
+    "role": "user",
+    "text": "हाँ मैं अभी करता हूँ, app खोल रहा हूँ।"
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787401739756",
+    "role": "bot",
+    "text": "बहुत अच्छा। payment होने के बाद मुझे बता दीजिएगा।"
+  },
+  {
+    "event": "user_audio_stop",
+    "timestamp_ms": "1787401739830",
+    "source_timestamp_ms": "243481837"
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787401743177"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787401743279",
+    "sample_rate": 16000
+  },
+  {
+    "event": "user_audio_start",
+    "timestamp_ms": "1787401744609",
+    "source_timestamp_ms": "1787401744607"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787401744988",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787401745088"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787401745190",
+    "sample_rate": 16000
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787401746901"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787401747002",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787401747204",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787401747302",
+    "role": "user",
+    "text": "ठीक है मैं करता हूं और बता देता हूं।"
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787401747705"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787401747807",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787401747907",
+    "role": "user",
+    "text": "ठीक है मैं करता हूँ और बता देता हूँ। बाय।"
+  },
+  {
+    "event": "twilio_stop_sent",
+    "timestamp_ms": "1787401751630",
+    "reason": "assistant_completed"
+  },
+  {
+    "event": "conversation_ending",
+    "timestamp_ms": "1787401751632",
+    "reason": "assistant_completed"
+  },
+  {
+    "event": "samvaad_disconnected",
+    "timestamp_ms": "1787401751679",
+    "interaction_id": "20260822/e23517f2-17:58:36-70feebd3"
+  },
+  {
+    "event": "analytics_attempt_resolved",
+    "timestamp_ms": "1787401772051",
+    "interaction_id": "20260822/e23517f2-17:58:36-70feebd3"
+  },
+  {
+    "event": "tool_state_resolved",
+    "timestamp_ms": "1787401772091",
+    "event_count": 3
+  },
+  {
+    "event": "audio_perturbation_summary",
+    "timestamp_ms": "1787401772101",
+    "config": {
+      "kind": "clean"
+    },
+    "chunks": 385,
+    "dropped_chunks": 0
+  }
+]

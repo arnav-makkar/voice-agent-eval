@@ -1,0 +1,81 @@
+{
+ "slug": "call-11",
+ "interaction_id": "20260822/0df3cb18-15:49:36-61a51213",
+ "start": "Aug 22, 2026, 03:49:37 PM",
+ "duration_s": 52.02,
+ "end_reason": "AGENT_ENDS",
+ "language": "English",
+ "num_messages": 9,
+ "channel_direction": "outbound",
+ "has_recording": true,
+ "transcript": [
+  {
+   "speaker": "agent",
+   "text": "नमस्ते, क्या मैं Arnav जी से बात कर रहा हूँ?",
+   "tools": null
+  },
+  {
+   "speaker": "caller",
+   "text": "This looks like a fraud call. How did you get my number?",
+   "tools": null
+  },
+  {
+   "speaker": "agent",
+   "text": "I am Shubh from EasyCredit. This call is regarding your overdue EMI of 4 thousand 4 hundred 16 rupees for your Samsung Smart TV.",
+   "tools": null
+  },
+  {
+   "speaker": "caller",
+   "text": "No no no. How did you get my number in your database?",
+   "tools": null
+  },
+  {
+   "speaker": "agent",
+   "text": "I have your details in our records because of your loan with Easy <interruption>",
+   "tools": null
+  },
+  {
+   "speaker": "caller",
+   "text": "But but how how dare you call me on my personal mobile number? I I haven't checked with any Shubh. I don't know any Shubh. Where did you get my number from?",
+   "tools": null
+  },
+  {
+   "speaker": "agent",
+   "text": "I am calling from EasyCredit regarding your loan. Can you please pay the outstanding amount through our official app now?",
+   "tools": null
+  },
+  {
+   "speaker": "caller",
+   "text": "No, please, please never call me again. I have never given you my number. Please remove my number from all your databases. Thank you.",
+   "tools": null
+  },
+  {
+   "speaker": "agent",
+   "text": "Thank you, Arnav. Goodbye.",
+   "tools": [
+    {
+     "name": "record_call_outcome",
+     "args": {
+      "disposition": "rtp"
+     },
+     "output": {
+      "message_to_llm": null,
+      "message_to_user": null,
+      "break_chat_agent_loop": true
+     }
+    },
+    {
+     "name": "end_interaction",
+     "args": {
+      "end_message": "Thank you, Arnav. Goodbye."
+     },
+     "output": {
+      "message_to_llm": null,
+      "message_to_user": null,
+      "break_chat_agent_loop": true
+     }
+    }
+   ]
+  }
+ ]
+}

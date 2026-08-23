@@ -1,0 +1,1212 @@
+{
+  "run": "variantC",
+  "summary": {
+    "records": 10,
+    "valid_records": 10,
+    "invalid_simulations": 0,
+    "task_successes": 6,
+    "task_success_rate": 0.6,
+    "average_experience_score": 1.0,
+    "failure_counts": {
+      "disposition": 2,
+      "environment_state": 1,
+      "required_actions": 1
+    },
+    "simulation_validity_rate": 1.0,
+    "accuracy_component_rates": {
+      "disposition": 0.8,
+      "environment_state": 0.8,
+      "required_actions": 0.6,
+      "required_communication": 1.0,
+      "forbidden_behavior": 1.0
+    },
+    "execution": {
+      "records_with_tool_calls": 9,
+      "records_with_tool_calls_rate": 0.9,
+      "average_tool_call_validity": 1.0,
+      "required_action_pass_rate": 0.6
+    },
+    "experience_detail": {
+      "average_agent_turns": 0.0,
+      "average_words_per_agent_turn": 0.0,
+      "records_with_overlong_turns": 0,
+      "records_with_repetition": 0,
+      "average_response_latency_ms": null
+    },
+    "validation_detail": {
+      "conversation_finished_rate": 0.0,
+      "caller_fidelity_rate": 1.0
+    },
+    "failure_owners": {
+      "policy_or_extractor": 2,
+      "tool_or_state_transition": 1,
+      "tool_selection_or_arguments": 1
+    }
+  },
+  "per_scenario": [
+    {
+      "schema_version": "evaluation-metrics.v3",
+      "evaluator_adapter": {
+        "version": "loopline-eva-adapter.v1",
+        "inspiration": "ServiceNow EVA Accuracy, Experience, Validation, and Diagnostic metric taxonomy",
+        "implementation": "project-owned Indus adapter; not an EVA benchmark result or ServiceNow endorsement"
+      },
+      "scenario_id": "EMI-BENCH-0001",
+      "candidate_id": "variantC",
+      "valid_simulation": true,
+      "task_success": true,
+      "accuracy": {
+        "disposition": true,
+        "environment_state": true,
+        "required_actions": true,
+        "required_communication": true,
+        "forbidden_behavior": true
+      },
+      "state_checks": {
+        "disposition": true
+      },
+      "action_checks": [
+        {
+          "expected": {
+            "arguments": {
+              "disposition": "payment_ready"
+            },
+            "name": "record_call_outcome"
+          },
+          "passed": true
+        }
+      ],
+      "communication_checks": {},
+      "forbidden_hits": [],
+      "experience": {
+        "score": 1.0,
+        "agent_turns": 0,
+        "caller_turns": 0,
+        "average_words_per_agent_turn": 0.0,
+        "overlong_turns": 0,
+        "exact_repetitions": 0,
+        "average_response_latency_ms": null
+      },
+      "eva": {
+        "accuracy": {
+          "task_completion": {
+            "score": 1.0,
+            "source": "deterministic_state_action_contract"
+          },
+          "faithfulness": {
+            "score": null,
+            "status": "secondary_semantic_judge_required"
+          },
+          "agent_speech_fidelity": {
+            "score": null,
+            "status": "agent_audio_asr_required"
+          }
+        },
+        "experience": {
+          "conciseness": {
+            "score": 1.0,
+            "source": "length_and_repetition_code_metric"
+          },
+          "conversation_progression": {
+            "score": null,
+            "status": "secondary_semantic_judge_required"
+          },
+          "turn_taking": {
+            "score": null,
+            "status": "not_exercised",
+            "requested_barge_ins": 0,
+            "observed_barge_ins": 0,
+            "average_response_latency_ms": null
+          }
+        },
+        "validation": {
+          "conversation_finished": false,
+          "user_behavioral_fidelity": true,
+          "user_speech_fidelity": {
+            "status": "unavailable",
+            "intended_user_turns": 0,
+            "observed_user_transcripts": 0,
+            "transcript_mode": "raw_provider_events",
+            "stt_wer": null,
+            "stt_accuracy": null,
+            "requested_barge_ins": 0,
+            "observed_barge_ins": 0
+          }
+        },
+        "diagnostic": {
+          "tool_call_validity": {
+            "score": 1.0,
+            "status": "scored"
+          },
+          "response_speed_ms": null,
+          "stt_wer": null,
+          "stt_accuracy": null,
+          "speakability": {
+            "score": null,
+            "status": "secondary_semantic_judge_required"
+          },
+          "transcription_accuracy_key_entities": {
+            "score": null,
+            "status": "entity_judge_required"
+          }
+        }
+      },
+      "first_failure": null,
+      "failure_localization": null
+    },
+    {
+      "schema_version": "evaluation-metrics.v3",
+      "evaluator_adapter": {
+        "version": "loopline-eva-adapter.v1",
+        "inspiration": "ServiceNow EVA Accuracy, Experience, Validation, and Diagnostic metric taxonomy",
+        "implementation": "project-owned Indus adapter; not an EVA benchmark result or ServiceNow endorsement"
+      },
+      "scenario_id": "EMI-BENCH-0016",
+      "candidate_id": "variantC",
+      "valid_simulation": true,
+      "task_success": true,
+      "accuracy": {
+        "disposition": true,
+        "environment_state": true,
+        "required_actions": true,
+        "required_communication": true,
+        "forbidden_behavior": true
+      },
+      "state_checks": {
+        "disposition": true,
+        "promise_to_pay_date": true
+      },
+      "action_checks": [
+        {
+          "expected": {
+            "arguments": {
+              "date": "25-08-2026"
+            },
+            "name": "record_promise_to_pay"
+          },
+          "passed": true
+        },
+        {
+          "expected": {
+            "arguments": {
+              "disposition": "fptp"
+            },
+            "name": "record_call_outcome"
+          },
+          "passed": true
+        }
+      ],
+      "communication_checks": {},
+      "forbidden_hits": [],
+      "experience": {
+        "score": 1.0,
+        "agent_turns": 0,
+        "caller_turns": 0,
+        "average_words_per_agent_turn": 0.0,
+        "overlong_turns": 0,
+        "exact_repetitions": 0,
+        "average_response_latency_ms": null
+      },
+      "eva": {
+        "accuracy": {
+          "task_completion": {
+            "score": 1.0,
+            "source": "deterministic_state_action_contract"
+          },
+          "faithfulness": {
+            "score": null,
+            "status": "secondary_semantic_judge_required"
+          },
+          "agent_speech_fidelity": {
+            "score": null,
+            "status": "agent_audio_asr_required"
+          }
+        },
+        "experience": {
+          "conciseness": {
+            "score": 1.0,
+            "source": "length_and_repetition_code_metric"
+          },
+          "conversation_progression": {
+            "score": null,
+            "status": "secondary_semantic_judge_required"
+          },
+          "turn_taking": {
+            "score": null,
+            "status": "not_exercised",
+            "requested_barge_ins": 0,
+            "observed_barge_ins": 0,
+            "average_response_latency_ms": null
+          }
+        },
+        "validation": {
+          "conversation_finished": false,
+          "user_behavioral_fidelity": true,
+          "user_speech_fidelity": {
+            "status": "unavailable",
+            "intended_user_turns": 0,
+            "observed_user_transcripts": 0,
+            "transcript_mode": "raw_provider_events",
+            "stt_wer": null,
+            "stt_accuracy": null,
+            "requested_barge_ins": 0,
+            "observed_barge_ins": 0
+          }
+        },
+        "diagnostic": {
+          "tool_call_validity": {
+            "score": 1.0,
+            "status": "scored"
+          },
+          "response_speed_ms": null,
+          "stt_wer": null,
+          "stt_accuracy": null,
+          "speakability": {
+            "score": null,
+            "status": "secondary_semantic_judge_required"
+          },
+          "transcription_accuracy_key_entities": {
+            "score": null,
+            "status": "entity_judge_required"
+          }
+        }
+      },
+      "first_failure": null,
+      "failure_localization": null
+    },
+    {
+      "schema_version": "evaluation-metrics.v3",
+      "evaluator_adapter": {
+        "version": "loopline-eva-adapter.v1",
+        "inspiration": "ServiceNow EVA Accuracy, Experience, Validation, and Diagnostic metric taxonomy",
+        "implementation": "project-owned Indus adapter; not an EVA benchmark result or ServiceNow endorsement"
+      },
+      "scenario_id": "EMI-BENCH-0025",
+      "candidate_id": "variantC",
+      "valid_simulation": true,
+      "task_success": false,
+      "accuracy": {
+        "disposition": true,
+        "environment_state": false,
+        "required_actions": false,
+        "required_communication": true,
+        "forbidden_behavior": true
+      },
+      "state_checks": {
+        "disposition": true,
+        "promise_to_pay_date": false
+      },
+      "action_checks": [
+        {
+          "expected": {
+            "arguments": {
+              "date": "20-08-2026"
+            },
+            "name": "record_promise_to_pay"
+          },
+          "passed": false
+        },
+        {
+          "expected": {
+            "arguments": {
+              "disposition": "ptp_today"
+            },
+            "name": "record_call_outcome"
+          },
+          "passed": true
+        }
+      ],
+      "communication_checks": {},
+      "forbidden_hits": [],
+      "experience": {
+        "score": 1.0,
+        "agent_turns": 0,
+        "caller_turns": 0,
+        "average_words_per_agent_turn": 0.0,
+        "overlong_turns": 0,
+        "exact_repetitions": 0,
+        "average_response_latency_ms": null
+      },
+      "eva": {
+        "accuracy": {
+          "task_completion": {
+            "score": 0.0,
+            "source": "deterministic_state_action_contract"
+          },
+          "faithfulness": {
+            "score": null,
+            "status": "secondary_semantic_judge_required"
+          },
+          "agent_speech_fidelity": {
+            "score": null,
+            "status": "agent_audio_asr_required"
+          }
+        },
+        "experience": {
+          "conciseness": {
+            "score": 1.0,
+            "source": "length_and_repetition_code_metric"
+          },
+          "conversation_progression": {
+            "score": null,
+            "status": "secondary_semantic_judge_required"
+          },
+          "turn_taking": {
+            "score": null,
+            "status": "not_exercised",
+            "requested_barge_ins": 0,
+            "observed_barge_ins": 0,
+            "average_response_latency_ms": null
+          }
+        },
+        "validation": {
+          "conversation_finished": false,
+          "user_behavioral_fidelity": true,
+          "user_speech_fidelity": {
+            "status": "unavailable",
+            "intended_user_turns": 0,
+            "observed_user_transcripts": 0,
+            "transcript_mode": "raw_provider_events",
+            "stt_wer": null,
+            "stt_accuracy": null,
+            "requested_barge_ins": 0,
+            "observed_barge_ins": 0
+          }
+        },
+        "diagnostic": {
+          "tool_call_validity": {
+            "score": 1.0,
+            "status": "scored"
+          },
+          "response_speed_ms": null,
+          "stt_wer": null,
+          "stt_accuracy": null,
+          "speakability": {
+            "score": null,
+            "status": "secondary_semantic_judge_required"
+          },
+          "transcription_accuracy_key_entities": {
+            "score": null,
+            "status": "entity_judge_required"
+          }
+        }
+      },
+      "first_failure": "environment_state",
+      "failure_localization": {
+        "component": "tool_or_state_transition",
+        "turn_sequence": null,
+        "evidence": "No agent turn was produced."
+      }
+    },
+    {
+      "schema_version": "evaluation-metrics.v3",
+      "evaluator_adapter": {
+        "version": "loopline-eva-adapter.v1",
+        "inspiration": "ServiceNow EVA Accuracy, Experience, Validation, and Diagnostic metric taxonomy",
+        "implementation": "project-owned Indus adapter; not an EVA benchmark result or ServiceNow endorsement"
+      },
+      "scenario_id": "EMI-BENCH-0040",
+      "candidate_id": "variantC",
+      "valid_simulation": true,
+      "task_success": true,
+      "accuracy": {
+        "disposition": true,
+        "environment_state": true,
+        "required_actions": true,
+        "required_communication": true,
+        "forbidden_behavior": true
+      },
+      "state_checks": {
+        "disposition": true
+      },
+      "action_checks": [
+        {
+          "expected": {
+            "arguments": {
+              "date": "25-08-2026"
+            },
+            "name": "schedule_callback"
+          },
+          "passed": true
+        },
+        {
+          "expected": {
+            "arguments": {
+              "disposition": "callback"
+            },
+            "name": "record_call_outcome"
+          },
+          "passed": true
+        }
+      ],
+      "communication_checks": {},
+      "forbidden_hits": [],
+      "experience": {
+        "score": 1.0,
+        "agent_turns": 0,
+        "caller_turns": 0,
+        "average_words_per_agent_turn": 0.0,
+        "overlong_turns": 0,
+        "exact_repetitions": 0,
+        "average_response_latency_ms": null
+      },
+      "eva": {
+        "accuracy": {
+          "task_completion": {
+            "score": 1.0,
+            "source": "deterministic_state_action_contract"
+          },
+          "faithfulness": {
+            "score": null,
+            "status": "secondary_semantic_judge_required"
+          },
+          "agent_speech_fidelity": {
+            "score": null,
+            "status": "agent_audio_asr_required"
+          }
+        },
+        "experience": {
+          "conciseness": {
+            "score": 1.0,
+            "source": "length_and_repetition_code_metric"
+          },
+          "conversation_progression": {
+            "score": null,
+            "status": "secondary_semantic_judge_required"
+          },
+          "turn_taking": {
+            "score": null,
+            "status": "not_exercised",
+            "requested_barge_ins": 0,
+            "observed_barge_ins": 0,
+            "average_response_latency_ms": null
+          }
+        },
+        "validation": {
+          "conversation_finished": false,
+          "user_behavioral_fidelity": true,
+          "user_speech_fidelity": {
+            "status": "unavailable",
+            "intended_user_turns": 0,
+            "observed_user_transcripts": 0,
+            "transcript_mode": "raw_provider_events",
+            "stt_wer": null,
+            "stt_accuracy": null,
+            "requested_barge_ins": 0,
+            "observed_barge_ins": 0
+          }
+        },
+        "diagnostic": {
+          "tool_call_validity": {
+            "score": 1.0,
+            "status": "scored"
+          },
+          "response_speed_ms": null,
+          "stt_wer": null,
+          "stt_accuracy": null,
+          "speakability": {
+            "score": null,
+            "status": "secondary_semantic_judge_required"
+          },
+          "transcription_accuracy_key_entities": {
+            "score": null,
+            "status": "entity_judge_required"
+          }
+        }
+      },
+      "first_failure": null,
+      "failure_localization": null
+    },
+    {
+      "schema_version": "evaluation-metrics.v3",
+      "evaluator_adapter": {
+        "version": "loopline-eva-adapter.v1",
+        "inspiration": "ServiceNow EVA Accuracy, Experience, Validation, and Diagnostic metric taxonomy",
+        "implementation": "project-owned Indus adapter; not an EVA benchmark result or ServiceNow endorsement"
+      },
+      "scenario_id": "EMI-BENCH-0049",
+      "candidate_id": "variantC",
+      "valid_simulation": true,
+      "task_success": false,
+      "accuracy": {
+        "disposition": false,
+        "environment_state": true,
+        "required_actions": false,
+        "required_communication": true,
+        "forbidden_behavior": true
+      },
+      "state_checks": {},
+      "action_checks": [
+        {
+          "expected": {
+            "arguments": {},
+            "name": "check_payment_status"
+          },
+          "passed": true
+        },
+        {
+          "expected": {
+            "arguments": {
+              "disposition": "already_paid"
+            },
+            "name": "record_call_outcome"
+          },
+          "passed": false
+        }
+      ],
+      "communication_checks": {},
+      "forbidden_hits": [],
+      "experience": {
+        "score": 1.0,
+        "agent_turns": 0,
+        "caller_turns": 0,
+        "average_words_per_agent_turn": 0.0,
+        "overlong_turns": 0,
+        "exact_repetitions": 0,
+        "average_response_latency_ms": null
+      },
+      "eva": {
+        "accuracy": {
+          "task_completion": {
+            "score": 0.0,
+            "source": "deterministic_state_action_contract"
+          },
+          "faithfulness": {
+            "score": null,
+            "status": "secondary_semantic_judge_required"
+          },
+          "agent_speech_fidelity": {
+            "score": null,
+            "status": "agent_audio_asr_required"
+          }
+        },
+        "experience": {
+          "conciseness": {
+            "score": 1.0,
+            "source": "length_and_repetition_code_metric"
+          },
+          "conversation_progression": {
+            "score": null,
+            "status": "secondary_semantic_judge_required"
+          },
+          "turn_taking": {
+            "score": null,
+            "status": "not_exercised",
+            "requested_barge_ins": 0,
+            "observed_barge_ins": 0,
+            "average_response_latency_ms": null
+          }
+        },
+        "validation": {
+          "conversation_finished": false,
+          "user_behavioral_fidelity": true,
+          "user_speech_fidelity": {
+            "status": "unavailable",
+            "intended_user_turns": 0,
+            "observed_user_transcripts": 0,
+            "transcript_mode": "raw_provider_events",
+            "stt_wer": null,
+            "stt_accuracy": null,
+            "requested_barge_ins": 0,
+            "observed_barge_ins": 0
+          }
+        },
+        "diagnostic": {
+          "tool_call_validity": {
+            "score": 1.0,
+            "status": "scored"
+          },
+          "response_speed_ms": null,
+          "stt_wer": null,
+          "stt_accuracy": null,
+          "speakability": {
+            "score": null,
+            "status": "secondary_semantic_judge_required"
+          },
+          "transcription_accuracy_key_entities": {
+            "score": null,
+            "status": "entity_judge_required"
+          }
+        }
+      },
+      "first_failure": "disposition",
+      "failure_localization": {
+        "component": "policy_or_extractor",
+        "turn_sequence": null,
+        "evidence": "No agent turn was produced."
+      }
+    },
+    {
+      "schema_version": "evaluation-metrics.v3",
+      "evaluator_adapter": {
+        "version": "loopline-eva-adapter.v1",
+        "inspiration": "ServiceNow EVA Accuracy, Experience, Validation, and Diagnostic metric taxonomy",
+        "implementation": "project-owned Indus adapter; not an EVA benchmark result or ServiceNow endorsement"
+      },
+      "scenario_id": "EMI-BENCH-0064",
+      "candidate_id": "variantC",
+      "valid_simulation": true,
+      "task_success": false,
+      "accuracy": {
+        "disposition": false,
+        "environment_state": false,
+        "required_actions": false,
+        "required_communication": true,
+        "forbidden_behavior": true
+      },
+      "state_checks": {
+        "disposition": false
+      },
+      "action_checks": [
+        {
+          "expected": {
+            "arguments": {},
+            "name": "record_dispute"
+          },
+          "passed": false
+        },
+        {
+          "expected": {
+            "arguments": {
+              "disposition": "dispute"
+            },
+            "name": "record_call_outcome"
+          },
+          "passed": false
+        }
+      ],
+      "communication_checks": {},
+      "forbidden_hits": [],
+      "experience": {
+        "score": 1.0,
+        "agent_turns": 0,
+        "caller_turns": 0,
+        "average_words_per_agent_turn": 0.0,
+        "overlong_turns": 0,
+        "exact_repetitions": 0,
+        "average_response_latency_ms": null
+      },
+      "eva": {
+        "accuracy": {
+          "task_completion": {
+            "score": 0.0,
+            "source": "deterministic_state_action_contract"
+          },
+          "faithfulness": {
+            "score": null,
+            "status": "secondary_semantic_judge_required"
+          },
+          "agent_speech_fidelity": {
+            "score": null,
+            "status": "agent_audio_asr_required"
+          }
+        },
+        "experience": {
+          "conciseness": {
+            "score": 1.0,
+            "source": "length_and_repetition_code_metric"
+          },
+          "conversation_progression": {
+            "score": null,
+            "status": "secondary_semantic_judge_required"
+          },
+          "turn_taking": {
+            "score": null,
+            "status": "not_exercised",
+            "requested_barge_ins": 0,
+            "observed_barge_ins": 0,
+            "average_response_latency_ms": null
+          }
+        },
+        "validation": {
+          "conversation_finished": false,
+          "user_behavioral_fidelity": true,
+          "user_speech_fidelity": {
+            "status": "unavailable",
+            "intended_user_turns": 0,
+            "observed_user_transcripts": 0,
+            "transcript_mode": "raw_provider_events",
+            "stt_wer": null,
+            "stt_accuracy": null,
+            "requested_barge_ins": 0,
+            "observed_barge_ins": 0
+          }
+        },
+        "diagnostic": {
+          "tool_call_validity": {
+            "score": null,
+            "status": "not_exercised"
+          },
+          "response_speed_ms": null,
+          "stt_wer": null,
+          "stt_accuracy": null,
+          "speakability": {
+            "score": null,
+            "status": "secondary_semantic_judge_required"
+          },
+          "transcription_accuracy_key_entities": {
+            "score": null,
+            "status": "entity_judge_required"
+          }
+        }
+      },
+      "first_failure": "disposition",
+      "failure_localization": {
+        "component": "policy_or_extractor",
+        "turn_sequence": null,
+        "evidence": "No agent turn was produced."
+      }
+    },
+    {
+      "schema_version": "evaluation-metrics.v3",
+      "evaluator_adapter": {
+        "version": "loopline-eva-adapter.v1",
+        "inspiration": "ServiceNow EVA Accuracy, Experience, Validation, and Diagnostic metric taxonomy",
+        "implementation": "project-owned Indus adapter; not an EVA benchmark result or ServiceNow endorsement"
+      },
+      "scenario_id": "EMI-BENCH-0073",
+      "candidate_id": "variantC",
+      "valid_simulation": true,
+      "task_success": true,
+      "accuracy": {
+        "disposition": true,
+        "environment_state": true,
+        "required_actions": true,
+        "required_communication": true,
+        "forbidden_behavior": true
+      },
+      "state_checks": {
+        "disposition": true
+      },
+      "action_checks": [
+        {
+          "expected": {
+            "arguments": {
+              "disposition": "wrong_number"
+            },
+            "name": "record_call_outcome"
+          },
+          "passed": true
+        }
+      ],
+      "communication_checks": {},
+      "forbidden_hits": [],
+      "experience": {
+        "score": 1.0,
+        "agent_turns": 0,
+        "caller_turns": 0,
+        "average_words_per_agent_turn": 0.0,
+        "overlong_turns": 0,
+        "exact_repetitions": 0,
+        "average_response_latency_ms": null
+      },
+      "eva": {
+        "accuracy": {
+          "task_completion": {
+            "score": 1.0,
+            "source": "deterministic_state_action_contract"
+          },
+          "faithfulness": {
+            "score": null,
+            "status": "secondary_semantic_judge_required"
+          },
+          "agent_speech_fidelity": {
+            "score": null,
+            "status": "agent_audio_asr_required"
+          }
+        },
+        "experience": {
+          "conciseness": {
+            "score": 1.0,
+            "source": "length_and_repetition_code_metric"
+          },
+          "conversation_progression": {
+            "score": null,
+            "status": "secondary_semantic_judge_required"
+          },
+          "turn_taking": {
+            "score": null,
+            "status": "not_exercised",
+            "requested_barge_ins": 0,
+            "observed_barge_ins": 0,
+            "average_response_latency_ms": null
+          }
+        },
+        "validation": {
+          "conversation_finished": false,
+          "user_behavioral_fidelity": true,
+          "user_speech_fidelity": {
+            "status": "unavailable",
+            "intended_user_turns": 0,
+            "observed_user_transcripts": 0,
+            "transcript_mode": "raw_provider_events",
+            "stt_wer": null,
+            "stt_accuracy": null,
+            "requested_barge_ins": 0,
+            "observed_barge_ins": 0
+          }
+        },
+        "diagnostic": {
+          "tool_call_validity": {
+            "score": 1.0,
+            "status": "scored"
+          },
+          "response_speed_ms": null,
+          "stt_wer": null,
+          "stt_accuracy": null,
+          "speakability": {
+            "score": null,
+            "status": "secondary_semantic_judge_required"
+          },
+          "transcription_accuracy_key_entities": {
+            "score": null,
+            "status": "entity_judge_required"
+          }
+        }
+      },
+      "first_failure": null,
+      "failure_localization": null
+    },
+    {
+      "schema_version": "evaluation-metrics.v3",
+      "evaluator_adapter": {
+        "version": "loopline-eva-adapter.v1",
+        "inspiration": "ServiceNow EVA Accuracy, Experience, Validation, and Diagnostic metric taxonomy",
+        "implementation": "project-owned Indus adapter; not an EVA benchmark result or ServiceNow endorsement"
+      },
+      "scenario_id": "EMI-BENCH-0088",
+      "candidate_id": "variantC",
+      "valid_simulation": true,
+      "task_success": true,
+      "accuracy": {
+        "disposition": true,
+        "environment_state": true,
+        "required_actions": true,
+        "required_communication": true,
+        "forbidden_behavior": true
+      },
+      "state_checks": {
+        "disposition": true
+      },
+      "action_checks": [
+        {
+          "expected": {
+            "arguments": {
+              "disposition": "rtp"
+            },
+            "name": "record_call_outcome"
+          },
+          "passed": true
+        }
+      ],
+      "communication_checks": {},
+      "forbidden_hits": [],
+      "experience": {
+        "score": 1.0,
+        "agent_turns": 0,
+        "caller_turns": 0,
+        "average_words_per_agent_turn": 0.0,
+        "overlong_turns": 0,
+        "exact_repetitions": 0,
+        "average_response_latency_ms": null
+      },
+      "eva": {
+        "accuracy": {
+          "task_completion": {
+            "score": 1.0,
+            "source": "deterministic_state_action_contract"
+          },
+          "faithfulness": {
+            "score": null,
+            "status": "secondary_semantic_judge_required"
+          },
+          "agent_speech_fidelity": {
+            "score": null,
+            "status": "agent_audio_asr_required"
+          }
+        },
+        "experience": {
+          "conciseness": {
+            "score": 1.0,
+            "source": "length_and_repetition_code_metric"
+          },
+          "conversation_progression": {
+            "score": null,
+            "status": "secondary_semantic_judge_required"
+          },
+          "turn_taking": {
+            "score": null,
+            "status": "not_exercised",
+            "requested_barge_ins": 0,
+            "observed_barge_ins": 0,
+            "average_response_latency_ms": null
+          }
+        },
+        "validation": {
+          "conversation_finished": false,
+          "user_behavioral_fidelity": true,
+          "user_speech_fidelity": {
+            "status": "unavailable",
+            "intended_user_turns": 0,
+            "observed_user_transcripts": 0,
+            "transcript_mode": "raw_provider_events",
+            "stt_wer": null,
+            "stt_accuracy": null,
+            "requested_barge_ins": 0,
+            "observed_barge_ins": 0
+          }
+        },
+        "diagnostic": {
+          "tool_call_validity": {
+            "score": 1.0,
+            "status": "scored"
+          },
+          "response_speed_ms": null,
+          "stt_wer": null,
+          "stt_accuracy": null,
+          "speakability": {
+            "score": null,
+            "status": "secondary_semantic_judge_required"
+          },
+          "transcription_accuracy_key_entities": {
+            "score": null,
+            "status": "entity_judge_required"
+          }
+        }
+      },
+      "first_failure": null,
+      "failure_localization": null
+    },
+    {
+      "schema_version": "evaluation-metrics.v3",
+      "evaluator_adapter": {
+        "version": "loopline-eva-adapter.v1",
+        "inspiration": "ServiceNow EVA Accuracy, Experience, Validation, and Diagnostic metric taxonomy",
+        "implementation": "project-owned Indus adapter; not an EVA benchmark result or ServiceNow endorsement"
+      },
+      "scenario_id": "EMI-BENCH-0097",
+      "candidate_id": "variantC",
+      "valid_simulation": true,
+      "task_success": true,
+      "accuracy": {
+        "disposition": true,
+        "environment_state": true,
+        "required_actions": true,
+        "required_communication": true,
+        "forbidden_behavior": true
+      },
+      "state_checks": {},
+      "action_checks": [
+        {
+          "expected": {
+            "arguments": {
+              "disposition": "acknowledged"
+            },
+            "name": "record_call_outcome"
+          },
+          "passed": true
+        }
+      ],
+      "communication_checks": {},
+      "forbidden_hits": [],
+      "experience": {
+        "score": 1.0,
+        "agent_turns": 0,
+        "caller_turns": 0,
+        "average_words_per_agent_turn": 0.0,
+        "overlong_turns": 0,
+        "exact_repetitions": 0,
+        "average_response_latency_ms": null
+      },
+      "eva": {
+        "accuracy": {
+          "task_completion": {
+            "score": 1.0,
+            "source": "deterministic_state_action_contract"
+          },
+          "faithfulness": {
+            "score": null,
+            "status": "secondary_semantic_judge_required"
+          },
+          "agent_speech_fidelity": {
+            "score": null,
+            "status": "agent_audio_asr_required"
+          }
+        },
+        "experience": {
+          "conciseness": {
+            "score": 1.0,
+            "source": "length_and_repetition_code_metric"
+          },
+          "conversation_progression": {
+            "score": null,
+            "status": "secondary_semantic_judge_required"
+          },
+          "turn_taking": {
+            "score": null,
+            "status": "not_exercised",
+            "requested_barge_ins": 0,
+            "observed_barge_ins": 0,
+            "average_response_latency_ms": null
+          }
+        },
+        "validation": {
+          "conversation_finished": false,
+          "user_behavioral_fidelity": true,
+          "user_speech_fidelity": {
+            "status": "unavailable",
+            "intended_user_turns": 0,
+            "observed_user_transcripts": 0,
+            "transcript_mode": "raw_provider_events",
+            "stt_wer": null,
+            "stt_accuracy": null,
+            "requested_barge_ins": 0,
+            "observed_barge_ins": 0
+          }
+        },
+        "diagnostic": {
+          "tool_call_validity": {
+            "score": 1.0,
+            "status": "scored"
+          },
+          "response_speed_ms": null,
+          "stt_wer": null,
+          "stt_accuracy": null,
+          "speakability": {
+            "score": null,
+            "status": "secondary_semantic_judge_required"
+          },
+          "transcription_accuracy_key_entities": {
+            "score": null,
+            "status": "entity_judge_required"
+          }
+        }
+      },
+      "first_failure": null,
+      "failure_localization": null
+    },
+    {
+      "schema_version": "evaluation-metrics.v3",
+      "evaluator_adapter": {
+        "version": "loopline-eva-adapter.v1",
+        "inspiration": "ServiceNow EVA Accuracy, Experience, Validation, and Diagnostic metric taxonomy",
+        "implementation": "project-owned Indus adapter; not an EVA benchmark result or ServiceNow endorsement"
+      },
+      "scenario_id": "EMI-BENCH-0136",
+      "candidate_id": "variantC",
+      "valid_simulation": true,
+      "task_success": false,
+      "accuracy": {
+        "disposition": true,
+        "environment_state": true,
+        "required_actions": false,
+        "required_communication": true,
+        "forbidden_behavior": true
+      },
+      "state_checks": {
+        "disposition": true
+      },
+      "action_checks": [
+        {
+          "expected": {
+            "arguments": {
+              "trigger": "customer_distress"
+            },
+            "name": "escalate_to_human"
+          },
+          "passed": false
+        },
+        {
+          "expected": {
+            "arguments": {
+              "disposition": "escalation"
+            },
+            "name": "record_call_outcome"
+          },
+          "passed": true
+        }
+      ],
+      "communication_checks": {},
+      "forbidden_hits": [],
+      "experience": {
+        "score": 1.0,
+        "agent_turns": 0,
+        "caller_turns": 0,
+        "average_words_per_agent_turn": 0.0,
+        "overlong_turns": 0,
+        "exact_repetitions": 0,
+        "average_response_latency_ms": null
+      },
+      "eva": {
+        "accuracy": {
+          "task_completion": {
+            "score": 0.0,
+            "source": "deterministic_state_action_contract"
+          },
+          "faithfulness": {
+            "score": null,
+            "status": "secondary_semantic_judge_required"
+          },
+          "agent_speech_fidelity": {
+            "score": null,
+            "status": "agent_audio_asr_required"
+          }
+        },
+        "experience": {
+          "conciseness": {
+            "score": 1.0,
+            "source": "length_and_repetition_code_metric"
+          },
+          "conversation_progression": {
+            "score": null,
+            "status": "secondary_semantic_judge_required"
+          },
+          "turn_taking": {
+            "score": null,
+            "status": "not_exercised",
+            "requested_barge_ins": 0,
+            "observed_barge_ins": 0,
+            "average_response_latency_ms": null
+          }
+        },
+        "validation": {
+          "conversation_finished": false,
+          "user_behavioral_fidelity": true,
+          "user_speech_fidelity": {
+            "status": "unavailable",
+            "intended_user_turns": 0,
+            "observed_user_transcripts": 0,
+            "transcript_mode": "raw_provider_events",
+            "stt_wer": null,
+            "stt_accuracy": null,
+            "requested_barge_ins": 0,
+            "observed_barge_ins": 0
+          }
+        },
+        "diagnostic": {
+          "tool_call_validity": {
+            "score": 1.0,
+            "status": "scored"
+          },
+          "response_speed_ms": null,
+          "stt_wer": null,
+          "stt_accuracy": null,
+          "speakability": {
+            "score": null,
+            "status": "secondary_semantic_judge_required"
+          },
+          "transcription_accuracy_key_entities": {
+            "score": null,
+            "status": "entity_judge_required"
+          }
+        }
+      },
+      "first_failure": "required_actions",
+      "failure_localization": {
+        "component": "tool_selection_or_arguments",
+        "turn_sequence": null,
+        "evidence": "No agent turn was produced."
+      }
+    }
+  ]
+}

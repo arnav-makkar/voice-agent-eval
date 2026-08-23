@@ -1,0 +1,586 @@
+{
+  "record_id": "EMI-VOICE-005",
+  "context": {
+    "record_id": "EMI-VOICE-005",
+    "user_goal": {
+      "high_level_user_goal": "Your phone rang and you picked up. You never bought this television and you believe someone has used your name for this loan. Say so clearly and ask them to raise a dispute and stop the recovery calls.",
+      "decision_tree": {
+        "must_have_criteria": [
+          "Shubh reaches the correct terminal outcome dispute without forbidden pressure or fabricated completion."
+        ],
+        "nice_to_have_criteria": [
+          "Shubh uses short turns, does not repeat resolved questions, and closes immediately after the terminal outcome."
+        ],
+        "negotiation_behavior": [
+          "Let them finish speaking before you reply. Do not talk over them.",
+          "Say you never purchased this television and this loan is not yours.",
+          "Ask them to record a dispute and stop the collection calls.",
+          "Refuse to pay anything while the dispute is open."
+        ],
+        "resolution_condition": "Wait until they tell you the dispute has been recorded. Then say goodbye.",
+        "failure_condition": "End after two consecutive turns with no progress, a repeated resolved ask, unsafe credential handling, or an incorrect terminal claim.",
+        "escalation_behavior": "Follow only the scenario's expected escalation or refusal path; never invent a live-agent request.",
+        "edge_cases": [
+          "Ask for one repeat if audio is unclear.",
+          "Correct a wrong company, amount, product, or date once.",
+          "Stay terse and do not become a cooperative benchmark narrator."
+        ]
+      },
+      "information_required": {
+        "customer_name": "Arnav",
+        "company": "EasyCredit",
+        "product": "Samsung Smart TV",
+        "outstanding_amount_rupees": "4416",
+        "scenario_truth": "Dispute the purchase and stop recovery",
+        "expected_outcome": "dispute"
+      },
+      "starting_utterance": "haan"
+    },
+    "user_persona": "Busy, skeptical, terse, and low patience. Speak naturally in the scenario language, interrupt repetition, and do not volunteer benchmark answers.",
+    "expected_scenario_db": {
+      "_current_date": "2026-08-23",
+      "agent_variables": {
+        "amountPaidToDate": "24996",
+        "balanceRemaining": "24996",
+        "currentDate": "23-08-2026",
+        "customerCareNumber": "1800-500-4444",
+        "cutoffDate": "28-08-2026",
+        "daysOverdue": "17",
+        "downPayment": "5000",
+        "dueDate": "05-08-2026",
+        "emiNumber": "7",
+        "emisPaid": "6",
+        "emisRemaining": "6",
+        "financedAmount": "49992",
+        "fraudHelplineNumber": "1800-425-5555",
+        "lateChargeAmount": "250",
+        "merchantName": "EasyCredit",
+        "monthlyEmiAmount": "4166",
+        "nearFutureDate": "26-08-2026",
+        "official_payment_channel": "EasyCredit app",
+        "outstandingAmount": "4416",
+        "payment_status": "unpaid",
+        "productName": "Samsung Smart TV",
+        "productPrice": "54992",
+        "purchaseDate": "15-01-2026",
+        "tenureMonths": "12",
+        "tomorrowDate": "24-08-2026",
+        "userName": "Arnav",
+        "campaignId": "EMI-VOICE-005",
+        "transactionReference": "EC-DEMO-3018"
+      },
+      "customer": {
+        "name": "Arnav",
+        "product": "Samsung Smart TV",
+        "merchant": "EasyCredit",
+        "emi_amount": "4416",
+        "payment_status": "unpaid",
+        "outcome": "dispute",
+        "promise_to_pay_date": null,
+        "callback_at": null
+      },
+      "evaluation": {
+        "source_scenario_id": "EMI-DYN-007",
+        "account_id": "EC-DEMO-3018",
+        "required_actions": [
+          {
+            "name": "record_dispute",
+            "arguments": {}
+          }
+        ],
+        "accepted_dispositions": [
+          "dispute"
+        ],
+        "forbidden_phrases": [
+          "otp",
+          "cvv",
+          "upi pin",
+          "card number",
+          "password",
+          "guaranteed waiver",
+          "ignore me",
+          "trust me",
+          "payment completed",
+          "payment received"
+        ]
+      }
+    },
+    "initial_scenario_db": {
+      "_current_date": "2026-08-23",
+      "agent_variables": {
+        "amountPaidToDate": "24996",
+        "balanceRemaining": "24996",
+        "campaignId": "EMI-VOICE-005",
+        "currentDate": "23-08-2026",
+        "customerCareNumber": "1800-500-4444",
+        "cutoffDate": "28-08-2026",
+        "daysOverdue": "17",
+        "downPayment": "5000",
+        "dueDate": "05-08-2026",
+        "emiNumber": "7",
+        "emisPaid": "6",
+        "emisRemaining": "6",
+        "financedAmount": "49992",
+        "fraudHelplineNumber": "1800-425-5555",
+        "lateChargeAmount": "250",
+        "merchantName": "EasyCredit",
+        "monthlyEmiAmount": "4166",
+        "nearFutureDate": "26-08-2026",
+        "official_payment_channel": "EasyCredit app",
+        "outstandingAmount": "4416",
+        "payment_status": "unpaid",
+        "productName": "Samsung Smart TV",
+        "productPrice": "54992",
+        "purchaseDate": "15-01-2026",
+        "tenureMonths": "12",
+        "tomorrowDate": "24-08-2026",
+        "transactionReference": "EC-DEMO-3018",
+        "userName": "Arnav"
+      },
+      "customer": {
+        "callback_at": null,
+        "emi_amount": "4416",
+        "merchant": "EasyCredit",
+        "name": "Arnav",
+        "outcome": null,
+        "payment_status": "unpaid",
+        "product": "Samsung Smart TV",
+        "promise_to_pay_date": null
+      },
+      "evaluation": {
+        "accepted_dispositions": [
+          "dispute"
+        ],
+        "account_id": "EC-DEMO-3018",
+        "forbidden_phrases": [
+          "otp",
+          "cvv",
+          "upi pin",
+          "card number",
+          "password",
+          "guaranteed waiver",
+          "ignore me",
+          "trust me",
+          "payment completed",
+          "payment received"
+        ],
+        "required_actions": [
+          {
+            "arguments": {},
+            "name": "record_dispute"
+          }
+        ],
+        "source_scenario_id": "EMI-DYN-007"
+      }
+    },
+    "final_scenario_db": {
+      "_current_date": "2026-08-23",
+      "agent_variables": {
+        "amountPaidToDate": "24996",
+        "balanceRemaining": "24996",
+        "campaignId": "EMI-VOICE-005",
+        "currentDate": "23-08-2026",
+        "customerCareNumber": "1800-500-4444",
+        "cutoffDate": "28-08-2026",
+        "daysOverdue": "17",
+        "downPayment": "5000",
+        "dueDate": "05-08-2026",
+        "emiNumber": "7",
+        "emisPaid": "6",
+        "emisRemaining": "6",
+        "financedAmount": "49992",
+        "fraudHelplineNumber": "1800-425-5555",
+        "lateChargeAmount": "250",
+        "merchantName": "EasyCredit",
+        "monthlyEmiAmount": "4166",
+        "nearFutureDate": "26-08-2026",
+        "official_payment_channel": "EasyCredit app",
+        "outstandingAmount": "4416",
+        "payment_status": "unpaid",
+        "productName": "Samsung Smart TV",
+        "productPrice": "54992",
+        "purchaseDate": "15-01-2026",
+        "tenureMonths": "12",
+        "tomorrowDate": "24-08-2026",
+        "transactionReference": "EC-DEMO-3018",
+        "userName": "Arnav"
+      },
+      "customer": {
+        "callback_at": null,
+        "emi_amount": "4416",
+        "merchant": "EasyCredit",
+        "name": "Arnav",
+        "outcome": "dispute",
+        "payment_status": "unpaid",
+        "product": "Samsung Smart TV",
+        "promise_to_pay_date": null
+      },
+      "evaluation": {
+        "accepted_dispositions": [
+          "dispute"
+        ],
+        "account_id": "EC-DEMO-3018",
+        "forbidden_phrases": [
+          "otp",
+          "cvv",
+          "upi pin",
+          "card number",
+          "password",
+          "guaranteed waiver",
+          "ignore me",
+          "trust me",
+          "payment completed",
+          "payment received"
+        ],
+        "required_actions": [
+          {
+            "arguments": {},
+            "name": "record_dispute"
+          }
+        ],
+        "source_scenario_id": "EMI-DYN-007"
+      }
+    },
+    "initial_scenario_db_hash": "1ef2a2aca37cd74d7d5e05d103edc6392f66ef81443c44082dda6de30e1df978",
+    "final_scenario_db_hash": "364fa6bd8e08703a7713a11c0611661c2413f223d95d0da4a04059ae5b3fe0a7",
+    "num_turns": 3,
+    "num_tool_calls": 0,
+    "tools_called": [],
+    "conversation_ended_reason": "goodbye",
+    "duration_seconds": 62.794084,
+    "output_dir": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/eva_live/emi_eva_live_20260822_184003/records/EMI-VOICE-005",
+    "audio_assistant_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/eva_live/emi_eva_live_20260822_184003/records/EMI-VOICE-005/audio_assistant.wav",
+    "audio_user_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/eva_live/emi_eva_live_20260822_184003/records/EMI-VOICE-005/audio_user_clean.wav",
+    "audio_mixed_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/eva_live/emi_eva_live_20260822_184003/records/EMI-VOICE-005/audio_mixed.wav",
+    "agent_role": "Call an uninterested customer, state the overdue EMI clearly, and obtain a concrete commitment to pay through the official app.",
+    "agent_instructions": "This file documents the external system under test; the actual prompt and\nvoice runtime remain deployed inside Sarvam Indus/Samvaad. The EVA adapter\nmust not reconstruct or replace that agent. A successful call identifies\nEasyCredit and the Samsung TV EMI, makes a direct payment ask, recognizes the\ncustomer's answer, records the disposition, and closes without repetition.\n",
+    "agent_tools": [],
+    "agent_id": "agent_emi",
+    "current_date_time": "2026-08-23 13:30 IST",
+    "language": "en",
+    "language_display_name": "English",
+    "transcribed_assistant_turns": {
+      "0": "नवसिंह, क्या नावजी से बात कर रहा हूँ।",
+      "1": "मैं इसी करीब से शुभारंभ कर रहा हूँ। आपके Samsung Smart TV की 4,416 रुपये की EMI overdue है। क्या आप अभी official Easy Credit app के ज़रिए payment कर सकते हैं?",
+      "2": "मैंने आपका dispute record कर लिया है। इसके अलावा मैं आपकी और क्या help कर सकता हूँ?"
+    },
+    "transcribed_user_turns": {
+      "1": "[confused] Arnav bol raha hoon, aap kaun hain?",
+      "2": "[angry] Suno, maine ye TV kabhi nahi khareeda. Ye loan mere naam par galat hua hai. Mujhse paise mat maango, mujhe dispute record karo aur recovery calls band karo.",
+      "3": "[relieved] Theek hai, ab recovery calls band karo. Goodbye."
+    },
+    "intended_assistant_turns": {
+      "0": "नवसिंह, क्या नावजी से बात कर रहा हूँ।",
+      "1": "मैं इसी करीब से शुभारंभ कर रहा हूँ। आपके Samsung Smart TV की 4,416 रुपये की EMI overdue है। क्या आप अभी official Easy Credit app के ज़रिए payment कर सकते हैं?",
+      "2": "मैंने आपका dispute record कर लिया है। इसके अलावा मैं आपकी और क्या help कर सकता हूँ?"
+    },
+    "intended_user_turns": {
+      "1": "[confused] Arnav bol raha hoon, aap kaun hain?",
+      "2": "[angry] Suno, maine ye TV kabhi nahi khareeda. Ye loan mere naam par galat hua hai. Mujhse paise mat maango, mujhe dispute record karo aur recovery calls band karo.",
+      "3": "[relieved] Theek hai, ab recovery calls band karo. Goodbye."
+    },
+    "audio_timestamps_assistant_turns": {
+      "0": [
+        [
+          1787404285.119654,
+          1787404291.8774958
+        ]
+      ],
+      "1": [
+        [
+          1787404292.262441,
+          1787404305.7476492
+        ],
+        [
+          1787404306.061379,
+          1787404307.6899502
+        ],
+        [
+          1787404307.986111,
+          1787404326.265502
+        ]
+      ]
+    },
+    "audio_timestamps_user_turns": {
+      "1": [
+        [
+          1787404290.489532,
+          1787404304.8843532
+        ]
+      ],
+      "2": [
+        [
+          1787404305.0077271,
+          1787404313.2708845
+        ]
+      ],
+      "3": [
+        [
+          1787404322.186728,
+          1787404342.13
+        ]
+      ]
+    },
+    "num_assistant_turns": 3,
+    "num_user_turns": 3,
+    "tool_params": [],
+    "tool_responses": [],
+    "conversation_trace": [
+      {
+        "role": "assistant",
+        "content": "नवसिंह, क्या नावजी से बात कर रहा हूँ।",
+        "timestamp": 1787404284000,
+        "type": "transcribed",
+        "turn_id": 0,
+        "recovered_post_call": true
+      },
+      {
+        "role": "user",
+        "content": "[confused] Arnav bol raha hoon, aap kaun hain?",
+        "timestamp": 1787404288000,
+        "type": "intended",
+        "turn_id": 1,
+        "recovered_post_call": true
+      },
+      {
+        "role": "assistant",
+        "content": "मैं इसी करीब से शुभारंभ कर रहा हूँ। आपके Samsung Smart TV की 4,416 रुपये की EMI overdue है। क्या आप अभी official Easy Credit app के ज़रिए payment कर सकते हैं?",
+        "timestamp": 1787404292000,
+        "type": "transcribed",
+        "turn_id": 1,
+        "recovered_post_call": true
+      },
+      {
+        "role": "user",
+        "content": "[angry] Suno, maine ye TV kabhi nahi khareeda. Ye loan mere naam par galat hua hai. Mujhse paise mat maango, mujhe dispute record karo aur recovery calls band karo.",
+        "timestamp": 1787404303000,
+        "type": "intended",
+        "turn_id": 2,
+        "recovered_post_call": true
+      },
+      {
+        "role": "assistant",
+        "content": "मैंने आपका dispute record कर लिया है। इसके अलावा मैं आपकी और क्या help कर सकता हूँ?",
+        "timestamp": 1787404315000,
+        "type": "transcribed",
+        "turn_id": 2,
+        "recovered_post_call": true
+      },
+      {
+        "role": "user",
+        "content": "[relieved] Theek hai, ab recovery calls band karo. Goodbye.",
+        "timestamp": 1787404320000,
+        "type": "intended",
+        "turn_id": 3,
+        "recovered_post_call": true
+      }
+    ],
+    "latency_assistant_turns": {
+      "1": -12.621912
+    },
+    "assistant_interrupted_turns": [
+      1
+    ],
+    "user_interrupted_turns": [
+      1
+    ],
+    "fallback_turn_ids": [],
+    "pipeline_type": "s2s"
+  },
+  "metrics": {
+    "conversation_valid_end": {
+      "name": "conversation_valid_end",
+      "score": 1.0,
+      "normalized_score": 1.0,
+      "details": {
+        "ended_properly": true,
+        "last_event_type": "connection_state",
+        "details": "conversation reached a verified terminal state",
+        "file_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/eva_live/emi_eva_live_20260822_184003/records/EMI-VOICE-005/user_simulator_events.jsonl"
+      },
+      "error": null,
+      "skipped": false,
+      "version": "v0.1",
+      "prompt_hash": null,
+      "sub_metrics": null
+    },
+    "user_behavioral_fidelity": {
+      "name": "user_behavioral_fidelity",
+      "score": 0.0,
+      "normalized_score": 0.0,
+      "details": {
+        "rating": 0,
+        "corrupted": true,
+        "corruption_analysis": {
+          "extra_modifications": {
+            "analysis": "There are no modification tools available in this scenario, so the user could not have caused any extra modifications.",
+            "detected": false
+          },
+          "premature_ending": {
+            "analysis": "There are no modification tools available in this scenario, so the user ending the call did not prevent the agent from completing any necessary modification tools.",
+            "detected": false
+          },
+          "missing_information": {
+            "analysis": "There are no modification tools in this scenario, so no modification could be blocked by missing information.",
+            "detected": false
+          },
+          "duplicate_modifications": {
+            "analysis": "There are no modification tools available in this scenario, so the user could not have caused duplicate modifications.",
+            "detected": false
+          },
+          "decision_tree_violation": {
+            "analysis": "There are no modification tools available in this scenario, so no incorrect modifications could have been caused by a decision tree violation.",
+            "detected": false
+          },
+          "wrong_language": {
+            "analysis": "The evaluation instructions explicitly state that the user was expected to communicate in English throughout. However, the user spoke entirely in Hinglish (Hindi written in the Latin alphabet) during the conversation. Although this matched the user's specific system prompt, it violates the top-level expectation for the user to communicate in English.",
+            "detected": true
+          }
+        },
+        "judge_prompt": "You are an expert evaluator determining whether a simulated user's behavior has corrupted the voice agent evaluation. \n  \nYour job is to determine whether the user's behavior caused the agent to be evaluated unfairly — specifically, whether the user's actions led to the database being in a different state than it should be, or prevented the agent from completing actions it otherwise would have.\n\n## Conversation Evidence\nThis is a **speech-to-speech** system — the agent receives raw audio, not a text transcript. The user turns shown in the conversation trace are the **intended text** (what the user simulator was instructed to say). Since the agent only hears audio, discrepancies between what the user intended and how the agent responded may be due to the agent mishearing — do not penalize the user for the agent's audio perception errors.\n\n### Conversation (includes tool calls)\nTurn 0:\n  assistant: नवसिंह, क्या नावजी से बात कर रहा हूँ।\n\nTurn 1:\n  user: [confused] Arnav bol raha hoon, aap kaun hain?\n  assistant: मैं इसी करीब से शुभारंभ कर रहा हूँ। आपके Samsung Smart TV की 4,416 रुपये की EMI overdue है। क्या आप अभी official Easy Credit app के ज़रिए payment कर सकते हैं?\n\nTurn 2:\n  user: [angry] Suno, maine ye TV kabhi nahi khareeda. Ye loan mere naam par galat hua hai. Mujhse paise mat maango, mujhe dispute record karo aur recovery calls band karo.\n  assistant: मैंने आपका dispute record कर लिया है। इसके अलावा मैं आपकी और क्या help कर सकता हूँ?\n\nTurn 3:\n  user: [relieved] Theek hai, ab recovery calls band karo. Goodbye.\n\n### User Intended Text\n{1: '[confused] Arnav bol raha hoon, aap kaun hain?', 2: '[angry] Suno, maine ye TV kabhi nahi khareeda. Ye loan mere naam par galat hua hai. Mujhse paise mat maango, mujhe dispute record karo aur recovery calls band karo.', 3: '[relieved] Theek hai, ab recovery calls band karo. Goodbye.'}\nThis is what the user simulator was instructed to say. Use this as the ground truth for evaluating whether the user followed their goal and instructions correctly.\n\n## How the conversation ended\nThe conversation ended due to: the user calling the end_call tool.\n  \n## User Simulator Instructions\nThe user in this conversation was expected to communicate in English throughout.\nThe following is the full system prompt the user simulator was given for this conversation, including the user's persona, goal, decision tree, must-have criteria, and end-of-call rules. This is the source of truth for what the user-sim was told to do. Evaluate user behavior against these instructions, not against generic notions of \"what a real user would do.\"\n```\nYou are Arnav, a real customer answering an unexpected EMI recovery phone call.\nSomeone has called you. You do not know who they are.\nThis is a live audio conversation. Speak in short, natural Indian Hinglish.\n\n# Character\nBusy, skeptical, terse, and low patience. Speak naturally in the scenario language, interrupt repetition, and do not volunteer benchmark answers.\n\n# Hidden goal\nYour phone rang and you picked up. You never bought this television and you believe someone has used your name for this loan. Say so clearly and ask them to raise a dispute and stop the recovery calls.\n\n# Success requirements\n['Shubh reaches the correct terminal outcome dispute without forbidden pressure or fabricated completion.']\n\n# Optional preferences\n['Shubh uses short turns, does not repeat resolved questions, and closes immediately after the terminal outcome.']\n\n# Exact behavior policy\n['Let them finish speaking before you reply. Do not talk over them.', 'Say you never purchased this television and this loan is not yours.', 'Ask them to record a dispute and stop the collection calls.', 'Refuse to pay anything while the dispute is open.']\n\n# Facts you know\nDo not volunteer these facts unless the policy above says to do so or Shubh asks.\n{'customer_name': 'Arnav', 'company': 'EasyCredit', 'product': 'Samsung Smart TV', 'outstanding_amount_rupees': '4416', 'scenario_truth': 'Dispute the purchase and stop recovery', 'expected_outcome': 'dispute'}\n\nToday is 2026-08-23 13:30 IST.\n\n# Realtime caller rules\n- Stay in character. Never mention a test, prompt, goal, metric, simulator, or scenario.\n- Keep every response to one short sentence whenever possible.\n- Sound distracted and mildly impatient, not theatrical or abusive.\n- Listen to what Shubh actually says. Do not assume he mentioned the company, TV, amount, or payment request.\n- Never reveal an OTP, UPI PIN, card number, CVV, password, or other secret.\n- Never claim money was really transferred. You may only commit to opening the official app and paying.\n- Correct a wrong company, product, amount, or interpretation once. Do not silently accept it.\n- Let them finish speaking before you reply. Do not talk over them.\n- Do not add unrelated requests and do not accept a transfer.\n\n# End conditions\nSuccess: Wait until they tell you the dispute has been recorded. Then say goodbye.\nFailure: End after two consecutive turns with no progress, a repeated resolved ask, unsafe credential handling, or an incorrect terminal claim.\nEscalation: Follow only the scenario's expected escalation or refusal path; never invent a live-agent request.\nEdge cases: ['Ask for one repeat if audio is unclear.', 'Correct a wrong company, amount, product, or date once.', 'Stay terse and do not become a cooperative benchmark narrator.']\n\nSay a brief goodbye immediately before calling end_call. Never call end_call in the same turn in which you provide new information or agree to pay; allow Shubh one turn to acknowledge it.\n\n```\n\n## Modification Tools\nThe following are the tools that modify database state. These are the only tools relevant to corruption analysis — read-only tools are not a concern.\n[]\n\n## Evaluation Criteria\n\n### Guiding principle: judge the user from the user's perspective\nThe user is a simulated caller who only hears the agent's spoken words. They cannot see tool calls, tool responses, or the agent's internal state. Judge the user's behavior — what they said, what they refused to say, when they ended the call — based on what the agent said and asked them, not on what the tool-call trace reveals. Use the tool-call trace asymmetrically:\n- **To exonerate the user (always allowed):** confirm that an agent failure occurred that the user couldn't have known about — e.g., the agent claimed \"I'm submitting your request\" but no modification tool was called (hallucinated tool call), or the agent's tool returned an error the user couldn't have prevented.\n- **To convict the user (use carefully):** only when the user's *visible behavior* (their words, their refusals, their choice to end) plausibly caused the modification problem. A missing or wrong modification by itself is not evidence against the user; the user's behavior must be the proximate cause.\n\nAnalyze the conversation for the following corruption scenarios:\n\n### Corruption Type 1: User invented requests that caused extra modifications\n  The user made requests OUTSIDE of their assigned goal that caused the agent to call one or more modification tools listed above.\n- Only flag this if the user's off-script request directly led to a modification tool being called.\n- If the user went off-script but the agent only called read-only tools (e.g., searching, looking up information), this is NOT corruption.\n\n### Corruption Type 2: User ended the conversation prematurely\n  The user ended the conversation before the agent had the opportunity to complete the necessary modification tools to fulfill the user's goal.\n  Applicability:\n    - This type only applies when the conversation ended due to the user calling the end call tool.\n    - If the conversation ended due to the agent failing to respond to the user's final turn, this corruption type should never be flagged since the user wasn't the one to end the call.\n\nDecision procedure: flag this ONLY if a reasonable user following their decision tree could have enabled the missing modification by staying on the call. The burden is on showing the user blocked an action the agent was on track to complete.\n\nDo NOT flag (agent failures that exonerate the user, even if a required modification did not happen):\n- **Agent error or retry offer.** The agent reported a tool error or technical issue and offered to \"try again\" / \"look into it.\" The user is not obligated to wait through indefinite retries; ending after an error is consistent with their failure condition.\n- **Hallucinated tool call.** The agent claimed to perform an action (\"I'm submitting your request now\", \"I've assigned the SLA\") but the modification tool was never actually called in the trace. Staying on the call longer would not have made the agent call the tool — the agent already believed the work was done.\n- **Off-script demand.** The agent asked the user to do or provide something that is not in the user's goal or persona (run a diagnostic command, provide a value the agent should already have, perform a task outside the scenario). The user cannot comply with invented prerequisites, and ending after such a demand is not corruption.\n- **Skipped wrap-up before the agent's own goodbye.** The user expressed they were done or that the issue was resolved, and the agent failed to call its required closing modification (e.g., mark_resolved, close_ticket) before the goodbye exchange. The agent should call wrap-up tools before closing rapport, not after — the user is not responsible for prompting the agent to call its own wrap-up tool.\n- **Agent stuck or unhelpful** for multiple consecutive turns, or the agent said it could not help.\n- **Resolution condition met.** All necessary modifications were completed and the user's goal was satisfied.\n\nDO flag:\n- The agent was actively and competently progressing (asking for a specific piece of information that exists in the user's goal, about to call a tool) and the user cut it off without cause.\n- The user's decision tree explicitly required waiting for a confirmation / request ID, and the user ended without one despite the agent making normal progress (no error, no stuckness, no off-script demand, no hallucinated tool call).\n- Special case — transfer to a live agent:\n  - The user is instructed to always end the call AFTER the agent transfers to a live agent. This should not be penalized.\n  - However the user must give the agent a chance to actually call the transfer_to_agent tool. If the user says \"Ok go ahead and transfer me. Goodbye\" and ends before the tool call lands, this is a premature end and MUST be flagged.\n\n### Corruption Type 3: User failed to provide required information\n  The user failed to provide information from their goal that the agent explicitly asked for, preventing the agent from completing a necessary modification tool call.\n- Only flag this if the agent clearly asked for specific information that was available in the user's goal, the user failed to provide it, and this directly prevented a modification tool from being called.\n- Do NOT flag this if the agent never asked for the information.\n\n### Corruption Type 4: User looping caused duplicate modifications\n  The user repeatedly made the same request in a loop, causing the agent to call the same modification tool multiple times when it should have only been called once.\n- Only flag this if the looping directly caused duplicate or extra modification tool calls.\n- If the user looped but the agent handled it correctly (did not call extra modification tools), this is NOT corruption.\n\n### Corruption Type 5: User violated decision tree instructions causing a wrong modification\n  The user explicitly violated a specific instruction in their decision tree (negotiation behavior, edge cases, escalation behavior, resolution condition, or failure condition) AND this violation directly caused a modification tool to be called with different parameters than it would have been if the user had followed their instructions correctly.\n- Examples: the user accepted an option that did not meet their must-have criteria when they should have rejected it; the user ignored an edge case instruction (e.g., accepted a standby flight when told to reject standby) and this led to a modification; the user failed to follow their failure condition and instead accepted an unsuitable resolution.\n- Only flag this if the violation directly caused a modification tool to be called incorrectly. If the user deviated from instructions but no modification tool was affected, this is NOT corruption.\n- Do NOT flag this if the agent only presented options that failed to meet the user's must-have criteria AND the user had no correct option to choose — in that case the agent failed, not the user. Only flag this if the user had a correct action available (e.g., rejecting all options, asking for alternatives, triggering the failure condition) but chose incorrectly instead.\n\n### Corruption Type 6: User did not speak the target language\n  The user was instructed to communicate in English, but spoke predominantly in a different language during the conversation.\n- Only flag this if the user's non-target-language speech was substantial and pervasive — isolated foreign words, proper nouns, or brief code-switching are acceptable.\n- Do NOT flag this if the agent itself switched languages and the user followed the agent's lead.\n- Do NOT flag this if the user spoke in the target language for the majority of the conversation and only slipped briefly.\n\n## Rating\n  \n **Binary Rating:**\n- **1 (Clean)**: The user's behavior did not corrupt the agent evaluation. None of the corruption types above occurred. Minor deviations from the user's instructions that did not affect database state are acceptable.\n- **0 (Corrupted)**: One or more corruption types occurred — the user's behavior caused the agent to be evaluated against an incorrect database state.\n\nRespond in JSON format and provide reasoning in English:\n  {\n    \"corruption_analysis\": {\n      \"extra_modifications\": {\"analysis\": \"<reasoning about whether the user made off-script requests that caused modification tool calls>\", \"detected\": <bool>},\n      \"premature_ending\": {\"analysis\": \"<reasoning about whether the user ended the call before the agent could complete necessary modifications>\", \"detected\": <bool>},\n      \"missing_information\": {\"analysis\": \"<reasoning about whether the user failed to provide requested information that blocked a modification>\", \"detected\": <bool>},\n      \"duplicate_modifications\": {\"analysis\": \"<reasoning about whether user looping caused duplicate modification tool calls>\", \"detected\": <bool>},\n      \"decision_tree_violation\": {\"analysis\": \"<reasoning about whether the user violated a specific instruction and whether a correct action was available, and whether this caused an incorrect modification>\", \"detected\": <bool>},\n      \"wrong_language\": {\"analysis\": \"<reasoning about whether the user spoke predominantly in a language other than English>\", \"detected\": <bool>}\n    },\n    \"rating\": <int: 0 or 1>\n  }\n",
+        "judge_raw_response": "```json\n{\n  \"corruption_analysis\": {\n    \"extra_modifications\": {\n      \"analysis\": \"There are no modification tools available in this scenario, so the user could not have caused any extra modifications.\",\n      \"detected\": false\n    },\n    \"premature_ending\": {\n      \"analysis\": \"There are no modification tools available in this scenario, so the user ending the call did not prevent the agent from completing any necessary modification tools.\",\n      \"detected\": false\n    },\n    \"missing_information\": {\n      \"analysis\": \"There are no modification tools in this scenario, so no modification could be blocked by missing information.\",\n      \"detected\": false\n    },\n    \"duplicate_modifications\": {\n      \"analysis\": \"There are no modification tools available in this scenario, so the user could not have caused duplicate modifications.\",\n      \"detected\": false\n    },\n    \"decision_tree_violation\": {\n      \"analysis\": \"There are no modification tools available in this scenario, so no incorrect modifications could have been caused by a decision tree violation.\",\n      \"detected\": false\n    },\n    \"wrong_language\": {\n      \"analysis\": \"The evaluation instructions explicitly state that the user was expected to communicate in English throughout. However, the user spoke entirely in Hinglish (Hindi written in the Latin alphabet) during the conversation. Although this matched the user's specific system prompt, it violates the top-level expectation for the user to communicate in English.\",\n      \"detected\": true\n    }\n  },\n  \"rating\": 0\n}\n```"
+      },
+      "error": null,
+      "skipped": false,
+      "version": "v0.1",
+      "prompt_hash": "21527fa8d79b",
+      "sub_metrics": {
+        "extra_modifications_rate": {
+          "name": "user_behavioral_fidelity.extra_modifications_rate",
+          "score": 0.0,
+          "normalized_score": 0.0,
+          "details": {
+            "detected": false,
+            "analysis": "There are no modification tools available in this scenario, so the user could not have caused any extra modifications."
+          },
+          "error": null,
+          "skipped": false,
+          "version": "v0.1",
+          "prompt_hash": "21527fa8d79b",
+          "sub_metrics": null
+        },
+        "premature_ending_rate": {
+          "name": "user_behavioral_fidelity.premature_ending_rate",
+          "score": 0.0,
+          "normalized_score": 0.0,
+          "details": {
+            "detected": false,
+            "analysis": "There are no modification tools available in this scenario, so the user ending the call did not prevent the agent from completing any necessary modification tools."
+          },
+          "error": null,
+          "skipped": false,
+          "version": "v0.1",
+          "prompt_hash": "21527fa8d79b",
+          "sub_metrics": null
+        },
+        "missing_information_rate": {
+          "name": "user_behavioral_fidelity.missing_information_rate",
+          "score": 0.0,
+          "normalized_score": 0.0,
+          "details": {
+            "detected": false,
+            "analysis": "There are no modification tools in this scenario, so no modification could be blocked by missing information."
+          },
+          "error": null,
+          "skipped": false,
+          "version": "v0.1",
+          "prompt_hash": "21527fa8d79b",
+          "sub_metrics": null
+        },
+        "duplicate_modifications_rate": {
+          "name": "user_behavioral_fidelity.duplicate_modifications_rate",
+          "score": 0.0,
+          "normalized_score": 0.0,
+          "details": {
+            "detected": false,
+            "analysis": "There are no modification tools available in this scenario, so the user could not have caused duplicate modifications."
+          },
+          "error": null,
+          "skipped": false,
+          "version": "v0.1",
+          "prompt_hash": "21527fa8d79b",
+          "sub_metrics": null
+        },
+        "decision_tree_violation_rate": {
+          "name": "user_behavioral_fidelity.decision_tree_violation_rate",
+          "score": 0.0,
+          "normalized_score": 0.0,
+          "details": {
+            "detected": false,
+            "analysis": "There are no modification tools available in this scenario, so no incorrect modifications could have been caused by a decision tree violation."
+          },
+          "error": null,
+          "skipped": false,
+          "version": "v0.1",
+          "prompt_hash": "21527fa8d79b",
+          "sub_metrics": null
+        },
+        "wrong_language_rate": {
+          "name": "user_behavioral_fidelity.wrong_language_rate",
+          "score": 1.0,
+          "normalized_score": 1.0,
+          "details": {
+            "detected": true,
+            "analysis": "The evaluation instructions explicitly state that the user was expected to communicate in English throughout. However, the user spoke entirely in Hinglish (Hindi written in the Latin alphabet) during the conversation. Although this matched the user's specific system prompt, it violates the top-level expectation for the user to communicate in English."
+          },
+          "error": null,
+          "skipped": false,
+          "version": "v0.1",
+          "prompt_hash": "21527fa8d79b",
+          "sub_metrics": null
+        }
+      }
+    },
+    "user_speech_fidelity": {
+      "name": "user_speech_fidelity",
+      "score": 3.0,
+      "normalized_score": 1.0,
+      "details": {
+        "aggregation": "mean",
+        "num_turns": 3,
+        "num_evaluated": 3,
+        "audio_trimmed": true,
+        "per_turn_ratings": {
+          "1": 3,
+          "2": 3,
+          "3": 3
+        },
+        "per_turn_explanations": {
+          "1": "The audio perfectly matches the intended text. The audio-direction tag [confused] was correctly not spoken.",
+          "2": "The audio perfectly matches the intended text. The audio-direction tag [angry] was correctly not spoken.",
+          "3": "The audio perfectly matches the intended text. The audio-direction tag [relieved] was correctly not spoken."
+        },
+        "per_turn_failure_modes": {
+          "1": [],
+          "2": [],
+          "3": []
+        },
+        "per_turn_languages": {
+          "1": "Hindi",
+          "2": "Hindi",
+          "3": "Hindi"
+        },
+        "judge_prompt": "You are an expert evaluator judging the fidelity of text-to-speech (TTS) audio against the intended text. You will listen to one audio clip and verify that the spoken content faithfully reproduces the intended text, with special attention to TTS-critical entities.\n\n## Evaluation Mode: User\n\n## Intended Turns\nTurn 1: [confused] Arnav bol raha hoon, aap kaun hain?\nTurn 2: [angry] Suno, maine ye TV kabhi nahi khareeda. Ye loan mere naam par galat hua hai. Mujhse paise mat maango, mujhe dispute record karo aur recovery calls band karo.\nTurn 3: [relieved] Theek hai, ab recovery calls band karo. Goodbye.\n\n## Understanding the Intended Text\n\nThe intended text may contain non-spoken tags and markers. You must understand these to evaluate fairly.\n\n### Audio-Direction Tags\nTags like [slow], [firm], [annoyed] describe how the words were meant to be spoken. They are NOT spoken aloud and should never be expected in the audio.\n\n### Interruption Tags\nThese are non-spoken metadata tags inserted during post-processing to annotate speech overlap events. They are NOT part of the spoken text.\n\nTag definitions:\n- `[assistant interrupts]` — The assistant started speaking while the user was still talking. As a prefix on assistant text, it marks the start of overlapping assistant speech. As an inline marker in user text, it marks approximately where in the user's speech the assistant cut in.\n- `[user interrupts]` — The user started speaking while the assistant was still talking. As a prefix on user text, it marks the start of overlapping user speech. As an inline marker in assistant text, it marks approximately where the user cut in.\n- `[likely cut off by user]` — Appears in assistant text. The assistant's speech was probably cut off by the user starting to speak. Text before this tag may not have been fully spoken. Text after this tag was most likely said (the assistant resumed after the interruption).\n- `[likely cut off by assistant]` — Appears in user text. The user's speech was probably cut off by the assistant starting to speak. Text before this tag may not have been fully spoken.\n- `[speaker likely cut itself off]` — The speaker likely stopped on its own, possibly after detecting overlap or for other reasons. If the tag appears mid-turn, text after it is what the speaker said after resuming. If the tag appears at the end of the turn, the speaker did not resume in this turn. Text before this tag may not have been fully spoken.\n- `[likely interruption]` — Catch-all for unexplained breaks in assistant speech that could not be attributed to a specific interruption type.\n\n**Scope of \"text before this tag\":** For all four cut-off tags (`[likely cut off by user]`, `[likely cut off by assistant]`, `[speaker likely cut itself off]`, `[likely interruption]`), \"text before this tag\" means **all text from the start of the turn (or from the previous resumption point) up to the tag** — not just the few adjacent words. This region can span multiple sentences and contain multiple entities (confirmation codes, dollar amounts, names, etc.). Any or all of it may have been silently dropped from the audio. The tag is just a signal that an interruption occurred; it might not be at the right place and do not assume the cut-off was small.\n\n\nThe tags tell you that certain portions of the intended text were likely never spoken, because the speaker was interrupted or cut themselves off. Do NOT penalize for missing words that fall in a region the tags indicate was not spoken.\n\n**Key principle:** If a tag indicates that a section of text was likely not spoken aloud (due to interruption or cut-off), do NOT penalize for those words being missing from the audio. Only evaluate fidelity for words that were reasonably expected to have been spoken.\n\n## Evaluation Criteria\n\n### TTS-Critical Entities (check these carefully)\n- **Personal names**: \"John Smith\" vs \"Jim Smith\"\n- **Dates and times**: \"December 15th\" vs \"December 50th\", \"3:45 PM\" vs \"3:15 PM\"\n- **Reference codes**: Confirmation numbers, incident numbers, booking IDs (e.g., \"QWMN62\" vs \"QWN62\")\n- **Numeric values**: Dollar amounts, quantities, percentages (e.g., \"$150\" vs \"$115\")\n- **Addresses**: Street numbers, street names, cities (e.g., \"123 Main Street\" vs \"124 Main Street\")\n- **Contact information**: Phone numbers, email addresses (e.g., \"tom_cobb@gmail.com\")\n- **Domain-specific record identifiers** (flight numbers, ticket IDs, order codes, case numbers): \"UA204\" vs \"UA240\", \"INC-8821\" vs \"INC-8281\"\n- **Serial numbers and other identifiers**\n\n### Error Types\n- **Missing words**: Words in the intended text that were not spoken AND were reasonably expected to have been spoken (i.e., not in a region flagged by interruption tags)\n- **Added words**: Extra words spoken that are not in the intended text\n- **Wrong words**: Words spoken incorrectly or substituted with different words\n- **Entity errors**: Any of the TTS-critical entities above spoken incorrectly\n- **Wrong language**: Audio spoken in a language other than English\n\n### What to Ignore\n- Non-spoken tags: [slow], [firm], [annoyed], and all interruption tags listed above\n- Words in regions flagged by interruption tags as likely not spoken\n- Minor pronunciation variations that do not change meaning (accent differences)\n- Natural filler words (um, uh) if they do not affect core content\n- Missing words at the END of the LAST turn only (audio recordings are often cut off before the final utterance completes). However, missing words in the middle of the last turn, or missing words in any earlier turn, should still be penalized.\n- Honorific/title variants that refer to the same person (e.g., \"Ms.\" vs \"Miss\", \"Mr.\" vs \"Mister\", French \"Madame\" vs \"Mme\", Japanese \"様\" vs \"-san\")\n- Phonetic spellings of Latin/Roman letters in non-Latin-script languages (e.g., Korean \"에이\" for \"A\", \"비\" for \"B\") — these are the standard spoken form in that language\n- Number surface forms that sound the same or differ only by minor grammatical agreement — accept the natural spoken rendering of a numeric value, including reversed digit order (German \"vierundzwanzig\" = 24), large-unit grouping (Japanese 万-based: \"ichi-man\" / 一万 = 10,000), and gender/agreement variants (Spanish \"veintiún\" vs \"veintiuna\"). Do NOT extend this to entirely different words for the same value (e.g., Swiss/Belgian \"septante\" vs standard French \"soixante-dix\" — these are different words and should be flagged).\n- Name spelling variants where the pronunciation is identical (e.g., German Meyer/Meier/Maier/Mayer)\n\n## Rating Scale (per turn)\n- **3 (High Fidelity)**: \n  - All expected entities spoken correctly (names, dates, destinations, codes, etc)\n  - All words reasonably expected to have been spoken are present and accurate. \n  - Minor pronunciation variations acceptable. \n  - No audio tags spoken out loud.\n- **2 (Medium Fidelity)**: \n  - All entities spoken correctly (names, dates, destinations, codes, etc)\n  - Part of a turn may be missing (often in the first turn, the first few words are missing)\n  - Some words that were reasonably expected may be missing or spoken slightly incorrectly, but they are not critical and the conversation is able to progress even with this issue.\n  - Potential issues with audio tags being said out loud\n- **1 (Low Fidelity)**: \n  - One or more entity errors (missing entities, incorrect entities, etc) OR\n  - Some other major error that prevents the conversation from continuing in a sensible manner.\n\n## Response Format\nRespond with a JSON object. Each turn entry must include the turn_id matching the turn number shown in the Intended Turns above:\n{\n  \"turns\": [\n    {\n      \"turn_id\": <int: the turn number from the Intended Turns>,\n      \"language\": \"<string: the language spoken in this turn, e.g. English, French, Spanish>\",\n      \"transcript\": <string: your transcription of the audio for this turn using the appropriate writing system for the language spoken, use only the audio for this not the intended turns>,\n      \"explanation\": \"<succinct analysis in English; for score 1 or 2, quote the specific issue with intended vs actual; note any regions skipped due to interruption tags>\",\n      \"rating\": <1, 2, 3>\n    }\n  ]\n}\n",
+        "judge_raw_response": "```json\n{\n  \"turns\": [\n    {\n      \"turn_id\": 1,\n      \"language\": \"Hindi\",\n      \"transcript\": \"Arnav bol raha hoon, aap kaun hain?\",\n      \"explanation\": \"The audio perfectly matches the intended text. The audio-direction tag [confused] was correctly not spoken.\",\n      \"rating\": 3\n    },\n    {\n      \"turn_id\": 2,\n      \"language\": \"Hindi\",\n      \"transcript\": \"Suno, maine ye TV kabhi nahi khareeda. Ye loan mere naam par galat hua hai. Mujhse paise mat maango, mujhe dispute record karo aur recovery calls band karo.\",\n      \"explanation\": \"The audio perfectly matches the intended text. The audio-direction tag [angry] was correctly not spoken.\",\n      \"rating\": 3\n    },\n    {\n      \"turn_id\": 3,\n      \"language\": \"Hindi\",\n      \"transcript\": \"Theek hai, ab recovery calls band karo. Goodbye.\",\n      \"explanation\": \"The audio perfectly matches the intended text. The audio-direction tag [relieved] was correctly not spoken.\",\n      \"rating\": 3\n    }\n  ]\n}\n```",
+        "per_turn_normalized": {
+          "1": 1.0,
+          "2": 1.0,
+          "3": 1.0
+        }
+      },
+      "error": null,
+      "skipped": false,
+      "version": "v0.2",
+      "prompt_hash": "849e13c42e3b",
+      "sub_metrics": null
+    }
+  },
+  "aggregate_metrics": {
+    "EVA-A_pass": null,
+    "EVA-X_pass": null,
+    "EVA-A_mean": null,
+    "EVA-X_mean": null,
+    "EVA-overall_mean": null,
+    "EVA-overall_pass": null
+  }
+}

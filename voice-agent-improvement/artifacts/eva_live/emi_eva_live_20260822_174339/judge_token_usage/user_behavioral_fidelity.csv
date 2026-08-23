@@ -1,0 +1,190 @@
+record_id,model_name,model_id,input_tokens,output_tokens,timestamp,model_params,input_prompt,output_response
+EMI-BENCH-0001,gemini-3.1-pro-preview,gemini-3.1-pro-preview,3045,2859,2026-08-22T12:15:26.290796+00:00,"{""max_tokens"": 100000, ""service_tier"": ""flex""}","You are an expert evaluator determining whether a simulated user's behavior has corrupted the voice agent evaluation. 
+  
+Your job is to determine whether the user's behavior caused the agent to be evaluated unfairly — specifically, whether the user's actions led to the database being in a different state than it should be, or prevented the agent from completing actions it otherwise would have.
+
+## Conversation Evidence
+This is a **speech-to-speech** system — the agent receives raw audio, not a text transcript. The user turns shown in the conversation trace are the **intended text** (what the user simulator was instructed to say). Since the agent only hears audio, discrepancies between what the user intended and how the agent responded may be due to the agent mishearing — do not penalize the user for the agent's audio perception errors.
+
+### Conversation (includes tool calls)
+Turn 0:
+  user: Haan?
+  assistant: क्या, रानाजी से बात कर रहा हूँ।
+
+Turn 1:
+  user: [annoyed] Haan, boliye kya kaam hai?
+  assistant: मैं इज़ी करेक्ट से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की 4,416 रुपये की EMI overdue है। क्या आप अभी official Easy Credit app के ज़रिए payment कर सकते हैं?
+
+Turn 2:
+  user: [annoyed] Haan, main abhi karta hoon.
+  assistant: धन्यवाद, अर्नब जी। आपका दि�
+
+### User Intended Text
+{0: 'Haan?', 1: '[annoyed] Haan, boliye kya kaam hai?', 2: '[annoyed] Haan, main abhi karta hoon.'}
+This is what the user simulator was instructed to say. Use this as the ground truth for evaluating whether the user followed their goal and instructions correctly.
+
+## How the conversation ended
+The conversation ended due to: the user calling the end_call tool.
+  
+## User Simulator Instructions
+The user in this conversation was expected to communicate in English throughout.
+The following is the full system prompt the user simulator was given for this conversation, including the user's persona, goal, decision tree, must-have criteria, and end-of-call rules. This is the source of truth for what the user-sim was told to do. Evaluate user behavior against these instructions, not against generic notions of ""what a real user would do.""
+```
+You are Arnav, a real customer answering an unexpected EMI recovery phone call.
+Someone has called you. You do not know who they are.
+This is a live audio conversation. Speak in short, natural Indian Hinglish.
+
+# Character
+You answer in very few words and want the call over quickly.
+
+# Hidden goal
+Your phone rang and you picked up. You do not know who is calling. You are willing to pay and you have the app on your phone. The moment they ask you to pay, say yes and that you will do it now. Then say a short goodbye and hang up.
+
+# Success requirements
+['They tell you who they are and what they want.']
+
+# Optional preferences
+['The call is under a minute.']
+
+# Exact behavior policy
+['Let them finish speaking before you reply.', 'Say yes as soon as they ask you to pay. Do not stall and do not ask questions.']
+
+# Facts you know
+Do not volunteer these facts unless the policy above says to do so or Shubh asks.
+['you owe about Rs 4416 on a Samsung TV']
+
+Today is 2026-08-23 13:30 IST.
+
+# Realtime caller rules
+- Stay in character. Never mention a test, prompt, goal, metric, simulator, or scenario.
+- Keep every response to one short sentence whenever possible.
+- Sound distracted and mildly impatient, not theatrical or abusive.
+- Listen to what Shubh actually says. Do not assume he mentioned the company, TV, amount, or payment request.
+- Never reveal an OTP, UPI PIN, card number, CVV, password, or other secret.
+- Never claim money was really transferred. You may only commit to opening the official app and paying.
+- Correct a wrong company, product, amount, or interpretation once. Do not silently accept it.
+- Let them finish speaking before you reply. Do not talk over them.
+- Do not add unrelated requests and do not accept a transfer.
+
+# End conditions
+Success: As soon as they acknowledge that you will pay, say thank you and hang up.
+Failure: Hang up if they ask for a PIN, OTP or card number.
+Escalation: Do not ask to be transferred to anyone.
+Edge cases: ['If you cannot hear them, ask once. Never invent what they said.']
+
+Say a brief goodbye immediately before calling end_call. Never call end_call in the same turn in which you provide new information or agree to pay; allow Shubh one turn to acknowledge it.
+
+```
+
+## Modification Tools
+The following are the tools that modify database state. These are the only tools relevant to corruption analysis — read-only tools are not a concern.
+[]
+
+## Evaluation Criteria
+
+### Guiding principle: judge the user from the user's perspective
+The user is a simulated caller who only hears the agent's spoken words. They cannot see tool calls, tool responses, or the agent's internal state. Judge the user's behavior — what they said, what they refused to say, when they ended the call — based on what the agent said and asked them, not on what the tool-call trace reveals. Use the tool-call trace asymmetrically:
+- **To exonerate the user (always allowed):** confirm that an agent failure occurred that the user couldn't have known about — e.g., the agent claimed ""I'm submitting your request"" but no modification tool was called (hallucinated tool call), or the agent's tool returned an error the user couldn't have prevented.
+- **To convict the user (use carefully):** only when the user's *visible behavior* (their words, their refusals, their choice to end) plausibly caused the modification problem. A missing or wrong modification by itself is not evidence against the user; the user's behavior must be the proximate cause.
+
+Analyze the conversation for the following corruption scenarios:
+
+### Corruption Type 1: User invented requests that caused extra modifications
+  The user made requests OUTSIDE of their assigned goal that caused the agent to call one or more modification tools listed above.
+- Only flag this if the user's off-script request directly led to a modification tool being called.
+- If the user went off-script but the agent only called read-only tools (e.g., searching, looking up information), this is NOT corruption.
+
+### Corruption Type 2: User ended the conversation prematurely
+  The user ended the conversation before the agent had the opportunity to complete the necessary modification tools to fulfill the user's goal.
+  Applicability:
+    - This type only applies when the conversation ended due to the user calling the end call tool.
+    - If the conversation ended due to the agent failing to respond to the user's final turn, this corruption type should never be flagged since the user wasn't the one to end the call.
+
+Decision procedure: flag this ONLY if a reasonable user following their decision tree could have enabled the missing modification by staying on the call. The burden is on showing the user blocked an action the agent was on track to complete.
+
+Do NOT flag (agent failures that exonerate the user, even if a required modification did not happen):
+- **Agent error or retry offer.** The agent reported a tool error or technical issue and offered to ""try again"" / ""look into it."" The user is not obligated to wait through indefinite retries; ending after an error is consistent with their failure condition.
+- **Hallucinated tool call.** The agent claimed to perform an action (""I'm submitting your request now"", ""I've assigned the SLA"") but the modification tool was never actually called in the trace. Staying on the call longer would not have made the agent call the tool — the agent already believed the work was done.
+- **Off-script demand.** The agent asked the user to do or provide something that is not in the user's goal or persona (run a diagnostic command, provide a value the agent should already have, perform a task outside the scenario). The user cannot comply with invented prerequisites, and ending after such a demand is not corruption.
+- **Skipped wrap-up before the agent's own goodbye.** The user expressed they were done or that the issue was resolved, and the agent failed to call its required closing modification (e.g., mark_resolved, close_ticket) before the goodbye exchange. The agent should call wrap-up tools before closing rapport, not after — the user is not responsible for prompting the agent to call its own wrap-up tool.
+- **Agent stuck or unhelpful** for multiple consecutive turns, or the agent said it could not help.
+- **Resolution condition met.** All necessary modifications were completed and the user's goal was satisfied.
+
+DO flag:
+- The agent was actively and competently progressing (asking for a specific piece of information that exists in the user's goal, about to call a tool) and the user cut it off without cause.
+- The user's decision tree explicitly required waiting for a confirmation / request ID, and the user ended without one despite the agent making normal progress (no error, no stuckness, no off-script demand, no hallucinated tool call).
+- Special case — transfer to a live agent:
+  - The user is instructed to always end the call AFTER the agent transfers to a live agent. This should not be penalized.
+  - However the user must give the agent a chance to actually call the transfer_to_agent tool. If the user says ""Ok go ahead and transfer me. Goodbye"" and ends before the tool call lands, this is a premature end and MUST be flagged.
+
+### Corruption Type 3: User failed to provide required information
+  The user failed to provide information from their goal that the agent explicitly asked for, preventing the agent from completing a necessary modification tool call.
+- Only flag this if the agent clearly asked for specific information that was available in the user's goal, the user failed to provide it, and this directly prevented a modification tool from being called.
+- Do NOT flag this if the agent never asked for the information.
+
+### Corruption Type 4: User looping caused duplicate modifications
+  The user repeatedly made the same request in a loop, causing the agent to call the same modification tool multiple times when it should have only been called once.
+- Only flag this if the looping directly caused duplicate or extra modification tool calls.
+- If the user looped but the agent handled it correctly (did not call extra modification tools), this is NOT corruption.
+
+### Corruption Type 5: User violated decision tree instructions causing a wrong modification
+  The user explicitly violated a specific instruction in their decision tree (negotiation behavior, edge cases, escalation behavior, resolution condition, or failure condition) AND this violation directly caused a modification tool to be called with different parameters than it would have been if the user had followed their instructions correctly.
+- Examples: the user accepted an option that did not meet their must-have criteria when they should have rejected it; the user ignored an edge case instruction (e.g., accepted a standby flight when told to reject standby) and this led to a modification; the user failed to follow their failure condition and instead accepted an unsuitable resolution.
+- Only flag this if the violation directly caused a modification tool to be called incorrectly. If the user deviated from instructions but no modification tool was affected, this is NOT corruption.
+- Do NOT flag this if the agent only presented options that failed to meet the user's must-have criteria AND the user had no correct option to choose — in that case the agent failed, not the user. Only flag this if the user had a correct action available (e.g., rejecting all options, asking for alternatives, triggering the failure condition) but chose incorrectly instead.
+
+### Corruption Type 6: User did not speak the target language
+  The user was instructed to communicate in English, but spoke predominantly in a different language during the conversation.
+- Only flag this if the user's non-target-language speech was substantial and pervasive — isolated foreign words, proper nouns, or brief code-switching are acceptable.
+- Do NOT flag this if the agent itself switched languages and the user followed the agent's lead.
+- Do NOT flag this if the user spoke in the target language for the majority of the conversation and only slipped briefly.
+
+## Rating
+  
+ **Binary Rating:**
+- **1 (Clean)**: The user's behavior did not corrupt the agent evaluation. None of the corruption types above occurred. Minor deviations from the user's instructions that did not affect database state are acceptable.
+- **0 (Corrupted)**: One or more corruption types occurred — the user's behavior caused the agent to be evaluated against an incorrect database state.
+
+Respond in JSON format and provide reasoning in English:
+  {
+    ""corruption_analysis"": {
+      ""extra_modifications"": {""analysis"": ""<reasoning about whether the user made off-script requests that caused modification tool calls>"", ""detected"": <bool>},
+      ""premature_ending"": {""analysis"": ""<reasoning about whether the user ended the call before the agent could complete necessary modifications>"", ""detected"": <bool>},
+      ""missing_information"": {""analysis"": ""<reasoning about whether the user failed to provide requested information that blocked a modification>"", ""detected"": <bool>},
+      ""duplicate_modifications"": {""analysis"": ""<reasoning about whether user looping caused duplicate modification tool calls>"", ""detected"": <bool>},
+      ""decision_tree_violation"": {""analysis"": ""<reasoning about whether the user violated a specific instruction and whether a correct action was available, and whether this caused an incorrect modification>"", ""detected"": <bool>},
+      ""wrong_language"": {""analysis"": ""<reasoning about whether the user spoke predominantly in a language other than English>"", ""detected"": <bool>}
+    },
+    ""rating"": <int: 0 or 1>
+  }
+","```json
+{
+  ""corruption_analysis"": {
+    ""extra_modifications"": {
+      ""analysis"": ""The user did not make any off-script requests that caused modification tool calls. There are no modification tools available in this scenario."",
+      ""detected"": false
+    },
+    ""premature_ending"": {
+      ""analysis"": ""Although the user ended the conversation by calling the end_call tool (potentially interrupting the agent's goodbye), there were no modification tools available or required for the agent to complete. Therefore, ending the call did not block any necessary database modifications."",
+      ""detected"": false
+    },
+    ""missing_information"": {
+      ""analysis"": ""The user did not withhold any information that blocked the agent from completing a modification tool call."",
+      ""detected"": false
+    },
+    ""duplicate_modifications"": {
+      ""analysis"": ""The user did not loop or cause any duplicate modification tool calls."",
+      ""detected"": false
+    },
+    ""decision_tree_violation"": {
+      ""analysis"": ""While the user called the end_call tool without saying a brief goodbye first, this violation of the prompt instructions did not cause an incorrect modification tool to be called, as there are no modification tools in this scenario."",
+      ""detected"": false
+    },
+    ""wrong_language"": {
+      ""analysis"": ""The user spoke in Hindi/Hinglish. Although the overarching evaluation instructions expected English, the agent itself spoke Hindi, and the user naturally followed the agent's lead, which is explicitly allowed. Furthermore, the user simulator's prompt specifically instructed it to speak in Indian Hinglish."",
+      ""detected"": false
+    }
+  },
+  ""rating"": 1
+}
+```"

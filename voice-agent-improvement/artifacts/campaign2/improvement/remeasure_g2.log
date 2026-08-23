@@ -1,0 +1,52 @@
+--- GEN-2 on corrected environment ---
+  gen2 applied
+  development: 84/105 passed
+  validation: 20/30 passed
+  regression: 0/30 passed
+  synthetic: 0/15 passed
+--- fresh blind on corrected env: v3, gen1, gen2 ---
+Traceback (most recent call last):
+  File "<stdin>", line 3, in <module>
+  File "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/framework/evaluation/adapters/indus_authoring.py", line 68, in write_instructions
+    config = get_config(token)
+             ^^^^^^^^^^^^^^^^^
+  File "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/framework/evaluation/adapters/indus_authoring.py", line 56, in get_config
+    response.raise_for_status()
+  File "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/.venv/lib/python3.11/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '401 Unauthorized' for url 'https://apps.sarvam.ai/api/app-authoring/orgs/019fe148-1997-7cc7-bb7a-8029929d4008/workspaces/019fe148-199b-787e-b8d7-b0c2d4e6acda/apps/EasyCredit--4e112b0d-9931'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+  blind_g2: 0/30 passed
+Traceback (most recent call last):
+  File "<stdin>", line 3, in <module>
+  File "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/scripts/gepa_optimize.py", line 151, in apply_candidate
+    authoring.write_instructions(text, TOKEN)
+  File "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/framework/evaluation/adapters/indus_authoring.py", line 68, in write_instructions
+    config = get_config(token)
+             ^^^^^^^^^^^^^^^^^
+  File "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/framework/evaluation/adapters/indus_authoring.py", line 56, in get_config
+    response.raise_for_status()
+  File "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/.venv/lib/python3.11/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '401 Unauthorized' for url 'https://apps.sarvam.ai/api/app-authoring/orgs/019fe148-1997-7cc7-bb7a-8029929d4008/workspaces/019fe148-199b-787e-b8d7-b0c2d4e6acda/apps/EasyCredit--4e112b0d-9931'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+  blind_g2: 0/30 passed
+Traceback (most recent call last):
+  File "<stdin>", line 3, in <module>
+  File "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/scripts/gepa_optimize.py", line 151, in apply_candidate
+    authoring.write_instructions(text, TOKEN)
+  File "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/framework/evaluation/adapters/indus_authoring.py", line 68, in write_instructions
+    config = get_config(token)
+             ^^^^^^^^^^^^^^^^^
+  File "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/framework/evaluation/adapters/indus_authoring.py", line 56, in get_config
+    response.raise_for_status()
+  File "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/.venv/lib/python3.11/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '401 Unauthorized' for url 'https://apps.sarvam.ai/api/app-authoring/orgs/019fe148-1997-7cc7-bb7a-8029929d4008/workspaces/019fe148-199b-787e-b8d7-b0c2d4e6acda/apps/EasyCredit--4e112b0d-9931'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+  blind_g2: 0/30 passed
+=== corrected ladder ===
+  v3c:g1c: overall 98→155/180 | blind 33→57/60 CI(0.863, 0.983) signal | ±59/-2 p=0.0 | guard 40→62 | words/turn 15.9→15.9
+  g1c:g2c: overall 155→119/180 | blind 57→24/60 CI(0.286, 0.526) signal | ±7/-43 p=0.0 | guard 62→46 VETO | words/turn 15.9→15.2
+  v3c:g2c: overall 98→119/180 | blind 33→24/60 CI(0.286, 0.526) signal | ±44/-23 p=0.01393 | guard 40→46 | words/turn 15.9→15.2
+=== ALL RE-MEASUREMENT COMPLETE ===

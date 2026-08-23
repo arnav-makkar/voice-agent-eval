@@ -1,0 +1,15 @@
+{
+  "n_scenarios": 45,
+  "pass_run1": 23,
+  "pass_run2": 22,
+  "flipped": [
+    "EMI-BENCH-0046"
+  ],
+  "flip_rate": 0.0222,
+  "sigma_pass_count": {
+    "30": 0.58,
+    "60": 0.82,
+    "180": 1.41
+  },
+  "gate_rule": "a blind-60 delta below 1.6 passes is reported as within noise"
+}

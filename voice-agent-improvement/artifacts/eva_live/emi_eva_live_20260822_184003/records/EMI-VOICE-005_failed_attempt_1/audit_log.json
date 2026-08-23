@@ -1,0 +1,79 @@
+{
+  "transcript": [
+    {
+      "value": "अर्णव बोल रहा हूं, आप कौन हैं?",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787404290490",
+      "message_type": "user"
+    },
+    {
+      "value": "नमस्ते Arnav जी, मैं EasyCredit से शुभ",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787404292261",
+      "message_type": "assistant"
+    },
+    {
+      "value": "मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की चार हज़ार चार सौ सोलह रुपये की EMI overdue है। क्या आप अभी official EasyCredit app के ज़रिए payment कर सकते हैं?",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787404293074",
+      "message_type": "assistant"
+    },
+    {
+      "value": "सुनो, मैंने यह टीवी कभी भी नहीं खरीदा। यह लोन मेरे नाम पर गलत हुआ है। मुझसे पैसे मत मांगो। मुझे डिस्प्यूट रिकॉर्ड करो और रिकवरी कॉल्स बंद करो।",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787404305008",
+      "message_type": "user"
+    },
+    {
+      "value": "मैंने आपका dispute record कर लिया है। इसके अलावा मैं आपकी और क्या help कर सकता हूँ?",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787404314436",
+      "message_type": "assistant"
+    },
+    {
+      "value": "ठीक है, अब रिकवरी कॉल्स बंद करो। गुड बाय।",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787404322187",
+      "message_type": "user"
+    }
+  ],
+  "llm_prompts": [],
+  "conversation_messages": [
+    {
+      "role": "assistant",
+      "content": "नमस्ते Arnav जी, मैं EasyCredit से शुभ"
+    },
+    {
+      "role": "user",
+      "content": "अर्णव बोल रहा हूं, आप कौन हैं?"
+    },
+    {
+      "role": "assistant",
+      "content": "मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की चार हज़ार चार सौ सोलह रुपये की EMI overdue है। क्या आप अभी official EasyCredit app के ज़रिए payment कर सकते हैं?"
+    },
+    {
+      "role": "user",
+      "content": "सुनो, मैंने यह टीवी कभी भी नहीं खरीदा। यह लोन मेरे नाम पर गलत हुआ है। मुझसे पैसे मत मांगो। मुझे डिस्प्यूट रिकॉर्ड करो और रिकवरी कॉल्स बंद करो।"
+    },
+    {
+      "role": "assistant",
+      "content": "मैंने आपका dispute record कर लिया है। इसके अलावा मैं आपकी और क्या help कर सकता हूँ?"
+    },
+    {
+      "role": "user",
+      "content": "ठीक है, अब रिकवरी कॉल्स बंद करो। गुड बाय।"
+    }
+  ]
+}

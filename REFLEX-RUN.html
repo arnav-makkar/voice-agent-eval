@@ -1,0 +1,172 @@
+<title>The Reflex Run</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..800;1,6..72,300..800&display=swap">
+<style>
+  :root{
+    --paper:#f6f1e7; --ink:#211a12; --muted:#6d5f4c; --faint:#93846d;
+    --line:#e3d8c4; --line2:#d3c5ab; --card:#efe8d9;
+    --accent:#8a4b26; --good:#556237; --bad:#8c3b2e;
+    --mono:ui-monospace,'SF Mono',Menlo,monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#181209; --ink:#ece1cc; --muted:#a4937a; --faint:#7d6f5a;
+      --line:#312716; --line2:#453723; --card:#211a0e;
+      --accent:#d29466; --good:#a9b97f; --bad:#d98a75;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#181209; --ink:#ece1cc; --muted:#a4937a; --faint:#7d6f5a;
+    --line:#312716; --line2:#453723; --card:#211a0e;
+    --accent:#d29466; --good:#a9b97f; --bad:#d98a75;
+  }
+  body{background:var(--paper);color:var(--ink);margin:0;
+    font:400 17px/1.6 'Newsreader',Georgia,serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:76ch;margin:0 auto;padding:56px 24px 110px}
+  .kicker{font:600 11px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--accent)}
+  h1{font-size:42px;line-height:1.05;font-weight:640;letter-spacing:-.015em;margin:12px 0 8px}
+  .dek{font-size:18px;font-style:italic;color:var(--muted);margin:0 0 6px;max-width:62ch}
+  h2{font:700 14px var(--mono);letter-spacing:.16em;text-transform:uppercase;margin:52px 0 10px}
+  h2 .n{color:var(--accent);margin-right:10px}
+  p{margin:10px 0;max-width:70ch}
+  code{font:500 13px var(--mono);background:var(--card);border:1px solid var(--line);border-radius:4px;padding:1px 5px;white-space:nowrap}
+  .tw{overflow-x:auto;margin:14px 0}
+  table{border-collapse:collapse;width:100%;font-size:14px;font-variant-numeric:tabular-nums}
+  th{font:600 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--faint);
+     text-align:left;padding:7px 12px 7px 0;border-bottom:1px solid var(--line2)}
+  td{padding:7px 12px 7px 0;border-bottom:1px solid var(--line);vertical-align:top}
+  td.num,th.num{text-align:right;font-family:var(--mono);font-size:13px}
+  tr.total td{border-top:1.5px solid var(--line2);font-weight:640}
+  .good{color:var(--good)} .bad{color:var(--bad)} .acc{color:var(--accent)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 20px;margin:16px 0}
+  .card h4{margin:0 0 6px;font:700 11px var(--mono);letter-spacing:.14em;text-transform:uppercase}
+  ul{padding-left:22px;margin:8px 0} li{margin:6px 0;max-width:68ch}
+  .diagram{margin:20px 0;overflow-x:auto}
+  .diagram svg{display:block;min-width:660px;width:100%;height:auto;color:var(--ink)}
+  .dl{font:600 12.5px var(--mono);letter-spacing:.06em}
+  .ds{font:400 10.5px var(--mono);fill:var(--muted)}
+  .foot{margin-top:70px;padding-top:18px;border-top:1px solid var(--line2);color:var(--faint);font:400 13px var(--mono)}
+</style>
+
+<div class="wrap">
+<div class="kicker">Loopline · the single execution order · 23 Aug 2026</div>
+<h1>The Reflex Run</h1>
+<p class="dek">This file supersedes sections 05 and 06 of Loopline&nbsp;Reflex. One flowchart, one phase table, one command. What is written here is what happens — nothing else runs tonight.</p>
+
+<!-- ══════════════ 1 ══════════════ -->
+<h2><span class="n">1</span>Already done, verified, before launch</h2>
+<div class="tw"><table>
+<tr><th>Asset</th><th>State</th></tr>
+<tr><td><code>seed_v3_plain.md</code> — the committed baseline's instructions, the only seed</td><td class="good">rebuilt; all 165 regenerated caller lines verified identical to the recorded runs</td></tr>
+<tr><td><code>exemplars_seed.md</code> — 3 worked examples, machine-mined from v3's own passing calls</td><td class="good">built; 1,873 chars; no human-authored line</td></tr>
+<tr><td><code>blind_g1_reserve.jsonl</code> + <code>blind_g2.jsonl</code> — 30 + 30 fresh scenarios, same generator, content-hash deduplicated</td><td class="good">built and hashed in <code>fresh_blind_manifest.json</code>; no search phase has seen them</td></tr>
+<tr><td>Optimiser — two-component candidates {instructions, exemplars}, merge on, severity-weighted trainset, counterfactual baseline feedback, transport retry</td><td class="good">built, syntax-verified</td></tr>
+<tr><td>Reflector</td><td class="good"><code>gemini-3.1-pro-preview</code>, probed live on this key</td></tr>
+<tr><td>Gate maths — McNemar exact, Wilson CI, 2σ noise rule, guardrail veto, words/turn guard</td><td class="good">built (<code>reflex_report.py</code>)</td></tr>
+<tr><td>Dashboard JWT</td><td class="bad">refreshed at launch — current one dies ~07:00</td></tr>
+</table></div>
+
+<!-- ══════════════ 2 ══════════════ -->
+<h2><span class="n">2</span>The flowchart — everything that runs tonight</h2>
+<div class="diagram">
+<svg viewBox="0 0 920 1040" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Single execution order: preflight, noise probe, generation one explore, dev verdict, conditional consolidate, pick, verdict, generation two with stuck exclusion, verdict on fresh blind, ladder report">
+  <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="currentColor"/></marker></defs>
+  <g fill="none" stroke="currentColor" stroke-width="1.3">
+    <rect x="280" y="14"  width="360" height="50" rx="9"/>
+    <rect x="280" y="100" width="360" height="56" rx="9"/>
+    <rect x="280" y="192" width="360" height="56" rx="9"/>
+    <rect x="280" y="284" width="360" height="56" rx="9"/>
+    <path d="M460 376 L560 412 L460 448 L360 412 Z"/>
+    <rect x="660" y="386" width="248" height="52" rx="9"/>
+    <rect x="280" y="484" width="360" height="50" rx="9"/>
+    <rect x="280" y="570" width="360" height="56" rx="9"/>
+    <rect x="280" y="662" width="360" height="70" rx="9"/>
+    <rect x="280" y="768" width="360" height="56" rx="9"/>
+    <path d="M460 860 L560 896 L460 932 L360 896 Z"/>
+    <rect x="660" y="870" width="248" height="52" rx="9"/>
+    <rect x="20"  y="870" width="230" height="52" rx="9"/>
+    <rect x="280" y="968" width="360" height="56" rx="9"/>
+    <line x1="460" y1="64"  x2="460" y2="96"  marker-end="url(#a)"/>
+    <line x1="460" y1="156" x2="460" y2="188" marker-end="url(#a)"/>
+    <line x1="460" y1="248" x2="460" y2="280" marker-end="url(#a)"/>
+    <line x1="460" y1="340" x2="460" y2="372" marker-end="url(#a)"/>
+    <line x1="560" y1="412" x2="656" y2="412" marker-end="url(#a)"/>
+    <line x1="784" y1="438" x2="784" y2="462 " />
+    <path d="M784 462 L460 462 L460 480" marker-end="url(#a)"/>
+    <line x1="460" y1="448" x2="460" y2="480" marker-end="url(#a)"/>
+    <line x1="460" y1="534" x2="460" y2="566" marker-end="url(#a)"/>
+    <line x1="460" y1="626" x2="460" y2="658" marker-end="url(#a)"/>
+    <line x1="460" y1="732" x2="460" y2="764" marker-end="url(#a)"/>
+    <line x1="460" y1="824" x2="460" y2="856" marker-end="url(#a)"/>
+    <line x1="560" y1="896" x2="656" y2="896" marker-end="url(#a)"/>
+    <line x1="360" y1="896" x2="254" y2="896" marker-end="url(#a)"/>
+    <path d="M784 922 L784 948 L460 948 L460 964" marker-end="url(#a)"/>
+    <path d="M135 922 L135 948 L460 948" />
+  </g>
+  <g fill="currentColor" text-anchor="middle">
+    <text x="460" y="36" class="dl">P0 · PRE-FLIGHT</text><text x="460" y="52" class="ds">JWT &gt;7h · tunnel 200 · tool service up · assets present</text>
+    <text x="460" y="122" class="dl">P1 · NOISE PROBE — 90 conv</text><text x="460" y="138" class="ds">v3 seed applied · 45 scenarios × 2 identical runs → σ, flip-rate</text>
+    <text x="460" y="214" class="dl">P2 · GEN-1 EXPLORE — 380 conv</text><text x="460" y="230" class="ds">GEPA from {v3, mined exemplars} · Pareto + merge · dev-only 40 train / 30 val</text>
+    <text x="460" y="306" class="dl">P3 · DEV VERDICT — 105 conv</text><text x="460" y="322" class="ds">explore champion on development → regressions.json · stuck.json</text>
+    <text x="460" y="408" class="dl">regressions</text><text x="460" y="424" class="ds">&gt; 0 ?</text>
+    <text x="784" y="408" class="dl">P4 · CONSOLIDATE — ≤100 conv</text><text x="784" y="424" class="ds">GEPA on regressions + 10 protected fixes</text>
+    <text x="460" y="506" class="dl">PICK GEN-1 FINAL</text><text x="460" y="521" class="ds">argmax score on the same 30-scenario valset</text>
+    <text x="460" y="592" class="dl">P5 · GEN-1 VERDICT — 180 conv</text><text x="460" y="608" class="ds">dev + validation + regression + synthetic → g1_*.jsonl</text>
+    <text x="460" y="684" class="dl">P6 · GEN-2 EXPLORE — 300 conv</text><text x="460" y="700" class="ds">seed = gen-1 final · trainset refreshed from g1 residual failures</text>
+    <text x="460" y="716" class="ds">stuck bucket (failed v3 AND g1, same signature) excluded from search, never from verdicts</text>
+    <text x="460" y="790" class="dl">P6b · DEV VERDICT — 105 conv</text><text x="460" y="806" class="ds">gen-2 explore champion → regressions vs gen-1</text>
+    <text x="460" y="892" class="dl">regressions</text><text x="460" y="908" class="ds">&gt; 0 ?</text>
+    <text x="784" y="892" class="dl">P6c · CONSOLIDATE — ≤100 conv</text><text x="784" y="908" class="ds">then pick gen-2 final, same valset rule</text>
+    <text x="135" y="892" class="dl">no regressions</text><text x="135" y="908" class="ds">explore champion = gen-2 final</text>
+    <text x="460" y="990" class="dl">P7 · GEN-2 VERDICT + P8 LADDER — 300 conv</text><text x="460" y="1006" class="ds">g2 on 180 + fresh blind-30 (first ever touch) · v3 on fresh blind-30 too · then v3→g1→g2 with McNemar · Wilson · 2σ rule · veto · words/turn</text>
+  </g>
+</svg>
+</div>
+<p class="dek" style="font-size:15px">End state: gen-2 champion applied to the <b>draft (staging)</b>, nothing committed, ladder report written. The diamonds are the only branches; a crash at any point resumes with the same command because every phase checks for its own output first.</p>
+
+<!-- ══════════════ 3 ══════════════ -->
+<h2><span class="n">3</span>Phase table — inputs, outputs, cost</h2>
+<div class="tw"><table>
+<tr><th>Phase</th><th>Produces</th><th class="num">conv</th><th class="num">est.</th></tr>
+<tr><td>P0 pre-flight checks</td><td>abort-early if JWT/tunnel/service bad</td><td class="num">0</td><td class="num">1m</td></tr>
+<tr><td>P1 noise probe</td><td><code>noise_probe.json</code> — σ(30/60/180), flip-rate, the 2σ gate rule</td><td class="num">90</td><td class="num">15m</td></tr>
+<tr><td>P2 gen-1 explore</td><td><code>gen1_explore/best_candidate.json</code> + rollout ledger + checkpoints</td><td class="num">380</td><td class="num">~85m</td></tr>
+<tr><td>P3 dev verdict + triage</td><td><code>g1x_development.jsonl</code> · <code>gen1_triage/{regressions,stuck,consolidation_trainset}.json</code></td><td class="num">105</td><td class="num">17m</td></tr>
+<tr><td>P4 consolidate <em>(if regressions&gt;0)</em></td><td><code>gen1_consolidate/best_candidate.json</code> → <b>pick</b> → <code>gen1_final.json</code></td><td class="num">≤100</td><td class="num">~25m</td></tr>
+<tr><td>P5 gen-1 verdict</td><td><code>g1_*.jsonl</code> — all 180 on gen-1 final</td><td class="num">180</td><td class="num">28m</td></tr>
+<tr><td>P6 gen-2 explore</td><td><code>gen2_explore/best_candidate.json</code>, stuck excluded from search</td><td class="num">300</td><td class="num">~70m</td></tr>
+<tr><td>P6b dev verdict + triage</td><td><code>g2x_development.jsonl</code> · <code>gen2b_triage/*</code></td><td class="num">105</td><td class="num">17m</td></tr>
+<tr><td>P6c consolidate <em>(if regressions&gt;0)</em></td><td><code>gen2_consolidate/…</code> → <b>pick</b> → <code>gen2_final.json</code></td><td class="num">≤100</td><td class="num">~25m</td></tr>
+<tr><td>P7 gen-2 verdict + baseline on fresh blind</td><td><code>g2_*.jsonl</code> (180 + blind_g2) · <code>v3b_blind_g2.jsonl</code></td><td class="num">240</td><td class="num">38m</td></tr>
+<tr><td>P8 ladder + stats</td><td><code>reflex_ladder.json</code> — rungs v3→g1, g1→g2, v3→g2</td><td class="num">0</td><td class="num">1m</td></tr>
+<tr class="total"><td>total — chat is credit-free (canary-verified)</td><td>champion on draft, uncommitted</td><td class="num">~1,600</td><td class="num">~5.5–6.5h</td></tr>
+</table></div>
+
+<!-- ══════════════ 4 ══════════════ -->
+<h2><span class="n">4</span>What the morning delivers, and the decisions that are yours</h2>
+<p>The run makes no irreversible move: it never commits a version, never touches the serving v3, never spends a credit. You wake up to:</p>
+<ul>
+<li><b>The ladder</b> — v3 → gen-1 → gen-2, overall and blind, each rung with McNemar p, Wilson CI, the within-noise verdict, guardrail delta, words-per-turn.</li>
+<li><b>The residual evidence</b> — per-family failures of the final champion, the stuck bucket (your ranked targets if you take the manual rung later), and every candidate GEPA explored with scores.</li>
+</ul>
+<div class="card"><h4 class="acc">Your calls, after reading it — none of these run tonight</h4>
+<ul style="margin:6px 0 0">
+<li>Approve &amp; <b>commit</b> the champion as v-next (rollback target v3).</li>
+<li><b>S7 voice transfer</b>: your 15 phone cards + 5 bot-to-bot on the champion (~5 credits/call).</li>
+<li>Optional <b>manual rung</b>, separately labelled, guided by the stuck bucket.</li>
+<li>Optional <b>paraphrase robustness check</b>: blind-30 with reworded caller lines, ~30 conversations.</li>
+</ul></div>
+
+<!-- ══════════════ 5 ══════════════ -->
+<h2><span class="n">5</span>Commitments</h2>
+<ul>
+<li>No human-authored or human-edited candidate text anywhere in the lineage. Seed = committed v3; exemplars = machine-mined; every mutation model-proposed.</li>
+<li>The blind 60 is used by no search phase; the fresh blind-30 is touched exactly once, by the final champion and by v3 for its denominator.</li>
+<li>Any delta below 2σ is reported as within noise — gains and losses alike. Guardrail regression is a veto, not a trade.</li>
+<li>Nothing beyond this file runs tonight. If the run crashes it resumes; it does not improvise.</li>
+</ul>
+
+<div class="card"><h4 class="good">Launch</h4>
+<p style="margin:4px 0 0">Fresh JWT capture, then <code>bash scripts/overnight_reflex.sh</code>. One command; this file is the contract.</p></div>
+
+<div class="foot">supersedes LOOPLINE-REFLEX §05–§06 for execution · design context remains in LOOPLINE-REFLEX §01–§04 · agent EasyCredit--4e112b0d-9931 · draft = staging, commit = production</div>
+</div>

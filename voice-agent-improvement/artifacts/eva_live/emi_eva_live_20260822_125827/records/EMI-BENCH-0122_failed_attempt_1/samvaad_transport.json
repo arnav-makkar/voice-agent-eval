@@ -1,0 +1,31 @@
+[
+  {
+    "event": "conversation_ending",
+    "timestamp_ms": "1787383721216",
+    "reason": "error"
+  },
+  {
+    "event": "samvaad_disconnected",
+    "timestamp_ms": "1787383721216",
+    "interaction_id": null
+  },
+  {
+    "event": "analytics_attempt_not_found",
+    "timestamp_ms": "1787383725367",
+    "interaction_id": null
+  },
+  {
+    "event": "tool_state_fetch_error",
+    "timestamp_ms": "1787383725410",
+    "detail": "[Errno 8] nodename nor servname provided, or not known"
+  },
+  {
+    "event": "audio_perturbation_summary",
+    "timestamp_ms": "1787383725412",
+    "config": {
+      "kind": "clean"
+    },
+    "chunks": 0,
+    "dropped_chunks": 0
+  }
+]

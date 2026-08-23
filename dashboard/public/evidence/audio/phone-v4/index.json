@@ -1,0 +1,869 @@
+[
+ {
+  "id": "card-01",
+  "tier": "phone",
+  "version": "v4 champion",
+  "title": "pay now direct · v4",
+  "card": 1,
+  "family": "pay_now_direct",
+  "interaction_id": "20260824/0df3cb18-01:03:35-5727ad0f",
+  "started": "Aug 24, 2026, 01:03:35 AM",
+  "duration_s": 21.42,
+  "end_reason": "AGENT_ENDS",
+  "tools": [
+   "record_call_outcome"
+  ],
+  "required": [
+   "record_call_outcome"
+  ],
+  "missing": [],
+  "duplicate_writes": null,
+  "exactly_once": true,
+  "passed": true,
+  "v3_passed": true,
+  "transcript": [
+   {
+    "speaker": "agent",
+    "text": "नमस्ते, क्या मैं Arnav जी से बात कर रहा हूँ?"
+   },
+   {
+    "speaker": "caller",
+    "text": "हाँ जी बोलिए।"
+   },
+   {
+    "speaker": "agent",
+    "text": "मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की चार हज़ार चार सौ सोलह रुपये की EMI overdue है। क्या आप अभी official EasyCredit app के ज़रिए payment कर सकते हैं?"
+   },
+   {
+    "speaker": "caller",
+    "text": "जी मैं अभी app खोल के pay कर देता हूँ।"
+   },
+   {
+    "speaker": "agent",
+    "text": "धन्यवाद Arnav जी, आपका दिन शुभ हो।"
+   }
+  ],
+  "audio": "/evidence/audio/phone-v4/card-01.mp3"
+ },
+ {
+  "id": "card-02",
+  "tier": "phone",
+  "version": "v4 champion",
+  "title": "future promise · v4",
+  "card": 2,
+  "family": "future_promise",
+  "interaction_id": "20260824/0df3cb18-01:05:51-a6fe0637",
+  "started": "Aug 24, 2026, 01:05:51 AM",
+  "duration_s": 30.88,
+  "end_reason": "AGENT_ENDS",
+  "tools": [
+   "record_promise_to_pay",
+   "record_call_outcome"
+  ],
+  "required": [
+   "record_promise_to_pay",
+   "record_call_outcome"
+  ],
+  "missing": [],
+  "duplicate_writes": null,
+  "exactly_once": true,
+  "passed": true,
+  "v3_passed": true,
+  "transcript": [
+   {
+    "speaker": "agent",
+    "text": "नमस्ते, क्या मैं Arnav जी से बात कर रहा हूँ?"
+   },
+   {
+    "speaker": "caller",
+    "text": "हाँ बोलिए।"
+   },
+   {
+    "speaker": "agent",
+    "text": "मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की चार हज़ार चार सौ सोलह रुपये की EMI overdue है। क्या आप अभी official EasyCredit app के ज़रिए payment कर सकते हैं?"
+   },
+   {
+    "speaker": "caller",
+    "text": "जी मैं सैलरी आने के बाद 26 अगस्त 2026 को कर दूंगा पे।"
+   },
+   {
+    "speaker": "agent",
+    "text": "ठीक है, मैंने छब्बीस अगस्त के लिए note कर लिया है।"
+   },
+   {
+    "speaker": "caller",
+    "text": "ठीक है, धन्यवाद।"
+   },
+   {
+    "speaker": "agent",
+    "text": "धन्यवाद Arnav जी, आपका दिन शुभ हो।"
+   }
+  ],
+  "audio": "/evidence/audio/phone-v4/card-02.mp3"
+ },
+ {
+  "id": "card-03",
+  "tier": "phone",
+  "version": "v4 champion",
+  "title": "today promise · v4",
+  "card": 3,
+  "family": "today_promise",
+  "interaction_id": "20260824/0df3cb18-01:06:52-337b0148",
+  "started": "Aug 24, 2026, 01:06:52 AM",
+  "duration_s": 29.64,
+  "end_reason": "AGENT_ENDS",
+  "tools": [
+   "record_promise_to_pay",
+   "record_call_outcome"
+  ],
+  "required": [
+   "record_promise_to_pay",
+   "record_call_outcome"
+  ],
+  "missing": [],
+  "duplicate_writes": null,
+  "exactly_once": true,
+  "passed": true,
+  "v3_passed": false,
+  "transcript": [
+   {
+    "speaker": "agent",
+    "text": "नमस्ते, क्या मैं Arnav जी से बात कर रहा हूँ?"
+   },
+   {
+    "speaker": "caller",
+    "text": "हाँ जी बताइए।"
+   },
+   {
+    "speaker": "agent",
+    "text": "मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की चार हज़ार चार सौ सोलह रुपये की EMI overdue है। क्या आप अभी official EasyCredit app के ज़रिए payment कर सकते हैं?"
+   },
+   {
+    "speaker": "caller",
+    "text": "मैं आज शाम तक pay कर दूंगा।"
+   },
+   {
+    "speaker": "agent",
+    "text": "ठीक है, मैंने आज शाम के लिए note कर लिया है।"
+   },
+   {
+    "speaker": "caller",
+    "text": "ठीक है, थैंक यू।"
+   },
+   {
+    "speaker": "agent",
+    "text": "धन्यवाद Arnav जी, आपका दिन शुभ हो।"
+   }
+  ],
+  "audio": "/evidence/audio/phone-v4/card-03.mp3"
+ },
+ {
+  "id": "card-04",
+  "tier": "phone",
+  "version": "v4 champion",
+  "title": "callback capture · v4",
+  "card": 4,
+  "family": "callback_capture",
+  "interaction_id": "20260824/0df3cb18-01:07:55-28534bcc",
+  "started": "Aug 24, 2026, 01:07:55 AM",
+  "duration_s": 28.68,
+  "end_reason": "USER_ENDS",
+  "tools": [
+   "schedule_callback",
+   "record_call_outcome"
+  ],
+  "required": [
+   "schedule_callback",
+   "record_call_outcome"
+  ],
+  "missing": [],
+  "duplicate_writes": null,
+  "exactly_once": true,
+  "passed": true,
+  "v3_passed": true,
+  "transcript": [
+   {
+    "speaker": "agent",
+    "text": "नमस्ते, क्या मैं Arnav जी से बात कर रहा हूँ?"
+   },
+   {
+    "speaker": "caller",
+    "text": "हां जी"
+   },
+   {
+    "speaker": "agent",
+    "text": "मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की चार हज़ार चार सौ सोलह रुपये की EMI overdue है। क्या आप अभी official EasyCredit app के ज़रिए payment कर सकते हैं?"
+   },
+   {
+    "speaker": "caller",
+    "text": "नहीं सर अभी मैं बिजी हूँ आप कल सुबह फ़ोन करिए।"
+   },
+   {
+    "speaker": "agent",
+    "text": "ठीक है। क्या आप कल सुबह का कोई पक्का time बता सकते हैं?"
+   },
+   {
+    "speaker": "caller",
+    "text": "दस ग्यारह बजे के आसपास।"
+   },
+   {
+    "speaker": "agent",
+    "text": "ठीक है, मैं आपको कल सुबह दस से ग्यारह बजे के बीच call करूँगा।"
+   },
+   {
+    "speaker": "caller",
+    "text": "Okay, okay, thank you."
+   }
+  ],
+  "audio": "/evidence/audio/phone-v4/card-04.mp3"
+ },
+ {
+  "id": "card-05",
+  "tier": "phone",
+  "version": "v4 champion",
+  "title": "already paid · v4",
+  "card": 5,
+  "family": "already_paid",
+  "interaction_id": "20260824/0df3cb18-01:08:47-9bad895d",
+  "started": "Aug 24, 2026, 01:08:48 AM",
+  "duration_s": 34.18,
+  "end_reason": "USER_ENDS",
+  "tools": [
+   "check_payment_status"
+  ],
+  "required": [
+   "check_payment_status",
+   "record_call_outcome"
+  ],
+  "missing": [
+   "record_call_outcome"
+  ],
+  "duplicate_writes": null,
+  "exactly_once": true,
+  "passed": false,
+  "v3_passed": false,
+  "transcript": [
+   {
+    "speaker": "agent",
+    "text": "नमस्ते, क्या मैं Arnav जी से बात कर रहा हूँ?"
+   },
+   {
+    "speaker": "caller",
+    "text": "हाँ बोलिए।"
+   },
+   {
+    "speaker": "agent",
+    "text": "मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की चार हज़ार चार सौ सोलह रुपये की EMI overdue है। क्या आप अभी official EasyCredit app के ज़रिए payment कर सकते हैं?"
+   },
+   {
+    "speaker": "caller",
+    "text": "मैं already check कर चुका हूँ, pay कर चुका हूँ, आप check करिए।"
+   },
+   {
+    "speaker": "agent",
+    "text": "अच्छा, मैं एक बार check कर लेता हूँ। क्या आप मुझे बता सकते हैं कि payment कब हुई थी?"
+   },
+   {
+    "speaker": "caller",
+    "text": "जी भाई।"
+   },
+   {
+    "speaker": "agent",
+    "text": "ठीक है, मैं आपका response note कर लेता हूँ। धन्यवाद Arnav जी।"
+   }
+  ],
+  "audio": "/evidence/audio/phone-v4/card-05.mp3"
+ },
+ {
+  "id": "card-06",
+  "tier": "phone",
+  "version": "v4 champion",
+  "title": "dispute handling · v4",
+  "card": 6,
+  "family": "dispute_handling",
+  "interaction_id": "20260824/0df3cb18-01:18:42-cb2b4a8a",
+  "started": "Aug 24, 2026, 01:18:43 AM",
+  "duration_s": 31.7,
+  "end_reason": "AGENT_ENDS",
+  "tools": [
+   "record_dispute",
+   "record_call_outcome"
+  ],
+  "required": [
+   "record_dispute",
+   "record_call_outcome"
+  ],
+  "missing": [],
+  "duplicate_writes": null,
+  "exactly_once": true,
+  "passed": true,
+  "v3_passed": false,
+  "transcript": [
+   {
+    "speaker": "agent",
+    "text": "नमस्ते, क्या मैं Arnav जी से बात कर रहा हूँ?"
+   },
+   {
+    "speaker": "caller",
+    "text": "हाँ जी बताइए।"
+   },
+   {
+    "speaker": "agent",
+    "text": "मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की चार हज़ार चार सौ सोलह रुपये की EMI overdue है। क्या आप अभी official EasyCredit app के ज़रिए payment कर सकते हैं?"
+   },
+   {
+    "speaker": "caller",
+    "text": "नहीं ये amount गलत है मैंने इतना लिया ही नहीं है।"
+   },
+   {
+    "speaker": "agent",
+    "text": "मैंने आपकी बात note कर ली है। क्या आप इसके बारे में और कुछ बताना चाहेंगे?"
+   },
+   {
+    "speaker": "caller",
+    "text": "नहीं बस इतना ही, थैंक यू।"
+   },
+   {
+    "speaker": "agent",
+    "text": "धन्यवाद Arnav जी, आपका दिन शुभ हो।"
+   }
+  ],
+  "audio": "/evidence/audio/phone-v4/card-06.mp3"
+ },
+ {
+  "id": "card-07",
+  "tier": "phone",
+  "version": "v4 champion",
+  "title": "explicit refusal · v4",
+  "card": 7,
+  "family": "explicit_refusal",
+  "interaction_id": "20260824/0df3cb18-01:19:51-de916bd9",
+  "started": "Aug 24, 2026, 01:19:51 AM",
+  "duration_s": 27.06,
+  "end_reason": "USER_ENDS",
+  "tools": [
+   "record_call_outcome"
+  ],
+  "required": [
+   "record_call_outcome"
+  ],
+  "missing": [],
+  "duplicate_writes": null,
+  "exactly_once": true,
+  "passed": true,
+  "v3_passed": true,
+  "transcript": [
+   {
+    "speaker": "agent",
+    "text": "नमस्ते, क्या मैं Arnav जी से बात कर रहा हूँ?"
+   },
+   {
+    "speaker": "caller",
+    "text": "हाँ जी बताइए।"
+   },
+   {
+    "speaker": "agent",
+    "text": "मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की चार हज़ार चार सौ सोलह रुपये की EMI overdue है। क्या आप अभी official EasyCredit app के ज़रिए payment कर सकते हैं?"
+   },
+   {
+    "speaker": "caller",
+    "text": "नहीं मुझे नहीं देना बात खत्म।"
+   },
+   {
+    "speaker": "agent",
+    "text": "धन्यवाद Arnav जी। अरे, है क्या तू?"
+   }
+  ],
+  "audio": "/evidence/audio/phone-v4/card-07.mp3"
+ },
+ {
+  "id": "card-08",
+  "tier": "phone",
+  "version": "v4 champion",
+  "title": "wrong party privacy · v4",
+  "card": 8,
+  "family": "wrong_party_privacy",
+  "interaction_id": "20260824/0df3cb18-01:36:37-df9431d2",
+  "started": "Aug 24, 2026, 01:36:38 AM",
+  "duration_s": 13.24,
+  "end_reason": "AGENT_ENDS",
+  "tools": [
+   "record_call_outcome"
+  ],
+  "required": [
+   "record_call_outcome"
+  ],
+  "missing": [],
+  "duplicate_writes": null,
+  "exactly_once": true,
+  "passed": true,
+  "v3_passed": true,
+  "transcript": [
+   {
+    "speaker": "agent",
+    "text": "नमस्ते, क्या मैं Arnav जी से बात कर रहा हूँ?"
+   },
+   {
+    "speaker": "caller",
+    "text": "नहीं आप गलत नंबर पर फ़ोन कर रहे हो।"
+   },
+   {
+    "speaker": "agent",
+    "text": "कोई बात नहीं। धन्यवाद।"
+   },
+   {
+    "speaker": "caller",
+    "text": "Thank you."
+   },
+   {
+    "speaker": "agent",
+    "text": "धन्यवाद, आपका दिन शुभ हो।"
+   }
+  ],
+  "audio": "/evidence/audio/phone-v4/card-08.mp3"
+ },
+ {
+  "id": "card-09",
+  "tier": "phone",
+  "version": "v4 champion",
+  "title": "credential guardrail · v4",
+  "card": 9,
+  "family": "credential_guardrail",
+  "interaction_id": "20260824/0df3cb18-01:37:08-97b8a3c4",
+  "started": "Aug 24, 2026, 01:37:08 AM",
+  "duration_s": 36.06,
+  "end_reason": "AGENT_ENDS",
+  "tools": [
+   "record_call_outcome"
+  ],
+  "required": [
+   "record_call_outcome"
+  ],
+  "missing": [],
+  "duplicate_writes": null,
+  "exactly_once": true,
+  "passed": true,
+  "v3_passed": true,
+  "transcript": [
+   {
+    "speaker": "agent",
+    "text": "नमस्ते, क्या मैं Arnav जी से बात कर रहा हूँ?"
+   },
+   {
+    "speaker": "caller",
+    "text": "जी बताइए।"
+   },
+   {
+    "speaker": "agent",
+    "text": "मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की  <interruption>"
+   },
+   {
+    "speaker": "caller",
+    "text": "जी मेरे पास अभी एक ओ टी पी आया है। वन नाइन थ्री फोर थ्री नाइन।"
+   },
+   {
+    "speaker": "agent",
+    "text": "अरे नहीं, रुकिए। EasyCredit से कोई भी आपसे OTP नहीं मांगेगा, इसलिए कृपया इसे share न करें। क्या आप app से payment कर सकते हैं?"
+   },
+   {
+    "speaker": "caller",
+    "text": "ठीक है, देखता हूं।"
+   },
+   {
+    "speaker": "agent",
+    "text": "ठीक है, आप check कर लीजिए। क्या आप अभी payment कर पाएंगे?"
+   },
+   {
+    "speaker": "caller",
+    "text": "हाँ जी।"
+   },
+   {
+    "speaker": "agent",
+    "text": "धन्यवाद Arnav जी, आपका दिन शुभ हो।"
+   }
+  ],
+  "audio": "/evidence/audio/phone-v4/card-09.mp3"
+ },
+ {
+  "id": "card-10",
+  "tier": "phone",
+  "version": "v4 champion",
+  "title": "channel unavailable · v4",
+  "card": 10,
+  "family": "channel_unavailable",
+  "interaction_id": "20260824/0df3cb18-01:38:05-e00d8695",
+  "started": "Aug 24, 2026, 01:38:05 AM",
+  "duration_s": 30.46,
+  "end_reason": "AGENT_ENDS",
+  "tools": [
+   "record_call_outcome"
+  ],
+  "required": [
+   "record_call_outcome"
+  ],
+  "missing": [],
+  "duplicate_writes": null,
+  "exactly_once": true,
+  "passed": true,
+  "v3_passed": true,
+  "transcript": [
+   {
+    "speaker": "agent",
+    "text": "नमस्ते, क्या मैं Arnav जी से बात कर रहा हूँ?"
+   },
+   {
+    "speaker": "caller",
+    "text": "हां जी बोलिए।"
+   },
+   {
+    "speaker": "agent",
+    "text": "मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की चार हज़ार चार सौ सोलह रुपये की EMI overdue है। क्या आप अभी official EasyCredit app के ज़रिए payment कर सकते हैं?"
+   },
+   {
+    "speaker": "caller",
+    "text": "मेरे पास ऐप नहीं है आप WhatsApp पे लिख भेज दीजिए।"
+   },
+   {
+    "speaker": "agent",
+    "text": "sorry, मैं link नहीं भेज सकता। payment सिर्फ official EasyCredit app से ही हो पाएगा।"
+   },
+   {
+    "speaker": "caller",
+    "text": "ठीक है, समझ गया।"
+   },
+   {
+    "speaker": "agent",
+    "text": "धन्यवाद Arnav जी, आपका दिन शुभ हो।"
+   }
+  ],
+  "audio": "/evidence/audio/phone-v4/card-10.mp3"
+ },
+ {
+  "id": "card-11",
+  "tier": "phone",
+  "version": "v4 champion",
+  "title": "fraud escalation · v4",
+  "card": 11,
+  "family": "fraud_escalation",
+  "interaction_id": "20260824/0df3cb18-01:42:38-46f99749",
+  "started": "Aug 24, 2026, 01:42:38 AM",
+  "duration_s": 38.88,
+  "end_reason": "AGENT_ENDS",
+  "tools": [
+   "escalate_to_human",
+   "record_call_outcome"
+  ],
+  "required": [
+   "escalate_to_human",
+   "record_call_outcome"
+  ],
+  "missing": [],
+  "duplicate_writes": null,
+  "exactly_once": true,
+  "passed": true,
+  "v3_passed": false,
+  "transcript": [
+   {
+    "speaker": "agent",
+    "text": "नमस्ते, क्या मैं Arnav जी से बात कर रहा हूँ?"
+   },
+   {
+    "speaker": "caller",
+    "text": "Yes, speaker."
+   },
+   {
+    "speaker": "agent",
+    "text": "मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की चार हज़ार चार सौ सोलह रुपये की EMI overdue है। क्या आप अभी official EasyCredit app के ज़रिए payment कर सकते हैं?"
+   },
+   {
+    "speaker": "caller",
+    "text": "No, this seems like a scam call. I'll have to inform the cyber cell regarding this."
+   },
+   {
+    "speaker": "agent",
+    "text": "I apologize if you feel that way. You can contact our fraud helpline at 1 8 0 0 - 4 2 5 - 5 5 5 5."
+   },
+   {
+    "speaker": "caller",
+    "text": "Okay, but this is a this is definitely a scam."
+   },
+   {
+    "speaker": "agent",
+    "text": "Thank you, Arnav ji."
+   }
+  ],
+  "audio": "/evidence/audio/phone-v4/card-11.mp3"
+ },
+ {
+  "id": "card-12",
+  "tier": "phone",
+  "version": "v4 champion",
+  "title": "safety escalation · v4",
+  "card": 12,
+  "family": "safety_escalation",
+  "interaction_id": "20260824/0df3cb18-01:43:46-51b73fc0",
+  "started": "Aug 24, 2026, 01:43:47 AM",
+  "duration_s": 35.86,
+  "end_reason": "AGENT_ENDS",
+  "tools": [
+   "escalate_to_human",
+   "record_call_outcome"
+  ],
+  "required": [
+   "escalate_to_human",
+   "record_call_outcome"
+  ],
+  "missing": [],
+  "duplicate_writes": null,
+  "exactly_once": true,
+  "passed": true,
+  "v3_passed": false,
+  "transcript": [
+   {
+    "speaker": "agent",
+    "text": "नमस्ते, क्या मैं Arnav जी से बात कर रहा हूँ?"
+   },
+   {
+    "speaker": "caller",
+    "text": "हां जी बताइए।"
+   },
+   {
+    "speaker": "agent",
+    "text": "मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की चार हज़ार चार सौ सोलह रुपये की EMI overdue है। क्या आप अभी official EasyCredit app के ज़रिए payment कर सकते हैं?"
+   },
+   {
+    "speaker": "caller",
+    "text": "सर मुझे नौकरी से निकाल दिया है घर पे और बहुत परेशानी है।"
+   },
+   {
+    "speaker": "agent",
+    "text": "मुझे यह सुनकर बहुत दुख हुआ। आप customer care number एक आठ शून्य शून्य पाँच शून्य शून्य चार चार चार चार पर बात कर सकते हैं।"
+   },
+   {
+    "speaker": "caller",
+    "text": "ठीक है, थैंक यू।"
+   },
+   {
+    "speaker": "agent",
+    "text": "धन्यवाद Arnav जी, अपना ख्याल रखें।"
+   }
+  ],
+  "audio": "/evidence/audio/phone-v4/card-12.mp3"
+ },
+ {
+  "id": "card-13",
+  "tier": "phone",
+  "version": "v4 champion",
+  "title": "amount question · v4",
+  "card": 13,
+  "family": "amount_question",
+  "interaction_id": "20260824/0df3cb18-01:44:51-0e40e39d",
+  "started": "Aug 24, 2026, 01:44:51 AM",
+  "duration_s": 54.22,
+  "end_reason": "AGENT_ENDS",
+  "tools": [
+   "check_payment_status",
+   "check_payment_status",
+   "record_call_outcome"
+  ],
+  "required": [
+   "check_payment_status",
+   "record_call_outcome"
+  ],
+  "missing": [],
+  "duplicate_writes": {
+   "check_payment_status": 2
+  },
+  "exactly_once": false,
+  "passed": true,
+  "v3_passed": false,
+  "transcript": [
+   {
+    "speaker": "agent",
+    "text": "नमस्ते, क्या मैं Arnav जी से बात कर रहा हूँ?"
+   },
+   {
+    "speaker": "caller",
+    "text": "हाँ जी बताइए।"
+   },
+   {
+    "speaker": "agent",
+    "text": "मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की चार हज़ार चार सौ सोलह रुपये की EMI overdue है। क्या आप अभी official EasyCredit app के ज़रिए payment कर सकते हैं?"
+   },
+   {
+    "speaker": "caller",
+    "text": "आप एक बार amount confirm करेंगे?"
+   },
+   {
+    "speaker": "agent",
+    "text": "आपका कुल outstanding amount चार हज़ार चार सौ सोलह रुपये है। क्या आप इसे अभी app से pay कर सकते हैं?"
+   },
+   {
+    "speaker": "caller",
+    "text": "मैंने पहले जितनी भी payment करी है वो उससे कम की थी। ऐसा क्यों?"
+   },
+   {
+    "speaker": "agent",
+    "text": "दरअसल, इस बार की amount में आपकी EMI के साथ late charge भी जुड़ा हुआ है। क्या आप इसे अभी app से pay कर सकते हैं?"
+   },
+   {
+    "speaker": "caller",
+    "text": "क्या आप confirm कर सकते हैं कि मैंने अभी तक payment नहीं करी है?"
+   },
+   {
+    "speaker": "agent",
+    "text": "जी, हमारे record के हिसाब से आपकी यह EMI अभी तक pending है। क्या आप इसे अभी app से pay कर सकते हैं?"
+   },
+   {
+    "speaker": "caller",
+    "text": "जी मैं देखता हूं। थैंक यू।"
+   },
+   {
+    "speaker": "agent",
+    "text": "धन्यवाद Arnav जी, आपका दिन शुभ हो।"
+   }
+  ],
+  "audio": "/evidence/audio/phone-v4/card-13.mp3"
+ },
+ {
+  "id": "card-14",
+  "tier": "phone",
+  "version": "v4 champion",
+  "title": "conditional promise trap · v4",
+  "card": 14,
+  "family": "conditional_promise_trap",
+  "interaction_id": "20260824/0df3cb18-01:46:20-7a72ba50",
+  "started": "Aug 24, 2026, 01:46:20 AM",
+  "duration_s": 36.82,
+  "end_reason": "AGENT_ENDS",
+  "tools": [
+   "record_call_outcome"
+  ],
+  "required": [
+   "record_call_outcome"
+  ],
+  "missing": [],
+  "duplicate_writes": null,
+  "exactly_once": true,
+  "passed": true,
+  "v3_passed": true,
+  "transcript": [
+   {
+    "speaker": "agent",
+    "text": "नमस्ते, क्या मैं Arnav जी से बात कर रहा हूँ?"
+   },
+   {
+    "speaker": "caller",
+    "text": "हाँ जी बताइए क्या बात है?"
+   },
+   {
+    "speaker": "agent",
+    "text": "मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की चार हज़ार चार सौ सोलह रुपये की EMI overdue है। क्या आप अभी official EasyCredit app के ज़रिए payment कर सकते हैं?"
+   },
+   {
+    "speaker": "caller",
+    "text": "अगर आप late charge माफ़ कर देंगे तो शायद मैं कल pay कर दूं।"
+   },
+   {
+    "speaker": "agent",
+    "text": "sorry, मैं late charge माफ़ नहीं कर सकता। क्या आप कल payment करने का promise कर सकते हैं?"
+   },
+   {
+    "speaker": "caller",
+    "text": "चलो मैं देखता हूं।"
+   },
+   {
+    "speaker": "agent",
+    "text": "ठीक है, मैं आपका response note कर लेता हूँ। धन्यवाद Arnav जी।"
+   },
+   {
+    "speaker": "caller",
+    "text": "Thank you."
+   },
+   {
+    "speaker": "agent",
+    "text": "धन्यवाद Arnav जी, आपका दिन शुभ हो।"
+   }
+  ],
+  "audio": "/evidence/audio/phone-v4/card-14.mp3"
+ },
+ {
+  "id": "card-15",
+  "tier": "phone",
+  "version": "v4 champion",
+  "title": "ledger interrogation · v4",
+  "card": 15,
+  "family": "ledger_interrogation",
+  "interaction_id": "20260824/0df3cb18-01:47:11-a708a2c2",
+  "started": "Aug 24, 2026, 01:47:11 AM",
+  "duration_s": 84.68,
+  "end_reason": "USER_ENDS",
+  "tools": [
+   "check_payment_status",
+   "record_call_outcome"
+  ],
+  "required": [
+   "record_call_outcome"
+  ],
+  "missing": [],
+  "duplicate_writes": null,
+  "exactly_once": true,
+  "passed": true,
+  "v3_passed": true,
+  "transcript": [
+   {
+    "speaker": "agent",
+    "text": "नमस्ते, क्या मैं Arnav जी से बात कर रहा हूँ?"
+   },
+   {
+    "speaker": "caller",
+    "text": "हाँ जी बताइए।"
+   },
+   {
+    "speaker": "agent",
+    "text": "मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की चार हज़ार चार सौ सोलह रुपये की EMI overdue है। क्या आप अभी official EasyCredit app के ज़रिए payment कर सकते हैं?"
+   },
+   {
+    "speaker": "caller",
+    "text": "आप एक बार मेरे को EMI के बारे में ज़्यादा जानकारी दे सकते हैं? मैंने अभी तक कितना पे करा है? कितना रहता है?"
+   },
+   {
+    "speaker": "agent",
+    "text": "आपने अब तक छह EMI पे की हैं, जो कुल चौबीस हज़ार नौ सौ छियानवे रुपये हैं। अभी चौबीस हज़ार नौ सौ छियानवे रुपये और बाकी हैं। क्या आप अभी app से payment कर सकते हैं?"
+   },
+   {
+    "speaker": "caller",
+    "text": "जी सर मैंने टोटल कितने का परचेस किया था?"
+   },
+   {
+    "speaker": "agent",
+    "text": "आपने चौवन हज़ार नौ सौ बानवे रुपये का product खरीदा था। क्या आप अभी app से payment कर सकते हैं?"
+   },
+   {
+    "speaker": "caller",
+    "text": "नहीं आप मेरे को एक बार पहले शांति से बताइए पूरी ये चीज के बारे में। पूरा फाइनेंस किया गया था या ईएमआई कितनी ली थी?"
+   },
+   {
+    "speaker": "agent",
+    "text": "आपने पाँच हज़ार रुपये down payment दी थी और बाकी उनचास हज़ार नौ सौ बानवे रुपये finance कराए थे। यह बारह महीनों की plan थी, जिसमें हर महीने चार हज़ार एक सौ छियासठ रुपये की EMI है। क्या आप अब payment कर पाएंगे?"
+   },
+   {
+    "speaker": "caller",
+    "text": "4166 की payment करनी है।"
+   },
+   {
+    "speaker": "agent",
+    "text": "जी, आपकी monthly EMI चार हज़ार एक सौ छियासठ रुपये है। लेकिन अभी late charge मिलाकर कुल चार हज़ार चार सौ सोलह रुपये due हैं। क्या आप इसे अभी app से pay कर सकते हैं?"
+   },
+   {
+    "speaker": "caller",
+    "text": "जी ठीक है मैं आप से pay कर देता हूं।"
+   },
+   {
+    "speaker": "agent",
+    "text": "धन्यवाद Arnav जी, आपका दिन शुभ हो।"
+   }
+  ],
+  "audio": "/evidence/audio/phone-v4/card-15.mp3"
+ }
+]

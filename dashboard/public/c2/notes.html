@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Execution Truth — Limits &amp; References</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<div class="shell">
+
+<p class="eyebrow">Section 7 · Limits, roadmap, references</p>
+<h1>What this does not claim — and what comes next</h1>
+<p class="lede">Strong numbers stay credible only if their boundaries are stated by the person
+presenting them, before anyone else finds them. These are the boundaries.</p>
+
+<h2>Limits</h2>
+<div class="card">
+<ul style="margin:0">
+  <li><b>The voice tiers are small.</b> n = 15 and n = 5 carry no statistics. They are existence proofs
+  that the text-tier gains transfer to the voice channel — the statistics live in the 180-scenario
+  text tier.</li>
+  <li><b>One phone card's fix is confounded.</b> Baseline card 6 was conducted in English (the caller
+  switched; the agent correctly mirrored); the champion re-run was Hinglish. Its fix is real on the
+  ledger but not isolated from the language change.</li>
+  <li><b>Duplicate writes moved rather than resolved.</b> Exactly-once hygiene is 14/15 on both phone
+  versions: the baseline's triple write on card 11 is gone, a new double write appeared on card 13.
+  On the bot tier it improved 2/5 → 4/5 with one residual.</li>
+  <li><b>Compounding is not established.</b> Gen 1 → Gen 2 is +5 overall at p = 0.18 — positive and
+  regression-free, not significant. Two rungs demonstrate the loop runs repeatedly; they do not prove
+  indefinite improvement.</li>
+  <li><b>Surface form costs something.</b> With every caller line reworded, the champion drops 29 → 26
+  while the baseline drops 18 → 17: about 82% of the advantage survives rewording, and about 18% of it
+  is phrasing-sensitive.</li>
+  <li><b>Persuasion was never an objective.</b> The agent accepts a first refusal because its prompt —
+  including a mined exemplar — teaches exactly that. The loop optimised execution truth, not collection
+  rate. That is a scope choice, stated here so no listener discovers it as a surprise.</li>
+  <li><b>One account, scripted callers, uniform family mix.</b> Right for covering rare and dangerous
+  cases with n = 12 each; not a forecast of production traffic distribution.</li>
+</ul>
+</div>
+
+<h2>Platform findings surfaced along the way</h2>
+<div class="tw"><table>
+<tr><th>Finding</th><th>Detail</th></tr>
+<tr><td><strong>Inactivity nudge register</strong></td><td>The runtime's stock Hindi nudge — spoken after
+5 s of caller silence — is "अरे, है क्या तू?": the intimate/disrespectful second person, injected into
+a call that says आप and जी throughout. Caught because the harness reads every transcript. The nudge
+text is platform configuration regenerated from an English source string, outside the agent prompt.</td></tr>
+<tr><td><strong>Channel variable asymmetry</strong></td><td>Phone and duplex-voice channels accept
+per-call agent variables; the text-chat REST channel silently ignores them and uses stored defaults —
+which decides which ledger key a run writes under. Every tier's isolation strategy follows from this.</td></tr>
+<tr><td><strong>Draft-serving runtime</strong></td><td>The runtime serves the mutable draft directly
+(<code>is_deployed: false</code> throughout); the version label is a revision counter, not a release
+pointer. Version pinning therefore lives in this project's sha checks, not in the platform.</td></tr>
+<tr><td><strong>Split-model prompting</strong></td><td>Conversation runs on Sarvam Pro; tool calling runs
+on Llama 3.1 70B. Every tool-discipline gain here was achieved by prompt text steering the smaller
+model — worth knowing when writing tool rules for this stack.</td></tr>
+</table></div>
+
+<h2>The deployed prompt, versioned</h2>
+<div class="tw"><table>
+<tr><th>Artifact</th><th>Identity</th></tr>
+<tr><td>Baseline (v3)</td><td>Production prompt at campaign start — the agent all baselines measure</td></tr>
+<tr><td>Search output (champion)</td><td>15,347 chars · sha <code>667ce12e2626c75e</code> · generation-2 winner, zero human-authored text</td></tr>
+<tr><td>Declared operational patch</td><td>+263 chars: the closing rule names the platform's
+<code>end_interaction</code> function. Applied after the campaign; call termination was never a scored
+objective; every results surface that touches it says so.</td></tr>
+<tr><td>Deployed (v4)</td><td>15,610 chars · sha <code>9bbbf4bea033063b</code> · verified against the live
+agent before every measured run</td></tr>
+</table></div>
+
+<h2>Next</h2>
+<div class="flow">
+  <div class="s"><b>Objection handling</b><span>The named next objective: a persuasion policy with
+  turns-to-capitulation and objection-recovery rate as scored metrics, under the same guardrail veto.</span></div>
+  <div class="s"><b>Card 5</b><span>The residual P0: closing-turn writes. First target of the next
+  search round; the failure packet already exists.</span></div>
+  <div class="s"><b>Judge layer into the reward path</b><span>The judged metrics run today; wiring them
+  into the search objective (beyond execution truth) is designed and calibrated, not yet live.</span></div>
+  <div class="s"><b>Production telemetry</b><span>The say-vs-do monitor is label-free by design — it can
+  run on live traffic as a standing regression alarm, not only on benchmarks.</span></div>
+</div>
+
+<h2>References</h2>
+<div class="card">
+<ul style="margin:0">
+  <li><b>EVA — Evaluating Voice Agents</b> (ServiceNow Research). The bot-to-bot harness is built on
+  EVA's open-source framework, and the Accuracy / Experience composite structure adapts EVA's metric
+  taxonomy (EVA-A / EVA-X) with the deterministic core replaced by journal-state grading.
+  <span class="dim">github.com/ServiceNow/eva · arXiv:2605.13841</span></li>
+  <li><b>GEPA — reflective prompt evolution.</b> The search stage uses GEPA's optimize-anything API:
+  Pareto candidate selection, reflective mutation from full evaluation traces, and merge.</li>
+  <li><b>MIPROv2</b> (DSPy). Source of the two-component candidate design — instructions and
+  demonstrations optimised as separate, jointly-selected components.</li>
+  <li><b>τ-bench.</b> The deterministic task-completion pattern — comparing hashed end-state of the
+  world rather than reading the conversation — follows τ-bench's design.</li>
+  <li><b>Sarvam Indus / Samvaad.</b> The deployed agent platform: runtime, telephony, duplex websocket
+  channel, and analytics used for transcript and recording retrieval.</li>
+</ul>
+</div>
+
+</div>
+<script src="nav.js"></script>
+</body>
+</html>

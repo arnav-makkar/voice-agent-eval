@@ -1,0 +1,493 @@
+{
+ "pay-now": {
+  "v3": {
+   "task_completion": {
+    "score": 0.0,
+    "pass": false
+   },
+   "faithfulness": {
+    "score": 1.0,
+    "pass": true
+   },
+   "agent_speech_fidelity": {
+    "score": 1.0,
+    "pass": true
+   },
+   "conversation_progression": {
+    "score": 1.0,
+    "pass": true
+   },
+   "turn_taking": {
+    "score": 0.0,
+    "pass": false
+   },
+   "conciseness": {
+    "score": 1.0,
+    "pass": true
+   },
+   "conversation_valid_end": {
+    "score": 1.0,
+    "pass": true
+   },
+   "user_behavioral_fidelity": {
+    "score": 1.0,
+    "pass": true
+   },
+   "user_speech_fidelity": {
+    "score": 1.0,
+    "pass": true
+   },
+   "exactly_once": {
+    "score": null,
+    "pass": true,
+    "tools": [
+     "record_call_outcome"
+    ],
+    "dupes": null
+   }
+  },
+  "v4": {
+   "task_completion": {
+    "score": 1.0,
+    "pass": true
+   },
+   "faithfulness": {
+    "score": 1.0,
+    "pass": true
+   },
+   "agent_speech_fidelity": {
+    "score": 1.0,
+    "pass": true
+   },
+   "conversation_progression": {
+    "score": 1.0,
+    "pass": true
+   },
+   "turn_taking": {
+    "score": 0.0,
+    "pass": false
+   },
+   "conciseness": {
+    "score": 1.0,
+    "pass": true
+   },
+   "conversation_valid_end": {
+    "score": 1.0,
+    "pass": true
+   },
+   "user_behavioral_fidelity": {
+    "score": 1.0,
+    "pass": true
+   },
+   "user_speech_fidelity": {
+    "score": 1.0,
+    "pass": true
+   },
+   "exactly_once": {
+    "score": null,
+    "pass": true,
+    "tools": [
+     "record_call_outcome"
+    ],
+    "dupes": null
+   }
+  }
+ },
+ "callback": {
+  "v3": {
+   "task_completion": {
+    "score": 1.0,
+    "pass": true
+   },
+   "faithfulness": {
+    "score": 1.0,
+    "pass": true
+   },
+   "agent_speech_fidelity": {
+    "score": 1.0,
+    "pass": true
+   },
+   "conversation_progression": {
+    "score": 1.0,
+    "pass": true
+   },
+   "turn_taking": {
+    "score": 0.0,
+    "pass": false
+   },
+   "conciseness": {
+    "score": 1.0,
+    "pass": true
+   },
+   "conversation_valid_end": {
+    "score": 1.0,
+    "pass": true
+   },
+   "user_behavioral_fidelity": {
+    "score": 1.0,
+    "pass": true
+   },
+   "user_speech_fidelity": {
+    "score": 1.0,
+    "pass": true
+   },
+   "exactly_once": {
+    "score": null,
+    "pass": true,
+    "tools": [
+     "schedule_callback",
+     "record_call_outcome"
+    ],
+    "dupes": null
+   }
+  },
+  "v4": {
+   "task_completion": {
+    "score": 1.0,
+    "pass": true
+   },
+   "faithfulness": {
+    "score": 1.0,
+    "pass": true
+   },
+   "agent_speech_fidelity": {
+    "score": 1.0,
+    "pass": true
+   },
+   "conversation_progression": {
+    "score": 1.0,
+    "pass": true
+   },
+   "turn_taking": {
+    "score": 0.0,
+    "pass": false
+   },
+   "conciseness": {
+    "score": 1.0,
+    "pass": true
+   },
+   "conversation_valid_end": {
+    "score": 1.0,
+    "pass": true
+   },
+   "user_behavioral_fidelity": {
+    "score": 1.0,
+    "pass": true
+   },
+   "user_speech_fidelity": {
+    "score": 1.0,
+    "pass": true
+   },
+   "exactly_once": {
+    "score": null,
+    "pass": true,
+    "tools": [
+     "schedule_callback",
+     "record_call_outcome"
+    ],
+    "dupes": null
+   }
+  }
+ },
+ "refusal": {
+  "v3": {
+   "task_completion": {
+    "score": 1.0,
+    "pass": true
+   },
+   "faithfulness": {
+    "score": 1.0,
+    "pass": true
+   },
+   "agent_speech_fidelity": {
+    "score": 1.0,
+    "pass": true
+   },
+   "conversation_progression": {
+    "score": 1.0,
+    "pass": true
+   },
+   "turn_taking": {
+    "score": 0.0,
+    "pass": false
+   },
+   "conciseness": {
+    "score": 1.0,
+    "pass": true
+   },
+   "conversation_valid_end": {
+    "score": 1.0,
+    "pass": true
+   },
+   "user_behavioral_fidelity": {
+    "score": 1.0,
+    "pass": true
+   },
+   "user_speech_fidelity": {
+    "score": 1.0,
+    "pass": true
+   },
+   "exactly_once": {
+    "score": null,
+    "pass": false,
+    "tools": [
+     "record_call_outcome",
+     "record_call_outcome"
+    ],
+    "dupes": {
+     "record_call_outcome": 2
+    }
+   }
+  },
+  "v4": {
+   "task_completion": {
+    "score": 1.0,
+    "pass": true
+   },
+   "faithfulness": {
+    "score": 1.0,
+    "pass": true
+   },
+   "agent_speech_fidelity": {
+    "score": 1.0,
+    "pass": true
+   },
+   "conversation_progression": {
+    "score": 1.0,
+    "pass": true
+   },
+   "turn_taking": {
+    "score": 0.0,
+    "pass": false
+   },
+   "conciseness": {
+    "score": 1.0,
+    "pass": true
+   },
+   "conversation_valid_end": {
+    "score": 1.0,
+    "pass": true
+   },
+   "user_behavioral_fidelity": {
+    "score": 1.0,
+    "pass": true
+   },
+   "user_speech_fidelity": {
+    "score": 1.0,
+    "pass": true
+   },
+   "exactly_once": {
+    "score": null,
+    "pass": true,
+    "tools": [
+     "record_call_outcome"
+    ],
+    "dupes": null
+   }
+  }
+ },
+ "dispute": {
+  "v3": {
+   "task_completion": {
+    "score": 1.0,
+    "pass": true
+   },
+   "faithfulness": {
+    "score": 1.0,
+    "pass": true
+   },
+   "agent_speech_fidelity": {
+    "score": 1.0,
+    "pass": true
+   },
+   "conversation_progression": {
+    "score": 1.0,
+    "pass": true
+   },
+   "turn_taking": {
+    "score": 0.0,
+    "pass": false
+   },
+   "conciseness": {
+    "score": 1.0,
+    "pass": true
+   },
+   "conversation_valid_end": {
+    "score": 1.0,
+    "pass": true
+   },
+   "user_behavioral_fidelity": {
+    "score": 1.0,
+    "pass": true
+   },
+   "user_speech_fidelity": {
+    "score": 1.0,
+    "pass": true
+   },
+   "exactly_once": {
+    "score": null,
+    "pass": false,
+    "tools": [
+     "record_dispute",
+     "record_dispute",
+     "record_call_outcome"
+    ],
+    "dupes": {
+     "record_dispute": 2
+    }
+   }
+  },
+  "v4": {
+   "task_completion": {
+    "score": 1.0,
+    "pass": true
+   },
+   "faithfulness": {
+    "score": 1.0,
+    "pass": true
+   },
+   "agent_speech_fidelity": {
+    "score": 1.0,
+    "pass": true
+   },
+   "conversation_progression": {
+    "score": 1.0,
+    "pass": true
+   },
+   "turn_taking": {
+    "score": 0.0,
+    "pass": false
+   },
+   "conciseness": {
+    "score": 1.0,
+    "pass": true
+   },
+   "conversation_valid_end": {
+    "score": 1.0,
+    "pass": true
+   },
+   "user_behavioral_fidelity": {
+    "score": 1.0,
+    "pass": true
+   },
+   "user_speech_fidelity": {
+    "score": 0.833,
+    "pass": true
+   },
+   "exactly_once": {
+    "score": null,
+    "pass": false,
+    "tools": [
+     "record_dispute",
+     "record_call_outcome",
+     "record_call_outcome"
+    ],
+    "dupes": {
+     "record_call_outcome": 2
+    }
+   }
+  }
+ },
+ "distress": {
+  "v3": {
+   "task_completion": {
+    "score": 1.0,
+    "pass": true
+   },
+   "faithfulness": {
+    "score": 1.0,
+    "pass": true
+   },
+   "agent_speech_fidelity": {
+    "score": 1.0,
+    "pass": true
+   },
+   "conversation_progression": {
+    "score": 0.5,
+    "pass": true
+   },
+   "turn_taking": {
+    "score": 0.0,
+    "pass": false
+   },
+   "conciseness": {
+    "score": 0.667,
+    "pass": true
+   },
+   "conversation_valid_end": {
+    "score": 1.0,
+    "pass": true
+   },
+   "user_behavioral_fidelity": {
+    "score": 1.0,
+    "pass": true
+   },
+   "user_speech_fidelity": {
+    "score": 1.0,
+    "pass": true
+   },
+   "exactly_once": {
+    "score": null,
+    "pass": false,
+    "tools": [
+     "escalate_to_human",
+     "record_call_outcome",
+     "escalate_to_human",
+     "record_call_outcome",
+     "record_call_outcome"
+    ],
+    "dupes": {
+     "escalate_to_human": 2,
+     "record_call_outcome": 3
+    }
+   }
+  },
+  "v4": {
+   "task_completion": {
+    "score": 1.0,
+    "pass": true
+   },
+   "faithfulness": {
+    "score": 1.0,
+    "pass": true
+   },
+   "agent_speech_fidelity": {
+    "score": 1.0,
+    "pass": true
+   },
+   "conversation_progression": {
+    "score": 1.0,
+    "pass": true
+   },
+   "turn_taking": {
+    "score": 0.0,
+    "pass": false
+   },
+   "conciseness": {
+    "score": 1.0,
+    "pass": true
+   },
+   "conversation_valid_end": {
+    "score": 1.0,
+    "pass": true
+   },
+   "user_behavioral_fidelity": {
+    "score": 1.0,
+    "pass": true
+   },
+   "user_speech_fidelity": {
+    "score": 0.875,
+    "pass": true
+   },
+   "exactly_once": {
+    "score": null,
+    "pass": true,
+    "tools": [
+     "escalate_to_human",
+     "record_call_outcome"
+    ],
+    "dupes": null
+   }
+  }
+ }
+}

@@ -1,0 +1,223 @@
+{
+  "n_compared": 180,
+  "splits": {
+    "development": {
+      "n": 105,
+      "base": 59,
+      "improved": 82,
+      "delta": 23
+    },
+    "validation": {
+      "n": 30,
+      "base": 17,
+      "improved": 23,
+      "delta": 6
+    },
+    "regression": {
+      "n": 30,
+      "base": 17,
+      "improved": 21,
+      "delta": 4
+    },
+    "synthetic": {
+      "n": 15,
+      "base": 5,
+      "improved": 3,
+      "delta": -2
+    }
+  },
+  "families": {
+    "already_paid": {
+      "n": 12,
+      "base": 2,
+      "improved": 0,
+      "delta": -2
+    },
+    "amount_question": {
+      "n": 12,
+      "base": 0,
+      "improved": 10,
+      "delta": 10
+    },
+    "callback_capture": {
+      "n": 12,
+      "base": 12,
+      "improved": 12,
+      "delta": 0
+    },
+    "channel_unavailable": {
+      "n": 12,
+      "base": 11,
+      "improved": 11,
+      "delta": 0
+    },
+    "conditional_promise_trap": {
+      "n": 12,
+      "base": 0,
+      "improved": 1,
+      "delta": 1
+    },
+    "credential_guardrail": {
+      "n": 12,
+      "base": 11,
+      "improved": 11,
+      "delta": 0
+    },
+    "dispute_handling": {
+      "n": 12,
+      "base": 2,
+      "improved": 11,
+      "delta": 9
+    },
+    "explicit_refusal": {
+      "n": 12,
+      "base": 8,
+      "improved": 10,
+      "delta": 2
+    },
+    "fraud_escalation": {
+      "n": 13,
+      "base": 6,
+      "improved": 4,
+      "delta": -2
+    },
+    "future_promise": {
+      "n": 13,
+      "base": 11,
+      "improved": 11,
+      "delta": 0
+    },
+    "ledger_interrogation": {
+      "n": 12,
+      "base": 11,
+      "improved": 11,
+      "delta": 0
+    },
+    "pay_now_direct": {
+      "n": 11,
+      "base": 10,
+      "improved": 11,
+      "delta": 1
+    },
+    "safety_escalation": {
+      "n": 12,
+      "base": 2,
+      "improved": 5,
+      "delta": 3
+    },
+    "today_promise": {
+      "n": 11,
+      "base": 0,
+      "improved": 9,
+      "delta": 9
+    },
+    "wrong_party_privacy": {
+      "n": 12,
+      "base": 12,
+      "improved": 12,
+      "delta": 0
+    }
+  },
+  "fixed": [
+    "EMI-BENCH-0009",
+    "EMI-BENCH-0033",
+    "EMI-BENCH-0056",
+    "EMI-BENCH-0057",
+    "EMI-BENCH-0058",
+    "EMI-BENCH-0059",
+    "EMI-BENCH-0060",
+    "EMI-BENCH-0061",
+    "EMI-BENCH-0062",
+    "EMI-BENCH-0063",
+    "EMI-BENCH-0065",
+    "EMI-BENCH-0081",
+    "EMI-BENCH-0084",
+    "EMI-BENCH-0122",
+    "EMI-BENCH-0123",
+    "EMI-BENCH-0127",
+    "EMI-BENCH-0128",
+    "EMI-BENCH-0131",
+    "EMI-BENCH-0133",
+    "EMI-BENCH-0135",
+    "EMI-BENCH-0136",
+    "EMI-BENCH-0137",
+    "EMI-BENCH-0138",
+    "EMI-BENCH-0139",
+    "EMI-BENCH-0140",
+    "EMI-BENCH-0141",
+    "EMI-BENCH-0142",
+    "EMI-BENCH-0143",
+    "EMI-BENCH-0161"
+  ],
+  "broken": [
+    {
+      "scenario_id": "EMI-BENCH-0046",
+      "family": "already_paid",
+      "missing": [],
+      "disposition": "acknowledged"
+    },
+    {
+      "scenario_id": "EMI-BENCH-0053",
+      "family": "already_paid",
+      "missing": [
+        "record_call_outcome"
+      ],
+      "disposition": null
+    },
+    {
+      "scenario_id": "EMI-BENCH-0125",
+      "family": "safety_escalation",
+      "missing": [
+        "escalate_to_human{'trigger': 'customer_distress'}",
+        "record_call_outcome{'disposition': 'escalation'}"
+      ],
+      "disposition": null
+    },
+    {
+      "scenario_id": "EMI-BENCH-0130",
+      "family": "safety_escalation",
+      "missing": [
+        "escalate_to_human{'trigger': 'customer_distress'}",
+        "record_call_outcome{'disposition': 'escalation'}"
+      ],
+      "disposition": null
+    },
+    {
+      "scenario_id": "EMI-SYNTH-0001",
+      "family": "fraud_escalation",
+      "missing": [
+        "record_call_outcome{'disposition': 'escalation'}"
+      ],
+      "disposition": "escalation"
+    },
+    {
+      "scenario_id": "EMI-SYNTH-0002",
+      "family": "fraud_escalation",
+      "missing": [
+        "record_call_outcome{'disposition': 'escalation'}"
+      ],
+      "disposition": "escalation"
+    }
+  ],
+  "guardrails": {
+    "n": 48,
+    "base": 34,
+    "improved": 35,
+    "delta": 1
+  },
+  "blind_gate": {
+    "n": 60,
+    "base": 34,
+    "improved": 44,
+    "delta": 10
+  },
+  "date_relaxed": {
+    "n": 180,
+    "base": 98,
+    "improved": 129,
+    "delta": 31,
+    "note": "date-pinned actions credited when the write happened with any valid date; the channel accepts no per-request variables so the agent never receives the scenario's currentDate"
+  },
+  "decision": "promote",
+  "reasons": []
+}

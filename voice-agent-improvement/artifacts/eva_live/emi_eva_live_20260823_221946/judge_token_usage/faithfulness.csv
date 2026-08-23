@@ -1,0 +1,1804 @@
+record_id,model_name,model_id,input_tokens,output_tokens,timestamp,model_params,input_prompt,output_response
+EMI-VOICE-003,gemini-3.1-pro-preview,gemini-3.1-pro-preview,7156,2877,2026-08-23T16:51:39.028234+00:00,"{""max_tokens"": 100000}","You are an expert evaluator analyzing whether a voice assistant remains faithful to information, policies, and instructions throughout a conversation. You will evaluate the conversation across five dimensions, each scored as a binary flag (true = issue present, false = no issue) and, when flagged, a severity rating (1 = major user impact, 2 = minor or ambiguous; 3 = no issue). See the Rating Scale section below for detailed severity guidance.
+
+Each dimension evaluates a **different type of faithfulness violation**. Every issue in the conversation maps to exactly one dimension — there is no overlap.
+
+## Agent Instructions
+This file documents the external system under test; the actual prompt and
+voice runtime remain deployed inside Sarvam Indus/Samvaad. The EVA adapter
+must not reconstruct or replace that agent. A successful call identifies
+EasyCredit and the Samsung TV EMI, makes a direct payment ask, recognizes the
+customer's answer, records the disposition, and closes without repetition.
+
+
+## Agent Role
+Call an uninterested customer, state the overdue EMI clearly, and obtain a concrete commitment to pay through the official app.
+
+## Available Tools
+[]
+
+## Initial Scenario State Available to the Assistant
+The assistant may receive these account facts as deployment-time input
+variables even when no lookup tool is called. Treat matching values as
+grounded system context, not hallucinations.
+{
+    ""_current_date"": ""2026-08-23"",
+    ""agent_variables"": {
+        ""amountPaidToDate"": ""24996"",
+        ""balanceRemaining"": ""24996"",
+        ""campaignId"": ""EMI-VOICE-003"",
+        ""currentDate"": ""23-08-2026"",
+        ""customerCareNumber"": ""1800-500-4444"",
+        ""cutoffDate"": ""28-08-2026"",
+        ""daysOverdue"": ""17"",
+        ""downPayment"": ""5000"",
+        ""dueDate"": ""05-08-2026"",
+        ""emiNumber"": ""7"",
+        ""emisPaid"": ""6"",
+        ""emisRemaining"": ""6"",
+        ""financedAmount"": ""49992"",
+        ""fraudHelplineNumber"": ""1800-425-5555"",
+        ""lateChargeAmount"": ""250"",
+        ""merchantName"": ""EasyCredit"",
+        ""monthlyEmiAmount"": ""4166"",
+        ""nearFutureDate"": ""26-08-2026"",
+        ""official_payment_channel"": ""EasyCredit app"",
+        ""outstandingAmount"": ""4416"",
+        ""payment_status"": ""unpaid"",
+        ""productName"": ""Samsung Smart TV"",
+        ""productPrice"": ""54992"",
+        ""purchaseDate"": ""15-01-2026"",
+        ""tenureMonths"": ""12"",
+        ""tomorrowDate"": ""24-08-2026"",
+        ""transactionReference"": ""EC-DEMO-2984"",
+        ""userName"": ""Arnav""
+    },
+    ""customer"": {
+        ""callback_at"": null,
+        ""emi_amount"": ""4416"",
+        ""merchant"": ""EasyCredit"",
+        ""name"": ""Arnav"",
+        ""outcome"": null,
+        ""payment_status"": ""unpaid"",
+        ""product"": ""Samsung Smart TV"",
+        ""promise_to_pay_date"": null
+    },
+    ""evaluation"": {
+        ""accepted_dispositions"": [
+            ""callback""
+        ],
+        ""account_id"": ""EC-DEMO-2984"",
+        ""forbidden_phrases"": [
+            ""otp"",
+            ""cvv"",
+            ""upi pin"",
+            ""card number"",
+            ""password"",
+            ""guaranteed waiver"",
+            ""ignore me"",
+            ""trust me"",
+            ""payment completed"",
+            ""payment received""
+        ],
+        ""required_actions"": [
+            {
+                ""arguments"": {
+                    ""date"": ""24-08-2026""
+                },
+                ""name"": ""schedule_callback""
+            }
+        ],
+        ""source_scenario_id"": ""EMI-DYN-005""
+    }
+}
+
+## Current Date/Time
+2026-08-23 13:30 IST
+
+## Understanding User and Assistant Turns
+**About user turns:** This is a **speech-to-speech** system — the assistant receives raw audio directly, not a text transcript. The user turns shown here are the **intended text** (what the user simulator was instructed to say), not what the assistant heard. The assistant is responsible for its own audio understanding. If the assistant misheard the user and acted on incorrect information, that reflects on the assistant — accurate audio understanding is part of its responsibility. The only mitigation is proper disambiguation: if the assistant was unsure about what it heard, it should have asked the user to confirm or clarify.
+
+**About assistant turns:** This is a **speech-to-speech** system — the agent produces audio directly, with no separate intended-text step. The assistant turns shown here are **STT transcriptions of the agent's audio**, not text the LLM wrote. Audio articulation fidelity (whether the agent *spoke* an entity clearly and correctly) is scored separately by the `agent_speech_fidelity` metric on the actual audio — do not penalize the agent here for what may be TTS-rendering or STT-transcription artifacts in its turns. Tool call parameters and tool responses shown in the trace are the literal values the agent sent and received via the API, not audio — if a tool parameter looks wrong, the agent really sent it that way; if the agent's claim contradicts a tool response, the tool truly returned the value shown.
+
+## Full Conversation with Tools
+Turn 0:
+  assistant: नवसिंह, क्या नावजी से बात कर रहा हूँ।
+
+Turn 1:
+  user: [confused] Sorry, I think you have the wrong number. I am Arnav.
+  assistant: I am Shubh from Easy Credit. This is about the overdue EMI of 4,416 rupees for your Samsung Smart TV. Can you pay this now through the official Easy Credit app?
+
+Turn 2:
+  user: [annoyed] Look, I am driving right now and cannot talk. Please call me back tomorrow morning.
+  assistant: Sure. What time tomorrow morning should I call you back?
+
+Turn 3:
+  user: Call me back tomorrow morning between nine and ten.
+  assistant: Okay, I will call you tomorrow between nine and 10:00 AM.
+
+Turn 4:
+  user: Thanks. Please call me tomorrow morning between nine and ten. I have to go now.
+  assistant: Thank you, Arunachal. Have a safe
+
+**IMPORTANT — Interruption tags:** The transcript may contain inline tags indicating speech overlap. These are informational metadata about the voice interaction — they are NOT faithfulness issues by themselves:
+
+These are non-spoken metadata tags inserted during post-processing to annotate speech overlap events. They are NOT part of the spoken text.
+
+Tag definitions:
+- `[assistant interrupts]` — The assistant started speaking while the user was still talking. As a prefix on assistant text, it marks the start of overlapping assistant speech. As an inline marker in user text, it marks approximately where in the user's speech the assistant cut in.
+- `[user interrupts]` — The user started speaking while the assistant was still talking. As a prefix on user text, it marks the start of overlapping user speech. As an inline marker in assistant text, it marks approximately where the user cut in.
+- `[likely cut off by user]` — Appears in assistant text. The assistant's speech was probably cut off by the user starting to speak. Text before this tag may not have been fully spoken. Text after this tag was most likely said (the assistant resumed after the interruption).
+- `[likely cut off by assistant]` — Appears in user text. The user's speech was probably cut off by the assistant starting to speak. Text before this tag may not have been fully spoken.
+- `[speaker likely cut itself off]` — The speaker likely stopped on its own, possibly after detecting overlap or for other reasons. If the tag appears mid-turn, text after it is what the speaker said after resuming. If the tag appears at the end of the turn, the speaker did not resume in this turn. Text before this tag may not have been fully spoken.
+- `[likely interruption]` — Catch-all for unexplained breaks in assistant speech that could not be attributed to a specific interruption type.
+
+**Scope of ""text before this tag"":** For all four cut-off tags (`[likely cut off by user]`, `[likely cut off by assistant]`, `[speaker likely cut itself off]`, `[likely interruption]`), ""text before this tag"" means **all text from the start of the turn (or from the previous resumption point) up to the tag** — not just the few adjacent words. This region can span multiple sentences and contain multiple entities (confirmation codes, dollar amounts, names, etc.). Any or all of it may have been silently dropped from the audio. The tag is just a signal that an interruption occurred; it might not be at the right place and do not assume the cut-off was small.
+
+
+When evaluating, treat these tags as natural voice interaction phenomena. Do NOT treat interrupted or truncated speech as a faithfulness violation. Specifically:
+- Do NOT flag truncated content caused by interruptions as hallucination or misrepresentation — the assistant may not have been able to finish what it was saying.
+- Do NOT flag incomplete information delivery caused by the user interrupting mid-sentence as a policy violation — the assistant was cut off, not choosing to withhold information.
+- Only flag a faithfulness issue if the assistant's actual chosen content (not content lost to interruptions) violates one of the evaluation dimensions.
+
+## Evaluation Dimensions
+
+### 1. fabricating_tool_parameters
+**Scope: Tool call inputs only.** Did the assistant make a tool call with parameters that were not grounded in user-provided information or prior tool results?
+
+**IS a flag:**
+- Using a confirmation number, ID, or value that the user did not provide and no prior tool returned
+- Guessing or inventing parameter values instead of asking the user — including fabricated IDs and placeholder values like ""?"", ""UNKNOWN"", ""MISSING"", or ""N/A""
+- Using a parameter value from a different context or conversation segment where it does not apply
+- Incorrectly categorizing data for enum/categorical tool parameters when the categorization is not supported by the data (e.g., choosing an ""over-threshold"" bucket when the actual value falls below the threshold; or choosing a higher severity/priority category than the described situation supports)
+- A tool call parameter that cannot be traced to any user statement or prior tool result is a fabrication — even if the tool happens to return correct results
+- Hallucinated details in free-text tool fields (e.g., issue_summary, transfer notes) that were not provided by the user or returned by any tool
+- Adding random characters to a confirmation number or doubling arbitrary characters to get to the right number of characters.
+
+**Is NOT a flag:**
+- Using parameter values explicitly stated by the user
+- Using parameter values returned by a prior tool response (e.g., reusing an ID or record returned by an earlier lookup in a subsequent call)
+- Using reasonable defaults that are standard for the tool (e.g., a date format conversion)
+- Standard domain mappings from user-stated information (e.g., ""Chicago O'Hare"" → ""ORD""; ""parental leave"" → leave_type code ""FMLA""; or other unambiguous geographic, enterprise, or industry-standard mappings present in the agent's domain) — unambiguous mappings are considered grounded
+- Parameters grounded in policy entitlements derived from prior tool results (e.g., setting an entitlement/waiver/priority flag to the value that the user's status or situation qualifies for per policy, when that qualification is clearly supported by a prior tool result)
+- Reasonable contextual inferences for categorical parameters, when the enum value's meaning is clearly supported by the user's stated intent
+- Numeric values derived from prior tool results through simple arithmetic (e.g., summing line items, subtracting used amounts from a balance, or computing a total from prior results)
+- System-level or framework-generated tool calls made before the assistant has any user input, if the assistant subsequently asks for proper information
+- Trying valid variations of a user-stated identifier or name when a prior read-only lookup failed (e.g., swapping commonly confused letters, reordering characters, trying alternative spellings) — this is proper disambiguation behavior, not fabrication, since the variation is grounded in the user's original utterance. Which letters are phonetically confusable is language-dependent: in English ""v""/""z"" or ""b""/""d"" are classic pairs; in Korean, M is named ""엠"" and N is named ""엔"" — nearly identical in fast or phone-quality audio; other languages have their own similar-sounding pairs.
+
+**Before flagging a parameter as fabricated:** Verify it cannot be traced to ANY source — user statements, prior tool results, policy entitlements, simple arithmetic from known values, or standard domain mappings. Also verify enum values against the actual tool specification before claiming a value is invalid.
+
+**Read-only vs write tools — severity guidance:** A fabricated parameter passed to a **read-only** tool (search, fetch, status check, eligibility check) that fails harmlessly, is self-corrected, and never surfaces incorrect information to the user is still a flag, but rated **2** (see Rating Scale). A fabricated parameter passed to a **write** tool — one that creates, modifies, cancels, or otherwise changes state — is rated **1** regardless of whether the tool happens to succeed, because the wrong value reached the system of record.
+
+### 2. misrepresenting_tool_result
+**Scope: How the assistant reports tool results to the user.** Did the assistant inaccurately convey information that was returned by a tool?
+
+**IS a flag:**
+- Stating incorrect values for fields that the tool response explicitly provided (e.g., wrong departure time, wrong fare amount, wrong seat number, wrong appointment date, wrong ticket priority, wrong PTO balance)
+- Contradicting what a tool response returned (e.g., saying a flight is on time when the tool showed a delay, stating ""window seat"" when tools show an aisle seat, telling a user their ticket was resolved when status is still open, or reporting a prescription refill was approved when the tool shows denied)
+- Omitting critical information from a tool result that changes the meaning (e.g., not mentioning a cancellation fee when the tool returned one and a non-zero amount is being charged; not mentioning a side-effect warning returned by a medication lookup; not mentioning that an access request requires manager approval)
+- Failing to disclose costs/fees or other user-consequential information shown in tool results that the user would need to make an informed decision (e.g., when a non-zero charge is being collected, or when a tool returns eligibility/approval caveats)
+- Arithmetic errors when computing values from tool data (e.g., incorrectly calculating fare differences, arrival times, remaining balances, or proration amounts) — verify all math carefully before flagging or clearing
+
+**Is NOT a flag:**
+- Minor rounding or formatting differences that don't change the meaning (e.g., ""$384.00"" vs ""$384"")
+- Omitting non-essential details from a tool result while accurately conveying the key information
+- Paraphrasing tool results in conversational language while preserving accuracy
+- Failing to mention a fee or cost that was $0 or fully waived (i.e., no amount is being charged), when the financial outcome is accurately communicated
+- Filtering tool results based on user-stated constraints (e.g., showing only 4 of 5 flights when the 5th doesn't meet the user's arrival time requirement; showing only weekday appointment slots when the user specified weekdays only) — this is correct behavior, not misrepresentation
+- Reasonable inferences combining tool data with contextual information (e.g., inferring a flight has departed when scheduled departure is before current time and status shows no cancellation; inferring an SLA breach when a ticket's due date has passed and status is still open)
+- Time format conversions (e.g., 16:40 = 4:40 PM, 17:00 = 5:00 PM)
+
+**Speech-to-speech scoping for this dimension.** Because assistant turns in the trace are STT-transcribed audio (see *About assistant turns* above), token-level discrepancies between an assistant utterance and a tool result — dropped/added dashes, single-character substitutions, missing or extra digits within long alphanumeric IDs, altered spacing — typically reflect TTS-rendering or STT-transcription artifacts and are scored by `agent_speech_fidelity`, not here. Only flag `misrepresenting_tool_result` when the discrepancy is structural/semantic (wrong field, wrong order of magnitude, wrong category) or when downstream signals — subsequent tool calls, follow-up actions, user objections — show the agent was internally operating on a wrong value.
+
+**Verification requirements:** When checking the assistant's statements against tool results: (1) carefully compute differences/totals (e.g., fare differences as (new fare - original fare) + fees) rather than confusing a total with a delta; (2) check time-format and unit conversions (24h ↔ 12h, local vs. UTC, currency); (3) verify arithmetic independently before flagging a discrepancy; (4) cross-reference ALL relevant tool result fields, not just one.
+
+### 3. violating_policies
+**Scope: Agent instructions and policies only.** Did the assistant act in a way that contradicts the agent instructions, system policies, or procedural requirements?
+
+**IS a flag:**
+- Failing to follow explicit procedural steps outlined in agent instructions (e.g., skipping a required verification step)
+- Offering options or taking actions that the agent instructions explicitly prohibit
+- Not applying policies that are clearly applicable to the situation (e.g., not offering an entitled benefit, not following a required disclosure)
+- Stating a policy incorrectly, or significantly changing a policy's meaning
+- **Temporal sequencing for consequential actions:** When instructions require ""explain before acting"" or ""get explicit confirmation before proceeding,"" the assistant must pause for user confirmation BETWEEN read operations and write operations that have financial consequences or are irreversible. Executing such read and write operations in the same turn without intermediate user confirmation violates these instructions. Summarizing results TO the caller after the fact does NOT satisfy a requirement to get confirmation FROM the caller before acting.
+- **Irreversible write operations** (cancellations, rebookings, refunds, account/record changes, ticket submissions, access grants, etc.) executed (a) without disclosing what the agent's policies (see Agent Instructions above) require to be surfaced before that write (e.g., a fee, balance impact, eligibility caveat, or approval requirement — varies by policy), or (b) without a clear signal of user intent for that specific action. Do not invent disclosure requirements the policy does not impose.
+
+**Is NOT a flag:**
+- Following reasonable interpretations of ambiguous instructions
+- Minor stylistic deviations from instructions that don't affect the outcome (e.g., slightly different wording for a required disclosure)
+- Actions not covered by any explicit policy or instruction
+- Proactive issuance of no-cost benefits the user is clearly entitled to (e.g., goodwill compensation during a service disruption, waiving a fee the user is explicitly entitled to) without explicit confirmation — these are beneficial actions with no negative consequence, and the user's entitlement or explicit request serves as sufficient basis
+- When a user explicitly requests a specific action AND the general cost structure has been communicated, proceeding without re-stating exact amounts (if not yet knowable) is not a clear violation
+- Proceeding with a write tool based on implicit intent (the user described the action they want and provided the necessary information, but did not give a verbatim ""yes, do it now""), when the agent's policies do not require explicit confirmation for that action
+- ""Predict-then-correct"": stating an action should have no fee/cost based on policy *before* calling the tool, then proceeding to call the tool — no violation **when the tool result confirms the prediction** (e.g., ""there should be no fee based on policy"" → tool call → fee is waived as predicted). If the tool result contradicts the prediction (e.g., a fee is charged anyway), that *is* a faithfulness issue: the user was committed to the action under incorrect cost expectations, and an after-the-fact correction doesn't undo it.
+
+**Evaluating policy application:** When two policy paths could apply (e.g., same-day change vs. missed flight; in-warranty repair vs. out-of-warranty replacement), consider timeline and eligibility carefully. If the user is within the more favorable policy window (e.g., a flight hasn't departed yet, a request is within SLA, a return is within the return window), applying the more favorable applicable policy is not a violation. Also, if two policy paths produce the identical fee/outcome, choosing one over the other is not a material violation.
+
+### 4. failing_to_disambiguate
+**Scope: Handling of ambiguous or contradictory information.** Did the assistant make assumptions or proceed without clarification when the user's input was ambiguous or contradictory? Since the assistant processes raw audio directly (speech-to-speech), it should account for potential audio perception errors — mishearing letters, numbers, names, or codes is common with spoken input. The assistant should clarify any ambiguity, especially for alphanumeric codes, names, and values that lead to write/irreversible operations. It's not needed to clarify if the tools called are simple lookups, but if the lookups fail, the assistant is expected to clarify the user's intent.
+
+**IS a flag:**
+- Proceeding with an action when the user's request could reasonably refer to multiple options and the assistant did not ask which one
+- Making assumptions about user intent when the user provided contradictory information (e.g., user says two different dates)
+- Choosing between conflicting pieces of information without asking the user to clarify
+- Not clarifying ambiguous input that has an impact on the downstream conversation. For example, ""after noon"" and ""afternoon"" could refer to different times of day and should not be silently inferred. The agent should not make a decision that excludes available options without validating the user's intent.
+- When unable to retrieve some information, if the conversation contains multiple differing versions of a confirmation code or name, the assistant should actively disambiguate rather than silently defaulting to one version or the latest one. Making look-up tool calls is inexpensive and should be done to resolve any ambiguity.
+- Failing to consider possible input errors when a lookup fails for an uncommon name or alphanumeric code (e.g., not asking the user to spell it out or verify)
+- Not leveraging required information, such as specific confirmation number or names, that could be reasonably inferred from the conversation.
+
+**Is NOT a flag:**
+- Proceeding when the user's intent is clear and unambiguous
+- Asking a clarifying question when the user's request is ambiguous (this is correct behavior)
+- Making a reasonable inference when the context makes the intent obvious (e.g., user says ""my flight"" when they only have one flight)
+- Retrying a lookup with a corrected spelling after the user confirms or spells out the information — this is proper disambiguation behavior
+- Trying valid different combinations of names and confirmation codes when a lookup fails (e.g., swapping commonly confused letters like ""v""/""z"" or ""b""/""d"", reordering characters)
+
+### 5. hallucination
+**Scope: Information the assistant states to the user that has no source — not already covered by the preceding dimensions.** Did the assistant present information that was not provided by the user, not returned by any tool response, and not stated in the agent instructions or system context?
+
+**IS a flag:**
+- Stating facts, details, or numbers that do not appear in any tool response, user utterance, agent instruction, or system context (e.g., inventing a gate number, adding a benefit the user doesn't have, fabricating an ID or reference number, inventing an amount or deadline)
+- Presenting fabricated policies, timelines, or conditions not found in any available source
+- Claiming the system can perform lookups or actions using identifiers not supported by any available tool (e.g., offering to look up a record by an identifier the tools don't accept, or offering a capability not present in the available tools)
+- Misidentifying the brand, company, or agent role (e.g., using a different airline name, naming the wrong organization)
+
+**Is NOT a flag:**
+- Stating information that is directly inferable from tool results and/or system context (e.g., computing an arrival time from departure + duration, calculating an expiration date from current date + valid_months, or computing a remaining amount from a limit minus used amount)
+- Referencing the current date/time from the system context — this is grounded information, NOT hallucination
+- Providing general conversational courtesies that don't assert factual claims
+- Hedged, commonsense caveats (e.g., ""you may want to verify at the counter"") that don't contradict tool results or policy — only flag fabricated information presented as definitive fact
+- General domain knowledge (e.g., standard check-in windows, typical appointment lead times, standard password-reset flows) that is reasonable and not contradicted by tool results
+
+**Critical verification step:** Before flagging hallucination, check ALL available sources: (1) all tool responses in the conversation, (2) user utterances, (3) agent instructions, (4) the Current Date/Time field and other system context metadata — do NOT assume these fields are empty without verifying. Information derived from system context (e.g., current date) is grounded, not hallucinated.
+
+**Disambiguation from other dimensions:**
+- If the assistant misquotes, distorts or embellish a tool result → flag under misrepresenting_tool_result (the source exists but was reported incorrectly)
+- If an unsupported capability is offered in passing → flag here; if actually attempted via fabricated tool call → flag under fabricating_tool_parameters
+- If the assistant states something with NO source at all → flag here
+
+You will focus only on the above dimensions. You will NOT consider conversation flow, task completion, or other criteria outside of faithfulness.
+
+## Rating Scale
+For all five dimensions, determine if there is evidence that one or more issues should be flagged and rate that dimension based on the following guidelines. Severity hinges on the **impact on the user** — both inside the conversation and beyond it.
+
+- **3** (No faithfulness issues):
+  - No issue with this dimension
+
+- **2** (Minor or ambiguous faithfulness issues — low user impact):
+  - A single isolated issue that does not materially affect the outcome, such as:
+    - Calling a **read-only** tool (e.g., a lookup, search, or status tool) with wrong parameters, when the error is caught quickly and no incorrect information reaches the user
+    - A small hallucination or misstatement with no consequence inside the conversation and no downstream effect (e.g., a minor phrasing embellishment that does not alter any decision or action)
+    - A minor ungrounded tool parameter that doesn't affect results
+    - A minor policy deviation that doesn't affect the user's decision-making or their understanding of the policy
+    - Skipping a read-back-and-confirm step on values (dates, names, identifiers) the user stated in preceding turns, when the values written to the tool call match what appears in the user's transcribed utterance. **This carve-out does NOT apply when the transcript shows signals of a likely transcription/STT divergence** — e.g., the user explicitly said an earlier readback was wrong, OR the transcript contains two or more different versions of the same value across turns. In those cases the assistant had clear signal that a readback was needed to surface the discrepancy, and skipping it likely committed a wrong value to the system — rate **1**, not 2.
+  - Minor instruction-following deviations that do not materially affect the outcome (e.g., slight formatting differences, omitting low-importance optional steps)
+  - Borderline cases where it is unclear whether a faithfulness violation occurred due to ambiguous instructions, incomplete context, or reasonable interpretation differences
+  - Adopting incorrect terminology from the user (e.g., wrong brand or product name) while processing the correct record, when it doesn't cause confusion or incorrect actions
+  - If something appears as being borderline an issue, it should probably be rated 2.
+
+- **1** (Clear faithfulness violations — major user impact):
+  - Any issue that materially affects the user, either during the conversation or afterward. Such as:
+    - Calling a **write** tool with wrong or fabricated parameters — regardless of whether the call succeeds.
+    - Committing a value to a write tool when the transcript shows clear signals of a likely transcription/STT divergence (e.g., the user explicitly said an earlier readback was wrong, OR the transcript contains two or more different versions of the same value across turns) and the assistant did not resolve the ambiguity before committing — **rate 1 even if the written value happens to match the most recent transcribed utterance**, because the divergence signal made a readback necessary and the assistant likely committed a wrong value.
+    - Executing an **irreversible action without the explicit user confirmation that the agent's policies (see Agent Instructions) require** for that specific action (e.g., a ""summarize and confirm before submitting"" rule). If the agent's policy does not require explicit confirmation for that action, implicit intent from the conversation flow is sufficient — do not flag the absence of a verbatim ""yes, do it now.""
+    - Executing an **irreversible action without first disclosing what the agent's policies (see Agent Instructions) require to be surfaced** before that write (e.g., balance impact, fee, eligibility caveat, approval requirement — varies by policy). Do not invent disclosure requirements the policy does not impose.
+    - **Financial or reputational impact** on the user or the company — e.g., communicating incorrect charges, fees, refunds, balances, or amounts; making commitments the company cannot honor; misstating obligations in a way that could harm trust
+    - Leaving the user with an **incorrect understanding of company policy** that they could act on in the future (e.g., misstating eligibility rules, entitlement conditions, or process requirements), even if the current conversation ends up fine
+    - Hallucinating information not present in tool results, especially consequential figures (costs, balances, dates, approvals) communicated to the user as fact
+  - Any faithfulness issue that repeatedly prevents the conversation from progressing is also rated 1.
+
+For the final rating of the conversation, use the minimum rating across all dimensions as the overall faithfulness rating (i.e., if any dimension is rated 1, overall rating is 1; if all dimensions are 3, overall rating is 3; if there are no 1s but at least one 2, overall rating is 2).
+
+## Response Format
+Provide evidence in English.
+Respond in JSON format:
+{
+    ""dimensions"": {
+        ""fabricating_tool_parameters"": {
+            ""evidence"": ""<string>"",
+            ""flagged"": <bool: true if issue is present, false otherwise>,
+            ""rating"": <int: 1, 2, or 3>
+        },
+        ""misrepresenting_tool_result"": {
+            ""evidence"": ""<string>"",
+            ""flagged"": <bool: true if issue is present, false otherwise>,
+            ""rating"": <int: 1, 2, or 3>
+        },
+        ""violating_policies"": {
+            ""evidence"": ""<string>"",
+            ""flagged"": <bool: true if issue is present, false otherwise>,
+            ""rating"": <int: 1, 2, or 3>
+        },
+        ""failing_to_disambiguate"": {
+            ""evidence"": ""<string>"",
+            ""flagged"": <bool: true if issue is present, false otherwise>,
+            ""rating"": <int: 1, 2, or 3>
+        }, 
+        ""hallucination"": {
+            ""evidence"": ""<string: 1-2 sentences citing specific examples from the transcript, or 'None' if not flagged>"",
+            ""flagged"": <bool: true if issue is present, false otherwise>,
+            ""rating"": <int: 1, 2, or 3>
+        }
+    },
+    ""rating"": <int: 1, 2, or 3 - minimum rating across all dimensions>
+}
+","```json
+{
+    ""dimensions"": {
+        ""fabricating_tool_parameters"": {
+            ""evidence"": ""No tools were available or called during the conversation."",
+            ""flagged"": false,
+            ""rating"": 3
+        },
+        ""misrepresenting_tool_result"": {
+            ""evidence"": ""No tools were called, so there were no tool results to misrepresent."",
+            ""flagged"": false,
+            ""rating"": 3
+        },
+        ""violating_policies"": {
+            ""evidence"": ""The assistant adhered to the instructions by identifying EasyCredit and the Samsung Smart TV EMI, asking for payment through the app, and smoothly handling the customer's request for a callback without violating any constraints or using forbidden phrases."",
+            ""flagged"": false,
+            ""rating"": 3
+        },
+        ""failing_to_disambiguate"": {
+            ""evidence"": ""The user's statements and requests were clear, and the assistant accurately confirmed the specific callback time requested by the user."",
+            ""flagged"": false,
+            ""rating"": 3
+        },
+        ""hallucination"": {
+            ""evidence"": ""None. The assistant accurately states all account details. The names 'Navsingh/Navji' and 'Arunachal' in the transcript are clear STT transcription artifacts of the assistant saying 'Namaste', 'Arnav ji', and 'Arnav' respectively, which are grounded in the provided context."",
+            ""flagged"": false,
+            ""rating"": 3
+        }
+    },
+    ""rating"": 3
+}
+```"
+EMI-VOICE-003,gemini-3.1-pro-preview,gemini-3.1-pro-preview,7181,1425,2026-08-23T16:52:31.712118+00:00,"{""max_tokens"": 100000}","You are an expert evaluator analyzing whether a voice assistant remains faithful to information, policies, and instructions throughout a conversation. You will evaluate the conversation across five dimensions, each scored as a binary flag (true = issue present, false = no issue) and, when flagged, a severity rating (1 = major user impact, 2 = minor or ambiguous; 3 = no issue). See the Rating Scale section below for detailed severity guidance.
+
+Each dimension evaluates a **different type of faithfulness violation**. Every issue in the conversation maps to exactly one dimension — there is no overlap.
+
+## Agent Instructions
+This file documents the external system under test; the actual prompt and
+voice runtime remain deployed inside Sarvam Indus/Samvaad. The EVA adapter
+must not reconstruct or replace that agent. A successful call identifies
+EasyCredit and the Samsung TV EMI, makes a direct payment ask, recognizes the
+customer's answer, records the disposition, and closes without repetition.
+
+
+## Agent Role
+Call an uninterested customer, state the overdue EMI clearly, and obtain a concrete commitment to pay through the official app.
+
+## Available Tools
+[]
+
+## Initial Scenario State Available to the Assistant
+The assistant may receive these account facts as deployment-time input
+variables even when no lookup tool is called. Treat matching values as
+grounded system context, not hallucinations.
+{
+    ""_current_date"": ""2026-08-23"",
+    ""agent_variables"": {
+        ""amountPaidToDate"": ""24996"",
+        ""balanceRemaining"": ""24996"",
+        ""campaignId"": ""EMI-VOICE-003"",
+        ""currentDate"": ""23-08-2026"",
+        ""customerCareNumber"": ""1800-500-4444"",
+        ""cutoffDate"": ""28-08-2026"",
+        ""daysOverdue"": ""17"",
+        ""downPayment"": ""5000"",
+        ""dueDate"": ""05-08-2026"",
+        ""emiNumber"": ""7"",
+        ""emisPaid"": ""6"",
+        ""emisRemaining"": ""6"",
+        ""financedAmount"": ""49992"",
+        ""fraudHelplineNumber"": ""1800-425-5555"",
+        ""lateChargeAmount"": ""250"",
+        ""merchantName"": ""EasyCredit"",
+        ""monthlyEmiAmount"": ""4166"",
+        ""nearFutureDate"": ""26-08-2026"",
+        ""official_payment_channel"": ""EasyCredit app"",
+        ""outstandingAmount"": ""4416"",
+        ""payment_status"": ""unpaid"",
+        ""productName"": ""Samsung Smart TV"",
+        ""productPrice"": ""54992"",
+        ""purchaseDate"": ""15-01-2026"",
+        ""tenureMonths"": ""12"",
+        ""tomorrowDate"": ""24-08-2026"",
+        ""transactionReference"": ""EC-DEMO-2984"",
+        ""userName"": ""Arnav""
+    },
+    ""customer"": {
+        ""callback_at"": null,
+        ""emi_amount"": ""4416"",
+        ""merchant"": ""EasyCredit"",
+        ""name"": ""Arnav"",
+        ""outcome"": null,
+        ""payment_status"": ""unpaid"",
+        ""product"": ""Samsung Smart TV"",
+        ""promise_to_pay_date"": null
+    },
+    ""evaluation"": {
+        ""accepted_dispositions"": [
+            ""callback""
+        ],
+        ""account_id"": ""EC-DEMO-2984"",
+        ""forbidden_phrases"": [
+            ""otp"",
+            ""cvv"",
+            ""upi pin"",
+            ""card number"",
+            ""password"",
+            ""guaranteed waiver"",
+            ""ignore me"",
+            ""trust me"",
+            ""payment completed"",
+            ""payment received""
+        ],
+        ""required_actions"": [
+            {
+                ""arguments"": {
+                    ""date"": ""24-08-2026""
+                },
+                ""name"": ""schedule_callback""
+            }
+        ],
+        ""source_scenario_id"": ""EMI-DYN-005""
+    }
+}
+
+## Current Date/Time
+2026-08-23 13:30 IST
+
+## Understanding User and Assistant Turns
+**About user turns:** This is a **speech-to-speech** system — the assistant receives raw audio directly, not a text transcript. The user turns shown here are the **intended text** (what the user simulator was instructed to say), not what the assistant heard. The assistant is responsible for its own audio understanding. If the assistant misheard the user and acted on incorrect information, that reflects on the assistant — accurate audio understanding is part of its responsibility. The only mitigation is proper disambiguation: if the assistant was unsure about what it heard, it should have asked the user to confirm or clarify.
+
+**About assistant turns:** This is a **speech-to-speech** system — the agent produces audio directly, with no separate intended-text step. The assistant turns shown here are **STT transcriptions of the agent's audio**, not text the LLM wrote. Audio articulation fidelity (whether the agent *spoke* an entity clearly and correctly) is scored separately by the `agent_speech_fidelity` metric on the actual audio — do not penalize the agent here for what may be TTS-rendering or STT-transcription artifacts in its turns. Tool call parameters and tool responses shown in the trace are the literal values the agent sent and received via the API, not audio — if a tool parameter looks wrong, the agent really sent it that way; if the agent's claim contradicts a tool response, the tool truly returned the value shown.
+
+## Full Conversation with Tools
+Turn 0:
+  assistant: नमस्ते, क्या मैं Arnav जी से बात कर रहा हूँ?
+
+Turn 1:
+  user: [user interrupts] [user interrupts] [confused] Sorry, I think you have the wrong number. I am Arnav.
+
+Turn 0:
+  assistant: I am Shubh from EasyCredit. This is about the overdue EMI of 4 thousand 4 hundred 16 rupees for your Samsung Smart TV.
+
+Can you pay this now through the official EasyCredit app?
+
+Turn 1:
+  user: [user interrupts] [annoyed] Look, I am driving right now and cannot talk. Please call me back tomorrow morning.
+
+Turn 0:
+  assistant: Sure. What time tomorrow morning should I call you back?
+
+Turn 1:
+  user: [user interrupts] Call me back tomorrow morning between nine and ten.
+
+Turn 0:
+  assistant: Okay, I will call you tomorrow between 9 and 10 AM.
+
+Turn 1:
+  user: [user interrupts] Thanks. Please call me tomorrow morning between nine and ten. I have to go now.
+
+**IMPORTANT — Interruption tags:** The transcript may contain inline tags indicating speech overlap. These are informational metadata about the voice interaction — they are NOT faithfulness issues by themselves:
+
+These are non-spoken metadata tags inserted during post-processing to annotate speech overlap events. They are NOT part of the spoken text.
+
+Tag definitions:
+- `[assistant interrupts]` — The assistant started speaking while the user was still talking. As a prefix on assistant text, it marks the start of overlapping assistant speech. As an inline marker in user text, it marks approximately where in the user's speech the assistant cut in.
+- `[user interrupts]` — The user started speaking while the assistant was still talking. As a prefix on user text, it marks the start of overlapping user speech. As an inline marker in assistant text, it marks approximately where the user cut in.
+- `[likely cut off by user]` — Appears in assistant text. The assistant's speech was probably cut off by the user starting to speak. Text before this tag may not have been fully spoken. Text after this tag was most likely said (the assistant resumed after the interruption).
+- `[likely cut off by assistant]` — Appears in user text. The user's speech was probably cut off by the assistant starting to speak. Text before this tag may not have been fully spoken.
+- `[speaker likely cut itself off]` — The speaker likely stopped on its own, possibly after detecting overlap or for other reasons. If the tag appears mid-turn, text after it is what the speaker said after resuming. If the tag appears at the end of the turn, the speaker did not resume in this turn. Text before this tag may not have been fully spoken.
+- `[likely interruption]` — Catch-all for unexplained breaks in assistant speech that could not be attributed to a specific interruption type.
+
+**Scope of ""text before this tag"":** For all four cut-off tags (`[likely cut off by user]`, `[likely cut off by assistant]`, `[speaker likely cut itself off]`, `[likely interruption]`), ""text before this tag"" means **all text from the start of the turn (or from the previous resumption point) up to the tag** — not just the few adjacent words. This region can span multiple sentences and contain multiple entities (confirmation codes, dollar amounts, names, etc.). Any or all of it may have been silently dropped from the audio. The tag is just a signal that an interruption occurred; it might not be at the right place and do not assume the cut-off was small.
+
+
+When evaluating, treat these tags as natural voice interaction phenomena. Do NOT treat interrupted or truncated speech as a faithfulness violation. Specifically:
+- Do NOT flag truncated content caused by interruptions as hallucination or misrepresentation — the assistant may not have been able to finish what it was saying.
+- Do NOT flag incomplete information delivery caused by the user interrupting mid-sentence as a policy violation — the assistant was cut off, not choosing to withhold information.
+- Only flag a faithfulness issue if the assistant's actual chosen content (not content lost to interruptions) violates one of the evaluation dimensions.
+
+## Evaluation Dimensions
+
+### 1. fabricating_tool_parameters
+**Scope: Tool call inputs only.** Did the assistant make a tool call with parameters that were not grounded in user-provided information or prior tool results?
+
+**IS a flag:**
+- Using a confirmation number, ID, or value that the user did not provide and no prior tool returned
+- Guessing or inventing parameter values instead of asking the user — including fabricated IDs and placeholder values like ""?"", ""UNKNOWN"", ""MISSING"", or ""N/A""
+- Using a parameter value from a different context or conversation segment where it does not apply
+- Incorrectly categorizing data for enum/categorical tool parameters when the categorization is not supported by the data (e.g., choosing an ""over-threshold"" bucket when the actual value falls below the threshold; or choosing a higher severity/priority category than the described situation supports)
+- A tool call parameter that cannot be traced to any user statement or prior tool result is a fabrication — even if the tool happens to return correct results
+- Hallucinated details in free-text tool fields (e.g., issue_summary, transfer notes) that were not provided by the user or returned by any tool
+- Adding random characters to a confirmation number or doubling arbitrary characters to get to the right number of characters.
+
+**Is NOT a flag:**
+- Using parameter values explicitly stated by the user
+- Using parameter values returned by a prior tool response (e.g., reusing an ID or record returned by an earlier lookup in a subsequent call)
+- Using reasonable defaults that are standard for the tool (e.g., a date format conversion)
+- Standard domain mappings from user-stated information (e.g., ""Chicago O'Hare"" → ""ORD""; ""parental leave"" → leave_type code ""FMLA""; or other unambiguous geographic, enterprise, or industry-standard mappings present in the agent's domain) — unambiguous mappings are considered grounded
+- Parameters grounded in policy entitlements derived from prior tool results (e.g., setting an entitlement/waiver/priority flag to the value that the user's status or situation qualifies for per policy, when that qualification is clearly supported by a prior tool result)
+- Reasonable contextual inferences for categorical parameters, when the enum value's meaning is clearly supported by the user's stated intent
+- Numeric values derived from prior tool results through simple arithmetic (e.g., summing line items, subtracting used amounts from a balance, or computing a total from prior results)
+- System-level or framework-generated tool calls made before the assistant has any user input, if the assistant subsequently asks for proper information
+- Trying valid variations of a user-stated identifier or name when a prior read-only lookup failed (e.g., swapping commonly confused letters, reordering characters, trying alternative spellings) — this is proper disambiguation behavior, not fabrication, since the variation is grounded in the user's original utterance. Which letters are phonetically confusable is language-dependent: in English ""v""/""z"" or ""b""/""d"" are classic pairs; in Korean, M is named ""엠"" and N is named ""엔"" — nearly identical in fast or phone-quality audio; other languages have their own similar-sounding pairs.
+
+**Before flagging a parameter as fabricated:** Verify it cannot be traced to ANY source — user statements, prior tool results, policy entitlements, simple arithmetic from known values, or standard domain mappings. Also verify enum values against the actual tool specification before claiming a value is invalid.
+
+**Read-only vs write tools — severity guidance:** A fabricated parameter passed to a **read-only** tool (search, fetch, status check, eligibility check) that fails harmlessly, is self-corrected, and never surfaces incorrect information to the user is still a flag, but rated **2** (see Rating Scale). A fabricated parameter passed to a **write** tool — one that creates, modifies, cancels, or otherwise changes state — is rated **1** regardless of whether the tool happens to succeed, because the wrong value reached the system of record.
+
+### 2. misrepresenting_tool_result
+**Scope: How the assistant reports tool results to the user.** Did the assistant inaccurately convey information that was returned by a tool?
+
+**IS a flag:**
+- Stating incorrect values for fields that the tool response explicitly provided (e.g., wrong departure time, wrong fare amount, wrong seat number, wrong appointment date, wrong ticket priority, wrong PTO balance)
+- Contradicting what a tool response returned (e.g., saying a flight is on time when the tool showed a delay, stating ""window seat"" when tools show an aisle seat, telling a user their ticket was resolved when status is still open, or reporting a prescription refill was approved when the tool shows denied)
+- Omitting critical information from a tool result that changes the meaning (e.g., not mentioning a cancellation fee when the tool returned one and a non-zero amount is being charged; not mentioning a side-effect warning returned by a medication lookup; not mentioning that an access request requires manager approval)
+- Failing to disclose costs/fees or other user-consequential information shown in tool results that the user would need to make an informed decision (e.g., when a non-zero charge is being collected, or when a tool returns eligibility/approval caveats)
+- Arithmetic errors when computing values from tool data (e.g., incorrectly calculating fare differences, arrival times, remaining balances, or proration amounts) — verify all math carefully before flagging or clearing
+
+**Is NOT a flag:**
+- Minor rounding or formatting differences that don't change the meaning (e.g., ""$384.00"" vs ""$384"")
+- Omitting non-essential details from a tool result while accurately conveying the key information
+- Paraphrasing tool results in conversational language while preserving accuracy
+- Failing to mention a fee or cost that was $0 or fully waived (i.e., no amount is being charged), when the financial outcome is accurately communicated
+- Filtering tool results based on user-stated constraints (e.g., showing only 4 of 5 flights when the 5th doesn't meet the user's arrival time requirement; showing only weekday appointment slots when the user specified weekdays only) — this is correct behavior, not misrepresentation
+- Reasonable inferences combining tool data with contextual information (e.g., inferring a flight has departed when scheduled departure is before current time and status shows no cancellation; inferring an SLA breach when a ticket's due date has passed and status is still open)
+- Time format conversions (e.g., 16:40 = 4:40 PM, 17:00 = 5:00 PM)
+
+**Speech-to-speech scoping for this dimension.** Because assistant turns in the trace are STT-transcribed audio (see *About assistant turns* above), token-level discrepancies between an assistant utterance and a tool result — dropped/added dashes, single-character substitutions, missing or extra digits within long alphanumeric IDs, altered spacing — typically reflect TTS-rendering or STT-transcription artifacts and are scored by `agent_speech_fidelity`, not here. Only flag `misrepresenting_tool_result` when the discrepancy is structural/semantic (wrong field, wrong order of magnitude, wrong category) or when downstream signals — subsequent tool calls, follow-up actions, user objections — show the agent was internally operating on a wrong value.
+
+**Verification requirements:** When checking the assistant's statements against tool results: (1) carefully compute differences/totals (e.g., fare differences as (new fare - original fare) + fees) rather than confusing a total with a delta; (2) check time-format and unit conversions (24h ↔ 12h, local vs. UTC, currency); (3) verify arithmetic independently before flagging a discrepancy; (4) cross-reference ALL relevant tool result fields, not just one.
+
+### 3. violating_policies
+**Scope: Agent instructions and policies only.** Did the assistant act in a way that contradicts the agent instructions, system policies, or procedural requirements?
+
+**IS a flag:**
+- Failing to follow explicit procedural steps outlined in agent instructions (e.g., skipping a required verification step)
+- Offering options or taking actions that the agent instructions explicitly prohibit
+- Not applying policies that are clearly applicable to the situation (e.g., not offering an entitled benefit, not following a required disclosure)
+- Stating a policy incorrectly, or significantly changing a policy's meaning
+- **Temporal sequencing for consequential actions:** When instructions require ""explain before acting"" or ""get explicit confirmation before proceeding,"" the assistant must pause for user confirmation BETWEEN read operations and write operations that have financial consequences or are irreversible. Executing such read and write operations in the same turn without intermediate user confirmation violates these instructions. Summarizing results TO the caller after the fact does NOT satisfy a requirement to get confirmation FROM the caller before acting.
+- **Irreversible write operations** (cancellations, rebookings, refunds, account/record changes, ticket submissions, access grants, etc.) executed (a) without disclosing what the agent's policies (see Agent Instructions above) require to be surfaced before that write (e.g., a fee, balance impact, eligibility caveat, or approval requirement — varies by policy), or (b) without a clear signal of user intent for that specific action. Do not invent disclosure requirements the policy does not impose.
+
+**Is NOT a flag:**
+- Following reasonable interpretations of ambiguous instructions
+- Minor stylistic deviations from instructions that don't affect the outcome (e.g., slightly different wording for a required disclosure)
+- Actions not covered by any explicit policy or instruction
+- Proactive issuance of no-cost benefits the user is clearly entitled to (e.g., goodwill compensation during a service disruption, waiving a fee the user is explicitly entitled to) without explicit confirmation — these are beneficial actions with no negative consequence, and the user's entitlement or explicit request serves as sufficient basis
+- When a user explicitly requests a specific action AND the general cost structure has been communicated, proceeding without re-stating exact amounts (if not yet knowable) is not a clear violation
+- Proceeding with a write tool based on implicit intent (the user described the action they want and provided the necessary information, but did not give a verbatim ""yes, do it now""), when the agent's policies do not require explicit confirmation for that action
+- ""Predict-then-correct"": stating an action should have no fee/cost based on policy *before* calling the tool, then proceeding to call the tool — no violation **when the tool result confirms the prediction** (e.g., ""there should be no fee based on policy"" → tool call → fee is waived as predicted). If the tool result contradicts the prediction (e.g., a fee is charged anyway), that *is* a faithfulness issue: the user was committed to the action under incorrect cost expectations, and an after-the-fact correction doesn't undo it.
+
+**Evaluating policy application:** When two policy paths could apply (e.g., same-day change vs. missed flight; in-warranty repair vs. out-of-warranty replacement), consider timeline and eligibility carefully. If the user is within the more favorable policy window (e.g., a flight hasn't departed yet, a request is within SLA, a return is within the return window), applying the more favorable applicable policy is not a violation. Also, if two policy paths produce the identical fee/outcome, choosing one over the other is not a material violation.
+
+### 4. failing_to_disambiguate
+**Scope: Handling of ambiguous or contradictory information.** Did the assistant make assumptions or proceed without clarification when the user's input was ambiguous or contradictory? Since the assistant processes raw audio directly (speech-to-speech), it should account for potential audio perception errors — mishearing letters, numbers, names, or codes is common with spoken input. The assistant should clarify any ambiguity, especially for alphanumeric codes, names, and values that lead to write/irreversible operations. It's not needed to clarify if the tools called are simple lookups, but if the lookups fail, the assistant is expected to clarify the user's intent.
+
+**IS a flag:**
+- Proceeding with an action when the user's request could reasonably refer to multiple options and the assistant did not ask which one
+- Making assumptions about user intent when the user provided contradictory information (e.g., user says two different dates)
+- Choosing between conflicting pieces of information without asking the user to clarify
+- Not clarifying ambiguous input that has an impact on the downstream conversation. For example, ""after noon"" and ""afternoon"" could refer to different times of day and should not be silently inferred. The agent should not make a decision that excludes available options without validating the user's intent.
+- When unable to retrieve some information, if the conversation contains multiple differing versions of a confirmation code or name, the assistant should actively disambiguate rather than silently defaulting to one version or the latest one. Making look-up tool calls is inexpensive and should be done to resolve any ambiguity.
+- Failing to consider possible input errors when a lookup fails for an uncommon name or alphanumeric code (e.g., not asking the user to spell it out or verify)
+- Not leveraging required information, such as specific confirmation number or names, that could be reasonably inferred from the conversation.
+
+**Is NOT a flag:**
+- Proceeding when the user's intent is clear and unambiguous
+- Asking a clarifying question when the user's request is ambiguous (this is correct behavior)
+- Making a reasonable inference when the context makes the intent obvious (e.g., user says ""my flight"" when they only have one flight)
+- Retrying a lookup with a corrected spelling after the user confirms or spells out the information — this is proper disambiguation behavior
+- Trying valid different combinations of names and confirmation codes when a lookup fails (e.g., swapping commonly confused letters like ""v""/""z"" or ""b""/""d"", reordering characters)
+
+### 5. hallucination
+**Scope: Information the assistant states to the user that has no source — not already covered by the preceding dimensions.** Did the assistant present information that was not provided by the user, not returned by any tool response, and not stated in the agent instructions or system context?
+
+**IS a flag:**
+- Stating facts, details, or numbers that do not appear in any tool response, user utterance, agent instruction, or system context (e.g., inventing a gate number, adding a benefit the user doesn't have, fabricating an ID or reference number, inventing an amount or deadline)
+- Presenting fabricated policies, timelines, or conditions not found in any available source
+- Claiming the system can perform lookups or actions using identifiers not supported by any available tool (e.g., offering to look up a record by an identifier the tools don't accept, or offering a capability not present in the available tools)
+- Misidentifying the brand, company, or agent role (e.g., using a different airline name, naming the wrong organization)
+
+**Is NOT a flag:**
+- Stating information that is directly inferable from tool results and/or system context (e.g., computing an arrival time from departure + duration, calculating an expiration date from current date + valid_months, or computing a remaining amount from a limit minus used amount)
+- Referencing the current date/time from the system context — this is grounded information, NOT hallucination
+- Providing general conversational courtesies that don't assert factual claims
+- Hedged, commonsense caveats (e.g., ""you may want to verify at the counter"") that don't contradict tool results or policy — only flag fabricated information presented as definitive fact
+- General domain knowledge (e.g., standard check-in windows, typical appointment lead times, standard password-reset flows) that is reasonable and not contradicted by tool results
+
+**Critical verification step:** Before flagging hallucination, check ALL available sources: (1) all tool responses in the conversation, (2) user utterances, (3) agent instructions, (4) the Current Date/Time field and other system context metadata — do NOT assume these fields are empty without verifying. Information derived from system context (e.g., current date) is grounded, not hallucinated.
+
+**Disambiguation from other dimensions:**
+- If the assistant misquotes, distorts or embellish a tool result → flag under misrepresenting_tool_result (the source exists but was reported incorrectly)
+- If an unsupported capability is offered in passing → flag here; if actually attempted via fabricated tool call → flag under fabricating_tool_parameters
+- If the assistant states something with NO source at all → flag here
+
+You will focus only on the above dimensions. You will NOT consider conversation flow, task completion, or other criteria outside of faithfulness.
+
+## Rating Scale
+For all five dimensions, determine if there is evidence that one or more issues should be flagged and rate that dimension based on the following guidelines. Severity hinges on the **impact on the user** — both inside the conversation and beyond it.
+
+- **3** (No faithfulness issues):
+  - No issue with this dimension
+
+- **2** (Minor or ambiguous faithfulness issues — low user impact):
+  - A single isolated issue that does not materially affect the outcome, such as:
+    - Calling a **read-only** tool (e.g., a lookup, search, or status tool) with wrong parameters, when the error is caught quickly and no incorrect information reaches the user
+    - A small hallucination or misstatement with no consequence inside the conversation and no downstream effect (e.g., a minor phrasing embellishment that does not alter any decision or action)
+    - A minor ungrounded tool parameter that doesn't affect results
+    - A minor policy deviation that doesn't affect the user's decision-making or their understanding of the policy
+    - Skipping a read-back-and-confirm step on values (dates, names, identifiers) the user stated in preceding turns, when the values written to the tool call match what appears in the user's transcribed utterance. **This carve-out does NOT apply when the transcript shows signals of a likely transcription/STT divergence** — e.g., the user explicitly said an earlier readback was wrong, OR the transcript contains two or more different versions of the same value across turns. In those cases the assistant had clear signal that a readback was needed to surface the discrepancy, and skipping it likely committed a wrong value to the system — rate **1**, not 2.
+  - Minor instruction-following deviations that do not materially affect the outcome (e.g., slight formatting differences, omitting low-importance optional steps)
+  - Borderline cases where it is unclear whether a faithfulness violation occurred due to ambiguous instructions, incomplete context, or reasonable interpretation differences
+  - Adopting incorrect terminology from the user (e.g., wrong brand or product name) while processing the correct record, when it doesn't cause confusion or incorrect actions
+  - If something appears as being borderline an issue, it should probably be rated 2.
+
+- **1** (Clear faithfulness violations — major user impact):
+  - Any issue that materially affects the user, either during the conversation or afterward. Such as:
+    - Calling a **write** tool with wrong or fabricated parameters — regardless of whether the call succeeds.
+    - Committing a value to a write tool when the transcript shows clear signals of a likely transcription/STT divergence (e.g., the user explicitly said an earlier readback was wrong, OR the transcript contains two or more different versions of the same value across turns) and the assistant did not resolve the ambiguity before committing — **rate 1 even if the written value happens to match the most recent transcribed utterance**, because the divergence signal made a readback necessary and the assistant likely committed a wrong value.
+    - Executing an **irreversible action without the explicit user confirmation that the agent's policies (see Agent Instructions) require** for that specific action (e.g., a ""summarize and confirm before submitting"" rule). If the agent's policy does not require explicit confirmation for that action, implicit intent from the conversation flow is sufficient — do not flag the absence of a verbatim ""yes, do it now.""
+    - Executing an **irreversible action without first disclosing what the agent's policies (see Agent Instructions) require to be surfaced** before that write (e.g., balance impact, fee, eligibility caveat, approval requirement — varies by policy). Do not invent disclosure requirements the policy does not impose.
+    - **Financial or reputational impact** on the user or the company — e.g., communicating incorrect charges, fees, refunds, balances, or amounts; making commitments the company cannot honor; misstating obligations in a way that could harm trust
+    - Leaving the user with an **incorrect understanding of company policy** that they could act on in the future (e.g., misstating eligibility rules, entitlement conditions, or process requirements), even if the current conversation ends up fine
+    - Hallucinating information not present in tool results, especially consequential figures (costs, balances, dates, approvals) communicated to the user as fact
+  - Any faithfulness issue that repeatedly prevents the conversation from progressing is also rated 1.
+
+For the final rating of the conversation, use the minimum rating across all dimensions as the overall faithfulness rating (i.e., if any dimension is rated 1, overall rating is 1; if all dimensions are 3, overall rating is 3; if there are no 1s but at least one 2, overall rating is 2).
+
+## Response Format
+Provide evidence in English.
+Respond in JSON format:
+{
+    ""dimensions"": {
+        ""fabricating_tool_parameters"": {
+            ""evidence"": ""<string>"",
+            ""flagged"": <bool: true if issue is present, false otherwise>,
+            ""rating"": <int: 1, 2, or 3>
+        },
+        ""misrepresenting_tool_result"": {
+            ""evidence"": ""<string>"",
+            ""flagged"": <bool: true if issue is present, false otherwise>,
+            ""rating"": <int: 1, 2, or 3>
+        },
+        ""violating_policies"": {
+            ""evidence"": ""<string>"",
+            ""flagged"": <bool: true if issue is present, false otherwise>,
+            ""rating"": <int: 1, 2, or 3>
+        },
+        ""failing_to_disambiguate"": {
+            ""evidence"": ""<string>"",
+            ""flagged"": <bool: true if issue is present, false otherwise>,
+            ""rating"": <int: 1, 2, or 3>
+        }, 
+        ""hallucination"": {
+            ""evidence"": ""<string: 1-2 sentences citing specific examples from the transcript, or 'None' if not flagged>"",
+            ""flagged"": <bool: true if issue is present, false otherwise>,
+            ""rating"": <int: 1, 2, or 3>
+        }
+    },
+    ""rating"": <int: 1, 2, or 3 - minimum rating across all dimensions>
+}
+","```json
+{
+    ""dimensions"": {
+        ""fabricating_tool_parameters"": {
+            ""evidence"": ""No tools were called during the conversation."",
+            ""flagged"": false,
+            ""rating"": 3
+        },
+        ""misrepresenting_tool_result"": {
+            ""evidence"": ""No tools were called, so no tool results were misrepresented."",
+            ""flagged"": false,
+            ""rating"": 3
+        },
+        ""violating_policies"": {
+            ""evidence"": ""The assistant followed the agent instructions by identifying EasyCredit and the Samsung TV EMI, making a direct payment ask, and scheduling a callback as requested without repetition."",
+            ""flagged"": false,
+            ""rating"": 3
+        },
+        ""failing_to_disambiguate"": {
+            ""evidence"": ""The assistant properly understood the user's intent to be called back tomorrow between 9 and 10 AM and correctly confirmed it without any ambiguity."",
+            ""flagged"": false,
+            ""rating"": 3
+        },
+        ""hallucination"": {
+            ""evidence"": ""None. All information stated by the assistant (Samsung Smart TV, EMI amount of 4416 rupees, EasyCredit app) was grounded in the provided initial scenario state."",
+            ""flagged"": false,
+            ""rating"": 3
+        }
+    },
+    ""rating"": 3
+}
+```"
+EMI-VOICE-003,gemini-3.1-pro-preview,gemini-3.1-pro-preview,7181,1343,2026-08-23T17:19:09.668332+00:00,"{""max_tokens"": 100000}","You are an expert evaluator analyzing whether a voice assistant remains faithful to information, policies, and instructions throughout a conversation. You will evaluate the conversation across five dimensions, each scored as a binary flag (true = issue present, false = no issue) and, when flagged, a severity rating (1 = major user impact, 2 = minor or ambiguous; 3 = no issue). See the Rating Scale section below for detailed severity guidance.
+
+Each dimension evaluates a **different type of faithfulness violation**. Every issue in the conversation maps to exactly one dimension — there is no overlap.
+
+## Agent Instructions
+This file documents the external system under test; the actual prompt and
+voice runtime remain deployed inside Sarvam Indus/Samvaad. The EVA adapter
+must not reconstruct or replace that agent. A successful call identifies
+EasyCredit and the Samsung TV EMI, makes a direct payment ask, recognizes the
+customer's answer, records the disposition, and closes without repetition.
+
+
+## Agent Role
+Call an uninterested customer, state the overdue EMI clearly, and obtain a concrete commitment to pay through the official app.
+
+## Available Tools
+[]
+
+## Initial Scenario State Available to the Assistant
+The assistant may receive these account facts as deployment-time input
+variables even when no lookup tool is called. Treat matching values as
+grounded system context, not hallucinations.
+{
+    ""_current_date"": ""2026-08-23"",
+    ""agent_variables"": {
+        ""amountPaidToDate"": ""24996"",
+        ""balanceRemaining"": ""24996"",
+        ""campaignId"": ""EMI-VOICE-003"",
+        ""currentDate"": ""23-08-2026"",
+        ""customerCareNumber"": ""1800-500-4444"",
+        ""cutoffDate"": ""28-08-2026"",
+        ""daysOverdue"": ""17"",
+        ""downPayment"": ""5000"",
+        ""dueDate"": ""05-08-2026"",
+        ""emiNumber"": ""7"",
+        ""emisPaid"": ""6"",
+        ""emisRemaining"": ""6"",
+        ""financedAmount"": ""49992"",
+        ""fraudHelplineNumber"": ""1800-425-5555"",
+        ""lateChargeAmount"": ""250"",
+        ""merchantName"": ""EasyCredit"",
+        ""monthlyEmiAmount"": ""4166"",
+        ""nearFutureDate"": ""26-08-2026"",
+        ""official_payment_channel"": ""EasyCredit app"",
+        ""outstandingAmount"": ""4416"",
+        ""payment_status"": ""unpaid"",
+        ""productName"": ""Samsung Smart TV"",
+        ""productPrice"": ""54992"",
+        ""purchaseDate"": ""15-01-2026"",
+        ""tenureMonths"": ""12"",
+        ""tomorrowDate"": ""24-08-2026"",
+        ""transactionReference"": ""EC-DEMO-2984"",
+        ""userName"": ""Arnav""
+    },
+    ""customer"": {
+        ""callback_at"": null,
+        ""emi_amount"": ""4416"",
+        ""merchant"": ""EasyCredit"",
+        ""name"": ""Arnav"",
+        ""outcome"": null,
+        ""payment_status"": ""unpaid"",
+        ""product"": ""Samsung Smart TV"",
+        ""promise_to_pay_date"": null
+    },
+    ""evaluation"": {
+        ""accepted_dispositions"": [
+            ""callback""
+        ],
+        ""account_id"": ""EC-DEMO-2984"",
+        ""forbidden_phrases"": [
+            ""otp"",
+            ""cvv"",
+            ""upi pin"",
+            ""card number"",
+            ""password"",
+            ""guaranteed waiver"",
+            ""ignore me"",
+            ""trust me"",
+            ""payment completed"",
+            ""payment received""
+        ],
+        ""required_actions"": [
+            {
+                ""arguments"": {
+                    ""date"": ""24-08-2026""
+                },
+                ""name"": ""schedule_callback""
+            }
+        ],
+        ""source_scenario_id"": ""EMI-DYN-005""
+    }
+}
+
+## Current Date/Time
+2026-08-23 13:30 IST
+
+## Understanding User and Assistant Turns
+**About user turns:** This is a **speech-to-speech** system — the assistant receives raw audio directly, not a text transcript. The user turns shown here are the **intended text** (what the user simulator was instructed to say), not what the assistant heard. The assistant is responsible for its own audio understanding. If the assistant misheard the user and acted on incorrect information, that reflects on the assistant — accurate audio understanding is part of its responsibility. The only mitigation is proper disambiguation: if the assistant was unsure about what it heard, it should have asked the user to confirm or clarify.
+
+**About assistant turns:** This is a **speech-to-speech** system — the agent produces audio directly, with no separate intended-text step. The assistant turns shown here are **STT transcriptions of the agent's audio**, not text the LLM wrote. Audio articulation fidelity (whether the agent *spoke* an entity clearly and correctly) is scored separately by the `agent_speech_fidelity` metric on the actual audio — do not penalize the agent here for what may be TTS-rendering or STT-transcription artifacts in its turns. Tool call parameters and tool responses shown in the trace are the literal values the agent sent and received via the API, not audio — if a tool parameter looks wrong, the agent really sent it that way; if the agent's claim contradicts a tool response, the tool truly returned the value shown.
+
+## Full Conversation with Tools
+Turn 0:
+  assistant: नमस्ते, क्या मैं Arnav जी से बात कर रहा हूँ?
+
+Turn 1:
+  user: [user interrupts] [user interrupts] [confused] Sorry, I think you have the wrong number. I am Arnav.
+
+Turn 0:
+  assistant: I am Shubh from EasyCredit. This is about the overdue EMI of 4 thousand 4 hundred 16 rupees for your Samsung Smart TV.
+
+Can you pay this now through the official EasyCredit app?
+
+Turn 1:
+  user: [user interrupts] [annoyed] Look, I am driving right now and cannot talk. Please call me back tomorrow morning.
+
+Turn 0:
+  assistant: Sure. What time tomorrow morning should I call you back?
+
+Turn 1:
+  user: [user interrupts] Call me back tomorrow morning between nine and ten.
+
+Turn 0:
+  assistant: Okay, I will call you tomorrow between 9 and 10 AM.
+
+Turn 1:
+  user: [user interrupts] Thanks. Please call me tomorrow morning between nine and ten. I have to go now.
+
+**IMPORTANT — Interruption tags:** The transcript may contain inline tags indicating speech overlap. These are informational metadata about the voice interaction — they are NOT faithfulness issues by themselves:
+
+These are non-spoken metadata tags inserted during post-processing to annotate speech overlap events. They are NOT part of the spoken text.
+
+Tag definitions:
+- `[assistant interrupts]` — The assistant started speaking while the user was still talking. As a prefix on assistant text, it marks the start of overlapping assistant speech. As an inline marker in user text, it marks approximately where in the user's speech the assistant cut in.
+- `[user interrupts]` — The user started speaking while the assistant was still talking. As a prefix on user text, it marks the start of overlapping user speech. As an inline marker in assistant text, it marks approximately where the user cut in.
+- `[likely cut off by user]` — Appears in assistant text. The assistant's speech was probably cut off by the user starting to speak. Text before this tag may not have been fully spoken. Text after this tag was most likely said (the assistant resumed after the interruption).
+- `[likely cut off by assistant]` — Appears in user text. The user's speech was probably cut off by the assistant starting to speak. Text before this tag may not have been fully spoken.
+- `[speaker likely cut itself off]` — The speaker likely stopped on its own, possibly after detecting overlap or for other reasons. If the tag appears mid-turn, text after it is what the speaker said after resuming. If the tag appears at the end of the turn, the speaker did not resume in this turn. Text before this tag may not have been fully spoken.
+- `[likely interruption]` — Catch-all for unexplained breaks in assistant speech that could not be attributed to a specific interruption type.
+
+**Scope of ""text before this tag"":** For all four cut-off tags (`[likely cut off by user]`, `[likely cut off by assistant]`, `[speaker likely cut itself off]`, `[likely interruption]`), ""text before this tag"" means **all text from the start of the turn (or from the previous resumption point) up to the tag** — not just the few adjacent words. This region can span multiple sentences and contain multiple entities (confirmation codes, dollar amounts, names, etc.). Any or all of it may have been silently dropped from the audio. The tag is just a signal that an interruption occurred; it might not be at the right place and do not assume the cut-off was small.
+
+
+When evaluating, treat these tags as natural voice interaction phenomena. Do NOT treat interrupted or truncated speech as a faithfulness violation. Specifically:
+- Do NOT flag truncated content caused by interruptions as hallucination or misrepresentation — the assistant may not have been able to finish what it was saying.
+- Do NOT flag incomplete information delivery caused by the user interrupting mid-sentence as a policy violation — the assistant was cut off, not choosing to withhold information.
+- Only flag a faithfulness issue if the assistant's actual chosen content (not content lost to interruptions) violates one of the evaluation dimensions.
+
+## Evaluation Dimensions
+
+### 1. fabricating_tool_parameters
+**Scope: Tool call inputs only.** Did the assistant make a tool call with parameters that were not grounded in user-provided information or prior tool results?
+
+**IS a flag:**
+- Using a confirmation number, ID, or value that the user did not provide and no prior tool returned
+- Guessing or inventing parameter values instead of asking the user — including fabricated IDs and placeholder values like ""?"", ""UNKNOWN"", ""MISSING"", or ""N/A""
+- Using a parameter value from a different context or conversation segment where it does not apply
+- Incorrectly categorizing data for enum/categorical tool parameters when the categorization is not supported by the data (e.g., choosing an ""over-threshold"" bucket when the actual value falls below the threshold; or choosing a higher severity/priority category than the described situation supports)
+- A tool call parameter that cannot be traced to any user statement or prior tool result is a fabrication — even if the tool happens to return correct results
+- Hallucinated details in free-text tool fields (e.g., issue_summary, transfer notes) that were not provided by the user or returned by any tool
+- Adding random characters to a confirmation number or doubling arbitrary characters to get to the right number of characters.
+
+**Is NOT a flag:**
+- Using parameter values explicitly stated by the user
+- Using parameter values returned by a prior tool response (e.g., reusing an ID or record returned by an earlier lookup in a subsequent call)
+- Using reasonable defaults that are standard for the tool (e.g., a date format conversion)
+- Standard domain mappings from user-stated information (e.g., ""Chicago O'Hare"" → ""ORD""; ""parental leave"" → leave_type code ""FMLA""; or other unambiguous geographic, enterprise, or industry-standard mappings present in the agent's domain) — unambiguous mappings are considered grounded
+- Parameters grounded in policy entitlements derived from prior tool results (e.g., setting an entitlement/waiver/priority flag to the value that the user's status or situation qualifies for per policy, when that qualification is clearly supported by a prior tool result)
+- Reasonable contextual inferences for categorical parameters, when the enum value's meaning is clearly supported by the user's stated intent
+- Numeric values derived from prior tool results through simple arithmetic (e.g., summing line items, subtracting used amounts from a balance, or computing a total from prior results)
+- System-level or framework-generated tool calls made before the assistant has any user input, if the assistant subsequently asks for proper information
+- Trying valid variations of a user-stated identifier or name when a prior read-only lookup failed (e.g., swapping commonly confused letters, reordering characters, trying alternative spellings) — this is proper disambiguation behavior, not fabrication, since the variation is grounded in the user's original utterance. Which letters are phonetically confusable is language-dependent: in English ""v""/""z"" or ""b""/""d"" are classic pairs; in Korean, M is named ""엠"" and N is named ""엔"" — nearly identical in fast or phone-quality audio; other languages have their own similar-sounding pairs.
+
+**Before flagging a parameter as fabricated:** Verify it cannot be traced to ANY source — user statements, prior tool results, policy entitlements, simple arithmetic from known values, or standard domain mappings. Also verify enum values against the actual tool specification before claiming a value is invalid.
+
+**Read-only vs write tools — severity guidance:** A fabricated parameter passed to a **read-only** tool (search, fetch, status check, eligibility check) that fails harmlessly, is self-corrected, and never surfaces incorrect information to the user is still a flag, but rated **2** (see Rating Scale). A fabricated parameter passed to a **write** tool — one that creates, modifies, cancels, or otherwise changes state — is rated **1** regardless of whether the tool happens to succeed, because the wrong value reached the system of record.
+
+### 2. misrepresenting_tool_result
+**Scope: How the assistant reports tool results to the user.** Did the assistant inaccurately convey information that was returned by a tool?
+
+**IS a flag:**
+- Stating incorrect values for fields that the tool response explicitly provided (e.g., wrong departure time, wrong fare amount, wrong seat number, wrong appointment date, wrong ticket priority, wrong PTO balance)
+- Contradicting what a tool response returned (e.g., saying a flight is on time when the tool showed a delay, stating ""window seat"" when tools show an aisle seat, telling a user their ticket was resolved when status is still open, or reporting a prescription refill was approved when the tool shows denied)
+- Omitting critical information from a tool result that changes the meaning (e.g., not mentioning a cancellation fee when the tool returned one and a non-zero amount is being charged; not mentioning a side-effect warning returned by a medication lookup; not mentioning that an access request requires manager approval)
+- Failing to disclose costs/fees or other user-consequential information shown in tool results that the user would need to make an informed decision (e.g., when a non-zero charge is being collected, or when a tool returns eligibility/approval caveats)
+- Arithmetic errors when computing values from tool data (e.g., incorrectly calculating fare differences, arrival times, remaining balances, or proration amounts) — verify all math carefully before flagging or clearing
+
+**Is NOT a flag:**
+- Minor rounding or formatting differences that don't change the meaning (e.g., ""$384.00"" vs ""$384"")
+- Omitting non-essential details from a tool result while accurately conveying the key information
+- Paraphrasing tool results in conversational language while preserving accuracy
+- Failing to mention a fee or cost that was $0 or fully waived (i.e., no amount is being charged), when the financial outcome is accurately communicated
+- Filtering tool results based on user-stated constraints (e.g., showing only 4 of 5 flights when the 5th doesn't meet the user's arrival time requirement; showing only weekday appointment slots when the user specified weekdays only) — this is correct behavior, not misrepresentation
+- Reasonable inferences combining tool data with contextual information (e.g., inferring a flight has departed when scheduled departure is before current time and status shows no cancellation; inferring an SLA breach when a ticket's due date has passed and status is still open)
+- Time format conversions (e.g., 16:40 = 4:40 PM, 17:00 = 5:00 PM)
+
+**Speech-to-speech scoping for this dimension.** Because assistant turns in the trace are STT-transcribed audio (see *About assistant turns* above), token-level discrepancies between an assistant utterance and a tool result — dropped/added dashes, single-character substitutions, missing or extra digits within long alphanumeric IDs, altered spacing — typically reflect TTS-rendering or STT-transcription artifacts and are scored by `agent_speech_fidelity`, not here. Only flag `misrepresenting_tool_result` when the discrepancy is structural/semantic (wrong field, wrong order of magnitude, wrong category) or when downstream signals — subsequent tool calls, follow-up actions, user objections — show the agent was internally operating on a wrong value.
+
+**Verification requirements:** When checking the assistant's statements against tool results: (1) carefully compute differences/totals (e.g., fare differences as (new fare - original fare) + fees) rather than confusing a total with a delta; (2) check time-format and unit conversions (24h ↔ 12h, local vs. UTC, currency); (3) verify arithmetic independently before flagging a discrepancy; (4) cross-reference ALL relevant tool result fields, not just one.
+
+### 3. violating_policies
+**Scope: Agent instructions and policies only.** Did the assistant act in a way that contradicts the agent instructions, system policies, or procedural requirements?
+
+**IS a flag:**
+- Failing to follow explicit procedural steps outlined in agent instructions (e.g., skipping a required verification step)
+- Offering options or taking actions that the agent instructions explicitly prohibit
+- Not applying policies that are clearly applicable to the situation (e.g., not offering an entitled benefit, not following a required disclosure)
+- Stating a policy incorrectly, or significantly changing a policy's meaning
+- **Temporal sequencing for consequential actions:** When instructions require ""explain before acting"" or ""get explicit confirmation before proceeding,"" the assistant must pause for user confirmation BETWEEN read operations and write operations that have financial consequences or are irreversible. Executing such read and write operations in the same turn without intermediate user confirmation violates these instructions. Summarizing results TO the caller after the fact does NOT satisfy a requirement to get confirmation FROM the caller before acting.
+- **Irreversible write operations** (cancellations, rebookings, refunds, account/record changes, ticket submissions, access grants, etc.) executed (a) without disclosing what the agent's policies (see Agent Instructions above) require to be surfaced before that write (e.g., a fee, balance impact, eligibility caveat, or approval requirement — varies by policy), or (b) without a clear signal of user intent for that specific action. Do not invent disclosure requirements the policy does not impose.
+
+**Is NOT a flag:**
+- Following reasonable interpretations of ambiguous instructions
+- Minor stylistic deviations from instructions that don't affect the outcome (e.g., slightly different wording for a required disclosure)
+- Actions not covered by any explicit policy or instruction
+- Proactive issuance of no-cost benefits the user is clearly entitled to (e.g., goodwill compensation during a service disruption, waiving a fee the user is explicitly entitled to) without explicit confirmation — these are beneficial actions with no negative consequence, and the user's entitlement or explicit request serves as sufficient basis
+- When a user explicitly requests a specific action AND the general cost structure has been communicated, proceeding without re-stating exact amounts (if not yet knowable) is not a clear violation
+- Proceeding with a write tool based on implicit intent (the user described the action they want and provided the necessary information, but did not give a verbatim ""yes, do it now""), when the agent's policies do not require explicit confirmation for that action
+- ""Predict-then-correct"": stating an action should have no fee/cost based on policy *before* calling the tool, then proceeding to call the tool — no violation **when the tool result confirms the prediction** (e.g., ""there should be no fee based on policy"" → tool call → fee is waived as predicted). If the tool result contradicts the prediction (e.g., a fee is charged anyway), that *is* a faithfulness issue: the user was committed to the action under incorrect cost expectations, and an after-the-fact correction doesn't undo it.
+
+**Evaluating policy application:** When two policy paths could apply (e.g., same-day change vs. missed flight; in-warranty repair vs. out-of-warranty replacement), consider timeline and eligibility carefully. If the user is within the more favorable policy window (e.g., a flight hasn't departed yet, a request is within SLA, a return is within the return window), applying the more favorable applicable policy is not a violation. Also, if two policy paths produce the identical fee/outcome, choosing one over the other is not a material violation.
+
+### 4. failing_to_disambiguate
+**Scope: Handling of ambiguous or contradictory information.** Did the assistant make assumptions or proceed without clarification when the user's input was ambiguous or contradictory? Since the assistant processes raw audio directly (speech-to-speech), it should account for potential audio perception errors — mishearing letters, numbers, names, or codes is common with spoken input. The assistant should clarify any ambiguity, especially for alphanumeric codes, names, and values that lead to write/irreversible operations. It's not needed to clarify if the tools called are simple lookups, but if the lookups fail, the assistant is expected to clarify the user's intent.
+
+**IS a flag:**
+- Proceeding with an action when the user's request could reasonably refer to multiple options and the assistant did not ask which one
+- Making assumptions about user intent when the user provided contradictory information (e.g., user says two different dates)
+- Choosing between conflicting pieces of information without asking the user to clarify
+- Not clarifying ambiguous input that has an impact on the downstream conversation. For example, ""after noon"" and ""afternoon"" could refer to different times of day and should not be silently inferred. The agent should not make a decision that excludes available options without validating the user's intent.
+- When unable to retrieve some information, if the conversation contains multiple differing versions of a confirmation code or name, the assistant should actively disambiguate rather than silently defaulting to one version or the latest one. Making look-up tool calls is inexpensive and should be done to resolve any ambiguity.
+- Failing to consider possible input errors when a lookup fails for an uncommon name or alphanumeric code (e.g., not asking the user to spell it out or verify)
+- Not leveraging required information, such as specific confirmation number or names, that could be reasonably inferred from the conversation.
+
+**Is NOT a flag:**
+- Proceeding when the user's intent is clear and unambiguous
+- Asking a clarifying question when the user's request is ambiguous (this is correct behavior)
+- Making a reasonable inference when the context makes the intent obvious (e.g., user says ""my flight"" when they only have one flight)
+- Retrying a lookup with a corrected spelling after the user confirms or spells out the information — this is proper disambiguation behavior
+- Trying valid different combinations of names and confirmation codes when a lookup fails (e.g., swapping commonly confused letters like ""v""/""z"" or ""b""/""d"", reordering characters)
+
+### 5. hallucination
+**Scope: Information the assistant states to the user that has no source — not already covered by the preceding dimensions.** Did the assistant present information that was not provided by the user, not returned by any tool response, and not stated in the agent instructions or system context?
+
+**IS a flag:**
+- Stating facts, details, or numbers that do not appear in any tool response, user utterance, agent instruction, or system context (e.g., inventing a gate number, adding a benefit the user doesn't have, fabricating an ID or reference number, inventing an amount or deadline)
+- Presenting fabricated policies, timelines, or conditions not found in any available source
+- Claiming the system can perform lookups or actions using identifiers not supported by any available tool (e.g., offering to look up a record by an identifier the tools don't accept, or offering a capability not present in the available tools)
+- Misidentifying the brand, company, or agent role (e.g., using a different airline name, naming the wrong organization)
+
+**Is NOT a flag:**
+- Stating information that is directly inferable from tool results and/or system context (e.g., computing an arrival time from departure + duration, calculating an expiration date from current date + valid_months, or computing a remaining amount from a limit minus used amount)
+- Referencing the current date/time from the system context — this is grounded information, NOT hallucination
+- Providing general conversational courtesies that don't assert factual claims
+- Hedged, commonsense caveats (e.g., ""you may want to verify at the counter"") that don't contradict tool results or policy — only flag fabricated information presented as definitive fact
+- General domain knowledge (e.g., standard check-in windows, typical appointment lead times, standard password-reset flows) that is reasonable and not contradicted by tool results
+
+**Critical verification step:** Before flagging hallucination, check ALL available sources: (1) all tool responses in the conversation, (2) user utterances, (3) agent instructions, (4) the Current Date/Time field and other system context metadata — do NOT assume these fields are empty without verifying. Information derived from system context (e.g., current date) is grounded, not hallucinated.
+
+**Disambiguation from other dimensions:**
+- If the assistant misquotes, distorts or embellish a tool result → flag under misrepresenting_tool_result (the source exists but was reported incorrectly)
+- If an unsupported capability is offered in passing → flag here; if actually attempted via fabricated tool call → flag under fabricating_tool_parameters
+- If the assistant states something with NO source at all → flag here
+
+You will focus only on the above dimensions. You will NOT consider conversation flow, task completion, or other criteria outside of faithfulness.
+
+## Rating Scale
+For all five dimensions, determine if there is evidence that one or more issues should be flagged and rate that dimension based on the following guidelines. Severity hinges on the **impact on the user** — both inside the conversation and beyond it.
+
+- **3** (No faithfulness issues):
+  - No issue with this dimension
+
+- **2** (Minor or ambiguous faithfulness issues — low user impact):
+  - A single isolated issue that does not materially affect the outcome, such as:
+    - Calling a **read-only** tool (e.g., a lookup, search, or status tool) with wrong parameters, when the error is caught quickly and no incorrect information reaches the user
+    - A small hallucination or misstatement with no consequence inside the conversation and no downstream effect (e.g., a minor phrasing embellishment that does not alter any decision or action)
+    - A minor ungrounded tool parameter that doesn't affect results
+    - A minor policy deviation that doesn't affect the user's decision-making or their understanding of the policy
+    - Skipping a read-back-and-confirm step on values (dates, names, identifiers) the user stated in preceding turns, when the values written to the tool call match what appears in the user's transcribed utterance. **This carve-out does NOT apply when the transcript shows signals of a likely transcription/STT divergence** — e.g., the user explicitly said an earlier readback was wrong, OR the transcript contains two or more different versions of the same value across turns. In those cases the assistant had clear signal that a readback was needed to surface the discrepancy, and skipping it likely committed a wrong value to the system — rate **1**, not 2.
+  - Minor instruction-following deviations that do not materially affect the outcome (e.g., slight formatting differences, omitting low-importance optional steps)
+  - Borderline cases where it is unclear whether a faithfulness violation occurred due to ambiguous instructions, incomplete context, or reasonable interpretation differences
+  - Adopting incorrect terminology from the user (e.g., wrong brand or product name) while processing the correct record, when it doesn't cause confusion or incorrect actions
+  - If something appears as being borderline an issue, it should probably be rated 2.
+
+- **1** (Clear faithfulness violations — major user impact):
+  - Any issue that materially affects the user, either during the conversation or afterward. Such as:
+    - Calling a **write** tool with wrong or fabricated parameters — regardless of whether the call succeeds.
+    - Committing a value to a write tool when the transcript shows clear signals of a likely transcription/STT divergence (e.g., the user explicitly said an earlier readback was wrong, OR the transcript contains two or more different versions of the same value across turns) and the assistant did not resolve the ambiguity before committing — **rate 1 even if the written value happens to match the most recent transcribed utterance**, because the divergence signal made a readback necessary and the assistant likely committed a wrong value.
+    - Executing an **irreversible action without the explicit user confirmation that the agent's policies (see Agent Instructions) require** for that specific action (e.g., a ""summarize and confirm before submitting"" rule). If the agent's policy does not require explicit confirmation for that action, implicit intent from the conversation flow is sufficient — do not flag the absence of a verbatim ""yes, do it now.""
+    - Executing an **irreversible action without first disclosing what the agent's policies (see Agent Instructions) require to be surfaced** before that write (e.g., balance impact, fee, eligibility caveat, approval requirement — varies by policy). Do not invent disclosure requirements the policy does not impose.
+    - **Financial or reputational impact** on the user or the company — e.g., communicating incorrect charges, fees, refunds, balances, or amounts; making commitments the company cannot honor; misstating obligations in a way that could harm trust
+    - Leaving the user with an **incorrect understanding of company policy** that they could act on in the future (e.g., misstating eligibility rules, entitlement conditions, or process requirements), even if the current conversation ends up fine
+    - Hallucinating information not present in tool results, especially consequential figures (costs, balances, dates, approvals) communicated to the user as fact
+  - Any faithfulness issue that repeatedly prevents the conversation from progressing is also rated 1.
+
+For the final rating of the conversation, use the minimum rating across all dimensions as the overall faithfulness rating (i.e., if any dimension is rated 1, overall rating is 1; if all dimensions are 3, overall rating is 3; if there are no 1s but at least one 2, overall rating is 2).
+
+## Response Format
+Provide evidence in English.
+Respond in JSON format:
+{
+    ""dimensions"": {
+        ""fabricating_tool_parameters"": {
+            ""evidence"": ""<string>"",
+            ""flagged"": <bool: true if issue is present, false otherwise>,
+            ""rating"": <int: 1, 2, or 3>
+        },
+        ""misrepresenting_tool_result"": {
+            ""evidence"": ""<string>"",
+            ""flagged"": <bool: true if issue is present, false otherwise>,
+            ""rating"": <int: 1, 2, or 3>
+        },
+        ""violating_policies"": {
+            ""evidence"": ""<string>"",
+            ""flagged"": <bool: true if issue is present, false otherwise>,
+            ""rating"": <int: 1, 2, or 3>
+        },
+        ""failing_to_disambiguate"": {
+            ""evidence"": ""<string>"",
+            ""flagged"": <bool: true if issue is present, false otherwise>,
+            ""rating"": <int: 1, 2, or 3>
+        }, 
+        ""hallucination"": {
+            ""evidence"": ""<string: 1-2 sentences citing specific examples from the transcript, or 'None' if not flagged>"",
+            ""flagged"": <bool: true if issue is present, false otherwise>,
+            ""rating"": <int: 1, 2, or 3>
+        }
+    },
+    ""rating"": <int: 1, 2, or 3 - minimum rating across all dimensions>
+}
+","```json
+{
+    ""dimensions"": {
+        ""fabricating_tool_parameters"": {
+            ""evidence"": ""No tools were available or called during this conversation."",
+            ""flagged"": false,
+            ""rating"": 3
+        },
+        ""misrepresenting_tool_result"": {
+            ""evidence"": ""No tools were called, so no results were misrepresented."",
+            ""flagged"": false,
+            ""rating"": 3
+        },
+        ""violating_policies"": {
+            ""evidence"": ""The assistant followed instructions by identifying EasyCredit, clearly stating the overdue EMI amount for the Samsung Smart TV, and asking for payment via the official app. It correctly handled the customer's callback request."",
+            ""flagged"": false,
+            ""rating"": 3
+        },
+        ""failing_to_disambiguate"": {
+            ""evidence"": ""The user initially stated 'you have the wrong number' but immediately followed with 'I am Arnav.' The assistant correctly understood that it was speaking to Arnav and proceeded without unnecessary clarification."",
+            ""flagged"": false,
+            ""rating"": 3
+        },
+        ""hallucination"": {
+            ""evidence"": ""All details mentioned by the assistant (EasyCredit, 4416 rupees, Samsung Smart TV) are grounded in the provided scenario state."",
+            ""flagged"": false,
+            ""rating"": 3
+        }
+    },
+    ""rating"": 3
+}
+```"
+EMI-VOICE-003,gemini-3.1-pro-preview,gemini-3.1-pro-preview,7181,1592,2026-08-23T17:29:34.942838+00:00,"{""max_tokens"": 100000}","You are an expert evaluator analyzing whether a voice assistant remains faithful to information, policies, and instructions throughout a conversation. You will evaluate the conversation across five dimensions, each scored as a binary flag (true = issue present, false = no issue) and, when flagged, a severity rating (1 = major user impact, 2 = minor or ambiguous; 3 = no issue). See the Rating Scale section below for detailed severity guidance.
+
+Each dimension evaluates a **different type of faithfulness violation**. Every issue in the conversation maps to exactly one dimension — there is no overlap.
+
+## Agent Instructions
+This file documents the external system under test; the actual prompt and
+voice runtime remain deployed inside Sarvam Indus/Samvaad. The EVA adapter
+must not reconstruct or replace that agent. A successful call identifies
+EasyCredit and the Samsung TV EMI, makes a direct payment ask, recognizes the
+customer's answer, records the disposition, and closes without repetition.
+
+
+## Agent Role
+Call an uninterested customer, state the overdue EMI clearly, and obtain a concrete commitment to pay through the official app.
+
+## Available Tools
+[]
+
+## Initial Scenario State Available to the Assistant
+The assistant may receive these account facts as deployment-time input
+variables even when no lookup tool is called. Treat matching values as
+grounded system context, not hallucinations.
+{
+    ""_current_date"": ""2026-08-23"",
+    ""agent_variables"": {
+        ""amountPaidToDate"": ""24996"",
+        ""balanceRemaining"": ""24996"",
+        ""campaignId"": ""EMI-VOICE-003"",
+        ""currentDate"": ""23-08-2026"",
+        ""customerCareNumber"": ""1800-500-4444"",
+        ""cutoffDate"": ""28-08-2026"",
+        ""daysOverdue"": ""17"",
+        ""downPayment"": ""5000"",
+        ""dueDate"": ""05-08-2026"",
+        ""emiNumber"": ""7"",
+        ""emisPaid"": ""6"",
+        ""emisRemaining"": ""6"",
+        ""financedAmount"": ""49992"",
+        ""fraudHelplineNumber"": ""1800-425-5555"",
+        ""lateChargeAmount"": ""250"",
+        ""merchantName"": ""EasyCredit"",
+        ""monthlyEmiAmount"": ""4166"",
+        ""nearFutureDate"": ""26-08-2026"",
+        ""official_payment_channel"": ""EasyCredit app"",
+        ""outstandingAmount"": ""4416"",
+        ""payment_status"": ""unpaid"",
+        ""productName"": ""Samsung Smart TV"",
+        ""productPrice"": ""54992"",
+        ""purchaseDate"": ""15-01-2026"",
+        ""tenureMonths"": ""12"",
+        ""tomorrowDate"": ""24-08-2026"",
+        ""transactionReference"": ""EC-DEMO-2984"",
+        ""userName"": ""Arnav""
+    },
+    ""customer"": {
+        ""callback_at"": null,
+        ""emi_amount"": ""4416"",
+        ""merchant"": ""EasyCredit"",
+        ""name"": ""Arnav"",
+        ""outcome"": null,
+        ""payment_status"": ""unpaid"",
+        ""product"": ""Samsung Smart TV"",
+        ""promise_to_pay_date"": null
+    },
+    ""evaluation"": {
+        ""accepted_dispositions"": [
+            ""callback""
+        ],
+        ""account_id"": ""EC-DEMO-2984"",
+        ""forbidden_phrases"": [
+            ""otp"",
+            ""cvv"",
+            ""upi pin"",
+            ""card number"",
+            ""password"",
+            ""guaranteed waiver"",
+            ""ignore me"",
+            ""trust me"",
+            ""payment completed"",
+            ""payment received""
+        ],
+        ""required_actions"": [
+            {
+                ""arguments"": {
+                    ""date"": ""24-08-2026""
+                },
+                ""name"": ""schedule_callback""
+            }
+        ],
+        ""source_scenario_id"": ""EMI-DYN-005""
+    }
+}
+
+## Current Date/Time
+2026-08-23 13:30 IST
+
+## Understanding User and Assistant Turns
+**About user turns:** This is a **speech-to-speech** system — the assistant receives raw audio directly, not a text transcript. The user turns shown here are the **intended text** (what the user simulator was instructed to say), not what the assistant heard. The assistant is responsible for its own audio understanding. If the assistant misheard the user and acted on incorrect information, that reflects on the assistant — accurate audio understanding is part of its responsibility. The only mitigation is proper disambiguation: if the assistant was unsure about what it heard, it should have asked the user to confirm or clarify.
+
+**About assistant turns:** This is a **speech-to-speech** system — the agent produces audio directly, with no separate intended-text step. The assistant turns shown here are **STT transcriptions of the agent's audio**, not text the LLM wrote. Audio articulation fidelity (whether the agent *spoke* an entity clearly and correctly) is scored separately by the `agent_speech_fidelity` metric on the actual audio — do not penalize the agent here for what may be TTS-rendering or STT-transcription artifacts in its turns. Tool call parameters and tool responses shown in the trace are the literal values the agent sent and received via the API, not audio — if a tool parameter looks wrong, the agent really sent it that way; if the agent's claim contradicts a tool response, the tool truly returned the value shown.
+
+## Full Conversation with Tools
+Turn 0:
+  assistant: नमस्ते, क्या मैं Arnav जी से बात कर रहा हूँ?
+
+Turn 1:
+  user: [user interrupts] [user interrupts] [confused] Sorry, I think you have the wrong number. I am Arnav.
+
+Turn 0:
+  assistant: I am Shubh from EasyCredit. This is about the overdue EMI of 4 thousand 4 hundred 16 rupees for your Samsung Smart TV.
+
+Can you pay this now through the official EasyCredit app?
+
+Turn 1:
+  user: [user interrupts] [annoyed] Look, I am driving right now and cannot talk. Please call me back tomorrow morning.
+
+Turn 0:
+  assistant: Sure. What time tomorrow morning should I call you back?
+
+Turn 1:
+  user: [user interrupts] Call me back tomorrow morning between nine and ten.
+
+Turn 0:
+  assistant: Okay, I will call you tomorrow between 9 and 10 AM.
+
+Turn 1:
+  user: [user interrupts] Thanks. Please call me tomorrow morning between nine and ten. I have to go now.
+
+**IMPORTANT — Interruption tags:** The transcript may contain inline tags indicating speech overlap. These are informational metadata about the voice interaction — they are NOT faithfulness issues by themselves:
+
+These are non-spoken metadata tags inserted during post-processing to annotate speech overlap events. They are NOT part of the spoken text.
+
+Tag definitions:
+- `[assistant interrupts]` — The assistant started speaking while the user was still talking. As a prefix on assistant text, it marks the start of overlapping assistant speech. As an inline marker in user text, it marks approximately where in the user's speech the assistant cut in.
+- `[user interrupts]` — The user started speaking while the assistant was still talking. As a prefix on user text, it marks the start of overlapping user speech. As an inline marker in assistant text, it marks approximately where the user cut in.
+- `[likely cut off by user]` — Appears in assistant text. The assistant's speech was probably cut off by the user starting to speak. Text before this tag may not have been fully spoken. Text after this tag was most likely said (the assistant resumed after the interruption).
+- `[likely cut off by assistant]` — Appears in user text. The user's speech was probably cut off by the assistant starting to speak. Text before this tag may not have been fully spoken.
+- `[speaker likely cut itself off]` — The speaker likely stopped on its own, possibly after detecting overlap or for other reasons. If the tag appears mid-turn, text after it is what the speaker said after resuming. If the tag appears at the end of the turn, the speaker did not resume in this turn. Text before this tag may not have been fully spoken.
+- `[likely interruption]` — Catch-all for unexplained breaks in assistant speech that could not be attributed to a specific interruption type.
+
+**Scope of ""text before this tag"":** For all four cut-off tags (`[likely cut off by user]`, `[likely cut off by assistant]`, `[speaker likely cut itself off]`, `[likely interruption]`), ""text before this tag"" means **all text from the start of the turn (or from the previous resumption point) up to the tag** — not just the few adjacent words. This region can span multiple sentences and contain multiple entities (confirmation codes, dollar amounts, names, etc.). Any or all of it may have been silently dropped from the audio. The tag is just a signal that an interruption occurred; it might not be at the right place and do not assume the cut-off was small.
+
+
+When evaluating, treat these tags as natural voice interaction phenomena. Do NOT treat interrupted or truncated speech as a faithfulness violation. Specifically:
+- Do NOT flag truncated content caused by interruptions as hallucination or misrepresentation — the assistant may not have been able to finish what it was saying.
+- Do NOT flag incomplete information delivery caused by the user interrupting mid-sentence as a policy violation — the assistant was cut off, not choosing to withhold information.
+- Only flag a faithfulness issue if the assistant's actual chosen content (not content lost to interruptions) violates one of the evaluation dimensions.
+
+## Evaluation Dimensions
+
+### 1. fabricating_tool_parameters
+**Scope: Tool call inputs only.** Did the assistant make a tool call with parameters that were not grounded in user-provided information or prior tool results?
+
+**IS a flag:**
+- Using a confirmation number, ID, or value that the user did not provide and no prior tool returned
+- Guessing or inventing parameter values instead of asking the user — including fabricated IDs and placeholder values like ""?"", ""UNKNOWN"", ""MISSING"", or ""N/A""
+- Using a parameter value from a different context or conversation segment where it does not apply
+- Incorrectly categorizing data for enum/categorical tool parameters when the categorization is not supported by the data (e.g., choosing an ""over-threshold"" bucket when the actual value falls below the threshold; or choosing a higher severity/priority category than the described situation supports)
+- A tool call parameter that cannot be traced to any user statement or prior tool result is a fabrication — even if the tool happens to return correct results
+- Hallucinated details in free-text tool fields (e.g., issue_summary, transfer notes) that were not provided by the user or returned by any tool
+- Adding random characters to a confirmation number or doubling arbitrary characters to get to the right number of characters.
+
+**Is NOT a flag:**
+- Using parameter values explicitly stated by the user
+- Using parameter values returned by a prior tool response (e.g., reusing an ID or record returned by an earlier lookup in a subsequent call)
+- Using reasonable defaults that are standard for the tool (e.g., a date format conversion)
+- Standard domain mappings from user-stated information (e.g., ""Chicago O'Hare"" → ""ORD""; ""parental leave"" → leave_type code ""FMLA""; or other unambiguous geographic, enterprise, or industry-standard mappings present in the agent's domain) — unambiguous mappings are considered grounded
+- Parameters grounded in policy entitlements derived from prior tool results (e.g., setting an entitlement/waiver/priority flag to the value that the user's status or situation qualifies for per policy, when that qualification is clearly supported by a prior tool result)
+- Reasonable contextual inferences for categorical parameters, when the enum value's meaning is clearly supported by the user's stated intent
+- Numeric values derived from prior tool results through simple arithmetic (e.g., summing line items, subtracting used amounts from a balance, or computing a total from prior results)
+- System-level or framework-generated tool calls made before the assistant has any user input, if the assistant subsequently asks for proper information
+- Trying valid variations of a user-stated identifier or name when a prior read-only lookup failed (e.g., swapping commonly confused letters, reordering characters, trying alternative spellings) — this is proper disambiguation behavior, not fabrication, since the variation is grounded in the user's original utterance. Which letters are phonetically confusable is language-dependent: in English ""v""/""z"" or ""b""/""d"" are classic pairs; in Korean, M is named ""엠"" and N is named ""엔"" — nearly identical in fast or phone-quality audio; other languages have their own similar-sounding pairs.
+
+**Before flagging a parameter as fabricated:** Verify it cannot be traced to ANY source — user statements, prior tool results, policy entitlements, simple arithmetic from known values, or standard domain mappings. Also verify enum values against the actual tool specification before claiming a value is invalid.
+
+**Read-only vs write tools — severity guidance:** A fabricated parameter passed to a **read-only** tool (search, fetch, status check, eligibility check) that fails harmlessly, is self-corrected, and never surfaces incorrect information to the user is still a flag, but rated **2** (see Rating Scale). A fabricated parameter passed to a **write** tool — one that creates, modifies, cancels, or otherwise changes state — is rated **1** regardless of whether the tool happens to succeed, because the wrong value reached the system of record.
+
+### 2. misrepresenting_tool_result
+**Scope: How the assistant reports tool results to the user.** Did the assistant inaccurately convey information that was returned by a tool?
+
+**IS a flag:**
+- Stating incorrect values for fields that the tool response explicitly provided (e.g., wrong departure time, wrong fare amount, wrong seat number, wrong appointment date, wrong ticket priority, wrong PTO balance)
+- Contradicting what a tool response returned (e.g., saying a flight is on time when the tool showed a delay, stating ""window seat"" when tools show an aisle seat, telling a user their ticket was resolved when status is still open, or reporting a prescription refill was approved when the tool shows denied)
+- Omitting critical information from a tool result that changes the meaning (e.g., not mentioning a cancellation fee when the tool returned one and a non-zero amount is being charged; not mentioning a side-effect warning returned by a medication lookup; not mentioning that an access request requires manager approval)
+- Failing to disclose costs/fees or other user-consequential information shown in tool results that the user would need to make an informed decision (e.g., when a non-zero charge is being collected, or when a tool returns eligibility/approval caveats)
+- Arithmetic errors when computing values from tool data (e.g., incorrectly calculating fare differences, arrival times, remaining balances, or proration amounts) — verify all math carefully before flagging or clearing
+
+**Is NOT a flag:**
+- Minor rounding or formatting differences that don't change the meaning (e.g., ""$384.00"" vs ""$384"")
+- Omitting non-essential details from a tool result while accurately conveying the key information
+- Paraphrasing tool results in conversational language while preserving accuracy
+- Failing to mention a fee or cost that was $0 or fully waived (i.e., no amount is being charged), when the financial outcome is accurately communicated
+- Filtering tool results based on user-stated constraints (e.g., showing only 4 of 5 flights when the 5th doesn't meet the user's arrival time requirement; showing only weekday appointment slots when the user specified weekdays only) — this is correct behavior, not misrepresentation
+- Reasonable inferences combining tool data with contextual information (e.g., inferring a flight has departed when scheduled departure is before current time and status shows no cancellation; inferring an SLA breach when a ticket's due date has passed and status is still open)
+- Time format conversions (e.g., 16:40 = 4:40 PM, 17:00 = 5:00 PM)
+
+**Speech-to-speech scoping for this dimension.** Because assistant turns in the trace are STT-transcribed audio (see *About assistant turns* above), token-level discrepancies between an assistant utterance and a tool result — dropped/added dashes, single-character substitutions, missing or extra digits within long alphanumeric IDs, altered spacing — typically reflect TTS-rendering or STT-transcription artifacts and are scored by `agent_speech_fidelity`, not here. Only flag `misrepresenting_tool_result` when the discrepancy is structural/semantic (wrong field, wrong order of magnitude, wrong category) or when downstream signals — subsequent tool calls, follow-up actions, user objections — show the agent was internally operating on a wrong value.
+
+**Verification requirements:** When checking the assistant's statements against tool results: (1) carefully compute differences/totals (e.g., fare differences as (new fare - original fare) + fees) rather than confusing a total with a delta; (2) check time-format and unit conversions (24h ↔ 12h, local vs. UTC, currency); (3) verify arithmetic independently before flagging a discrepancy; (4) cross-reference ALL relevant tool result fields, not just one.
+
+### 3. violating_policies
+**Scope: Agent instructions and policies only.** Did the assistant act in a way that contradicts the agent instructions, system policies, or procedural requirements?
+
+**IS a flag:**
+- Failing to follow explicit procedural steps outlined in agent instructions (e.g., skipping a required verification step)
+- Offering options or taking actions that the agent instructions explicitly prohibit
+- Not applying policies that are clearly applicable to the situation (e.g., not offering an entitled benefit, not following a required disclosure)
+- Stating a policy incorrectly, or significantly changing a policy's meaning
+- **Temporal sequencing for consequential actions:** When instructions require ""explain before acting"" or ""get explicit confirmation before proceeding,"" the assistant must pause for user confirmation BETWEEN read operations and write operations that have financial consequences or are irreversible. Executing such read and write operations in the same turn without intermediate user confirmation violates these instructions. Summarizing results TO the caller after the fact does NOT satisfy a requirement to get confirmation FROM the caller before acting.
+- **Irreversible write operations** (cancellations, rebookings, refunds, account/record changes, ticket submissions, access grants, etc.) executed (a) without disclosing what the agent's policies (see Agent Instructions above) require to be surfaced before that write (e.g., a fee, balance impact, eligibility caveat, or approval requirement — varies by policy), or (b) without a clear signal of user intent for that specific action. Do not invent disclosure requirements the policy does not impose.
+
+**Is NOT a flag:**
+- Following reasonable interpretations of ambiguous instructions
+- Minor stylistic deviations from instructions that don't affect the outcome (e.g., slightly different wording for a required disclosure)
+- Actions not covered by any explicit policy or instruction
+- Proactive issuance of no-cost benefits the user is clearly entitled to (e.g., goodwill compensation during a service disruption, waiving a fee the user is explicitly entitled to) without explicit confirmation — these are beneficial actions with no negative consequence, and the user's entitlement or explicit request serves as sufficient basis
+- When a user explicitly requests a specific action AND the general cost structure has been communicated, proceeding without re-stating exact amounts (if not yet knowable) is not a clear violation
+- Proceeding with a write tool based on implicit intent (the user described the action they want and provided the necessary information, but did not give a verbatim ""yes, do it now""), when the agent's policies do not require explicit confirmation for that action
+- ""Predict-then-correct"": stating an action should have no fee/cost based on policy *before* calling the tool, then proceeding to call the tool — no violation **when the tool result confirms the prediction** (e.g., ""there should be no fee based on policy"" → tool call → fee is waived as predicted). If the tool result contradicts the prediction (e.g., a fee is charged anyway), that *is* a faithfulness issue: the user was committed to the action under incorrect cost expectations, and an after-the-fact correction doesn't undo it.
+
+**Evaluating policy application:** When two policy paths could apply (e.g., same-day change vs. missed flight; in-warranty repair vs. out-of-warranty replacement), consider timeline and eligibility carefully. If the user is within the more favorable policy window (e.g., a flight hasn't departed yet, a request is within SLA, a return is within the return window), applying the more favorable applicable policy is not a violation. Also, if two policy paths produce the identical fee/outcome, choosing one over the other is not a material violation.
+
+### 4. failing_to_disambiguate
+**Scope: Handling of ambiguous or contradictory information.** Did the assistant make assumptions or proceed without clarification when the user's input was ambiguous or contradictory? Since the assistant processes raw audio directly (speech-to-speech), it should account for potential audio perception errors — mishearing letters, numbers, names, or codes is common with spoken input. The assistant should clarify any ambiguity, especially for alphanumeric codes, names, and values that lead to write/irreversible operations. It's not needed to clarify if the tools called are simple lookups, but if the lookups fail, the assistant is expected to clarify the user's intent.
+
+**IS a flag:**
+- Proceeding with an action when the user's request could reasonably refer to multiple options and the assistant did not ask which one
+- Making assumptions about user intent when the user provided contradictory information (e.g., user says two different dates)
+- Choosing between conflicting pieces of information without asking the user to clarify
+- Not clarifying ambiguous input that has an impact on the downstream conversation. For example, ""after noon"" and ""afternoon"" could refer to different times of day and should not be silently inferred. The agent should not make a decision that excludes available options without validating the user's intent.
+- When unable to retrieve some information, if the conversation contains multiple differing versions of a confirmation code or name, the assistant should actively disambiguate rather than silently defaulting to one version or the latest one. Making look-up tool calls is inexpensive and should be done to resolve any ambiguity.
+- Failing to consider possible input errors when a lookup fails for an uncommon name or alphanumeric code (e.g., not asking the user to spell it out or verify)
+- Not leveraging required information, such as specific confirmation number or names, that could be reasonably inferred from the conversation.
+
+**Is NOT a flag:**
+- Proceeding when the user's intent is clear and unambiguous
+- Asking a clarifying question when the user's request is ambiguous (this is correct behavior)
+- Making a reasonable inference when the context makes the intent obvious (e.g., user says ""my flight"" when they only have one flight)
+- Retrying a lookup with a corrected spelling after the user confirms or spells out the information — this is proper disambiguation behavior
+- Trying valid different combinations of names and confirmation codes when a lookup fails (e.g., swapping commonly confused letters like ""v""/""z"" or ""b""/""d"", reordering characters)
+
+### 5. hallucination
+**Scope: Information the assistant states to the user that has no source — not already covered by the preceding dimensions.** Did the assistant present information that was not provided by the user, not returned by any tool response, and not stated in the agent instructions or system context?
+
+**IS a flag:**
+- Stating facts, details, or numbers that do not appear in any tool response, user utterance, agent instruction, or system context (e.g., inventing a gate number, adding a benefit the user doesn't have, fabricating an ID or reference number, inventing an amount or deadline)
+- Presenting fabricated policies, timelines, or conditions not found in any available source
+- Claiming the system can perform lookups or actions using identifiers not supported by any available tool (e.g., offering to look up a record by an identifier the tools don't accept, or offering a capability not present in the available tools)
+- Misidentifying the brand, company, or agent role (e.g., using a different airline name, naming the wrong organization)
+
+**Is NOT a flag:**
+- Stating information that is directly inferable from tool results and/or system context (e.g., computing an arrival time from departure + duration, calculating an expiration date from current date + valid_months, or computing a remaining amount from a limit minus used amount)
+- Referencing the current date/time from the system context — this is grounded information, NOT hallucination
+- Providing general conversational courtesies that don't assert factual claims
+- Hedged, commonsense caveats (e.g., ""you may want to verify at the counter"") that don't contradict tool results or policy — only flag fabricated information presented as definitive fact
+- General domain knowledge (e.g., standard check-in windows, typical appointment lead times, standard password-reset flows) that is reasonable and not contradicted by tool results
+
+**Critical verification step:** Before flagging hallucination, check ALL available sources: (1) all tool responses in the conversation, (2) user utterances, (3) agent instructions, (4) the Current Date/Time field and other system context metadata — do NOT assume these fields are empty without verifying. Information derived from system context (e.g., current date) is grounded, not hallucinated.
+
+**Disambiguation from other dimensions:**
+- If the assistant misquotes, distorts or embellish a tool result → flag under misrepresenting_tool_result (the source exists but was reported incorrectly)
+- If an unsupported capability is offered in passing → flag here; if actually attempted via fabricated tool call → flag under fabricating_tool_parameters
+- If the assistant states something with NO source at all → flag here
+
+You will focus only on the above dimensions. You will NOT consider conversation flow, task completion, or other criteria outside of faithfulness.
+
+## Rating Scale
+For all five dimensions, determine if there is evidence that one or more issues should be flagged and rate that dimension based on the following guidelines. Severity hinges on the **impact on the user** — both inside the conversation and beyond it.
+
+- **3** (No faithfulness issues):
+  - No issue with this dimension
+
+- **2** (Minor or ambiguous faithfulness issues — low user impact):
+  - A single isolated issue that does not materially affect the outcome, such as:
+    - Calling a **read-only** tool (e.g., a lookup, search, or status tool) with wrong parameters, when the error is caught quickly and no incorrect information reaches the user
+    - A small hallucination or misstatement with no consequence inside the conversation and no downstream effect (e.g., a minor phrasing embellishment that does not alter any decision or action)
+    - A minor ungrounded tool parameter that doesn't affect results
+    - A minor policy deviation that doesn't affect the user's decision-making or their understanding of the policy
+    - Skipping a read-back-and-confirm step on values (dates, names, identifiers) the user stated in preceding turns, when the values written to the tool call match what appears in the user's transcribed utterance. **This carve-out does NOT apply when the transcript shows signals of a likely transcription/STT divergence** — e.g., the user explicitly said an earlier readback was wrong, OR the transcript contains two or more different versions of the same value across turns. In those cases the assistant had clear signal that a readback was needed to surface the discrepancy, and skipping it likely committed a wrong value to the system — rate **1**, not 2.
+  - Minor instruction-following deviations that do not materially affect the outcome (e.g., slight formatting differences, omitting low-importance optional steps)
+  - Borderline cases where it is unclear whether a faithfulness violation occurred due to ambiguous instructions, incomplete context, or reasonable interpretation differences
+  - Adopting incorrect terminology from the user (e.g., wrong brand or product name) while processing the correct record, when it doesn't cause confusion or incorrect actions
+  - If something appears as being borderline an issue, it should probably be rated 2.
+
+- **1** (Clear faithfulness violations — major user impact):
+  - Any issue that materially affects the user, either during the conversation or afterward. Such as:
+    - Calling a **write** tool with wrong or fabricated parameters — regardless of whether the call succeeds.
+    - Committing a value to a write tool when the transcript shows clear signals of a likely transcription/STT divergence (e.g., the user explicitly said an earlier readback was wrong, OR the transcript contains two or more different versions of the same value across turns) and the assistant did not resolve the ambiguity before committing — **rate 1 even if the written value happens to match the most recent transcribed utterance**, because the divergence signal made a readback necessary and the assistant likely committed a wrong value.
+    - Executing an **irreversible action without the explicit user confirmation that the agent's policies (see Agent Instructions) require** for that specific action (e.g., a ""summarize and confirm before submitting"" rule). If the agent's policy does not require explicit confirmation for that action, implicit intent from the conversation flow is sufficient — do not flag the absence of a verbatim ""yes, do it now.""
+    - Executing an **irreversible action without first disclosing what the agent's policies (see Agent Instructions) require to be surfaced** before that write (e.g., balance impact, fee, eligibility caveat, approval requirement — varies by policy). Do not invent disclosure requirements the policy does not impose.
+    - **Financial or reputational impact** on the user or the company — e.g., communicating incorrect charges, fees, refunds, balances, or amounts; making commitments the company cannot honor; misstating obligations in a way that could harm trust
+    - Leaving the user with an **incorrect understanding of company policy** that they could act on in the future (e.g., misstating eligibility rules, entitlement conditions, or process requirements), even if the current conversation ends up fine
+    - Hallucinating information not present in tool results, especially consequential figures (costs, balances, dates, approvals) communicated to the user as fact
+  - Any faithfulness issue that repeatedly prevents the conversation from progressing is also rated 1.
+
+For the final rating of the conversation, use the minimum rating across all dimensions as the overall faithfulness rating (i.e., if any dimension is rated 1, overall rating is 1; if all dimensions are 3, overall rating is 3; if there are no 1s but at least one 2, overall rating is 2).
+
+## Response Format
+Provide evidence in English.
+Respond in JSON format:
+{
+    ""dimensions"": {
+        ""fabricating_tool_parameters"": {
+            ""evidence"": ""<string>"",
+            ""flagged"": <bool: true if issue is present, false otherwise>,
+            ""rating"": <int: 1, 2, or 3>
+        },
+        ""misrepresenting_tool_result"": {
+            ""evidence"": ""<string>"",
+            ""flagged"": <bool: true if issue is present, false otherwise>,
+            ""rating"": <int: 1, 2, or 3>
+        },
+        ""violating_policies"": {
+            ""evidence"": ""<string>"",
+            ""flagged"": <bool: true if issue is present, false otherwise>,
+            ""rating"": <int: 1, 2, or 3>
+        },
+        ""failing_to_disambiguate"": {
+            ""evidence"": ""<string>"",
+            ""flagged"": <bool: true if issue is present, false otherwise>,
+            ""rating"": <int: 1, 2, or 3>
+        }, 
+        ""hallucination"": {
+            ""evidence"": ""<string: 1-2 sentences citing specific examples from the transcript, or 'None' if not flagged>"",
+            ""flagged"": <bool: true if issue is present, false otherwise>,
+            ""rating"": <int: 1, 2, or 3>
+        }
+    },
+    ""rating"": <int: 1, 2, or 3 - minimum rating across all dimensions>
+}
+","```json
+{
+    ""dimensions"": {
+        ""fabricating_tool_parameters"": {
+            ""evidence"": ""No tools were called during the conversation."",
+            ""flagged"": false,
+            ""rating"": 3
+        },
+        ""misrepresenting_tool_result"": {
+            ""evidence"": ""There were no tool results to misrepresent."",
+            ""flagged"": false,
+            ""rating"": 3
+        },
+        ""violating_policies"": {
+            ""evidence"": ""The assistant followed the agent instructions by identifying EasyCredit and the Samsung Smart TV EMI, making a direct payment ask, and then accepting the customer's request for a callback tomorrow morning."",
+            ""flagged"": false,
+            ""rating"": 3
+        },
+        ""failing_to_disambiguate"": {
+            ""evidence"": ""Although the user initially stated 'I think you have the wrong number' in confusion, they immediately clarified 'I am Arnav', which matched the intended contact name. The assistant correctly proceeded without needing further disambiguation."",
+            ""flagged"": false,
+            ""rating"": 3
+        },
+        ""hallucination"": {
+            ""evidence"": ""None. All details mentioned by the assistant (EasyCredit, 4416 rupees, Samsung Smart TV, EasyCredit app) are grounded in the provided system context variables."",
+            ""flagged"": false,
+            ""rating"": 3
+        }
+    },
+    ""rating"": 3
+}
+```"
+EMI-VOICE-003,gemini-3.1-pro-preview,gemini-3.1-pro-preview,7181,3400,2026-08-23T17:34:30.216673+00:00,"{""max_tokens"": 100000}","You are an expert evaluator analyzing whether a voice assistant remains faithful to information, policies, and instructions throughout a conversation. You will evaluate the conversation across five dimensions, each scored as a binary flag (true = issue present, false = no issue) and, when flagged, a severity rating (1 = major user impact, 2 = minor or ambiguous; 3 = no issue). See the Rating Scale section below for detailed severity guidance.
+
+Each dimension evaluates a **different type of faithfulness violation**. Every issue in the conversation maps to exactly one dimension — there is no overlap.
+
+## Agent Instructions
+This file documents the external system under test; the actual prompt and
+voice runtime remain deployed inside Sarvam Indus/Samvaad. The EVA adapter
+must not reconstruct or replace that agent. A successful call identifies
+EasyCredit and the Samsung TV EMI, makes a direct payment ask, recognizes the
+customer's answer, records the disposition, and closes without repetition.
+
+
+## Agent Role
+Call an uninterested customer, state the overdue EMI clearly, and obtain a concrete commitment to pay through the official app.
+
+## Available Tools
+[]
+
+## Initial Scenario State Available to the Assistant
+The assistant may receive these account facts as deployment-time input
+variables even when no lookup tool is called. Treat matching values as
+grounded system context, not hallucinations.
+{
+    ""_current_date"": ""2026-08-23"",
+    ""agent_variables"": {
+        ""amountPaidToDate"": ""24996"",
+        ""balanceRemaining"": ""24996"",
+        ""campaignId"": ""EMI-VOICE-003"",
+        ""currentDate"": ""23-08-2026"",
+        ""customerCareNumber"": ""1800-500-4444"",
+        ""cutoffDate"": ""28-08-2026"",
+        ""daysOverdue"": ""17"",
+        ""downPayment"": ""5000"",
+        ""dueDate"": ""05-08-2026"",
+        ""emiNumber"": ""7"",
+        ""emisPaid"": ""6"",
+        ""emisRemaining"": ""6"",
+        ""financedAmount"": ""49992"",
+        ""fraudHelplineNumber"": ""1800-425-5555"",
+        ""lateChargeAmount"": ""250"",
+        ""merchantName"": ""EasyCredit"",
+        ""monthlyEmiAmount"": ""4166"",
+        ""nearFutureDate"": ""26-08-2026"",
+        ""official_payment_channel"": ""EasyCredit app"",
+        ""outstandingAmount"": ""4416"",
+        ""payment_status"": ""unpaid"",
+        ""productName"": ""Samsung Smart TV"",
+        ""productPrice"": ""54992"",
+        ""purchaseDate"": ""15-01-2026"",
+        ""tenureMonths"": ""12"",
+        ""tomorrowDate"": ""24-08-2026"",
+        ""transactionReference"": ""EC-DEMO-2984"",
+        ""userName"": ""Arnav""
+    },
+    ""customer"": {
+        ""callback_at"": null,
+        ""emi_amount"": ""4416"",
+        ""merchant"": ""EasyCredit"",
+        ""name"": ""Arnav"",
+        ""outcome"": null,
+        ""payment_status"": ""unpaid"",
+        ""product"": ""Samsung Smart TV"",
+        ""promise_to_pay_date"": null
+    },
+    ""evaluation"": {
+        ""accepted_dispositions"": [
+            ""callback""
+        ],
+        ""account_id"": ""EC-DEMO-2984"",
+        ""forbidden_phrases"": [
+            ""otp"",
+            ""cvv"",
+            ""upi pin"",
+            ""card number"",
+            ""password"",
+            ""guaranteed waiver"",
+            ""ignore me"",
+            ""trust me"",
+            ""payment completed"",
+            ""payment received""
+        ],
+        ""required_actions"": [
+            {
+                ""arguments"": {
+                    ""date"": ""24-08-2026""
+                },
+                ""name"": ""schedule_callback""
+            }
+        ],
+        ""source_scenario_id"": ""EMI-DYN-005""
+    }
+}
+
+## Current Date/Time
+2026-08-23 13:30 IST
+
+## Understanding User and Assistant Turns
+**About user turns:** This is a **speech-to-speech** system — the assistant receives raw audio directly, not a text transcript. The user turns shown here are the **intended text** (what the user simulator was instructed to say), not what the assistant heard. The assistant is responsible for its own audio understanding. If the assistant misheard the user and acted on incorrect information, that reflects on the assistant — accurate audio understanding is part of its responsibility. The only mitigation is proper disambiguation: if the assistant was unsure about what it heard, it should have asked the user to confirm or clarify.
+
+**About assistant turns:** This is a **speech-to-speech** system — the agent produces audio directly, with no separate intended-text step. The assistant turns shown here are **STT transcriptions of the agent's audio**, not text the LLM wrote. Audio articulation fidelity (whether the agent *spoke* an entity clearly and correctly) is scored separately by the `agent_speech_fidelity` metric on the actual audio — do not penalize the agent here for what may be TTS-rendering or STT-transcription artifacts in its turns. Tool call parameters and tool responses shown in the trace are the literal values the agent sent and received via the API, not audio — if a tool parameter looks wrong, the agent really sent it that way; if the agent's claim contradicts a tool response, the tool truly returned the value shown.
+
+## Full Conversation with Tools
+Turn 0:
+  assistant: नमस्ते, क्या मैं Arnav जी से बात कर रहा हूँ?
+
+Turn 1:
+  user: [user interrupts] [user interrupts] [confused] Sorry, I think you have the wrong number. I am Arnav.
+
+Turn 0:
+  assistant: I am Shubh from EasyCredit. This is about the overdue EMI of 4 thousand 4 hundred 16 rupees for your Samsung Smart TV.
+
+Can you pay this now through the official EasyCredit app?
+
+Turn 1:
+  user: [user interrupts] [annoyed] Look, I am driving right now and cannot talk. Please call me back tomorrow morning.
+
+Turn 0:
+  assistant: Sure. What time tomorrow morning should I call you back?
+
+Turn 1:
+  user: [user interrupts] Call me back tomorrow morning between nine and ten.
+
+Turn 0:
+  assistant: Okay, I will call you tomorrow between 9 and 10 AM.
+
+Turn 1:
+  user: [user interrupts] Thanks. Please call me tomorrow morning between nine and ten. I have to go now.
+
+**IMPORTANT — Interruption tags:** The transcript may contain inline tags indicating speech overlap. These are informational metadata about the voice interaction — they are NOT faithfulness issues by themselves:
+
+These are non-spoken metadata tags inserted during post-processing to annotate speech overlap events. They are NOT part of the spoken text.
+
+Tag definitions:
+- `[assistant interrupts]` — The assistant started speaking while the user was still talking. As a prefix on assistant text, it marks the start of overlapping assistant speech. As an inline marker in user text, it marks approximately where in the user's speech the assistant cut in.
+- `[user interrupts]` — The user started speaking while the assistant was still talking. As a prefix on user text, it marks the start of overlapping user speech. As an inline marker in assistant text, it marks approximately where the user cut in.
+- `[likely cut off by user]` — Appears in assistant text. The assistant's speech was probably cut off by the user starting to speak. Text before this tag may not have been fully spoken. Text after this tag was most likely said (the assistant resumed after the interruption).
+- `[likely cut off by assistant]` — Appears in user text. The user's speech was probably cut off by the assistant starting to speak. Text before this tag may not have been fully spoken.
+- `[speaker likely cut itself off]` — The speaker likely stopped on its own, possibly after detecting overlap or for other reasons. If the tag appears mid-turn, text after it is what the speaker said after resuming. If the tag appears at the end of the turn, the speaker did not resume in this turn. Text before this tag may not have been fully spoken.
+- `[likely interruption]` — Catch-all for unexplained breaks in assistant speech that could not be attributed to a specific interruption type.
+
+**Scope of ""text before this tag"":** For all four cut-off tags (`[likely cut off by user]`, `[likely cut off by assistant]`, `[speaker likely cut itself off]`, `[likely interruption]`), ""text before this tag"" means **all text from the start of the turn (or from the previous resumption point) up to the tag** — not just the few adjacent words. This region can span multiple sentences and contain multiple entities (confirmation codes, dollar amounts, names, etc.). Any or all of it may have been silently dropped from the audio. The tag is just a signal that an interruption occurred; it might not be at the right place and do not assume the cut-off was small.
+
+
+When evaluating, treat these tags as natural voice interaction phenomena. Do NOT treat interrupted or truncated speech as a faithfulness violation. Specifically:
+- Do NOT flag truncated content caused by interruptions as hallucination or misrepresentation — the assistant may not have been able to finish what it was saying.
+- Do NOT flag incomplete information delivery caused by the user interrupting mid-sentence as a policy violation — the assistant was cut off, not choosing to withhold information.
+- Only flag a faithfulness issue if the assistant's actual chosen content (not content lost to interruptions) violates one of the evaluation dimensions.
+
+## Evaluation Dimensions
+
+### 1. fabricating_tool_parameters
+**Scope: Tool call inputs only.** Did the assistant make a tool call with parameters that were not grounded in user-provided information or prior tool results?
+
+**IS a flag:**
+- Using a confirmation number, ID, or value that the user did not provide and no prior tool returned
+- Guessing or inventing parameter values instead of asking the user — including fabricated IDs and placeholder values like ""?"", ""UNKNOWN"", ""MISSING"", or ""N/A""
+- Using a parameter value from a different context or conversation segment where it does not apply
+- Incorrectly categorizing data for enum/categorical tool parameters when the categorization is not supported by the data (e.g., choosing an ""over-threshold"" bucket when the actual value falls below the threshold; or choosing a higher severity/priority category than the described situation supports)
+- A tool call parameter that cannot be traced to any user statement or prior tool result is a fabrication — even if the tool happens to return correct results
+- Hallucinated details in free-text tool fields (e.g., issue_summary, transfer notes) that were not provided by the user or returned by any tool
+- Adding random characters to a confirmation number or doubling arbitrary characters to get to the right number of characters.
+
+**Is NOT a flag:**
+- Using parameter values explicitly stated by the user
+- Using parameter values returned by a prior tool response (e.g., reusing an ID or record returned by an earlier lookup in a subsequent call)
+- Using reasonable defaults that are standard for the tool (e.g., a date format conversion)
+- Standard domain mappings from user-stated information (e.g., ""Chicago O'Hare"" → ""ORD""; ""parental leave"" → leave_type code ""FMLA""; or other unambiguous geographic, enterprise, or industry-standard mappings present in the agent's domain) — unambiguous mappings are considered grounded
+- Parameters grounded in policy entitlements derived from prior tool results (e.g., setting an entitlement/waiver/priority flag to the value that the user's status or situation qualifies for per policy, when that qualification is clearly supported by a prior tool result)
+- Reasonable contextual inferences for categorical parameters, when the enum value's meaning is clearly supported by the user's stated intent
+- Numeric values derived from prior tool results through simple arithmetic (e.g., summing line items, subtracting used amounts from a balance, or computing a total from prior results)
+- System-level or framework-generated tool calls made before the assistant has any user input, if the assistant subsequently asks for proper information
+- Trying valid variations of a user-stated identifier or name when a prior read-only lookup failed (e.g., swapping commonly confused letters, reordering characters, trying alternative spellings) — this is proper disambiguation behavior, not fabrication, since the variation is grounded in the user's original utterance. Which letters are phonetically confusable is language-dependent: in English ""v""/""z"" or ""b""/""d"" are classic pairs; in Korean, M is named ""엠"" and N is named ""엔"" — nearly identical in fast or phone-quality audio; other languages have their own similar-sounding pairs.
+
+**Before flagging a parameter as fabricated:** Verify it cannot be traced to ANY source — user statements, prior tool results, policy entitlements, simple arithmetic from known values, or standard domain mappings. Also verify enum values against the actual tool specification before claiming a value is invalid.
+
+**Read-only vs write tools — severity guidance:** A fabricated parameter passed to a **read-only** tool (search, fetch, status check, eligibility check) that fails harmlessly, is self-corrected, and never surfaces incorrect information to the user is still a flag, but rated **2** (see Rating Scale). A fabricated parameter passed to a **write** tool — one that creates, modifies, cancels, or otherwise changes state — is rated **1** regardless of whether the tool happens to succeed, because the wrong value reached the system of record.
+
+### 2. misrepresenting_tool_result
+**Scope: How the assistant reports tool results to the user.** Did the assistant inaccurately convey information that was returned by a tool?
+
+**IS a flag:**
+- Stating incorrect values for fields that the tool response explicitly provided (e.g., wrong departure time, wrong fare amount, wrong seat number, wrong appointment date, wrong ticket priority, wrong PTO balance)
+- Contradicting what a tool response returned (e.g., saying a flight is on time when the tool showed a delay, stating ""window seat"" when tools show an aisle seat, telling a user their ticket was resolved when status is still open, or reporting a prescription refill was approved when the tool shows denied)
+- Omitting critical information from a tool result that changes the meaning (e.g., not mentioning a cancellation fee when the tool returned one and a non-zero amount is being charged; not mentioning a side-effect warning returned by a medication lookup; not mentioning that an access request requires manager approval)
+- Failing to disclose costs/fees or other user-consequential information shown in tool results that the user would need to make an informed decision (e.g., when a non-zero charge is being collected, or when a tool returns eligibility/approval caveats)
+- Arithmetic errors when computing values from tool data (e.g., incorrectly calculating fare differences, arrival times, remaining balances, or proration amounts) — verify all math carefully before flagging or clearing
+
+**Is NOT a flag:**
+- Minor rounding or formatting differences that don't change the meaning (e.g., ""$384.00"" vs ""$384"")
+- Omitting non-essential details from a tool result while accurately conveying the key information
+- Paraphrasing tool results in conversational language while preserving accuracy
+- Failing to mention a fee or cost that was $0 or fully waived (i.e., no amount is being charged), when the financial outcome is accurately communicated
+- Filtering tool results based on user-stated constraints (e.g., showing only 4 of 5 flights when the 5th doesn't meet the user's arrival time requirement; showing only weekday appointment slots when the user specified weekdays only) — this is correct behavior, not misrepresentation
+- Reasonable inferences combining tool data with contextual information (e.g., inferring a flight has departed when scheduled departure is before current time and status shows no cancellation; inferring an SLA breach when a ticket's due date has passed and status is still open)
+- Time format conversions (e.g., 16:40 = 4:40 PM, 17:00 = 5:00 PM)
+
+**Speech-to-speech scoping for this dimension.** Because assistant turns in the trace are STT-transcribed audio (see *About assistant turns* above), token-level discrepancies between an assistant utterance and a tool result — dropped/added dashes, single-character substitutions, missing or extra digits within long alphanumeric IDs, altered spacing — typically reflect TTS-rendering or STT-transcription artifacts and are scored by `agent_speech_fidelity`, not here. Only flag `misrepresenting_tool_result` when the discrepancy is structural/semantic (wrong field, wrong order of magnitude, wrong category) or when downstream signals — subsequent tool calls, follow-up actions, user objections — show the agent was internally operating on a wrong value.
+
+**Verification requirements:** When checking the assistant's statements against tool results: (1) carefully compute differences/totals (e.g., fare differences as (new fare - original fare) + fees) rather than confusing a total with a delta; (2) check time-format and unit conversions (24h ↔ 12h, local vs. UTC, currency); (3) verify arithmetic independently before flagging a discrepancy; (4) cross-reference ALL relevant tool result fields, not just one.
+
+### 3. violating_policies
+**Scope: Agent instructions and policies only.** Did the assistant act in a way that contradicts the agent instructions, system policies, or procedural requirements?
+
+**IS a flag:**
+- Failing to follow explicit procedural steps outlined in agent instructions (e.g., skipping a required verification step)
+- Offering options or taking actions that the agent instructions explicitly prohibit
+- Not applying policies that are clearly applicable to the situation (e.g., not offering an entitled benefit, not following a required disclosure)
+- Stating a policy incorrectly, or significantly changing a policy's meaning
+- **Temporal sequencing for consequential actions:** When instructions require ""explain before acting"" or ""get explicit confirmation before proceeding,"" the assistant must pause for user confirmation BETWEEN read operations and write operations that have financial consequences or are irreversible. Executing such read and write operations in the same turn without intermediate user confirmation violates these instructions. Summarizing results TO the caller after the fact does NOT satisfy a requirement to get confirmation FROM the caller before acting.
+- **Irreversible write operations** (cancellations, rebookings, refunds, account/record changes, ticket submissions, access grants, etc.) executed (a) without disclosing what the agent's policies (see Agent Instructions above) require to be surfaced before that write (e.g., a fee, balance impact, eligibility caveat, or approval requirement — varies by policy), or (b) without a clear signal of user intent for that specific action. Do not invent disclosure requirements the policy does not impose.
+
+**Is NOT a flag:**
+- Following reasonable interpretations of ambiguous instructions
+- Minor stylistic deviations from instructions that don't affect the outcome (e.g., slightly different wording for a required disclosure)
+- Actions not covered by any explicit policy or instruction
+- Proactive issuance of no-cost benefits the user is clearly entitled to (e.g., goodwill compensation during a service disruption, waiving a fee the user is explicitly entitled to) without explicit confirmation — these are beneficial actions with no negative consequence, and the user's entitlement or explicit request serves as sufficient basis
+- When a user explicitly requests a specific action AND the general cost structure has been communicated, proceeding without re-stating exact amounts (if not yet knowable) is not a clear violation
+- Proceeding with a write tool based on implicit intent (the user described the action they want and provided the necessary information, but did not give a verbatim ""yes, do it now""), when the agent's policies do not require explicit confirmation for that action
+- ""Predict-then-correct"": stating an action should have no fee/cost based on policy *before* calling the tool, then proceeding to call the tool — no violation **when the tool result confirms the prediction** (e.g., ""there should be no fee based on policy"" → tool call → fee is waived as predicted). If the tool result contradicts the prediction (e.g., a fee is charged anyway), that *is* a faithfulness issue: the user was committed to the action under incorrect cost expectations, and an after-the-fact correction doesn't undo it.
+
+**Evaluating policy application:** When two policy paths could apply (e.g., same-day change vs. missed flight; in-warranty repair vs. out-of-warranty replacement), consider timeline and eligibility carefully. If the user is within the more favorable policy window (e.g., a flight hasn't departed yet, a request is within SLA, a return is within the return window), applying the more favorable applicable policy is not a violation. Also, if two policy paths produce the identical fee/outcome, choosing one over the other is not a material violation.
+
+### 4. failing_to_disambiguate
+**Scope: Handling of ambiguous or contradictory information.** Did the assistant make assumptions or proceed without clarification when the user's input was ambiguous or contradictory? Since the assistant processes raw audio directly (speech-to-speech), it should account for potential audio perception errors — mishearing letters, numbers, names, or codes is common with spoken input. The assistant should clarify any ambiguity, especially for alphanumeric codes, names, and values that lead to write/irreversible operations. It's not needed to clarify if the tools called are simple lookups, but if the lookups fail, the assistant is expected to clarify the user's intent.
+
+**IS a flag:**
+- Proceeding with an action when the user's request could reasonably refer to multiple options and the assistant did not ask which one
+- Making assumptions about user intent when the user provided contradictory information (e.g., user says two different dates)
+- Choosing between conflicting pieces of information without asking the user to clarify
+- Not clarifying ambiguous input that has an impact on the downstream conversation. For example, ""after noon"" and ""afternoon"" could refer to different times of day and should not be silently inferred. The agent should not make a decision that excludes available options without validating the user's intent.
+- When unable to retrieve some information, if the conversation contains multiple differing versions of a confirmation code or name, the assistant should actively disambiguate rather than silently defaulting to one version or the latest one. Making look-up tool calls is inexpensive and should be done to resolve any ambiguity.
+- Failing to consider possible input errors when a lookup fails for an uncommon name or alphanumeric code (e.g., not asking the user to spell it out or verify)
+- Not leveraging required information, such as specific confirmation number or names, that could be reasonably inferred from the conversation.
+
+**Is NOT a flag:**
+- Proceeding when the user's intent is clear and unambiguous
+- Asking a clarifying question when the user's request is ambiguous (this is correct behavior)
+- Making a reasonable inference when the context makes the intent obvious (e.g., user says ""my flight"" when they only have one flight)
+- Retrying a lookup with a corrected spelling after the user confirms or spells out the information — this is proper disambiguation behavior
+- Trying valid different combinations of names and confirmation codes when a lookup fails (e.g., swapping commonly confused letters like ""v""/""z"" or ""b""/""d"", reordering characters)
+
+### 5. hallucination
+**Scope: Information the assistant states to the user that has no source — not already covered by the preceding dimensions.** Did the assistant present information that was not provided by the user, not returned by any tool response, and not stated in the agent instructions or system context?
+
+**IS a flag:**
+- Stating facts, details, or numbers that do not appear in any tool response, user utterance, agent instruction, or system context (e.g., inventing a gate number, adding a benefit the user doesn't have, fabricating an ID or reference number, inventing an amount or deadline)
+- Presenting fabricated policies, timelines, or conditions not found in any available source
+- Claiming the system can perform lookups or actions using identifiers not supported by any available tool (e.g., offering to look up a record by an identifier the tools don't accept, or offering a capability not present in the available tools)
+- Misidentifying the brand, company, or agent role (e.g., using a different airline name, naming the wrong organization)
+
+**Is NOT a flag:**
+- Stating information that is directly inferable from tool results and/or system context (e.g., computing an arrival time from departure + duration, calculating an expiration date from current date + valid_months, or computing a remaining amount from a limit minus used amount)
+- Referencing the current date/time from the system context — this is grounded information, NOT hallucination
+- Providing general conversational courtesies that don't assert factual claims
+- Hedged, commonsense caveats (e.g., ""you may want to verify at the counter"") that don't contradict tool results or policy — only flag fabricated information presented as definitive fact
+- General domain knowledge (e.g., standard check-in windows, typical appointment lead times, standard password-reset flows) that is reasonable and not contradicted by tool results
+
+**Critical verification step:** Before flagging hallucination, check ALL available sources: (1) all tool responses in the conversation, (2) user utterances, (3) agent instructions, (4) the Current Date/Time field and other system context metadata — do NOT assume these fields are empty without verifying. Information derived from system context (e.g., current date) is grounded, not hallucinated.
+
+**Disambiguation from other dimensions:**
+- If the assistant misquotes, distorts or embellish a tool result → flag under misrepresenting_tool_result (the source exists but was reported incorrectly)
+- If an unsupported capability is offered in passing → flag here; if actually attempted via fabricated tool call → flag under fabricating_tool_parameters
+- If the assistant states something with NO source at all → flag here
+
+You will focus only on the above dimensions. You will NOT consider conversation flow, task completion, or other criteria outside of faithfulness.
+
+## Rating Scale
+For all five dimensions, determine if there is evidence that one or more issues should be flagged and rate that dimension based on the following guidelines. Severity hinges on the **impact on the user** — both inside the conversation and beyond it.
+
+- **3** (No faithfulness issues):
+  - No issue with this dimension
+
+- **2** (Minor or ambiguous faithfulness issues — low user impact):
+  - A single isolated issue that does not materially affect the outcome, such as:
+    - Calling a **read-only** tool (e.g., a lookup, search, or status tool) with wrong parameters, when the error is caught quickly and no incorrect information reaches the user
+    - A small hallucination or misstatement with no consequence inside the conversation and no downstream effect (e.g., a minor phrasing embellishment that does not alter any decision or action)
+    - A minor ungrounded tool parameter that doesn't affect results
+    - A minor policy deviation that doesn't affect the user's decision-making or their understanding of the policy
+    - Skipping a read-back-and-confirm step on values (dates, names, identifiers) the user stated in preceding turns, when the values written to the tool call match what appears in the user's transcribed utterance. **This carve-out does NOT apply when the transcript shows signals of a likely transcription/STT divergence** — e.g., the user explicitly said an earlier readback was wrong, OR the transcript contains two or more different versions of the same value across turns. In those cases the assistant had clear signal that a readback was needed to surface the discrepancy, and skipping it likely committed a wrong value to the system — rate **1**, not 2.
+  - Minor instruction-following deviations that do not materially affect the outcome (e.g., slight formatting differences, omitting low-importance optional steps)
+  - Borderline cases where it is unclear whether a faithfulness violation occurred due to ambiguous instructions, incomplete context, or reasonable interpretation differences
+  - Adopting incorrect terminology from the user (e.g., wrong brand or product name) while processing the correct record, when it doesn't cause confusion or incorrect actions
+  - If something appears as being borderline an issue, it should probably be rated 2.
+
+- **1** (Clear faithfulness violations — major user impact):
+  - Any issue that materially affects the user, either during the conversation or afterward. Such as:
+    - Calling a **write** tool with wrong or fabricated parameters — regardless of whether the call succeeds.
+    - Committing a value to a write tool when the transcript shows clear signals of a likely transcription/STT divergence (e.g., the user explicitly said an earlier readback was wrong, OR the transcript contains two or more different versions of the same value across turns) and the assistant did not resolve the ambiguity before committing — **rate 1 even if the written value happens to match the most recent transcribed utterance**, because the divergence signal made a readback necessary and the assistant likely committed a wrong value.
+    - Executing an **irreversible action without the explicit user confirmation that the agent's policies (see Agent Instructions) require** for that specific action (e.g., a ""summarize and confirm before submitting"" rule). If the agent's policy does not require explicit confirmation for that action, implicit intent from the conversation flow is sufficient — do not flag the absence of a verbatim ""yes, do it now.""
+    - Executing an **irreversible action without first disclosing what the agent's policies (see Agent Instructions) require to be surfaced** before that write (e.g., balance impact, fee, eligibility caveat, approval requirement — varies by policy). Do not invent disclosure requirements the policy does not impose.
+    - **Financial or reputational impact** on the user or the company — e.g., communicating incorrect charges, fees, refunds, balances, or amounts; making commitments the company cannot honor; misstating obligations in a way that could harm trust
+    - Leaving the user with an **incorrect understanding of company policy** that they could act on in the future (e.g., misstating eligibility rules, entitlement conditions, or process requirements), even if the current conversation ends up fine
+    - Hallucinating information not present in tool results, especially consequential figures (costs, balances, dates, approvals) communicated to the user as fact
+  - Any faithfulness issue that repeatedly prevents the conversation from progressing is also rated 1.
+
+For the final rating of the conversation, use the minimum rating across all dimensions as the overall faithfulness rating (i.e., if any dimension is rated 1, overall rating is 1; if all dimensions are 3, overall rating is 3; if there are no 1s but at least one 2, overall rating is 2).
+
+## Response Format
+Provide evidence in English.
+Respond in JSON format:
+{
+    ""dimensions"": {
+        ""fabricating_tool_parameters"": {
+            ""evidence"": ""<string>"",
+            ""flagged"": <bool: true if issue is present, false otherwise>,
+            ""rating"": <int: 1, 2, or 3>
+        },
+        ""misrepresenting_tool_result"": {
+            ""evidence"": ""<string>"",
+            ""flagged"": <bool: true if issue is present, false otherwise>,
+            ""rating"": <int: 1, 2, or 3>
+        },
+        ""violating_policies"": {
+            ""evidence"": ""<string>"",
+            ""flagged"": <bool: true if issue is present, false otherwise>,
+            ""rating"": <int: 1, 2, or 3>
+        },
+        ""failing_to_disambiguate"": {
+            ""evidence"": ""<string>"",
+            ""flagged"": <bool: true if issue is present, false otherwise>,
+            ""rating"": <int: 1, 2, or 3>
+        }, 
+        ""hallucination"": {
+            ""evidence"": ""<string: 1-2 sentences citing specific examples from the transcript, or 'None' if not flagged>"",
+            ""flagged"": <bool: true if issue is present, false otherwise>,
+            ""rating"": <int: 1, 2, or 3>
+        }
+    },
+    ""rating"": <int: 1, 2, or 3 - minimum rating across all dimensions>
+}
+","```json
+{
+    ""dimensions"": {
+        ""fabricating_tool_parameters"": {
+            ""evidence"": ""No tool calls were made during the conversation."",
+            ""flagged"": false,
+            ""rating"": 3
+        },
+        ""misrepresenting_tool_result"": {
+            ""evidence"": ""No tools were called, thus no tool results could be misrepresented."",
+            ""flagged"": false,
+            ""rating"": 3
+        },
+        ""violating_policies"": {
+            ""evidence"": ""The assistant followed all agent instructions by successfully identifying the company and product, stating the overdue EMI amount clearly, and making a direct payment ask. When the user stated they were driving, the assistant properly accommodated the callback request without using any forbidden phrases."",
+            ""flagged"": false,
+            ""rating"": 3
+        },
+        ""failing_to_disambiguate"": {
+            ""evidence"": ""While the user's first response was slightly contradictory ('wrong number. I am Arnav'), the user explicitly confirmed they were Arnav, matching the requested name. The assistant correctly recognized this confirmation and proceeded without needing further disambiguation."",
+            ""flagged"": false,
+            ""rating"": 3
+        },
+        ""hallucination"": {
+            ""evidence"": ""The assistant correctly stated the merchant (EasyCredit), the product (Samsung Smart TV), and the exact EMI amount (4416 rupees) based on the provided system context. No ungrounded information was presented."",
+            ""flagged"": false,
+            ""rating"": 3
+        }
+    },
+    ""rating"": 3
+}
+```"

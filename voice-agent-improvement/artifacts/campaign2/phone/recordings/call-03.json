@@ -1,0 +1,60 @@
+{
+ "slug": "call-03",
+ "interaction_id": "20260822/0df3cb18-14:56:08-64aff23d",
+ "start": "Aug 22, 2026, 02:56:09 PM",
+ "duration_s": 29.42,
+ "end_reason": "USER_ENDS",
+ "language": "Hindi",
+ "num_messages": 7,
+ "channel_direction": "outbound",
+ "has_recording": true,
+ "transcript": [
+  {
+   "speaker": "agent",
+   "text": "नमस्ते, क्या मैं Arnav जी से बात कर रहा हूँ?",
+   "tools": null
+  },
+  {
+   "speaker": "caller",
+   "text": "हाँ जी बोलिए।",
+   "tools": null
+  },
+  {
+   "speaker": "agent",
+   "text": "मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की चार हज़ार चार  <interruption>",
+   "tools": null
+  },
+  {
+   "speaker": "caller",
+   "text": "मैं आज शाम तक कर दूंगा।",
+   "tools": null
+  },
+  {
+   "speaker": "agent",
+   "text": "ठीक है। क्या आप आज शाम तक official EasyCredit app के ज़रिए payment कर देंगे?",
+   "tools": null
+  },
+  {
+   "speaker": "caller",
+   "text": "जी हां जी शाम तक हो जाएगा।",
+   "tools": null
+  },
+  {
+   "speaker": "agent",
+   "text": "धन्यवाद Arnav जी। अरे, है क्या तू?",
+   "tools": [
+    {
+     "name": "record_call_outcome",
+     "args": {
+      "disposition": "ptp_today"
+     },
+     "output": {
+      "message_to_llm": null,
+      "message_to_user": null,
+      "break_chat_agent_loop": true
+     }
+    }
+   ]
+  }
+ ]
+}

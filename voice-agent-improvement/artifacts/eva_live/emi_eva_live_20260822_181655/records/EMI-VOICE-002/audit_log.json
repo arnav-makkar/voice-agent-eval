@@ -1,0 +1,139 @@
+{
+  "transcript": [
+    {
+      "value": "आप कौन बोल रहे हो? मैं अर्नव बोलता हूं।",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787402827614",
+      "message_type": "user"
+    },
+    {
+      "value": "मैं EasyCredit Consumer EMI से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की दो हज़ार नौ सौ पचास रुपये की EMI overdue है। क्या आप इसे अभी official app के ज़रिए pay कर सकते हैं?",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787402830715",
+      "message_type": "assistant"
+    },
+    {
+      "value": "सुनो आज मैं पे नहीं कर सकता। मेरे पास अभी पैसे नहीं हैं।",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787402845293",
+      "message_type": "user"
+    },
+    {
+      "value": "अभी 28 अगस्त को आएगी तब मैं पे कर दूंगा।",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787402845293",
+      "message_type": "user"
+    },
+    {
+      "value": "कोई बात नहीं। क्या आप आज बाद में pay कर पाएंगे",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787402847334",
+      "message_type": "assistant"
+    },
+    {
+      "value": "अच्छा, कोई बात नहीं। क्या आप आज बाद में pay कर पाएंगे या किसी और तारीख़ बता सकते हैं?",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787402849016",
+      "message_type": "assistant"
+    },
+    {
+      "value": "ठीक है, तो क्या आप अट्ठाइस अगस्त को payment करने का promise करते",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787402851165",
+      "message_type": "assistant"
+    },
+    {
+      "value": "ठीक है, तो आप अट्ठाईस अगस्त को payment कर देंगे?",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787402852601",
+      "message_type": "assistant"
+    },
+    {
+      "value": "हाँ, 28 अगस्त को मैं पेमेंट कर दूंगा।",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787402857417",
+      "message_type": "user"
+    },
+    {
+      "value": "ठीक है, मैंने यह note कर लिया है।",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787402860159",
+      "message_type": "assistant"
+    },
+    {
+      "value": "ठीक है, थैंक यू, गुड बाय।",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787402865634",
+      "message_type": "user"
+    }
+  ],
+  "llm_prompts": [],
+  "conversation_messages": [
+    {
+      "role": "user",
+      "content": "आप कौन बोल रहे हो? मैं अर्नव बोलता हूं।"
+    },
+    {
+      "role": "assistant",
+      "content": "मैं EasyCredit Consumer EMI से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की दो हज़ार नौ सौ पचास रुपये की EMI overdue है। क्या आप इसे अभी official app के ज़रिए pay कर सकते हैं?"
+    },
+    {
+      "role": "assistant",
+      "content": "कोई बात नहीं। क्या आप आज बाद में pay कर पाएंगे"
+    },
+    {
+      "role": "user",
+      "content": "सुनो आज मैं पे नहीं कर सकता। मेरे पास अभी पैसे नहीं हैं।"
+    },
+    {
+      "role": "assistant",
+      "content": "अच्छा, कोई बात नहीं। क्या आप आज बाद में pay कर पाएंगे या किसी और तारीख़ बता सकते हैं?"
+    },
+    {
+      "role": "assistant",
+      "content": "ठीक है, तो क्या आप अट्ठाइस अगस्त को payment करने का promise करते"
+    },
+    {
+      "role": "user",
+      "content": "अभी 28 अगस्त को आएगी तब मैं पे कर दूंगा।"
+    },
+    {
+      "role": "assistant",
+      "content": "ठीक है, तो आप अट्ठाईस अगस्त को payment कर देंगे?"
+    },
+    {
+      "role": "user",
+      "content": "हाँ, 28 अगस्त को मैं पेमेंट कर दूंगा।"
+    },
+    {
+      "role": "assistant",
+      "content": "ठीक है, मैंने यह note कर लिया है।"
+    },
+    {
+      "role": "user",
+      "content": "ठीक है, थैंक यू, गुड बाय।"
+    }
+  ]
+}

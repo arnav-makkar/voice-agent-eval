@@ -1,0 +1,41 @@
+{
+  "record_id": "EMI-BENCH-0056",
+  "completed": false,
+  "error": "[Errno 2] No such file or directory: 'data/emi_scenarios/EMI-BENCH-0056.json'",
+  "error_details": {
+    "error_type": "system_error",
+    "error_source": "unknown",
+    "is_retryable": false,
+    "retry_count": 0,
+    "retry_succeeded": false,
+    "timestamps": [
+      "2026-08-22T07:27:57.450630+00:00"
+    ],
+    "stack_trace": "Traceback (most recent call last):\n  File \"/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/src/eva/orchestrator/worker.py\", line 160, in run\n    await self._start_assistant()\n  File \"/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/src/eva/orchestrator/worker.py\", line 317, in _start_assistant\n    resolved_db_path = self._materialize_resolved_scenario_db()\n                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/src/eva/orchestrator/worker.py\", line 345, in _materialize_resolved_scenario_db\n    with open(self.scenario_db_path) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: 'data/emi_scenarios/EMI-BENCH-0056.json'\n",
+    "original_error": "[Errno 2] No such file or directory: 'data/emi_scenarios/EMI-BENCH-0056.json'"
+  },
+  "llm_latency": null,
+  "stt_latency": null,
+  "tts_latency": null,
+  "model_response_latency": null,
+  "started_at": "2026-08-22T12:57:57.450151",
+  "ended_at": "2026-08-22T12:57:57.450645",
+  "duration_seconds": 0.000494,
+  "output_dir": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/eva_live/emi_eva_live_20260822_125752/records/EMI-BENCH-0056",
+  "audio_assistant_path": null,
+  "audio_user_path": null,
+  "audio_mixed_path": null,
+  "transcript_path": null,
+  "audit_log_path": null,
+  "conversation_log_path": null,
+  "pipecat_logs_path": null,
+  "user_simulator_logs_path": null,
+  "elevenlabs_logs_path": null,
+  "num_turns": 0,
+  "num_tool_calls": 0,
+  "tools_called": [],
+  "conversation_ended_reason": "error",
+  "initial_scenario_db_hash": null,
+  "final_scenario_db_hash": null,
+  "time_limit_accepted": false
+}

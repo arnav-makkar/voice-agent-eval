@@ -1,0 +1,67 @@
+{
+  "transcript": [
+    {
+      "value": "अर्णव बोल रहा हूं। कौन हैं आप?",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787401722336",
+      "message_type": "user"
+    },
+    {
+      "value": "मैं EasyCredit से शुभ बात कर रहा हूँ। यह call आपके Samsung Smart TV की overdue EMI के बारे में है, जो चार हज़ार चार सौ सोलह रुपये है। क्या आप अभी official EasyCredit app के ज़रिए payment कर सकते हैं?",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787401724769",
+      "message_type": "assistant"
+    },
+    {
+      "value": "हाँ मैं अभी करता हूँ, app खोल रहा हूँ।",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787401737367",
+      "message_type": "user"
+    },
+    {
+      "value": "बहुत अच्छा। payment होने के बाद मुझे बता दीजिएगा।",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787401739455",
+      "message_type": "assistant"
+    },
+    {
+      "value": "ठीक है मैं करता हूँ और बता देता हूँ। बाय।",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787401744607",
+      "message_type": "user"
+    }
+  ],
+  "llm_prompts": [],
+  "conversation_messages": [
+    {
+      "role": "user",
+      "content": "अर्णव बोल रहा हूं। कौन हैं आप?"
+    },
+    {
+      "role": "assistant",
+      "content": "मैं EasyCredit से शुभ बात कर रहा हूँ। यह call आपके Samsung Smart TV की overdue EMI के बारे में है, जो चार हज़ार चार सौ सोलह रुपये है। क्या आप अभी official EasyCredit app के ज़रिए payment कर सकते हैं?"
+    },
+    {
+      "role": "user",
+      "content": "हाँ मैं अभी करता हूँ, app खोल रहा हूँ।"
+    },
+    {
+      "role": "assistant",
+      "content": "बहुत अच्छा। payment होने के बाद मुझे बता दीजिएगा।"
+    },
+    {
+      "role": "user",
+      "content": "ठीक है मैं करता हूँ और बता देता हूँ। बाय।"
+    }
+  ]
+}

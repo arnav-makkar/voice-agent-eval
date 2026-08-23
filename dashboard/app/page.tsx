@@ -213,8 +213,10 @@ export default function Home() {
     <main className="shell">
       {preview && (
         <div className="preview-banner" role="alert">
-          <b>Campaign 2 preview — every number here is a placeholder.</b> Nothing has been measured; this shows the shape of the
-          final result. <a href="?">Back to the measured page</a>
+          <b>Campaign 2 has been measured.</b> This tab still holds the old placeholder shape; the real results —
+          98 → 160 of 180, with every recorded call playable — are on{" "}
+          <a href="/campaign2.html">the campaign 2 results page</a>, and the prompt diffs on{" "}
+          <a href="/evolution.html">prompt evolution</a>. <a href="?">Back to the measured page</a>
         </div>
       )}
 

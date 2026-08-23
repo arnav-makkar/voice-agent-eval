@@ -1,0 +1,667 @@
+{
+  "total_records": 1,
+  "data_quality": {
+    "records_with_any_none": 0,
+    "records_with_errors": 0,
+    "records_with_missing": 0,
+    "total_records": 1,
+    "metrics_with_none_scores": {},
+    "metrics_with_errors": {},
+    "metrics_with_missing": {}
+  },
+  "overall_scores": {
+    "EVA-A_pass": {
+      "mean": 1.0,
+      "count": 1,
+      "none_count": 0,
+      "total_records": 1,
+      "success_rate": 1.0,
+      "mean_ci_lower": 1.0,
+      "mean_ci_upper": 1.0,
+      "mean_ci_n_scenarios": 1
+    },
+    "EVA-X_pass": {
+      "mean": 0.0,
+      "count": 1,
+      "none_count": 0,
+      "total_records": 1,
+      "success_rate": 0.0,
+      "mean_ci_lower": 0.0,
+      "mean_ci_upper": 0.0,
+      "mean_ci_n_scenarios": 1
+    },
+    "EVA-A_mean": {
+      "mean": 1.0,
+      "count": 1,
+      "none_count": 0,
+      "total_records": 1,
+      "success_rate": 1.0,
+      "mean_ci_lower": 1.0,
+      "mean_ci_upper": 1.0,
+      "mean_ci_n_scenarios": 1
+    },
+    "EVA-X_mean": {
+      "mean": 0.6667,
+      "count": 1,
+      "none_count": 0,
+      "total_records": 1,
+      "success_rate": 1.0,
+      "mean_ci_lower": 0.6667,
+      "mean_ci_upper": 0.6667,
+      "mean_ci_n_scenarios": 1
+    },
+    "EVA-overall_mean": {
+      "mean": 0.8333,
+      "count": 1,
+      "none_count": 0,
+      "total_records": 1,
+      "success_rate": 1.0,
+      "mean_ci_lower": 0.8333,
+      "mean_ci_upper": 0.8333,
+      "mean_ci_n_scenarios": 1
+    },
+    "EVA-overall_pass": {
+      "mean": 0.0,
+      "count": 1,
+      "none_count": 0,
+      "total_records": 1,
+      "success_rate": 0.0,
+      "mean_ci_lower": 0.0,
+      "mean_ci_upper": 0.0,
+      "mean_ci_n_scenarios": 1
+    }
+  },
+  "per_metric": {
+    "agent_speech_fidelity": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0,
+      "count": 1,
+      "none_count": 0,
+      "error_count": 0,
+      "missing_count": 0,
+      "total_records": 1,
+      "per_turn_coverage": {
+        "total_turns": 2,
+        "evaluated_turns": 2,
+        "none_turns": 0,
+        "none_turn_rate": 0.0,
+        "records_with_none_turns": 0
+      },
+      "mean_ci_lower": 1.0,
+      "mean_ci_upper": 1.0,
+      "mean_ci_n_scenarios": 1,
+      "higher_is_better": true
+    },
+    "conciseness": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0,
+      "count": 1,
+      "none_count": 0,
+      "error_count": 0,
+      "missing_count": 0,
+      "total_records": 1,
+      "per_turn_coverage": {
+        "total_turns": 2,
+        "evaluated_turns": 2,
+        "none_turns": 0,
+        "none_turn_rate": 0.0,
+        "records_with_none_turns": 0
+      },
+      "mean_ci_lower": 1.0,
+      "mean_ci_upper": 1.0,
+      "mean_ci_n_scenarios": 1,
+      "higher_is_better": true,
+      "sub_metrics": {
+        "verbosity_or_filler_rate": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 1,
+          "none_count": 0,
+          "error_count": 0,
+          "missing_count": 0,
+          "total_records": 1,
+          "higher_is_better": false
+        },
+        "excess_information_density_rate": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 1,
+          "none_count": 0,
+          "error_count": 0,
+          "missing_count": 0,
+          "total_records": 1,
+          "higher_is_better": false
+        },
+        "over_enumeration_or_list_exhaustion_rate": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 1,
+          "none_count": 0,
+          "error_count": 0,
+          "missing_count": 0,
+          "total_records": 1,
+          "higher_is_better": false
+        },
+        "contextually_disproportionate_detail_rate": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 1,
+          "none_count": 0,
+          "error_count": 0,
+          "missing_count": 0,
+          "total_records": 1,
+          "higher_is_better": false
+        }
+      }
+    },
+    "conversation_progression": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0,
+      "count": 1,
+      "none_count": 0,
+      "error_count": 0,
+      "missing_count": 0,
+      "total_records": 1,
+      "mean_ci_lower": 1.0,
+      "mean_ci_upper": 1.0,
+      "mean_ci_n_scenarios": 1,
+      "higher_is_better": true,
+      "sub_metrics": {
+        "unnecessary_tool_calls_rate": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 1,
+          "none_count": 0,
+          "error_count": 0,
+          "missing_count": 0,
+          "total_records": 1,
+          "higher_is_better": false
+        },
+        "information_loss_rate": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 1,
+          "none_count": 0,
+          "error_count": 0,
+          "missing_count": 0,
+          "total_records": 1,
+          "higher_is_better": false
+        },
+        "redundant_statements_rate": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 1,
+          "none_count": 0,
+          "error_count": 0,
+          "missing_count": 0,
+          "total_records": 1,
+          "higher_is_better": false
+        },
+        "question_quality_rate": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 1,
+          "none_count": 0,
+          "error_count": 0,
+          "missing_count": 0,
+          "total_records": 1,
+          "higher_is_better": false
+        }
+      }
+    },
+    "conversation_valid_end": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0,
+      "count": 1,
+      "none_count": 0,
+      "error_count": 0,
+      "missing_count": 0,
+      "total_records": 1,
+      "mean_ci_lower": 1.0,
+      "mean_ci_upper": 1.0,
+      "mean_ci_n_scenarios": 1,
+      "higher_is_better": true
+    },
+    "faithfulness": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0,
+      "count": 1,
+      "none_count": 0,
+      "error_count": 0,
+      "missing_count": 0,
+      "total_records": 1,
+      "mean_ci_lower": 1.0,
+      "mean_ci_upper": 1.0,
+      "mean_ci_n_scenarios": 1,
+      "higher_is_better": true,
+      "sub_metrics": {
+        "fabricating_tool_parameters_rate": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 1,
+          "none_count": 0,
+          "error_count": 0,
+          "missing_count": 0,
+          "total_records": 1,
+          "higher_is_better": false
+        },
+        "misrepresenting_tool_result_rate": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 1,
+          "none_count": 0,
+          "error_count": 0,
+          "missing_count": 0,
+          "total_records": 1,
+          "higher_is_better": false
+        },
+        "violating_policies_rate": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 1,
+          "none_count": 0,
+          "error_count": 0,
+          "missing_count": 0,
+          "total_records": 1,
+          "higher_is_better": false
+        },
+        "failing_to_disambiguate_rate": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 1,
+          "none_count": 0,
+          "error_count": 0,
+          "missing_count": 0,
+          "total_records": 1,
+          "higher_is_better": false
+        },
+        "hallucination_rate": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 1,
+          "none_count": 0,
+          "error_count": 0,
+          "missing_count": 0,
+          "total_records": 1,
+          "higher_is_better": false
+        }
+      }
+    },
+    "task_completion": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0,
+      "count": 1,
+      "none_count": 0,
+      "error_count": 0,
+      "missing_count": 0,
+      "total_records": 1,
+      "mean_ci_lower": 1.0,
+      "mean_ci_upper": 1.0,
+      "mean_ci_n_scenarios": 1,
+      "higher_is_better": true
+    },
+    "turn_taking": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "count": 1,
+      "none_count": 0,
+      "error_count": 0,
+      "missing_count": 0,
+      "total_records": 1,
+      "per_turn_coverage": {
+        "total_turns": 1,
+        "evaluated_turns": 1,
+        "none_turns": 0,
+        "none_turn_rate": 0.0,
+        "records_with_none_turns": 0
+      },
+      "mean_ci_lower": 0.0,
+      "mean_ci_upper": 0.0,
+      "mean_ci_n_scenarios": 1,
+      "higher_is_better": true,
+      "sub_metrics": {
+        "mean_latency_ms": {
+          "mean": -33166.118,
+          "min": -33166.118,
+          "max": -33166.118,
+          "count": 1,
+          "none_count": 0,
+          "error_count": 0,
+          "missing_count": 0,
+          "total_records": 1,
+          "higher_is_better": true
+        },
+        "p50_latency_ms": {
+          "mean": -33166.118,
+          "min": -33166.118,
+          "max": -33166.118,
+          "count": 1,
+          "none_count": 0,
+          "error_count": 0,
+          "missing_count": 0,
+          "total_records": 1,
+          "higher_is_better": true
+        },
+        "p90_latency_ms": {
+          "mean": -33166.118,
+          "min": -33166.118,
+          "max": -33166.118,
+          "count": 1,
+          "none_count": 0,
+          "error_count": 0,
+          "missing_count": 0,
+          "total_records": 1,
+          "higher_is_better": true
+        },
+        "on_time_rate": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 1,
+          "none_count": 0,
+          "error_count": 0,
+          "missing_count": 0,
+          "total_records": 1,
+          "higher_is_better": false
+        },
+        "early_rate": {
+          "mean": 1.0,
+          "min": 1.0,
+          "max": 1.0,
+          "count": 1,
+          "none_count": 0,
+          "error_count": 0,
+          "missing_count": 0,
+          "total_records": 1,
+          "higher_is_better": false
+        },
+        "late_rate": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 1,
+          "none_count": 0,
+          "error_count": 0,
+          "missing_count": 0,
+          "total_records": 1,
+          "higher_is_better": false
+        },
+        "agent_interruption.rate": {
+          "mean": 1.0,
+          "min": 1.0,
+          "max": 1.0,
+          "count": 1,
+          "none_count": 0,
+          "error_count": 0,
+          "missing_count": 0,
+          "total_records": 1,
+          "higher_is_better": true
+        },
+        "agent_interruption.num_interruptions": {
+          "mean": 1.0,
+          "min": 1.0,
+          "max": 1.0,
+          "count": 1,
+          "none_count": 0,
+          "error_count": 0,
+          "missing_count": 0,
+          "total_records": 1,
+          "higher_is_better": true
+        },
+        "agent_interruption.mean_overlap_ms": {
+          "mean": 9572.583,
+          "min": 9572.583,
+          "max": 9572.583,
+          "count": 1,
+          "none_count": 0,
+          "error_count": 0,
+          "missing_count": 0,
+          "total_records": 1,
+          "higher_is_better": true
+        },
+        "agent_interruption.mean_overlap_score": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 1,
+          "none_count": 0,
+          "error_count": 0,
+          "missing_count": 0,
+          "total_records": 1,
+          "higher_is_better": true
+        },
+        "agent_interruption.mean_count_score": {
+          "mean": 0.5,
+          "min": 0.5,
+          "max": 0.5,
+          "count": 1,
+          "none_count": 0,
+          "error_count": 0,
+          "missing_count": 0,
+          "total_records": 1,
+          "higher_is_better": true
+        },
+        "user_interruption.rate": {
+          "mean": 1.0,
+          "min": 1.0,
+          "max": 1.0,
+          "count": 1,
+          "none_count": 0,
+          "error_count": 0,
+          "missing_count": 0,
+          "total_records": 1,
+          "higher_is_better": true
+        },
+        "user_interruption.mean_yield_ms": {
+          "mean": 13479.977,
+          "min": 13479.977,
+          "max": 13479.977,
+          "count": 1,
+          "none_count": 0,
+          "error_count": 0,
+          "missing_count": 0,
+          "total_records": 1,
+          "higher_is_better": true
+        },
+        "user_interruption.mean_yield_score": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 1,
+          "none_count": 0,
+          "error_count": 0,
+          "missing_count": 0,
+          "total_records": 1,
+          "higher_is_better": true
+        },
+        "fallback_nudge.rate": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 1,
+          "none_count": 0,
+          "error_count": 0,
+          "missing_count": 0,
+          "total_records": 1,
+          "higher_is_better": true
+        },
+        "fallback_nudge.count": {
+          "mean": null,
+          "min": null,
+          "max": null,
+          "count": 0,
+          "none_count": 1,
+          "error_count": 0,
+          "missing_count": 1,
+          "total_records": 1,
+          "higher_is_better": true
+        }
+      }
+    },
+    "user_behavioral_fidelity": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0,
+      "count": 1,
+      "none_count": 0,
+      "error_count": 0,
+      "missing_count": 0,
+      "total_records": 1,
+      "mean_ci_lower": 1.0,
+      "mean_ci_upper": 1.0,
+      "mean_ci_n_scenarios": 1,
+      "higher_is_better": true,
+      "sub_metrics": {
+        "extra_modifications_rate": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 1,
+          "none_count": 0,
+          "error_count": 0,
+          "missing_count": 0,
+          "total_records": 1,
+          "higher_is_better": false
+        },
+        "premature_ending_rate": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 1,
+          "none_count": 0,
+          "error_count": 0,
+          "missing_count": 0,
+          "total_records": 1,
+          "higher_is_better": false
+        },
+        "missing_information_rate": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 1,
+          "none_count": 0,
+          "error_count": 0,
+          "missing_count": 0,
+          "total_records": 1,
+          "higher_is_better": false
+        },
+        "duplicate_modifications_rate": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 1,
+          "none_count": 0,
+          "error_count": 0,
+          "missing_count": 0,
+          "total_records": 1,
+          "higher_is_better": false
+        },
+        "decision_tree_violation_rate": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 1,
+          "none_count": 0,
+          "error_count": 0,
+          "missing_count": 0,
+          "total_records": 1,
+          "higher_is_better": false
+        },
+        "wrong_language_rate": {
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 1,
+          "none_count": 0,
+          "error_count": 0,
+          "missing_count": 0,
+          "total_records": 1,
+          "higher_is_better": false
+        }
+      }
+    },
+    "user_speech_fidelity": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0,
+      "count": 1,
+      "none_count": 0,
+      "error_count": 0,
+      "missing_count": 0,
+      "total_records": 1,
+      "per_turn_coverage": {
+        "total_turns": 3,
+        "evaluated_turns": 3,
+        "none_turns": 0,
+        "none_turn_rate": 0.0,
+        "records_with_none_turns": 0
+      },
+      "mean_ci_lower": 1.0,
+      "mean_ci_upper": 1.0,
+      "mean_ci_n_scenarios": 1,
+      "higher_is_better": true
+    }
+  },
+  "provenance": {
+    "eva_version": "2.1.0",
+    "simulation_version": "2.0.2",
+    "metrics_version": "2.2.2",
+    "git_commit_sha": "f11c8d63844f6e9e11a9fc3df0837917fc5fe19f",
+    "git_branch": "codex/loopline-hinglish-voice-suite",
+    "git_dirty": true,
+    "git_diff_hash": "9d594d8ec0c7",
+    "dataset": {
+      "path": "data/emi_dataset.json",
+      "sha256": "ce1975b6da542bbd4c749fa95ff56abc27b71cfe8a4657b5fb809c9611fb1c89"
+    },
+    "agent_config": {
+      "path": "configs/agents/emi_agent.yaml",
+      "sha256": "efe820b8f40e96a7e8469e329512e4f100ad7273a1a7af56c80216e36d9ff160"
+    },
+    "tool_module": {
+      "path": "src/eva/assistant/tools/emi_tools.py",
+      "sha256": "bb341d73d669567cae3504e41610096e0c1f784ae3d14d9f2fe348218cd87d0e"
+    },
+    "scenario_db": {
+      "path": "data/emi_scenarios",
+      "sha256": "8bb05d0fdb7d7daa3ddfb9067f6905135ecba75066b2381896f5c32ec9cd8ff3"
+    },
+    "python_version": "3.11.9 (v3.11.9:de54cf5be3, Apr  2 2024, 07:12:50) [Clang 13.0.0 (clang-1300.0.29.30)]",
+    "platform": "macOS-26.5.1-arm64-arm-64bit",
+    "captured_at": "2026-08-23T23:03:51.839801",
+    "judge_prompts": [
+      {
+        "path": "configs/prompts/judge.yaml",
+        "sha256": "e88d4fed8b318b9f73f58077838d6e31a4771ab4bb043b00a394932caefd7a6d"
+      }
+    ],
+    "metrics_computed": [
+      "agent_speech_fidelity",
+      "conciseness",
+      "conversation_progression",
+      "faithfulness",
+      "task_completion",
+      "turn_taking"
+    ]
+  }
+}

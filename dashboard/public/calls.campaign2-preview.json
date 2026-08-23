@@ -59,7 +59,7 @@
      "required": false
     },
     {
-     "name": "record_disposition",
+     "name": "record_call_outcome",
      "kind": "write",
      "required": true
     }
@@ -145,7 +145,7 @@
      "task": true,
      "grounded": true,
      "used_tools": [
-      "record_disposition"
+      "record_call_outcome"
      ],
      "metrics": {
       "eva_a": {
@@ -245,7 +245,7 @@
      "required": false
     },
     {
-     "name": "record_disposition",
+     "name": "record_call_outcome",
      "kind": "write",
      "required": true
     }
@@ -255,7 +255,7 @@
      "task": true,
      "grounded": true,
      "used_tools": [
-      "record_disposition",
+      "record_call_outcome",
       "record_promise_to_pay"
      ],
      "metrics": {
@@ -334,7 +334,7 @@
      "task": true,
      "grounded": true,
      "used_tools": [
-      "record_disposition",
+      "record_call_outcome",
       "record_promise_to_pay"
      ],
      "metrics": {
@@ -435,7 +435,7 @@
      "required": false
     },
     {
-     "name": "record_disposition",
+     "name": "record_call_outcome",
      "kind": "write",
      "required": true
     }
@@ -521,7 +521,7 @@
      "task": false,
      "grounded": false,
      "used_tools": [
-      "record_disposition"
+      "record_call_outcome"
      ],
      "metrics": {
       "eva_a": {
@@ -621,7 +621,7 @@
      "required": true
     },
     {
-     "name": "record_disposition",
+     "name": "record_call_outcome",
      "kind": "write",
      "required": true
     }
@@ -631,7 +631,7 @@
      "task": true,
      "grounded": true,
      "used_tools": [
-      "record_disposition",
+      "record_call_outcome",
       "schedule_callback"
      ],
      "metrics": {
@@ -710,7 +710,7 @@
      "task": true,
      "grounded": true,
      "used_tools": [
-      "record_disposition",
+      "record_call_outcome",
       "schedule_callback"
      ],
      "metrics": {
@@ -811,7 +811,7 @@
      "required": false
     },
     {
-     "name": "record_disposition",
+     "name": "record_call_outcome",
      "kind": "write",
      "required": true
     }
@@ -897,7 +897,7 @@
      "task": true,
      "grounded": true,
      "used_tools": [
-      "record_disposition",
+      "record_call_outcome",
       "check_payment_status"
      ],
      "metrics": {
@@ -998,7 +998,7 @@
      "required": false
     },
     {
-     "name": "record_disposition",
+     "name": "record_call_outcome",
      "kind": "write",
      "required": true
     }
@@ -1084,7 +1084,7 @@
      "task": true,
      "grounded": true,
      "used_tools": [
-      "record_disposition"
+      "record_call_outcome"
      ],
      "metrics": {
       "eva_a": {
@@ -1184,7 +1184,7 @@
      "required": false
     },
     {
-     "name": "record_disposition",
+     "name": "record_call_outcome",
      "kind": "write",
      "required": true
     }
@@ -1194,7 +1194,7 @@
      "task": true,
      "grounded": false,
      "used_tools": [
-      "record_disposition"
+      "record_call_outcome"
      ],
      "metrics": {
       "eva_a": {
@@ -1272,7 +1272,7 @@
      "task": true,
      "grounded": true,
      "used_tools": [
-      "record_disposition"
+      "record_call_outcome"
      ],
      "metrics": {
       "eva_a": {
@@ -1372,7 +1372,7 @@
      "required": false
     },
     {
-     "name": "record_disposition",
+     "name": "record_call_outcome",
      "kind": "write",
      "required": true
     }
@@ -1458,7 +1458,7 @@
      "task": false,
      "grounded": false,
      "used_tools": [
-      "record_disposition"
+      "record_call_outcome"
      ],
      "metrics": {
       "eva_a": {
@@ -1558,7 +1558,7 @@
      "required": false
     },
     {
-     "name": "record_disposition",
+     "name": "record_call_outcome",
      "kind": "write",
      "required": true
     }
@@ -1568,7 +1568,7 @@
      "task": true,
      "grounded": true,
      "used_tools": [
-      "record_disposition"
+      "record_call_outcome"
      ],
      "metrics": {
       "eva_a": {
@@ -1646,7 +1646,7 @@
      "task": true,
      "grounded": true,
      "used_tools": [
-      "record_disposition"
+      "record_call_outcome"
      ],
      "metrics": {
       "eva_a": {
@@ -1746,7 +1746,7 @@
      "required": false
     },
     {
-     "name": "record_disposition",
+     "name": "record_call_outcome",
      "kind": "write",
      "required": true
     }
@@ -1832,7 +1832,7 @@
      "task": true,
      "grounded": true,
      "used_tools": [
-      "record_disposition"
+      "record_call_outcome"
      ],
      "metrics": {
       "eva_a": {
@@ -1932,7 +1932,7 @@
      "required": false
     },
     {
-     "name": "record_disposition",
+     "name": "record_call_outcome",
      "kind": "write",
      "required": true
     }
@@ -1942,7 +1942,7 @@
      "task": true,
      "grounded": false,
      "used_tools": [
-      "record_disposition"
+      "record_call_outcome"
      ],
      "metrics": {
       "eva_a": {
@@ -2020,7 +2020,7 @@
      "task": true,
      "grounded": true,
      "used_tools": [
-      "record_disposition"
+      "record_call_outcome"
      ],
      "metrics": {
       "eva_a": {
@@ -2120,7 +2120,7 @@
      "required": false
     },
     {
-     "name": "record_disposition",
+     "name": "record_call_outcome",
      "kind": "write",
      "required": true
     }
@@ -2206,7 +2206,7 @@
      "task": true,
      "grounded": true,
      "used_tools": [
-      "record_disposition"
+      "record_call_outcome"
      ],
      "metrics": {
       "eva_a": {
@@ -2306,7 +2306,7 @@
      "required": false
     },
     {
-     "name": "record_disposition",
+     "name": "record_call_outcome",
      "kind": "write",
      "required": true
     }
@@ -2392,7 +2392,7 @@
      "task": true,
      "grounded": true,
      "used_tools": [
-      "record_disposition",
+      "record_call_outcome",
       "check_payment_status"
      ],
      "metrics": {
@@ -2493,7 +2493,7 @@
      "required": false
     },
     {
-     "name": "record_disposition",
+     "name": "record_call_outcome",
      "kind": "write",
      "required": true
     }
@@ -2503,7 +2503,7 @@
      "task": true,
      "grounded": true,
      "used_tools": [
-      "record_disposition"
+      "record_call_outcome"
      ],
      "metrics": {
       "eva_a": {
@@ -2581,7 +2581,7 @@
      "task": true,
      "grounded": true,
      "used_tools": [
-      "record_disposition"
+      "record_call_outcome"
      ],
      "metrics": {
       "eva_a": {
@@ -2681,7 +2681,7 @@
      "required": false
     },
     {
-     "name": "record_disposition",
+     "name": "record_call_outcome",
      "kind": "write",
      "required": true
     }
@@ -2767,7 +2767,7 @@
      "task": true,
      "grounded": true,
      "used_tools": [
-      "record_disposition",
+      "record_call_outcome",
       "record_promise_to_pay"
      ],
      "metrics": {
@@ -2868,7 +2868,7 @@
      "required": false
     },
     {
-     "name": "record_disposition",
+     "name": "record_call_outcome",
      "kind": "write",
      "required": true
     }
@@ -2878,7 +2878,7 @@
      "task": true,
      "grounded": true,
      "used_tools": [
-      "record_disposition"
+      "record_call_outcome"
      ],
      "metrics": {
       "eva_a": {
@@ -2956,7 +2956,7 @@
      "task": true,
      "grounded": true,
      "used_tools": [
-      "record_disposition"
+      "record_call_outcome"
      ],
      "metrics": {
       "eva_a": {
@@ -3056,7 +3056,7 @@
      "required": false
     },
     {
-     "name": "record_disposition",
+     "name": "record_call_outcome",
      "kind": "write",
      "required": true
     }
@@ -3142,7 +3142,7 @@
      "task": true,
      "grounded": true,
      "used_tools": [
-      "record_disposition",
+      "record_call_outcome",
       "record_promise_to_pay"
      ],
      "metrics": {
@@ -3243,7 +3243,7 @@
      "required": false
     },
     {
-     "name": "record_disposition",
+     "name": "record_call_outcome",
      "kind": "write",
      "required": true
     }
@@ -3253,7 +3253,7 @@
      "task": true,
      "grounded": true,
      "used_tools": [
-      "record_disposition",
+      "record_call_outcome",
       "record_promise_to_pay"
      ],
      "metrics": {
@@ -3332,7 +3332,7 @@
      "task": true,
      "grounded": true,
      "used_tools": [
-      "record_disposition",
+      "record_call_outcome",
       "record_promise_to_pay"
      ],
      "metrics": {
@@ -3433,7 +3433,7 @@
      "required": true
     },
     {
-     "name": "record_disposition",
+     "name": "record_call_outcome",
      "kind": "write",
      "required": true
     }
@@ -3519,7 +3519,7 @@
      "task": true,
      "grounded": true,
      "used_tools": [
-      "record_disposition",
+      "record_call_outcome",
       "schedule_callback"
      ],
      "metrics": {
@@ -3620,7 +3620,7 @@
      "required": false
     },
     {
-     "name": "record_disposition",
+     "name": "record_call_outcome",
      "kind": "write",
      "required": true
     }
@@ -3706,7 +3706,7 @@
      "task": false,
      "grounded": true,
      "used_tools": [
-      "record_disposition",
+      "record_call_outcome",
       "check_payment_status"
      ],
      "metrics": {
@@ -3807,7 +3807,7 @@
      "required": false
     },
     {
-     "name": "record_disposition",
+     "name": "record_call_outcome",
      "kind": "write",
      "required": true
     }
@@ -3817,7 +3817,7 @@
      "task": true,
      "grounded": true,
      "used_tools": [
-      "record_disposition"
+      "record_call_outcome"
      ],
      "metrics": {
       "eva_a": {
@@ -3895,7 +3895,7 @@
      "task": true,
      "grounded": true,
      "used_tools": [
-      "record_disposition"
+      "record_call_outcome"
      ],
      "metrics": {
       "eva_a": {
@@ -3995,7 +3995,7 @@
      "required": false
     },
     {
-     "name": "record_disposition",
+     "name": "record_call_outcome",
      "kind": "write",
      "required": true
     }
@@ -4081,7 +4081,7 @@
      "task": true,
      "grounded": true,
      "used_tools": [
-      "record_disposition"
+      "record_call_outcome"
      ],
      "metrics": {
       "eva_a": {
@@ -4181,7 +4181,7 @@
      "required": false
     },
     {
-     "name": "record_disposition",
+     "name": "record_call_outcome",
      "kind": "write",
      "required": true
     }
@@ -4191,7 +4191,7 @@
      "task": true,
      "grounded": false,
      "used_tools": [
-      "record_disposition"
+      "record_call_outcome"
      ],
      "metrics": {
       "eva_a": {
@@ -4269,7 +4269,7 @@
      "task": true,
      "grounded": true,
      "used_tools": [
-      "record_disposition"
+      "record_call_outcome"
      ],
      "metrics": {
       "eva_a": {
@@ -4369,7 +4369,7 @@
      "required": false
     },
     {
-     "name": "record_disposition",
+     "name": "record_call_outcome",
      "kind": "write",
      "required": true
     }
@@ -4455,7 +4455,7 @@
      "task": true,
      "grounded": true,
      "used_tools": [
-      "record_disposition"
+      "record_call_outcome"
      ],
      "metrics": {
       "eva_a": {
@@ -4555,7 +4555,7 @@
      "required": false
     },
     {
-     "name": "record_disposition",
+     "name": "record_call_outcome",
      "kind": "write",
      "required": true
     }
@@ -4565,7 +4565,7 @@
      "task": true,
      "grounded": true,
      "used_tools": [
-      "record_disposition"
+      "record_call_outcome"
      ],
      "metrics": {
       "eva_a": {
@@ -4643,7 +4643,7 @@
      "task": true,
      "grounded": true,
      "used_tools": [
-      "record_disposition"
+      "record_call_outcome"
      ],
      "metrics": {
       "eva_a": {
@@ -4743,7 +4743,7 @@
      "required": false
     },
     {
-     "name": "record_disposition",
+     "name": "record_call_outcome",
      "kind": "write",
      "required": true
     }
@@ -4829,7 +4829,7 @@
      "task": true,
      "grounded": true,
      "used_tools": [
-      "record_disposition"
+      "record_call_outcome"
      ],
      "metrics": {
       "eva_a": {
@@ -4929,7 +4929,7 @@
      "required": false
     },
     {
-     "name": "record_disposition",
+     "name": "record_call_outcome",
      "kind": "write",
      "required": true
     }
@@ -5015,7 +5015,7 @@
      "task": false,
      "grounded": true,
      "used_tools": [
-      "record_disposition"
+      "record_call_outcome"
      ],
      "metrics": {
       "eva_a": {
@@ -5115,7 +5115,7 @@
      "required": false
     },
     {
-     "name": "record_disposition",
+     "name": "record_call_outcome",
      "kind": "write",
      "required": true
     }
@@ -5125,7 +5125,7 @@
      "task": true,
      "grounded": true,
      "used_tools": [
-      "record_disposition",
+      "record_call_outcome",
       "check_payment_status"
      ],
      "metrics": {
@@ -5204,7 +5204,7 @@
      "task": true,
      "grounded": true,
      "used_tools": [
-      "record_disposition",
+      "record_call_outcome",
       "check_payment_status"
      ],
      "metrics": {
@@ -5305,7 +5305,7 @@
      "required": false
     },
     {
-     "name": "record_disposition",
+     "name": "record_call_outcome",
      "kind": "write",
      "required": true
     }
@@ -5391,7 +5391,7 @@
      "task": true,
      "grounded": true,
      "used_tools": [
-      "record_disposition"
+      "record_call_outcome"
      ],
      "metrics": {
       "eva_a": {
@@ -5491,7 +5491,7 @@
      "required": false
     },
     {
-     "name": "record_disposition",
+     "name": "record_call_outcome",
      "kind": "write",
      "required": true
     }
@@ -5577,7 +5577,7 @@
      "task": true,
      "grounded": true,
      "used_tools": [
-      "record_disposition",
+      "record_call_outcome",
       "record_promise_to_pay"
      ],
      "metrics": {

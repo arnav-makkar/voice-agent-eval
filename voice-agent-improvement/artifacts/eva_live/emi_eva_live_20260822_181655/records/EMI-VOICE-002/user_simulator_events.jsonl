@@ -1,0 +1,25 @@
+{"timestamp": 1787402821327, "sequence": 1, "type": "connection_state", "data": {"state": "connected", "details": {"server_url": "ws://localhost:10000/ws"}}, "provider": "elevenlabs"}
+{"timestamp": 1787402821862, "sequence": 2, "type": "connection_state", "data": {"state": "session_started", "details": {}}, "provider": "elevenlabs"}
+{"timestamp": 1787402822428, "sequence": 3, "event_type": "audio_start", "user": "assistant", "audio_timestamp": 1787402822.428088, "provider": "elevenlabs"}
+{"timestamp": 1787402827614, "sequence": 4, "event_type": "audio_start", "user": "simulated_user", "audio_timestamp": 1787402827.6135292, "provider": "elevenlabs"}
+{"timestamp": 1787402845008, "sequence": 5, "event_type": "audio_end", "user": "simulated_user", "audio_timestamp": 1787402845.0060687, "provider": "elevenlabs"}
+{"timestamp": 1787402845293, "sequence": 6, "event_type": "audio_start", "user": "simulated_user", "audio_timestamp": 1787402845.293094, "provider": "elevenlabs"}
+{"timestamp": 1787402850141, "sequence": 7, "event_type": "audio_end", "user": "assistant", "audio_timestamp": 1787402849.921599, "provider": "elevenlabs"}
+{"timestamp": 1787402850226, "sequence": 8, "event_type": "audio_start", "user": "assistant", "audio_timestamp": 1787402850.226812, "provider": "elevenlabs"}
+{"timestamp": 1787402851083, "sequence": 9, "event_type": "audio_end", "user": "assistant", "audio_timestamp": 1787402850.854809, "provider": "elevenlabs"}
+{"timestamp": 1787402851166, "sequence": 10, "event_type": "audio_start", "user": "assistant", "audio_timestamp": 1787402851.1668952, "provider": "elevenlabs"}
+{"timestamp": 1787402852394, "sequence": 11, "event_type": "audio_end", "user": "simulated_user", "audio_timestamp": 1787402851.7972713, "provider": "elevenlabs"}
+{"timestamp": 1787402857417, "sequence": 12, "event_type": "audio_start", "user": "simulated_user", "audio_timestamp": 1787402857.416827, "provider": "elevenlabs"}
+{"timestamp": 1787402865491, "sequence": 13, "event_type": "audio_end", "user": "simulated_user", "audio_timestamp": 1787402865.4901366, "provider": "elevenlabs"}
+{"timestamp": 1787402865634, "sequence": 14, "event_type": "audio_start", "user": "simulated_user", "audio_timestamp": 1787402865.633984, "provider": "elevenlabs"}
+{"timestamp": 1787402867455, "sequence": 15, "event_type": "audio_end", "user": "simulated_user", "audio_timestamp": 1787402866.8578064, "provider": "elevenlabs"}
+{"timestamp": 1787402868265, "sequence": 16, "event_type": "audio_end", "user": "assistant", "audio_timestamp": 1787402868.2653298, "provider": "elevenlabs"}
+{"timestamp": 1787402822000, "sequence": 17, "type": "assistant_speech", "data": {"text": "नवसिंह, क्या नावजी से बात कर रहा हूँ।", "source": "assistant", "recovered_post_call": true}, "provider": "elevenlabs"}
+{"timestamp": 1787402826000, "sequence": 18, "type": "user_speech", "data": {"text": "[confused] Aap kaun bol rahe ho? Main Arnav bolta hoon.", "source": "simulated_user", "recovered_post_call": true}, "provider": "elevenlabs"}
+{"timestamp": 1787402830000, "sequence": 19, "type": "assistant_speech", "data": {"text": "मैं Hrithik, Head Consumer EMI से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की 2,950 रुपये की EMI overdue है। क्या आप इसे अभी official app के ज़रिए pay कर सकते हैं?", "source": "assistant", "recovered_post_call": true}, "provider": "elevenlabs"}
+{"timestamp": 1787402843000, "sequence": 20, "type": "user_speech", "data": {"text": "[annoyed] Suno, aaj main pay nahi kar sakta. Mere paas abhi paise nahi hain. Salary 28 August ko aayegi, tab main pay kar dunga.", "source": "simulated_user", "recovered_post_call": true}, "provider": "elevenlabs"}
+{"timestamp": 1787402853000, "sequence": 21, "type": "assistant_speech", "data": {"text": "ठीक है, तो आप 28 अगस्त को payment कर दें।", "source": "assistant", "recovered_post_call": true}, "provider": "elevenlabs"}
+{"timestamp": 1787402856000, "sequence": 22, "type": "user_speech", "data": {"text": "Haan, 28 August ko main payment kar dunga.", "source": "simulated_user", "recovered_post_call": true}, "provider": "elevenlabs"}
+{"timestamp": 1787402861000, "sequence": 23, "type": "assistant_speech", "data": {"text": "ठीक है, मैंने ये note कर लिया है।", "source": "assistant", "recovered_post_call": true}, "provider": "elevenlabs"}
+{"timestamp": 1787402864000, "sequence": 24, "type": "user_speech", "data": {"text": "[calm] Theek hai, thank you. Goodbye.", "source": "simulated_user", "recovered_post_call": true}, "provider": "elevenlabs"}
+{"timestamp": 1787402884787, "sequence": 25, "type": "connection_state", "data": {"state": "session_ended", "details": {"reason": "goodbye"}}, "provider": "elevenlabs"}

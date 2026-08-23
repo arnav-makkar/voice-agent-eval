@@ -1,0 +1,64 @@
+{
+  "versions": {
+    "v3": {
+      "conversations": 180,
+      "invariant_flagged": 23,
+      "benchmark_failed": 82,
+      "flagged_and_failed": 23,
+      "recall_of_failures": 0.28,
+      "precision_of_flags": 1.0,
+      "violation_counts": {
+        "I1_promise_disposition_without_promise_row": 13,
+        "I3_escalation_disposition_without_escalation": 8,
+        "I4_dispute_disposition_without_dispute_row": 1,
+        "I5_business_write_without_outcome": 1
+      }
+    },
+    "v4": {
+      "conversations": 180,
+      "invariant_flagged": 8,
+      "benchmark_failed": 60,
+      "flagged_and_failed": 8,
+      "recall_of_failures": 0.133,
+      "precision_of_flags": 1.0,
+      "violation_counts": {
+        "I5_business_write_without_outcome": 8
+      }
+    },
+    "v5": {
+      "conversations": 180,
+      "invariant_flagged": 6,
+      "benchmark_failed": 51,
+      "flagged_and_failed": 5,
+      "recall_of_failures": 0.098,
+      "precision_of_flags": 0.833,
+      "violation_counts": {
+        "I5_business_write_without_outcome": 5,
+        "I6_duplicate_write": 1
+      }
+    },
+    "g1": {
+      "conversations": 180,
+      "invariant_flagged": 2,
+      "benchmark_failed": 44,
+      "flagged_and_failed": 2,
+      "recall_of_failures": 0.045,
+      "precision_of_flags": 1.0,
+      "violation_counts": {
+        "I5_business_write_without_outcome": 2
+      }
+    },
+    "g2": {
+      "conversations": 210,
+      "invariant_flagged": 5,
+      "benchmark_failed": 48,
+      "flagged_and_failed": 5,
+      "recall_of_failures": 0.104,
+      "precision_of_flags": 1.0,
+      "violation_counts": {
+        "I5_business_write_without_outcome": 3,
+        "I3_escalation_disposition_without_escalation": 2
+      }
+    }
+  }
+}

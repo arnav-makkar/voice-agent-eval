@@ -1,0 +1,18 @@
+{
+ "card": 15,
+ "family": "ledger_interrogation",
+ "run_id": "c2-phone-15-v4",
+ "version": 4,
+ "tools": [
+  "check_payment_status",
+  "record_call_outcome"
+ ],
+ "required": [
+  "record_call_outcome"
+ ],
+ "missing": [],
+ "duplicates": null,
+ "passed": true,
+ "exactly_once": true,
+ "v3_passed": true
+}

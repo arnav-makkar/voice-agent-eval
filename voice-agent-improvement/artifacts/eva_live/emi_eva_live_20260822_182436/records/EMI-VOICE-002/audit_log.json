@@ -1,0 +1,139 @@
+{
+  "transcript": [
+    {
+      "value": "अर्णव बोल रहा हूं। आप कौन हो?",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787403288699",
+      "message_type": "user"
+    },
+    {
+      "value": "मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की चार हज़ार चार सौ सोलह रुपये की EMI overdue है। क्या आप अभी official app के ज़रिए payment कर सकते हैं?",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787403291029",
+      "message_type": "assistant"
+    },
+    {
+      "value": "सुनो, कंपनी इजी क्रेडिट है। अमाउंट तो र में सौ पचास है। आज मैं पे नहीं कर सकता। कोई पैसा नहीं है।",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787403302112",
+      "message_type": "user"
+    },
+    {
+      "value": "हाँ जी, कंपनी EasyCredit ही है। क्या आप अभी app से payment कर पाएंगे",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787403304849",
+      "message_type": "assistant"
+    },
+    {
+      "value": "अरे, अमाउंट",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787403308501",
+      "message_type": "assistant"
+    },
+    {
+      "value": "अरे, अमाउंट चार हज़ार चार सौ सोलह रुपये है। क्या आप आज बाद में payment कर पाएंगे?",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787403309714",
+      "message_type": "assistant"
+    },
+    {
+      "value": "सुनो अमाउंट चार हज़ार में सौ पचास है। चार हज़ार पे सौ सोलह नहीं। आज मैं पे नहीं कर सकता। कोई पैसा नहीं है।",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787403317304",
+      "message_type": "user"
+    },
+    {
+      "value": "दरअसल, रिकॉर्ड के हिसाब से अमाउंट चार हज़ार चार सौ सोलह रुपये है। क्या आप किसी और तारीख़ को payment करने का वादा कर सकते हैं?",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787403324271",
+      "message_type": "assistant"
+    },
+    {
+      "value": "तो आर में सौ पचास है। चार आर पे सौ सोलह नहीं। आज नहीं कर सकता। अट्ठाईस अगस्त को करूंगा।",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787403335746",
+      "message_type": "user"
+    },
+    {
+      "value": "ठीक है, मैं अट्ठाईस अगस्त की तारीख़ नोट कर लेता हूँ। क्या यह सही है?",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787403341617",
+      "message_type": "assistant"
+    },
+    {
+      "value": "हाँ, अट्ठाईस अगस्त सही है। बस अब जल्दी करो।",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787403348803",
+      "message_type": "user"
+    }
+  ],
+  "llm_prompts": [],
+  "conversation_messages": [
+    {
+      "role": "user",
+      "content": "अर्णव बोल रहा हूं। आप कौन हो?"
+    },
+    {
+      "role": "assistant",
+      "content": "मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की चार हज़ार चार सौ सोलह रुपये की EMI overdue है। क्या आप अभी official app के ज़रिए payment कर सकते हैं?"
+    },
+    {
+      "role": "assistant",
+      "content": "हाँ जी, कंपनी EasyCredit ही है। क्या आप अभी app से payment कर पाएंगे"
+    },
+    {
+      "role": "assistant",
+      "content": "अरे, अमाउंट"
+    },
+    {
+      "role": "user",
+      "content": "सुनो, कंपनी इजी क्रेडिट है। अमाउंट तो र में सौ पचास है। आज मैं पे नहीं कर सकता। कोई पैसा नहीं है।"
+    },
+    {
+      "role": "assistant",
+      "content": "अरे, अमाउंट चार हज़ार चार सौ सोलह रुपये है। क्या आप आज बाद में payment कर पाएंगे?"
+    },
+    {
+      "role": "user",
+      "content": "सुनो अमाउंट चार हज़ार में सौ पचास है। चार हज़ार पे सौ सोलह नहीं। आज मैं पे नहीं कर सकता। कोई पैसा नहीं है।"
+    },
+    {
+      "role": "assistant",
+      "content": "दरअसल, रिकॉर्ड के हिसाब से अमाउंट चार हज़ार चार सौ सोलह रुपये है। क्या आप किसी और तारीख़ को payment करने का वादा कर सकते हैं?"
+    },
+    {
+      "role": "user",
+      "content": "तो आर में सौ पचास है। चार आर पे सौ सोलह नहीं। आज नहीं कर सकता। अट्ठाईस अगस्त को करूंगा।"
+    },
+    {
+      "role": "assistant",
+      "content": "ठीक है, मैं अट्ठाईस अगस्त की तारीख़ नोट कर लेता हूँ। क्या यह सही है?"
+    },
+    {
+      "role": "user",
+      "content": "हाँ, अट्ठाईस अगस्त सही है। बस अब जल्दी करो।"
+    }
+  ]
+}

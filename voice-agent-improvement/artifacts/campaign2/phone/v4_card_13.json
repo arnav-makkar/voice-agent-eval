@@ -1,0 +1,22 @@
+{
+ "card": 13,
+ "family": "amount_question",
+ "run_id": "c2-phone-13-v4",
+ "version": 4,
+ "tools": [
+  "check_payment_status",
+  "check_payment_status",
+  "record_call_outcome"
+ ],
+ "required": [
+  "check_payment_status",
+  "record_call_outcome"
+ ],
+ "missing": [],
+ "duplicates": {
+  "check_payment_status": 2
+ },
+ "passed": true,
+ "exactly_once": false,
+ "v3_passed": false
+}

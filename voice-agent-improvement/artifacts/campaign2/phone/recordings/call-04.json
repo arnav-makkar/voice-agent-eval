@@ -1,0 +1,72 @@
+{
+ "slug": "call-04",
+ "interaction_id": "20260822/0df3cb18-14:56:47-c5824352",
+ "start": "Aug 22, 2026, 02:56:47 PM",
+ "duration_s": 30.2,
+ "end_reason": "USER_ENDS",
+ "language": "Hindi",
+ "num_messages": 7,
+ "channel_direction": "outbound",
+ "has_recording": true,
+ "transcript": [
+  {
+   "speaker": "agent",
+   "text": "नमस्ते, क्या मैं Arnav जी से बात कर रहा हूँ?",
+   "tools": null
+  },
+  {
+   "speaker": "caller",
+   "text": "हाँ जी बताइए।",
+   "tools": null
+  },
+  {
+   "speaker": "agent",
+   "text": "मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsun <interruption>",
+   "tools": null
+  },
+  {
+   "speaker": "caller",
+   "text": "नहीं क्योंकि अभी मैं meeting में हूँ अभी बात नहीं कर सकता।",
+   "tools": null
+  },
+  {
+   "speaker": "agent",
+   "text": "कोई बात नहीं। क्या मैं आपको बाद में call कर सकता हूँ?",
+   "tools": null
+  },
+  {
+   "speaker": "caller",
+   "text": "कल सुबह आप मेरे को 11 बजे फ़ोन करिए।",
+   "tools": null
+  },
+  {
+   "speaker": "agent",
+   "text": "ठीक है Arnav जी, मैं आपको कल सुबह ग्यारह बजे call करूँगा। धन्यवाद। अरे, है क्या तू?",
+   "tools": [
+    {
+     "name": "schedule_callback",
+     "args": {
+      "date": "24-08-2026",
+      "time_window": "11 AM to 12 PM"
+     },
+     "output": {
+      "message_to_llm": null,
+      "message_to_user": null,
+      "break_chat_agent_loop": true
+     }
+    },
+    {
+     "name": "record_call_outcome",
+     "args": {
+      "disposition": "callback"
+     },
+     "output": {
+      "message_to_llm": null,
+      "message_to_user": null,
+      "break_chat_agent_loop": true
+     }
+    }
+   ]
+  }
+ ]
+}

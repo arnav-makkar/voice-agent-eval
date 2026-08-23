@@ -1,0 +1,103 @@
+{
+ "pay-now": {
+  "v3": {
+   "tools": [
+    "record_call_outcome"
+   ],
+   "dupes": null,
+   "exactly_once": true
+  },
+  "v4": {
+   "tools": [
+    "record_call_outcome"
+   ],
+   "dupes": null,
+   "exactly_once": true
+  }
+ },
+ "callback": {
+  "v3": {
+   "tools": [
+    "schedule_callback",
+    "record_call_outcome"
+   ],
+   "dupes": null,
+   "exactly_once": true
+  },
+  "v4": {
+   "tools": [
+    "schedule_callback",
+    "record_call_outcome"
+   ],
+   "dupes": null,
+   "exactly_once": true
+  }
+ },
+ "refusal": {
+  "v3": {
+   "tools": [
+    "record_call_outcome",
+    "record_call_outcome"
+   ],
+   "dupes": {
+    "record_call_outcome": 2
+   },
+   "exactly_once": false
+  },
+  "v4": {
+   "tools": [
+    "record_call_outcome"
+   ],
+   "dupes": null,
+   "exactly_once": true
+  }
+ },
+ "dispute": {
+  "v3": {
+   "tools": [
+    "record_dispute",
+    "record_dispute",
+    "record_call_outcome"
+   ],
+   "dupes": {
+    "record_dispute": 2
+   },
+   "exactly_once": false
+  },
+  "v4": {
+   "tools": [
+    "record_dispute",
+    "record_call_outcome",
+    "record_call_outcome"
+   ],
+   "dupes": {
+    "record_call_outcome": 2
+   },
+   "exactly_once": false
+  }
+ },
+ "distress": {
+  "v3": {
+   "tools": [
+    "escalate_to_human",
+    "record_call_outcome",
+    "escalate_to_human",
+    "record_call_outcome",
+    "record_call_outcome"
+   ],
+   "dupes": {
+    "escalate_to_human": 2,
+    "record_call_outcome": 3
+   },
+   "exactly_once": false
+  },
+  "v4": {
+   "tools": [
+    "escalate_to_human",
+    "record_call_outcome"
+   ],
+   "dupes": null,
+   "exactly_once": true
+  }
+ }
+}

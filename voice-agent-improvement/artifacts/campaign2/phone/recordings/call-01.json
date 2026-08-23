@@ -1,0 +1,72 @@
+{
+ "slug": "call-01",
+ "interaction_id": "20260822/0df3cb18-14:53:34-dc8ab33c",
+ "start": "Aug 22, 2026, 02:53:34 PM",
+ "duration_s": 30.74,
+ "end_reason": "AGENT_ENDS",
+ "language": "Hindi",
+ "num_messages": 7,
+ "channel_direction": "outbound",
+ "has_recording": true,
+ "transcript": [
+  {
+   "speaker": "agent",
+   "text": "नमस्ते, क्या मैं Arnav जी से बात कर रहा हूँ?",
+   "tools": null
+  },
+  {
+   "speaker": "caller",
+   "text": "हाँ जी अत्मस बोल रहा हूँ।",
+   "tools": null
+  },
+  {
+   "speaker": "agent",
+   "text": "मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की चार हज़ार चार सौ सोलह रुपये की EMI overdue है। क्या आप अभी official EasyCredit app के ज़रिए payment कर सकते हैं?",
+   "tools": null
+  },
+  {
+   "speaker": "caller",
+   "text": "ठीक है मैं अभी app खोल के pay कर देता हूँ।",
+   "tools": null
+  },
+  {
+   "speaker": "agent",
+   "text": "धन्यवाद Arnav जी।",
+   "tools": [
+    {
+     "name": "record_call_outcome",
+     "args": {
+      "disposition": "payment_ready"
+     },
+     "output": {
+      "message_to_llm": null,
+      "message_to_user": null,
+      "break_chat_agent_loop": true
+     }
+    }
+   ]
+  },
+  {
+   "speaker": "caller",
+   "text": "Thank you.",
+   "tools": null
+  },
+  {
+   "speaker": "agent",
+   "text": "धन्यवाद Arnav जी, आपका दिन शुभ हो।",
+   "tools": [
+    {
+     "name": "end_interaction",
+     "args": {
+      "end_message": "धन्यवाद Arnav जी, आपका दिन शुभ हो।"
+     },
+     "output": {
+      "message_to_llm": null,
+      "message_to_user": null,
+      "break_chat_agent_loop": true
+     }
+    }
+   ]
+  }
+ ]
+}

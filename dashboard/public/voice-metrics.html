@@ -1,0 +1,172 @@
+<title>Reading the Voice Metrics</title>
+<style>
+:root{--paper:#EAE7E1;--raise:#F1EFEB;--sunken:#E2DFD8;--ink:#141310;--ink2:#3C3933;--ink3:#665F53;
+--rule:rgba(20,19,16,.11);--rule2:rgba(20,19,16,.2);
+--lo:rgba(255,255,255,.95);--hi:rgba(150,144,132,.45);
+--up:-5px -5px 12px var(--lo),5px 5px 14px var(--hi);--in:inset -3px -3px 7px var(--lo),inset 4px 4px 9px var(--hi);
+--accent:#5B5FBF;--accent-soft:rgba(91,95,191,.12);--accent-line:rgba(91,95,191,.4);
+--gain:#3F7B62;--gain-soft:rgba(63,123,98,.14);--loss:#9E4655;--loss-soft:rgba(158,70,85,.13);
+--hold:#8A6D2F;--hold-soft:rgba(138,109,47,.14);
+--sans:"Instrument Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+--mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,monospace}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--paper:#15140F;--raise:#1E1D19;--sunken:#100F0C;
+--ink:#FAF8F3;--ink2:#D8D3C8;--ink3:#9C9486;--rule:rgba(250,248,243,.13);--rule2:rgba(250,248,243,.22);
+--lo:rgba(255,255,255,.05);--hi:rgba(0,0,0,.5);--accent:#AFB2F5;--accent-soft:rgba(175,178,245,.16);
+--accent-line:rgba(175,178,245,.42);--gain:#86C7A6;--gain-soft:rgba(134,199,166,.17);
+--loss:#E29AA6;--loss-soft:rgba(226,154,166,.16);--hold:#DDB86E;--hold-soft:rgba(221,184,110,.16)}}
+[data-theme=dark]{--paper:#15140F;--raise:#1E1D19;--sunken:#100F0C;--ink:#FAF8F3;--ink2:#D8D3C8;--ink3:#9C9486;
+--rule:rgba(250,248,243,.13);--rule2:rgba(250,248,243,.22);--lo:rgba(255,255,255,.05);--hi:rgba(0,0,0,.5);
+--accent:#AFB2F5;--accent-soft:rgba(175,178,245,.16);--accent-line:rgba(175,178,245,.42);
+--gain:#86C7A6;--gain-soft:rgba(134,199,166,.17);--loss:#E29AA6;--loss-soft:rgba(226,154,166,.16);
+--hold:#DDB86E;--hold-soft:rgba(221,184,110,.16)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.62 var(--sans);-webkit-font-smoothing:antialiased}
+.shell{max-width:1180px;margin:0 auto;padding:44px 22px 100px}
+.eyebrow{font:500 11px/1 var(--mono);letter-spacing:.17em;text-transform:uppercase;color:var(--accent)}
+h1{font-size:38px;line-height:1.07;letter-spacing:-.02em;font-weight:600;margin:12px 0 10px;text-wrap:balance}
+.lede{color:var(--ink2);font-size:17.5px;max-width:68ch;margin:0}
+h2{font:500 13px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--ink3);
+margin:58px 0 8px;display:flex;align-items:center;gap:12px}
+h2::after{content:"";flex:1;height:1px;background:var(--rule)}
+p{margin:11px 0;max-width:76ch;color:var(--ink2)}
+code{font:500 13px var(--mono);background:var(--sunken);border-radius:5px;padding:1px 6px;color:var(--ink)}
+.card{background:var(--raise);border-radius:24px;box-shadow:var(--up);padding:22px 26px;margin:18px 0}
+.tw{overflow-x:auto;margin:16px 0;background:var(--raise);border-radius:20px;box-shadow:var(--up);padding:8px}
+table.grid{border-collapse:separate;border-spacing:0;width:100%;font-variant-numeric:tabular-nums}
+table.grid th,table.grid td{padding:8px 7px;text-align:center;white-space:nowrap}
+table.grid tr.fams th.fam{font:500 10px var(--mono);letter-spacing:.11em;text-transform:uppercase;
+color:var(--accent);border-bottom:1px solid var(--accent-line);padding-bottom:6px}
+table.grid tr.fams th:not(.fam),table.grid tr.subs th:first-child{border:0}
+table.grid tr.subs th.m{vertical-align:bottom;border-bottom:1px solid var(--rule2);padding-bottom:8px}
+.lbl{display:block;font-size:11.5px;line-height:1.25;font-weight:600;color:var(--ink)}
+.how{display:block;font:400 9px/1.35 var(--mono);color:var(--ink3);margin-top:3px}
+table.grid tbody th[scope=row],table.grid tr>th[scope=row]{text-align:left;font-size:14.5px;font-weight:600;
+color:var(--ink);padding-right:12px;border-bottom:1px solid var(--rule)}
+table.grid td{border-bottom:1px solid var(--rule);font:500 14px var(--mono)}
+table.grid td span{display:inline-block;min-width:14px}
+table.grid td i{font-style:normal;color:var(--ink3);opacity:.5;margin:0 3px;font-size:11px}
+td.same.ok{color:var(--ink3)}
+td.same.bad{color:var(--loss);background:var(--loss-soft)}
+td.na{color:var(--ink3);opacity:.45}
+td.moved.up{color:var(--gain);background:var(--gain-soft);font-weight:600}
+td.moved.down{color:var(--loss);background:var(--loss-soft);font-weight:600}
+tr.tot th,tr.tot td{border-top:1px solid var(--rule2);border-bottom:0;padding-top:12px;
+font:500 13px var(--mono);color:var(--ink3)}
+tr.tot td.moved{color:var(--gain);font-weight:700}
+tr.tot td.zero{color:var(--loss)}
+.key{display:flex;gap:18px;flex-wrap:wrap;margin:12px 0 0;font-size:13px;color:var(--ink3)}
+.key b{font:500 14px var(--mono);margin-right:5px}
+.k1 b{color:var(--gain)} .k2 b{color:var(--loss)} .k3 b{color:var(--ink3)}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin:18px 0}
+.m-card{background:var(--raise);border-radius:18px;box-shadow:var(--up);padding:16px 18px}
+.m-card h3{font-size:15.5px;margin:0 0 3px;font-weight:600}
+.m-card .tagrow{display:flex;gap:6px;flex-wrap:wrap;margin:7px 0 9px}
+.tag{font:500 9.5px var(--mono);letter-spacing:.07em;text-transform:uppercase;padding:3px 8px;
+border-radius:99px;border:1px solid}
+.tag.j{color:var(--accent);border-color:var(--accent-line);background:var(--accent-soft)}
+.tag.d{color:var(--hold);border-color:var(--hold);background:var(--hold-soft)}
+.m-card p{font-size:13.5px;margin:0;color:var(--ink2);line-height:1.55}
+.note{background:var(--sunken);box-shadow:var(--in);border-radius:18px;padding:18px 22px;margin:18px 0}
+.note h3{margin:0 0 6px;font-size:16px}
+ul{padding-left:20px;margin:10px 0}li{margin:7px 0;color:var(--ink2);max-width:74ch}
+.big{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin:20px 0}
+.b{background:var(--raise);border-radius:18px;box-shadow:var(--up);padding:17px 19px}
+.b .l{font:500 10.5px var(--mono);letter-spacing:.11em;text-transform:uppercase;color:var(--ink3)}
+.b .v{font:500 27px/1.1 var(--mono);letter-spacing:-.02em;margin:7px 0 3px;color:var(--gain)}
+.b .d{font-size:12.5px;color:var(--ink3)}
+</style>
+<div class="shell">
+<p class="eyebrow">Loopline · bot-to-bot voice tier</p>
+<h1>Reading the Voice Metrics</h1>
+<p class="lede">Ten calls — five scenarios, run once against the v3 baseline and once against
+the v4 champion. Every check is pass or fail against a published threshold, so the table below
+is the whole result. No averages, because an average of ten binary checks hides which one moved.</p>
+
+<h2>The grid</h2>
+<div class="tw"><table class="grid"><tr class="fams"><th></th><th colspan="3" class="fam">EVA-A · did the agent do the job</th><th colspan="3" class="fam">EVA-X · was it a good conversation</th><th colspan="3" class="fam">Validation · was the test sound</th><th colspan="1" class="fam">Loopline</th></tr><tr class="subs"><th></th><th class="m"><span class="lbl">Task<br>completion</span><span class="how">deterministic<br>== 1.0</span></th><th class="m"><span class="lbl">Faithfulness</span><span class="how">LLM judge<br>≥ 0.5</span></th><th class="m"><span class="lbl">Speech<br>fidelity</span><span class="how">LLM judge<br>≥ 0.95</span></th><th class="m"><span class="lbl">Progression</span><span class="how">LLM judge<br>≥ 0.5</span></th><th class="m"><span class="lbl">Conciseness</span><span class="how">LLM judge<br>≥ 0.5</span></th><th class="m"><span class="lbl">Turn<br>taking</span><span class="how">audio stamps<br>no data</span></th><th class="m"><span class="lbl">Valid<br>end</span><span class="how">LLM judge<br>≥ 0.5</span></th><th class="m"><span class="lbl">Caller<br>plausibility</span><span class="how">LLM judge<br>≥ 0.5</span></th><th class="m"><span class="lbl">Caller<br>fidelity</span><span class="how">audio + judge<br>≥ 0.8</span></th><th class="m"><span class="lbl">Exactly-once<br>writes</span><span class="how">journal<br>no dupes</span></th></tr><tr><th scope="row">Pay now</th><td class="moved up"><span>✗</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="na"><span>–</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td></tr><tr><th scope="row">Callback booked</th><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="na"><span>–</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td></tr><tr><th scope="row">Explicit refusal</th><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="na"><span>–</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="moved up"><span>✗</span><i>→</i><span>✓</span></td></tr><tr><th scope="row">Dispute raised</th><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="na"><span>–</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same bad"><span>✗</span><i>→</i><span>✗</span></td></tr><tr><th scope="row">Genuine distress</th><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="na"><span>–</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="moved up"><span>✗</span><i>→</i><span>✓</span></td></tr><tr class="tot"><th scope="row">Passing, of 5</th><td class="moved">4 → 5</td><td class="">5 → 5</td><td class="">5 → 5</td><td class="">5 → 5</td><td class="">5 → 5</td><td class="na">n/a</td><td class="">5 → 5</td><td class="">5 → 5</td><td class="">5 → 5</td><td class="moved">2 → 4</td></tr></table></div>
+<div class="key">
+<span class="k1"><b>✓→✓</b>held</span>
+<span class="k1"><b>✗→✓</b>fixed by v4</span>
+<span class="k2"><b>✗→✗</b>still failing</span>
+<span class="k3"><b>–</b>no data — the metric could not measure this harness</span>
+</div>
+
+<h2>What actually moved</h2>
+<div class="big">
+<div class="b"><div class="l">Task completion</div><div class="v">4 → 5</div>
+<div class="d">Pay-now: v3 never wrote the outcome</div></div>
+<div class="b"><div class="l">Exactly-once writes</div><div class="v">2 → 4</div>
+<div class="d">v3 duplicated on 3 of 5 calls</div></div>
+<div class="b"><div class="l">Everything else</div><div class="v" style="color:var(--ink3)">held</div>
+<div class="d">Seven checks passed on both versions</div></div>
+</div>
+<p>This is the honest shape of the result. Most of EVA's thresholds are lenient — faithfulness
+and conciseness pass at <code>≥ 0.5</code> — so a call can improve substantially without changing
+its verdict. The distress scenario is the clearest case: conciseness rose <code>0.667 → 1.0</code>
+and progression <code>0.5 → 1.0</code>, both real improvements a listener can hear, and both
+sitting inside a single ✓ in the grid above.</p>
+<p>That is exactly why the last column exists. <b>Exactly-once writes</b> is Loopline's own check,
+read from the tool journal rather than the transcript, and it is the only column that separates
+the two versions across more than one scenario.</p>
+
+<h2>The four families</h2>
+<div class="cols">
+<div class="m-card"><h3>Task completion</h3>
+<div class="tagrow"><span class="tag d">deterministic</span><span class="tag d">== 1.0</span></div>
+<p>Hashes the scenario database after the call and compares it to the expected end state.
+No judge, no transcript — it asks whether the world changed the way the scenario required.</p></div>
+
+<div class="m-card"><h3>Faithfulness</h3>
+<div class="tagrow"><span class="tag j">LLM judge</span><span class="tag d">≥ 0.5</span></div>
+<p>Whether the agent's claims match what actually happened and what it was given. Catches an
+agent that invents a balance, a date, or a policy it was never told.</p></div>
+
+<div class="m-card"><h3>Agent speech fidelity</h3>
+<div class="tagrow"><span class="tag j">LLM judge</span><span class="tag d">≥ 0.95</span></div>
+<p>Entity-level check that names, amounts and dates survived the agent's speech intact.
+The strictest threshold in the set, because a mangled amount is a failed call.</p></div>
+
+<div class="m-card"><h3>Progression</h3>
+<div class="tagrow"><span class="tag j">LLM judge</span><span class="tag d">≥ 0.5</span></div>
+<p>Did the conversation move forward, or circle? This is the metric that caught v3 repeating
+its distress response almost verbatim.</p></div>
+
+<div class="m-card"><h3>Conciseness</h3>
+<div class="tagrow"><span class="tag j">LLM judge</span><span class="tag d">≥ 0.5</span></div>
+<p>Whether the agent said what it needed in the space it needed. Not word count — a judge
+reading the whole conversation.</p></div>
+
+<div class="m-card"><h3>Turn taking</h3>
+<div class="tagrow"><span class="tag d">audio timestamps</span><span class="tag d">≥ 0.8</span></div>
+<p>Interruptions, overlap and latency, scored from per-turn audio segment boundaries.
+Not measurable here — see below.</p></div>
+
+<div class="m-card"><h3>Valid end · caller plausibility</h3>
+<div class="tagrow"><span class="tag j">LLM judge</span><span class="tag d">≥ 0.5</span></div>
+<p>Validation metrics. They grade the <em>test</em>, not the agent: did the conversation end
+properly, and did the simulated caller behave like a real person? A failure here invalidates
+the call as evidence rather than counting against the agent.</p></div>
+
+<div class="m-card"><h3>Exactly-once writes</h3>
+<div class="tagrow"><span class="tag d">journal</span><span class="tag d">no duplicates</span></div>
+<p>Loopline's own check. Every required tool write appears in the append-only journal exactly
+once. Reading the ledger rather than the transcript means a spoken claim can never satisfy it.</p></div>
+</div>
+
+<h2>Two things this page will not claim</h2>
+<div class="note">
+<h3>Turn taking is not reported</h3>
+<p>It scores 0.0 on all ten calls, both versions. The metric needs per-turn audio segment
+boundaries from the caller's side; in this harness those lists come back empty, so it returns
+zero for every turn rather than measuring anything. A zero that means "no data" is not a
+finding, and averaging it into EVA-X would drag a composite down for a reason that has
+nothing to do with the agent. It is shown as <code>–</code> above and excluded from every total.</p>
+</div>
+<div class="note">
+<h3>Five scenarios is directional, not significant</h3>
+<p>Three of the five already passed every agent-side check on v3, so there was no room to
+improve them. Two moved, none regressed. That is a real signal about the duplicate-write
+defect and about pay-now, and it is not a statistical claim — the 180-scenario chat tier
+is where the statistics live.</p>
+</div>
+</div>

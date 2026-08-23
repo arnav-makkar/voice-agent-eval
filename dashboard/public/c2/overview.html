@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Execution Truth — Overview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<div class="shell">
+
+<p class="eyebrow">Self-improving voice agent · EMI recovery · Hindi / Hinglish</p>
+<h1>A deployed voice agent that improved itself — and the evidence that it did</h1>
+<p class="lede">One live Sarvam Indus collections agent. A frozen 180-scenario benchmark graded from an
+append-only tool journal, never from what the agent said. Two autonomous optimisation cycles with no
+human-authored candidate text, gated on scenarios the search never saw. Then the same agent re-tested
+on two voice tiers — 15 real phone calls and 5 bot-to-bot conversations — against the same cards its
+baseline was diagnosed on.</p>
+
+<div class="kpis">
+  <div class="kpi hero"><div class="l">Text tier · 180 scenarios</div><div class="v">98 → 160</div>
+    <div class="d">54.4% → 88.9% · +63% relative · p ≈ 0</div></div>
+  <div class="kpi hero"><div class="l">Phone tier · 15 cards</div><div class="v">9 → 14</div>
+    <div class="d">real handset · 5 fixed · 0 regressions</div></div>
+  <div class="kpi hero"><div class="l">Bot-to-bot · 5 scenarios</div><div class="v">0.933 → 1.000</div>
+    <div class="d">mean accuracy composite</div></div>
+  <div class="kpi"><div class="l">Diagnosed defects closed</div><div class="v">5 of 6</div>
+    <div class="d">named before the run · re-tested after</div></div>
+</div>
+
+<h2>The claim, in one paragraph</h2>
+<div class="card">
+<p style="font-size:17px;max-width:74ch">A collections voice agent's job is not to sound competent —
+it is to leave the correct trace in the system of record. This project builds the instrument that
+measures exactly that, uses it to diagnose a deployed agent's failures, lets an automated search fix
+them with no human writing a single candidate word, and then proves the fix on three progressively
+harsher channels: headless text, a real phone line, and full-duplex speech-to-speech. Every number on
+this site is reproducible from artifacts in the repository, and every claim about a tool is read from
+an append-only journal the agent cannot talk its way into.</p>
+</div>
+
+<h2>Three tiers, three kinds of proof</h2>
+<div class="tw"><table>
+<tr><th>Tier</th><th>What runs</th><th class="n">n</th><th>Baseline</th><th>Champion</th><th>What it proves</th></tr>
+<tr><td><strong>Text</strong></td><td>Headless REST channel of the deployed agent, scripted callers, hidden goals</td>
+  <td class="n">180</td><td class="n">98 · 54.4%</td><td class="n"><strong class="gain">160 · 88.9%</strong></td>
+  <td>Statistics: paired flips, blind splits, noise floor</td></tr>
+<tr><td><strong>Phone</strong></td><td>Outbound telephony to a real handset, human caller, 15 scripted cards</td>
+  <td class="n">15</td><td class="n">9</td><td class="n"><strong class="gain">14</strong></td>
+  <td>A human in the loop, real ASR, real interruptions</td></tr>
+<tr><td><strong>Bot-to-bot</strong></td><td>Full-duplex audio: a synthetic caller speaks to the live agent over websocket</td>
+  <td class="n">5</td><td class="n">0.933</td><td class="n"><strong class="gain">1.000</strong></td>
+  <td>Repeatable voice evaluation with judged metrics</td></tr>
+</table></div>
+<p>The three tiers are independent: different transports, different callers, different graders. They
+moved in the same direction. The text tier carries the statistics; the voice tiers carry the proof
+that the gains transfer to the channel that matters.</p>
+
+<h2>How the site reads</h2>
+<div class="flow">
+  <div class="s"><b>1 · The failure mode</b><span>The agent says it recorded things it never recorded. Why transcripts cannot be trusted.</span></div>
+  <div class="s"><b>2 · The instrument</b><span>Three channels, one append-only journal, deterministic and judged metrics.</span></div>
+  <div class="s"><b>3 · Diagnosis</b><span>Six named defects in the baseline, severity-ranked, from real phone calls.</span></div>
+  <div class="s"><b>4 · The loop</b><span>Sense → distill → search → gate → deploy. The search that wrote the fix.</span></div>
+  <div class="s"><b>5 · Results</b><span>Every number, every tier, and the defect-closure table.</span></div>
+  <div class="s"><b>6 · Evidence</b><span>All 40 recorded calls with audio, transcripts, and journal entries.</span></div>
+</div>
+
+<h2>The agent</h2>
+<div class="tw"><table>
+<tr><th>Property</th><th>Value</th></tr>
+<tr><td>Platform</td><td>Sarvam Indus (Samvaad runtime), agent <code>EasyCredit--4e112b0d-9931</code></td></tr>
+<tr><td>Domain</td><td>EMI recovery for a Samsung Smart TV loan — ₹4,416 overdue, instalment 7 of 12</td></tr>
+<tr><td>Languages</td><td>Hindi / Hinglish primary; mirrors the caller on language switch</td></tr>
+<tr><td>Conversation model</td><td>Sarvam Pro</td></tr>
+<tr><td>Tool-calling model</td><td>Llama 3.1 70B — the prompt steers a different, smaller model than the one that converses</td></tr>
+<tr><td>Business tools</td><td><code>check_payment_status</code> · <code>record_promise_to_pay</code> · <code>record_dispute</code> · <code>schedule_callback</code> · <code>escalate_to_human</code> · <code>record_call_outcome</code></td></tr>
+<tr><td>Baseline prompt (v3)</td><td>The deployed production prompt at campaign start</td></tr>
+<tr><td>Champion prompt (v4)</td><td>Generation-2 search output, sha <code>667ce12e2626c75e</code>, plus one declared operational patch (closing rule names <code>end_interaction</code>) → deployed sha <code>9bbbf4bea033063b</code></td></tr>
+</table></div>
+
+</div>
+<script src="nav.js"></script>
+</body>
+</html>

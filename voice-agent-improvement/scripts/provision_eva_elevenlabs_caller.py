@@ -23,8 +23,8 @@ import certifi
 ROOT = Path(__file__).resolve().parents[1]
 API_BASE = "https://api.elevenlabs.io"
 AGENT_NAME = "Loopline EVA Caller — Arnav EMI"
-VOICE_ID = "n32p8A7EZ9CiVeRYpBY9"  # Rajesh — Indian male, calm and controlled
-CALLER_LLM = "qwen36-35b-a3b"  # ElevenLabs-native; avoids third-party LLM billing dependency
+VOICE_ID = "jOjeeDVKnAxGl1jZDUwy"  # Aman — Indian male
+CALLER_LLM = "qwen36-35b-a3b"  # gemini-2.0-flash ends the call at ~10s regardless of turn_timeout
 
 
 def load_env(path: Path) -> None:
@@ -74,9 +74,13 @@ def create_payload() -> dict[str, Any]:
                 "user_input_audio_format": "ulaw_8000",
             },
             "turn": {
-                "turn_timeout": 15,
+                # Measured: at 5.0 the caller left 3.9s and 2.8s of dead air after
+                # Shubh stopped. The high value was a workaround for the cumulative
+                # -transcript bug that made Shubh talk forever; that bug is fixed in
+                # samvaad_server.pace_user_audio, so the caller can answer promptly.
+                "turn_timeout": 2.0,
                 "silence_end_call_timeout": -1,
-                "turn_eagerness": "eager",
+                "turn_eagerness": "normal",
                 "turn_model": "turn_v3",
                 "mode": "turn",
             },
@@ -89,11 +93,15 @@ def create_payload() -> dict[str, Any]:
                 "similarity_boost": 0.8,
             },
             "conversation": {
-                "max_duration_seconds": 180,
+                "max_duration_seconds": 120,
                 "client_events": ["audio", "interruption"],
             },
             "agent": {
-                "first_message": "Haan, boliye.",
+                # Empty: Shubh opens the call unprompted (measured at 0.5s), so a
+                # scripted caller opener is not needed to break the deadlock. Any
+                # opener lands ~1.9s late after TTS and transport, on top of Shubh's
+                # greeting - that was the 0.4s overlap at the start of every call.
+                "first_message": "",
                 "language": "hi",
                 "disable_first_message_interruptions": False,
                 "prompt": {

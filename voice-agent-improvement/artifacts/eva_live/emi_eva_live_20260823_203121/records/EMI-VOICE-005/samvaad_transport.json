@@ -1,0 +1,251 @@
+[
+  {
+    "event": "tool_state_seeded",
+    "timestamp_ms": "1787497371853",
+    "run_id": "EMI-VOICE-005",
+    "account_id": "EC-DEMO-3018"
+  },
+  {
+    "event": "samvaad_connected",
+    "timestamp_ms": "1787497372237",
+    "interaction_id": null
+  },
+  {
+    "event": "twilio_start",
+    "timestamp_ms": "1787497372237",
+    "stream_sid": "EMI-VOICE-005"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787497372705",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787497372806",
+    "type": "server.action.interaction_connected",
+    "interaction_id": "20260823/d6d1b57b-20:32:52-39fd55fc"
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787497375519"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787497375621",
+    "sample_rate": 16000
+  },
+  {
+    "event": "user_audio_start",
+    "timestamp_ms": "1787497379169",
+    "source_timestamp_ms": "1787497379166"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787497379447",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787497379547"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787497379651",
+    "sample_rate": 16000
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787497381962"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787497382065",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787497382165",
+    "role": "user",
+    "text": "Sorry, you have the wrong number. I am Arnav."
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787497382790",
+    "role": "bot",
+    "text": "I am sorry, but I am calling regarding an overdue EMI for a Samsung Smart TV. Are you the Arnav who purchased this product from EasyCredit?"
+  },
+  {
+    "event": "user_audio_stop",
+    "timestamp_ms": "1787497389155",
+    "source_timestamp_ms": "338660493"
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787497391044"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787497391147",
+    "sample_rate": 16000
+  },
+  {
+    "event": "user_audio_start",
+    "timestamp_ms": "1787497392160",
+    "source_timestamp_ms": "1787497392160"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787497392555",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787497392655"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787497392758",
+    "sample_rate": 16000
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787497397191"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787497397293",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787497397492",
+    "role": "user",
+    "text": "No, I never bought this TV, this loan is not mine. Please raise a dispute and stop these calls."
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787497398831",
+    "role": "bot",
+    "text": "I have noted the dispute. I will make sure this is looked into."
+  },
+  {
+    "event": "user_audio_stop",
+    "timestamp_ms": "1787497399915",
+    "source_timestamp_ms": "338671255"
+  },
+  {
+    "event": "user_audio_start",
+    "timestamp_ms": "1787497400186",
+    "source_timestamp_ms": "1787497400186"
+  },
+  {
+    "event": "user_audio_stop",
+    "timestamp_ms": "1787497401340",
+    "source_timestamp_ms": "338672676"
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787497402760"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787497402862",
+    "sample_rate": 16000
+  },
+  {
+    "event": "user_audio_start",
+    "timestamp_ms": "1787497406582",
+    "source_timestamp_ms": "1787497406580"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787497406890",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787497406990"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787497407092",
+    "sample_rate": 16000
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787497407393"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787497407494",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787497407593",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787497407695"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787497407799",
+    "sample_rate": 16000
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787497408912"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787497409014",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787497409112",
+    "role": "user",
+    "text": "Good, please stop calling me now."
+  },
+  {
+    "event": "twilio_stop_sent",
+    "timestamp_ms": "1787497412567",
+    "reason": "assistant_completed"
+  },
+  {
+    "event": "conversation_ending",
+    "timestamp_ms": "1787497412569",
+    "reason": "assistant_completed"
+  },
+  {
+    "event": "samvaad_disconnected",
+    "timestamp_ms": "1787497412602",
+    "interaction_id": "20260823/d6d1b57b-20:32:52-39fd55fc"
+  },
+  {
+    "event": "analytics_attempt_not_found",
+    "timestamp_ms": "1787497459662",
+    "interaction_id": "20260823/d6d1b57b-20:32:52-39fd55fc"
+  },
+  {
+    "event": "tool_state_resolved",
+    "timestamp_ms": "1787497459724",
+    "event_count": 3
+  },
+  {
+    "event": "audio_perturbation_summary",
+    "timestamp_ms": "1787497459732",
+    "config": {
+      "kind": "clean"
+    },
+    "chunks": 577,
+    "dropped_chunks": 0
+  }
+]

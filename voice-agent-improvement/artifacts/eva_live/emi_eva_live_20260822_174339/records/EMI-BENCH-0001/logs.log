@@ -1,0 +1,45 @@
+2026-08-22 17:43:45,957 | INFO     | eva.orchestrator.worker:152 | Starting conversation for record EMI-BENCH-0001 on port 10000
+2026-08-22 17:43:45,985 | INFO     | eva.assistant.tools.tool_executor:148 | Loaded 0 tool functions from src/eva/assistant/tools/emi_tools.py
+2026-08-22 17:43:46,019 | INFO     | eva.assistant.samvaad_server:284 | Samvaad EVA bridge started on ws://localhost:10000/ws
+2026-08-22 17:43:46,020 | INFO     | eva.user_simulator.audio_bridge:137 | Connecting to assistant WebSocket: ws://localhost:10000/ws
+2026-08-22 17:43:46,043 | INFO     | eva.user_simulator.audio_bridge:161 | Connected to assistant, starting audio tasks
+2026-08-22 17:43:46,071 | INFO     | eva.utils.prompt_manager:70 | Loaded prompts from /Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/configs/prompts/judge.yaml
+2026-08-22 17:43:46,083 | INFO     | eva.utils.prompt_manager:70 | Loaded prompts from /Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/configs/prompts/simulation.upstream.yaml
+2026-08-22 17:43:46,094 | INFO     | eva.utils.prompt_manager:70 | Loaded prompts from /Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/configs/prompts/simulation.yaml
+2026-08-22 17:43:46,094 | INFO     | eva.user_simulator.elevenlabs:193 | Using agent ID from env var: EVA_EN_USER_M
+2026-08-22 17:43:46,095 | INFO     | eva.user_simulator.audio_bridge:686 | Starting chunked audio sender (chunk=640 bytes, interval=20ms)
+2026-08-22 17:43:46,095 | INFO     | eva.user_simulator.audio_bridge:531 | Starting continuous input stream (chunk: 2000 bytes, interval: 0.25s)
+2026-08-22 17:43:46,590 | INFO     | eva.user_simulator.elevenlabs:213 | ElevenLabs conversation started successfully
+2026-08-22 17:43:47,036 | INFO     | eva.user_simulator.audio_bridge:497 | 🔊 Assistant audio START
+2026-08-22 17:43:47,693 | INFO     | eva.user_simulator.audio_bridge:419 | 🎤 User audio START - stopping user silence after 0.00s
+2026-08-22 17:43:47,694 | INFO     | eva.user_simulator.audio_bridge:423 | 🎤 User audio START
+2026-08-22 17:43:53,426 | INFO     | eva.user_simulator.audio_bridge:759 | Sent padded chunk (204 bytes padded to 640) - end of utterance
+2026-08-22 17:43:53,426 | INFO     | eva.user_simulator.audio_bridge:463 | 🎤 User audio END
+2026-08-22 17:43:53,597 | INFO     | eva.user_simulator.audio_bridge:419 | 🎤 User audio START - stopping user silence after 0.01s
+2026-08-22 17:43:53,598 | INFO     | eva.user_simulator.audio_bridge:423 | 🎤 User audio START
+2026-08-22 17:43:55,340 | INFO     | eva.user_simulator.audio_bridge:759 | Sent padded chunk (436 bytes padded to 640) - end of utterance
+2026-08-22 17:43:55,340 | INFO     | eva.user_simulator.audio_bridge:463 | 🎤 User audio END
+2026-08-22 17:43:56,596 | INFO     | eva.user_simulator.elevenlabs:444 | 🔊 Assistant still speaking - resetting inactivity counter
+2026-08-22 17:44:06,600 | INFO     | eva.user_simulator.elevenlabs:444 | 🔊 Assistant still speaking - resetting inactivity counter
+2026-08-22 17:44:08,628 | INFO     | eva.user_simulator.audio_bridge:419 | 🎤 User audio START - stopping user silence after 0.01s
+2026-08-22 17:44:08,629 | INFO     | eva.user_simulator.audio_bridge:423 | 🎤 User audio START
+2026-08-22 17:44:14,228 | INFO     | eva.user_simulator.audio_bridge:642 | Assistant ended conversation: assistant_completed
+2026-08-22 17:44:14,228 | INFO     | eva.user_simulator.base:145 | Conversation end signaled: assistant_completed
+2026-08-22 17:44:14,229 | INFO     | eva.user_simulator.audio_bridge:663 | 🔊 Assistant audio END (connection closed)
+2026-08-22 17:44:14,229 | INFO     | eva.user_simulator.elevenlabs:222 | Conversation ended: assistant_completed
+2026-08-22 17:44:14,229 | INFO     | eva.user_simulator.elevenlabs:463 | Keep-alive task cancelled
+2026-08-22 17:44:14,229 | INFO     | eva.user_simulator.elevenlabs:242 | Ending ElevenLabs session...
+2026-08-22 17:44:14,229 | INFO     | eva.user_simulator.audio_bridge:184 | User simulator audio bridge stop() called
+2026-08-22 17:44:14,229 | INFO     | eva.user_simulator.audio_bridge:191 | Signaling conversation end: session_ended
+2026-08-22 17:44:29,453 | INFO     | eva.user_simulator.elevenlabs:383 | Conversation transcript available but no end_call tool found
+2026-08-22 17:44:29,931 | INFO     | eva.user_simulator.elevenlabs:406 | Saved ElevenLabs server-side audio to /Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/eva_live/emi_eva_live_20260822_174339/records/EMI-BENCH-0001/elevenlabs_audio_recording.mp3
+2026-08-22 17:44:29,933 | INFO     | eva.user_simulator.base:182 | Saved clean user audio to /Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/eva_live/emi_eva_live_20260822_174339/records/EMI-BENCH-0001/audio_user_clean.wav
+2026-08-22 17:44:29,934 | INFO     | eva.user_simulator.elevenlabs:296 | Waiting 4s for assistant STT to finish last utterance...
+2026-08-22 17:44:33,935 | INFO     | eva.user_simulator.audio_bridge:244 | Audio interface stopped
+2026-08-22 17:44:33,938 | INFO     | eva.user_simulator.event_logger:182 | Saved 16 user simulator events to /Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/eva_live/emi_eva_live_20260822_174339/records/EMI-BENCH-0001/user_simulator_events.jsonl
+2026-08-22 17:44:33,938 | INFO     | eva.orchestrator.worker:173 | Conversation EMI-BENCH-0001 ended: assistant_completed
+2026-08-22 17:44:34,083 | WARNING  | eva.assistant.base_server:270 | Audio buffer length mismatch: user=692964 assistant=824234 diff=4102ms — mixed recording may be temporally skewed
+2026-08-22 17:45:00,973 | INFO     | eva.assistant.agentic.audit_log:411 | Audit log saved to /Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/eva_live/emi_eva_live_20260822_174339/records/EMI-BENCH-0001/audit_log.json
+2026-08-22 17:45:00,974 | INFO     | eva.assistant.base_server:319 | Saved scenario database states to /Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/eva_live/emi_eva_live_20260822_174339/records/EMI-BENCH-0001
+2026-08-22 17:45:00,974 | INFO     | eva.assistant.base_server:241 | Outputs saved to /Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/eva_live/emi_eva_live_20260822_174339/records/EMI-BENCH-0001
+2026-08-22 17:45:00,974 | INFO     | eva.orchestrator.worker:234 | Computed scenario DB hashes - Initial: e665ee57..., Final: 6dc863b4...

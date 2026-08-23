@@ -1,0 +1,16 @@
+=== re-measure on corrected environment (currentDate 23-08-2026) ===
+--- BASE v3 ---
+  v3 seed applied
+  development: 54/105 passed
+  validation: 15/30 passed
+  regression: 14/30 passed
+  synthetic: 5/15 passed
+--- GEN-1 ---
+  gen1 applied
+  development: 80/105 passed
+  validation: 24/30 passed
+  regression: 25/30 passed
+  synthetic: 6/15 passed
+=== ladder on corrected environment ===
+  v3c:g1c: overall 98→155/180 | blind 33→57/60 CI(0.863, 0.983) signal | ±59/-2 p=0.0 | guard 40→62 | words/turn 15.9→15.9
+=== REMEASURE COMPLETE ===

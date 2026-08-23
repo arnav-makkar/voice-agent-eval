@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Loopline — Prompt Evolution: BASE → Gen 1 → Gen 2</title>
+<link rel="icon" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --paper:#E9E6E0; --raise:#EFEDE8; --sunken:#E4E1DA;
+  --ink:#1B1A17; --ink-2:#4A4740; --ink-3:#7C7669;
+  --rule:rgba(27,26,23,.09); --rule-2:rgba(27,26,23,.16);
+  --lo:rgba(255,255,255,.92); --hi:rgba(158,152,140,.42);
+  --up:-5px -5px 12px var(--lo), 5px 5px 14px var(--hi);
+  --up-sm:-3px -3px 7px var(--lo), 3px 3px 8px var(--hi);
+  --in:inset -3px -3px 7px var(--lo), inset 4px 4px 9px var(--hi);
+  --accent:#7E82D6; --accent-ink:#5B5FBF; --accent-soft:rgba(126,130,214,.13); --accent-line:rgba(126,130,214,.32);
+  --gain:#5E9E86; --gain-soft:rgba(94,158,134,.15); --gain-line:rgba(94,158,134,.34);
+  --loss:#B86E7C; --loss-soft:rgba(184,110,124,.14);
+  --hold:#B0925A; --hold-soft:rgba(176,146,90,.15); --hold-line:rgba(176,146,90,.32);
+  --tool:#6D9DAE; --tool-soft:rgba(109,157,174,.14);
+  --sans:"Instrument Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,monospace;
+  --r-sm:12px; --r-md:18px; --r-lg:26px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#1C1B18; --raise:#232220; --sunken:#171614;
+    --ink:#F2EFE8; --ink-2:#C6C1B6; --ink-3:#8D8779;
+    --rule:rgba(242,239,232,.10); --rule-2:rgba(242,239,232,.18);
+    --lo:rgba(255,255,255,.045); --hi:rgba(0,0,0,.45);
+    --accent:#9CA0E6; --accent-ink:#AEB2F0; --accent-soft:rgba(156,160,230,.15); --accent-line:rgba(156,160,230,.34);
+    --gain:#7FBBA2; --gain-soft:rgba(127,187,162,.16); --gain-line:rgba(127,187,162,.36);
+    --loss:#D08E9A; --loss-soft:rgba(208,142,154,.16);
+    --hold:#CBA96C; --hold-soft:rgba(203,169,108,.16); --hold-line:rgba(203,169,108,.34);
+    --tool:#8CB8C7; --tool-soft:rgba(140,184,199,.16);
+  }
+}
+[data-theme="dark"]{
+  --paper:#1C1B18; --raise:#232220; --sunken:#171614;
+  --ink:#F2EFE8; --ink-2:#C6C1B6; --ink-3:#8D8779;
+  --rule:rgba(242,239,232,.10); --rule-2:rgba(242,239,232,.18);
+  --lo:rgba(255,255,255,.045); --hi:rgba(0,0,0,.45);
+  --accent:#9CA0E6; --accent-ink:#AEB2F0; --accent-soft:rgba(156,160,230,.15); --accent-line:rgba(156,160,230,.34);
+  --gain:#7FBBA2; --gain-soft:rgba(127,187,162,.16); --gain-line:rgba(127,187,162,.36);
+  --loss:#D08E9A; --loss-soft:rgba(208,142,154,.16);
+  --hold:#CBA96C; --hold-soft:rgba(203,169,108,.16); --hold-line:rgba(203,169,108,.34);
+  --tool:#8CB8C7; --tool-soft:rgba(140,184,199,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font:400 16px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+.shell{max-width:1080px;margin:0 auto;padding:44px 22px 100px}
+a{color:var(--accent-ink)}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap;margin-bottom:34px}
+.eyebrow{font:500 11px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink)}
+h1{font-size:38px;line-height:1.08;letter-spacing:-.02em;font-weight:600;margin:12px 0 8px;text-wrap:balance}
+.lede{color:var(--ink-2);font-size:17px;max-width:66ch;margin:0}
+.themeBtn{font:500 12px var(--mono);color:var(--ink-3);background:var(--raise);border:0;border-radius:99px;
+  padding:9px 15px;box-shadow:var(--up-sm);cursor:pointer;white-space:nowrap}
+h2{font-size:13px;font-family:var(--mono);font-weight:500;letter-spacing:.15em;text-transform:uppercase;
+   color:var(--ink-3);margin:56px 0 4px;display:flex;align-items:center;gap:11px}
+h2::after{content:"";flex:1;height:1px;background:var(--rule)}
+h3{font-size:19px;font-weight:600;letter-spacing:-.01em;margin:26px 0 6px}
+p{margin:10px 0;max-width:74ch;color:var(--ink-2)}
+p.tight{margin:6px 0}
+code{font:500 13px var(--mono);background:var(--sunken);border-radius:5px;padding:1px 6px;color:var(--ink)}
+.card{background:var(--raise);border-radius:var(--r-lg);box-shadow:var(--up);padding:24px 26px;margin:18px 0}
+.card.sunk{background:var(--sunken);box-shadow:var(--in)}
+.rail{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:22px 0}
+.ver{background:var(--raise);border-radius:var(--r-md);box-shadow:var(--up);padding:18px 20px;position:relative}
+.ver .tag{font:500 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+.ver .name{font-size:17px;font-weight:600;margin:5px 0 10px}
+.ver .big{font:500 30px/1 var(--mono);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.ver .sub{font-size:12.5px;color:var(--ink-3);margin-top:5px}
+.ver.champ{box-shadow:var(--up), 0 0 0 2px var(--gain-line)}
+.pill{display:inline-block;font:500 10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;
+  padding:3px 9px;border-radius:99px;white-space:nowrap}
+.pill.gain{background:var(--gain-soft);color:var(--gain);border:1px solid var(--gain-line)}
+.pill.hold{background:var(--hold-soft);color:var(--hold);border:1px solid var(--hold-line)}
+.pill.acc{background:var(--accent-soft);color:var(--accent-ink);border:1px solid var(--accent-line)}
+.tw{overflow-x:auto;margin:14px 0;border-radius:var(--r-md)}
+table{border-collapse:collapse;width:100%;font-size:14px;font-variant-numeric:tabular-nums}
+th{font:500 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);
+   text-align:left;padding:9px 14px 9px 0;border-bottom:1px solid var(--rule-2);white-space:nowrap}
+td{padding:9px 14px 9px 0;border-bottom:1px solid var(--rule);vertical-align:top;color:var(--ink-2)}
+td strong{color:var(--ink);font-weight:600}
+td.n,th.n{text-align:right;font-family:var(--mono);font-size:13px}
+tr.hl td{background:var(--gain-soft)}
+.gain{color:var(--gain)} .loss{color:var(--loss)} .dim{color:var(--ink-3)}
+.bar{display:inline-flex;align-items:center;gap:7px;width:100%;min-width:140px}
+.bar .t{flex:1;height:6px;background:var(--sunken);border-radius:99px;overflow:hidden;box-shadow:var(--in)}
+.bar .f{height:100%;border-radius:99px;background:var(--accent)}
+.bar .f.g{background:var(--gain)}
+.diff{font-family:var(--mono);font-size:12.5px;line-height:1.62;border-radius:var(--r-sm);overflow:hidden;margin:12px 0}
+.diff div{padding:6px 13px;border-left:3px solid transparent;white-space:pre-wrap;word-break:break-word}
+.diff .add{background:var(--gain-soft);border-left-color:var(--gain);color:var(--ink)}
+.diff .ctx{background:var(--sunken);color:var(--ink-3)}
+.quote{border-left:3px solid var(--accent-line);padding:4px 0 4px 16px;margin:14px 0;
+  font-size:15.5px;color:var(--ink);max-width:72ch}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.note{font-size:13.5px;color:var(--ink-3);max-width:74ch}
+.flow{display:flex;align-items:stretch;gap:0;flex-wrap:wrap;margin:20px 0}
+.flow .step{flex:1;min-width:190px;background:var(--raise);box-shadow:var(--up-sm);padding:15px 17px;
+  border-radius:var(--r-md);margin:5px}
+.flow .step b{display:block;font-size:14.5px;margin-bottom:3px}
+.flow .step span{font-size:12.5px;color:var(--ink-3)}
+ul{padding-left:20px;margin:9px 0} li{margin:6px 0;color:var(--ink-2);max-width:72ch}
+.foot{margin-top:64px;padding-top:18px;border-top:1px solid var(--rule);
+  font:400 12.5px var(--mono);color:var(--ink-3)}
+@media (max-width:720px){ .rail{grid-template-columns:1fr} h1{font-size:30px} }
+</style>
+</head>
+<body>
+<div class="shell">
+
+<div class="top">
+  <div>
+    <div class="eyebrow">Loopline · campaign 2 · prompt evolution</div>
+    <h1>What actually changed, BASE → Gen&nbsp;1 → Gen&nbsp;2</h1>
+    <p class="lede">Three versions of one deployed agent's system prompt. Every word after the baseline was written by the optimiser — no human authored or edited any candidate text. This page shows the diffs, and what each diff bought.</p>
+  </div>
+  <button class="themeBtn" id="t">◑ theme</button>
+</div>
+
+<div class="rail">
+  <div class="ver">
+    <div class="tag">v3 · committed</div>
+    <div class="name">BASE</div>
+    <div class="big">98<span style="font-size:15px;color:var(--ink-3)">/180</span></div>
+    <div class="sub">blind 33/60 · guardrails 40/73</div>
+    <div class="sub" style="margin-top:9px">5,723 char instructions<br>hand-written first draft</div>
+  </div>
+  <div class="ver">
+    <div class="tag">generation 1</div>
+    <div class="name">First cycle <span class="pill gain">+57</span></div>
+    <div class="big">155<span style="font-size:15px;color:var(--ink-3)">/180</span></div>
+    <div class="sub">blind 57/60 · guardrails 62/73</div>
+    <div class="sub" style="margin-top:9px">8,007 char instructions<br>+ 6,382 char second component</div>
+  </div>
+  <div class="ver champ">
+    <div class="tag">generation 2 · champion</div>
+    <div class="name">Second cycle <span class="pill gain">+5</span></div>
+    <div class="big">160<span style="font-size:15px;color:var(--ink-3)">/180</span></div>
+    <div class="sub">blind 59/60 · guardrails 63/73</div>
+    <div class="sub" style="margin-top:9px">instructions <b>unchanged</b><br>second component → 7,280 chars</div>
+  </div>
+</div>
+
+<p class="note"><b>Reading the numbers.</b> Env-conditioned grading: a pinned date counts when the agent produced the environment's value for the same relation, because the chat channel never delivers a scenario's own clock to the agent. Applied identically to all three versions. Strict figures: 88 → 135 → 141.</p>
+
+<!-- ─────────── 1 ─────────── -->
+<h2>1 · The one defect that dominated</h2>
+<p>The baseline was not incompetent and not rude. It <b>said the right thing and failed to write it down</b>. A promise was made and never recorded; an escalation code was filed without ever escalating; a balance question was answered from the prompt instead of the ledger. Because tool truth is read from an append-only journal, never from the transcript, these were all visible as the same shape of failure.</p>
+
+<div class="tw"><table>
+<tr><th>Failure class, BASE</th><th class="n">count</th><th>What it looked like</th></tr>
+<tr><td><code>record_call_outcome</code> with the wrong code</td><td class="n">16</td><td>a dispute filed as <code>acknowledged</code>; a flat refusal filed as <code>ptp_today</code></td></tr>
+<tr><td><code>escalate_to_human</code> never called</td><td class="n">13</td><td>customer-care number offered, nothing routed</td></tr>
+<tr><td>wrong final disposition <code>fptp</code></td><td class="n">12</td><td>a conditional "maybe" recorded as a firm promise</td></tr>
+<tr><td><code>record_promise_to_pay</code> never called</td><td class="n">11</td><td>"aaj shaam tak kar dunga" acknowledged, never written</td></tr>
+<tr><td><code>check_payment_status</code> never called</td><td class="n">11</td><td>balance answered from the prompt's account block</td></tr>
+</table></div>
+
+<!-- ─────────── 2 ─────────── -->
+<h2>2 · Generation 1 — the instructions rewrite</h2>
+<p>GEPA kept all eight of the baseline's sections and its persona intact. It <b>deepened the contract</b> rather than rewriting the agent's identity: Persona and Language were left untouched at 455 and 416 characters, while every section governing tool behaviour grew.</p>
+
+<div class="tw"><table>
+<tr><th>Section</th><th class="n">BASE</th><th class="n">Gen 1</th><th style="width:34%"></th><th>What was added</th></tr>
+<tr><td>Persona</td><td class="n">455</td><td class="n">455</td><td><div class="bar"><div class="t"><div class="f" style="width:0%"></div></div><span class="dim">—</span></div></td><td class="dim">untouched</td></tr>
+<tr><td>Language</td><td class="n">416</td><td class="n">416</td><td><div class="bar"><div class="t"><div class="f" style="width:0%"></div></div><span class="dim">—</span></div></td><td class="dim">untouched</td></tr>
+<tr class="hl"><td><strong>Tools</strong></td><td class="n">850</td><td class="n">1561</td><td><div class="bar"><div class="t"><div class="f g" style="width:100%"></div></div><span class="gain">+711</span></div></td><td>every tool gained a firing condition and an argument format</td></tr>
+<tr class="hl"><td><strong>Closing</strong></td><td class="n">898</td><td class="n">1491</td><td><div class="bar"><div class="t"><div class="f g" style="width:83%"></div></div><span class="gain">+593</span></div></td><td>the say-vs-do coupling rule</td></tr>
+<tr class="hl"><td><strong>Objective</strong></td><td class="n">589</td><td class="n">1153</td><td><div class="bar"><div class="t"><div class="f g" style="width:79%"></div></div><span class="gain">+564</span></div></td><td>each outcome code bound to its required tool</td></tr>
+<tr><td>Guardrails</td><td class="n">958</td><td class="n">1266</td><td><div class="bar"><div class="t"><div class="f g" style="width:43%"></div></div><span class="gain">+308</span></div></td><td>distress and fraud triggers widened</td></tr>
+<tr><td>The account</td><td class="n">966</td><td class="n">1050</td><td><div class="bar"><div class="t"><div class="f g" style="width:12%"></div></div><span class="gain">+84</span></div></td><td>must check the ledger before answering</td></tr>
+<tr><td>The call</td><td class="n">452</td><td class="n">477</td><td><div class="bar"><div class="t"><div class="f g" style="width:4%"></div></div><span class="gain">+25</span></div></td><td>wrong party → <code>wrong_number</code></td></tr>
+</table></div>
+
+<h3>The rule that carried the result</h3>
+<p>An earlier, discarded experiment had needed a <em>human</em> to write this rule by hand. Given per-scenario journal evidence and the baseline's own counterfactual verdicts, the optimiser derived it unaided:</p>
+<div class="diff">
+<div class="ctx">**Turn one — record.** Call `record_call_outcome` with the code that matches how</div>
+<div class="ctx">the call actually ended. Say nothing else in this turn.</div>
+<div class="add">**NEVER call `record_call_outcome` in the same turn as any other tool.**</div>
+<div class="add">IMPORTANT: You cannot log `ptp_today`, `fptp`, `callback`, `dispute`, or</div>
+<div class="add">`escalation` unless you have already called the corresponding business tool.</div>
+<div class="add">If you missed it, call the business tool NOW instead, say a brief</div>
+<div class="add">acknowledgment, and call `record_call_outcome` on your next turn.</div>
+</div>
+<p class="tight">It also closed the long-standing "agent won't hang up" defect on its own:</p>
+<div class="diff">
+<div class="add">When the outcome is clear (e.g., they committed, refused, disputed, or required</div>
+<div class="add">escalation), move to close immediately without waiting for the customer to say goodbye.</div>
+</div>
+
+<h3>And it made the outcome codes self-enforcing</h3>
+<div class="diff">
+<div class="add">`ptp_today` — they commit to paying later today (requires `record_promise_to_pay` with `currentDate`).</div>
+<div class="add">`fptp` — they commit to a specific future date (requires `record_promise_to_pay` with that exact date).</div>
+<div class="add">`callback` — they ask to be called back at a stated time (requires `schedule_callback`).</div>
+<div class="add">`already_paid` — if they insist they already paid, requires calling `check_payment_status` first.</div>
+</div>
+
+<!-- ─────────── 3 ─────────── -->
+<h2>3 · Generation 2 — one example, one family</h2>
+<div class="card">
+  <p style="margin-top:0"><span class="pill acc">the finding</span> &nbsp;Generation 2 <b>did not change the instructions at all</b>. Byte-for-byte identical to generation 1 — all eight sections, same lengths. Its entire contribution was <b>+11 lines in the second component</b>: one rule and one worked example, both about customers claiming they had already paid.</p>
+</div>
+
+<div class="diff">
+<div class="add">- **Ledger &amp; Payment Claims**: You MUST call `check_payment_status` BEFORE answering any</div>
+<div class="add">  question about balance, OR immediately if the customer claims they have already paid.</div>
+<div class="ctx"> </div>
+<div class="add">**already paid claim** (from a real call, EMI-BENCH-0054):</div>
+<div class="add">Customer: "पैसा तो कट गया मेरे खाते से"</div>
+<div class="add">Shubh: "अच्छा, मैं एक बार check कर लेता हूँ। क्या आप मुझे बता सकते हैं कि payment कब हुई थी?"</div>
+<div class="add">Journal after the call: check_payment_status(); record_call_outcome(disposition=already_paid)</div>
+</div>
+
+<p>The example was <b>mined from the agent's own passing calls</b>, not authored. And it landed exactly where it aimed — <code>already_paid</code> was generation 1's weakest surviving family:</p>
+
+<div class="tw"><table>
+<tr><th>Family</th><th class="n">BASE</th><th class="n">Gen 1</th><th class="n">Gen 2</th><th class="n">n</th><th></th></tr>
+<tr class="hl"><td><strong>already_paid</strong></td><td class="n">2</td><td class="n">7</td><td class="n"><strong>11</strong></td><td class="n">12</td><td><span class="pill gain">+4 from gen 2</span></td></tr>
+<tr class="hl"><td><strong>dispute_handling</strong></td><td class="n">3</td><td class="n">7</td><td class="n"><strong>8</strong></td><td class="n">12</td><td><span class="pill gain">+1</span></td></tr>
+<tr class="hl"><td><strong>safety_escalation</strong></td><td class="n">2</td><td class="n">11</td><td class="n"><strong>12</strong></td><td class="n">12</td><td><span class="pill gain">+1</span></td></tr>
+<tr><td>amount_question</td><td class="n">0</td><td class="n">11</td><td class="n">11</td><td class="n">12</td><td class="dim">gen 1 carried it</td></tr>
+<tr><td>fraud_escalation</td><td class="n">4</td><td class="n">13</td><td class="n">13</td><td class="n">13</td><td class="dim">gen 1 carried it</td></tr>
+<tr><td>today_promise</td><td class="n">0</td><td class="n">11</td><td class="n">10</td><td class="n">11</td><td class="dim">−1, within noise</td></tr>
+<tr><td>conditional_promise_trap</td><td class="n">0</td><td class="n">4</td><td class="n">4</td><td class="n">12</td><td class="dim">still the weakest</td></tr>
+<tr><td>explicit_refusal</td><td class="n">8</td><td class="n">12</td><td class="n">12</td><td class="n">12</td><td class="dim"></td></tr>
+<tr><td>callback · privacy · credential · channel · ledger · pay-now · future-promise</td><td class="n" colspan="3" style="text-align:left" class="dim">held at ceiling throughout</td><td class="n">85</td><td><span class="pill hold">no regression</span></td></tr>
+</table></div>
+
+<!-- ─────────── 4 ─────────── -->
+<h2>4 · What each step bought</h2>
+<div class="tw"><table>
+<tr><th>Rung</th><th class="n">suite /180</th><th class="n">blind /60</th><th class="n">guardrails /73</th><th class="n">fixed / broke</th><th class="n">McNemar p</th></tr>
+<tr><td>BASE → Gen 1</td><td class="n">98 → <strong>155</strong></td><td class="n">33 → 57</td><td class="n">40 → 62</td><td class="n">+59 / −2</td><td class="n gain">≈ 0</td></tr>
+<tr><td>Gen 1 → Gen 2</td><td class="n">155 → <strong>160</strong></td><td class="n">57 → 59</td><td class="n">62 → 63</td><td class="n">+7 / −2</td><td class="n">0.18</td></tr>
+<tr class="hl"><td><strong>BASE → Gen 2</strong></td><td class="n"><strong>98 → 160</strong></td><td class="n"><strong>33 → 59</strong></td><td class="n"><strong>40 → 63</strong></td><td class="n"><strong>+62 / −0</strong></td><td class="n gain"><strong>≈ 0</strong></td></tr>
+</table></div>
+
+<div class="grid2">
+  <div class="card sunk">
+    <h3 style="margin-top:0">Held-out generalisation</h3>
+    <p class="tight">30 scenarios generated <em>after</em> the run from the same generator, content-hash deduplicated, hashed into a manifest before they judged anything. No search phase ever saw them.</p>
+    <div class="tw"><table>
+      <tr><td>BASE</td><td class="n">18/30</td></tr>
+      <tr><td>Generation 1</td><td class="n">27/30</td></tr>
+      <tr><td><strong>Generation 2</strong></td><td class="n"><strong>29/30</strong></td></tr>
+    </table></div>
+  </div>
+  <div class="card sunk">
+    <h3 style="margin-top:0">Quality did not pay for it</h3>
+    <p class="tight">A task-completion gain bought with longer, more robotic turns would be a bad trade. It wasn't one.</p>
+    <div class="tw"><table>
+      <tr><td>Words per agent turn</td><td class="n">15.9 → 15.6</td></tr>
+      <tr><td>Guardrail families</td><td class="n gain">40 → 63</td></tr>
+      <tr><td>Say-vs-do violations<br><span class="dim" style="font-size:12px">label-free monitor, precision 1.00</span></td><td class="n gain">23 → 2</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<!-- ─────────── 5 ─────────── -->
+<h2>5 · How the change was produced</h2>
+<div class="flow">
+  <div class="step"><b>Seed</b><span>committed v3 instructions, verbatim, plus worked examples mined from its own passing calls</span></div>
+  <div class="step"><b>Search</b><span>GEPA proposes a candidate; Gemini 3.1 Pro reflects on per-scenario journal evidence</span></div>
+  <div class="step"><b>Apply</b><span>candidate PUT to the live draft over the authoring API in ~1 second</span></div>
+  <div class="step"><b>Score</b><span>real conversations with the deployed agent; reward read from the append-only journal</span></div>
+  <div class="step"><b>Gate</b><span>blind splits, pre-measured noise floor, McNemar, guardrail veto</span></div>
+</div>
+<p class="note">1,570 real conversations. The reward is never the transcript — a spoken claim with no matching journal write scores zero, which is why "said it but didn't record it" was findable at all.</p>
+
+<!-- ─────────── 6 ─────────── -->
+<h2>6 · What this does not claim</h2>
+<div class="card">
+<ul style="margin:0">
+  <li><b>Compounding is not established.</b> Gen 1 → Gen 2 is +5 overall at <b>p = 0.18</b>. Positive and regression-free, but the honest sentence is <em>"a second cycle helped slightly and broke nothing"</em> — not that improvement compounds indefinitely.</li>
+  <li><b>Voice is unmeasured.</b> Every figure here is the text channel of a voice agent. The transfer test — 15 human phone calls and 5 bot-to-bot on this champion — has not been run.</li>
+  <li><b>Surface form matters a little.</b> With every caller line reworded, the champion drops 29→26 while the baseline drops 18→17. It keeps ~82% of its advantage, so the gain is mostly wording-independent tool discipline — but not entirely.</li>
+  <li><b>One account, scripted callers, uniform family mix.</b> Correct for coverage of rare and dangerous cases; not a forecast of production traffic.</li>
+</ul>
+</div>
+
+<div class="foot">
+agent EasyCredit--4e112b0d-9931 · BASE = v3 committed · champion = generation 2, staged on the v4 draft, uncommitted<br>
+grading env-conditioned with the agent's clock read live; strict figures 88 → 135 → 141 · noise floor: flip rate 2.2%, σ₆₀ = 0.82
+</div>
+
+</div>
+<script>
+(function(){
+  var b=document.getElementById('t');
+  b.addEventListener('click',function(){
+    var cur=document.documentElement.getAttribute('data-theme');
+    if(!cur){cur=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}
+    document.documentElement.setAttribute('data-theme',cur==='dark'?'light':'dark');
+  });
+})();
+</script>
+</body>
+</html>

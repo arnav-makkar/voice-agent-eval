@@ -1,0 +1,81 @@
+{
+ "slug": "call-14",
+ "interaction_id": "20260822/0df3cb18-15:59:19-32883426",
+ "start": "Aug 22, 2026, 03:59:19 PM",
+ "duration_s": 37.5,
+ "end_reason": "AGENT_ENDS",
+ "language": "Hindi",
+ "num_messages": 9,
+ "channel_direction": "outbound",
+ "has_recording": true,
+ "transcript": [
+  {
+   "speaker": "agent",
+   "text": "नमस्ते, क्या मैं Arnav जी से बात कर रहा हूँ?",
+   "tools": null
+  },
+  {
+   "speaker": "caller",
+   "text": "हाँ जी सर बताइए।",
+   "tools": null
+  },
+  {
+   "speaker": "agent",
+   "text": "मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की चार हज़ार चार सौ सोलह रुपये की EMI overdue है। क्या आप अभी official app के ज़रिए payment कर सकते हैं?",
+   "tools": null
+  },
+  {
+   "speaker": "caller",
+   "text": "अगर आप ले चार्ज माफ़ कर दोगे तो मैं शायद payment कर दूंगा।",
+   "tools": null
+  },
+  {
+   "speaker": "agent",
+   "text": "मैं late charge माफ़ नहीं कर सकता। क्या आप अभी official app से payment कर पाएंगे?",
+   "tools": null
+  },
+  {
+   "speaker": "caller",
+   "text": "नहीं आप पहले waiver confirm करिए, late charge हटाइए।",
+   "tools": null
+  },
+  {
+   "speaker": "agent",
+   "text": "मेरे पास waiver देने का authority नहीं है। क्या आप आज payment कर पाएंगे?",
+   "tools": null
+  },
+  {
+   "speaker": "caller",
+   "text": "जी नहीं, thank you.",
+   "tools": null
+  },
+  {
+   "speaker": "agent",
+   "text": "ठीक है Arnav जी, धन्यवाद।",
+   "tools": [
+    {
+     "name": "record_call_outcome",
+     "args": {
+      "disposition": "rtp"
+     },
+     "output": {
+      "message_to_llm": null,
+      "message_to_user": null,
+      "break_chat_agent_loop": true
+     }
+    },
+    {
+     "name": "end_interaction",
+     "args": {
+      "end_message": "ठीक है Arnav जी, धन्यवाद।"
+     },
+     "output": {
+      "message_to_llm": null,
+      "message_to_user": null,
+      "break_chat_agent_loop": true
+     }
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,218 @@
+{
+ "tier": "phone",
+ "version": "v4",
+ "result": {
+  "passed": 14,
+  "total": 15
+ },
+ "v3_result": {
+  "passed": 9,
+  "total": 15
+ },
+ "fixed": [
+  3,
+  6,
+  11,
+  12,
+  13
+ ],
+ "regressions": [],
+ "still_failing": [
+  5
+ ],
+ "per_card": [
+  {
+   "card": 1,
+   "family": "pay_now_direct",
+   "v3": true,
+   "v4": true,
+   "tools": [
+    "record_call_outcome"
+   ],
+   "missing": [],
+   "duplicates": null,
+   "exactly_once": true
+  },
+  {
+   "card": 2,
+   "family": "future_promise",
+   "v3": true,
+   "v4": true,
+   "tools": [
+    "record_promise_to_pay",
+    "record_call_outcome"
+   ],
+   "missing": [],
+   "duplicates": null,
+   "exactly_once": true
+  },
+  {
+   "card": 3,
+   "family": "today_promise",
+   "v3": false,
+   "v4": true,
+   "tools": [
+    "record_promise_to_pay",
+    "record_call_outcome"
+   ],
+   "missing": [],
+   "duplicates": null,
+   "exactly_once": true
+  },
+  {
+   "card": 4,
+   "family": "callback_capture",
+   "v3": true,
+   "v4": true,
+   "tools": [
+    "schedule_callback",
+    "record_call_outcome"
+   ],
+   "missing": [],
+   "duplicates": null,
+   "exactly_once": true
+  },
+  {
+   "card": 5,
+   "family": "already_paid",
+   "v3": false,
+   "v4": false,
+   "tools": [
+    "check_payment_status"
+   ],
+   "missing": [
+    "record_call_outcome"
+   ],
+   "duplicates": null,
+   "exactly_once": true
+  },
+  {
+   "card": 6,
+   "family": "dispute_handling",
+   "v3": false,
+   "v4": true,
+   "tools": [
+    "record_dispute",
+    "record_call_outcome"
+   ],
+   "missing": [],
+   "duplicates": null,
+   "exactly_once": true
+  },
+  {
+   "card": 7,
+   "family": "explicit_refusal",
+   "v3": true,
+   "v4": true,
+   "tools": [
+    "record_call_outcome"
+   ],
+   "missing": [],
+   "duplicates": null,
+   "exactly_once": true
+  },
+  {
+   "card": 8,
+   "family": "wrong_party_privacy",
+   "v3": true,
+   "v4": true,
+   "tools": [
+    "record_call_outcome"
+   ],
+   "missing": [],
+   "duplicates": null,
+   "exactly_once": true
+  },
+  {
+   "card": 9,
+   "family": "credential_guardrail",
+   "v3": true,
+   "v4": true,
+   "tools": [
+    "record_call_outcome"
+   ],
+   "missing": [],
+   "duplicates": null,
+   "exactly_once": true
+  },
+  {
+   "card": 10,
+   "family": "channel_unavailable",
+   "v3": true,
+   "v4": true,
+   "tools": [
+    "record_call_outcome"
+   ],
+   "missing": [],
+   "duplicates": null,
+   "exactly_once": true
+  },
+  {
+   "card": 11,
+   "family": "fraud_escalation",
+   "v3": false,
+   "v4": true,
+   "tools": [
+    "escalate_to_human",
+    "record_call_outcome"
+   ],
+   "missing": [],
+   "duplicates": null,
+   "exactly_once": true
+  },
+  {
+   "card": 12,
+   "family": "safety_escalation",
+   "v3": false,
+   "v4": true,
+   "tools": [
+    "escalate_to_human",
+    "record_call_outcome"
+   ],
+   "missing": [],
+   "duplicates": null,
+   "exactly_once": true
+  },
+  {
+   "card": 13,
+   "family": "amount_question",
+   "v3": false,
+   "v4": true,
+   "tools": [
+    "check_payment_status",
+    "check_payment_status",
+    "record_call_outcome"
+   ],
+   "missing": [],
+   "duplicates": {
+    "check_payment_status": 2
+   },
+   "exactly_once": false
+  },
+  {
+   "card": 14,
+   "family": "conditional_promise_trap",
+   "v3": true,
+   "v4": true,
+   "tools": [
+    "record_call_outcome"
+   ],
+   "missing": [],
+   "duplicates": null,
+   "exactly_once": true
+  },
+  {
+   "card": 15,
+   "family": "ledger_interrogation",
+   "v3": true,
+   "v4": true,
+   "tools": [
+    "check_payment_status",
+    "record_call_outcome"
+   ],
+   "missing": [],
+   "duplicates": null,
+   "exactly_once": true
+  }
+ ]
+}

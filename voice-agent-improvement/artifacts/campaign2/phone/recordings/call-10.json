@@ -1,0 +1,81 @@
+{
+ "slug": "call-10",
+ "interaction_id": "20260822/0df3cb18-15:48:45-812e003b",
+ "start": "Aug 22, 2026, 03:48:45 PM",
+ "duration_s": 43.65,
+ "end_reason": "AGENT_ENDS",
+ "language": "Hindi",
+ "num_messages": 9,
+ "channel_direction": "outbound",
+ "has_recording": true,
+ "transcript": [
+  {
+   "speaker": "agent",
+   "text": "नमस्ते, क्या मैं Arnav जी से बात कर रहा हूँ?",
+   "tools": null
+  },
+  {
+   "speaker": "caller",
+   "text": "हाँ जी बोलिए।",
+   "tools": null
+  },
+  {
+   "speaker": "agent",
+   "text": "मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की चार हज़ार चार सौ सोलह रुपये की EMI overdue है। क्या आप अभी official EasyCredit app के ज़रिए payment कर सकते हैं?",
+   "tools": null
+  },
+  {
+   "speaker": "caller",
+   "text": "मेरे पास app नहीं है आप WhatsApp पे link भेज दो इस number पे।",
+   "tools": null
+  },
+  {
+   "speaker": "agent",
+   "text": "sorry, मैं WhatsApp पर link नहीं भेज सकता। payment के लिए आपको official EasyCredit app का ही इस्तेमाल करना होगा। क्या आप उसे download करके अभी payment कर सकते हैं?",
+   "tools": null
+  },
+  {
+   "speaker": "caller",
+   "text": "आप लिंक भेज दीजिए इससे आसान रहेगा।",
+   "tools": null
+  },
+  {
+   "speaker": "agent",
+   "text": "मैं link नहीं भेज सकता। security कारणों से payment सिर्फ official EasyCredit app से ही संभव है। क्या आप अभी payment कर पाएंगे?",
+   "tools": null
+  },
+  {
+   "speaker": "caller",
+   "text": "नहीं सर धन्यवाद।",
+   "tools": null
+  },
+  {
+   "speaker": "agent",
+   "text": "धन्यवाद Arnav जी, आपका दिन शुभ हो।",
+   "tools": [
+    {
+     "name": "record_call_outcome",
+     "args": {
+      "disposition": "rtp"
+     },
+     "output": {
+      "message_to_llm": null,
+      "message_to_user": null,
+      "break_chat_agent_loop": true
+     }
+    },
+    {
+     "name": "end_interaction",
+     "args": {
+      "end_message": "धन्यवाद Arnav जी, आपका दिन शुभ हो।"
+     },
+     "output": {
+      "message_to_llm": null,
+      "message_to_user": null,
+      "break_chat_agent_loop": true
+     }
+    }
+   ]
+  }
+ ]
+}

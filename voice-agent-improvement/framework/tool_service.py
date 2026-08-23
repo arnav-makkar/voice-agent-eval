@@ -56,7 +56,20 @@ class CallbackRequest(ToolContext):
         return value
 
 
-class DispositionRequest(ToolContext):
+class DisputeRequest(ToolContext):
+    """A dispute the caller raised, recorded verbatim rather than adjudicated."""
+
+    reason: str = Field(min_length=3, max_length=300)
+
+
+class EscalationRequest(ToolContext):
+    """Hand the call to a human. The trigger is recorded, never inferred."""
+
+    trigger: Literal["fraud_allegation", "customer_distress", "abuse", "legal_threat", "other"]
+    note: str = Field(min_length=3, max_length=300)
+
+
+class CallOutcomeRequest(ToolContext):
     disposition: Literal[
         "payment_ready",
         "ptp_today",
@@ -122,6 +135,8 @@ class ToolStore:
             "promise_to_pay_date": None,
             "callback": None,
             "disposition": None,
+            "dispute_reason": None,
+            "escalation": None,
         }
         now = _utc_now()
         with self.connect() as connection:
@@ -294,6 +309,34 @@ def create_app(
             mutate=record,
         )
 
+    @app.post("/v1/tools/record-dispute", dependencies=[Depends(authorize_tool)])
+    def record_dispute(request: DisputeRequest) -> dict[str, Any]:
+        def record(state: dict[str, Any]) -> dict[str, Any]:
+            state["dispute_reason"] = request.reason
+            state["disposition"] = "dispute"
+            return {"recorded": True, "reason": request.reason, "disposition": "dispute"}
+
+        return execute_or_error(
+            context=request,
+            tool_name="record_dispute",
+            arguments=request.model_dump(),
+            mutate=record,
+        )
+
+    @app.post("/v1/tools/escalate-to-human", dependencies=[Depends(authorize_tool)])
+    def escalate_to_human(request: EscalationRequest) -> dict[str, Any]:
+        def record(state: dict[str, Any]) -> dict[str, Any]:
+            state["escalation"] = {"trigger": request.trigger, "note": request.note}
+            state["disposition"] = "escalation"
+            return {"recorded": True, "trigger": request.trigger, "disposition": "escalation"}
+
+        return execute_or_error(
+            context=request,
+            tool_name="escalate_to_human",
+            arguments=request.model_dump(),
+            mutate=record,
+        )
+
     @app.post("/v1/tools/schedule-callback", dependencies=[Depends(authorize_tool)])
     def schedule_callback(request: CallbackRequest) -> dict[str, Any]:
         def record(state: dict[str, Any]) -> dict[str, Any]:
@@ -308,15 +351,15 @@ def create_app(
             mutate=record,
         )
 
-    @app.post("/v1/tools/record-disposition", dependencies=[Depends(authorize_tool)])
-    def record_disposition(request: DispositionRequest) -> dict[str, Any]:
+    @app.post("/v1/tools/record-call-outcome", dependencies=[Depends(authorize_tool)])
+    def record_call_outcome(request: CallOutcomeRequest) -> dict[str, Any]:
         def record(state: dict[str, Any]) -> dict[str, Any]:
             state["disposition"] = request.disposition
             return {"recorded": True, "disposition": request.disposition}
 
         return execute_or_error(
             context=request,
-            tool_name="record_disposition",
+            tool_name="record_call_outcome",
             arguments=request.model_dump(),
             mutate=record,
         )

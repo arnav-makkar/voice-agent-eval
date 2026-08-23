@@ -1,0 +1,226 @@
+[
+  {
+    "event": "tool_state_seeded",
+    "timestamp_ms": "1787497647606",
+    "run_id": "EMI-VOICE-002",
+    "account_id": "EC-DEMO-2950"
+  },
+  {
+    "event": "samvaad_connected",
+    "timestamp_ms": "1787497648020",
+    "interaction_id": null
+  },
+  {
+    "event": "twilio_start",
+    "timestamp_ms": "1787497648020",
+    "stream_sid": "EMI-VOICE-002"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787497648738",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787497648837",
+    "type": "server.action.interaction_connected",
+    "interaction_id": "20260823/331edd37-20:37:28-70ec07e1"
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787497651751"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787497651854",
+    "sample_rate": 16000
+  },
+  {
+    "event": "user_audio_start",
+    "timestamp_ms": "1787497655195",
+    "source_timestamp_ms": "1787497655193"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787497655476",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787497655577"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787497655679",
+    "sample_rate": 16000
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787497655986"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787497656086",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787497656289",
+    "sample_rate": 16000
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787497657096"
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787497657198",
+    "role": "user",
+    "text": "हेलो कौन बात कर रहा है?"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787497657299",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787497657498",
+    "role": "bot",
+    "text": "मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की चार हज़ार चार सौ सोलह रुपये की EMI overdue है। क्या आप अभी official EasyCredit app के ज़रिए payment कर सकते हैं?"
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787497667863"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787497667969",
+    "sample_rate": 16000
+  },
+  {
+    "event": "user_audio_stop",
+    "timestamp_ms": "1787497671229",
+    "source_timestamp_ms": "338942571"
+  },
+  {
+    "event": "user_audio_start",
+    "timestamp_ms": "1787497671427",
+    "source_timestamp_ms": "1787497671426"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787497671482",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787497671583"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787497671684",
+    "sample_rate": 16000
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787497672818"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787497672924",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787497673025",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787497673124"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787497673326",
+    "sample_rate": 16000
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787497674035"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787497674137",
+    "sample_rate": 16000
+  },
+  {
+    "event": "user_audio_stop",
+    "timestamp_ms": "1787497674210",
+    "source_timestamp_ms": "338945551"
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787497674235",
+    "role": "user",
+    "text": "नहीं आज नहीं कर सकता। अभी पैसे नहीं हैं।"
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787497674436",
+    "role": "bot",
+    "text": "कोई बात नहीं। क्या आप मुझे बता सकते हैं कि आप payment कब तक कर पाएंगे?"
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787497678258"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787497678362",
+    "sample_rate": 16000
+  },
+  {
+    "event": "user_audio_start",
+    "timestamp_ms": "1787497682597",
+    "source_timestamp_ms": "1787497682590"
+  },
+  {
+    "event": "twilio_stop_sent",
+    "timestamp_ms": "1787497682899",
+    "reason": "assistant_completed"
+  },
+  {
+    "event": "conversation_ending",
+    "timestamp_ms": "1787497682899",
+    "reason": "assistant_completed"
+  },
+  {
+    "event": "samvaad_disconnected",
+    "timestamp_ms": "1787497682937",
+    "interaction_id": "20260823/331edd37-20:37:28-70ec07e1"
+  },
+  {
+    "event": "analytics_attempt_not_found",
+    "timestamp_ms": "1787497730678",
+    "interaction_id": "20260823/331edd37-20:37:28-70ec07e1"
+  },
+  {
+    "event": "tool_state_resolved",
+    "timestamp_ms": "1787497730762",
+    "event_count": 0
+  },
+  {
+    "event": "audio_perturbation_summary",
+    "timestamp_ms": "1787497730768",
+    "config": {
+      "kind": "clean"
+    },
+    "chunks": 247,
+    "dropped_chunks": 0
+  }
+]

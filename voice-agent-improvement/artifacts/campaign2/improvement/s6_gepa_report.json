@@ -1,0 +1,535 @@
+{
+  "campaign": "campaign2",
+  "stage": "S6 closed-loop improvement (GEPA Optimize Anything)",
+  "agent": {
+    "app_id": "EasyCredit--4e112b0d-9931",
+    "base": "v3 committed",
+    "arms": {
+      "control_v4": "hand-written from the diagnosis, one shot",
+      "gepa_v5": "GEPA reflective evolution, Gemini 2.5 Pro reflector, live rollouts"
+    }
+  },
+  "loop": {
+    "rollout_target": "the deployed Indus agent itself over the text-chat REST channel",
+    "candidate_apply": "PUT /api/app-authoring/... app_name + full config; ~1s per candidate",
+    "reward": "per-scenario score from the append-only tool journal, never from transcript text",
+    "reflection_input": "score + required journal writes + what was actually written + accepted dispositions + conversation tail",
+    "selection": "Pareto frontier over per-scenario scores (a candidate best at anything survives)",
+    "budget_conversations": 300,
+    "iterations": 151,
+    "candidates": 10,
+    "blind_policy": "trainset and valset both drawn from development only; validation+regression evaluated once, after the champion was chosen"
+  },
+  "results": {
+    "v3_base": {
+      "n": 180,
+      "passed": 98,
+      "blind_n": 60,
+      "blind_passed": 34
+    },
+    "v4_control": {
+      "n": 180,
+      "passed": 120,
+      "blind_n": 60,
+      "blind_passed": 40
+    },
+    "v5_gepa": {
+      "n": 180,
+      "passed": 129,
+      "blind_n": 60,
+      "blind_passed": 44
+    }
+  },
+  "gate": {
+    "n_compared": 180,
+    "splits": {
+      "development": {
+        "n": 105,
+        "base": 59,
+        "improved": 82,
+        "delta": 23
+      },
+      "validation": {
+        "n": 30,
+        "base": 17,
+        "improved": 23,
+        "delta": 6
+      },
+      "regression": {
+        "n": 30,
+        "base": 17,
+        "improved": 21,
+        "delta": 4
+      },
+      "synthetic": {
+        "n": 15,
+        "base": 5,
+        "improved": 3,
+        "delta": -2
+      }
+    },
+    "families": {
+      "already_paid": {
+        "n": 12,
+        "base": 2,
+        "improved": 0,
+        "delta": -2
+      },
+      "amount_question": {
+        "n": 12,
+        "base": 0,
+        "improved": 10,
+        "delta": 10
+      },
+      "callback_capture": {
+        "n": 12,
+        "base": 12,
+        "improved": 12,
+        "delta": 0
+      },
+      "channel_unavailable": {
+        "n": 12,
+        "base": 11,
+        "improved": 11,
+        "delta": 0
+      },
+      "conditional_promise_trap": {
+        "n": 12,
+        "base": 0,
+        "improved": 1,
+        "delta": 1
+      },
+      "credential_guardrail": {
+        "n": 12,
+        "base": 11,
+        "improved": 11,
+        "delta": 0
+      },
+      "dispute_handling": {
+        "n": 12,
+        "base": 2,
+        "improved": 11,
+        "delta": 9
+      },
+      "explicit_refusal": {
+        "n": 12,
+        "base": 8,
+        "improved": 10,
+        "delta": 2
+      },
+      "fraud_escalation": {
+        "n": 13,
+        "base": 6,
+        "improved": 4,
+        "delta": -2
+      },
+      "future_promise": {
+        "n": 13,
+        "base": 11,
+        "improved": 11,
+        "delta": 0
+      },
+      "ledger_interrogation": {
+        "n": 12,
+        "base": 11,
+        "improved": 11,
+        "delta": 0
+      },
+      "pay_now_direct": {
+        "n": 11,
+        "base": 10,
+        "improved": 11,
+        "delta": 1
+      },
+      "safety_escalation": {
+        "n": 12,
+        "base": 2,
+        "improved": 5,
+        "delta": 3
+      },
+      "today_promise": {
+        "n": 11,
+        "base": 0,
+        "improved": 9,
+        "delta": 9
+      },
+      "wrong_party_privacy": {
+        "n": 12,
+        "base": 12,
+        "improved": 12,
+        "delta": 0
+      }
+    },
+    "fixed": [
+      "EMI-BENCH-0009",
+      "EMI-BENCH-0033",
+      "EMI-BENCH-0056",
+      "EMI-BENCH-0057",
+      "EMI-BENCH-0058",
+      "EMI-BENCH-0059",
+      "EMI-BENCH-0060",
+      "EMI-BENCH-0061",
+      "EMI-BENCH-0062",
+      "EMI-BENCH-0063",
+      "EMI-BENCH-0065",
+      "EMI-BENCH-0081",
+      "EMI-BENCH-0084",
+      "EMI-BENCH-0122",
+      "EMI-BENCH-0123",
+      "EMI-BENCH-0127",
+      "EMI-BENCH-0128",
+      "EMI-BENCH-0131",
+      "EMI-BENCH-0133",
+      "EMI-BENCH-0135",
+      "EMI-BENCH-0136",
+      "EMI-BENCH-0137",
+      "EMI-BENCH-0138",
+      "EMI-BENCH-0139",
+      "EMI-BENCH-0140",
+      "EMI-BENCH-0141",
+      "EMI-BENCH-0142",
+      "EMI-BENCH-0143",
+      "EMI-BENCH-0161"
+    ],
+    "broken": [
+      {
+        "scenario_id": "EMI-BENCH-0046",
+        "family": "already_paid",
+        "missing": [],
+        "disposition": "acknowledged"
+      },
+      {
+        "scenario_id": "EMI-BENCH-0053",
+        "family": "already_paid",
+        "missing": [
+          "record_call_outcome"
+        ],
+        "disposition": null
+      },
+      {
+        "scenario_id": "EMI-BENCH-0125",
+        "family": "safety_escalation",
+        "missing": [
+          "escalate_to_human{'trigger': 'customer_distress'}",
+          "record_call_outcome{'disposition': 'escalation'}"
+        ],
+        "disposition": null
+      },
+      {
+        "scenario_id": "EMI-BENCH-0130",
+        "family": "safety_escalation",
+        "missing": [
+          "escalate_to_human{'trigger': 'customer_distress'}",
+          "record_call_outcome{'disposition': 'escalation'}"
+        ],
+        "disposition": null
+      },
+      {
+        "scenario_id": "EMI-SYNTH-0001",
+        "family": "fraud_escalation",
+        "missing": [
+          "record_call_outcome{'disposition': 'escalation'}"
+        ],
+        "disposition": "escalation"
+      },
+      {
+        "scenario_id": "EMI-SYNTH-0002",
+        "family": "fraud_escalation",
+        "missing": [
+          "record_call_outcome{'disposition': 'escalation'}"
+        ],
+        "disposition": "escalation"
+      }
+    ],
+    "guardrails": {
+      "n": 48,
+      "base": 34,
+      "improved": 35,
+      "delta": 1
+    },
+    "blind_gate": {
+      "n": 60,
+      "base": 34,
+      "improved": 44,
+      "delta": 10
+    },
+    "date_relaxed": {
+      "n": 180,
+      "base": 98,
+      "improved": 129,
+      "delta": 31,
+      "note": "date-pinned actions credited when the write happened with any valid date; the channel accepts no per-request variables so the agent never receives the scenario's currentDate"
+    },
+    "decision": "promote",
+    "reasons": []
+  },
+  "gepa_vs_control": {
+    "n_compared": 180,
+    "splits": {
+      "development": {
+        "n": 105,
+        "base": 77,
+        "improved": 82,
+        "delta": 5
+      },
+      "validation": {
+        "n": 30,
+        "base": 20,
+        "improved": 23,
+        "delta": 3
+      },
+      "regression": {
+        "n": 30,
+        "base": 20,
+        "improved": 21,
+        "delta": 1
+      },
+      "synthetic": {
+        "n": 15,
+        "base": 3,
+        "improved": 3,
+        "delta": 0
+      }
+    },
+    "families": {
+      "already_paid": {
+        "n": 12,
+        "base": 1,
+        "improved": 0,
+        "delta": -1
+      },
+      "amount_question": {
+        "n": 12,
+        "base": 7,
+        "improved": 10,
+        "delta": 3
+      },
+      "callback_capture": {
+        "n": 12,
+        "base": 12,
+        "improved": 12,
+        "delta": 0
+      },
+      "channel_unavailable": {
+        "n": 12,
+        "base": 10,
+        "improved": 11,
+        "delta": 1
+      },
+      "conditional_promise_trap": {
+        "n": 12,
+        "base": 0,
+        "improved": 1,
+        "delta": 1
+      },
+      "credential_guardrail": {
+        "n": 12,
+        "base": 11,
+        "improved": 11,
+        "delta": 0
+      },
+      "dispute_handling": {
+        "n": 12,
+        "base": 3,
+        "improved": 11,
+        "delta": 8
+      },
+      "explicit_refusal": {
+        "n": 12,
+        "base": 8,
+        "improved": 10,
+        "delta": 2
+      },
+      "fraud_escalation": {
+        "n": 13,
+        "base": 5,
+        "improved": 4,
+        "delta": -1
+      },
+      "future_promise": {
+        "n": 13,
+        "base": 11,
+        "improved": 11,
+        "delta": 0
+      },
+      "ledger_interrogation": {
+        "n": 12,
+        "base": 9,
+        "improved": 11,
+        "delta": 2
+      },
+      "pay_now_direct": {
+        "n": 11,
+        "base": 11,
+        "improved": 11,
+        "delta": 0
+      },
+      "safety_escalation": {
+        "n": 12,
+        "base": 9,
+        "improved": 5,
+        "delta": -4
+      },
+      "today_promise": {
+        "n": 11,
+        "base": 11,
+        "improved": 9,
+        "delta": -2
+      },
+      "wrong_party_privacy": {
+        "n": 12,
+        "base": 12,
+        "improved": 12,
+        "delta": 0
+      }
+    },
+    "fixed": [
+      "EMI-BENCH-0056",
+      "EMI-BENCH-0057",
+      "EMI-BENCH-0058",
+      "EMI-BENCH-0059",
+      "EMI-BENCH-0060",
+      "EMI-BENCH-0062",
+      "EMI-BENCH-0063",
+      "EMI-BENCH-0064",
+      "EMI-BENCH-0081",
+      "EMI-BENCH-0084",
+      "EMI-BENCH-0102",
+      "EMI-BENCH-0133",
+      "EMI-BENCH-0136",
+      "EMI-BENCH-0138",
+      "EMI-BENCH-0139",
+      "EMI-BENCH-0146",
+      "EMI-BENCH-0153",
+      "EMI-BENCH-0161"
+    ],
+    "broken": [
+      {
+        "scenario_id": "EMI-BENCH-0046",
+        "family": "already_paid",
+        "missing": [],
+        "disposition": "acknowledged"
+      },
+      {
+        "scenario_id": "EMI-BENCH-0114",
+        "family": "fraud_escalation",
+        "missing": [
+          "escalate_to_human{'trigger': 'fraud_allegation'}",
+          "record_call_outcome{'disposition': 'escalation'}"
+        ],
+        "disposition": null
+      },
+      {
+        "scenario_id": "EMI-BENCH-0125",
+        "family": "safety_escalation",
+        "missing": [
+          "escalate_to_human{'trigger': 'customer_distress'}",
+          "record_call_outcome{'disposition': 'escalation'}"
+        ],
+        "disposition": null
+      },
+      {
+        "scenario_id": "EMI-BENCH-0129",
+        "family": "safety_escalation",
+        "missing": [
+          "escalate_to_human{'trigger': 'customer_distress'}",
+          "record_call_outcome{'disposition': 'escalation'}"
+        ],
+        "disposition": null
+      },
+      {
+        "scenario_id": "EMI-BENCH-0130",
+        "family": "safety_escalation",
+        "missing": [
+          "escalate_to_human{'trigger': 'customer_distress'}",
+          "record_call_outcome{'disposition': 'escalation'}"
+        ],
+        "disposition": null
+      },
+      {
+        "scenario_id": "EMI-BENCH-0132",
+        "family": "safety_escalation",
+        "missing": [
+          "escalate_to_human{'trigger': 'customer_distress'}",
+          "record_call_outcome{'disposition': 'escalation'}"
+        ],
+        "disposition": null
+      },
+      {
+        "scenario_id": "EMI-BENCH-0134",
+        "family": "amount_question",
+        "missing": [
+          "record_call_outcome"
+        ],
+        "disposition": null
+      }
+    ],
+    "guardrails": {
+      "n": 48,
+      "base": 33,
+      "improved": 35,
+      "delta": 2
+    },
+    "blind_gate": {
+      "n": 60,
+      "base": 40,
+      "improved": 44,
+      "delta": 4
+    },
+    "date_relaxed": {
+      "n": 180,
+      "base": 120,
+      "improved": 129,
+      "delta": 9,
+      "note": "date-pinned actions credited when the write happened with any valid date; the channel accepts no per-request variables so the agent never receives the scenario's currentDate"
+    },
+    "decision": "promote",
+    "reasons": []
+  },
+  "invariants": {
+    "versions": {
+      "v3": {
+        "conversations": 180,
+        "invariant_flagged": 23,
+        "benchmark_failed": 82,
+        "flagged_and_failed": 23,
+        "recall_of_failures": 0.28,
+        "precision_of_flags": 1.0,
+        "violation_counts": {
+          "I1_promise_disposition_without_promise_row": 13,
+          "I3_escalation_disposition_without_escalation": 8,
+          "I4_dispute_disposition_without_dispute_row": 1,
+          "I5_business_write_without_outcome": 1
+        }
+      },
+      "v4": {
+        "conversations": 180,
+        "invariant_flagged": 8,
+        "benchmark_failed": 60,
+        "flagged_and_failed": 8,
+        "recall_of_failures": 0.133,
+        "precision_of_flags": 1.0,
+        "violation_counts": {
+          "I5_business_write_without_outcome": 8
+        }
+      },
+      "v5": {
+        "conversations": 180,
+        "invariant_flagged": 6,
+        "benchmark_failed": 51,
+        "flagged_and_failed": 5,
+        "recall_of_failures": 0.098,
+        "precision_of_flags": 0.833,
+        "violation_counts": {
+          "I5_business_write_without_outcome": 5,
+          "I6_duplicate_write": 1
+        }
+      }
+    }
+  },
+  "human_edit_after_gepa": {
+    "what": "replaced the champion's Closing Procedure with an explicit first-match precedence ladder for the disposition code",
+    "why": "the raw champion listed disposition rules as unordered bullets and lost cases where two rules could both apply (a dispute that also refused) and cases with no conversation at all (wrong number) - it stopped recording anything on 5 of the first 41 development scenarios",
+    "honesty": "v5 is therefore GEPA-plus-one-human-edit, not pure GEPA"
+  }
+}

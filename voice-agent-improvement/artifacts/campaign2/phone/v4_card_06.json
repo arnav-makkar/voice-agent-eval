@@ -1,0 +1,19 @@
+{
+ "card": 6,
+ "family": "dispute_handling",
+ "run_id": "c2-phone-06-v4",
+ "version": 4,
+ "tools": [
+  "record_dispute",
+  "record_call_outcome"
+ ],
+ "required": [
+  "record_dispute",
+  "record_call_outcome"
+ ],
+ "missing": [],
+ "duplicates": null,
+ "passed": true,
+ "exactly_once": true,
+ "v3_passed": false
+}

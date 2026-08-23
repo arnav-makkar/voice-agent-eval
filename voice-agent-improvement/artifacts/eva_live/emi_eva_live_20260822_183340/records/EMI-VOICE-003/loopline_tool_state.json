@@ -1,0 +1,65 @@
+{
+  "run_id": "EMI-VOICE-003",
+  "account_id": "EC-DEMO-2984",
+  "initial_state": {
+    "account_id": "EC-DEMO-2984",
+    "payment_status": "unpaid",
+    "outstanding_amount": "4416",
+    "promise_to_pay_date": null,
+    "callback": null,
+    "disposition": null,
+    "dispute_reason": null,
+    "escalation": null
+  },
+  "state": {
+    "account_id": "EC-DEMO-2984",
+    "payment_status": "unpaid",
+    "outstanding_amount": "4416",
+    "promise_to_pay_date": null,
+    "callback": {
+      "date": "24-08-2026",
+      "time_window": "10 AM to 11 AM"
+    },
+    "disposition": "callback",
+    "dispute_reason": null,
+    "escalation": null
+  },
+  "created_at": "2026-08-22T13:03:34.054182+00:00",
+  "updated_at": "2026-08-22T13:04:20.953923+00:00",
+  "events": [
+    {
+      "sequence": 98,
+      "event_id": null,
+      "tool_name": "schedule_callback",
+      "arguments": {
+        "run_id": "EMI-VOICE-003",
+        "account_id": "EC-DEMO-2984",
+        "event_id": null,
+        "date": "24-08-2026",
+        "time_window": "10 AM to 11 AM"
+      },
+      "result": {
+        "scheduled": true,
+        "date": "24-08-2026",
+        "time_window": "10 AM to 11 AM"
+      },
+      "created_at": "2026-08-22T13:04:20.932172+00:00"
+    },
+    {
+      "sequence": 99,
+      "event_id": null,
+      "tool_name": "record_call_outcome",
+      "arguments": {
+        "run_id": "EMI-VOICE-003",
+        "account_id": "EC-DEMO-2984",
+        "event_id": null,
+        "disposition": "callback"
+      },
+      "result": {
+        "recorded": true,
+        "disposition": "callback"
+      },
+      "created_at": "2026-08-22T13:04:20.953923+00:00"
+    }
+  ]
+}

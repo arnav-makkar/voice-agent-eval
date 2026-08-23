@@ -1,0 +1,91 @@
+{
+ "slug": "call-13",
+ "interaction_id": "20260822/0df3cb18-15:56:45-c02002f9",
+ "start": "Aug 22, 2026, 03:56:45 PM",
+ "duration_s": 45.59,
+ "end_reason": "AGENT_ENDS",
+ "language": "Hindi",
+ "num_messages": 11,
+ "channel_direction": "outbound",
+ "has_recording": true,
+ "transcript": [
+  {
+   "speaker": "agent",
+   "text": "नमस्ते, क्या मैं Arnav जी से बात कर रहा हूँ?",
+   "tools": null
+  },
+  {
+   "speaker": "caller",
+   "text": "हाँ जी बताइए।",
+   "tools": null
+  },
+  {
+   "speaker": "agent",
+   "text": "मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की चार हज़ार चार सौ सोलह रुपये की EMI overdue है। क्या आप अभी official EasyCredit app के ज़रिए payment कर सकते हैं?",
+   "tools": null
+  },
+  {
+   "speaker": "caller",
+   "text": "आप पहले ये बताइए कि कितना outstanding है और कितना late charge लगाया है?",
+   "tools": null
+  },
+  {
+   "speaker": "agent",
+   "text": "कुल outstanding amount चार हज़ार चार सौ सोलह रुपये है, जिसमें दो सौ पचास रुपये late charge शामिल हैं। क्या आप अभी payment कर सकते हैं?",
+   "tools": null
+  },
+  {
+   "speaker": "caller",
+   "text": "ठीक है देखता हूं।",
+   "tools": null
+  },
+  {
+   "speaker": "agent",
+   "text": "ठीक है। क्या आप अभी official EasyCredit app पर payment कर रहे हैं?",
+   "tools": null
+  },
+  {
+   "speaker": "caller",
+   "text": "मैं ऐप खोल के चेक करता हूँ।",
+   "tools": null
+  },
+  {
+   "speaker": "agent",
+   "text": "जी, आप check कर लीजिए। क्या आप अभी payment कर देंगे?",
+   "tools": null
+  },
+  {
+   "speaker": "caller",
+   "text": "Thank you.",
+   "tools": null
+  },
+  {
+   "speaker": "agent",
+   "text": "धन्यवाद Arnav जी, आपका दिन शुभ हो।",
+   "tools": [
+    {
+     "name": "record_call_outcome",
+     "args": {
+      "disposition": "payment_ready"
+     },
+     "output": {
+      "message_to_llm": null,
+      "message_to_user": null,
+      "break_chat_agent_loop": true
+     }
+    },
+    {
+     "name": "end_interaction",
+     "args": {
+      "end_message": "धन्यवाद Arnav जी, आपका दिन शुभ हो।"
+     },
+     "output": {
+      "message_to_llm": null,
+      "message_to_user": null,
+      "break_chat_agent_loop": true
+     }
+    }
+   ]
+  }
+ ]
+}

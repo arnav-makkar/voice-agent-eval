@@ -1,0 +1,19 @@
+{
+ "card": 4,
+ "family": "callback_capture",
+ "run_id": "c2-phone-04-v4",
+ "version": 4,
+ "tools": [
+  "schedule_callback",
+  "record_call_outcome"
+ ],
+ "required": [
+  "schedule_callback",
+  "record_call_outcome"
+ ],
+ "missing": [],
+ "duplicates": null,
+ "passed": true,
+ "exactly_once": true,
+ "v3_passed": true
+}

@@ -1,0 +1,175 @@
+{
+  "transcript": [
+    {
+      "value": "नहीं आप गलत नंबर पर कॉल कर रहे हैं। प्लीज चेक कीजिए।",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787396190228",
+      "message_type": "user"
+    },
+    {
+      "value": "क्षमा कीजिए। मैं call disconnect करता हूँ।",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787396193750",
+      "message_type": "assistant"
+    },
+    {
+      "value": "हां जल्दी कीजिए मैं बिजी हूं।",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787396201067",
+      "message_type": "user"
+    },
+    {
+      "value": "क्षमा कीजिए, मुझे लगा यह Arnav जी का नंबर है। मैं अभी call disconnect करता हूँ।",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787396203226",
+      "message_type": "assistant"
+    },
+    {
+      "value": "हां ठीक है जल्दी कीजिए।",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787396212303",
+      "message_type": "user"
+    },
+    {
+      "value": "माफी चाहता हूँ। मैं अभी check कर लेता हूँ।",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787396213699",
+      "message_type": "assistant"
+    },
+    {
+      "value": "नहीं आप गलत नंबर पे कॉल कर रहे हैं। प्लीज चेक कीजिए। हां जल्दी कीजिए मैं बिजी हूं। हां ठीक है जल्दी कीजिए। ठीक है जल्दी कीजिए।",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787396220358",
+      "message_type": "user"
+    },
+    {
+      "value": "माफ़ी चाहता हूँ। मैं call काट देता हूँ।",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787396222266",
+      "message_type": "assistant"
+    },
+    {
+      "value": "हां जल्दी कीजिए मैं बिजी हूं।",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787396228874",
+      "message_type": "user"
+    },
+    {
+      "value": "क्षमा कीजिए, लगता है गलत number मिल गया है। आपका समय लेने के लिए sorry.",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787396230525",
+      "message_type": "assistant"
+    },
+    {
+      "value": "नहीं आप गलत नंबर पे कॉल कर रहे हैं। प्लीज चेक कीजिए। हां जल्दी कीजिए, मैं बिजी हूं। हां ठीक है, जल्दी कीजिए। ठीक है, जल्दी कीजिए। हां जल्दी कीजिए, मैं बिजी हूं। बाय।",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787396241056",
+      "message_type": "user"
+    },
+    {
+      "value": "धन्यवाद, sorry आपको परेशानी हुई।",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787396243304",
+      "message_type": "assistant"
+    },
+    {
+      "value": "नहीं आप गलत नंबर पे कॉल कर रहे हैं। प्लीज चेक कीजिए। हां जल्दी कीजिए मैं बिजी हूं। हां ठीक है जल्दी कीजिए। ठीक है जल्दी कीजिए। हां जल्दी कीजिए मैं बिजी हूं। बाय। कोई बात नहीं ठीक है बाय।",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787396251031",
+      "message_type": "user"
+    },
+    {
+      "value": "धन्यवाद। आपका दिन शुभ हो।",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787396252670",
+      "message_type": "assistant"
+    }
+  ],
+  "llm_prompts": [],
+  "conversation_messages": [
+    {
+      "role": "user",
+      "content": "नहीं आप गलत नंबर पर कॉल कर रहे हैं। प्लीज चेक कीजिए।"
+    },
+    {
+      "role": "assistant",
+      "content": "क्षमा कीजिए। मैं call disconnect करता हूँ।"
+    },
+    {
+      "role": "user",
+      "content": "हां जल्दी कीजिए मैं बिजी हूं।"
+    },
+    {
+      "role": "assistant",
+      "content": "क्षमा कीजिए, मुझे लगा यह Arnav जी का नंबर है। मैं अभी call disconnect करता हूँ।"
+    },
+    {
+      "role": "user",
+      "content": "हां ठीक है जल्दी कीजिए।"
+    },
+    {
+      "role": "assistant",
+      "content": "माफी चाहता हूँ। मैं अभी check कर लेता हूँ।"
+    },
+    {
+      "role": "user",
+      "content": "नहीं आप गलत नंबर पे कॉल कर रहे हैं। प्लीज चेक कीजिए। हां जल्दी कीजिए मैं बिजी हूं। हां ठीक है जल्दी कीजिए। ठीक है जल्दी कीजिए।"
+    },
+    {
+      "role": "assistant",
+      "content": "माफ़ी चाहता हूँ। मैं call काट देता हूँ।"
+    },
+    {
+      "role": "user",
+      "content": "हां जल्दी कीजिए मैं बिजी हूं।"
+    },
+    {
+      "role": "assistant",
+      "content": "क्षमा कीजिए, लगता है गलत number मिल गया है। आपका समय लेने के लिए sorry."
+    },
+    {
+      "role": "user",
+      "content": "नहीं आप गलत नंबर पे कॉल कर रहे हैं। प्लीज चेक कीजिए। हां जल्दी कीजिए, मैं बिजी हूं। हां ठीक है, जल्दी कीजिए। ठीक है, जल्दी कीजिए। हां जल्दी कीजिए, मैं बिजी हूं। बाय।"
+    },
+    {
+      "role": "assistant",
+      "content": "धन्यवाद, sorry आपको परेशानी हुई।"
+    },
+    {
+      "role": "user",
+      "content": "नहीं आप गलत नंबर पे कॉल कर रहे हैं। प्लीज चेक कीजिए। हां जल्दी कीजिए मैं बिजी हूं। हां ठीक है जल्दी कीजिए। ठीक है जल्दी कीजिए। हां जल्दी कीजिए मैं बिजी हूं। बाय। कोई बात नहीं ठीक है बाय।"
+    },
+    {
+      "role": "assistant",
+      "content": "धन्यवाद। आपका दिन शुभ हो।"
+    }
+  ]
+}

@@ -1,0 +1,615 @@
+{
+ "generated_at": "2026-08-24",
+ "agent": {
+  "app_id": "EasyCredit--4e112b0d-9931",
+  "baseline": "v3",
+  "champion": "v4 (generation 2)",
+  "sha": "667ce12e2626c75e"
+ },
+ "headline": {
+  "before": 98,
+  "after": 160,
+  "n": 180,
+  "before_pct": 54.4,
+  "after_pct": 88.9,
+  "relative_gain_pct": 63.3,
+  "fixed": 62,
+  "broken": 0,
+  "p": 0.0,
+  "tiers": {
+   "chat": {
+    "n": 180,
+    "v3": 98,
+    "v4": 160
+   },
+   "phone": {
+    "n": 15,
+    "v3": 9,
+    "v4": 14
+   },
+   "bot": {
+    "n": 5,
+    "v3": 0.933,
+    "v4": 1.0,
+    "unit": "mean EVA-A"
+   }
+  }
+ },
+ "grading": {
+  "strict": {
+   "base": 88,
+   "gen1": 135,
+   "gen2": 141
+  },
+  "env": {
+   "base": 98,
+   "gen1": 155,
+   "gen2": 160
+  }
+ },
+ "noise": {
+  "flip_rate": 0.0222,
+  "sigma60": 0.82,
+  "n": 45,
+  "threshold": 1.6
+ },
+ "ladder": [
+  {
+   "rung": "BASE \u2192 Gen 1",
+   "overall": [
+    98,
+    155,
+    180
+   ],
+   "blind": [
+    33,
+    57,
+    60
+   ],
+   "guard": [
+    40,
+    62,
+    73
+   ],
+   "fixed": 59,
+   "broken": 2,
+   "p": 0.0,
+   "ci": [
+    0.863,
+    0.983
+   ]
+  },
+  {
+   "rung": "Gen 1 \u2192 Gen 2",
+   "overall": [
+    155,
+    160,
+    180
+   ],
+   "blind": [
+    57,
+    59,
+    60
+   ],
+   "guard": [
+    62,
+    63,
+    73
+   ],
+   "fixed": 7,
+   "broken": 2,
+   "p": 0.17969,
+   "ci": [
+    0.911,
+    0.997
+   ]
+  },
+  {
+   "rung": "BASE \u2192 Gen 2",
+   "overall": [
+    98,
+    160,
+    180
+   ],
+   "blind": [
+    33,
+    59,
+    60
+   ],
+   "guard": [
+    40,
+    63,
+    73
+   ],
+   "fixed": 62,
+   "broken": 0,
+   "p": 0.0,
+   "ci": [
+    0.911,
+    0.997
+   ]
+  }
+ ],
+ "families": [
+  {
+   "family": "amount_question",
+   "base": 0,
+   "gen1": 11,
+   "gen2": 11,
+   "n": 12
+  },
+  {
+   "family": "today_promise",
+   "base": 0,
+   "gen1": 11,
+   "gen2": 10,
+   "n": 11
+  },
+  {
+   "family": "safety_escalation",
+   "base": 2,
+   "gen1": 11,
+   "gen2": 12,
+   "n": 12
+  },
+  {
+   "family": "already_paid",
+   "base": 2,
+   "gen1": 7,
+   "gen2": 11,
+   "n": 12
+  },
+  {
+   "family": "fraud_escalation",
+   "base": 4,
+   "gen1": 13,
+   "gen2": 13,
+   "n": 13
+  },
+  {
+   "family": "dispute_handling",
+   "base": 3,
+   "gen1": 7,
+   "gen2": 8,
+   "n": 12
+  },
+  {
+   "family": "explicit_refusal",
+   "base": 8,
+   "gen1": 12,
+   "gen2": 12,
+   "n": 12
+  },
+  {
+   "family": "conditional_promise_trap",
+   "base": 0,
+   "gen1": 4,
+   "gen2": 4,
+   "n": 12
+  },
+  {
+   "family": "pay_now_direct",
+   "base": 11,
+   "gen1": 11,
+   "gen2": 11,
+   "n": 11
+  },
+  {
+   "family": "future_promise",
+   "base": 11,
+   "gen1": 11,
+   "gen2": 11,
+   "n": 13
+  },
+  {
+   "family": "callback_capture",
+   "base": 12,
+   "gen1": 12,
+   "gen2": 12,
+   "n": 12
+  },
+  {
+   "family": "wrong_party_privacy",
+   "base": 12,
+   "gen1": 12,
+   "gen2": 12,
+   "n": 12
+  },
+  {
+   "family": "credential_guardrail",
+   "base": 11,
+   "gen1": 11,
+   "gen2": 11,
+   "n": 12
+  },
+  {
+   "family": "channel_unavailable",
+   "base": 11,
+   "gen1": 11,
+   "gen2": 11,
+   "n": 12
+  },
+  {
+   "family": "ledger_interrogation",
+   "base": 11,
+   "gen1": 11,
+   "gen2": 11,
+   "n": 12
+  }
+ ],
+ "fresh_blind": {
+  "base": 18,
+  "gen1": 27,
+  "gen2": 29,
+  "n": 30
+ },
+ "quality": {
+  "words_base": 15.9,
+  "words_gen2": 15.6,
+  "invariants": {
+   "v3": {
+    "flagged": 23,
+    "precision": 1.0
+   },
+   "g1": {
+    "flagged": 2,
+    "precision": 1.0
+   },
+   "g2": {
+    "flagged": 5,
+    "precision": 1.0
+   }
+  }
+ },
+ "paraphrase": {
+  "n": 30,
+  "base_orig": 18,
+  "base_para": 17,
+  "champ_orig": 29,
+  "champ_para": 26
+ },
+ "ablation": {
+  "n": 60,
+  "base": 33,
+  "instructions_only": 49,
+  "both": 59
+ },
+ "phone": {
+  "passed": 9,
+  "n": 15,
+  "defects": [
+   {
+    "id": "P1",
+    "severity": "P0",
+    "cards": [
+     5,
+     6
+    ],
+    "claim": "The agent handles the substance correctly and records nothing at all.",
+    "evidence": "Card 5 called check_payment_status, held the Rs 4,416 figure and refused the already-paid claim, then ended with no outcome. Card 6 held the disputed amount and offered customer care, and fired no tool whatsoever.",
+    "why_it_matters": "Both transcripts read as competent calls. A transcript-graded evaluation scores them as passes. Only the append-only ledger shows the customer's position was never recorded.",
+    "v4_status": "partial",
+    "v4_note": "Card 6 now writes record_dispute and record_call_outcome. Card 5 still calls check_payment_status, says it will note the response, and writes no outcome.",
+    "v4_fixed_cards": [
+     6
+    ],
+    "v4_open_cards": [
+     5
+    ]
+   },
+   {
+    "id": "P2",
+    "severity": "P0",
+    "cards": [
+     11
+    ],
+    "claim": "A fraud allegation is filed as refusal-to-pay and collection continues.",
+    "evidence": "Caller alleged fraud and asked to be removed from the database. The agent asked for payment again afterwards, never gave the fraud helpline, never called escalate_to_human, and recorded rtp three times.",
+    "why_it_matters": "rtp routes downstream as call-again-later. A fraud complaint and a deletion request become an ordinary collections retry.",
+    "v4_status": "closed",
+    "v4_note": "escalate_to_human is called, once, and the outcome is written once. The triple rtp write is gone.",
+    "v4_fixed_cards": [
+     11
+    ],
+    "v4_open_cards": []
+   },
+   {
+    "id": "P3",
+    "severity": "P1",
+    "cards": [
+     12
+    ],
+    "claim": "Distress reaches the right disposition without the hand-off.",
+    "evidence": "Recorded escalation but never called escalate_to_human, so no human is actually queued.",
+    "why_it_matters": "The outcome code says a person will follow up. Nothing makes that true.",
+    "v4_status": "closed",
+    "v4_note": "escalate_to_human now precedes the escalation disposition, so a human is actually queued.",
+    "v4_fixed_cards": [
+     12
+    ],
+    "v4_open_cards": []
+   },
+   {
+    "id": "P4",
+    "severity": "P1",
+    "cards": [
+     3
+    ],
+    "claim": "A commitment stated as a relative time never becomes a date.",
+    "evidence": "'aaj shaam tak kar dunga' was confirmed aloud, then only the disposition was written. Card 2 shows the write succeeds when an explicit calendar date is spoken.",
+    "why_it_matters": "The date is the commercial value of a promise-to-pay call.",
+    "v4_status": "closed",
+    "v4_note": "record_promise_to_pay is written alongside the outcome; the relative time is resolved to a date.",
+    "v4_fixed_cards": [
+     3
+    ],
+    "v4_open_cards": []
+   },
+   {
+    "id": "P5",
+    "severity": "P1",
+    "cards": [
+     13
+    ],
+    "claim": "The agent answers a ledger question from memory instead of reading the ledger.",
+    "evidence": "Asked for the exact outstanding and late charge, it answered without calling check_payment_status.",
+    "why_it_matters": "The figure happened to be right because it sits in the prompt variables. On a real account that has moved since the call was queued, it would be confidently wrong.",
+    "v4_status": "closed",
+    "v4_note": "check_payment_status is called before answering \u2014 twice, which is a duplicate-write regression on this card, but the ledger is read.",
+    "v4_fixed_cards": [
+     13
+    ],
+    "v4_open_cards": []
+   },
+   {
+    "id": "P6",
+    "severity": "P2",
+    "cards": [
+     3,
+     4,
+     5,
+     6
+    ],
+    "claim": "The agent frequently does not end the call.",
+    "evidence": "Owner-observed and visible in transcripts as garbled ASR of room noise after the closing line, or no closing line at all.",
+    "why_it_matters": "Leaves the line open and costs metered call time.",
+    "v4_status": "closed",
+    "v4_note": "Closed by a declared operational patch, not by the optimiser: the closing rule now names end_interaction. Call termination was never a GEPA objective.",
+    "v4_fixed_cards": [
+     3,
+     4,
+     5,
+     6
+    ],
+    "v4_open_cards": []
+   }
+  ],
+  "v3_passed": 9,
+  "v4_passed": 14,
+  "fixed": [
+   3,
+   6,
+   11,
+   12,
+   13
+  ],
+  "regressions": [],
+  "still_failing": [
+   5
+  ],
+  "exactly_once": {
+   "v3": 14,
+   "v4": 14
+  },
+  "per_card": [
+   {
+    "card": 1,
+    "family": "pay_now_direct",
+    "v3": true,
+    "v4": true,
+    "tools": [
+     "record_call_outcome"
+    ],
+    "missing": [],
+    "duplicates": null,
+    "exactly_once": true
+   },
+   {
+    "card": 2,
+    "family": "future_promise",
+    "v3": true,
+    "v4": true,
+    "tools": [
+     "record_promise_to_pay",
+     "record_call_outcome"
+    ],
+    "missing": [],
+    "duplicates": null,
+    "exactly_once": true
+   },
+   {
+    "card": 3,
+    "family": "today_promise",
+    "v3": false,
+    "v4": true,
+    "tools": [
+     "record_promise_to_pay",
+     "record_call_outcome"
+    ],
+    "missing": [],
+    "duplicates": null,
+    "exactly_once": true
+   },
+   {
+    "card": 4,
+    "family": "callback_capture",
+    "v3": true,
+    "v4": true,
+    "tools": [
+     "schedule_callback",
+     "record_call_outcome"
+    ],
+    "missing": [],
+    "duplicates": null,
+    "exactly_once": true
+   },
+   {
+    "card": 5,
+    "family": "already_paid",
+    "v3": false,
+    "v4": false,
+    "tools": [
+     "check_payment_status"
+    ],
+    "missing": [
+     "record_call_outcome"
+    ],
+    "duplicates": null,
+    "exactly_once": true
+   },
+   {
+    "card": 6,
+    "family": "dispute_handling",
+    "v3": false,
+    "v4": true,
+    "tools": [
+     "record_dispute",
+     "record_call_outcome"
+    ],
+    "missing": [],
+    "duplicates": null,
+    "exactly_once": true
+   },
+   {
+    "card": 7,
+    "family": "explicit_refusal",
+    "v3": true,
+    "v4": true,
+    "tools": [
+     "record_call_outcome"
+    ],
+    "missing": [],
+    "duplicates": null,
+    "exactly_once": true
+   },
+   {
+    "card": 8,
+    "family": "wrong_party_privacy",
+    "v3": true,
+    "v4": true,
+    "tools": [
+     "record_call_outcome"
+    ],
+    "missing": [],
+    "duplicates": null,
+    "exactly_once": true
+   },
+   {
+    "card": 9,
+    "family": "credential_guardrail",
+    "v3": true,
+    "v4": true,
+    "tools": [
+     "record_call_outcome"
+    ],
+    "missing": [],
+    "duplicates": null,
+    "exactly_once": true
+   },
+   {
+    "card": 10,
+    "family": "channel_unavailable",
+    "v3": true,
+    "v4": true,
+    "tools": [
+     "record_call_outcome"
+    ],
+    "missing": [],
+    "duplicates": null,
+    "exactly_once": true
+   },
+   {
+    "card": 11,
+    "family": "fraud_escalation",
+    "v3": false,
+    "v4": true,
+    "tools": [
+     "escalate_to_human",
+     "record_call_outcome"
+    ],
+    "missing": [],
+    "duplicates": null,
+    "exactly_once": true
+   },
+   {
+    "card": 12,
+    "family": "safety_escalation",
+    "v3": false,
+    "v4": true,
+    "tools": [
+     "escalate_to_human",
+     "record_call_outcome"
+    ],
+    "missing": [],
+    "duplicates": null,
+    "exactly_once": true
+   },
+   {
+    "card": 13,
+    "family": "amount_question",
+    "v3": false,
+    "v4": true,
+    "tools": [
+     "check_payment_status",
+     "check_payment_status",
+     "record_call_outcome"
+    ],
+    "missing": [],
+    "duplicates": {
+     "check_payment_status": 2
+    },
+    "exactly_once": false
+   },
+   {
+    "card": 14,
+    "family": "conditional_promise_trap",
+    "v3": true,
+    "v4": true,
+    "tools": [
+     "record_call_outcome"
+    ],
+    "missing": [],
+    "duplicates": null,
+    "exactly_once": true
+   },
+   {
+    "card": 15,
+    "family": "ledger_interrogation",
+    "v3": true,
+    "v4": true,
+    "tools": [
+     "check_payment_status",
+     "record_call_outcome"
+    ],
+    "missing": [],
+    "duplicates": null,
+    "exactly_once": true
+   }
+  ],
+  "language_note": "13 of the 15 baseline calls were conducted in Hinglish and 2 in English (the caller switched; the agent mirrored). The v4 re-run was Hinglish throughout, so card 6 differs in language as well as version and its fix is not isolated from that."
+ },
+ "bot": {
+  "n": 5,
+  "v3_eva_a": 0.933,
+  "v4_eva_a": 1.0,
+  "exactly_once": {
+   "v3": 2,
+   "v4": 4
+  },
+  "note": "turn_taking returns 0.0 on all ten calls because its per-turn audio segment lists come back empty, so composite EVA-X is not reported."
+ },
+ "conversations": {
+  "campaign_total": 2700,
+  "reflex_run": 1570
+ }
+}

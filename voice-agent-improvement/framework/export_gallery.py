@@ -26,7 +26,7 @@ TOOL_CATALOGUE = [
     {"name": "check_payment_status", "kind": "read", "description": "Read the ledger's payment status and outstanding amount. Never invents completion."},
     {"name": "record_promise_to_pay", "kind": "write", "description": "Write a confirmed future payment date. Requires DD-MM-YYYY."},
     {"name": "schedule_callback", "kind": "write", "description": "Write a callback preference. Requires an absolute date and a narrow IST window."},
-    {"name": "record_disposition", "kind": "write", "description": "Close the episode with exactly one of the twelve allowed terminal outcomes."},
+    {"name": "record_call_outcome", "kind": "write", "description": "Close the episode with exactly one of the twelve allowed terminal outcomes."},
 ]
 
 TIERS = {

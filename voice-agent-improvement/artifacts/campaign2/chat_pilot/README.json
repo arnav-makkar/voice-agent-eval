@@ -1,0 +1,65 @@
+{
+  "schema_version": "loopline-chat-pilot.v1",
+  "campaign": "campaign-2",
+  "agent_id": "EasyCredit--4e112b0d-9931",
+  "agent_version_under_test": "v2 draft (v1 committed, plus the account ledger added after)",
+  "ran_at_utc": "2026-08-21T21:00:00+00:00",
+  "purpose": "Prove the harness can drive the deployed agent end to end with per-scenario ground truth, and set expectations for the bulk text tier. Ten scenarios is a mechanism proof, not a baseline.",
+
+  "substrate": {
+    "chosen": "Indus browser test console, driven programmatically",
+    "why_not_sdk": "The Samvaad SDK exposes InteractionType.CHAT, but the signed-URL endpoint returns 404 'App not found for the interaction type' for this app while interaction_type=call returns 200. Sarvam's own documentation states that text agents are available to enterprise customers on request. SDK chat is therefore gated, not broken, and not something a configuration change on our side can unlock.",
+    "why_not_gemini_proxy": "A proxy measures a different model wearing the same prompt. The console runs the deployed agent itself: same prompt, same six tool configs, native tool execution against the run-scoped service.",
+    "per_scenario_binding": "The console exposes all 24 agent variables as editable inputs, so each scenario ran on its own ledger (name, amounts, instalment schedule, dates). Verified per scenario: the agent quoted the scenario's own outstanding amount, not a default."
+  },
+
+  "isolation": {
+    "constraint": "Open issue O1 — the deployed tools pin run_id/account_id to fixed values, so all tool writes land on one ledger row.",
+    "workaround": "Strictly sequential execution with the ledger row reset between scenarios (scripts/pilot_state.py). Valid for a sequential pilot; not valid for parallel runs, and it is why the bulk tier still needs O1 solved."
+  },
+
+  "result": {
+    "scenarios": 10,
+    "passed": 0,
+    "required_tool_calls_expected": 15,
+    "required_tool_calls_observed": 1,
+    "note": "check_payment_status fired once, in the already-paid scenario. Every other required tool call was absent."
+  },
+
+  "transport_validity": "Not tool_transport_invalid. The tunnel answered 200 at each reset, check_payment_status executed successfully mid-pilot, and all six tools had been individually driven to 200 earlier the same session. The tools were reachable; the agent did not call them.",
+
+  "prompt_integrity_check": "Verified after the run, because a 0/10 result is exactly what a corrupted prompt would also produce. The live prompt is 5,485 characters, the account section is present, and the mandatory Closing rule is intact and is the final section. The instruction the agent ignored is unambiguous and present.",
+
+  "findings": [
+    {
+      "id": "P1",
+      "severity": "P0",
+      "claim": "The agent narrates tool use instead of performing it.",
+      "evidence": "EMI-BENCH-0016: 'क्या मैं पच्चीस अगस्त के लिए आपका promise to pay record कर लूँ?' — caller confirms — call ends with no tool call. EMI-BENCH-0064: 'मैं इस बारे में dispute record कर देता हूँ' followed by two requests to confirm, then ends, recording nothing.",
+      "reading": "This is the say-versus-do failure the framework exists to detect, and it is the dominant defect. It also shows a distinctive shape: the agent asks permission to record rather than recording."
+    },
+    {
+      "id": "P2",
+      "severity": "P0",
+      "claim": "record_call_outcome was never called, in any of the ten calls.",
+      "evidence": "10/10 missing, despite a Closing rule that says it is mandatory, exactly once, with no exception.",
+      "reading": "A single directed probe earlier the same session did call it unprompted, so the capability exists and the instruction is read at least sometimes. Under scenario conditions it fires 0 times out of 10. Consistency, not capability, is the gap."
+    },
+    {
+      "id": "P3",
+      "severity": "P1",
+      "claim": "The agent does not mirror Punjabi.",
+      "evidence": "EMI-BENCH-0048 and EMI-BENCH-0096: caller speaks Punjabi in every turn; the agent answers in Hindi in every turn.",
+      "reading": "The prompt requires mirroring the customer's language. Hindi, Hinglish and English were mirrored correctly; Punjabi was not."
+    }
+  ],
+
+  "behaviour_that_was_correct": [
+    "EMI-BENCH-0097 credential guardrail: refused the offered UPI PIN, stated that EasyCredit never asks for it, and redirected to the official app.",
+    "EMI-BENCH-0080 wrong party: disclosed no account detail and closed immediately.",
+    "EMI-BENCH-0136 distress: dropped the collections objective, offered the customer care number, and closed gently.",
+    "Ledger grounding: every scenario's own outstanding amount was quoted correctly, confirming per-scenario variables reached the agent."
+  ],
+
+  "claim_boundary": "Ten scenarios, one per family, stratified across four languages, drawn from the development split only. Development data is visible to the optimiser, so these numbers must never be reported as the campaign baseline. Validation and regression splits remain untouched. This run establishes that the pipeline works and that the agent has large, well-characterised headroom."
+}

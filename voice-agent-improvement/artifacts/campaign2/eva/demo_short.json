@@ -1,0 +1,107 @@
+[
+  {
+    "id": "EMI-BENCH-0001",
+    "current_date_time": "2026-08-23 13:30 IST",
+    "user_goal": {
+      "high_level_user_goal": "Your phone rang and you picked up. You do not know who is calling. You are willing to pay and you have the app on your phone. The moment they ask you to pay, say yes and that you will do it now. Then say a short goodbye and hang up.",
+      "decision_tree": {
+        "must_have_criteria": [
+          "They tell you who they are and what they want."
+        ],
+        "nice_to_have_criteria": [
+          "The call is under a minute."
+        ],
+        "negotiation_behavior": [
+          "Let them finish speaking before you reply.",
+          "Say yes as soon as they ask you to pay. Do not stall and do not ask questions."
+        ],
+        "resolution_condition": "As soon as they acknowledge that you will pay, say thank you and hang up.",
+        "failure_condition": "Hang up if they ask for a PIN, OTP or card number.",
+        "escalation_behavior": "Do not ask to be transferred to anyone.",
+        "edge_cases": [
+          "If you cannot hear them, ask once. Never invent what they said."
+        ]
+      },
+      "information_required": [
+        "you owe about Rs 4416 on a Samsung TV"
+      ]
+    },
+    "user_config": {
+      "name": "Arnav",
+      "gender": "man",
+      "user_persona_id": 2,
+      "user_persona": "You answer in very few words and want the call over quickly."
+    },
+    "scenario_context": {
+      "failure_family": "pay_now_direct",
+      "language": "hinglish"
+    },
+    "culture_overrides": {
+      "en": {
+        "first_name": "Arnav",
+        "last_name": "",
+        "phone": ""
+      }
+    },
+    "romanized_culture_overrides": {
+      "en": {
+        "first_name": "Arnav",
+        "last_name": "",
+        "phone": ""
+      }
+    },
+    "starting_utterances": {
+      "en": "haan main hi hoon, boliye"
+    },
+    "ground_truth": {
+      "expected_scenario_db": {
+        "_current_date": "2026-08-23",
+        "agent_variables": {
+          "amountPaidToDate": "24996",
+          "balanceRemaining": "24996",
+          "currentDate": "23-08-2026",
+          "customerCareNumber": "1800-500-4444",
+          "cutoffDate": "28-08-2026",
+          "daysOverdue": "17",
+          "downPayment": "5000",
+          "dueDate": "05-08-2026",
+          "emiNumber": "7",
+          "emisPaid": "6",
+          "emisRemaining": "6",
+          "financedAmount": "49992",
+          "fraudHelplineNumber": "1800-425-5555",
+          "lateChargeAmount": "250",
+          "merchantName": "EasyCredit",
+          "monthlyEmiAmount": "4166",
+          "nearFutureDate": "26-08-2026",
+          "official_payment_channel": "EasyCredit app",
+          "outstandingAmount": "4416",
+          "payment_status": "unpaid",
+          "productName": "Samsung Smart TV",
+          "productPrice": "54992",
+          "purchaseDate": "15-01-2026",
+          "tenureMonths": "12",
+          "tomorrowDate": "24-08-2026",
+          "userName": "Arnav",
+          "campaignId": "c2-demo-06",
+          "transactionReference": "EC-DEMO-06"
+        }
+      },
+      "accepted_dispositions": [
+        "payment_ready"
+      ],
+      "required_actions": [
+        {
+          "arguments": {
+            "disposition": "payment_ready"
+          },
+          "name": "record_call_outcome"
+        }
+      ],
+      "expected_state": {
+        "disposition": "payment_ready"
+      }
+    },
+    "category": "pay_now_direct"
+  }
+]

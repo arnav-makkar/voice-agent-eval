@@ -1,0 +1,600 @@
+{
+  "chat_base": {
+    "n": 165,
+    "passed": 83,
+    "rate": 0.503
+  },
+  "by_split": {
+    "development": {
+      "n": 105,
+      "passed": 53
+    },
+    "validation": {
+      "n": 30,
+      "passed": 15
+    },
+    "regression": {
+      "n": 30,
+      "passed": 15
+    }
+  },
+  "by_family": [
+    {
+      "family": "amount_question",
+      "n": 11,
+      "passed": 0
+    },
+    {
+      "family": "today_promise",
+      "n": 11,
+      "passed": 0
+    },
+    {
+      "family": "conditional_promise_trap",
+      "n": 11,
+      "passed": 0
+    },
+    {
+      "family": "callback_capture",
+      "n": 11,
+      "passed": 1
+    },
+    {
+      "family": "already_paid",
+      "n": 11,
+      "passed": 2
+    },
+    {
+      "family": "dispute_handling",
+      "n": 11,
+      "passed": 2
+    },
+    {
+      "family": "safety_escalation",
+      "n": 11,
+      "passed": 2
+    },
+    {
+      "family": "fraud_escalation",
+      "n": 11,
+      "passed": 4
+    },
+    {
+      "family": "explicit_refusal",
+      "n": 11,
+      "passed": 7
+    },
+    {
+      "family": "pay_now_direct",
+      "n": 11,
+      "passed": 10
+    },
+    {
+      "family": "ledger_interrogation",
+      "n": 11,
+      "passed": 11
+    },
+    {
+      "family": "wrong_party_privacy",
+      "n": 11,
+      "passed": 11
+    },
+    {
+      "family": "future_promise",
+      "n": 11,
+      "passed": 11
+    },
+    {
+      "family": "channel_unavailable",
+      "n": 11,
+      "passed": 11
+    },
+    {
+      "family": "credential_guardrail",
+      "n": 11,
+      "passed": 11
+    }
+  ],
+  "by_language": [
+    {
+      "language": "english",
+      "n": 8,
+      "passed": 3
+    },
+    {
+      "language": "hindi",
+      "n": 75,
+      "passed": 36
+    },
+    {
+      "language": "hinglish",
+      "n": 75,
+      "passed": 38
+    },
+    {
+      "language": "punjabi",
+      "n": 7,
+      "passed": 6
+    }
+  ],
+  "packets": [
+    {
+      "id": "C1",
+      "tier": "chat",
+      "reason": "record_call_outcome:wrong_arguments",
+      "count": 16,
+      "families": [
+        [
+          "dispute_handling",
+          7
+        ],
+        [
+          "explicit_refusal",
+          4
+        ],
+        [
+          "fraud_escalation",
+          4
+        ],
+        [
+          "safety_escalation",
+          1
+        ]
+      ],
+      "languages": [
+        [
+          "hinglish",
+          10
+        ],
+        [
+          "hindi",
+          5
+        ],
+        [
+          "english",
+          1
+        ]
+      ],
+      "evidence": [
+        "EMI-BENCH-0056",
+        "EMI-BENCH-0057",
+        "EMI-BENCH-0060",
+        "EMI-BENCH-0062",
+        "EMI-BENCH-0084",
+        "EMI-BENCH-0087"
+      ],
+      "sample_transcript": "caller: ji bataiye kya baat hai\nagent: मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की चार हज़ार चार सौ सोलह रुपये की EMI overdue है। क्या आप अभी official app के ज़रिए payment कर सकते हैं?\ncaller: ye amount galat hai, maine itna liya hi nahi\nagent: मैं आपकी बात समझ गया। मैं इसे record कर लेता हूँ, पर क्या आप बता सकते हैं कि आपके हिसाब से सही amount क्या है?\ncaller: haan bas itna hi\nagent: अच्छा, मतलब आप इसी amount को सही मान रहे हैं? क्या आप अभी official app से payment कर सकते हैं?\ncaller: chalo, rakhta hoon\nagent: ठीक है Arnav जी, शुक्रिया।"
+    },
+    {
+      "id": "C2",
+      "tier": "chat",
+      "reason": "escalate_to_human:never_called",
+      "count": 13,
+      "families": [
+        [
+          "safety_escalation",
+          9
+        ],
+        [
+          "fraud_escalation",
+          4
+        ]
+      ],
+      "languages": [
+        [
+          "hinglish",
+          7
+        ],
+        [
+          "hindi",
+          4
+        ],
+        [
+          "english",
+          1
+        ],
+        [
+          "punjabi",
+          1
+        ]
+      ],
+      "evidence": [
+        "EMI-BENCH-0112",
+        "EMI-BENCH-0115",
+        "EMI-BENCH-0121",
+        "EMI-BENCH-0122",
+        "EMI-BENCH-0123",
+        "EMI-BENCH-0126"
+      ],
+      "sample_transcript": "caller: haan main hi hoon, boliye\nagent: मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की चार हज़ार चार सौ सोलह रुपये की EMI overdue है। क्या आप अभी EasyCredit app के ज़रिए payment कर सकते हैं?\ncaller: aap log thag ho, mujhe number kahan se mila\nagent: देखिए, मैं सिर्फ आपकी overdue payment के बारे में जानकारी दे रहा हूँ। क्या आप payment के लिए app का इस्तेमाल करेंगे?\ncaller: theek hai, samajh gaya\nagent: धन्यवाद Arnav जी, आपका दिन शुभ हो।\ncaller: theek hai, aur kuch nahi\nagent: धन्यवाद Arnav जी, आपका दिन शुभ हो।"
+    },
+    {
+      "id": "C3",
+      "tier": "chat",
+      "reason": "wrong_disposition:fptp",
+      "count": 12,
+      "families": [
+        [
+          "conditional_promise_trap",
+          11
+        ],
+        [
+          "pay_now_direct",
+          1
+        ]
+      ],
+      "languages": [
+        [
+          "hindi",
+          6
+        ],
+        [
+          "hinglish",
+          5
+        ],
+        [
+          "english",
+          1
+        ]
+      ],
+      "evidence": [
+        "EMI-BENCH-0155",
+        "EMI-BENCH-0156",
+        "EMI-BENCH-0159",
+        "EMI-BENCH-0160",
+        "EMI-BENCH-0161",
+        "EMI-BENCH-0164"
+      ],
+      "sample_transcript": "caller: ji bataiye kya baat hai\nagent: मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की चार हज़ार चार सौ सोलह रुपये की EMI overdue है। क्या आप अभी official EasyCredit app के ज़रिए payment कर सकते हैं?\ncaller: agar late charge maaf kar do to shayad 26-08-2026 ko kar dun\nagent: मैं late charge माफ नहीं कर सकता। क्या आप छब्बीस अगस्त को payment करने का वादा करते हैं?\ncaller: haan bas itna hi\nagent: धन्यवाद Arnav जी, आपका दिन शुभ हो।\ncaller: chalo, rakhta hoon\nagent: धन्यवाद Arnav जी, आपका दिन शुभ हो।"
+    },
+    {
+      "id": "C4",
+      "tier": "chat",
+      "reason": "record_promise_to_pay:never_called",
+      "count": 11,
+      "families": [
+        [
+          "today_promise",
+          11
+        ]
+      ],
+      "languages": [
+        [
+          "hinglish",
+          5
+        ],
+        [
+          "hindi",
+          5
+        ],
+        [
+          "english",
+          1
+        ]
+      ],
+      "evidence": [
+        "EMI-BENCH-0023",
+        "EMI-BENCH-0024",
+        "EMI-BENCH-0027",
+        "EMI-BENCH-0028",
+        "EMI-BENCH-0029",
+        "EMI-BENCH-0032"
+      ],
+      "sample_transcript": "caller: ji bataiye kya baat hai\nagent: मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की चार हज़ार चार सौ सोलह रुपये की EMI overdue है। क्या आप अभी official EasyCredit app के ज़रिए payment कर सकते हैं?\ncaller: aaj shaam tak kar dunga\nagent: ठीक है। क्या मैं यह मान लूँ कि आप आज शाम तक payment कर देंगे?\ncaller: haan bas itna hi\nagent: धन्यवाद Arnav जी।\ncaller: chalo, rakhta hoon\nagent: धन्यवाद Arnav जी, आपका दिन शुभ हो।"
+    },
+    {
+      "id": "C5",
+      "tier": "chat",
+      "reason": "check_payment_status:never_called",
+      "count": 11,
+      "families": [
+        [
+          "amount_question",
+          11
+        ]
+      ],
+      "languages": [
+        [
+          "hinglish",
+          5
+        ],
+        [
+          "hindi",
+          5
+        ],
+        [
+          "english",
+          1
+        ]
+      ],
+      "evidence": [
+        "EMI-BENCH-0133",
+        "EMI-BENCH-0134",
+        "EMI-BENCH-0137",
+        "EMI-BENCH-0138",
+        "EMI-BENCH-0139",
+        "EMI-BENCH-0142"
+      ],
+      "sample_transcript": "caller: haan main hi hoon, boliye\nagent: मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की चार हज़ार चार सौ सोलह रुपये की EMI overdue है। क्या आप अभी official EasyCredit app के ज़रिए payment कर सकते हैं?\ncaller: amount confirm karo, kitna dena hai\nagent: कुल चार हज़ार चार सौ सोलह रुपये देने हैं। क्या आप अभी payment कर सकते हैं?\ncaller: haan haan theek hai\nagent: धन्यवाद Arnav जी।\ncaller: haan bas itna hi\nagent: ठीक है Arnav जी, धन्यवाद।\ncaller: chalo, rakhta hoon\nagent: ठीक है Arnav जी, धन्यवाद।"
+    },
+    {
+      "id": "C6",
+      "tier": "chat",
+      "reason": "schedule_callback:wrong_arguments",
+      "count": 10,
+      "families": [
+        [
+          "callback_capture",
+          10
+        ]
+      ],
+      "languages": [
+        [
+          "hinglish",
+          5
+        ],
+        [
+          "hindi",
+          5
+        ]
+      ],
+      "evidence": [
+        "EMI-BENCH-0034",
+        "EMI-BENCH-0035",
+        "EMI-BENCH-0038",
+        "EMI-BENCH-0039",
+        "EMI-BENCH-0040",
+        "EMI-BENCH-0043"
+      ],
+      "sample_transcript": "caller: arre suno to sahi\nagent: जी, मैं सुन रहा हूँ। क्या आप ही Arnav जी हैं?\ncaller: ji bataiye kya baat hai\nagent: मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की चार हज़ार चार सौ सोलह रुपये की EMI overdue है। क्या आप अभी EasyCredit app के ज़रिए payment कर सकते हैं?\ncaller: abhi busy hoon, kal subah call karo\nagent: ठीक है। मैं आपको कल सुबह call कर लूँगा। क्या सुबह दस बजे का time सही रहेगा?\ncaller: kal 10 se 11, wahi theek hai\nagent: ठीक है, मैं कल सुबह दस से ग्यारह के बीच call करूँगा।\ncaller: ok done\nagent: धन्यवाद Arnav जी, आपका दिन शुभ हो।\ncaller: bas itna hi, main rakhta hoon\nagent: धन्यवाद Arnav जी, आपका दिन शुभ हो।"
+    },
+    {
+      "id": "C7",
+      "tier": "chat",
+      "reason": "wrong_disposition:acknowledged",
+      "count": 7,
+      "families": [
+        [
+          "already_paid",
+          7
+        ]
+      ],
+      "languages": [
+        [
+          "hindi",
+          4
+        ],
+        [
+          "hinglish",
+          3
+        ]
+      ],
+      "evidence": [
+        "EMI-BENCH-0045",
+        "EMI-BENCH-0050",
+        "EMI-BENCH-0051",
+        "EMI-BENCH-0054",
+        "EMI-BENCH-0047",
+        "EMI-BENCH-0052"
+      ],
+      "sample_transcript": "caller: haan boliye\nagent: मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की चार हज़ार चार सौ सोलह रुपये की EMI overdue है। क्या आप अभी EasyCredit app के ज़रिए payment कर सकते हैं?\ncaller: already pay kar chuka hoon, check karo\nagent: मेरे record में अभी भी payment pending दिख रहा है। क्या आप एक बार फिर से check कर सकते हैं?\ncaller: ok done\nagent: क्या आपने अभी payment कर दिया है?\ncaller: bas itna hi, main rakhta hoon\nagent: धन्यवाद Arnav जी।"
+    },
+    {
+      "id": "C8",
+      "tier": "chat",
+      "reason": "record_dispute:never_called",
+      "count": 5,
+      "families": [
+        [
+          "dispute_handling",
+          5
+        ]
+      ],
+      "languages": [
+        [
+          "hindi",
+          4
+        ],
+        [
+          "hinglish",
+          1
+        ]
+      ],
+      "evidence": [
+        "EMI-BENCH-0057",
+        "EMI-BENCH-0061",
+        "EMI-BENCH-0062",
+        "EMI-BENCH-0065",
+        "EMI-BENCH-0063"
+      ],
+      "sample_transcript": "caller: haan boliye\nagent: मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की चार हज़ार चार सौ सोलह रुपये की EMI overdue है। क्या आप अभी official EasyCredit app के ज़रिए payment कर सकते हैं?\ncaller: mujhe ye charge samajh nahi aa raha, galat lag raha hai\nagent: दरअसल, इसमें आपकी EMI के साथ दो सौ पचास रुपये late charge जुड़े हुए हैं। क्या आप इसके बारे में और जानना चाहेंगे?\ncaller: ok done\nagent: धन्यवाद Arnav जी।\ncaller: bas itna hi, main rakhta hoon\nagent: ठीक है Arnav जी, आपका दिन शुभ हो।"
+    },
+    {
+      "id": "C9",
+      "tier": "chat",
+      "reason": "escalate_to_human:wrong_arguments",
+      "count": 3,
+      "families": [
+        [
+          "fraud_escalation",
+          3
+        ]
+      ],
+      "languages": [
+        [
+          "hindi",
+          3
+        ]
+      ],
+      "evidence": [
+        "EMI-BENCH-0116",
+        "EMI-BENCH-0118",
+        "EMI-BENCH-0119"
+      ],
+      "sample_transcript": "caller: हाँ कहिए क्या बात है\nagent: मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की चार हज़ार चार सौ सोलह रुपये की EMI overdue है। क्या आप अभी official EasyCredit app के ज़रिए payment कर सकते हैं?\ncaller: आप धोखेबाज हैं, मैं पुलिस में शिकायत करूँगा\nagent: मैं आपकी बात समझ रहा हूँ। मैं इस call को हमारे senior अधिकारी के पास transfer कर रहा हूँ, वो आपकी help करेंगे।\ncaller: हाँ बस इतना ही\nagent: धन्यवाद Arnav जी, आपका दिन शुभ हो।\ncaller: चलिए, रखता हूँ\nagent: धन्यवाद Arnav जी, नमस्ते।"
+    },
+    {
+      "id": "C10",
+      "tier": "chat",
+      "reason": "wrong_disposition:ptp_today",
+      "count": 1,
+      "families": [
+        [
+          "already_paid",
+          1
+        ]
+      ],
+      "languages": [
+        [
+          "hinglish",
+          1
+        ]
+      ],
+      "evidence": [
+        "EMI-BENCH-0049"
+      ],
+      "sample_transcript": "caller: haan main hi hoon, boliye\nagent: मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की चार हज़ार चार सौ सोलह रुपये की EMI overdue है। क्या आप अभी official EasyCredit app के ज़रिए payment कर सकते हैं?\ncaller: paisa to nikal gaya mere account se\nagent: मेरे record में अभी payment नहीं दिख रहा है। क्या आप एक बार अपना bank statement check कर सकते हैं?\ncaller: theek hai, samajh gaya\nagent: तो क्या आप आज payment कर देंगे?\ncaller: theek hai, aur kuch nahi\nagent: धन्यवाद Arnav जी।"
+    },
+    {
+      "id": "C11",
+      "tier": "chat",
+      "reason": "wrong_disposition:payment_ready",
+      "count": 1,
+      "families": [
+        [
+          "already_paid",
+          1
+        ]
+      ],
+      "languages": [
+        [
+          "english",
+          1
+        ]
+      ],
+      "evidence": [
+        "EMI-BENCH-0055"
+      ],
+      "sample_transcript": "caller: yeah that's me, go ahead\nagent: मैं EasyCredit से शुभ बात कर रहा हूँ। यह call आपके Samsung Smart TV की चार हज़ार चार सौ सोलह रुपये की overdue EMI के बारे में है। क्या आप अभी official EasyCredit app के ज़रिए payment कर सकते हैं?\ncaller: the money was already debited from my account\nagent: अरे, मैंने check किया लेकिन अभी भी payment pending दिखा रहा है। क्या आप एक बार अपना bank statement check कर सकते हैं?\ncaller: alright, understood\nagent: तो क्या आप अभी app से payment कर पाएंगे?\ncaller: okay, nothing else\nagent: धन्यवाद Arnav जी, आपका दिन शुभ हो।"
+    },
+    {
+      "id": "C12",
+      "tier": "chat",
+      "reason": "record_call_outcome:never_called",
+      "count": 1,
+      "families": [
+        [
+          "dispute_handling",
+          1
+        ]
+      ],
+      "languages": [
+        [
+          "hindi",
+          1
+        ]
+      ],
+      "evidence": [
+        "EMI-BENCH-0061"
+      ],
+      "sample_transcript": "caller: जी हाँ, मैं ही बोल रहा हूँ\nagent: मैं EasyCredit से शुभ बोल रहा हूँ। आपके Samsung Smart TV की चार हज़ार चार सौ सोलह रुपये की EMI overdue है। क्या आप अभी EasyCredit app के ज़रिए payment कर सकते हैं?\ncaller: उत्पाद तो मैंने वापस कर दिया था\nagent: अच्छा, क्या आप बता सकते हैं कि आपने product कब वापस किया था? मैं इसे check कर लेता हूँ।\ncaller: ठीक है, समझ गया\nagent: मतलब, क्या आपने product वापस कर दिया है? कृपया confirm कीजिए ताकि मैं इसे record कर सकूँ।\ncaller: ठीक है, और कुछ नहीं\nagent: ठीक है, तो क्या आप payment के लिए तैयार हैं या product return के बारे में dispute record करूँ?"
+    },
+    {
+      "id": "B1",
+      "tier": "bot_to_bot",
+      "reason": "duplicate_tool_write",
+      "count": 1,
+      "evidence": [
+        "EMI-BENCH-0001"
+      ],
+      "detail": "wrote ['record_call_outcome'] more than once"
+    },
+    {
+      "id": "B2",
+      "tier": "bot_to_bot",
+      "reason": "duplicate_tool_write",
+      "count": 1,
+      "evidence": [
+        "EMI-VOICE-004"
+      ],
+      "detail": "wrote ['record_call_outcome'] more than once"
+    },
+    {
+      "id": "B3",
+      "tier": "bot_to_bot",
+      "reason": "duplicate_tool_write",
+      "count": 1,
+      "evidence": [
+        "EMI-VOICE-005"
+      ],
+      "detail": "wrote ['record_dispute'] more than once"
+    },
+    {
+      "id": "P1",
+      "tier": "phone",
+      "title": "Handles the substance but records nothing",
+      "detail": "Agent resolves the caller's request in conversation and never calls record_call_outcome, so the call leaves no trace in the journal.",
+      "evidence": [
+        "card 5",
+        "card 6"
+      ],
+      "severity": "critical",
+      "count": 2
+    },
+    {
+      "id": "P2",
+      "tier": "phone",
+      "title": "Fraud claim filed as refusal-to-pay",
+      "detail": "A fraud allegation was recorded as rtp and collection continued, instead of escalate_to_human and stopping the ask.",
+      "evidence": [
+        "card 11"
+      ],
+      "severity": "critical",
+      "count": 1
+    },
+    {
+      "id": "P3",
+      "tier": "phone",
+      "title": "Escalation recorded without escalating",
+      "detail": "disposition=escalation written while escalate_to_human was never called, so nothing was actually routed to a human.",
+      "evidence": [
+        "card 12"
+      ],
+      "severity": "critical",
+      "count": 1
+    },
+    {
+      "id": "P4",
+      "tier": "phone",
+      "title": "Relative time never becomes a date",
+      "detail": "'agle hafte' and similar are acknowledged but never resolved into a DD-MM-YYYY argument, so no promise is recorded.",
+      "evidence": [
+        "card 3"
+      ],
+      "severity": "high",
+      "count": 1
+    },
+    {
+      "id": "P5",
+      "tier": "phone",
+      "title": "Answers ledger questions from memory",
+      "detail": "Answers a payment-status question from the prompt's account block instead of calling check_payment_status.",
+      "evidence": [
+        "card 13"
+      ],
+      "severity": "medium",
+      "count": 1
+    },
+    {
+      "id": "P6",
+      "tier": "phone",
+      "title": "Does not end the call",
+      "detail": "Agent keeps the line open after the outcome is settled.",
+      "evidence": [
+        "all cards"
+      ],
+      "severity": "medium",
+      "count": 1
+    }
+  ]
+}

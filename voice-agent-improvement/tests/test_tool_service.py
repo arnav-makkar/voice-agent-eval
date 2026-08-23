@@ -65,7 +65,7 @@ class ToolServiceTest(unittest.TestCase):
     def test_terminal_disposition_is_persisted(self) -> None:
         self.seed()
         response = self.client.post(
-            "/v1/tools/record-disposition",
+            "/v1/tools/record-call-outcome",
             headers=self.headers,
             json={"run_id": "RUN-001", "account_id": "EC-001", "disposition": "payment_ready"},
         )
@@ -73,7 +73,7 @@ class ToolServiceTest(unittest.TestCase):
         self.assertEqual(response.json(), {"recorded": True, "disposition": "payment_ready"})
         state = self.client.get("/v1/evaluation/runs/RUN-001", headers=self.headers).json()
         self.assertEqual(state["state"]["disposition"], "payment_ready")
-        self.assertEqual(state["events"][0]["tool_name"], "record_disposition")
+        self.assertEqual(state["events"][0]["tool_name"], "record_call_outcome")
 
     def test_authentication_is_required(self) -> None:
         response = self.client.get("/v1/evaluation/runs/RUN-001")

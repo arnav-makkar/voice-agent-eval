@@ -60,6 +60,7 @@ def _build_config(
     app_version: int | None = None,
     output_root: Path = OUTPUT_ROOT,
     max_concurrent_conversations: int = 1,
+    time_limit_seconds: int = 240,
 ):
     # EVA is an isolated upstream checkout; import only after its virtualenv is
     # active and its root is the working directory so computed fixture paths
@@ -113,7 +114,11 @@ def _build_config(
         num_trials=num_trials,
         max_rerun_attempts=1,
         max_concurrent_conversations=max_concurrent_conversations,
-        conversation_time_limit_seconds=120,
+        # 120s cut two of three pilot calls off mid-conversation, which scores as
+        # not-finished rather than as whatever the agent actually did. A longer
+        # ceiling does not make a looping agent behave; it just stops the harness
+        # from destroying the evidence before the loop is visible.
+        conversation_time_limit_seconds=time_limit_seconds,
         output_dir=output_root,
         # EVA first validates the realtime caller, then computes the complete
         # Accuracy (EVA-A) and Experience (EVA-X) component set only for valid
@@ -140,6 +145,22 @@ def main() -> int:
         action="store_true",
         help="Required for the single realtime ElevenLabs-to-Samvaad conversation.",
     )
+    parser.add_argument(
+        "--record-id",
+        nargs="*",
+        help="Campaign-2 scenario IDs to run instead of the campaign-1 smoke record.",
+    )
+    parser.add_argument(
+        "--app-version",
+        type=int,
+        help="Override the committed agent version under test.",
+    )
+    parser.add_argument(
+        "--time-limit",
+        type=int,
+        default=240,
+        help="Seconds a single conversation may run before the harness ends it.",
+    )
     args = parser.parse_args()
     if not args.dry_run and not args.confirm_live:
         parser.error("live execution requires --confirm-live")
@@ -147,7 +168,14 @@ def main() -> int:
     load_dotenv(ROOT / ".env", override=False)
     run_id = f"emi_eva_live_{datetime.now():%Y%m%d_%H%M%S}"
     os.chdir(EVA_ROOT)
-    config = _build_config(run_id=run_id, dry_run=args.dry_run)
+    config = _build_config(
+        run_id=run_id,
+        dry_run=args.dry_run,
+        record_ids=args.record_id or None,
+        num_trials=1,
+        app_version=args.app_version,
+        time_limit_seconds=args.time_limit,
+    )
 
     if not args.dry_run:
         run_dir = OUTPUT_ROOT / run_id
@@ -159,7 +187,7 @@ def main() -> int:
             {
                 "mode": "dry_run" if args.dry_run else "live_single_conversation",
                 "run_id": run_id,
-                "record_id": RECORD_ID,
+                "record_ids": args.record_id or [RECORD_ID],
                 "caller": "ElevenLabs realtime agent — Arnav",
                 "system_under_test": "Sarvam Samvaad — Shubh",
                 "max_provider_sessions": {"elevenlabs": 1, "samvaad": 1},

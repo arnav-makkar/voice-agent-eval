@@ -1,0 +1,12 @@
+2026-08-22 12:57:57,422 | INFO     | eva.orchestrator.worker:152 | Starting conversation for record EMI-BENCH-0012 on port 10000
+2026-08-22 12:57:57,444 | ERROR    | eva.orchestrator.worker:192 | Conversation EMI-BENCH-0012 error: [Errno 2] No such file or directory: 'data/emi_scenarios/EMI-BENCH-0012.json'
+Traceback (most recent call last):
+  File "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/src/eva/orchestrator/worker.py", line 160, in run
+    await self._start_assistant()
+  File "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/src/eva/orchestrator/worker.py", line 317, in _start_assistant
+    resolved_db_path = self._materialize_resolved_scenario_db()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/research/upstream/eva/src/eva/orchestrator/worker.py", line 345, in _materialize_resolved_scenario_db
+    with open(self.scenario_db_path) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'data/emi_scenarios/EMI-BENCH-0012.json'

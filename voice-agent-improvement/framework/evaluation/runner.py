@@ -70,9 +70,9 @@ def run_scenario(candidate: CandidateAgent, scenario: EvaluationScenario, candid
             disposition = str(response.get("disposition", "continue"))
             if disposition != "continue":
                 final_disposition = disposition
-                if not any(event.name == "record_disposition" and event.status == "success" for event in tool_events):
+                if not any(event.name == "record_call_outcome" and event.status == "success" for event in tool_events):
                     try:
-                        environment.execute("record_disposition", {"disposition": disposition})
+                        environment.execute("record_call_outcome", {"disposition": disposition})
                     except ToolExecutionError:
                         pass
             if response.get("should_end_call") or disposition != "continue":

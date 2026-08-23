@@ -1,0 +1,361 @@
+[
+  {
+    "event": "tool_state_seeded",
+    "timestamp_ms": "1787401289152",
+    "run_id": "EMI-BENCH-0001",
+    "account_id": "EC-DEMO-01"
+  },
+  {
+    "event": "samvaad_connected",
+    "timestamp_ms": "1787401289646",
+    "interaction_id": null
+  },
+  {
+    "event": "twilio_start",
+    "timestamp_ms": "1787401289646",
+    "stream_sid": "EMI-BENCH-0001"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787401290222",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787401290329",
+    "type": "server.action.interaction_connected",
+    "interaction_id": "20260822/e23517f2-17:51:29-be78dc55"
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787401293047"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787401293148",
+    "sample_rate": 16000
+  },
+  {
+    "event": "user_audio_start",
+    "timestamp_ms": "1787401295301",
+    "source_timestamp_ms": "1787401295300"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787401295663",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787401295764"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787401295867",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787401296710",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787401296811"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787401296920",
+    "sample_rate": 16000
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787401298319"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787401298426",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787401298526",
+    "role": "user",
+    "text": "अर्णव बोल रहा हूं। बताइए क्या बात है?"
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787401298827",
+    "role": "bot",
+    "text": "मैं EasyCredit से शुभ बात कर रहा हूँ। यह call आपके Samsung Smart TV की overdue EMI के बारे में है, जो चार हज़ार चार सौ सोलह रुपये है। क्या आप अभी official EasyCredit app के ज़रिए payment कर सकते हैं?"
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787401309638"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787401309742",
+    "sample_rate": 16000
+  },
+  {
+    "event": "user_audio_stop",
+    "timestamp_ms": "1787401313069",
+    "source_timestamp_ms": "243055070"
+  },
+  {
+    "event": "user_audio_start",
+    "timestamp_ms": "1787401313323",
+    "source_timestamp_ms": "1787401313322"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787401313372",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787401313473"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787401313575",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787401314481",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787401314582"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787401314683",
+    "sample_rate": 16000
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787401315491"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787401315593",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787401315707",
+    "role": "user",
+    "text": "हाँ मैं अभी करता हूँ, app खोल रहा हूँ।"
+  },
+  {
+    "event": "user_audio_stop",
+    "timestamp_ms": "1787401315864",
+    "source_timestamp_ms": "243057865"
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787401316623",
+    "role": "bot",
+    "text": "धन्यवाद Arnav जी।"
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787401318598"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787401318701",
+    "sample_rate": 16000
+  },
+  {
+    "event": "user_audio_start",
+    "timestamp_ms": "1787401320239",
+    "source_timestamp_ms": "1787401320238"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787401320640",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787401320741"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787401320843",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787401321462",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787401321562"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787401321664",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787401322064",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787401322164"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787401322266",
+    "sample_rate": 16000
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787401322668"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787401322770",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787401322869",
+    "role": "user",
+    "text": "अन्नव हूँ मैं। थैंक यू। बाय।"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787401324138",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787401324238"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787401324352",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787401325927",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787401326028"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787401326130",
+    "sample_rate": 16000
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787401327459"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787401327562",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787401327662",
+    "role": "user",
+    "text": "Arnav hoon main. Thank you. Bye. The user has acknowledged the payment commitment. The success condition is met."
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787401327867",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787401327967"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787401328070",
+    "sample_rate": 16000
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787401328269"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787401328372",
+    "sample_rate": 16000
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787401330468"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787401330569",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787401330771",
+    "role": "user",
+    "text": "Arnav hoon main. Thank you. Bye. The user has acknowledged the payment commitment. The success condition is met. I should say a brief goodbye and end the call."
+  },
+  {
+    "event": "twilio_stop_sent",
+    "timestamp_ms": "1787401333192",
+    "reason": "assistant_completed"
+  },
+  {
+    "event": "conversation_ending",
+    "timestamp_ms": "1787401333193",
+    "reason": "assistant_completed"
+  },
+  {
+    "event": "samvaad_disconnected",
+    "timestamp_ms": "1787401333261",
+    "interaction_id": "20260822/e23517f2-17:51:29-be78dc55"
+  },
+  {
+    "event": "analytics_attempt_resolved",
+    "timestamp_ms": "1787401353826",
+    "interaction_id": "20260822/e23517f2-17:51:29-be78dc55"
+  },
+  {
+    "event": "tool_state_resolved",
+    "timestamp_ms": "1787401353852",
+    "event_count": 2
+  },
+  {
+    "event": "audio_perturbation_summary",
+    "timestamp_ms": "1787401353858",
+    "config": {
+      "kind": "clean"
+    },
+    "chunks": 775,
+    "dropped_chunks": 0
+  }
+]

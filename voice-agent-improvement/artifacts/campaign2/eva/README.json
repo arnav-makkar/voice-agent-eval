@@ -1,0 +1,40 @@
+{
+  "schema_version": "loopline-eva-voice-plan.v1",
+  "campaign": "campaign-2",
+  "purpose": "Record the decision about how the voice tier is driven, and what is now ready for it.",
+
+  "the_latency_problem": {
+    "what_was_built_first": "An adaptive caller whose brain is Gemini and whose voice is ElevenLabs TTS, plugged in behind the existing SpeechSynthesizer protocol.",
+    "why_it_is_wrong_for_voice": "Every caller turn costs a planner round-trip before a single word is synthesised. On a text tier that is invisible; on a realtime phone call it is dead air, and dead air changes the agent's own turn-taking behaviour, so the harness would be measuring a conversation shape that no real call has.",
+    "what_campaign_1_did_instead": "EVA drives an ElevenLabs conversational agent as the caller, talking to Samvaad speech-to-speech. The caller does its own turn-taking and barge-in natively, so latency is a property of the two live systems rather than of the harness."
+  },
+
+  "decision": {
+    "primary": "EVA + ElevenLabs agent, speech-to-speech, for the bot-to-bot arms.",
+    "kept_as_fallback": "The Gemini-brain plus ElevenLabs-TTS path stays in the tree. It is scripted and deterministic, which the EVA caller is not, so it remains the right tool for reproducing one exact conversation during debugging.",
+    "audit_finding_that_still_stands": "Before this session the duplex caller's voice was macOS `say`, labelled in code as a local test fixture. Flat non-native prosody degrades Sarvam's ASR, so the agent would be penalised for mishearing speech no real customer produces. ElevenLabs now sits behind the same protocol as `local` and `sarvam`, selected with --caller-voice-provider."
+  },
+
+  "where_execution_truth_comes_from": "Not from EVA. EVA scores what was said and how the conversation behaved. The deployed agent calls our real HTTP tools regardless of what the harness believes, and the append-only journal remains the only proof that a write happened. The two are combined per call: EVA supplies EVA-A and EVA-X, the journal supplies the required-action verdict.",
+
+  "eva_metric_taxonomy_available": {
+    "EVA-A_accuracy": ["task_completion", "faithfulness", "agent_speech_fidelity"],
+    "EVA-X_experience": ["conciseness", "conversation_progression", "turn_taking"],
+    "validation": ["conversation_valid_end", "user_behavioral_fidelity", "user_speech_fidelity"],
+    "diagnostic": ["authentication_success", "conversation_correctly_finished", "conversation_time_limit", "response_speed", "speakability", "stt_wer", "tool_call_validity", "transcription_accuracy_key_entities", "tts_fidelity"]
+  },
+
+  "what_is_ready": [
+    "scripts/build_eva_records.py converts campaign-2 benchmark scenarios into EVA dataset records, carrying the goal, persona, the full 26-field account ledger and the ground truth.",
+    "45 records generated for the Hindi and Hinglish development split across all 15 families.",
+    "EVA dry-run passes against the campaign-2 agent config using EVA's own virtualenv."
+  ],
+
+  "what_is_not_ready": [
+    "The EVA caller is goal-driven, not scripted, so it cannot replay our exact caller turns. Ground truth transfers; the literal utterances do not. Voice results are therefore comparable to each other across BASE and IMPROVED, but never line-by-line against the chat tier.",
+    "The ElevenLabs caller agent needs re-provisioning against the campaign-2 persona set; the existing one is campaign 1's single smoke-test caller.",
+    "Per-run tool binding (open issue O1) is still unsolved, so voice runs share one ledger row exactly as the chat pilot does."
+  ],
+
+  "cost_note": "Voice is metered at roughly 5 credits per short call, measured: one 19-second session moved the balance from 285 to 280. Chat is not metered. Fifteen-plus-fifteen voice therefore costs about 150 to 160 credits of the 485 available."
+}

@@ -1,0 +1,54 @@
+{
+  "adapter": "sarvam-conv-ai-sdk==1.0.21/CALL_ADAPTIVE_DUPLEX",
+  "aggregate": {
+    "accuracy_component_rates": {
+      "disposition": null,
+      "environment_state": null,
+      "forbidden_behavior": null,
+      "required_actions": null,
+      "required_communication": null
+    },
+    "average_experience_score": 0.0,
+    "execution": {
+      "average_tool_call_validity": null,
+      "records_with_tool_calls": 0,
+      "records_with_tool_calls_rate": null,
+      "required_action_pass_rate": null
+    },
+    "experience_detail": {
+      "average_agent_turns": null,
+      "average_response_latency_ms": null,
+      "average_words_per_agent_turn": null,
+      "records_with_overlong_turns": 0,
+      "records_with_repetition": 0
+    },
+    "failure_counts": {},
+    "failure_owners": {},
+    "invalid_simulations": 1,
+    "records": 1,
+    "simulation_validity_rate": 0.0,
+    "task_success_rate": 0.0,
+    "task_successes": 0,
+    "valid_records": 0,
+    "validation_detail": {
+      "caller_fidelity_rate": 0.0,
+      "conversation_finished_rate": null
+    }
+  },
+  "candidate_id": "indus-v1",
+  "claim_boundary": "Live adaptive audio-in/audio-out Samvaad runtime with a local caller audio fixture and Gemini hidden-goal policy. Samvaad is the complete audio-native agent under test; no external STT/LLM/TTS reconstruction is scored. This exercises concurrent audio, interruption handling, tools and observed barge-in; matched human voice remains a separate gate.",
+  "evaluator_freeze": {
+    "bundle_sha256": "439faf89152a223add7eaa32416e7df03cf71357f84384ddcff61f2294bfda47",
+    "path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/framework/emi/eva_adapter_v8/evaluator_freeze.json",
+    "version": "evaluation-metrics.v3/loopline-eva-adapter.v1/samvaad-duplex.v8"
+  },
+  "interaction_ids": [
+    "20260822/6f24a1fb-02:42:04-add0b020"
+  ],
+  "paid_session_control": {
+    "ledger": "artifacts/campaign2/voice_pilot/ledger.json",
+    "provider_retries": 0
+  },
+  "scenario_count": 1,
+  "schema_version": "indus-chat-suite.v1"
+}

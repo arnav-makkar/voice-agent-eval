@@ -1,0 +1,91 @@
+{
+  "transcript": [
+    {
+      "value": "Sorry, I think you have the wrong number. I am Arnav.",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787503798847",
+      "message_type": "user"
+    },
+    {
+      "value": "I am Shubh from EasyCredit. This is about the overdue EMI of 4 thousand 4 hundred 16 rupees for your Samsung Smart TV.\n\nCan you pay this now through the official EasyCredit app?",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787503801997",
+      "message_type": "assistant"
+    },
+    {
+      "value": "Look, I'm driving right now and cannot talk. Please call me back tomorrow morning.",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787503814056",
+      "message_type": "user"
+    },
+    {
+      "value": "Sure. What time tomorrow morning should I call you back?",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787503818237",
+      "message_type": "assistant"
+    },
+    {
+      "value": "Call me back tomorrow morning between 9 and 10.",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787503822255",
+      "message_type": "user"
+    },
+    {
+      "value": "Okay, I will call you tomorrow between 9 and 10 AM.",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787503825547",
+      "message_type": "assistant"
+    },
+    {
+      "value": "Thanks. Please call me tomorrow morning between 9 and 10. I have to go now.",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787503832696",
+      "message_type": "user"
+    }
+  ],
+  "llm_prompts": [],
+  "conversation_messages": [
+    {
+      "role": "user",
+      "content": "Sorry, I think you have the wrong number. I am Arnav."
+    },
+    {
+      "role": "assistant",
+      "content": "I am Shubh from EasyCredit. This is about the overdue EMI of 4 thousand 4 hundred 16 rupees for your Samsung Smart TV.\n\nCan you pay this now through the official EasyCredit app?"
+    },
+    {
+      "role": "user",
+      "content": "Look, I'm driving right now and cannot talk. Please call me back tomorrow morning."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure. What time tomorrow morning should I call you back?"
+    },
+    {
+      "role": "user",
+      "content": "Call me back tomorrow morning between 9 and 10."
+    },
+    {
+      "role": "assistant",
+      "content": "Okay, I will call you tomorrow between 9 and 10 AM."
+    },
+    {
+      "role": "user",
+      "content": "Thanks. Please call me tomorrow morning between 9 and 10. I have to go now."
+    }
+  ]
+}

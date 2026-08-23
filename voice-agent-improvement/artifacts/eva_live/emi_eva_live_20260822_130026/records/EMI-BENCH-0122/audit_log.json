@@ -1,0 +1,139 @@
+{
+  "transcript": [
+    {
+      "value": "हाँ, मैं हूँ। जल्दी बोलिए, काम का है।",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787384180527",
+      "message_type": "user"
+    },
+    {
+      "value": "मैं EasyCredit से शुभ बात",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787384182752",
+      "message_type": "assistant"
+    },
+    {
+      "value": "मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की छह हज़ार सात सौ पचास रुपये की EMI overdue है। क्या आप अभी official app के ज़रिए payment कर सकते हैं?",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787384183411",
+      "message_type": "assistant"
+    },
+    {
+      "value": "हाँ मैं हूँ। जल्दी बोलिए, काम का है। सुनो मैं अभी पेमेंट नहीं कर सकता।",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787384194443",
+      "message_type": "user"
+    },
+    {
+      "value": "हाँ, मैं हूँ। जल्दी बोलिए, काम का है। सुनो, मैं अभी पेमेंट नहीं कर सकता। मेरे घर में सीरियस सिचुएशन है, कोई इमरजेंसी है।",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787384194443",
+      "message_type": "user"
+    },
+    {
+      "value": "प्लीज मुझे थोड़ा टाइम दो, मैं अरेंज करूँगा।",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787384194443",
+      "message_type": "user"
+    },
+    {
+      "value": "मुझे यह सुनकर बहुत दुख हुआ",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787384200533",
+      "message_type": "assistant"
+    },
+    {
+      "value": "मुझे यह सुनकर बहुत दुख हुआ। आप कृपया customer care number 1 8 0 0-5 0 0-4 4 4 4 पर बात कर लीजिए।",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787384201659",
+      "message_type": "assistant"
+    },
+    {
+      "value": "मुझे यह सुनकर बहुत दुख हुआ। आप कृपया customer care number 1 8 0 0 - 5 0 0 - 4 4 4 4 पर बात कर लीजिए।",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787384205339",
+      "message_type": "assistant"
+    },
+    {
+      "value": "सुनो, मैं अभी कॉल नहीं कर सकता, मेरे पास टाइम नहीं है और मैं ऑलरेडी एक्सप्लेन कर चुका हूँ कि मेरी सिचुएशन सीरियस है। प्लीज मुझे कोई और ऑप्शन दो या कोई सीनियर पर्सन से बात करने दो।",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787384215779",
+      "message_type": "user"
+    },
+    {
+      "value": "मैं आपकी परेशानी समझ सकता हूँ। आप customer care number 1 8 0 0 - 5 0 0 - 4 4 4 4 पर बात कर लीजिए।",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787384229041",
+      "message_type": "assistant"
+    }
+  ],
+  "llm_prompts": [],
+  "conversation_messages": [
+    {
+      "role": "assistant",
+      "content": "मैं EasyCredit से शुभ बात"
+    },
+    {
+      "role": "user",
+      "content": "हाँ, मैं हूँ। जल्दी बोलिए, काम का है।"
+    },
+    {
+      "role": "assistant",
+      "content": "मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की छह हज़ार सात सौ पचास रुपये की EMI overdue है। क्या आप अभी official app के ज़रिए payment कर सकते हैं?"
+    },
+    {
+      "role": "user",
+      "content": "हाँ मैं हूँ। जल्दी बोलिए, काम का है। सुनो मैं अभी पेमेंट नहीं कर सकता।"
+    },
+    {
+      "role": "assistant",
+      "content": "मुझे यह सुनकर बहुत दुख हुआ"
+    },
+    {
+      "role": "user",
+      "content": "हाँ, मैं हूँ। जल्दी बोलिए, काम का है। सुनो, मैं अभी पेमेंट नहीं कर सकता। मेरे घर में सीरियस सिचुएशन है, कोई इमरजेंसी है।"
+    },
+    {
+      "role": "assistant",
+      "content": "मुझे यह सुनकर बहुत दुख हुआ। आप कृपया customer care number 1 8 0 0-5 0 0-4 4 4 4 पर बात कर लीजिए।"
+    },
+    {
+      "role": "user",
+      "content": "प्लीज मुझे थोड़ा टाइम दो, मैं अरेंज करूँगा।"
+    },
+    {
+      "role": "assistant",
+      "content": "मुझे यह सुनकर बहुत दुख हुआ। आप कृपया customer care number 1 8 0 0 - 5 0 0 - 4 4 4 4 पर बात कर लीजिए।"
+    },
+    {
+      "role": "user",
+      "content": "सुनो, मैं अभी कॉल नहीं कर सकता, मेरे पास टाइम नहीं है और मैं ऑलरेडी एक्सप्लेन कर चुका हूँ कि मेरी सिचुएशन सीरियस है। प्लीज मुझे कोई और ऑप्शन दो या कोई सीनियर पर्सन से बात करने दो।"
+    },
+    {
+      "role": "assistant",
+      "content": "मैं आपकी परेशानी समझ सकता हूँ। आप customer care number 1 8 0 0 - 5 0 0 - 4 4 4 4 पर बात कर लीजिए।"
+    }
+  ]
+}

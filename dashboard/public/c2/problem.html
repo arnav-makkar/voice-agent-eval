@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Execution Truth — The Failure Mode</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="site.css">
+<style>
+.split{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:18px 0}
+@media(max-width:760px){.split{grid-template-columns:1fr}}
+.split .half{background:var(--raise);border-radius:var(--r-md);box-shadow:var(--up);padding:18px 20px}
+.split .half.bad{outline:1px solid var(--loss-line)}
+.split h3{margin-top:0}
+.ledger{font:500 13.5px/1.9 var(--mono);background:var(--sunken);box-shadow:var(--in);
+  border-radius:var(--r-sm);padding:14px 16px;margin:10px 0}
+.ledger .empty{color:var(--loss)}
+</style>
+</head>
+<body>
+<div class="shell">
+
+<p class="eyebrow">Section 1 · The failure mode</p>
+<h1>The agent says it did things it never did</h1>
+<p class="lede">Every business consequence of a collections call — a promise logged, a dispute filed,
+an escalation queued — is a tool write, not a sentence. The defining failure of this agent, and the
+reason this project exists, is the gap between the two.</p>
+
+<h2>One real call</h2>
+<p>Baseline agent, real phone line, card 5 — the customer insists the EMI is already paid. The agent
+handles the substance well: it holds the correct figure, checks the ledger, refuses the claim
+politely. Then it closes:</p>
+
+<div class="split">
+  <div class="half">
+    <h3>What was said</h3>
+    <div class="turns" style="max-height:none">
+      <div class="turn caller"><b>Caller</b><span>मैं already check कर चुका हूँ, pay कर चुका हूँ, आप check करिए।</span></div>
+      <div class="turn agent"><b>Agent</b><span>अच्छा, मैं एक बार check कर लेता हूँ। क्या आप मुझे बता सकते हैं कि payment कब हुई थी?</span></div>
+      <div class="turn agent"><b>Agent</b><span>ठीक है, <strong>मैं आपका response note कर लेता हूँ।</strong> धन्यवाद Arnav जी।</span></div>
+    </div>
+    <p class="dim" style="font-size:13.5px">"I will note your response." A transcript-graded evaluation
+    reads this as a competent, complete call.</p>
+  </div>
+  <div class="half bad">
+    <h3>What was written</h3>
+    <div class="ledger">
+      check_payment_status ✓<br>
+      <span class="empty">record_call_outcome — never called</span>
+    </div>
+    <p class="dim" style="font-size:13.5px">The customer's position — "claims already paid, disputed
+    by ledger" — was never recorded. Downstream, this account looks untouched. The next campaign
+    dials it again from zero.</p>
+  </div>
+</div>
+
+<h2>Why transcripts cannot be the judge</h2>
+<div class="card">
+<ul style="margin:0">
+  <li><b>Spoken claims are free.</b> "मैं note कर लेता हूँ" costs the model nothing and satisfies the
+  customer, the reviewer, and any judge that reads only text. The write is the only part with a cost —
+  and the only part with a consequence.</li>
+  <li><b>The failure is invisible at the point of failure.</b> Both calls above end politely. Nothing in
+  the audio distinguishes the one that wrote from the one that didn't.</li>
+  <li><b>It compounds silently at scale.</b> On a million calls, every missing write is a customer whose
+  promise, dispute, or distress evaporated — discovered weeks later as reconciliation drift, never as
+  an error message.</li>
+</ul>
+</div>
+
+<h2>The design answer: execution truth</h2>
+<p>Every tool the agent can call is served by a controlled tool service that appends each invocation —
+name, arguments, timestamp, ledger key — to a journal the agent cannot read back or edit. Grading then
+follows one rule:</p>
+<div class="note">
+<h3>A claim about a tool is decided by the journal. Nothing else counts.</h3>
+<p style="margin-bottom:0">Transcripts remain evidence of what was <em>said</em> — they feed the
+speech-quality judges and the reader. But task completion, guardrail compliance, and every
+before/after number on this site is computed from journal state. An agent that says the right thing
+and writes nothing scores zero on that scenario.</p>
+</div>
+
+<svg class="diagram" viewBox="0 0 980 300" role="img" aria-label="Say versus do: two paths from the agent, only one is graded">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#8a8577"/>
+    </marker>
+  </defs>
+  <rect x="30" y="110" width="200" height="80" rx="16" fill="none" stroke="#8a8577" stroke-width="1.4"/>
+  <text x="130" y="145" text-anchor="middle" font-size="15" font-weight="600" fill="currentColor">Deployed agent</text>
+  <text x="130" y="167" text-anchor="middle" font-size="12" fill="#8a8577">one conversation</text>
+
+  <path d="M230 130 C 300 90, 340 70, 400 70" fill="none" stroke="#8a8577" stroke-width="1.4" marker-end="url(#arr)"/>
+  <rect x="400" y="35" width="230" height="70" rx="14" fill="none" stroke="#8a8577" stroke-width="1.2" stroke-dasharray="5 4"/>
+  <text x="515" y="63" text-anchor="middle" font-size="13.5" fill="currentColor">"मैंने note कर लिया है"</text>
+  <text x="515" y="84" text-anchor="middle" font-size="11.5" fill="#8a8577">speech — free to produce</text>
+
+  <path d="M230 170 C 300 210, 340 230, 400 230" fill="none" stroke="#8a8577" stroke-width="1.4" marker-end="url(#arr)"/>
+  <rect x="400" y="195" width="230" height="70" rx="14" fill="none" stroke="#5B5FBF" stroke-width="1.6"/>
+  <text x="515" y="223" text-anchor="middle" font-size="13.5" class="m" fill="currentColor">record_call_outcome(...)</text>
+  <text x="515" y="244" text-anchor="middle" font-size="11.5" fill="#8a8577">HTTP write · append-only journal</text>
+
+  <path d="M630 230 L 720 230" fill="none" stroke="#5B5FBF" stroke-width="1.6" marker-end="url(#arr)"/>
+  <rect x="720" y="160" width="230" height="105" rx="16" fill="none" stroke="#3F7B62" stroke-width="1.8"/>
+  <text x="835" y="192" text-anchor="middle" font-size="14.5" font-weight="600" fill="currentColor">The grader</text>
+  <text x="835" y="214" text-anchor="middle" font-size="12" fill="#8a8577">reads journal state only</text>
+  <text x="835" y="236" text-anchor="middle" font-size="12" fill="#8a8577">expected vs actual writes</text>
+
+  <path d="M630 70 L 700 70 L 700 120" fill="none" stroke="#9E4655" stroke-width="1.3" stroke-dasharray="4 4"/>
+  <text x="713" y="118" font-size="11.5" fill="#9E4655">never reaches the verdict</text>
+</svg>
+
+<h2>How often it actually happened</h2>
+<div class="kpis">
+  <div class="kpi"><div class="l">Say-vs-do violations · baseline</div><div class="v">23</div>
+    <div class="d">of 180 conversations · label-free monitor, precision 1.00</div></div>
+  <div class="kpi hero"><div class="l">After improvement</div><div class="v">5</div>
+    <div class="d">same monitor, same precision — a 78% reduction</div></div>
+  <div class="kpi"><div class="l">Baseline phone cards lost this way</div><div class="v">4 of 6</div>
+    <div class="d">of the six failing cards, four were pure missing-write failures</div></div>
+</div>
+<p>The monitor that produces these counts shares no code with the benchmark grader and never sees the
+scenario script: it reads the conversation, extracts spoken commitments, and checks each against the
+journal. Two independent instruments agreeing is what makes the number trustworthy.</p>
+
+</div>
+<script src="nav.js"></script>
+</body>
+</html>

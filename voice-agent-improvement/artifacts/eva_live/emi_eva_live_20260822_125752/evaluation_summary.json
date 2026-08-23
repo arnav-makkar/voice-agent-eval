@@ -1,0 +1,55 @@
+{
+  "started_at": "2026-08-22T12:57:57.376297",
+  "ended_at": "2026-08-22T12:57:57.452141",
+  "duration_seconds": 0.075844,
+  "simulation": {
+    "total_records": 3,
+    "successful_records": 0,
+    "failed_records": 3,
+    "not_finished_count": 3,
+    "validation_failed_count": 0,
+    "records_with_llm_generic_error": 0,
+    "llm_generic_error_record_ids": [],
+    "failed_record_ids": [
+      "EMI-BENCH-0012",
+      "EMI-BENCH-0056",
+      "EMI-BENCH-0122"
+    ],
+    "successful_record_ids": [],
+    "time_limit_accepted_record_ids": []
+  },
+  "rerun_history": {
+    "EMI-BENCH-0012": [
+      {
+        "attempt": 1,
+        "reason": "not_finished"
+      }
+    ],
+    "EMI-BENCH-0056": [
+      {
+        "attempt": 1,
+        "reason": "not_finished"
+      }
+    ],
+    "EMI-BENCH-0122": [
+      {
+        "attempt": 1,
+        "reason": "not_finished"
+      }
+    ]
+  },
+  "final_failures": {
+    "EMI-BENCH-0056": {
+      "attempt": 1,
+      "reason": "not_finished"
+    },
+    "EMI-BENCH-0012": {
+      "attempt": 1,
+      "reason": "not_finished"
+    },
+    "EMI-BENCH-0122": {
+      "attempt": 1,
+      "reason": "not_finished"
+    }
+  }
+}

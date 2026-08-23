@@ -97,7 +97,7 @@ POST {BASE}/v1/tools/schedule-callback
 ```
 Both `date` and `time_window` are agent-controlled.
 
-> `record_disposition` is recorded by the harness from the agent's declared
+> `record_call_outcome` is recorded by the harness from the agent's declared
 > outcome and is not an HTTP tool.
 
 ## 5 · Transport

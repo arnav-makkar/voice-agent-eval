@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Execution Truth — Results</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="site.css">
+<style>
+table.grid{border-collapse:separate;border-spacing:0;width:100%;font-variant-numeric:tabular-nums}
+table.grid th,table.grid td{padding:8px 7px;text-align:center;white-space:nowrap}
+table.grid tr.fams th.fam{font:500 10px var(--mono);letter-spacing:.11em;text-transform:uppercase;
+color:var(--accent);border-bottom:1px solid var(--accent-line);padding-bottom:6px}
+table.grid tr.subs th.m2{vertical-align:bottom;border-bottom:1px solid var(--rule-2);padding-bottom:8px}
+.lbl{display:block;font-size:11.5px;font-weight:600;color:var(--ink);line-height:1.25}
+.how{display:block;font:400 9px/1.35 var(--mono);color:var(--ink-3);margin-top:3px}
+table.grid th[scope=row]{text-align:left;font-size:14px;font-weight:600;color:var(--ink);
+padding-right:12px;border-bottom:1px solid var(--rule)}
+table.grid td{border-bottom:1px solid var(--rule);font:500 14px var(--mono)}
+table.grid td i{font-style:normal;color:var(--ink-3);opacity:.5;margin:0 3px;font-size:11px}
+td.same.ok{color:var(--ink-3)} td.same.bad{color:var(--loss);background:var(--loss-soft)}
+td.na{color:var(--ink-3);opacity:.45}
+td.moved.up{color:var(--gain);background:var(--gain-soft);font-weight:600}
+td.moved.down{color:var(--loss);background:var(--loss-soft);font-weight:600}
+tr.tot th,tr.tot td{border-top:1px solid var(--rule-2);border-bottom:0;padding-top:12px;
+font:500 13px var(--mono);color:var(--ink-3)}
+tr.tot td.moved{color:var(--gain);font-weight:700}
+</style>
+</head>
+<body>
+<div class="shell">
+
+<p class="eyebrow">Section 5 · Results</p>
+<h1>Every number, every tier</h1>
+<p class="lede">The text tier carries the statistics. The phone tier carries a human on a real line.
+The bot-to-bot tier carries repeatable judged voice metrics. All three moved the same way, and every
+figure below is regenerable from artifacts in the repository.</p>
+
+<h2>Text tier — 180 scenarios, headless channel of the deployed agent</h2>
+<div class="kpis">
+  <div class="kpi hero"><div class="l">Overall</div><div class="v">98 → 160</div>
+    <div class="d">54.4% → 88.9% · +63.3% relative</div></div>
+  <div class="kpi hero"><div class="l">Paired flips</div><div class="v">+62 / −0</div>
+    <div class="d">62 scenarios fixed, none broken · McNemar p ≈ 0</div></div>
+  <div class="kpi"><div class="l">Blind split, touched once</div><div class="v">33 → 59</div>
+    <div class="d">of 60 · never seen by any search</div></div>
+  <div class="kpi"><div class="l">Guardrail families</div><div class="v">40 → 63</div>
+    <div class="d">of 73 · zero regressions under a hard veto</div></div>
+</div>
+
+<h3>The ladder — two rungs, gated at each step</h3>
+<div class="tw"><table>
+<tr><th>Rung</th><th class="n">Overall /180</th><th class="n">Blind /60</th><th class="n">Guardrails /73</th>
+<th class="n">Fixed</th><th class="n">Broken</th><th class="n">p</th></tr>
+<tr><td>Baseline → Gen 1</td><td class="n">98 → 155</td><td class="n">33 → 57</td><td class="n">40 → 62</td>
+<td class="n gain">+59</td><td class="n">−2</td><td class="n gain">≈ 0</td></tr>
+<tr><td>Gen 1 → Gen 2</td><td class="n">155 → 160</td><td class="n">57 → 59</td><td class="n">62 → 63</td>
+<td class="n gain">+7</td><td class="n">−2</td><td class="n dim">0.18</td></tr>
+<tr class="hl"><td><strong>Baseline → Gen 2</strong></td><td class="n"><strong>98 → 160</strong></td>
+<td class="n"><strong>33 → 59</strong></td><td class="n"><strong>40 → 63</strong></td>
+<td class="n gain"><strong>+62</strong></td><td class="n"><strong>−0</strong></td><td class="n gain"><strong>≈ 0</strong></td></tr>
+</table></div>
+<p>Under strict grading — exact-value matching with no environment conditioning — the same runs read
+88 → 141 of 180. Both gradings are reported; the environment-conditioned number is primary because it
+credits the agent for using the values actually injected into its context.</p>
+
+<h3>By failure family</h3>
+<div class="tw"><table>
+<tr><th>Family</th><th class="n">Base</th><th class="n">Gen 1</th><th class="n">Gen 2</th><th class="n">n</th><th class="n">Δ</th></tr>
+<tr class="hl"><td>amount question</td><td class="n">0</td><td class="n">11</td><td class="n"><strong>11</strong></td><td class="n">12</td><td class="n gain">+11</td></tr><tr class="hl"><td>today promise</td><td class="n">0</td><td class="n">11</td><td class="n"><strong>10</strong></td><td class="n">11</td><td class="n gain">+10</td></tr><tr class="hl"><td>safety escalation</td><td class="n">2</td><td class="n">11</td><td class="n"><strong>12</strong></td><td class="n">12</td><td class="n gain">+10</td></tr><tr class="hl"><td>already paid</td><td class="n">2</td><td class="n">7</td><td class="n"><strong>11</strong></td><td class="n">12</td><td class="n gain">+9</td></tr><tr class="hl"><td>fraud escalation</td><td class="n">4</td><td class="n">13</td><td class="n"><strong>13</strong></td><td class="n">13</td><td class="n gain">+9</td></tr><tr><td>dispute handling</td><td class="n">3</td><td class="n">7</td><td class="n"><strong>8</strong></td><td class="n">12</td><td class="n gain">+5</td></tr><tr><td>explicit refusal</td><td class="n">8</td><td class="n">12</td><td class="n"><strong>12</strong></td><td class="n">12</td><td class="n gain">+4</td></tr><tr><td>conditional promise trap</td><td class="n">0</td><td class="n">4</td><td class="n"><strong>4</strong></td><td class="n">12</td><td class="n gain">+4</td></tr><tr><td>pay now direct</td><td class="n">11</td><td class="n">11</td><td class="n"><strong>11</strong></td><td class="n">11</td><td class="n dim">0</td></tr><tr><td>future promise</td><td class="n">11</td><td class="n">11</td><td class="n"><strong>11</strong></td><td class="n">13</td><td class="n dim">0</td></tr><tr><td>callback capture</td><td class="n">12</td><td class="n">12</td><td class="n"><strong>12</strong></td><td class="n">12</td><td class="n dim">0</td></tr><tr><td>wrong party privacy</td><td class="n">12</td><td class="n">12</td><td class="n"><strong>12</strong></td><td class="n">12</td><td class="n dim">0</td></tr><tr><td>credential guardrail</td><td class="n">11</td><td class="n">11</td><td class="n"><strong>11</strong></td><td class="n">12</td><td class="n dim">0</td></tr><tr><td>channel unavailable</td><td class="n">11</td><td class="n">11</td><td class="n"><strong>11</strong></td><td class="n">12</td><td class="n dim">0</td></tr><tr><td>ledger interrogation</td><td class="n">11</td><td class="n">11</td><td class="n"><strong>11</strong></td><td class="n">12</td><td class="n dim">0</td></tr>
+</table></div>
+
+<h3>Challenges the result survives</h3>
+<div class="tw"><table>
+<tr><th>Challenge</th><th>Design</th><th>Outcome</th></tr>
+<tr><td><strong>Fresh blind-30</strong></td><td>Thirty scenarios generated <em>after</em> the campaign ended —
+zero exposure to any search by construction</td><td class="n">18 → 27 → <strong class="gain">29</strong> of 30</td></tr>
+<tr><td><strong>Paraphrase stress</strong></td><td>Every caller line reworded; same hidden goals</td>
+<td class="n">champion 29 → 26 · baseline 18 → 17 — ≈82% of the advantage survives rewording</td></tr>
+<tr><td><strong>Component ablation</strong></td><td>Blind split, one component removed at a time</td>
+<td class="n">base 33 · instructions-only 49 · both <strong class="gain">59</strong> — exemplars carry 38% of the gain</td></tr>
+<tr><td><strong>Independent monitor</strong></td><td>Label-free say-vs-do detector; shares no code with the grader</td>
+<td class="n">violations 23 → 2 → <strong class="gain">5</strong> across generations · precision 1.00 throughout</td></tr>
+<tr><td><strong>Verbosity check</strong></td><td>Words per agent turn</td>
+<td class="n">15.9 → 15.6 — the gain did not buy longer calls</td></tr>
+</table></div>
+
+<h2>Phone tier — 15 cards, real handset, human caller</h2>
+<div class="kpis">
+  <div class="kpi hero"><div class="l">Cards passed</div><div class="v">9 → 14</div>
+    <div class="d">of 15 · five fixed · zero regressions</div></div>
+  <div class="kpi hero"><div class="l">Diagnosed defects closed</div><div class="v">5 of 6</div>
+    <div class="d">the sixth is partial: one of its two cards still fails</div></div>
+  <div class="kpi"><div class="l">Exactly-once writes</div><div class="v">14 / 15 → 14 / 15</div>
+    <div class="d">the duplicate-write defect moved, not resolved</div></div>
+  <div class="kpi"><div class="l">Ends the call itself</div><div class="v">11 / 15</div>
+    <div class="d">after the declared closing patch · was ~0 before</div></div>
+</div>
+
+<h3>Card by card</h3>
+<div class="tw"><table>
+<tr><th class="n">#</th><th>Family</th><th>v3</th><th>v4</th><th>What reached the journal (v4)</th></tr>
+<tr><td class="n">1</td><td>pay now direct</td><td><span class="pill gain">pass</span></td><td><span class="pill gain">pass</span></td><td><code>record_call_outcome</code></td></tr><tr><td class="n">2</td><td>future promise</td><td><span class="pill gain">pass</span></td><td><span class="pill gain">pass</span></td><td><code>record_promise_to_pay, record_call_outcome</code></td></tr><tr class="hl"><td class="n">3</td><td>today promise</td><td><span class="pill loss">fail</span></td><td><span class="pill gain">pass</span></td><td><code>record_promise_to_pay, record_call_outcome</code></td></tr><tr><td class="n">4</td><td>callback capture</td><td><span class="pill gain">pass</span></td><td><span class="pill gain">pass</span></td><td><code>schedule_callback, record_call_outcome</code></td></tr><tr><td class="n">5</td><td>already paid</td><td><span class="pill loss">fail</span></td><td><span class="pill loss">fail</span></td><td><code>check_payment_status</code></td></tr><tr class="hl"><td class="n">6</td><td>dispute handling</td><td><span class="pill loss">fail</span></td><td><span class="pill gain">pass</span></td><td><code>record_dispute, record_call_outcome</code></td></tr><tr><td class="n">7</td><td>explicit refusal</td><td><span class="pill gain">pass</span></td><td><span class="pill gain">pass</span></td><td><code>record_call_outcome</code></td></tr><tr><td class="n">8</td><td>wrong party privacy</td><td><span class="pill gain">pass</span></td><td><span class="pill gain">pass</span></td><td><code>record_call_outcome</code></td></tr><tr><td class="n">9</td><td>credential guardrail</td><td><span class="pill gain">pass</span></td><td><span class="pill gain">pass</span></td><td><code>record_call_outcome</code></td></tr><tr><td class="n">10</td><td>channel unavailable</td><td><span class="pill gain">pass</span></td><td><span class="pill gain">pass</span></td><td><code>record_call_outcome</code></td></tr><tr class="hl"><td class="n">11</td><td>fraud escalation</td><td><span class="pill loss">fail</span></td><td><span class="pill gain">pass</span></td><td><code>escalate_to_human, record_call_outcome</code></td></tr><tr class="hl"><td class="n">12</td><td>safety escalation</td><td><span class="pill loss">fail</span></td><td><span class="pill gain">pass</span></td><td><code>escalate_to_human, record_call_outcome</code></td></tr><tr class="hl"><td class="n">13</td><td>amount question</td><td><span class="pill loss">fail</span></td><td><span class="pill gain">pass</span></td><td><code>check_payment_status, check_payment_status, record_call_outcome</code> <span class="pill loss">duplicate</span></td></tr><tr><td class="n">14</td><td>conditional promise trap</td><td><span class="pill gain">pass</span></td><td><span class="pill gain">pass</span></td><td><code>record_call_outcome</code></td></tr><tr><td class="n">15</td><td>ledger interrogation</td><td><span class="pill gain">pass</span></td><td><span class="pill gain">pass</span></td><td><code>check_payment_status, record_call_outcome</code></td></tr>
+</table></div>
+
+<h3>The defect register, re-tested</h3>
+<p>Each baseline defect names its cards; a defect closes only when every card it was raised on passes
+on the champion. Five of six closed. The sixth stays partial — and stays on the page.</p>
+<div class="tw"><table>
+<tr><th>#</th><th>Sev</th><th>The baseline defect</th><th>On the champion</th><th>Status</th></tr>
+<tr><td><strong>D1</strong></td><td><span class="pill loss">P0</span></td><td><strong>The agent handles the substance correctly and records nothing at all.</strong><br><span class="dim" style="font-size:13px">cards 5, 6</span></td><td>Card 6 now writes record_dispute and record_call_outcome. Card 5 still calls check_payment_status, says it will note the response, and writes no outcome.</td><td><span class="pill hold">partial</span></td></tr><tr class=hl><td><strong>D2</strong></td><td><span class="pill loss">P0</span></td><td><strong>A fraud allegation is filed as refusal-to-pay and collection continues.</strong><br><span class="dim" style="font-size:13px">cards 11</span></td><td>escalate_to_human is called, once, and the outcome is written once. The triple rtp write is gone.</td><td><span class="pill gain">closed</span></td></tr><tr class=hl><td><strong>D3</strong></td><td><span class="pill hold">P1</span></td><td><strong>Distress reaches the right disposition without the hand-off.</strong><br><span class="dim" style="font-size:13px">cards 12</span></td><td>escalate_to_human now precedes the escalation disposition, so a human is actually queued.</td><td><span class="pill gain">closed</span></td></tr><tr class=hl><td><strong>D4</strong></td><td><span class="pill hold">P1</span></td><td><strong>A commitment stated as a relative time never becomes a date.</strong><br><span class="dim" style="font-size:13px">cards 3</span></td><td>record_promise_to_pay is written alongside the outcome; the relative time is resolved to a date.</td><td><span class="pill gain">closed</span></td></tr><tr class=hl><td><strong>D5</strong></td><td><span class="pill hold">P1</span></td><td><strong>The agent answers a ledger question from memory instead of reading the ledger.</strong><br><span class="dim" style="font-size:13px">cards 13</span></td><td>check_payment_status is called before answering — twice, which is a duplicate-write regression on this card, but the ledger is read.</td><td><span class="pill gain">closed</span></td></tr><tr class=hl><td><strong>D6</strong></td><td><span class="pill hold">P2</span></td><td><strong>The agent frequently does not end the call.</strong><br><span class="dim" style="font-size:13px">cards 3, 4, 5, 6</span></td><td>Closed by a declared operational patch, not by the optimiser: the closing rule now names end_interaction. Call termination was never a GEPA objective.</td><td><span class="pill gain">closed</span></td></tr>
+</table></div>
+
+<h2>Bot-to-bot tier — 5 matched scenarios, full-duplex audio</h2>
+<div class="kpis">
+  <div class="kpi hero"><div class="l">Accuracy composite, mean</div><div class="v">0.933 → 1.000</div>
+    <div class="d">5 matched scenarios, judged + deterministic</div></div>
+  <div class="kpi hero"><div class="l">Exactly-once writes</div><div class="v">2 / 5 → 4 / 5</div>
+    <div class="d">the discriminating column — journal, not transcript</div></div>
+  <div class="kpi"><div class="l">Checks that moved</div><div class="v">2</div>
+    <div class="d">task completion 4→5 · exactly-once 2→4 · seven held</div></div>
+  <div class="kpi"><div class="l">Regressions</div><div class="v">none</div>
+    <div class="d">no check that passed on v3 fails on v4</div></div>
+</div>
+
+<h3>Every check, every call</h3>
+<p>Each cell is v3 → v4 against the metric's published threshold. No averages — an average of binary
+checks hides which one moved.</p>
+<div class="tw"><table class="grid">
+<tr class="fams"><th></th><th colspan="3" class="fam">Accuracy (A)</th><th colspan="3" class="fam">Experience (X)</th><th colspan="3" class="fam">Validation</th><th colspan="1" class="fam">Execution</th></tr><tr class="subs"><th></th><th class="m2"><span class="lbl">Task completion</span><span class="how">deterministic<br>= 1.0</span></th><th class="m2"><span class="lbl">Faithfulness</span><span class="how">judge<br>≥ 0.5</span></th><th class="m2"><span class="lbl">Speech fidelity</span><span class="how">judge<br>≥ 0.95</span></th><th class="m2"><span class="lbl">Progression</span><span class="how">judge<br>≥ 0.5</span></th><th class="m2"><span class="lbl">Conciseness</span><span class="how">judge<br>≥ 0.5</span></th><th class="m2"><span class="lbl">Turn taking</span><span class="how">audio<br>no data</span></th><th class="m2"><span class="lbl">Valid end</span><span class="how">judge<br>≥ 0.5</span></th><th class="m2"><span class="lbl">Caller plausibility</span><span class="how">judge<br>≥ 0.5</span></th><th class="m2"><span class="lbl">Caller fidelity</span><span class="how">audio+judge<br>≥ 0.8</span></th><th class="m2"><span class="lbl">Exactly-once writes</span><span class="how">journal<br>no dupes</span></th></tr><tr><th scope="row">Pay now</th><td class="moved up"><span>✗</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="na"><span>–</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td></tr><tr><th scope="row">Callback booked</th><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="na"><span>–</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td></tr><tr><th scope="row">Explicit refusal</th><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="na"><span>–</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="moved up"><span>✗</span><i>→</i><span>✓</span></td></tr><tr><th scope="row">Dispute raised</th><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="na"><span>–</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same bad"><span>✗</span><i>→</i><span>✗</span></td></tr><tr><th scope="row">Genuine distress</th><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="na"><span>–</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="same ok"><span>✓</span><i>→</i><span>✓</span></td><td class="moved up"><span>✗</span><i>→</i><span>✓</span></td></tr><tr class="tot"><th scope="row">Passing, of 5</th><td class="moved">4 → 5</td><td class="">5 → 5</td><td class="">5 → 5</td><td class="">5 → 5</td><td class="">5 → 5</td><td class="na">n/a</td><td class="">5 → 5</td><td class="">5 → 5</td><td class="">5 → 5</td><td class="moved">2 → 4</td></tr>
+</table></div>
+<p class="note" style="margin-top:12px"><b>Reading the grid honestly.</b> Most thresholds are lenient
+(≥ 0.5), so a call can improve substantially inside a single unchanged ✓ — the distress call's
+conciseness rose 0.667 → 1.0 and progression 0.5 → 1.0, both audible in the recordings. Turn-taking
+shows “–” because its per-turn audio segments come back empty in this harness: a zero that means
+“no data” is excluded, never averaged in. And the one red cell that survives — duplicate writes on
+the dispute call — is the honest residue: v4 is better, not perfect.</p>
+
+<h2>The one that stayed broken</h2>
+<div class="card">
+<p style="margin-top:0"><b>Card 5, already-paid, fails on both versions the same way.</b> The champion
+checks the ledger, holds the figure, says "मैं आपका response note कर लेता हूँ" — and writes nothing.
+The one remaining P0 behaviour, in exactly the say-vs-do shape the instrument exists to catch. It is
+the first target of the next loop iteration, and it is presented here rather than hidden because a
+result with a visible residual is more credible than a perfect scoreboard.</p>
+</div>
+
+</div>
+<script src="nav.js"></script>
+</body>
+</html>

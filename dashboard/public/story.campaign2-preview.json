@@ -210,7 +210,7 @@
     "task_successes": 30,
     "tool_call_counts": {
      "check_payment_status": 1,
-     "record_disposition": 30,
+     "record_call_outcome": 30,
      "record_promise_to_pay": 4,
      "schedule_callback": 2
     }
@@ -219,7 +219,7 @@
    "title": "Re-run the identical evaluation, unchanged",
    "tool_usage": {
     "check_payment_status": 41,
-    "record_disposition": 168,
+    "record_call_outcome": 168,
     "record_promise_to_pay": 38,
     "schedule_callback": 19
    }

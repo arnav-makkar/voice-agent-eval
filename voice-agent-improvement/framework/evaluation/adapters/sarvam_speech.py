@@ -1,9 +1,16 @@
-"""Sarvam-native caller speech synthesis for live Indus evaluation."""
+"""Caller speech synthesis for live Indus evaluation.
+
+Three providers behind one protocol. The caller's *brain* is always the
+scenario-faithful adaptive policy; only its *voice* changes here, so swapping
+providers never changes what the caller says or intends — only how it sounds to
+the agent's ASR.
+"""
 
 from __future__ import annotations
 
-import base64
 import asyncio
+import base64
+import json
 import io
 import os
 import subprocess
@@ -119,4 +126,89 @@ class SarvamSpeechSynthesizer:
             provider="sarvam",
             model="bulbul:v3",
             voice=self.speaker,
+        )
+
+
+ELEVENLABS_TTS_URL = "https://api.elevenlabs.io/v1/text-to-speech"
+# Rajesh — Indian male, calm and controlled. Already provisioned for this project
+# by scripts/provision_eva_elevenlabs_caller.py, so the caller sounds the same
+# whichever ElevenLabs path is used.
+DEFAULT_ELEVENLABS_VOICE = "n32p8A7EZ9CiVeRYpBY9"
+
+
+class ElevenLabsSpeechSynthesizer:
+    """Natural caller speech, so ASR error is the agent's to own rather than ours.
+
+    The default local fixture is macOS ``say``, which produces flat, non-native
+    prosody. When the agent mishears that, the failure belongs to the test rig,
+    not to the agent — and a baseline that cannot separate the two is the same
+    class of mistake as scoring a dead tunnel as agent silence. A neutral Indian
+    voice removes the confound.
+
+    One voice is used for every scenario on purpose. Varying the voice would add
+    an uncontrolled variable across a matched BASE/IMPROVED comparison.
+    """
+
+    def __init__(
+        self,
+        *,
+        api_key: str | None = None,
+        voice_id: str = DEFAULT_ELEVENLABS_VOICE,
+        model_id: str = "eleven_multilingual_v2",
+        stability: float = 0.55,
+        similarity_boost: float = 0.8,
+        speed: float = 1.0,
+    ) -> None:
+        self.api_key = (api_key or os.environ.get("ELEVENLABS_API_KEY", "")).strip()
+        if not self.api_key:
+            raise RuntimeError("ELEVENLABS_API_KEY is not set; required for the ElevenLabs caller voice.")
+        self.voice_id = voice_id
+        self.model_id = model_id
+        self.stability = stability
+        self.similarity_boost = similarity_boost
+        self.speed = speed
+
+    async def synthesize(self, text: str, language: str) -> SynthesizedSpeech:
+        def render() -> bytes:
+            import ssl
+            import urllib.request
+
+            import certifi
+
+            body = json.dumps(
+                {
+                    "text": text,
+                    "model_id": self.model_id,
+                    "voice_settings": {
+                        "stability": self.stability,
+                        "similarity_boost": self.similarity_boost,
+                        "speed": self.speed,
+                    },
+                }
+            ).encode("utf-8")
+            request = urllib.request.Request(
+                # pcm_16000 matches what the duplex path streams to Samvaad, so no
+                # resampling step can quietly degrade the caller audio.
+                f"{ELEVENLABS_TTS_URL}/{self.voice_id}?output_format=pcm_16000",
+                data=body,
+                method="POST",
+                headers={
+                    "xi-api-key": self.api_key,
+                    "Content-Type": "application/json",
+                    "Accept": "audio/pcm",
+                },
+            )
+            context = ssl.create_default_context(cafile=certifi.where())
+            with urllib.request.urlopen(request, timeout=45, context=context) as response:
+                return response.read()
+
+        pcm = await asyncio.to_thread(render)
+        if not pcm:
+            raise RuntimeError("ElevenLabs TTS returned no audio")
+        return SynthesizedSpeech(
+            pcm=pcm,
+            sample_rate=16000,
+            provider="elevenlabs",
+            model=self.model_id,
+            voice=self.voice_id,
         )

@@ -1,0 +1,368 @@
+[
+  {
+    "event": "tool_state_seeded",
+    "timestamp_ms": "1787404284194",
+    "run_id": "EMI-VOICE-005",
+    "account_id": "EC-DEMO-3018"
+  },
+  {
+    "event": "samvaad_connected",
+    "timestamp_ms": "1787404284615",
+    "interaction_id": null
+  },
+  {
+    "event": "twilio_start",
+    "timestamp_ms": "1787404284615",
+    "stream_sid": "EMI-VOICE-005"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787404285118",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787404285216",
+    "type": "server.action.interaction_connected",
+    "interaction_id": "20260822/d6d1b57b-18:41:24-5f26fe11"
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787404287934"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787404288035",
+    "sample_rate": 16000
+  },
+  {
+    "event": "user_audio_start",
+    "timestamp_ms": "1787404290491",
+    "source_timestamp_ms": "1787404290490"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787404290851",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787404290953"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787404291056",
+    "sample_rate": 16000
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787404291858"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787404291959",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787404292163",
+    "role": "bot",
+    "text": "नमस्ते Arnav जी, मैं EasyCredit से शुभ"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787404292262",
+    "sample_rate": 16000
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787404292362"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787404292464",
+    "sample_rate": 16000
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787404292972"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787404293075",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787404293172",
+    "role": "user",
+    "text": "अर्णव बोल रहा हूं, आप कौन हैं?"
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787404295992",
+    "role": "bot",
+    "text": "मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की चार हज़ार चार सौ सोलह रुपये की EMI overdue है। क्या आप अभी official EasyCredit app के ज़रिए payment कर सकते हैं?"
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787404303738"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787404303844",
+    "sample_rate": 16000
+  },
+  {
+    "event": "user_audio_stop",
+    "timestamp_ms": "1787404304886",
+    "source_timestamp_ms": "246046920"
+  },
+  {
+    "event": "user_audio_start",
+    "timestamp_ms": "1787404305010",
+    "source_timestamp_ms": "1787404305008"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787404305250",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787404305349"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787404305451",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787404305751",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787404305853"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787404306060",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787404306976",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787404307077"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787404307179",
+    "sample_rate": 16000
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787404307681"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787404307783",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787404307985",
+    "sample_rate": 16000
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787404309695"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787404309795",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787404310001",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787404311206",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787404311306"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787404311409",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787404312616",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787404312718"
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787404312819",
+    "role": "user",
+    "text": "सुनो, मैंने यह टीवी कभी भी नहीं खरीदा। यह लोन मेरे नाम पर गलत हुआ है। मुझसे पैसे मत मांगो। मुझे डिस्प्यूट रिकॉर्ड करो।"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787404312921",
+    "sample_rate": 16000
+  },
+  {
+    "event": "user_audio_stop",
+    "timestamp_ms": "1787404313871",
+    "source_timestamp_ms": "246055904"
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787404314336"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787404314437",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787404314638",
+    "role": "user",
+    "text": "सुनो, मैंने यह टीवी कभी भी नहीं खरीदा। यह लोन मेरे नाम पर गलत हुआ है। मुझसे पैसे मत मांगो। मुझे डिस्प्यूट रिकॉर्ड करो और रिकवरी कॉल्स बंद करो।"
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787404315956",
+    "role": "bot",
+    "text": "मैंने आपका dispute record कर लिया है। इसके अलावा मैं आपकी और क्या help कर सकता हूँ?"
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787404320983"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787404321085",
+    "sample_rate": 16000
+  },
+  {
+    "event": "user_audio_start",
+    "timestamp_ms": "1787404322189",
+    "source_timestamp_ms": "1787404322187"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787404322594",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787404322695"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787404322798",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787404323098",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787404323198"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787404323302",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787404324708",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787404324810"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787404324912",
+    "sample_rate": 16000
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787404325413"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787404325515",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_transcript",
+    "timestamp_ms": "1787404325616",
+    "role": "user",
+    "text": "ठीक है, अब रिकवरी कॉल्स बंद करो। गुड बाय।"
+  },
+  {
+    "event": "conversation_ending",
+    "timestamp_ms": "1787404326213",
+    "reason": "session_ended"
+  },
+  {
+    "event": "samvaad_disconnected",
+    "timestamp_ms": "1787404326264",
+    "interaction_id": "20260822/d6d1b57b-18:41:24-5f26fe11"
+  },
+  {
+    "event": "analytics_attempt_resolved",
+    "timestamp_ms": "1787404346782",
+    "interaction_id": "20260822/d6d1b57b-18:41:24-5f26fe11"
+  },
+  {
+    "event": "tool_state_resolved",
+    "timestamp_ms": "1787404346827",
+    "event_count": 2
+  },
+  {
+    "event": "audio_perturbation_summary",
+    "timestamp_ms": "1787404346836",
+    "config": {
+      "kind": "clean"
+    },
+    "chunks": 715,
+    "dropped_chunks": 0
+  }
+]

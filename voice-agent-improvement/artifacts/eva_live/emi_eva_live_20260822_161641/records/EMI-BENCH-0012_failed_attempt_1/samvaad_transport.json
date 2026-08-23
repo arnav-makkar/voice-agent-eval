@@ -1,0 +1,102 @@
+[
+  {
+    "event": "tool_state_seeded",
+    "timestamp_ms": "1787395607271",
+    "run_id": "EMI-BENCH-0012",
+    "account_id": "EC-BOT-0012"
+  },
+  {
+    "event": "samvaad_connected",
+    "timestamp_ms": "1787395607770",
+    "interaction_id": null
+  },
+  {
+    "event": "twilio_start",
+    "timestamp_ms": "1787395607770",
+    "stream_sid": "EMI-BENCH-0012"
+  },
+  {
+    "event": "user_audio_start",
+    "timestamp_ms": "1787395608775",
+    "source_timestamp_ms": "1787395608774"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787395608919",
+    "sample_rate": 16000
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787395609018",
+    "type": "server.action.interaction_connected",
+    "interaction_id": "20260822/470c2efb-16:16:47-147bf3b7"
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787395611810"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787395611912",
+    "sample_rate": 16000
+  },
+  {
+    "event": "user_audio_stop",
+    "timestamp_ms": "1787395616131",
+    "source_timestamp_ms": "237358031"
+  },
+  {
+    "event": "user_audio_start",
+    "timestamp_ms": "1787395616170",
+    "source_timestamp_ms": "1787395616170"
+  },
+  {
+    "event": "samvaad_event",
+    "timestamp_ms": "1787395616252",
+    "type": "server.event.user_interrupt",
+    "interaction_id": null
+  },
+  {
+    "event": "assistant_audio_end",
+    "timestamp_ms": "1787395616354"
+  },
+  {
+    "event": "assistant_audio_start",
+    "timestamp_ms": "1787395616456",
+    "sample_rate": 16000
+  },
+  {
+    "event": "user_audio_stop",
+    "timestamp_ms": "1787395617112",
+    "source_timestamp_ms": "237359013"
+  },
+  {
+    "event": "conversation_ending",
+    "timestamp_ms": "1787395788656",
+    "reason": "session_ended"
+  },
+  {
+    "event": "samvaad_disconnected",
+    "timestamp_ms": "1787395788729",
+    "interaction_id": "20260822/470c2efb-16:16:47-147bf3b7"
+  },
+  {
+    "event": "analytics_attempt_not_found",
+    "timestamp_ms": "1787395828588",
+    "interaction_id": "20260822/470c2efb-16:16:47-147bf3b7"
+  },
+  {
+    "event": "tool_state_resolved",
+    "timestamp_ms": "1787395828645",
+    "event_count": 0
+  },
+  {
+    "event": "audio_perturbation_summary",
+    "timestamp_ms": "1787395828678",
+    "config": {
+      "kind": "clean"
+    },
+    "chunks": 85,
+    "dropped_chunks": 0
+  }
+]

@@ -1,0 +1,159 @@
+{
+  "started_at": "2026-08-22T16:26:22.390192",
+  "ended_at": "2026-08-22T16:28:49.465138",
+  "duration_seconds": 147.074946,
+  "simulation": {
+    "total_records": 1,
+    "successful_records": 0,
+    "failed_records": 1,
+    "not_finished_count": 0,
+    "validation_failed_count": 1,
+    "records_with_llm_generic_error": 0,
+    "llm_generic_error_record_ids": [],
+    "failed_record_ids": [
+      "EMI-BENCH-0012"
+    ],
+    "successful_record_ids": [],
+    "time_limit_accepted_record_ids": []
+  },
+  "rerun_history": {
+    "EMI-BENCH-0012": [
+      {
+        "attempt": 1,
+        "reason": "validation_failed",
+        "failed_metrics": [
+          "user_speech_fidelity"
+        ],
+        "scores": {
+          "user_behavioral_fidelity": 1.0,
+          "user_speech_fidelity": 0.857,
+          "conversation_valid_end": 1.0
+        },
+        "failure_details": {
+          "user_speech_fidelity": {
+            "aggregation": "mean",
+            "num_turns": 7,
+            "num_evaluated": 7,
+            "audio_trimmed": true,
+            "per_turn_ratings": {
+              "0": 3,
+              "1": 3,
+              "2": 3,
+              "3": 3,
+              "4": 3,
+              "5": 1,
+              "6": 3
+            },
+            "per_turn_explanations": {
+              "0": "The audio matches the intended text perfectly.",
+              "1": "The audio matches the intended text perfectly.",
+              "2": "The audio matches the intended text perfectly.",
+              "3": "The audio matches the intended text perfectly.",
+              "4": "The audio matches the intended text perfectly.",
+              "5": "The audio for this turn does not match the intended text. It repeats the text from Turn 2 ('Haan, jaldi kijiye. Main busy hoon.') instead of saying 'Koi baat nahi, theek hai. Bye...'",
+              "6": "The audio matches the intended text perfectly."
+            },
+            "per_turn_failure_modes": {
+              "0": [],
+              "1": [],
+              "2": [],
+              "3": [],
+              "4": [],
+              "5": [],
+              "6": []
+            },
+            "per_turn_languages": {
+              "0": "English",
+              "1": "Hindi",
+              "2": "Hindi",
+              "3": "Hindi",
+              "4": "Hindi",
+              "5": "Hindi",
+              "6": "Hindi"
+            },
+            "judge_prompt": "You are an expert evaluator judging the fidelity of text-to-speech (TTS) audio against the intended text. You will listen to one audio clip and verify that the spoken content faithfully reproduces the intended text, with special attention to TTS-critical entities.\n\n## Evaluation Mode: User\n\n## Intended Turns\nTurn 0: Hello?\nTurn 1: [annoyed] Nahi, aap galat number par call kar rahe hain. Please check kijiye.\nTurn 2: [annoyed] Haan, jaldi kijiye. Main busy hoon.\nTurn 3: [annoyed] Haan, theek hai. Jaldi kijiye.\nTurn 4: [annoyed] Theek hai, jaldi kijiye.\nTurn 5: [annoyed] Koi baat nahi, theek hai. Bye...\nTurn 6: [annoyed] Koi baat nahi, theek hai. Bye.\n\n## Understanding the Intended Text\n\nThe intended text may contain non-spoken tags and markers. You must understand these to evaluate fairly.\n\n### Audio-Direction Tags\nTags like [slow], [firm], [annoyed] describe how the words were meant to be spoken. They are NOT spoken aloud and should never be expected in the audio.\n\n### Interruption Tags\nThese are non-spoken metadata tags inserted during post-processing to annotate speech overlap events. They are NOT part of the spoken text.\n\nTag definitions:\n- `[assistant interrupts]` — The assistant started speaking while the user was still talking. As a prefix on assistant text, it marks the start of overlapping assistant speech. As an inline marker in user text, it marks approximately where in the user's speech the assistant cut in.\n- `[user interrupts]` — The user started speaking while the assistant was still talking. As a prefix on user text, it marks the start of overlapping user speech. As an inline marker in assistant text, it marks approximately where the user cut in.\n- `[likely cut off by user]` — Appears in assistant text. The assistant's speech was probably cut off by the user starting to speak. Text before this tag may not have been fully spoken. Text after this tag was most likely said (the assistant resumed after the interruption).\n- `[likely cut off by assistant]` — Appears in user text. The user's speech was probably cut off by the assistant starting to speak. Text before this tag may not have been fully spoken.\n- `[speaker likely cut itself off]` — The speaker likely stopped on its own, possibly after detecting overlap or for other reasons. If the tag appears mid-turn, text after it is what the speaker said after resuming. If the tag appears at the end of the turn, the speaker did not resume in this turn. Text before this tag may not have been fully spoken.\n- `[likely interruption]` — Catch-all for unexplained breaks in assistant speech that could not be attributed to a specific interruption type.\n\n**Scope of \"text before this tag\":** For all four cut-off tags (`[likely cut off by user]`, `[likely cut off by assistant]`, `[speaker likely cut itself off]`, `[likely interruption]`), \"text before this tag\" means **all text from the start of the turn (or from the previous resumption point) up to the tag** — not just the few adjacent words. This region can span multiple sentences and contain multiple entities (confirmation codes, dollar amounts, names, etc.). Any or all of it may have been silently dropped from the audio. The tag is just a signal that an interruption occurred; it might not be at the right place and do not assume the cut-off was small.\n\n\nThe tags tell you that certain portions of the intended text were likely never spoken, because the speaker was interrupted or cut themselves off. Do NOT penalize for missing words that fall in a region the tags indicate was not spoken.\n\n**Key principle:** If a tag indicates that a section of text was likely not spoken aloud (due to interruption or cut-off), do NOT penalize for those words being missing from the audio. Only evaluate fidelity for words that were reasonably expected to have been spoken.\n\n## Evaluation Criteria\n\n### TTS-Critical Entities (check these carefully)\n- **Personal names**: \"John Smith\" vs \"Jim Smith\"\n- **Dates and times**: \"December 15th\" vs \"December 50th\", \"3:45 PM\" vs \"3:15 PM\"\n- **Reference codes**: Confirmation numbers, incident numbers, booking IDs (e.g., \"QWMN62\" vs \"QWN62\")\n- **Numeric values**: Dollar amounts, quantities, percentages (e.g., \"$150\" vs \"$115\")\n- **Addresses**: Street numbers, street names, cities (e.g., \"123 Main Street\" vs \"124 Main Street\")\n- **Contact information**: Phone numbers, email addresses (e.g., \"tom_cobb@gmail.com\")\n- **Domain-specific record identifiers** (flight numbers, ticket IDs, order codes, case numbers): \"UA204\" vs \"UA240\", \"INC-8821\" vs \"INC-8281\"\n- **Serial numbers and other identifiers**\n\n### Error Types\n- **Missing words**: Words in the intended text that were not spoken AND were reasonably expected to have been spoken (i.e., not in a region flagged by interruption tags)\n- **Added words**: Extra words spoken that are not in the intended text\n- **Wrong words**: Words spoken incorrectly or substituted with different words\n- **Entity errors**: Any of the TTS-critical entities above spoken incorrectly\n- **Wrong language**: Audio spoken in a language other than English\n\n### What to Ignore\n- Non-spoken tags: [slow], [firm], [annoyed], and all interruption tags listed above\n- Words in regions flagged by interruption tags as likely not spoken\n- Minor pronunciation variations that do not change meaning (accent differences)\n- Natural filler words (um, uh) if they do not affect core content\n- Missing words at the END of the LAST turn only (audio recordings are often cut off before the final utterance completes). However, missing words in the middle of the last turn, or missing words in any earlier turn, should still be penalized.\n- Honorific/title variants that refer to the same person (e.g., \"Ms.\" vs \"Miss\", \"Mr.\" vs \"Mister\", French \"Madame\" vs \"Mme\", Japanese \"様\" vs \"-san\")\n- Phonetic spellings of Latin/Roman letters in non-Latin-script languages (e.g., Korean \"에이\" for \"A\", \"비\" for \"B\") — these are the standard spoken form in that language\n- Number surface forms that sound the same or differ only by minor grammatical agreement — accept the natural spoken rendering of a numeric value, including reversed digit order (German \"vierundzwanzig\" = 24), large-unit grouping (Japanese 万-based: \"ichi-man\" / 一万 = 10,000), and gender/agreement variants (Spanish \"veintiún\" vs \"veintiuna\"). Do NOT extend this to entirely different words for the same value (e.g., Swiss/Belgian \"septante\" vs standard French \"soixante-dix\" — these are different words and should be flagged).\n- Name spelling variants where the pronunciation is identical (e.g., German Meyer/Meier/Maier/Mayer)\n\n## Rating Scale (per turn)\n- **3 (High Fidelity)**: \n  - All expected entities spoken correctly (names, dates, destinations, codes, etc)\n  - All words reasonably expected to have been spoken are present and accurate. \n  - Minor pronunciation variations acceptable. \n  - No audio tags spoken out loud.\n- **2 (Medium Fidelity)**: \n  - All entities spoken correctly (names, dates, destinations, codes, etc)\n  - Part of a turn may be missing (often in the first turn, the first few words are missing)\n  - Some words that were reasonably expected may be missing or spoken slightly incorrectly, but they are not critical and the conversation is able to progress even with this issue.\n  - Potential issues with audio tags being said out loud\n- **1 (Low Fidelity)**: \n  - One or more entity errors (missing entities, incorrect entities, etc) OR\n  - Some other major error that prevents the conversation from continuing in a sensible manner.\n\n## Response Format\nRespond with a JSON object. Each turn entry must include the turn_id matching the turn number shown in the Intended Turns above:\n{\n  \"turns\": [\n    {\n      \"turn_id\": <int: the turn number from the Intended Turns>,\n      \"language\": \"<string: the language spoken in this turn, e.g. English, French, Spanish>\",\n      \"transcript\": <string: your transcription of the audio for this turn using the appropriate writing system for the language spoken, use only the audio for this not the intended turns>,\n      \"explanation\": \"<succinct analysis in English; for score 1 or 2, quote the specific issue with intended vs actual; note any regions skipped due to interruption tags>\",\n      \"rating\": <1, 2, 3>\n    }\n  ]\n}\n",
+            "judge_raw_response": "```json\n{\n  \"turns\": [\n    {\n      \"turn_id\": 0,\n      \"language\": \"English\",\n      \"transcript\": \"Hello?\",\n      \"explanation\": \"The audio matches the intended text perfectly.\",\n      \"rating\": 3\n    },\n    {\n      \"turn_id\": 1,\n      \"language\": \"Hindi\",\n      \"transcript\": \"Nahi, aap galat number par call kar rahe hain. Please check kijiye.\",\n      \"explanation\": \"The audio matches the intended text perfectly.\",\n      \"rating\": 3\n    },\n    {\n      \"turn_id\": 2,\n      \"language\": \"Hindi\",\n      \"transcript\": \"Haan, jaldi kijiye. Main busy hoon.\",\n      \"explanation\": \"The audio matches the intended text perfectly.\",\n      \"rating\": 3\n    },\n    {\n      \"turn_id\": 3,\n      \"language\": \"Hindi\",\n      \"transcript\": \"Haan, theek hai. Jaldi kijiye.\",\n      \"explanation\": \"The audio matches the intended text perfectly.\",\n      \"rating\": 3\n    },\n    {\n      \"turn_id\": 4,\n      \"language\": \"Hindi\",\n      \"transcript\": \"Theek hai, jaldi kijiye.\",\n      \"explanation\": \"The audio matches the intended text perfectly.\",\n      \"rating\": 3\n    },\n    {\n      \"turn_id\": 5,\n      \"language\": \"Hindi\",\n      \"transcript\": \"Haan, jaldi kijiye. Main busy hoon.\",\n      \"explanation\": \"The audio for this turn does not match the intended text. It repeats the text from Turn 2 ('Haan, jaldi kijiye. Main busy hoon.') instead of saying 'Koi baat nahi, theek hai. Bye...'\",\n      \"rating\": 1\n    },\n    {\n      \"turn_id\": 6,\n      \"language\": \"Hindi\",\n      \"transcript\": \"Koi baat nahi, theek hai. Bye.\",\n      \"explanation\": \"The audio matches the intended text perfectly.\",\n      \"rating\": 3\n    }\n  ]\n}\n```",
+            "per_turn_normalized": {
+              "0": 1.0,
+              "1": 1.0,
+              "2": 1.0,
+              "3": 1.0,
+              "4": 1.0,
+              "5": 0.0,
+              "6": 1.0
+            }
+          }
+        }
+      }
+    ]
+  },
+  "final_failures": {
+    "EMI-BENCH-0012": {
+      "attempt": 1,
+      "reason": "validation_failed",
+      "failed_metrics": [
+        "user_speech_fidelity"
+      ],
+      "scores": {
+        "user_behavioral_fidelity": 1.0,
+        "user_speech_fidelity": 0.857,
+        "conversation_valid_end": 1.0
+      },
+      "failure_details": {
+        "user_speech_fidelity": {
+          "aggregation": "mean",
+          "num_turns": 7,
+          "num_evaluated": 7,
+          "audio_trimmed": true,
+          "per_turn_ratings": {
+            "0": 3,
+            "1": 3,
+            "2": 3,
+            "3": 3,
+            "4": 3,
+            "5": 1,
+            "6": 3
+          },
+          "per_turn_explanations": {
+            "0": "The audio matches the intended text perfectly.",
+            "1": "The audio matches the intended text perfectly.",
+            "2": "The audio matches the intended text perfectly.",
+            "3": "The audio matches the intended text perfectly.",
+            "4": "The audio matches the intended text perfectly.",
+            "5": "The audio for this turn does not match the intended text. It repeats the text from Turn 2 ('Haan, jaldi kijiye. Main busy hoon.') instead of saying 'Koi baat nahi, theek hai. Bye...'",
+            "6": "The audio matches the intended text perfectly."
+          },
+          "per_turn_failure_modes": {
+            "0": [],
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": [],
+            "6": []
+          },
+          "per_turn_languages": {
+            "0": "English",
+            "1": "Hindi",
+            "2": "Hindi",
+            "3": "Hindi",
+            "4": "Hindi",
+            "5": "Hindi",
+            "6": "Hindi"
+          },
+          "judge_prompt": "You are an expert evaluator judging the fidelity of text-to-speech (TTS) audio against the intended text. You will listen to one audio clip and verify that the spoken content faithfully reproduces the intended text, with special attention to TTS-critical entities.\n\n## Evaluation Mode: User\n\n## Intended Turns\nTurn 0: Hello?\nTurn 1: [annoyed] Nahi, aap galat number par call kar rahe hain. Please check kijiye.\nTurn 2: [annoyed] Haan, jaldi kijiye. Main busy hoon.\nTurn 3: [annoyed] Haan, theek hai. Jaldi kijiye.\nTurn 4: [annoyed] Theek hai, jaldi kijiye.\nTurn 5: [annoyed] Koi baat nahi, theek hai. Bye...\nTurn 6: [annoyed] Koi baat nahi, theek hai. Bye.\n\n## Understanding the Intended Text\n\nThe intended text may contain non-spoken tags and markers. You must understand these to evaluate fairly.\n\n### Audio-Direction Tags\nTags like [slow], [firm], [annoyed] describe how the words were meant to be spoken. They are NOT spoken aloud and should never be expected in the audio.\n\n### Interruption Tags\nThese are non-spoken metadata tags inserted during post-processing to annotate speech overlap events. They are NOT part of the spoken text.\n\nTag definitions:\n- `[assistant interrupts]` — The assistant started speaking while the user was still talking. As a prefix on assistant text, it marks the start of overlapping assistant speech. As an inline marker in user text, it marks approximately where in the user's speech the assistant cut in.\n- `[user interrupts]` — The user started speaking while the assistant was still talking. As a prefix on user text, it marks the start of overlapping user speech. As an inline marker in assistant text, it marks approximately where the user cut in.\n- `[likely cut off by user]` — Appears in assistant text. The assistant's speech was probably cut off by the user starting to speak. Text before this tag may not have been fully spoken. Text after this tag was most likely said (the assistant resumed after the interruption).\n- `[likely cut off by assistant]` — Appears in user text. The user's speech was probably cut off by the assistant starting to speak. Text before this tag may not have been fully spoken.\n- `[speaker likely cut itself off]` — The speaker likely stopped on its own, possibly after detecting overlap or for other reasons. If the tag appears mid-turn, text after it is what the speaker said after resuming. If the tag appears at the end of the turn, the speaker did not resume in this turn. Text before this tag may not have been fully spoken.\n- `[likely interruption]` — Catch-all for unexplained breaks in assistant speech that could not be attributed to a specific interruption type.\n\n**Scope of \"text before this tag\":** For all four cut-off tags (`[likely cut off by user]`, `[likely cut off by assistant]`, `[speaker likely cut itself off]`, `[likely interruption]`), \"text before this tag\" means **all text from the start of the turn (or from the previous resumption point) up to the tag** — not just the few adjacent words. This region can span multiple sentences and contain multiple entities (confirmation codes, dollar amounts, names, etc.). Any or all of it may have been silently dropped from the audio. The tag is just a signal that an interruption occurred; it might not be at the right place and do not assume the cut-off was small.\n\n\nThe tags tell you that certain portions of the intended text were likely never spoken, because the speaker was interrupted or cut themselves off. Do NOT penalize for missing words that fall in a region the tags indicate was not spoken.\n\n**Key principle:** If a tag indicates that a section of text was likely not spoken aloud (due to interruption or cut-off), do NOT penalize for those words being missing from the audio. Only evaluate fidelity for words that were reasonably expected to have been spoken.\n\n## Evaluation Criteria\n\n### TTS-Critical Entities (check these carefully)\n- **Personal names**: \"John Smith\" vs \"Jim Smith\"\n- **Dates and times**: \"December 15th\" vs \"December 50th\", \"3:45 PM\" vs \"3:15 PM\"\n- **Reference codes**: Confirmation numbers, incident numbers, booking IDs (e.g., \"QWMN62\" vs \"QWN62\")\n- **Numeric values**: Dollar amounts, quantities, percentages (e.g., \"$150\" vs \"$115\")\n- **Addresses**: Street numbers, street names, cities (e.g., \"123 Main Street\" vs \"124 Main Street\")\n- **Contact information**: Phone numbers, email addresses (e.g., \"tom_cobb@gmail.com\")\n- **Domain-specific record identifiers** (flight numbers, ticket IDs, order codes, case numbers): \"UA204\" vs \"UA240\", \"INC-8821\" vs \"INC-8281\"\n- **Serial numbers and other identifiers**\n\n### Error Types\n- **Missing words**: Words in the intended text that were not spoken AND were reasonably expected to have been spoken (i.e., not in a region flagged by interruption tags)\n- **Added words**: Extra words spoken that are not in the intended text\n- **Wrong words**: Words spoken incorrectly or substituted with different words\n- **Entity errors**: Any of the TTS-critical entities above spoken incorrectly\n- **Wrong language**: Audio spoken in a language other than English\n\n### What to Ignore\n- Non-spoken tags: [slow], [firm], [annoyed], and all interruption tags listed above\n- Words in regions flagged by interruption tags as likely not spoken\n- Minor pronunciation variations that do not change meaning (accent differences)\n- Natural filler words (um, uh) if they do not affect core content\n- Missing words at the END of the LAST turn only (audio recordings are often cut off before the final utterance completes). However, missing words in the middle of the last turn, or missing words in any earlier turn, should still be penalized.\n- Honorific/title variants that refer to the same person (e.g., \"Ms.\" vs \"Miss\", \"Mr.\" vs \"Mister\", French \"Madame\" vs \"Mme\", Japanese \"様\" vs \"-san\")\n- Phonetic spellings of Latin/Roman letters in non-Latin-script languages (e.g., Korean \"에이\" for \"A\", \"비\" for \"B\") — these are the standard spoken form in that language\n- Number surface forms that sound the same or differ only by minor grammatical agreement — accept the natural spoken rendering of a numeric value, including reversed digit order (German \"vierundzwanzig\" = 24), large-unit grouping (Japanese 万-based: \"ichi-man\" / 一万 = 10,000), and gender/agreement variants (Spanish \"veintiún\" vs \"veintiuna\"). Do NOT extend this to entirely different words for the same value (e.g., Swiss/Belgian \"septante\" vs standard French \"soixante-dix\" — these are different words and should be flagged).\n- Name spelling variants where the pronunciation is identical (e.g., German Meyer/Meier/Maier/Mayer)\n\n## Rating Scale (per turn)\n- **3 (High Fidelity)**: \n  - All expected entities spoken correctly (names, dates, destinations, codes, etc)\n  - All words reasonably expected to have been spoken are present and accurate. \n  - Minor pronunciation variations acceptable. \n  - No audio tags spoken out loud.\n- **2 (Medium Fidelity)**: \n  - All entities spoken correctly (names, dates, destinations, codes, etc)\n  - Part of a turn may be missing (often in the first turn, the first few words are missing)\n  - Some words that were reasonably expected may be missing or spoken slightly incorrectly, but they are not critical and the conversation is able to progress even with this issue.\n  - Potential issues with audio tags being said out loud\n- **1 (Low Fidelity)**: \n  - One or more entity errors (missing entities, incorrect entities, etc) OR\n  - Some other major error that prevents the conversation from continuing in a sensible manner.\n\n## Response Format\nRespond with a JSON object. Each turn entry must include the turn_id matching the turn number shown in the Intended Turns above:\n{\n  \"turns\": [\n    {\n      \"turn_id\": <int: the turn number from the Intended Turns>,\n      \"language\": \"<string: the language spoken in this turn, e.g. English, French, Spanish>\",\n      \"transcript\": <string: your transcription of the audio for this turn using the appropriate writing system for the language spoken, use only the audio for this not the intended turns>,\n      \"explanation\": \"<succinct analysis in English; for score 1 or 2, quote the specific issue with intended vs actual; note any regions skipped due to interruption tags>\",\n      \"rating\": <1, 2, 3>\n    }\n  ]\n}\n",
+          "judge_raw_response": "```json\n{\n  \"turns\": [\n    {\n      \"turn_id\": 0,\n      \"language\": \"English\",\n      \"transcript\": \"Hello?\",\n      \"explanation\": \"The audio matches the intended text perfectly.\",\n      \"rating\": 3\n    },\n    {\n      \"turn_id\": 1,\n      \"language\": \"Hindi\",\n      \"transcript\": \"Nahi, aap galat number par call kar rahe hain. Please check kijiye.\",\n      \"explanation\": \"The audio matches the intended text perfectly.\",\n      \"rating\": 3\n    },\n    {\n      \"turn_id\": 2,\n      \"language\": \"Hindi\",\n      \"transcript\": \"Haan, jaldi kijiye. Main busy hoon.\",\n      \"explanation\": \"The audio matches the intended text perfectly.\",\n      \"rating\": 3\n    },\n    {\n      \"turn_id\": 3,\n      \"language\": \"Hindi\",\n      \"transcript\": \"Haan, theek hai. Jaldi kijiye.\",\n      \"explanation\": \"The audio matches the intended text perfectly.\",\n      \"rating\": 3\n    },\n    {\n      \"turn_id\": 4,\n      \"language\": \"Hindi\",\n      \"transcript\": \"Theek hai, jaldi kijiye.\",\n      \"explanation\": \"The audio matches the intended text perfectly.\",\n      \"rating\": 3\n    },\n    {\n      \"turn_id\": 5,\n      \"language\": \"Hindi\",\n      \"transcript\": \"Haan, jaldi kijiye. Main busy hoon.\",\n      \"explanation\": \"The audio for this turn does not match the intended text. It repeats the text from Turn 2 ('Haan, jaldi kijiye. Main busy hoon.') instead of saying 'Koi baat nahi, theek hai. Bye...'\",\n      \"rating\": 1\n    },\n    {\n      \"turn_id\": 6,\n      \"language\": \"Hindi\",\n      \"transcript\": \"Koi baat nahi, theek hai. Bye.\",\n      \"explanation\": \"The audio matches the intended text perfectly.\",\n      \"rating\": 3\n    }\n  ]\n}\n```",
+          "per_turn_normalized": {
+            "0": 1.0,
+            "1": 1.0,
+            "2": 1.0,
+            "3": 1.0,
+            "4": 1.0,
+            "5": 0.0,
+            "6": 1.0
+          }
+        }
+      }
+    }
+  }
+}

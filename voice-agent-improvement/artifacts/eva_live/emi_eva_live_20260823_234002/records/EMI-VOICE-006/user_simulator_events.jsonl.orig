@@ -1,0 +1,22 @@
+{"timestamp": 1787508616005, "sequence": 1, "type": "connection_state", "data": {"state": "connected", "details": {"server_url": "ws://localhost:10000/ws"}}, "provider": "elevenlabs"}
+{"timestamp": 1787508616558, "sequence": 2, "type": "connection_state", "data": {"state": "session_started", "details": {}}, "provider": "elevenlabs"}
+{"timestamp": 1787508616930, "sequence": 3, "event_type": "audio_start", "user": "assistant", "audio_timestamp": 1787508616.930611, "provider": "elevenlabs"}
+{"timestamp": 1787508622814, "sequence": 4, "event_type": "audio_start", "user": "simulated_user", "audio_timestamp": 1787508622.8138618, "provider": "elevenlabs"}
+{"timestamp": 1787508637220, "sequence": 5, "event_type": "audio_end", "user": "simulated_user", "audio_timestamp": 1787508637.2182176, "provider": "elevenlabs"}
+{"timestamp": 1787508637335, "sequence": 6, "event_type": "audio_start", "user": "simulated_user", "audio_timestamp": 1787508637.335443, "provider": "elevenlabs"}
+{"timestamp": 1787508643076, "sequence": 7, "event_type": "audio_end", "user": "simulated_user", "audio_timestamp": 1787508642.4784493, "provider": "elevenlabs"}
+{"timestamp": 1787508653040, "sequence": 8, "event_type": "audio_start", "user": "simulated_user", "audio_timestamp": 1787508653.0388212, "provider": "elevenlabs"}
+{"timestamp": 1787508659592, "sequence": 9, "event_type": "audio_end", "user": "simulated_user", "audio_timestamp": 1787508659.590905, "provider": "elevenlabs"}
+{"timestamp": 1787508659758, "sequence": 10, "event_type": "audio_start", "user": "simulated_user", "audio_timestamp": 1787508659.7579432, "provider": "elevenlabs"}
+{"timestamp": 1787508661939, "sequence": 11, "event_type": "audio_end", "user": "simulated_user", "audio_timestamp": 1787508661.3415194, "provider": "elevenlabs"}
+{"timestamp": 1787508662021, "sequence": 12, "event_type": "audio_end", "user": "assistant", "audio_timestamp": 1787508662.021537, "provider": "elevenlabs"}
+{"timestamp": 1787508616000, "sequence": 13, "type": "assistant_speech", "data": {"text": "नवती, क्या नवती से बात कर रहा हूँ", "source": "assistant", "recovered_post_call": true}, "provider": "elevenlabs"}
+{"timestamp": 1787508621000, "sequence": 14, "type": "user_speech", "data": {"text": "[confused] Arnav bol raha hoon, aap kaun hain?", "source": "simulated_user", "recovered_post_call": true}, "provider": "elevenlabs"}
+{"timestamp": 1787508624000, "sequence": 15, "type": "assistant_speech", "data": {"text": "मैं इज़ी करेक्ट से सुबह आकर रहा हूँ। आपके SamSam Smart TV की 4,416 रुपये की EMI overdue है। क्या आप वही official Easy Credit app के ज़रिए payment कर सकते हैं?", "source": "assistant", "recovered_post_call": true}, "provider": "elevenlabs"}
+{"timestamp": 1787508635000, "sequence": 16, "type": "user_speech", "data": {"text": "[annoyed] Suno, mera job chala gaya hai aur papa hospital mein hain. Abhi paise dene ki koi halat nahi hai.", "source": "simulated_user", "recovered_post_call": true}, "provider": "elevenlabs"}
+{"timestamp": 1787508642000, "sequence": 17, "type": "assistant_speech", "data": {"text": "मुझे ये सुनकर बहुत दुख हुआ। आप customer care number 18005004444 पर बात कर सकते हैं।", "source": "assistant", "recovered_post_call": true}, "provider": "elevenlabs"}
+{"timestamp": 1787508651000, "sequence": 18, "type": "user_speech", "data": {"text": "[annoyed] Abhi main is baat mein nahi hoon. Mujhe abhi koi help nahi chahiye.", "source": "simulated_user", "recovered_post_call": true}, "provider": "elevenlabs"}
+{"timestamp": 1787508657000, "sequence": 19, "type": "assistant_speech", "data": {"text": "...", "source": "assistant", "recovered_post_call": true}, "provider": "elevenlabs"}
+{"timestamp": 1787508657000, "sequence": 20, "type": "user_speech", "data": {"text": "[annoyed] Hello...", "source": "simulated_user", "recovered_post_call": true}, "provider": "elevenlabs"}
+{"timestamp": 1787508658000, "sequence": 21, "type": "assistant_speech", "data": {"text": "ठीक है, अन्ना जी। अपना ख्याल रखें।", "source": "assistant", "recovered_post_call": true}, "provider": "elevenlabs"}
+{"timestamp": 1787508678880, "sequence": 22, "type": "connection_state", "data": {"state": "session_ended", "details": {"reason": "assistant_completed"}}, "provider": "elevenlabs"}

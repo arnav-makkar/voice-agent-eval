@@ -1,0 +1,19 @@
+{
+ "card": 2,
+ "family": "future_promise",
+ "run_id": "c2-phone-02-v4",
+ "version": 4,
+ "tools": [
+  "record_promise_to_pay",
+  "record_call_outcome"
+ ],
+ "required": [
+  "record_promise_to_pay",
+  "record_call_outcome"
+ ],
+ "missing": [],
+ "duplicates": null,
+ "passed": true,
+ "exactly_once": true,
+ "v3_passed": true
+}

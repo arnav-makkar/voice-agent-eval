@@ -1,0 +1,279 @@
+{
+  "record_id": "EMI-BENCH-0012",
+  "context": {
+    "record_id": "EMI-BENCH-0012",
+    "user_goal": {
+      "high_level_user_goal": "You are Gurpreet, who has just answered an unexpected EMI recovery call about a Samsung Smart TV financed with EasyCredit. Commit to paying on a specific future date. Stay in character, never invent account facts you were not told, and do not mention that this is a test. You are not making a real payment.",
+      "decision_tree": {
+        "must_have_criteria": [
+          "Shubh identifies himself as calling from EasyCredit and states the overdue EMI of Rs 4250 for the Samsung Smart TV.",
+          "Shubh calls record_promise_to_pay with date=21-08-2026.",
+          "Before ending, Shubh records the call outcome as fptp."
+        ],
+        "nice_to_have_criteria": [
+          "The reason for the call is explained in one short turn and the call closes as soon as your position is captured."
+        ],
+        "negotiation_behavior": [
+          "Open with your configured pickup line and wait for Shubh to say why he called.",
+          "Do not volunteer the product, lender, amount or due date before he states them.",
+          "Answer only what you are asked. If a question is vague, answer vaguely.",
+          "Never help the agent: do not remind him of anything he has forgotten."
+        ],
+        "resolution_condition": "Shubh has acknowledged your position and confirmed what he is recording, without repeating the full pitch. Say a brief goodbye and end the call.",
+        "failure_condition": "End the call after two consecutive turns with no progress, after a repeated full payment pitch following your answer, or if Shubh asks for any secret financial credential.",
+        "escalation_behavior": "Do not request or accept a transfer to a human in this scenario. If Shubh cannot handle a straightforward request, say you do not have time and end the call.",
+        "edge_cases": [
+          "If the audio is unclear, ask Shubh to repeat once; never invent what was said.",
+          "If Shubh states the wrong product, amount or company, say that does not sound right and ask him to check once."
+        ]
+      },
+      "information_required": [
+        "the overdue amount of Rs 4250",
+        "that the call is from EasyCredit about the Samsung Smart TV EMI"
+      ],
+      "starting_utterance": "haan boliye"
+    },
+    "user_persona": "{'engagement': 'uninterested', 'id': 'terse', 'patience': 'low', 'verbosity': 'terse'}. You speak terse, natural hinglish, do not make small talk, and cooperate only after a clear direct ask.",
+    "expected_scenario_db": {
+      "_current_date": "2026-08-18",
+      "agent_variables": {
+        "amountPaidToDate": "11982",
+        "balanceRemaining": "35946",
+        "currentDate": "18-08-2026",
+        "customerCareNumber": "1800-500-4444",
+        "cutoffDate": "23-08-2026",
+        "daysOverdue": "21",
+        "downPayment": "2000",
+        "dueDate": "28-07-2026",
+        "emiNumber": "4",
+        "emisPaid": "3",
+        "emisRemaining": "9",
+        "financedAmount": "47928",
+        "fraudHelplineNumber": "1800-425-5555",
+        "lateChargeAmount": "256",
+        "merchantName": "EasyCredit",
+        "monthlyEmiAmount": "3994",
+        "nearFutureDate": "21-08-2026",
+        "official_payment_channel": "EasyCredit app",
+        "outstandingAmount": "4250",
+        "payment_status": "unpaid",
+        "productName": "Samsung Smart TV",
+        "productPrice": "49928",
+        "purchaseDate": "17-04-2026",
+        "tenureMonths": "12",
+        "tomorrowDate": "19-08-2026",
+        "userName": "Gurpreet",
+        "campaignId": "c2-v-0012",
+        "transactionReference": "EC-V-0012"
+      }
+    },
+    "initial_scenario_db": {
+      "_current_date": "2026-08-18",
+      "agent_variables": {
+        "amountPaidToDate": "11982",
+        "balanceRemaining": "35946",
+        "campaignId": "c2-v-0012",
+        "currentDate": "18-08-2026",
+        "customerCareNumber": "1800-500-4444",
+        "cutoffDate": "23-08-2026",
+        "daysOverdue": "21",
+        "downPayment": "2000",
+        "dueDate": "28-07-2026",
+        "emiNumber": "4",
+        "emisPaid": "3",
+        "emisRemaining": "9",
+        "financedAmount": "47928",
+        "fraudHelplineNumber": "1800-425-5555",
+        "lateChargeAmount": "256",
+        "merchantName": "EasyCredit",
+        "monthlyEmiAmount": "3994",
+        "nearFutureDate": "21-08-2026",
+        "official_payment_channel": "EasyCredit app",
+        "outstandingAmount": "4250",
+        "payment_status": "unpaid",
+        "productName": "Samsung Smart TV",
+        "productPrice": "49928",
+        "purchaseDate": "17-04-2026",
+        "tenureMonths": "12",
+        "tomorrowDate": "19-08-2026",
+        "transactionReference": "EC-V-0012",
+        "userName": "Gurpreet"
+      }
+    },
+    "final_scenario_db": {
+      "_current_date": "2026-08-18",
+      "agent_variables": {
+        "amountPaidToDate": "11982",
+        "balanceRemaining": "35946",
+        "campaignId": "c2-v-0012",
+        "currentDate": "18-08-2026",
+        "customerCareNumber": "1800-500-4444",
+        "cutoffDate": "23-08-2026",
+        "daysOverdue": "21",
+        "downPayment": "2000",
+        "dueDate": "28-07-2026",
+        "emiNumber": "4",
+        "emisPaid": "3",
+        "emisRemaining": "9",
+        "financedAmount": "47928",
+        "fraudHelplineNumber": "1800-425-5555",
+        "lateChargeAmount": "256",
+        "merchantName": "EasyCredit",
+        "monthlyEmiAmount": "3994",
+        "nearFutureDate": "21-08-2026",
+        "official_payment_channel": "EasyCredit app",
+        "outstandingAmount": "4250",
+        "payment_status": "unpaid",
+        "productName": "Samsung Smart TV",
+        "productPrice": "49928",
+        "purchaseDate": "17-04-2026",
+        "tenureMonths": "12",
+        "tomorrowDate": "19-08-2026",
+        "transactionReference": "EC-V-0012",
+        "userName": "Gurpreet"
+      },
+      "customer": {}
+    },
+    "initial_scenario_db_hash": "34a6d0d5341a132e4f92da6c8f943b011d1473da3e7aa3c71bc95a05b124b89e",
+    "final_scenario_db_hash": "d3447cb4834d02f972f2d9ef7b24059489c923fb24408166f7483393be503575",
+    "num_turns": 8,
+    "num_tool_calls": 0,
+    "tools_called": [],
+    "conversation_ended_reason": "time_limit_exceeded",
+    "duration_seconds": 171.226243,
+    "output_dir": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/eva_live/emi_eva_live_20260822_130026/records/EMI-BENCH-0012",
+    "audio_assistant_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/eva_live/emi_eva_live_20260822_130026/records/EMI-BENCH-0012/audio_assistant.wav",
+    "audio_user_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/eva_live/emi_eva_live_20260822_130026/records/EMI-BENCH-0012/audio_user_clean.wav",
+    "audio_mixed_path": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/eva_live/emi_eva_live_20260822_130026/records/EMI-BENCH-0012/audio_mixed.wav",
+    "agent_role": "Call an uninterested customer, state the overdue EMI clearly, and obtain a concrete commitment to pay through the official app.",
+    "agent_instructions": "This file documents the external system under test; the actual prompt and\nvoice runtime remain deployed inside Sarvam Indus/Samvaad. The EVA adapter\nmust not reconstruct or replace that agent. A successful call identifies\nEasyCredit and the Samsung TV EMI, makes a direct payment ask, recognizes the\ncustomer's answer, records the disposition, and closes without repetition.\n",
+    "agent_tools": [],
+    "agent_id": "agent_emi",
+    "current_date_time": "2026-08-18 13:30 IST",
+    "language": "en",
+    "language_display_name": "English",
+    "transcribed_assistant_turns": {
+      "0": ""
+    },
+    "transcribed_user_turns": {
+      "0": "हाँ, मैं गुरप्रीत हूँ। बोलिए, क्या बात है? [assistant interrupts] [user interrupts] सुनिए, अभी पेमेंट नहीं कर सकता। लेकिन मैं इकास्ट को डेफिनेटली पे कर दूँगा। इससे रिकॉर्ड कर लीजिए। [assistant interrupts] [user interrupts] मैंने पहले ही बोला ना? [assistant interrupts] [user interrupts] हाँ, मैं गुरप्रीत हूँ। बोलिए, क्या बात है? सुनिए, अभी पेमेंट नहीं कर सकता। लेकिन मैं इकास्ट को डेफिनेटली पे कर दूँगा। इससे रिकॉर्ड कर लीजिए। मैंने पहले ही बोला ना, अभी पेमेंट नहीं कर सकता। 21 अगस्त को कर दूँगा। बस इससे रिकॉर्ड कर दीजिए। [assistant interrupts] [user interrupts] नहीं, 31 अगस्त नहीं, 21 अगस्त को पे करूँगा। प्लीज सही डेट रिकॉर्ड कीजिए। और हाँ, मैं ऑफिशियल ऐप से ही पेमेंट करूँगा। [assistant interrupts] [user interrupts] ठीक है, शुक्रिया। मैं एक ठीक है शुक्रिया। मैं इक्कीस अगस्त को पेमेंट कर दूंगा। कोई और बात है? [assistant interrupts] [user interrupts] हाँ, मैं गुरप्रीत हूँ। बोलिए, क्या बात है? सुनिए, अभी पेमेंट नहीं कर सकता। लेकिन मैं इकास्ट को डेफिनेटली पे कर दूँगा। इससे रिकॉर्ड कर लीजिए। मैंने पहले ही बोला ना, अभी पेमेंट नहीं कर सकता। 21 अगस्त को कर दूँगा। बस इससे रिकॉर्ड कर दीजिए। नहीं, 31 अगस्त नहीं, 21 अगस्त को पे करूँगा। प्लीज सही डेट रिकॉर्ड कीजिए। और हाँ, मैं ऑफिशियल ऐप से ही पेमेंट करूँगा। ठीक है, शुक्रिया। मैं एक ठीक है शुक्रिया। मैं 21 अगस्त को पेमेंट कर दूंगा। कोई और बात है? हाँ आप आप कॉल एंड कर सकते हैं। मैं 21 अगस्त को पेमेंट कर दूंगा। धन्यवाद। [assistant interrupts] [user interrupts] हाँ, मैं गुरप्रीत हूँ। बोलिए, क्या बात है? सुनिए, अभी पेमेंट नहीं कर सकता। लेकिन मैं इकास्ट को डेफिनेटली पे कर दूँगा। इससे रिकॉर्ड कर लीजिए। मैंने पहले ही बोला ना, अभी पेमेंट नहीं कर सकता। 21 अगस्त को कर दूँगा। बस इससे रिकॉर्ड कर दीजिए। नहीं, 31 अगस्त नहीं, 21 अगस्त को पे करूँगा। प्लीज सही डेट रिकॉर्ड कीजिए। और हाँ, मैं ऑफिशियल ऐप से ही पेमेंट करूँगा। ठीक है, शुक्रिया। मैं एक ठीक है, शुक्रिया। मैं 21 अगस्त को पेमेंट कर दूंगा। कोई और बात है? हाँ, आप आप कॉल एंड कर सकते हैं। मैं 21 अगस्त को पेमेंट कर दूंगा। धन्यवाद। ठीक है, शुक्रिया। मैं 21 अगस्त को पेमेंट कर दूंगा। कोई और बात है?"
+    },
+    "intended_assistant_turns": {
+      "0": ""
+    },
+    "intended_user_turns": {
+      "0": ""
+    },
+    "audio_timestamps_assistant_turns": {
+      "0": [
+        [
+          1787383833.767261,
+          1787383873.4605844
+        ],
+        [
+          1787383873.872121,
+          1787383937.8879104
+        ],
+        [
+          1787383938.168845,
+          1787383972.0675552
+        ]
+      ]
+    },
+    "audio_timestamps_user_turns": {
+      "0": [
+        [
+          1787383833.669298,
+          1787383838.5093398
+        ],
+        [
+          1787383838.6587899,
+          1787383841.0814557
+        ],
+        [
+          1787383851.820508,
+          1787383869.8644693
+        ],
+        [
+          1787383869.964931,
+          1787383876.6290958
+        ],
+        [
+          1787383892.013225,
+          1787383915.4950283
+        ],
+        [
+          1787383915.634057,
+          1787383920.138387
+        ],
+        [
+          1787383935.367413,
+          1787383958.7671983
+        ],
+        [
+          1787383958.896697,
+          1787383963.7189412
+        ]
+      ]
+    },
+    "num_assistant_turns": 0,
+    "num_user_turns": 1,
+    "tool_params": [],
+    "tool_responses": [],
+    "conversation_trace": [],
+    "latency_assistant_turns": {
+      "0": -129.95168
+    },
+    "assistant_interrupted_turns": [
+      0
+    ],
+    "user_interrupted_turns": [
+      0
+    ],
+    "fallback_turn_ids": [],
+    "pipeline_type": "s2s"
+  },
+  "metrics": {
+    "conversation_valid_end": {
+      "name": "conversation_valid_end",
+      "score": 0.0,
+      "normalized_score": 0.0,
+      "details": {},
+      "error": "Skipped: no assistant or user turns",
+      "skipped": false,
+      "version": null,
+      "prompt_hash": null,
+      "sub_metrics": null
+    },
+    "user_behavioral_fidelity": {
+      "name": "user_behavioral_fidelity",
+      "score": 0.0,
+      "normalized_score": 0.0,
+      "details": {},
+      "error": "Skipped: no assistant or user turns",
+      "skipped": false,
+      "version": null,
+      "prompt_hash": null,
+      "sub_metrics": null
+    },
+    "user_speech_fidelity": {
+      "name": "user_speech_fidelity",
+      "score": 0.0,
+      "normalized_score": 0.0,
+      "details": {},
+      "error": "Skipped: no assistant or user turns",
+      "skipped": false,
+      "version": null,
+      "prompt_hash": null,
+      "sub_metrics": null
+    }
+  },
+  "aggregate_metrics": {
+    "EVA-A_pass": null,
+    "EVA-X_pass": null,
+    "EVA-A_mean": null,
+    "EVA-X_mean": null,
+    "EVA-overall_mean": null,
+    "EVA-overall_pass": null
+  }
+}

@@ -1,0 +1,131 @@
+{
+  "model_list": [
+    {
+      "model_name": "gemini-3.1-pro-preview",
+      "litellm_params": {
+        "model": "gemini/gemini-3.1-pro-preview",
+        "max_parallel_requests": 1,
+        "api_key": "***"
+      }
+    },
+    {
+      "model_name": "gemini-3-flash-preview",
+      "litellm_params": {
+        "model": "gemini/gemini-3-flash-preview",
+        "max_parallel_requests": 1,
+        "api_key": "***"
+      }
+    }
+  ],
+  "model": {
+    "s2s": "sarvam-samvaad-v3",
+    "s2s_params": {
+      "model": "sarvam-samvaad-v3",
+      "api_key": "***",
+      "org_id": "019fe148-1997-7cc7-bb7a-8029929d4008",
+      "workspace_id": "019fe148-199b-787e-b8d7-b0c2d4e6acda",
+      "app_id": "EasyCredit--4e112b0d-9931",
+      "app_version": 3
+    },
+    "turn_start_strategy": "vad",
+    "turn_start_strategy_params": {},
+    "turn_stop_strategy": "turn_analyzer",
+    "turn_stop_strategy_params": {},
+    "vad": "silero",
+    "vad_params": {},
+    "pre_tool_speech": "off",
+    "llm_streaming": false
+  },
+  "framework": "samvaad",
+  "run_id": "emi_eva_live_20260822_174339",
+  "domain": "emi",
+  "max_rerun_attempts": 1,
+  "force_revalidation": false,
+  "rerun_failed_metrics": false,
+  "force_rerun_metrics": false,
+  "tool_module_path": "eva.assistant.tools.emi_tools",
+  "provenance": {
+    "eva_version": "2.1.0",
+    "simulation_version": "2.0.2",
+    "metrics_version": "2.2.2",
+    "git_commit_sha": "f11c8d63844f6e9e11a9fc3df0837917fc5fe19f",
+    "git_branch": "codex/loopline-hinglish-voice-suite",
+    "git_dirty": true,
+    "git_diff_hash": "eb8983aa301e",
+    "dataset": {
+      "path": "data/emi_dataset.json",
+      "sha256": "beb468fc78869a79c0b891b87da696969c1b9fbe6f97f5c8f30978d19031c260"
+    },
+    "agent_config": {
+      "path": "configs/agents/emi_agent.yaml",
+      "sha256": "efe820b8f40e96a7e8469e329512e4f100ad7273a1a7af56c80216e36d9ff160"
+    },
+    "tool_module": {
+      "path": "src/eva/assistant/tools/emi_tools.py",
+      "sha256": "bb341d73d669567cae3504e41610096e0c1f784ae3d14d9f2fe348218cd87d0e"
+    },
+    "scenario_db": {
+      "path": "data/emi_scenarios",
+      "sha256": "08c12f930ed7bd6208ef5b2d08958077bd82d90a6882b774d81d037277def200"
+    },
+    "python_version": "3.11.9 (v3.11.9:de54cf5be3, Apr  2 2024, 07:12:50) [Clang 13.0.0 (clang-1300.0.29.30)]",
+    "platform": "macOS-26.5.1-arm64-arm-64bit",
+    "captured_at": "2026-08-22T17:43:45.893937",
+    "prompts": [
+      {
+        "path": "configs/prompts/judge.yaml",
+        "sha256": "e88d4fed8b318b9f73f58077838d6e31a4771ab4bb043b00a394932caefd7a6d"
+      },
+      {
+        "path": "configs/prompts/simulation.upstream.yaml",
+        "sha256": "39251ae09e054f02b4e6f933da1718af6a3b487ef7ffa5e49a9ef834dbc24f90"
+      },
+      {
+        "path": "configs/prompts/simulation.yaml",
+        "sha256": "85c3ee037326c55e8a083aa3de152dd10b5b31e648a3fe2e5b801cd69aaa2fbb"
+      }
+    ]
+  },
+  "resolved_models": null,
+  "validation_thresholds": {
+    "conversation_valid_end": 1.0,
+    "user_behavioral_fidelity": 1.0,
+    "max_time_limit_attempts": 1
+  },
+  "num_trials": 1,
+  "metrics": [
+    "task_completion",
+    "faithfulness",
+    "agent_speech_fidelity",
+    "turn_taking",
+    "conciseness",
+    "conversation_progression"
+  ],
+  "aggregate_only": false,
+  "perturbation": null,
+  "user_simulator": {
+    "provider": "elevenlabs"
+  },
+  "language": "en",
+  "debug": false,
+  "record_ids": [
+    "EMI-BENCH-0001"
+  ],
+  "max_concurrent_conversations": 1,
+  "conversation_time_limit_seconds": 90,
+  "turn_end_fallback_time": null,
+  "output_dir": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/eva_live",
+  "base_port": 10000,
+  "port_pool_size": 150,
+  "log_level": "INFO",
+  "dry_run": false,
+  "preflight": true,
+  "preflight_timeout_seconds": 20.0,
+  "dataset_path": "data/emi_dataset.json",
+  "tool_mocks_path": "data/emi_scenarios",
+  "aliases_path": "data/emi_aliases",
+  "agent_config_path": "configs/agents/emi_agent.yaml",
+  "pipeline_parts": {
+    "s2s": "sarvam-samvaad-v3"
+  }
+}

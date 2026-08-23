@@ -1,0 +1,91 @@
+{
+  "transcript": [
+    {
+      "value": "अर्णव बोल रहा हूं, आपने गलत नंबर डायल किया है।",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787403832354",
+      "message_type": "user"
+    },
+    {
+      "value": "क्षमा कीजिए, पर क्या आप Arnav जी ही हैं?",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787403835771",
+      "message_type": "assistant"
+    },
+    {
+      "value": "हाँ मैं अर्नव हूँ पर अभी मैं ड्राइविंग कर रहा हूँ बात नहीं कर सकता। प्लीज कल सुबह मुझे कॉल बैक करें।",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787403841479",
+      "message_type": "user"
+    },
+    {
+      "value": "मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की चार हज़ार चार सौ सोलह रुपये की EMI overdue",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787403843447",
+      "message_type": "assistant"
+    },
+    {
+      "value": "ठीक है, मैं शुभ बात कर रहा हूँ EasyCredit से। आपके Samsung Smart TV की चार हज़ार चार सौ सोलह रुपये की EMI overdue है,",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787403846078",
+      "message_type": "assistant"
+    },
+    {
+      "value": "ठीक है, मैं आपको कल सुबह call कर लूँगा। क्या सुबह दस बजे का time सही रहेगा?",
+      "displayName": "Bot",
+      "type": "text",
+      "isBotMessage": true,
+      "timestamp": "1787403848217",
+      "message_type": "assistant"
+    },
+    {
+      "value": "हाँ कल सुबह दस बजे ठीक है। प्लीज उसी टाइम कॉल करना। अभी मैं ड्राइविंग कर रहा हूँ, बाय।",
+      "displayName": "User",
+      "type": "text",
+      "isBotMessage": false,
+      "timestamp": "1787403855143",
+      "message_type": "user"
+    }
+  ],
+  "llm_prompts": [],
+  "conversation_messages": [
+    {
+      "role": "user",
+      "content": "अर्णव बोल रहा हूं, आपने गलत नंबर डायल किया है।"
+    },
+    {
+      "role": "assistant",
+      "content": "क्षमा कीजिए, पर क्या आप Arnav जी ही हैं?"
+    },
+    {
+      "role": "assistant",
+      "content": "मैं EasyCredit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की चार हज़ार चार सौ सोलह रुपये की EMI overdue"
+    },
+    {
+      "role": "assistant",
+      "content": "ठीक है, मैं शुभ बात कर रहा हूँ EasyCredit से। आपके Samsung Smart TV की चार हज़ार चार सौ सोलह रुपये की EMI overdue है,"
+    },
+    {
+      "role": "user",
+      "content": "हाँ मैं अर्नव हूँ पर अभी मैं ड्राइविंग कर रहा हूँ बात नहीं कर सकता। प्लीज कल सुबह मुझे कॉल बैक करें।"
+    },
+    {
+      "role": "assistant",
+      "content": "ठीक है, मैं आपको कल सुबह call कर लूँगा। क्या सुबह दस बजे का time सही रहेगा?"
+    },
+    {
+      "role": "user",
+      "content": "हाँ कल सुबह दस बजे ठीक है। प्लीज उसी टाइम कॉल करना। अभी मैं ड्राइविंग कर रहा हूँ, बाय।"
+    }
+  ]
+}

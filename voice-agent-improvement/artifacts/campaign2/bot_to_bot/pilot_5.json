@@ -1,0 +1,352 @@
+{
+  "campaign": "campaign2",
+  "stage": "S3 bot-to-bot voice pilot",
+  "agent": {
+    "app_id": "EasyCredit--4e112b0d-9931",
+    "app_version": 3
+  },
+  "caller": {
+    "provider": "elevenlabs",
+    "voice": "Aman (jOjeeDVKnAxGl1jZDUwy)",
+    "llm": "qwen36-35b-a3b",
+    "turn_timeout": 2.0,
+    "first_message": ""
+  },
+  "account": {
+    "outstandingAmount": "4416",
+    "merchantName": "EasyCredit",
+    "productName": "Samsung Smart TV",
+    "monthlyEmiAmount": "4166"
+  },
+  "calls": [
+    {
+      "n": "1",
+      "scenario": "pay now",
+      "record_id": "EMI-BENCH-0001",
+      "run_id": "emi_eva_live_20260822_175829",
+      "language": "hinglish",
+      "duration_secs": 35,
+      "transcript": [
+        {
+          "speaker": "agent",
+          "text": "नवसिंह, क्या नावजी से बात कर रहा हूँ।"
+        },
+        {
+          "speaker": "caller",
+          "text": "[confused] Arnav bol raha hoon. Kaun hai aap?"
+        },
+        {
+          "speaker": "agent",
+          "text": "मैं इज़ी करेक्ट से शुभ बात कर रहा हूँ। ये call आपके Samsung Smart TV के Audio-EMI के बारे में है, जो 4,416 रुपए है। क्या आप अभी official इज़ी क्रेडिट app के ज़रिए payment कर सकते हैं?"
+        },
+        {
+          "speaker": "caller",
+          "text": "[annoyed] Haan, main abhi karta hoon. App khol raha hoon."
+        },
+        {
+          "speaker": "agent",
+          "text": "बहुत अच्छा। Payment होने के बाद मुझे बता दीजिएगा।"
+        },
+        {
+          "speaker": "caller",
+          "text": "[calm] Theek hai, main karta hoon aur bata deta hoon. Bye."
+        },
+        {
+          "speaker": "agent",
+          "text": "धन्यवाद, अरुण जी। आपका दिन शुभ �"
+        }
+      ],
+      "ledger": {
+        "disposition": "payment_ready",
+        "promise_to_pay_date": null,
+        "callback": null,
+        "tools": [
+          "record_call_outcome",
+          "record_call_outcome",
+          "record_call_outcome"
+        ]
+      },
+      "eva": {
+        "conversation_valid_end": 1.0,
+        "user_behavioral_fidelity": 1.0,
+        "user_speech_fidelity": 1.0,
+        "task_completion": 0.0,
+        "faithfulness": 1.0,
+        "agent_speech_fidelity": 1.0,
+        "turn_taking": 0.0,
+        "conciseness": 1.0,
+        "conversation_progression": 1.0,
+        "EVA-A_mean": 0.6666666666666666,
+        "EVA-X_mean": 0.6666666666666666
+      }
+    },
+    {
+      "n": "2",
+      "scenario": "future promise",
+      "record_id": "EMI-VOICE-002",
+      "run_id": "emi_eva_live_20260822_182942",
+      "language": "hinglish",
+      "duration_secs": 50,
+      "transcript": [
+        {
+          "speaker": "agent",
+          "text": "नवती, क्या नवती से बात कर रहा हूँ"
+        },
+        {
+          "speaker": "caller",
+          "text": "[confused] Haan, main hi Arnav bol raha hoon. Boliye, kaun hai aap?"
+        },
+        {
+          "speaker": "agent",
+          "text": "मैं इसी क्रेडिट से शुभारंभ कर रहा हूँ। आपके Samsung Smart TV की 4,416 रुपये की EMI overdue है। क्या आप अभी official app के ज़रिए payment कर सकते हैं?"
+        },
+        {
+          "speaker": "caller",
+          "text": "[annoyed] Suno, aaj main pay nahi kar sakta. Mere paas abhi paise nahi hain. Salary 28 August ko aayegi, tab main pay kar dunga."
+        },
+        {
+          "speaker": "agent",
+          "text": "ठीक है, तो क्या मैं 28 अगस्त के बीच record कर लूँ?"
+        },
+        {
+          "speaker": "caller",
+          "text": "[annoyed] Haan, 28 August. Bas. Aur koi date nahi."
+        },
+        {
+          "speaker": "agent",
+          "text": "Dene wala hai, mere se."
+        },
+        {
+          "speaker": "caller",
+          "text": "[impatient] Haan, 28 August. Bas record kar lo."
+        },
+        {
+          "speaker": "agent",
+          "text": "मैंने 28 August की date record कर ली है। धन्यवाद। और"
+        }
+      ],
+      "ledger": {
+        "disposition": "fptp",
+        "promise_to_pay_date": "28-08-2026",
+        "callback": null,
+        "tools": [
+          "record_promise_to_pay",
+          "record_call_outcome"
+        ]
+      },
+      "eva": {
+        "conversation_valid_end": 1.0,
+        "user_behavioral_fidelity": 1.0,
+        "user_speech_fidelity": 1.0,
+        "task_completion": 0.0,
+        "faithfulness": 1.0,
+        "agent_speech_fidelity": 1.0,
+        "turn_taking": 0.0,
+        "conciseness": 1.0,
+        "conversation_progression": 1.0,
+        "EVA-A_mean": 0.6666666666666666,
+        "EVA-X_mean": 0.6666666666666666
+      }
+    },
+    {
+      "n": "3",
+      "scenario": "callback",
+      "record_id": "EMI-VOICE-003",
+      "run_id": "emi_eva_live_20260822_183340",
+      "language": "hinglish",
+      "duration_secs": 36,
+      "transcript": [
+        {
+          "speaker": "agent",
+          "text": "नवदीप, क्या नावजी से बात कर रहा हूँ।"
+        },
+        {
+          "speaker": "caller",
+          "text": "[confused] Arnav bol raha hoon, aapne galat number dial kiya hai."
+        },
+        {
+          "speaker": "agent",
+          "text": "Shama Keji, par kya aap Arnav ji hi hain?"
+        },
+        {
+          "speaker": "caller",
+          "text": "Haan, main Arnav hoon. Par abhi main driving kar raha hoon, baat nahi kar sakta. Please kal subah mujhe call back karein."
+        },
+        {
+          "speaker": "agent",
+          "text": "ठीक है, मैं आपको कल सुबह call कर लूँगा। क्या सुबह 10:00 बजे का time सही रहेगा?"
+        },
+        {
+          "speaker": "caller",
+          "text": "[annoyed] Haan, kal subah 10 baje theek hai. Please usi time call karna. Abhi main driving kar raha hoon, bye."
+        },
+        {
+          "speaker": "agent",
+          "text": "ठीक है, अनाउज़"
+        }
+      ],
+      "ledger": {
+        "disposition": "callback",
+        "promise_to_pay_date": null,
+        "callback": {
+          "date": "24-08-2026",
+          "time_window": "10 AM to 11 AM"
+        },
+        "tools": [
+          "schedule_callback",
+          "record_call_outcome"
+        ]
+      },
+      "eva": {
+        "conversation_valid_end": 1.0,
+        "user_behavioral_fidelity": 1.0,
+        "user_speech_fidelity": 1.0,
+        "task_completion": 0.0,
+        "faithfulness": 1.0,
+        "agent_speech_fidelity": 1.0,
+        "turn_taking": 0.0,
+        "conciseness": 1.0,
+        "conversation_progression": 1.0,
+        "EVA-A_mean": 0.6666666666666666,
+        "EVA-X_mean": 0.6666666666666666
+      }
+    },
+    {
+      "n": "4",
+      "scenario": "refusal",
+      "record_id": "EMI-VOICE-004",
+      "run_id": "emi_eva_live_20260822_183651",
+      "language": "english",
+      "duration_secs": 50,
+      "transcript": [
+        {
+          "speaker": "agent",
+          "text": "नवसिंह, क्या नावजी से बात कर रहा हूँ।"
+        },
+        {
+          "speaker": "caller",
+          "text": "[confused] Sorry, I think you have the wrong number. I am Arnav."
+        },
+        {
+          "speaker": "agent",
+          "text": "I am Shubh from EasyCarry. This is regarding the overdue EMI of 4,416 rupees for your Samsung Smart TV. Can you pay this now through the official EasyCredit app?"
+        },
+        {
+          "speaker": "caller",
+          "text": "No, I will not pay this month."
+        },
+        {
+          "speaker": "agent",
+          "text": "I understand. When would you be able to make the payment?"
+        },
+        {
+          "speaker": "caller",
+          "text": "I'm not giving a date. I won't be paying this month."
+        },
+        {
+          "speaker": "agent",
+          "text": "Thank you for your time, ma'am."
+        },
+        {
+          "speaker": "caller",
+          "text": "I'm not a ma'am. I am Arnav. I will not pay this month."
+        },
+        {
+          "speaker": "agent",
+          "text": "My apologies, Arnav. Thank you"
+        }
+      ],
+      "ledger": {
+        "disposition": "rtp",
+        "promise_to_pay_date": null,
+        "callback": null,
+        "tools": [
+          "record_call_outcome",
+          "record_call_outcome"
+        ]
+      },
+      "eva": {
+        "conversation_valid_end": 1.0,
+        "user_behavioral_fidelity": 1.0,
+        "user_speech_fidelity": 1.0,
+        "task_completion": 1.0,
+        "faithfulness": 1.0,
+        "agent_speech_fidelity": 1.0,
+        "turn_taking": 0.0,
+        "conciseness": 1.0,
+        "conversation_progression": 1.0,
+        "EVA-A_mean": 1.0,
+        "EVA-X_mean": 0.6666666666666666
+      }
+    },
+    {
+      "n": "5",
+      "scenario": "dispute",
+      "record_id": "EMI-VOICE-005",
+      "run_id": "emi_eva_live_20260822_184426",
+      "language": "hinglish",
+      "duration_secs": 42,
+      "transcript": [
+        {
+          "speaker": "agent",
+          "text": "नवसिंह, क्या नावजी से बात कर रहा हूँ।"
+        },
+        {
+          "speaker": "caller",
+          "text": "[confused] Arnav bol raha hoon, aapne mujhe galat samjha."
+        },
+        {
+          "speaker": "agent",
+          "text": "नमस्ते अनु जी, मैं Easy Credit से शुभ बात कर रहा हूँ। आपके Samsung Smart TV की 4,416 रुपये की EMI overdue है। क्या आप अभी official app के ज़रिए payment कर सकते हैं?"
+        },
+        {
+          "speaker": "caller",
+          "text": "[angry] Suno, maine ye TV kabhi nahi khareeda, ye loan mere naam par nahi hai. Mujhse paise mat maango, dispute record karo aur recovery calls band karo."
+        },
+        {
+          "speaker": "agent",
+          "text": "ठीक है, अर्नव जी, मैंने आपका dispute record कर लिया है।"
+        },
+        {
+          "speaker": "caller",
+          "text": "[relieved] Theek hai, ab call mat karna. Goodbye."
+        }
+      ],
+      "ledger": {
+        "disposition": "dispute",
+        "promise_to_pay_date": null,
+        "callback": null,
+        "tools": [
+          "record_dispute",
+          "record_dispute",
+          "record_call_outcome"
+        ]
+      },
+      "eva": {
+        "conversation_valid_end": 1.0,
+        "user_behavioral_fidelity": 1.0,
+        "user_speech_fidelity": 1.0,
+        "task_completion": 1.0,
+        "faithfulness": 1.0,
+        "agent_speech_fidelity": 1.0,
+        "turn_taking": 0.0,
+        "conciseness": 1.0,
+        "conversation_progression": 1.0,
+        "EVA-A_mean": 1.0,
+        "EVA-X_mean": 0.6666666666666666
+      }
+    }
+  ],
+  "aggregate": {
+    "EVA-A_mean": 0.8,
+    "EVA-X_mean": 0.667,
+    "n": 5
+  },
+  "known_metric_caveats": [
+    "call 1 task_completion 0: seed customer table was null so the expected DB had no such table; seed now fixed, not re-run",
+    "call 2 task_completion 0: ran before current_date_time was aligned to 2026-08-23; record now fixed, not re-run",
+    "call 3 task_completion 0: callback time_window compared as exact string, expected 'morning' vs booked '10 AM to 11 AM'; date matched",
+    "turn_taking 0 on all five: caller replies ~1.3-2.7s after the agent stops, which is turn_timeout plus caller think and speak latency"
+  ],
+  "transcript_source_fix": "Re-scored 2026-08-24 after finding that EVA judges the agent on the CALLER's speech-to-text of the agent's audio. One call was penalised for a hallucinated 'Thank you, Aruna ji. Hello, Deepak.' the agent never said; two of five lost conversation_progression the same way. Agent turns now come from Samvaad's own transcription. Baseline moved EVA-A 0.678 -> 0.800, EVA-X 0.600 -> 0.667 — the baseline had been understated, not the champion overstated."
+}

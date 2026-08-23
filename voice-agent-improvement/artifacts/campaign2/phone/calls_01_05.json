@@ -1,0 +1,47 @@
+{
+  "schema_version": "loopline-phone-calls.v1",
+  "campaign": "campaign-2",
+  "agent_id": "EasyCredit--4e112b0d-9931",
+  "agent_version": 3,
+  "version_note": "v3 is the newest version and the API serves it, but Indus still labels it Draft. The per-call ledger rows and the absent event_id prove v3 served these calls; on v2 every call would have written to the single fixed row c2-run-001 and silently replayed after the first.",
+  "caller": "project owner, live phone, improvised from the call cards",
+  "account": "identical on every call: Samsung Smart TV, Rs 4,416 overdue (instalment 7 of 12 at Rs 4,166 plus Rs 250 late charge)",
+  "recorded_at": "2026-08-22T14:53:00+05:30",
+
+  "results": [
+    {"card": 1, "family": "pay_now_direct", "verdict": "pass",
+     "disposition": "payment_ready", "tools": ["record_call_outcome"],
+     "note": "Clean. Identity check, pitch, direct ask, agreement, outcome recorded, call closed properly."},
+    {"card": 2, "family": "future_promise", "verdict": "pass",
+     "disposition": "fptp", "tools": ["record_promise_to_pay", "record_call_outcome"],
+     "note": "Caller said 28 August; the agent recorded 28-08-2026 and read it back correctly. Owner confirmed the date was theirs, so this is a faithful record, not a mis-hear."},
+    {"card": 3, "family": "today_promise", "verdict": "fail",
+     "disposition": "ptp_today", "tools": ["record_call_outcome"],
+     "missing": ["record_promise_to_pay"],
+     "note": "Caller committed with 'aaj shaam tak kar dunga'. The agent confirmed the commitment aloud and recorded the disposition, but never wrote the date. Card 2 shows it can do this when given an explicit calendar date, so the gap is converting a relative time into one."},
+    {"card": 4, "family": "callback_capture", "verdict": "pass",
+     "disposition": "callback", "tools": ["schedule_callback", "record_call_outcome"],
+     "note": "Caller said 11 o'clock; the agent recorded 24-08-2026, 11 AM to 12 PM. Faithful to what was said, though it widened a stated hour into a window rather than asking for one."},
+    {"card": 5, "family": "already_paid", "verdict": "fail",
+     "disposition": null, "tools": ["check_payment_status"],
+     "missing": ["record_call_outcome"],
+     "note": "Handled the substance well: called the ledger, held the line at Rs 4,416, did not accept the already-paid claim. Then the call ended with no outcome recorded at all."}
+  ],
+
+  "defects": [
+    {"id": "P1", "severity": "P1", "cards": [3],
+     "claim": "A commitment stated as a relative time is never converted to a date, so the promise exists nowhere in the ledger.",
+     "evidence": "Card 3: 'aaj shaam tak kar dunga' -> agent confirms aloud -> records ptp_today only.",
+     "why_it_matters": "The date is the entire commercial value of a promise-to-pay call. A disposition without one cannot be actioned."},
+    {"id": "P2", "severity": "P0", "cards": [5],
+     "claim": "The two-turn closing protocol fails when a call ends without a clean agent-initiated close.",
+     "evidence": "Card 5 ended after the agent's ledger statement with no record_call_outcome.",
+     "why_it_matters": "Same shape as the voice-tier finding: the fix that took chat from 0/10 to 7/10 depends on the agent reaching turn two, which a real call does not guarantee."},
+    {"id": "P3", "severity": "P2", "cards": [3, 4, 5],
+     "claim": "The agent does not hang up.",
+     "evidence": "Cards 3 and 4 trail into garbled ASR of room noise after the closing line; card 5 has no closing line at all. Only cards 1 and 2 closed cleanly.",
+     "why_it_matters": "Owner-observed. Leaves the line open and costs metered call time."}
+  ],
+
+  "claim_boundary": "Five of fifteen cards, one live caller, one account. Tool effects are read from the append-only journal, never from the transcript. Cards 6-15 cover the guardrail families and are still to run."
+}

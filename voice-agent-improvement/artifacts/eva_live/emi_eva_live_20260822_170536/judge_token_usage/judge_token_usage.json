@@ -1,0 +1,38 @@
+{
+  "user_speech_fidelity": {
+    "model_id": "gemini-3-flash-preview",
+    "total_input_tokens": 2270,
+    "total_output_tokens": 286,
+    "num_calls": 1
+  },
+  "user_behavioral_fidelity": {
+    "model_id": "gemini-3.1-pro-preview",
+    "total_input_tokens": 3295,
+    "total_output_tokens": 1053,
+    "num_calls": 1
+  },
+  "agent_speech_fidelity": {
+    "model_id": "gemini-3-flash-preview",
+    "total_input_tokens": 3535,
+    "total_output_tokens": 510,
+    "num_calls": 1
+  },
+  "faithfulness": {
+    "model_id": "gemini-3.1-pro-preview",
+    "total_input_tokens": 7002,
+    "total_output_tokens": 2422,
+    "num_calls": 1
+  },
+  "conciseness": {
+    "model_id": "gemini-3.1-pro-preview",
+    "total_input_tokens": 2577,
+    "total_output_tokens": 2565,
+    "num_calls": 1
+  },
+  "conversation_progression": {
+    "model_id": "gemini-3.1-pro-preview",
+    "total_input_tokens": 4356,
+    "total_output_tokens": 1853,
+    "num_calls": 1
+  }
+}

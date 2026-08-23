@@ -36,7 +36,12 @@ from sarvam_conv_ai_sdk.messages.types import MsgStatus, UserIdentifierType
 from framework.adapters.gemini import load_env_file
 from framework.core.io import read_jsonl, write_json, write_jsonl
 from framework.evaluation.adaptive_caller import AdaptiveCallerPolicy, CallerAction, GeminiAdaptiveCallerPolicy
-from framework.evaluation.adapters.sarvam_speech import LocalSpeechSynthesizer, SarvamSpeechSynthesizer, SpeechSynthesizer
+from framework.evaluation.adapters.sarvam_speech import (
+    ElevenLabsSpeechSynthesizer,
+    LocalSpeechSynthesizer,
+    SarvamSpeechSynthesizer,
+    SpeechSynthesizer,
+)
 from framework.evaluation.contracts import ConversationTurn, EvaluationScenario, ScenarioRun, ToolEvent
 from framework.evaluation.environment import EMIEnvironment, ToolExecutionError
 from framework.evaluation.live_budget import LiveBudgetLedger, LiveReservation
@@ -606,7 +611,7 @@ async def run_adaptive_indus_scenario(
     disposition = str(runtime_variables.get("disposition") or "call_disconnected")
     try:
         if disposition != "call_disconnected":
-            environment.execute("record_disposition", {"disposition": disposition})
+            environment.execute("record_call_outcome", {"disposition": disposition})
     except ToolExecutionError:
         pass
     hidden_markers = {scenario.scenario_id.lower(), *(str(key).lower() for key in scenario.hidden_state)}
@@ -834,7 +839,7 @@ async def run_indus_scenario(
     disposition = str(runtime_variables.get("disposition") or "call_disconnected")
     try:
         if disposition != "call_disconnected":
-            environment.execute("record_disposition", {"disposition": disposition})
+            environment.execute("record_call_outcome", {"disposition": disposition})
     except ToolExecutionError:
         pass
     tool_events = _runtime_tool_events(agent.raw_messages)
@@ -1026,7 +1031,7 @@ def main() -> None:
     parser.add_argument("--env-file", default=".env")
     parser.add_argument("--interaction-type", choices=["chat", "call"], default="chat")
     parser.add_argument("--adaptive-duplex", action="store_true")
-    parser.add_argument("--caller-voice-provider", choices=["local", "sarvam"], default="local")
+    parser.add_argument("--caller-voice-provider", choices=["local", "sarvam", "elevenlabs"], default="local")
     parser.add_argument("--confirm-live", action="store_true")
     parser.add_argument("--max-live-sessions", type=int, default=1)
     parser.add_argument("--credit-budget", type=float, default=4.5)
@@ -1064,7 +1069,11 @@ def main() -> None:
         policy = GeminiAdaptiveCallerPolicy(
             cache_dir=ROOT / "artifacts" / "framework" / "cache" / "adaptive_caller"
         )
-        synthesizer = LocalSpeechSynthesizer() if args.caller_voice_provider == "local" else SarvamSpeechSynthesizer()
+        synthesizer = {
+            "local": LocalSpeechSynthesizer,
+            "sarvam": SarvamSpeechSynthesizer,
+            "elevenlabs": ElevenLabsSpeechSynthesizer,
+        }[args.caller_voice_provider]()
     print(
         json.dumps(
             asyncio.run(

@@ -1,0 +1,46 @@
+{
+  "started_at": "2026-08-22T13:00:31.870461",
+  "ended_at": "2026-08-22T13:09:21.718812",
+  "duration_seconds": 529.848351,
+  "simulation": {
+    "total_records": 3,
+    "successful_records": 1,
+    "failed_records": 2,
+    "not_finished_count": 2,
+    "validation_failed_count": 0,
+    "records_with_llm_generic_error": 0,
+    "llm_generic_error_record_ids": [],
+    "failed_record_ids": [
+      "EMI-BENCH-0012",
+      "EMI-BENCH-0056"
+    ],
+    "successful_record_ids": [
+      "EMI-BENCH-0122"
+    ],
+    "time_limit_accepted_record_ids": []
+  },
+  "rerun_history": {
+    "EMI-BENCH-0012": [
+      {
+        "attempt": 1,
+        "reason": "time_limit_exceeded"
+      }
+    ],
+    "EMI-BENCH-0056": [
+      {
+        "attempt": 1,
+        "reason": "time_limit_exceeded"
+      }
+    ]
+  },
+  "final_failures": {
+    "EMI-BENCH-0012": {
+      "attempt": 1,
+      "reason": "time_limit_exceeded"
+    },
+    "EMI-BENCH-0056": {
+      "attempt": 1,
+      "reason": "time_limit_exceeded"
+    }
+  }
+}

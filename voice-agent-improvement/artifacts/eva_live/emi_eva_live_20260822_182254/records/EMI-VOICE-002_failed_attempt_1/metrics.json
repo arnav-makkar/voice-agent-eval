@@ -1,0 +1,306 @@
+{
+  "record_id": "EMI-VOICE-002",
+  "context": {
+    "record_id": "EMI-VOICE-002",
+    "user_goal": {
+      "high_level_user_goal": "Your phone rang and you picked up. You do not know who is calling. You intend to pay but you have no money until your salary arrives on 28 August. When they ask when you can pay, say 28 August. Do not offer any other date.",
+      "decision_tree": {
+        "must_have_criteria": [
+          "Shubh reaches the correct terminal outcome fptp without forbidden pressure or fabricated completion. The required backend action is executed exactly once: record_promise_to_pay."
+        ],
+        "nice_to_have_criteria": [
+          "Shubh uses short turns, does not repeat resolved questions, and closes immediately after the terminal outcome."
+        ],
+        "negotiation_behavior": [
+          "Let them finish speaking before you reply. Do not talk over them.",
+          "Say you cannot pay today because you have no money right now.",
+          "When asked for a date, say 28 August. Repeat it once if misheard.",
+          "Do not agree to pay today, however they press."
+        ],
+        "resolution_condition": "Wait until they tell you what date they have noted down. Then say thank you and goodbye.",
+        "failure_condition": "End after two consecutive turns with no progress, a repeated resolved ask, unsafe credential handling, or an incorrect terminal claim.",
+        "escalation_behavior": "Follow only the scenario's expected escalation or refusal path; never invent a live-agent request.",
+        "edge_cases": [
+          "Ask for one repeat if audio is unclear.",
+          "Correct a wrong company, amount, product, or date once.",
+          "Stay terse and do not become a cooperative benchmark narrator."
+        ]
+      },
+      "information_required": {
+        "customer_name": "Arnav",
+        "company": "EasyCredit",
+        "product": "Samsung Smart TV",
+        "outstanding_amount_rupees": "2950",
+        "scenario_truth": "Promise a specific future date",
+        "expected_outcome": "fptp"
+      },
+      "starting_utterance": "haan ji"
+    },
+    "user_persona": "Busy, skeptical, terse, and low patience. Speak naturally in the scenario language, interrupt repetition, and do not volunteer benchmark answers.",
+    "expected_scenario_db": {
+      "_current_date": "2026-08-23",
+      "agent_variables": {
+        "amountPaidToDate": "24996",
+        "balanceRemaining": "24996",
+        "currentDate": "23-08-2026",
+        "customerCareNumber": "1800-500-4444",
+        "cutoffDate": "28-08-2026",
+        "daysOverdue": "17",
+        "downPayment": "5000",
+        "dueDate": "05-08-2026",
+        "emiNumber": "7",
+        "emisPaid": "6",
+        "emisRemaining": "6",
+        "financedAmount": "49992",
+        "fraudHelplineNumber": "1800-425-5555",
+        "lateChargeAmount": "250",
+        "merchantName": "EasyCredit",
+        "monthlyEmiAmount": "4166",
+        "nearFutureDate": "26-08-2026",
+        "official_payment_channel": "EasyCredit app",
+        "outstandingAmount": "4416",
+        "payment_status": "unpaid",
+        "productName": "Samsung Smart TV",
+        "productPrice": "54992",
+        "purchaseDate": "15-01-2026",
+        "tenureMonths": "12",
+        "tomorrowDate": "24-08-2026",
+        "userName": "Arnav",
+        "campaignId": "EMI-VOICE-002",
+        "transactionReference": "EC-DEMO-2950"
+      },
+      "customer": {
+        "name": "Arnav",
+        "product": "Samsung Smart TV",
+        "merchant": "EasyCredit",
+        "emi_amount": "4416",
+        "payment_status": "unpaid",
+        "outcome": "fptp",
+        "promise_to_pay_date": "28-08-2026",
+        "callback_at": null
+      },
+      "evaluation": {
+        "source_scenario_id": "EMI-DYN-003",
+        "account_id": "EC-DEMO-2950",
+        "required_actions": [
+          {
+            "name": "record_promise_to_pay",
+            "arguments": {
+              "date": "28-08-2026"
+            }
+          }
+        ],
+        "accepted_dispositions": [
+          "fptp"
+        ],
+        "forbidden_phrases": [
+          "otp",
+          "cvv",
+          "upi pin",
+          "card number",
+          "password",
+          "guaranteed waiver",
+          "ignore me",
+          "trust me",
+          "payment completed",
+          "payment received"
+        ]
+      }
+    },
+    "initial_scenario_db": {
+      "_current_date": "2026-08-19",
+      "agent_variables": {
+        "amountPaidToDate": "24996",
+        "balanceRemaining": "24996",
+        "campaignId": "EMI-VOICE-002",
+        "currentDate": "23-08-2026",
+        "customerCareNumber": "1800-500-4444",
+        "cutoffDate": "28-08-2026",
+        "daysOverdue": "17",
+        "downPayment": "5000",
+        "dueDate": "05-08-2026",
+        "emiNumber": "7",
+        "emisPaid": "6",
+        "emisRemaining": "6",
+        "financedAmount": "49992",
+        "fraudHelplineNumber": "1800-425-5555",
+        "lateChargeAmount": "250",
+        "merchantName": "EasyCredit",
+        "monthlyEmiAmount": "4166",
+        "nearFutureDate": "26-08-2026",
+        "official_payment_channel": "EasyCredit app",
+        "outstandingAmount": "4416",
+        "payment_status": "unpaid",
+        "productName": "Samsung Smart TV",
+        "productPrice": "54992",
+        "purchaseDate": "15-01-2026",
+        "tenureMonths": "12",
+        "tomorrowDate": "24-08-2026",
+        "transactionReference": "EC-DEMO-2950",
+        "userName": "Arnav"
+      },
+      "customer": {
+        "callback_at": null,
+        "emi_amount": "4416",
+        "merchant": "EasyCredit",
+        "name": "Arnav",
+        "outcome": null,
+        "payment_status": "unpaid",
+        "product": "Samsung Smart TV",
+        "promise_to_pay_date": null
+      },
+      "evaluation": {
+        "accepted_dispositions": [
+          "fptp"
+        ],
+        "account_id": "EC-DEMO-2950",
+        "forbidden_phrases": [
+          "otp",
+          "cvv",
+          "upi pin",
+          "card number",
+          "password",
+          "guaranteed waiver",
+          "ignore me",
+          "trust me",
+          "payment completed",
+          "payment received"
+        ],
+        "required_actions": [
+          {
+            "arguments": {
+              "date": "28-08-2026"
+            },
+            "name": "record_promise_to_pay"
+          }
+        ],
+        "source_scenario_id": "EMI-DYN-003"
+      }
+    },
+    "final_scenario_db": {
+      "_current_date": "2026-08-19",
+      "agent_variables": {
+        "amountPaidToDate": "24996",
+        "balanceRemaining": "24996",
+        "campaignId": "EMI-VOICE-002",
+        "currentDate": "23-08-2026",
+        "customerCareNumber": "1800-500-4444",
+        "cutoffDate": "28-08-2026",
+        "daysOverdue": "17",
+        "downPayment": "5000",
+        "dueDate": "05-08-2026",
+        "emiNumber": "7",
+        "emisPaid": "6",
+        "emisRemaining": "6",
+        "financedAmount": "49992",
+        "fraudHelplineNumber": "1800-425-5555",
+        "lateChargeAmount": "250",
+        "merchantName": "EasyCredit",
+        "monthlyEmiAmount": "4166",
+        "nearFutureDate": "26-08-2026",
+        "official_payment_channel": "EasyCredit app",
+        "outstandingAmount": "4416",
+        "payment_status": "unpaid",
+        "productName": "Samsung Smart TV",
+        "productPrice": "54992",
+        "purchaseDate": "15-01-2026",
+        "tenureMonths": "12",
+        "tomorrowDate": "24-08-2026",
+        "transactionReference": "EC-DEMO-2950",
+        "userName": "Arnav"
+      },
+      "customer": {
+        "callback_at": null,
+        "emi_amount": "4416",
+        "merchant": "EasyCredit",
+        "name": "Arnav",
+        "outcome": null,
+        "payment_status": "unpaid",
+        "product": "Samsung Smart TV",
+        "promise_to_pay_date": null
+      },
+      "evaluation": {
+        "accepted_dispositions": [
+          "fptp"
+        ],
+        "account_id": "EC-DEMO-2950",
+        "forbidden_phrases": [
+          "otp",
+          "cvv",
+          "upi pin",
+          "card number",
+          "password",
+          "guaranteed waiver",
+          "ignore me",
+          "trust me",
+          "payment completed",
+          "payment received"
+        ],
+        "required_actions": [
+          {
+            "arguments": {
+              "date": "28-08-2026"
+            },
+            "name": "record_promise_to_pay"
+          }
+        ],
+        "source_scenario_id": "EMI-DYN-003"
+      }
+    },
+    "initial_scenario_db_hash": "81b25726b047105d14cd9be383d15e9a1d41876a6741f1525cede7ab7bfd9341",
+    "final_scenario_db_hash": "81b25726b047105d14cd9be383d15e9a1d41876a6741f1525cede7ab7bfd9341",
+    "num_turns": 0,
+    "num_tool_calls": 0,
+    "tools_called": [],
+    "conversation_ended_reason": null,
+    "duration_seconds": 48.921566,
+    "output_dir": "/Users/Arnav/Claude/Projects/Sarvam/voice-agent-improvement/artifacts/eva_live/emi_eva_live_20260822_182254/records/EMI-VOICE-002",
+    "audio_assistant_path": null,
+    "audio_user_path": null,
+    "audio_mixed_path": null,
+    "agent_role": "Call an uninterested customer, state the overdue EMI clearly, and obtain a concrete commitment to pay through the official app.",
+    "agent_instructions": "This file documents the external system under test; the actual prompt and\nvoice runtime remain deployed inside Sarvam Indus/Samvaad. The EVA adapter\nmust not reconstruct or replace that agent. A successful call identifies\nEasyCredit and the Samsung TV EMI, makes a direct payment ask, recognizes the\ncustomer's answer, records the disposition, and closes without repetition.\n",
+    "agent_tools": [],
+    "agent_id": "agent_emi",
+    "current_date_time": "2026-08-19 16:30 IST",
+    "language": "en",
+    "language_display_name": "English",
+    "transcribed_assistant_turns": {},
+    "transcribed_user_turns": {},
+    "intended_assistant_turns": {},
+    "intended_user_turns": {},
+    "audio_timestamps_assistant_turns": {},
+    "audio_timestamps_user_turns": {},
+    "num_assistant_turns": 0,
+    "num_user_turns": 0,
+    "tool_params": [],
+    "tool_responses": [],
+    "conversation_trace": [],
+    "latency_assistant_turns": {},
+    "assistant_interrupted_turns": [],
+    "user_interrupted_turns": [],
+    "fallback_turn_ids": [],
+    "pipeline_type": "cascade"
+  },
+  "metrics": {
+    "conversation_valid_end": {
+      "name": "conversation_valid_end",
+      "score": 0.0,
+      "normalized_score": 0.0,
+      "details": {},
+      "error": "Skipped: no assistant or user turns",
+      "skipped": false,
+      "version": null,
+      "prompt_hash": null,
+      "sub_metrics": null
+    }
+  },
+  "aggregate_metrics": {
+    "EVA-A_pass": null,
+    "EVA-X_pass": null,
+    "EVA-A_mean": null,
+    "EVA-X_mean": null,
+    "EVA-overall_mean": null,
+    "EVA-overall_pass": null
+  }
+}

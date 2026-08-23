@@ -1,0 +1,93 @@
+[00:32:44] P0 token check
+[00:32:44] P0 tunnel + tool service
+  tunnel HTTP 200
+[00:32:44] P1 noise probe: applying v3 seed to draft, 2x stratified probe
+  run2 [41/45] EMI-BENCH-0024 FAIL
+  run2 [42/45] EMI-BENCH-0027 FAIL
+  run2 [43/45] EMI-BENCH-0067 ok
+  run2 [44/45] EMI-BENCH-0068 ok
+  run2 [45/45] EMI-BENCH-0071 ok
+{
+  "n_scenarios": 45,
+  "pass_run1": 23,
+  "pass_run2": 22,
+  "flipped": [
+    "EMI-BENCH-0046"
+  ],
+  "flip_rate": 0.0222,
+  "sigma_pass_count": {
+    "30": 0.58,
+    "60": 0.82,
+    "180": 1.41
+  },
+  "gate_rule": "a blind-60 delta below 1.6 passes is reported as within noise"
+}
+[00:47:23] P2 gen1 explore: GEPA budget 380, reflector gemini-3.1-pro-preview
+Iteration 10: Linear pareto front program index: 9
+Iteration 10: New program candidate index: 9
+BEST SCORE: None
+candidates explored: 10
+champion applied to draft
+[02:04:14] P3 gen1-explore champion on full development split
+  [105/105] EMI-BENCH-0165 FAIL fptp tools=['record_promise_to_pay', 'record_call_outcome'] 9.2s
+  development: 77/105 passed
+  regressions 7 | fixes 25 (protecting 10) | stuck 20
+    REGR EMI-BENCH-0035 callback_capture
+    REGR EMI-BENCH-0038 callback_capture
+    REGR EMI-BENCH-0039 callback_capture
+    REGR EMI-BENCH-0040 callback_capture
+    REGR EMI-BENCH-0043 callback_capture
+    REGR EMI-BENCH-0044 callback_capture
+    REGR EMI-BENCH-0046 already_paid
+[02:23:04] P4 gen1 consolidate: budget 100 on regressions + protected fixes
+Iteration 5: Linear pareto front program index: 0
+Iteration 5: New program candidate index: 1
+BEST SCORE: None
+candidates explored: 2
+champion applied to draft
+  gen1 final = gen1_consolidate
+[02:47:04] P5 gen1 verdict on 180
+  development: 81/105 passed
+  validation: 24/30 passed
+  regression: 25/30 passed
+  synthetic: 6/15 passed
+  regressions 10 | fixes 48 (protecting 10) | stuck 31
+    REGR EMI-BENCH-0035 callback_capture
+    REGR EMI-BENCH-0036 callback_capture
+    REGR EMI-BENCH-0037 callback_capture
+    REGR EMI-BENCH-0038 callback_capture
+    REGR EMI-BENCH-0039 callback_capture
+    REGR EMI-BENCH-0040 callback_capture
+    REGR EMI-BENCH-0041 callback_capture
+    REGR EMI-BENCH-0042 callback_capture
+[03:18:58] P6 gen2 explore: budget 300, stuck bucket excluded from search
+Iteration 24: Linear pareto front program index: 0
+Iteration 24: New program candidate index: 3
+BEST SCORE: None
+candidates explored: 4
+champion applied to draft
+[04:39:25] P6b gen2-explore champion on development
+  [105/105] EMI-BENCH-0165 FAIL fptp tools=['record_promise_to_pay', 'record_call_outcome'] 10.1s
+  development: 80/105 passed
+  regressions 1 | fixes 0 (protecting 0) | stuck 24
+    REGR EMI-BENCH-0054 already_paid
+[04:57:56] P6c gen2 consolidate
+Iteration 2: Linear pareto front program index: 2
+Iteration 2: New program candidate index: 2
+BEST SCORE: None
+candidates explored: 3
+champion applied to draft
+  gen2 final = gen2_consolidate
+[05:20:06] P7 gen2 verdict on 180 + fresh blind
+  development: 81/105 passed
+  validation: 26/30 passed
+  regression: 24/30 passed
+  synthetic: 6/15 passed
+  blind_g2: 25/30 passed
+[05:58:38] P7b baseline on fresh blind (for the g2 rung denominator)
+  blind_g2: 15/30 passed
+[06:03:19] P8 ladder report
+  v3:g1: overall 98→136/180 | blind 34→49/60 CI(0.701, 0.894) signal | ±48/-10 p=0.0 | guard 42→63 | words/turn 16.0→15.9
+  g1:g2: overall 136→137/180 | blind 49→50/60 CI(0.72, 0.907) NOISE | ±6/-5 p=1.0 | guard 63→60 VETO | words/turn 15.9→15.8
+  v3:g2: overall 98→137/180 | blind 34→50/60 CI(0.72, 0.907) signal | ±51/-12 p=0.0 | guard 42→60 | words/turn 16.0→15.8
+[06:03:19] OVERNIGHT REFLEX COMPLETE — champion is on the draft, uncommitted

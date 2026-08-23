@@ -1,0 +1,101 @@
+{
+  "sigma60": 0.82,
+  "rungs": {
+    "v3c:g1c": {
+      "n": 180,
+      "overall": {
+        "parent": 98,
+        "champion": 155
+      },
+      "blind": {
+        "n": 60,
+        "parent": 33,
+        "champion": 57,
+        "champion_ci": [
+          0.863,
+          0.983
+        ],
+        "within_noise": false
+      },
+      "guardrails": {
+        "n": 73,
+        "parent": 40,
+        "champion": 62,
+        "veto": false
+      },
+      "paired": {
+        "fixed": 59,
+        "broken": 2,
+        "mcnemar_p": 0.0
+      },
+      "quality_words_per_turn": {
+        "parent": 15.9,
+        "champion": 15.9
+      }
+    },
+    "g1c:g2c": {
+      "n": 180,
+      "overall": {
+        "parent": 155,
+        "champion": 160
+      },
+      "blind": {
+        "n": 60,
+        "parent": 57,
+        "champion": 59,
+        "champion_ci": [
+          0.911,
+          0.997
+        ],
+        "within_noise": false
+      },
+      "guardrails": {
+        "n": 73,
+        "parent": 62,
+        "champion": 63,
+        "veto": false
+      },
+      "paired": {
+        "fixed": 7,
+        "broken": 2,
+        "mcnemar_p": 0.17969
+      },
+      "quality_words_per_turn": {
+        "parent": 15.9,
+        "champion": 15.6
+      }
+    },
+    "v3c:g2c": {
+      "n": 180,
+      "overall": {
+        "parent": 98,
+        "champion": 160
+      },
+      "blind": {
+        "n": 60,
+        "parent": 33,
+        "champion": 59,
+        "champion_ci": [
+          0.911,
+          0.997
+        ],
+        "within_noise": false
+      },
+      "guardrails": {
+        "n": 73,
+        "parent": 40,
+        "champion": 63,
+        "veto": false
+      },
+      "paired": {
+        "fixed": 62,
+        "broken": 0,
+        "mcnemar_p": 0.0
+      },
+      "quality_words_per_turn": {
+        "parent": 15.9,
+        "champion": 15.6
+      }
+    }
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "run": "Reflex — two autonomous generations, 23–24 Aug 2026",
+  "agent": {
+    "app_id": "EasyCredit--4e112b0d-9931",
+    "baseline": "v3 (committed)",
+    "champion": "generation 2 (draft/staging, uncommitted)"
+  },
+  "lineage": "machine-only: seed = committed v3 instructions verbatim; exemplars machine-mined from v3's own passing calls; every mutation proposed by gemini-3.1-pro-preview",
+  "clock": "all figures measured with the agent's currentDate synced to the real date; grader reads the live clock (no date literals anywhere in the scoring path)",
+  "noise_floor": {
+    "n_scenarios": 45,
+    "pass_run1": 23,
+    "pass_run2": 22,
+    "flipped": [
+      "EMI-BENCH-0046"
+    ],
+    "flip_rate": 0.0222,
+    "sigma_pass_count": {
+      "30": 0.58,
+      "60": 0.82,
+      "180": 1.41
+    },
+    "gate_rule": "a blind-60 delta below 1.6 passes is reported as within noise"
+  },
+  "ladder": {
+    "v3->gen1": {
+      "overall": {
+        "parent": 98,
+        "champion": 155,
+        "n": 180
+      },
+      "blind": {
+        "parent": 33,
+        "champion": 57,
+        "n": 60
+      },
+      "guardrails": {
+        "parent": 40,
+        "champion": 62,
+        "n": 73
+      },
+      "paired": {
+        "fixed": 59,
+        "broken": 2,
+        "mcnemar_p": 0.0
+      }
+    },
+    "gen1->gen2": {
+      "overall": {
+        "parent": 155,
+        "champion": 160,
+        "n": 180
+      },
+      "blind": {
+        "parent": 57,
+        "champion": 59,
+        "n": 60
+      },
+      "guardrails": {
+        "parent": 62,
+        "champion": 63,
+        "n": 73
+      },
+      "paired": {
+        "fixed": 7,
+        "broken": 2,
+        "mcnemar_p": 0.179688
+      }
+    },
+    "v3->gen2": {
+      "overall": {
+        "parent": 98,
+        "champion": 160,
+        "n": 180
+      },
+      "blind": {
+        "parent": 33,
+        "champion": 59,
+        "n": 60
+      },
+      "guardrails": {
+        "parent": 40,
+        "champion": 63,
+        "n": 73
+      },
+      "paired": {
+        "fixed": 62,
+        "broken": 0,
+        "mcnemar_p": 0.0
+      }
+    }
+  },
+  "fresh_blind_30": {
+    "note": "generated after the run, never seen by any search phase",
+    "v3": 18,
+    "gen1": 27,
+    "gen2": 29,
+    "n": 30
+  },
+  "headline": "v3 98/180 -> generation 2 160/180 (+63% relative); blind 33/60 -> 59/60; 62 scenarios fixed, 0 broken; McNemar p ~ 0; guardrails 40/72 -> 63/72",
+  "caveats": [
+    "gen1->gen2 is +5 overall / +2 blind at p=0.18 — directionally positive and regression-free, but compounding across generations is suggestive, not statistically established",
+    "chat tier only: the voice transfer (15 phone cards + 5 bot-to-bot on the champion) is S7 and unmeasured",
+    "one account, scripted callers, uniform family mix — not a production traffic forecast"
+  ],
+  "grading_note": "Two columns are reported everywhere. STRICT requires the literal pinned argument. ENV-CONDITIONED credits a pinned date when the agent produced the environment's value for the same relation (today/tomorrow), because the channel never delivers the scenario's own clock to the agent — it applies identically to every version, so comparisons are unaffected by the choice. Headline figures are env-conditioned; strict is always shown beside them.",
+  "attribution": {
+    "exemplar_ablation": {
+      "n": 60,
+      "question": "did the second candidate component earn its place?",
+      "v3_base": 33,
+      "instructions_only": 49,
+      "both_components": 59,
+      "gain_from_instructions": 16,
+      "gain_from_second_component": 10,
+      "share_of_gain_from_second_component": 0.385,
+      "finding": "the second component carries 10 of the 26-pass gain (38%) — it is load-bearing, not decorative. Note it evolved into a rules block rather than worked examples, so the credit belongs to 'a separately-optimised second text component', not to demonstrations specifically."
+    },
+    "paraphrase_robustness": {
+      "n": 30,
+      "question": "did the champion learn tool discipline, or the utterance bank's phrasings?",
+      "v3_original": 18,
+      "v3_reworded": 17,
+      "champion_original": 29,
+      "champion_reworded": 26,
+      "method": "every caller line reworded by Gemini with the writing system pinned and verified per line (0/131 script flips); required actions, accepted dispositions and account values untouched",
+      "finding": "the champion loses 3 under complete rewording (real, above the 1.16 noise threshold) but retains +9 of its original +11 advantage — roughly 82% of the gain survives paraphrase, so the improvement is mostly wording-independent tool discipline, not bank-fitting."
+    }
+  }
+}

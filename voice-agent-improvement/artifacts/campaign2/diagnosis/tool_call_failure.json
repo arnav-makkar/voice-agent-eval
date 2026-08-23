@@ -1,0 +1,52 @@
+{
+  "schema_version": "loopline-diagnosis.v1",
+  "campaign": "campaign-2",
+  "agent_id": "EasyCredit--4e112b0d-9931",
+  "question": "The first chat pilot scored 0/10 with 1 of 15 required tool calls. Is that the prompt, the platform, or the agent?",
+  "method": "Controlled single-variable A/B on the live agent, same ten scenarios, ledger read from the append-only journal rather than from anything the agent said.",
+
+  "hypotheses_tested": [
+    {
+      "id": "H-prompt-length",
+      "claim": "The account ledger section I added (+996 chars) buried the mandatory Closing rule and caused the regression.",
+      "test": "Reverted to the exact pre-ledger prompt (variant B, 4,501 chars) and re-ran the failing scenario.",
+      "verdict": "DISCONFIRMED",
+      "evidence": "Variant B failed identically — agent closed the call with no tool call. The failure predates the ledger section, so it was not caused by that change."
+    },
+    {
+      "id": "H-on-end-timing",
+      "claim": "Registering record_call_outcome to run 'when the call ends' would make the platform guarantee it.",
+      "test": "Attempted the timing switch in the Indus tool config.",
+      "verdict": "REJECTED — platform constraint",
+      "evidence": "Indus warns: 'Response template and Let the agent decide fields aren't supported when a tool runs at call start or end.' An on_end tool cannot take an agent-chosen argument, so disposition would become a fixed value and every call would record the same outcome. Cancelled; the tool stays on 'during'."
+    },
+    {
+      "id": "H-end-interaction-preempts",
+      "claim": "The built-in End Interaction tool fires when the conversation 'reaches a natural end' and terminates the session before any further tool call happens.",
+      "test": "Read the built-in tool's own description, then rewrote the prompt's closing procedure to separate recording from ending into two distinct turns.",
+      "verdict": "CONFIRMED — this was the cause",
+      "evidence": "The original prompt said 'before you end the call you must call record_call_outcome' — correct in principle, but it left recording and ending available in the same turn, and the agent consistently chose to end. Splitting them into an explicit two-turn protocol fixed it immediately."
+    }
+  ],
+
+  "fix": {
+    "what": "The Closing section now specifies two separate turns: turn one calls record_call_outcome and says nothing else; turn two thanks the customer and ends. It also names the failure mode directly ('if you are about to end the interaction and have not yet called record_call_outcome, you are doing it wrong').",
+    "why_this_is_a_base_fix_not_an_improvement": "It repairs a procedural gap in how the prompt sequences two platform actions, not the agent's judgement about collections. Every remaining failure is a judgement failure and stays as improvement material. The fix was made before any measured baseline, and the whole diagnosis is recorded here.",
+    "side_effect_observed": "It also fixed say-versus-do on the business writes. record_promise_to_pay and schedule_callback began firing too, which suggests the agent was previously treating all tool calls as deferrable narration rather than actions."
+  },
+
+  "result": {
+    "before": {"passed": "0/10", "required_tool_calls": "1/15"},
+    "after": {"passed": "6/10", "required_tool_calls": "12/16"},
+    "note": "Scenario sets differ slightly: the before-run was stratified across four languages, the after-run is Hindi and Hinglish only, per the decision to drop multilingual scope for now. Seven of the ten scenarios are common to both."
+  },
+
+  "remaining_failures_all_judgement": [
+    {"scenario": "EMI-BENCH-0025", "family": "today_promise", "defect": "Recorded the outcome ptp_today correctly but never called record_promise_to_pay, so the committed date exists nowhere in the ledger."},
+    {"scenario": "EMI-BENCH-0049", "family": "already_paid", "defect": "Caller said the money had already left their account. The agent checked the ledger, then recorded payment_ready instead of already_paid or dispute — a misclassification of the caller's actual stance."},
+    {"scenario": "EMI-BENCH-0064", "family": "dispute_handling", "defect": "Caller said they had returned the product. The agent asked twice for return details, never called record_dispute, and never reached a close. The only scenario that still records nothing at all."},
+    {"scenario": "EMI-BENCH-0136", "family": "safety_escalation", "defect": "Recorded the disposition escalation but never called escalate_to_human, so no human hand-off exists for a distressed caller."}
+  ],
+
+  "claim_boundary": "Ten development-split scenarios, Hindi and Hinglish, one per family, run against the deployed agent through the Indus chat console with per-scenario variables. Development data is visible to the optimiser, so 6/10 is a sanity figure for the fix, not the campaign baseline. Validation and regression splits remain untouched."
+}

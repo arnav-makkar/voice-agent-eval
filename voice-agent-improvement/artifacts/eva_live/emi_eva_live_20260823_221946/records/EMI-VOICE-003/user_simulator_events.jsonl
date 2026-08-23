@@ -1,0 +1,21 @@
+{"timestamp": 1787503792500, "sequence": 1, "type": "connection_state", "data": {"state": "connected", "details": {"server_url": "ws://localhost:10000/ws"}}, "provider": "elevenlabs"}
+{"timestamp": 1787503793037, "sequence": 2, "type": "connection_state", "data": {"state": "session_started", "details": {}}, "provider": "elevenlabs"}
+{"timestamp": 1787503793543, "sequence": 3, "event_type": "audio_start", "user": "assistant", "audio_timestamp": 1787503793.54339, "provider": "elevenlabs"}
+{"timestamp": 1787503798848, "sequence": 4, "event_type": "audio_start", "user": "simulated_user", "audio_timestamp": 1787503798.847379, "provider": "elevenlabs"}
+{"timestamp": 1787503813879, "sequence": 5, "event_type": "audio_end", "user": "simulated_user", "audio_timestamp": 1787503813.8777747, "provider": "elevenlabs"}
+{"timestamp": 1787503814056, "sequence": 6, "event_type": "audio_start", "user": "simulated_user", "audio_timestamp": 1787503814.056306, "provider": "elevenlabs"}
+{"timestamp": 1787503818117, "sequence": 7, "event_type": "audio_end", "user": "simulated_user", "audio_timestamp": 1787503817.5192983, "provider": "elevenlabs"}
+{"timestamp": 1787503822256, "sequence": 8, "event_type": "audio_start", "user": "simulated_user", "audio_timestamp": 1787503822.255372, "provider": "elevenlabs"}
+{"timestamp": 1787503832566, "sequence": 9, "event_type": "audio_end", "user": "simulated_user", "audio_timestamp": 1787503832.5655043, "provider": "elevenlabs"}
+{"timestamp": 1787503832696, "sequence": 10, "event_type": "audio_start", "user": "simulated_user", "audio_timestamp": 1787503832.696255, "provider": "elevenlabs"}
+{"timestamp": 1787503836917, "sequence": 11, "event_type": "audio_end", "user": "simulated_user", "audio_timestamp": 1787503836.318124, "provider": "elevenlabs"}
+{"timestamp": 1787503840515, "sequence": 12, "event_type": "audio_end", "user": "assistant", "audio_timestamp": 1787503840.5154848, "provider": "elevenlabs"}
+{"timestamp": 1787503793000, "sequence": 13, "type": "assistant_speech", "data": {"text": "नमस्ते, क्या मैं Arnav जी से बात कर रहा हूँ?", "source": "assistant", "source_of_truth": "greeting_template"}, "provider": "elevenlabs"}
+{"timestamp": 1787503797000, "sequence": 14, "type": "user_speech", "data": {"text": "[confused] Sorry, I think you have the wrong number. I am Arnav.", "source": "simulated_user", "recovered_post_call": true}, "provider": "elevenlabs"}
+{"timestamp": 1787503802000, "sequence": 15, "type": "assistant_speech", "data": {"text": "I am Shubh from EasyCredit. This is about the overdue EMI of 4 thousand 4 hundred 16 rupees for your Samsung Smart TV.\n\nCan you pay this now through the official EasyCredit app?", "source": "assistant", "source_of_truth": "samvaad"}, "provider": "elevenlabs"}
+{"timestamp": 1787503812000, "sequence": 16, "type": "user_speech", "data": {"text": "[annoyed] Look, I am driving right now and cannot talk. Please call me back tomorrow morning.", "source": "simulated_user", "recovered_post_call": true}, "provider": "elevenlabs"}
+{"timestamp": 1787503818000, "sequence": 17, "type": "assistant_speech", "data": {"text": "Sure. What time tomorrow morning should I call you back?", "source": "assistant", "source_of_truth": "samvaad"}, "provider": "elevenlabs"}
+{"timestamp": 1787503820000, "sequence": 18, "type": "user_speech", "data": {"text": "Call me back tomorrow morning between nine and ten.", "source": "simulated_user", "recovered_post_call": true}, "provider": "elevenlabs"}
+{"timestamp": 1787503826000, "sequence": 19, "type": "assistant_speech", "data": {"text": "Okay, I will call you tomorrow between 9 and 10 AM.", "source": "assistant", "source_of_truth": "samvaad"}, "provider": "elevenlabs"}
+{"timestamp": 1787503831000, "sequence": 20, "type": "user_speech", "data": {"text": "Thanks. Please call me tomorrow morning between nine and ten. I have to go now.", "source": "simulated_user", "recovered_post_call": true}, "provider": "elevenlabs"}
+{"timestamp": 1787503856599, "sequence": 22, "type": "connection_state", "data": {"state": "session_ended", "details": {"reason": "assistant_completed"}}, "provider": "elevenlabs"}

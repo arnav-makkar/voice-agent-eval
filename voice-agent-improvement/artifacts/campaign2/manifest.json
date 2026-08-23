@@ -67,7 +67,7 @@
   "rules": {
     "validity": "A session counts only if evaluator-valid AND transport-healthy. An unreachable tool endpoint yields tool_transport_invalid and the record is excluded, never scored as agent failure.",
     "tool_requirement_by_tier": {
-      "text": "Explicit record_disposition with the exact outcome, plus any business write. Verified in-process.",
+      "text": "Explicit record_call_outcome with the exact outcome, plus any business write. Verified in-process.",
       "live": "Correct extracted disposition AND, where the card requires it, a journal-verified HTTP tool effect. Reported as two numbers, never merged."
     },
     "headline": "Blind split only (86). Development scores are shown and labelled in-sample, and never lead.",

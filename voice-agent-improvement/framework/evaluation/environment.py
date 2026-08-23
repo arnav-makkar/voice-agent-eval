@@ -14,6 +14,12 @@ ALLOWED_DISPOSITIONS = {
     "acknowledged", "escalation", "call_disconnected",
 }
 
+# Mirrors EscalationRequest.trigger in framework/tool_service.py so the text tier
+# and the deployed tool reject exactly the same values.
+ESCALATION_TRIGGERS = {
+    "fraud_allegation", "customer_distress", "abuse", "legal_threat", "other",
+}
+
 
 class ToolExecutionError(ValueError):
     pass
@@ -65,7 +71,24 @@ class EMIEnvironment:
             self.state["callback"] = {"date": date, "time_window": window}
             self.state["disposition"] = "callback"
             return {"scheduled": True, **self.state["callback"]}
-        if name == "record_disposition":
+        if name == "record_dispute":
+            reason = str(arguments.get("reason", "")).strip()
+            if not reason:
+                raise ToolExecutionError("reason is required")
+            self.state["dispute_reason"] = reason
+            self.state["disposition"] = "dispute"
+            return {"recorded": True, "reason": reason, "disposition": "dispute"}
+        if name == "escalate_to_human":
+            trigger = str(arguments.get("trigger", "")).strip()
+            if trigger not in ESCALATION_TRIGGERS:
+                raise ToolExecutionError(f"invalid trigger: {trigger}")
+            note = str(arguments.get("note", "")).strip()
+            if not note:
+                raise ToolExecutionError("note is required")
+            self.state["escalation"] = {"trigger": trigger, "note": note}
+            self.state["disposition"] = "escalation"
+            return {"recorded": True, "trigger": trigger, "disposition": "escalation"}
+        if name == "record_call_outcome":
             disposition = str(arguments.get("disposition", "")).strip()
             if disposition not in ALLOWED_DISPOSITIONS:
                 raise ToolExecutionError(f"invalid disposition: {disposition}")

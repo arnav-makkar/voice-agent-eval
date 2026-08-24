@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="site.css?v=39">
+<link rel="stylesheet" href="site.css?v=40">
 <style>
 .vs{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:28px 0;
   border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden}
@@ -35,7 +35,7 @@
 </style>
 <script>(function(){try{var m=localStorage.getItem("theme");
 if(m==="light"||m==="dark")document.documentElement.setAttribute("data-theme",m);}catch(e){}})();</script>
-<script src="nav.js?v=39" defer></script>
+<script src="nav.js?v=40" defer></script>
 </head>
 <body>
 <div class="navwrap">
@@ -47,8 +47,49 @@ if(m==="light"||m==="dark")document.documentElement.setAttribute("data-theme",m)
 
 <p class="kicker">Step two · evaluate</p>
 <h1>Measured on what it does, not what it says</h1>
-<p class="lede">One rule decides every number in this study: a conversation is graded on
-the records it leaves behind, never on how it sounded.</p>
+<p class="lede">Fifteen real phone calls, then five bot-to-bot conversations, then a measurement
+framework built on one rule: a call is graded on the records it leaves behind, never on how it
+sounded.</p>
+
+<h2 id="calls15">Fifteen real phone calls</h2>
+<p>The first test was the simplest one: dial the deployed agent and talk to it. Fifteen calls to
+a live handset, made by hand, covering fifteen situations from a routine payment to a dispute, a
+fraud claim, and a customer in distress. Real speech recognition, real interruptions, no second
+attempts.</p>
+
+<div class="panel">
+  <div class="panel-head">
+    <h3 style="font-size:16px;margin:0">Phone calls</h3>
+    <span class="chip">situations <b>15</b></span>
+    <span class="chip">pass <b>9 of 15</b></span>
+    <span class="sp"></span>
+  </div>
+  <div class="split">
+    <div class="clist" id="evalList" role="listbox" aria-label="Baseline phone calls"></div>
+    <div class="detailcol" id="evalDetail"></div>
+  </div>
+</div>
+
+<h2>Then five bot-to-bot conversations</h2>
+<p>A human caller is never the same twice, so the second tier replaces the caller: a synthetic
+customer speaks to the same deployed agent over live audio. The same voice test can now be
+repeated exactly.</p>
+
+<div class="panel">
+  <div class="panel-head">
+    <h3 style="font-size:16px;margin:0">Bot-to-bot voice</h3>
+    <span class="chip">scenarios <b>5</b></span>
+    <span class="chip">pass <b>4 of 5</b></span>
+    <span class="sp"></span>
+  </div>
+  <div class="split">
+    <div class="clist" id="botList" role="listbox" aria-label="Baseline voice lab"></div>
+    <div class="detailcol" id="botDetail"></div>
+  </div>
+</div>
+
+<h2>The voice evaluation framework</h2>
+<p>Scoring those calls is what the framework was built for. One rule decides everything:</p>
 
 <div class="rule">
   <div class="side no">
@@ -64,35 +105,9 @@ the records it leaves behind, never on how it sounded.</p>
   </div>
 </div>
 
-<p>Everything below follows from that: the channels exist to produce conversations, the log
-records what each one actually did, and the grader compares end states. No model decides whether
-the task was completed.</p>
+<p>Every action the agent takes is written to a log it can add to but never edit or read back.
+The channels only produce conversations; the log records what each one actually did.</p>
 
-<h2>Three channels, one agent</h2>
-<div class="tiers">
-  <div class="tier">
-    <div class="n">15</div>
-    <h4>Real phone calls</h4>
-    <p>Dialled to a live handset with a person on the line. Real speech recognition,
-    interruptions, nothing retryable.</p>
-  </div>
-  <div class="tier">
-    <div class="n">180</div>
-    <h4>Typed conversations</h4>
-    <p>Headless and cheap, so it can run at a scale that carries statistics. Fifteen failure
-    types, twelve variations each.</p>
-  </div>
-  <div class="tier">
-    <div class="n">5</div>
-    <h4>Bot-to-bot voice</h4>
-    <p>A synthetic caller speaks to the agent over live audio, which makes voice behaviour
-    repeatable in a way a human caller never is.</p>
-  </div>
-</div>
-<p>All three drive the <strong>same deployed agent</strong> and are graded by the same rule.
-That is what makes them independent evidence rather than three views of one test.</p>
-
-<h2>How the instrument works</h2>
 <svg class="dg" viewBox="0 0 860 430" role="img"
   aria-label="Three channels drive one live agent whose tool calls write to one permanent log, which the grader reads">
   <defs>
@@ -141,7 +156,11 @@ That is what makes them independent evidence rather than three views of one test
   <text x="430" y="396" text-anchor="middle" font-size="11.5" class="mut">a yes or no, computed, not judged</text>
 
 </svg>
-<h2>How a conversation is scored</h2>
+
+<p>Each conversation is then scored two ways. Deterministic checks read the log and verify the
+account ended in the state the situation required. LLM judges separately score how the call was
+handled, on five-level scales with written rules, and they never decide whether the job got
+done.</p>
 
 <div class="tw"><table>
 <tr><th style="width:30%">Question</th><th style="width:26%">Decided by</th><th>What it means in plain terms</th></tr>
@@ -155,9 +174,21 @@ That is what makes them independent evidence rather than three views of one test
   <td>Moves forward instead of circling, says what is needed without padding.</td></tr>
 <tr><td><strong>Was the test itself sound?</strong></td><td><span class="tag">LLM judge</span></td>
   <td>Did the fake caller behave like a real person? A failure here throws out the test, not the agent.</td></tr>
+<tr><td><strong>Where did it go wrong?</strong></td><td><span class="tag">Both</span></td>
+  <td>Every failed call is marked with its first breaking turn: the turn after which the required
+  outcome was no longer reachable. Computed for duplicate writes, judged otherwise.</td></tr>
 <tr><td><strong>Written exactly once?</strong></td><td><span class="tag acc">Computed</span></td>
   <td>Every required record present, none duplicated. Reading the log, not the transcript.</td></tr>
 </table></div>
+
+<div class="callout good">
+  <div class="bd">
+    <p style="margin:0"><strong>Nothing here depends on the number of calls.</strong> The
+    deterministic checks read only the log, and the judges score one call at a time against a
+    fixed rubric. The same framework runs unchanged on five calls or five thousand, and the log
+    checks and judges can run on live production traffic as they are.</p>
+  </div>
+</div>
 
 <details class="tg">
   <summary>Scoring thresholds and composite definitions</summary>
@@ -238,65 +269,12 @@ measured first, so no ordinary fluctuation could be mistaken for progress.</p>
   </div>
 </details>
 
-<h2 id="calls15">The evidence: 200 conversations</h2>
-<p>Three channels, one grading rule. Every call below is the deployed baseline agent.</p>
-
-<div class="panel">
-  <div class="panel-head">
-    <h3 style="font-size:16px;margin:0">Phone calls</h3>
-    <span class="chip">situations <b>15</b></span>
-    <span class="chip">pass <b>9 of 15</b></span>
-    <span class="sp"></span>
-  </div>
-  <div class="split">
-    <div class="clist" id="evalList" role="listbox" aria-label="Baseline phone calls"></div>
-    <div class="detailcol" id="evalDetail"></div>
-  </div>
-</div>
-
-<div class="panel">
-  <div class="panel-head">
-    <h3 style="font-size:16px;margin:0">Bot-to-bot voice</h3>
-    <span class="chip">scenarios <b>5</b></span>
-    <span class="chip">accuracy <b>0.93</b></span>
-    <span class="sp"></span>
-  </div>
-  <div class="split">
-    <div class="clist" id="botList" role="listbox" aria-label="Baseline voice lab"></div>
-    <div class="detailcol" id="botDetail"></div>
-  </div>
-</div>
-
-<div class="panel">
-  <div class="panel-head">
-    <h3 style="font-size:16px;margin:0">Typed conversations</h3>
-    <span class="chip">situation types <b>15</b></span>
-    <span class="chip">each <b>×12</b></span>
-    <span class="chip">pass <b>98 of 180</b></span>
-  </div>
-  <p class="sub" style="margin:4px 0 0">The scale tier: every situation type from routine payment
-  to fraud, run headlessly against the same live agent and graded from the same log. This is
-  where the statistical power sits; the phone and voice tiers test the same agent in real speech.</p>
-</div>
-
-<h2>Where the baseline stood</h2>
+<h2 id="failing">What the calls showed</h2>
 <div class="verdict">
-  <div><div class="k">Typed</div><div class="v">98 <span style="font-size:14px;color:var(--ink-3);font-weight:400">of 180</span></div><div class="s">82 still open</div></div>
   <div><div class="k">Phone</div><div class="v">9 <span style="font-size:14px;color:var(--ink-3);font-weight:400">of 15</span></div><div class="s">6 still open</div></div>
-  <div><div class="k">Voice</div><div class="v">4 <span style="font-size:14px;color:var(--ink-3);font-weight:400">of 5</span></div><div class="s">1 still open</div></div>
-  <div><div class="k">Safety situations</div><div class="v">40 <span style="font-size:14px;color:var(--ink-3);font-weight:400">of 73</span></div><div class="s">fraud, distress, privacy</div></div>
+  <div><div class="k">Bot-to-bot</div><div class="v">4 <span style="font-size:14px;color:var(--ink-3);font-weight:400">of 5</span></div><div class="s">1 still open</div></div>
 </div>
-<div class="callout warm">
-  <div class="bd">
-    <p style="margin:0"><strong>This is the baseline the loop starts from.</strong>
-    111 of 200 conversations reached the end state their situation required. The rest are now
-    identified one by one, and almost none of them are audible, which is exactly why grading the
-    log rather than the transcript was worth the trouble.</p>
-  </div>
-</div>
-
-<h2 id="failing">What the record revealed</h2>
-<p>One call carries most of it.</p>
+<p>Almost none of the failures are audible. One call shows why.</p>
 <p>The customer insists he already paid. The agent checks the account, quotes the right figure,
 and closes.</p>
 
@@ -331,6 +309,27 @@ and closes.</p>
   </div>
 </div>
 
+<h2>Scaling it: 180 typed conversations</h2>
+<p>Live voice calls cost time and money, and seven failures carry no statistics. The same agent
+also has a text channel, so the same evaluation runs over typed conversations: fifteen situation
+types, twelve variations each, graded from the same log by the same rule.</p>
+
+<div class="panel">
+  <div class="panel-head">
+    <h3 style="font-size:16px;margin:0">Typed conversations</h3>
+    <span class="chip">situation types <b>15</b></span>
+    <span class="chip">each <b>×12</b></span>
+    <span class="chip">pass <b>98 of 180</b></span>
+  </div>
+  <p class="sub" style="margin:4px 0 0">The scale tier: every situation type from routine payment
+  to fraud, run headlessly against the same live agent and graded from the same log. This is
+  where the statistical power sits; the phone and voice tiers test the same agent in real speech.</p>
+</div>
+
+<div class="verdict">
+  <div><div class="k">Typed</div><div class="v">98 <span style="font-size:14px;color:var(--ink-3);font-weight:400">of 180</span></div><div class="s">82 still open</div></div>
+  <div><div class="k">Safety situations</div><div class="v">40 <span style="font-size:14px;color:var(--ink-3);font-weight:400">of 73</span></div><div class="s">fraud, distress, privacy</div></div>
+</div>
 
 <p>Twenty-three of the 180 typed conversations had this shape: a commitment in the recorded
 outcome with nothing behind it. Every one of them reads as a competent call.</p>

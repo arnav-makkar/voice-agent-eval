@@ -21,142 +21,60 @@ if(m==="light"||m==="dark")document.documentElement.setAttribute("data-theme",m)
 </div>
 <div class="shell">
 
-<p class="kicker">A framework for self-improving voice agents · validated on a live Sarvam Indus agent</p>
-<h1>A framework that makes deployed voice agents improve themselves</h1>
-<p class="lede">It measures what an agent actually does, not what it says, and uses that
-signal to improve the agent automatically. Proven end to end on one live agent.</p>
+<p class="kicker">Executive summary</p>
+<h1>A Framework for Evaluation and Self-Improvement of Voice Agents</h1>
+<p class="lede">Voice agents are judged on what they say. Businesses run on what they do. This
+framework measures the difference, and closes it automatically.</p>
 
-<h2 style="margin-top:40px">The story, in four steps</h2>
-<p>The site follows the order the work happened.</p>
-<div class="tw"><table>
-<tr><th style="width:16%">Step</th><th style="width:26%">Section</th><th>The question</th></tr>
-<tr><td><strong>1 · Build</strong></td><td><a href="agent.html">The agent</a></td>
-  <td>What is being tested, and what does it sound like?</td></tr>
-<tr><td><strong>2 · Evaluate</strong></td><td><a href="system.html">Evaluation</a></td>
-  <td>How is it measured, what did the baseline score, and what exactly was failing?</td></tr>
-<tr><td><strong>3 · Improve</strong></td><td><a href="loop.html">Improvement</a></td>
-  <td>How does the fix get written with no human writing it, and why does it generalize?</td></tr>
-<tr><td><strong>4 · Prove</strong></td><td><a href="calls.html">Recordings</a> · <a href="results.html">Results</a></td>
-  <td>Hear the same calls after the fix, then every number.</td></tr>
-</table></div>
+<div class="stats" style="margin-top:34px">
+  <div class="stat"><div class="lab">Correct outcomes</div>
+    <div class="val"><span class="from">54%</span><span class="ar">&rarr;</span><span class="to">89%</span></div>
+    <div class="note">180 conversations, graded on records written</div></div>
+  <div class="stat"><div class="lab">Real phone calls</div>
+    <div class="val"><span class="from">9</span><span class="ar">&rarr;</span><span class="to">14</span>
+      <span style="font-size:15px;color:var(--ink-3);font-weight:400">of 15</span></div>
+    <div class="note">Re-dialled on a live handset</div></div>
+  <div class="stat"><div class="lab">Cases fixed</div>
+    <div class="val"><span class="to">62</span>
+      <span style="font-size:15px;color:var(--ink-3);font-weight:400">/ 0 broken</span></div>
+    <div class="note">No human wrote the fix</div></div>
+  <div class="stat"><div class="lab">Defects closed</div>
+    <div class="val"><span class="to">5</span>
+      <span style="font-size:15px;color:var(--ink-3);font-weight:400">of 6</span></div>
+    <div class="note">Filed before any fix was attempted</div></div>
+</div>
 
-<h2 style="margin-top:40px">The framework, in one view</h2>
+<h2>How it works</h2>
 <div class="grid3">
   <div class="card">
     <h3>Evaluate</h3>
-    <p class="sub" style="margin-top:6px">Every action an agent takes lands in a permanent log it
-    cannot edit. Grading compares the log against what each situation required. What the agent
-    says never decides a score.</p>
+    <p class="sub" style="margin-top:6px">Every action lands in a log the agent cannot edit. A
+    conversation passes only if that log ends in the required state.</p>
   </div>
   <div class="card">
     <h3>Improve</h3>
-    <p class="sub" style="margin-top:6px">A label-free monitor finds promises with no matching
-    record. Those failures become replay cases, and an automated search rewrites the agent's
-    instructions against them.</p>
+    <p class="sub" style="margin-top:6px">Failures become replayable cases. An automated search
+    rewrites the agent against them.</p>
   </div>
   <div class="card">
     <h3>Govern</h3>
-    <p class="sub" style="margin-top:6px">A rewrite ships only if it wins on held-back cases,
-    regresses no safety case, and clears the measured noise floor. Every version is fingerprinted;
-    rollback is the previous fingerprint.</p>
+    <p class="sub" style="margin-top:6px">A rewrite ships only if it wins on unseen cases,
+    regresses no safety case, and beats the measured noise floor.</p>
   </div>
 </div>
 
 <div class="callout">
   <div class="bd">
-    <p style="margin:0"><strong>Framework versus adapter.</strong> The loop, log, grading, gates
-    and monitor know nothing about the domain. A new agent needs only a thin adapter: its tools,
-    expected end states, and failure types.</p>
+    <p style="margin:0"><strong>Domain-agnostic by construction.</strong> The loop, log, grading
+    and gates know nothing about collections. A new agent needs only its tools, expected end
+    states, and failure types.</p>
   </div>
 </div>
 
-<h2>The validation study</h2>
-<p>One live agent, full loop, everything re-measured on three independent channels.</p>
-
-<div class="hero-num" style="margin-top:40px">
-  <span class="from">54%</span><span class="ar">→</span><span class="to">89%</span>
-</div>
-<p class="sub" style="max-width:56ch">Conversations that finished with the correct record written,
-before and after the loop ran. 180 test conversations, each a different situation a collections
-agent runs into. No person wrote any part of the fix.</p>
-
-<div class="stats">
-  <div class="stat">
-    <div class="lab">Real phone calls</div>
-    <div class="val"><span class="from">9</span><span class="ar">→</span><span class="to">14</span>
-      <span style="font-size:16px;color:var(--ink-3);font-weight:400">of 15</span></div>
-    <div class="note">Placed to an actual handset, one person on the line</div>
-  </div>
-  <div class="stat">
-    <div class="lab">Cases fixed</div>
-    <div class="val"><span class="to">62</span>
-      <span style="font-size:16px;color:var(--ink-3);font-weight:400">/ 0 broken</span></div>
-    <div class="note">Nothing that worked before stopped working</div>
-  </div>
-  <div class="stat">
-    <div class="lab">Known defects closed</div>
-    <div class="val"><span class="to">5</span>
-      <span style="font-size:16px;color:var(--ink-3);font-weight:400">of 6</span></div>
-    <div class="note">Named and filed before the fix was attempted</div>
-  </div>
-  <div class="stat">
-    <div class="lab">Safety cases handled</div>
-    <div class="val"><span class="from">40</span><span class="ar">→</span><span class="to">63</span>
-      <span style="font-size:16px;color:var(--ink-3);font-weight:400">of 73</span></div>
-    <div class="note">Fraud, distress, privacy, credential requests</div>
-  </div>
-</div>
-
-<h2>Three separate proofs</h2>
-<p>Three independent tiers. All three moved together.</p>
-
-<div class="bars">
-  <div class="bar-row">
-    <span class="nm">Typed chat<span>180 conversations</span></span>
-    <span class="bar-pair">
-      <span class="bar-track"><span class="bar-fill" data-w="54.4%"></span></span>
-      <span class="bar-track"><span class="bar-fill now" data-w="88.9%"></span></span>
-    </span>
-    <span class="fig">89%<span class="d">was 54%</span></span>
-  </div>
-  <div class="bar-row">
-    <span class="nm">Phone calls<span>15 calls, real handset</span></span>
-    <span class="bar-pair">
-      <span class="bar-track"><span class="bar-fill" data-w="60%"></span></span>
-      <span class="bar-track"><span class="bar-fill now" data-w="93.3%"></span></span>
-    </span>
-    <span class="fig">14/15<span class="d">was 9/15</span></span>
-  </div>
-  <div class="bar-row">
-    <span class="nm">Voice to voice<span>5 conversations</span></span>
-    <span class="bar-pair">
-      <span class="bar-track"><span class="bar-fill" data-w="93.3%"></span></span>
-      <span class="bar-track"><span class="bar-fill now" data-w="100%"></span></span>
-    </span>
-    <span class="fig">1.00<span class="d">was 0.93</span></span>
-  </div>
-</div>
-<div class="legend">
-  <span><i style="background:var(--ink-3);opacity:.42"></i>Before</span>
-  <span><i style="background:var(--gain)"></i>After</span>
-</div>
-
-<details class="tg" style="margin-top:26px">
-  <summary>Why three tiers instead of one big test</summary>
-  <div class="bd">
-    <p>Each tier answers a question the others cannot.</p>
-    <ul>
-      <li><strong>Typed chat</strong> is cheap enough to run 180 times, so it is the only tier that
-      can carry statistics.</li>
-      <li><strong>Phone calls</strong> put a real person on a real line with real speech
-      recognition, interruptions and background noise. Nothing is retryable.</li>
-      <li><strong>Voice to voice</strong> has a synthetic caller speak to the agent over live
-      audio, which makes voice behaviour repeatable in a way a human caller never is.</li>
-    </ul>
-    <p>The statistics live in the first tier. The other two exist to show the gains survive
-    contact with real speech.</p>
-  </div>
-</details>
+<h2>Validated on a live agent</h2>
+<p>An EMI collections agent deployed on Sarvam Indus, in Hindi and Hinglish. 200 conversations
+across three independent channels: 180 typed, 15 real phone calls, 5 bot-to-bot voice. All three
+moved together.</p>
 
 <div class="walk"><span></span><a class="next" href="agent.html"><span class="k">Next</span><span class="t">The agent</span></a></div>
 </div>

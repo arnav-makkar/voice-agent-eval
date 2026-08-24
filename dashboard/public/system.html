@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="site.css?v=40">
+<link rel="stylesheet" href="site.css?v=41">
 <style>
 .vs{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:28px 0;
   border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden}
@@ -35,7 +35,7 @@
 </style>
 <script>(function(){try{var m=localStorage.getItem("theme");
 if(m==="light"||m==="dark")document.documentElement.setAttribute("data-theme",m);}catch(e){}})();</script>
-<script src="nav.js?v=40" defer></script>
+<script src="nav.js?v=41" defer></script>
 </head>
 <body>
 <div class="navwrap">
@@ -349,63 +349,17 @@ outcome with nothing behind it. Every one of them reads as a competent call.</p>
   </div>
 </details>
 
-<h2 id="register">Six findings, filed with evidence</h2>
-<p>Six defects, filed with severity and evidence before any fix. A defect closes only when
-every call it was raised on passes a re-dial.</p>
-
-<div class="def">
-  <header><span class="tag loss">Critical</span>
-    <h3>1. Handles it perfectly, records nothing</h3>
-    <span class="tag">calls 5 and 6</span></header>
-  <p class="ev">One call checked the balance, held the correct figure and refused an
-  already paid claim, then ended without writing an outcome. Another handled a dispute properly in
-  conversation and triggered no action at all.</p>
-  <p class="cost"><b>Cost:</b> both transcripts read as good calls. Only the log shows the
-  customer's position was not recorded. This is the failure class the project targets.</p>
-</div>
-
-<div class="def">
-  <header><span class="tag loss">Critical</span>
-    <h3>2. A fraud report filed as "refused to pay"</h3>
-    <span class="tag">call 11</span></header>
-  <p class="ev">The caller alleged fraud and asked to be removed from the database. The agent asked
-  for payment again, never gave the fraud helpline, never escalated, and logged "refused to pay"
-  three times over.</p>
-  <p class="cost"><b>Cost:</b> "refused to pay" routes downstream as call-again-later. A fraud
-  complaint and a deletion request were recorded as an ordinary collections retry.</p>
-</div>
-
-
-<div class="tw"><table>
-<tr><th style="width:10%">Severity</th><th style="width:32%">Defect</th><th>Evidence</th></tr>
-<tr><td><span class="tag hold">High</span></td><td><strong>3. Escalation logged, no human called</strong></td>
-<td>Outcome recorded as escalation, but the hand-off was never triggered, so nobody was queued.</td></tr>
-<tr><td><span class="tag hold">High</span></td><td><strong>4. A promise never became a date</strong></td>
-<td>"By this evening" was confirmed aloud; only a generic outcome was written. No promise, no date.</td></tr>
-<tr><td><span class="tag hold">High</span></td><td><strong>5. Answered from memory</strong></td>
-<td>Asked for the exact amount owed, it answered without looking up the account.</td></tr>
-<tr><td><span class="tag">Medium</span></td><td><strong>6. The call would not hang up</strong></td>
-<td>After the goodbye it held the line until the platform's own filler prompt fired.</td></tr>
-</table></div>
-<div class="callout warm">
-  <div class="bd">
-    <p style="margin:0"><strong>What is deliberately not on this list:</strong> persuasion. The
-    agent accepts a first refusal and closes politely, because that is what it was told to do.
-    Collection rate was not an objective of this work; it is the named next one.</p>
-  </div>
-</div>
-
 <h2>What evaluation produced</h2>
 <div class="verdict">
   <div><div class="k">Conversations measured</div><div class="v">200</div><div class="s">across three channels</div></div>
   <div><div class="k">Baseline</div><div class="v">111 <span style="font-size:14px;color:var(--ink-3);font-weight:400">of 200</span></div><div class="s">correct end state</div></div>
-  <div><div class="k">Defects filed</div><div class="v">6</div><div class="s">with severity and evidence</div></div>
+  <div><div class="k">Defects filed</div><div class="v">6</div><div class="s">re-tested on the Results page</div></div>
   <div><div class="k">Replay cases</div><div class="v">23</div><div class="s">failures ready to re-run</div></div>
 </div>
 <div class="callout">
   <div class="bd">
     <p style="margin:0"><strong>Hand-off.</strong> A frozen suite, a trusted instrument, a scored
-    baseline, and a filed register. The next section
+    baseline, and six defects filed with evidence before any fix. The next section
     is the loop that writes them.</p>
   </div>
 </div>

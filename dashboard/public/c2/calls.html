@@ -7,10 +7,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="site.css?v=8">
+<link rel="stylesheet" href="site.css?v=11">
 <style>
+/* the player is filled from fetched data, so its box is reserved up front:
+   growing from empty would push everything below it down after load */
 .player{border:1px solid var(--line);border-radius:var(--r-lg);padding:22px 24px;
-  background:var(--surface);margin:16px 0}
+  background:var(--surface);margin:16px 0;min-height:560px}
 .player h3{margin:0 0 2px;font-size:19px}
 .player .who{font-size:13.5px;color:var(--ink-3);margin-bottom:14px}
 .pick2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0}
@@ -30,9 +32,13 @@ label.pl{font-size:13px;color:var(--ink-3);display:block;margin:14px 0 6px}
    the wrong ground while nav.js is still loading */
 (function(){try{var m=localStorage.getItem("theme");
 if(m==="light"||m==="dark")document.documentElement.setAttribute("data-theme",m);}catch(e){}})();</script>
-<script src="nav.js?v=8" defer></script>
+<script src="nav.js?v=11" defer></script>
 </head>
 <body>
+<div class="navwrap">
+<nav class="topnav"><a href="overview.html">Overview</a><a href="problem.html">The problem</a><a href="system.html">How it is measured</a><a href="diagnosis.html">What broke</a><a href="loop.html">How it improved</a><a href="results.html">Results</a><a href="calls.html" class="on" aria-current="page">Listen</a><a href="notes.html">Limits</a></nav>
+<button class="themebtn" id="themebtn" title="Theme: follows your system" aria-label="Theme: follows your system"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor" stroke="none"/></svg></button>
+</div>
 <div class="shell">
 
 <p class="kicker">Listen</p>
@@ -102,6 +108,7 @@ checks, and the execution check read from the permanent log.</p>
 <tr><td><span class="tag acc">agent hung up</span></td><td>The agent ended the call itself rather than leaving the line open</td></tr>
 </table></div>
 
+<div class="walk"><a href="results.html"><span class="k">Back</span><span class="t">Results</span></a><a class="next" href="notes.html"><span class="k">Next</span><span class="t">Limits</span></a></div>
 </div>
 <script>
 const $ = s => document.querySelector(s);
@@ -120,10 +127,70 @@ const NICE = {
 const VERSION = { pv3:"Old agent", pv4:"New agent", bv3:"Old agent", bv4:"New agent" };
 const all = {};
 
-const mrow = (name, how, val, cls) =>
-  `<div class="mrow"><span class="nm">${name}</span>` +
-  `<span class="how">${how}</span><span class="fill"></span>` +
-  `<span class="sc ${cls}">${val}</span></div>`;
+const WHY = {
+  "Task completion":
+    "<b>How it is decided:</b> the account's end state is compared against what this " +
+    "situation required, by hashing both and checking they match. No model reads the " +
+    "conversation to decide this. <b>Why it matters:</b> it is the only check that asks " +
+    "whether the work was actually done, rather than whether it sounded done.",
+  "Records written":
+    "<b>How it is decided:</b> read straight from the permanent log, which the agent can " +
+    "add to but never edit or read back. <b>Why it matters:</b> these are the business " +
+    "consequences of the call. Anything the agent said it would do that is not on this " +
+    "list did not happen.",
+  "Missing":
+    "<b>How it is decided:</b> the records this situation required, minus the records " +
+    "actually found in the log. <b>Why it matters:</b> each missing entry is a customer " +
+    "outcome that vanished, even when the conversation itself sounded correct.",
+  "Wrote exactly once":
+    "<b>How it is decided:</b> counted from the log. Every required record must appear, " +
+    "and none may appear more than once. <b>Why it matters:</b> a duplicate escalation " +
+    "queues two humans, and a duplicate outcome corrupts reporting. Doing the job " +
+    "properly means doing it once.",
+  "Call ended by":
+    "<b>How it is decided:</b> the telephony platform reports who hung up. " +
+    "<b>Why it matters:</b> when the agent does not end a finished call, the line stays " +
+    "open on billed minutes and the platform eventually speaks its own filler prompt.",
+  "Duration":
+    "<b>How it is decided:</b> wall-clock length of the recording. " +
+    "<b>Why it matters:</b> on its own it proves nothing, but a call that gets the same " +
+    "result in less time is a better call, and a long call with no records is the " +
+    "clearest sign of trouble.",
+  "Faithfulness":
+    "<b>How it is decided:</b> an LLM judge reads the whole conversation and checks the " +
+    "agent's claims against what it was given and what actually happened. Passes at 0.5 " +
+    "or above. <b>Why it matters:</b> it catches an agent that invents a balance, a date " +
+    "or a policy nobody told it.",
+  "Speech fidelity":
+    "<b>How it is decided:</b> an LLM judge checks that names, amounts and dates survive " +
+    "the agent's speech intact. The strictest threshold in the set at 0.95, because a " +
+    "mangled amount is a failed call. <b>Why it matters:</b> in a collections call the " +
+    "exact figure is the point.",
+  "Conciseness":
+    "<b>How it is decided:</b> an LLM judge reading the full conversation, not a word " +
+    "count. Passes at 0.5 or above. <b>Why it matters:</b> padding on a phone call costs " +
+    "money and patience. It is also how repetition shows up as a number.",
+  "Conversation progression":
+    "<b>How it is decided:</b> an LLM judge asks whether the conversation moved forward " +
+    "or circled. Passes at 0.5 or above. <b>Why it matters:</b> this is the check that " +
+    "caught the old agent repeating its distress response almost word for word.",
+  "Accuracy composite":
+    "<b>How it is decided:</b> the mean of task completion, faithfulness and speech " +
+    "fidelity. <b>Why it matters:</b> a single figure for whether the agent did the job " +
+    "correctly. It is reported alongside its parts, never instead of them.",
+};
+
+const mrow = (name, how, val, cls, detBadge) => {
+  const why = WHY[name] || "";
+  return '<details class="mrow"><summary>' +
+    '<span class="chev"></span>' +
+    `<span class="nm">${name}</span>` +
+    `<span class="how${detBadge ? " det" : ""}">${how}</span>` +
+    '<span class="fill"></span>' +
+    `<span class="sc ${cls}">${val}</span></summary>` +
+    (why ? `<div class="why">${why}</div>` : "") +
+    "</details>";
+};
 
 function dupes(c) {
   const counts = {};
@@ -134,44 +201,47 @@ function dupes(c) {
 function phoneMetrics(c) {
   const d = dupes(c);
   const once = c.exactly_once !== undefined ? c.exactly_once : d.length === 0;
-  let h = '<div class="mgroup">Metrics for this call</div>';
-  h += mrow("Task completion", "Computed from the log",
-            c.passed ? "pass" : "fail", c.passed ? "ok" : "no");
+  let h = '<div class="mgroup">Execution, read from the permanent log</div>';
+  h += mrow("Task completion", "Deterministic",
+            c.passed ? "pass" : "fail", c.passed ? "ok" : "no", true);
   h += mrow("Records written", "Log",
-            (c.tools || []).length ? c.tools.join(", ") : "none", (c.tools || []).length ? "ok" : "no");
+            (c.tools || []).length ? c.tools.join(", ") : "none",
+            (c.tools || []).length ? "ok" : "no", true);
   if (c.missing && c.missing.length)
-    h += mrow("Missing", "Log", c.missing.join(", "), "no");
-  h += mrow("Wrote exactly once", "Computed from the log",
-            once ? "yes" : d.map(([t, n]) => `${t} ×${n}`).join(", "), once ? "ok" : "no");
+    h += mrow("Missing", "Log", c.missing.join(", "), "no", true);
+  h += mrow("Wrote exactly once", "Deterministic",
+            once ? "yes" : d.map(([t, n]) => `${t} \u00d7${n}`).join(", "),
+            once ? "ok" : "no", true);
+  h += '<div class="mgroup">Call facts</div>';
   if (c.end_reason)
     h += mrow("Call ended by", "Telephony",
               c.end_reason === "AGENT_ENDS" ? "the agent" : "the caller",
-              c.end_reason === "AGENT_ENDS" ? "ok" : "na");
-  h += mrow("Duration", "Telephony", Math.round(c.duration_s) + "s", "na");
+              c.end_reason === "AGENT_ENDS" ? "ok" : "na", true);
+  h += mrow("Duration", "Telephony", Math.round(c.duration_s) + "s", "na", true);
   return h;
 }
 
 function botMetrics(c) {
   const pct = v => v == null ? null : (Math.round(v * 1000) / 10) + "%";
   const j = (name, v, thr) => v == null ? "" :
-    mrow(name, "AI judge", pct(v), v >= thr ? "ok" : "no");
+    mrow(name, "LLM judge", pct(v), v >= thr ? "ok" : "no", false);
   let h = '<div class="mgroup">Accuracy</div>';
-  h += mrow("Task completion", "Computed from the log", pct(c.task_completion),
-            c.task_completion === 1 ? "ok" : "no");
+  h += mrow("Task completion", "Deterministic", pct(c.task_completion),
+            c.task_completion === 1 ? "ok" : "no", true);
   h += j("Faithfulness", c.faithfulness, 0.5);
   h += j("Speech fidelity", c.agent_speech_fidelity, 0.95);
   h += '<div class="mgroup">Experience</div>';
   h += j("Conciseness", c.conciseness, 0.5);
   h += j("Conversation progression", c.progression, 0.5);
   h += '<div class="mgroup">Execution</div>';
-  h += mrow("Wrote exactly once", "Computed from the log",
+  h += mrow("Wrote exactly once", "Deterministic",
             c.exactly_once ? "yes" :
-            Object.entries(c.duplicate_writes || {}).map(([t, n]) => `${t} ×${n}`).join(", "),
-            c.exactly_once ? "ok" : "no");
-  h += mrow("Accuracy composite", "Mean of the three accuracy checks", c.eva_a,
-            c.eva_a === 1 ? "ok" : "no");
-  h += '<div class="mnote">Turn taking is excluded: its audio inputs come back empty in this ' +
-       'setup, so it reports no data rather than a score.</div>';
+            Object.entries(c.duplicate_writes || {}).map(([t, n]) => `${t} \u00d7${n}`).join(", "),
+            c.exactly_once ? "ok" : "no", true);
+  h += mrow("Accuracy composite", "Mean of three", c.eva_a,
+            c.eva_a === 1 ? "ok" : "no", true);
+  h += '<div class="mnote">Turn taking is excluded: its audio inputs come back empty in ' +
+       'this setup, so it reports no data rather than a score.</div>';
   return h;
 }
 

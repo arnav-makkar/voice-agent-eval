@@ -50,7 +50,6 @@ html{scroll-behavior:smooth}
 body{margin:0;overflow-x:hidden;background:var(--bg);color:var(--ink);
   font:400 16.5px/1.7 var(--sans);-webkit-font-smoothing:antialiased}
 .shell{max-width:860px;margin:0 auto;padding:0 26px 120px}
-.wide{max-width:1060px}
 a{color:var(--accent);text-underline-offset:3px}
 
 /* ---- top bar: plain text links, one active, theme control at the end ---- */
@@ -243,17 +242,29 @@ button.act:hover{filter:brightness(.97)}
 
 @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
 
-/* ---- per-call metric rows: name, method badge, score pill on the right ---- */
-.mgroup{margin:20px 0 6px;font-size:13px;font-weight:650;color:var(--ink);
-  letter-spacing:.01em}
-.mrow{display:flex;align-items:center;gap:10px;background:var(--bg);
-  border:1px solid var(--line);border-radius:var(--r);padding:11px 14px;margin:6px 0}
-.mrow .nm{font-size:14px;font-weight:550;color:var(--ink)}
-.mrow .how{font-size:11px;font-weight:550;color:var(--accent);
-  background:var(--accent-soft);border-radius:5px;padding:2px 7px}
-.mrow .fill{flex:1}
-.mrow .sc{font:600 13px var(--mono);padding:3px 10px;border-radius:99px}
-.mrow .sc.ok{background:var(--gain-soft);color:var(--gain)}
-.mrow .sc.no{background:var(--loss-soft);color:var(--loss)}
-.mrow .sc.na{background:var(--surface-2);color:var(--ink-3)}
-.mnote{font-size:12.5px;color:var(--ink-3);margin:8px 0 0}
+/* ---- per-call metric rows: click a row to read what the check means ---- */
+.mgroup{margin:22px 0 8px;font-size:13px;font-weight:650;color:var(--ink);
+  letter-spacing:.01em;padding-bottom:7px;border-bottom:1px solid var(--line)}
+details.mrow{background:var(--bg);border:1px solid var(--line);
+  border-radius:var(--r);margin:7px 0}
+details.mrow > summary{cursor:pointer;list-style:none;display:flex;
+  align-items:center;gap:10px;padding:11px 14px}
+details.mrow > summary::-webkit-details-marker{display:none}
+details.mrow .nm{font-size:14px;font-weight:550;color:var(--ink)}
+details.mrow .how{font-size:11px;font-weight:550;color:var(--accent);
+  background:var(--accent-soft);border-radius:5px;padding:2px 7px;white-space:nowrap}
+details.mrow .how.det{color:var(--gain);background:var(--gain-soft)}
+details.mrow .fill{flex:1}
+details.mrow .sc{font:600 13px var(--mono);padding:3px 10px;border-radius:99px;
+  white-space:nowrap}
+details.mrow .sc.ok{background:var(--gain-soft);color:var(--gain)}
+details.mrow .sc.no{background:var(--loss-soft);color:var(--loss)}
+details.mrow .sc.na{background:var(--surface-2);color:var(--ink-3)}
+details.mrow .chev{width:0;height:0;flex-shrink:0;
+  border-left:5px solid var(--ink-3);border-top:4px solid transparent;
+  border-bottom:4px solid transparent;transition:transform .15s}
+details.mrow[open] .chev{transform:rotate(90deg)}
+details.mrow .why{padding:0 14px 14px 14px;font-size:13.5px;line-height:1.6;
+  color:var(--ink-2);border-top:1px solid var(--line);margin-top:0;padding-top:12px}
+details.mrow .why b{color:var(--ink)}
+.mnote{font-size:12.5px;color:var(--ink-3);margin:10px 0 0}

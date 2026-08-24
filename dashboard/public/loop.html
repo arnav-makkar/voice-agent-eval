@@ -7,12 +7,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="site.css?v=41">
+<link rel="stylesheet" href="site.css?v=42">
 <script>/* apply the saved theme before first paint so the page never flashes
    the wrong ground while nav.js is still loading */
 (function(){try{var m=localStorage.getItem("theme");
 if(m==="light"||m==="dark")document.documentElement.setAttribute("data-theme",m);}catch(e){}})();</script>
-<script src="nav.js?v=41" defer></script>
+<script src="nav.js?v=42" defer></script>
 </head>
 <body>
 <div class="navwrap">
@@ -35,7 +35,8 @@ and shipped the rewrite once it won on cases it had never seen.</p>
   </div>
 </div>
 
-<h2>How one round runs</h2>
+<h2>The improvement cycle</h2>
+<p>One round of improvement, end to end. Five stages:</p>
 
 <svg class="dg" viewBox="0 0 860 176" role="img"
   aria-label="Five stages in sequence: notice, group, search, gate, ship, with the winner returning as the next baseline">
@@ -74,9 +75,20 @@ and shipped the rewrite once it won on cases it had never seen.</p>
   <text x="430" y="166" text-anchor="middle" font-size="11.5" class="mut">the winner becomes the next baseline</text>
 </svg>
 
-<p>Stage one is the part that transfers to other agents unchanged. The detector reads the log alone, with no
-transcript, no script and no labels, so the same stage that opened this round can run on live
-production traffic and open the next one.</p>
+<div class="tw"><table>
+<tr><th style="width:14%">Stage</th><th>What happens</th></tr>
+<tr><td><strong>Notice</strong></td><td>A detector reads the log and flags calls that contradict
+  themselves, such as an outcome recorded with nothing behind it. It needs no transcript, no
+  script and no labels, so it can also run on live production traffic.</td></tr>
+<tr><td><strong>Group</strong></td><td>Repeated flags cluster into patterns, and each pattern
+  becomes a test that can be replayed on demand.</td></tr>
+<tr><td><strong>Search</strong></td><td>An optimiser writes new instructions for the agent and
+  tests them against those cases.</td></tr>
+<tr><td><strong>Gate</strong></td><td>Four checks decide whether the rewrite is genuinely better.
+  All four must pass.</td></tr>
+<tr><td><strong>Ship</strong></td><td>The winner is deployed with its exact text fingerprinted,
+  so rolling back is one step. It becomes the next baseline, and the cycle runs again.</td></tr>
+</table></div>
 
 <h2>What a candidate is</h2>
 <p>The search is scored by the benchmark grader itself, not by a proxy metric.</p>
@@ -127,8 +139,18 @@ production traffic and open the next one.</p>
 <p class="sub">The worked examples are responsible for 38% of the total gain. Without them the
 result stops well short.</p>
 
-<h2>The search, in full</h2>
-<p>The same loop with its real parts: two rounds, what each changed, and the gates before production.</p>
+<h2>The search pipeline</h2>
+<p>The diagram below is the search stage in full, as it actually ran: two rounds, what each
+changed, and the gates before deployment. In plain terms, top to bottom:</p>
+<p>The current instructions go in at the top. The optimiser proposes a rewritten instruction set,
+runs it on the live agent over a batch of test situations, and scores it from the log, using the
+same grader as the benchmark. A second model then reads the full record of what went wrong and
+writes the reasoning for the next rewrite. Candidates survive by being best at something rather
+than average at everything, so different strengths stay in the pool.</p>
+<p>After round one, the framework mined the winning agent's own perfect calls and attached them
+to the instructions as worked examples. From that point a candidate has two parts, rules plus
+examples, and round two searched over both. The champion then faces the four gates, and only
+after passing all of them is it deployed, fingerprinted, as the new baseline.</p>
 <svg class="dg flow" viewBox="0 0 860 1010" role="img" aria-label="The technical path from the baseline prompt through two GEPA rounds and the gate ladder to the deployed champion">
 <defs><marker id="af" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
 <path d="M0 0 L10 5 L0 10 z" fill="currentColor" opacity=".45"/></marker></defs>
@@ -268,50 +290,34 @@ result stops well short.</p>
 
 <div class="callout warm">
   <div class="bd">
-    <p style="margin:0"><strong>Round two improved the score and broke nothing.</strong> The gain
-    is small enough to sit inside normal run-to-run variation, so it is reported as a hold rather
-    than a win. What the two rounds establish is that the loop runs repeatedly under the same
-    gates. Whether gains keep compounding past that is untested, and not claimed here.</p>
+    <p style="margin:0"><strong>Round two improved the score and broke nothing</strong>, but the
+    gain sits inside normal run-to-run variation, so it is reported as a hold rather than a win.
+    Two rounds show the loop repeats; compounding beyond that is not claimed.</p>
   </div>
 </div>
 
-<h2>Why this works beyond one agent</h2>
-<p>The claim under test is that the loop transfers to other agents, not that this one agent improved.</p>
+<h2>Why this transfers</h2>
+<p>Nothing in the loop is specific to this agent, or to collections.</p>
 
-<div class="grid2">
-  <div class="card">
-    <h3>The monitor needs no labels</h3>
-    <p class="sub" style="margin-top:6px">It runs over the journal alone, checking seven
-    invariants that any correct call must satisfy. No transcript, no script, no ground truth, no
-    model call. It runs on production traffic exactly as it ran on the benchmark, and on the
-    baseline it recovered 28% of all graded failures at precision 1.00.</p>
-  </div>
-  <div class="card">
-    <h3>The grader needs only tools</h3>
-    <p class="sub" style="margin-top:6px">Grading compares end states of the world. Any agent
-    whose outcomes are tool calls with expected results can be graded this way. Nothing in the
-    instrument is specific to lending or collections.</p>
-  </div>
-  <div class="card">
-    <h3>The adapter is thin</h3>
-    <p class="sub" style="margin-top:6px">Onboarding a new agent means writing its tool list, the
-    end state each situation should produce, and the failure types that matter in its domain.
-    The loop itself is untouched.</p>
-  </div>
-  <div class="card">
-    <h3>What changes at production scale</h3>
-    <p class="sub" style="margin-top:6px">Sampling instead of exhaustive runs, noise floors
-    measured per cohort, and a human approval gate before any deploy. The gate ladder already
-    assumes all three.</p>
-  </div>
-</div>
+<div class="tw"><table>
+<tr><th style="width:18%">Part</th><th>Why it carries over</th></tr>
+<tr><td><strong>Monitor</strong></td><td>Reads only the log, with no labels and no scripts. On
+  the baseline it recovered 28% of all graded failures at precision 1.00, and it runs on live
+  traffic exactly as it ran here.</td></tr>
+<tr><td><strong>Grader</strong></td><td>Compares end states of the world. It works for any agent
+  whose outcomes are tool calls with expected results.</td></tr>
+<tr><td><strong>Adapter</strong></td><td>Onboarding a new agent means writing its tool list, the
+  end state each situation should produce, and the failure types that matter in its domain. The
+  loop itself does not change.</td></tr>
+</table></div>
 
 <div class="callout warm">
   <div class="bd">
-    <p style="margin:0"><strong>The first production step requires no labelled data.</strong> Run the monitor
-    on live traffic as a standing alarm, and its findings bootstrap the rest of the loop. The
-    design is built for production and validated on one live agent; performance at production
-    scale is argued from that design, not yet measured.</p>
+    <p style="margin:0"><strong>Production readiness, stated precisely.</strong> The monitor can
+    run on live traffic today with no labelled data, and what it finds is the loop's input. At
+    production scale the design assumes sampling, per-cohort variance floors, and a human
+    approval gate before any deploy. Performance at that scale is argued from the design and
+    validated on one live agent, not yet measured.</p>
   </div>
 </div>
 

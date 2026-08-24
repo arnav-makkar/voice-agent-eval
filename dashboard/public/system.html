@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="site.css?v=45">
+<link rel="stylesheet" href="site.css?v=46">
 <style>
 .vs{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:28px 0;
   border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden}
@@ -35,7 +35,7 @@
 </style>
 <script>(function(){try{var m=localStorage.getItem("theme");
 if(m==="light"||m==="dark")document.documentElement.setAttribute("data-theme",m);}catch(e){}})();</script>
-<script src="nav.js?v=45" defer></script>
+<script src="nav.js?v=46" defer></script>
 </head>
 <body>
 <div class="navwrap">
@@ -317,8 +317,8 @@ measured first, so no ordinary fluctuation could be mistaken for progress.</p>
 
 <h2 id="failing">What the calls showed</h2>
 <div class="verdict">
-  <div><div class="k">Phone</div><div class="v">9 <span style="font-size:14px;color:var(--ink-3);font-weight:400">of 15</span></div><div class="s">6 still open</div></div>
-  <div><div class="k">Bot-to-bot</div><div class="v">4 <span style="font-size:14px;color:var(--ink-3);font-weight:400">of 5</span></div><div class="s">1 still open</div></div>
+  <div><div class="k">Phone</div><div class="v">9 <span style="font-size:15px;color:var(--ink-3);font-weight:400">of 15</span></div><div class="s">6 still open</div></div>
+  <div><div class="k">Bot-to-bot</div><div class="v">4 <span style="font-size:15px;color:var(--ink-3);font-weight:400">of 5</span></div><div class="s">1 still open</div></div>
 </div>
 <p>Almost none of the failures are audible. One call shows why.</p>
 <p>The customer insists he already paid. The agent checks the account, quotes the right figure,
@@ -358,27 +358,18 @@ and closes.</p>
 <h2>Scaling it: 180 typed conversations</h2>
 <p>Live voice calls cost time and money, and seven failures carry no statistics. The same agent
 also has a text channel, so the same evaluation runs over typed conversations: fifteen situation
-types, twelve variations each, graded from the same log by the same rule.</p>
-
-<div class="panel">
-  <div class="panel-head">
-    <h3 style="font-size:16px;margin:0">Typed conversations</h3>
-    <span class="chip">situation types <b>15</b></span>
-    <span class="chip">each <b>×12</b></span>
-    <span class="chip">pass <b>98 of 180</b></span>
-  </div>
-  <p class="sub" style="margin:4px 0 0">The scale tier: every situation type from routine payment
-  to fraud, run headlessly against the same live agent and graded from the same log. This is
-  where the statistical power sits; the phone and voice tiers test the same agent in real speech.</p>
-</div>
+types, twelve variations each, run headlessly against the same live agent and graded from the
+same log by the same rule. This is the tier that carries the statistics.</p>
 
 <div class="verdict">
-  <div><div class="k">Typed</div><div class="v">98 <span style="font-size:14px;color:var(--ink-3);font-weight:400">of 180</span></div><div class="s">82 still open</div></div>
-  <div><div class="k">Safety situations</div><div class="v">40 <span style="font-size:14px;color:var(--ink-3);font-weight:400">of 73</span></div><div class="s">fraud, distress, privacy</div></div>
+  <div><div class="k">Typed conversations</div><div class="v">98 <span style="font-size:15px;color:var(--ink-3);font-weight:400">of 180</span></div><div class="s">82 still open</div></div>
+  <div><div class="k">Safety situations</div><div class="v">40 <span style="font-size:15px;color:var(--ink-3);font-weight:400">of 73</span></div><div class="s">fraud, distress, privacy</div></div>
 </div>
 
-<p>Twenty-three of the 180 typed conversations had this shape: a commitment in the recorded
-outcome with nothing behind it. Every one of them reads as a competent call.</p>
+<p>An independent detector, reading only the log with no labels and no test script, flagged 23 of
+those conversations for recording a commitment with nothing behind it. Every one reads as a
+competent call.</p>
+
 <details class="tg">
   <summary>How the count is produced without labelled data</summary>
   <div class="bd">
@@ -398,7 +389,7 @@ outcome with nothing behind it. Every one of them reads as a competent call.</p>
 <h2>What evaluation produced</h2>
 <div class="verdict">
   <div><div class="k">Conversations measured</div><div class="v">200</div><div class="s">across three channels</div></div>
-  <div><div class="k">Baseline</div><div class="v">111 <span style="font-size:14px;color:var(--ink-3);font-weight:400">of 200</span></div><div class="s">correct end state</div></div>
+  <div><div class="k">Baseline</div><div class="v">111 <span style="font-size:15px;color:var(--ink-3);font-weight:400">of 200</span></div><div class="s">correct end state</div></div>
   <div><div class="k">Defects filed</div><div class="v">6</div><div class="s">re-tested on the Results page</div></div>
   <div><div class="k">Replay cases</div><div class="v">23</div><div class="s">failures ready to re-run</div></div>
 </div>

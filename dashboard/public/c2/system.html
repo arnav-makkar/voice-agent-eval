@@ -7,25 +7,48 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="site.css?v=14">
-<script>/* apply the saved theme before first paint so the page never flashes
-   the wrong ground while nav.js is still loading */
-(function(){try{var m=localStorage.getItem("theme");
+<link rel="stylesheet" href="site.css?v=17">
+<style>
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:28px 0;
+  border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden}
+@media(max-width:720px){.vs{grid-template-columns:1fr}}
+.vs > div{padding:22px 24px}
+.vs .said{background:var(--bg);border-right:1px solid var(--line)}
+.vs .did{background:var(--loss-soft)}
+@media(max-width:720px){.vs .said{border-right:0;border-bottom:1px solid var(--line)}}
+.vs h3{margin:0 0 14px;font-size:13px;text-transform:uppercase;letter-spacing:.07em;
+  color:var(--ink-3);font-weight:600}
+.ledger{font:500 14px/2.1 var(--mono)}
+.ledger .ok::before{content:" ";color:var(--gain)}
+.ledger .no{color:var(--loss)}
+.ledger .no::before{content:" ";}
+
+.def{border:1px solid var(--line);border-radius:var(--r-lg);padding:20px 22px;margin:16px 0;
+  background:var(--surface)}
+.def header{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:10px}
+.def h3{margin:0;flex:1;font-size:17px;min-width:230px}
+.def .ev{font-size:14.5px;color:var(--ink-2);margin:0}
+.def .cost{font-size:14px;color:var(--ink-2);margin:12px 0 0;padding-top:12px;
+  border-top:1px solid var(--line)}
+.def .cost b{color:var(--loss)}
+
+</style>
+<script>(function(){try{var m=localStorage.getItem("theme");
 if(m==="light"||m==="dark")document.documentElement.setAttribute("data-theme",m);}catch(e){}})();</script>
-<script src="nav.js?v=14" defer></script>
+<script src="nav.js?v=17" defer></script>
 </head>
 <body>
 <div class="navwrap">
-<nav class="topnav"><a href="overview.html">Overview</a><a href="agent.html">The agent</a><a href="system.html" class="on" aria-current="page">Evaluation</a><a href="problem.html">The problem</a><a href="diagnosis.html">Diagnosis</a><a href="loop.html">Improvement</a><a href="results.html">Results</a><a href="calls.html">Listen</a><a href="notes.html">Limits</a></nav>
+<nav class="topnav"><a href="overview.html">Overview</a><a href="agent.html">The agent</a><a href="system.html" class="on" aria-current="page">Evaluation</a><a href="loop.html">Improvement</a><a href="results.html">Results</a><a href="calls.html">Listen</a><a href="notes.html">Limits</a></nav>
 <button class="themebtn" id="themebtn" title="Theme: follows your system" aria-label="Theme: follows your system"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor" stroke="none"/></svg></button>
 </div>
 <div class="shell">
 
-<p class="kicker">The evaluation layer</p>
-<h1>Before improving anything, build something you can trust</h1>
-<p class="lede">Every number on this site comes out of one machine: a fixed set of test
-situations, three ways of talking to the agent, and a permanent log that decides what actually
-happened.</p>
+<p class="kicker">Step two · evaluate</p>
+<h1>Measured on what it does, not what it says</h1>
+<p class="lede">One rule defines the whole evaluation: a conversation is graded on the records it
+leaves behind, never on how it sounded. This page is the method, the fifteen phone calls scored
+under it, the baseline numbers, and exactly what was failing.</p>
 
 <h2>The setup in one picture</h2>
 
@@ -143,7 +166,9 @@ before any improvement work started, so the target could not move.</p>
   </div>
 </details>
 
-<h2>The instrument checks itself</h2>
+<details class="tg">
+  <summary>The instrument checks itself: four measurement faults, found and fixed</summary>
+  <div class="bd">
 <p>Three faults were found in the measuring equipment rather than the agent. They are listed here
 because an evaluation that only reports the agent's failures has not really been audited.</p>
 
@@ -182,7 +207,12 @@ because an evaluation that only reports the agent's failures has not really been
   </div>
 </div>
 
-<h2>How much wobble is normal</h2>
+  </div>
+</details>
+
+<details class="tg">
+  <summary>How much wobble is normal, measured before any claim</summary>
+  <div class="bd">
 <p>Run the same agent on the same tests twice and results move a little on their own. That was
 measured first, so no ordinary fluctuation could be mistaken for progress.</p>
 
@@ -196,6 +226,27 @@ measured first, so no ordinary fluctuation could be mistaken for progress.</p>
 </div>
 
 
+
+  </div>
+</details>
+
+<h2 id="calls15">The fifteen phone calls, as evaluated</h2>
+<p>The scripted cards, played against the deployed baseline agent on a real line. Pick any call:
+audio, transcript, and the metric panel the framework produced for it. The improved agent's runs
+of these same cards are on the <a href="calls.html">Listen</a> page.</p>
+
+<div class="panel">
+  <div class="panel-head">
+    <h2 style="font-size:17px;margin:0">Baseline phone calls</h2>
+    <span class="chip">situations <b>15</b></span>
+    <span class="chip">pass <b>9 of 15</b></span>
+    <span class="sp"></span>
+  </div>
+  <div class="split">
+    <div class="clist" id="evalList" role="listbox" aria-label="Baseline phone calls"></div>
+    <div class="detailcol" id="evalDetail"></div>
+  </div>
+</div>
 
 <h2>What the baseline scored</h2>
 <p>The instrument's first job was to measure the agent exactly as deployed. Three channels, one
@@ -217,12 +268,188 @@ verdict per conversation.</p>
 <div class="callout warm">
   <div class="bd">
     <p style="margin:0"><strong>A number this size is a diagnosis, not a verdict.</strong> The
-    interesting question is what exactly was failing, and why nothing in the audio gives it away.
-    That is the next section.</p>
+    interesting question is what exactly was failing, and why nothing in the audio gives it
+    away.</p>
   </div>
 </div>
 
-<div class="walk"><a href="agent.html"><span class="k">Back</span><span class="t">The agent</span></a><a class="next" href="problem.html"><span class="k">Next</span><span class="t">The problem</span></a></div>
+<h2 id="failing">What was actually failing</h2>
+<h2>One real call, two versions of the truth</h2>
+<p>The customer insists the instalment is already paid. The agent handles it well. It checks the
+account, holds the correct figure, politely refuses the claim, and closes.</p>
+
+<div class="vs">
+  <div class="said">
+    <h3>What the customer heard</h3>
+    <div class="turns" style="border:0;background:none;padding:0;max-height:none">
+      <div class="turn caller"><b>Them</b><span>मैं already check कर चुका हूँ, pay कर चुका हूँ, आप check करिए।</span></div>
+      <div class="turn agent"><b>Agent</b><span>अच्छा, मैं एक बार check कर लेता हूँ।</span></div>
+      <div class="turn agent"><b>Agent</b><span>ठीक है, <strong>मैं आपका response note कर लेता हूँ।</strong> धन्यवाद Arnav जी।</span></div>
+    </div>
+    <p class="sub" style="margin-top:14px">"I will note your response." A polite, competent call.
+    Anyone reading this transcript would pass it.</p>
+  </div>
+  <div class="did">
+    <h3>What the system recorded</h3>
+    <div class="ledger">
+      <div class="ok">Checked the balance</div>
+      <div class="no">Nothing else</div>
+    </div>
+    <p class="sub" style="margin-top:14px">The customer's position was never written down. Tomorrow
+    this account looks untouched, and the next campaign calls them again from zero.</p>
+  </div>
 </div>
+
+<div class="callout bad">
+  <div class="bd">
+    <p style="margin:0"><strong>Talk is free. Only the write costs anything.</strong> A model can
+    produce "मैं note कर लेता हूँ" at no cost, and it satisfies the customer, the reviewer, and any
+    grader that only reads text. The tool call is the part with a consequence.</p>
+  </div>
+</div>
+
+
+<p>Twenty-three of the 180 typed conversations had this shape: a commitment in the recorded
+outcome with nothing behind it. Every one of them reads as a competent call.</p>
+<details class="tg">
+  <summary>How that count is produced without anyone labelling calls</summary>
+  <div class="bd">
+    <p>A separate detector reads the journal alone. It never sees the transcript or the test
+    script, and it needs no labels. It checks seven invariants that any correct call satisfies:
+    an outcome recorded as a promise must have a promise row behind it, an escalation must have
+    queued a human, a dispute must have filed one, any business action must end in a recorded
+    outcome, nothing may be written twice, and a promise date must be well formed and not in the
+    past.</p>
+    <p>Because it shares no code with the grader, the two instruments agreeing means something.
+    Its precision was measured at 1.00: every violation it flagged was real when checked by hand.
+    It caught 28% of all the failures the scripted benchmark found, which is the honest estimate
+    of how much it would see in production, where no script exists.</p>
+  </div>
+</details>
+
+<h2 id="register">The defect register</h2>
+<p>From the fifteen phone calls, six defects, filed with severity, evidence and business cost
+before any fix was attempted. Afterwards the same cards are re-dialled, and a defect closes only
+when every call it was raised on passes.</p>
+
+<div class="def">
+  <header><span class="tag loss">Critical</span>
+    <h3>1. Handles it perfectly, records nothing</h3>
+    <span class="tag">calls 5 and 6</span></header>
+  <p class="ev">One call checked the balance, held the correct figure and refused an
+  already paid claim, then ended without writing an outcome. Another handled a dispute properly in
+  conversation and triggered no action at all.</p>
+  <p class="cost"><b>Cost:</b> both transcripts read as good calls. Only the log shows the
+  customer's position vanished. This is the failure the whole project exists to catch.</p>
+</div>
+
+<div class="def">
+  <header><span class="tag loss">Critical</span>
+    <h3>2. A fraud report filed as "refused to pay"</h3>
+    <span class="tag">call 11</span></header>
+  <p class="ev">The caller alleged fraud and asked to be removed from the database. The agent asked
+  for payment again, never gave the fraud helpline, never escalated, and logged "refused to pay"
+  three times over.</p>
+  <p class="cost"><b>Cost:</b> "refused to pay" routes downstream as call-again-later. A fraud
+  complaint and a deletion request quietly became an ordinary collections retry.</p>
+</div>
+
+
+<div class="tw"><table>
+<tr><th style="width:10%">Severity</th><th style="width:32%">Defect</th><th>Evidence</th></tr>
+<tr><td><span class="tag hold">High</span></td><td><strong>3. Escalation logged, no human called</strong></td>
+<td>Outcome recorded as escalation, but the hand-off was never triggered, so nobody was queued.</td></tr>
+<tr><td><span class="tag hold">High</span></td><td><strong>4. A promise never became a date</strong></td>
+<td>"By this evening" was confirmed aloud; only a generic outcome was written. No promise, no date.</td></tr>
+<tr><td><span class="tag hold">High</span></td><td><strong>5. Answered from memory</strong></td>
+<td>Asked for the exact amount owed, it answered without looking up the account.</td></tr>
+<tr><td><span class="tag">Medium</span></td><td><strong>6. The call would not hang up</strong></td>
+<td>After the goodbye it held the line until the platform's own filler prompt fired.</td></tr>
+</table></div>
+<div class="callout warm">
+  <div class="bd">
+    <p style="margin:0"><strong>What is deliberately not on this list:</strong> persuasion. The
+    agent accepts a first refusal and closes politely, because that is what it was told to do.
+    Collection rate was not an objective of this work; it is the named next one.</p>
+  </div>
+</div>
+
+<h2>Evaluation complete</h2>
+<p>At this point everything the improvement loop needs is in place.</p>
+<div class="stats">
+  <div class="stat"><div class="lab">Conversations measured</div>
+    <div class="val">200</div>
+    <div class="note">180 typed, 15 phone, 5 bot-to-bot voice</div></div>
+  <div class="stat"><div class="lab">Baseline verdict</div>
+    <div class="val">54.4%</div>
+    <div class="note">Typed conversations ending with the correct record</div></div>
+  <div class="stat"><div class="lab">Defects filed</div>
+    <div class="val">6</div>
+    <div class="note">Severity, evidence and cost, before any fix</div></div>
+  <div class="stat"><div class="lab">Replay cases ready</div>
+    <div class="val">23</div>
+    <div class="note">Log contradictions, each replayable on demand</div></div>
+</div>
+<div class="callout">
+  <div class="bd">
+    <p style="margin:0"><strong>Hand-off.</strong> A frozen 200-conversation suite, a trusted
+    instrument, a scored baseline, and a filed defect register. From here, no person writes
+    another fix: the next section is the loop that does.</p>
+  </div>
+</div>
+
+<div class="walk"><a href="agent.html"><span class="k">Back</span><span class="t">The agent</span></a><a class="next" href="loop.html"><span class="k">Next</span><span class="t">Improvement</span></a></div>
+</div>
+<script>
+const NICE={pay_now_direct:"Paid on the call",future_promise:"Promised a future date",
+today_promise:"Promised to pay today",callback_capture:"Asked for a callback",
+already_paid:"Says already paid",dispute_handling:"Disputed the amount",
+explicit_refusal:"Flatly refused",wrong_party_privacy:"Wrong person answered",
+credential_guardrail:"Asked for a password",channel_unavailable:"Wanted another channel",
+fraud_escalation:"Alleged fraud",safety_escalation:"Customer in distress",
+amount_question:"Asked what is owed",conditional_promise_trap:'Vague "maybe"',
+ledger_interrogation:"Quizzed on the account"};
+const WHY={
+"Task completion":"<b>How it is decided:</b> the account's end state is compared against what this situation required, by hashing both and checking they match. No model reads the conversation to decide this. <b>Why it matters:</b> it is the only check that asks whether the work was actually done, rather than whether it sounded done.",
+"Records written":"<b>How it is decided:</b> read straight from the permanent log, which the agent can add to but never edit or read back. <b>Why it matters:</b> these are the business consequences of the call. Anything the agent said it would do that is not on this list did not happen.",
+"Missing":"<b>How it is decided:</b> the records this situation required, minus the records actually found in the log. <b>Why it matters:</b> each missing entry is a customer outcome that vanished, even when the conversation itself sounded correct.",
+"Wrote exactly once":"<b>How it is decided:</b> counted from the log. Every required record must appear, and none may appear more than once. <b>Why it matters:</b> a duplicate escalation queues two humans, and a duplicate outcome corrupts reporting.",
+"Call ended by":"<b>How it is decided:</b> the telephony platform reports who hung up. <b>Why it matters:</b> a finished call left open sits on billed minutes until the platform speaks its own filler prompt.",
+"Duration":"<b>How it is decided:</b> wall-clock length of the recording. <b>Why it matters:</b> a long call with no records is the clearest sign of trouble."};
+const mrow=(n,how,val,cls,det)=>{const w=WHY[n]||"";
+return '<details class="mrow"><summary><span class="chev"></span>'+
+`<span class="nm">${n}</span><span class="how${det?" det":""}">${how}</span>`+
+'<span class="fill"></span>'+`<span class="sc ${cls}">${val}</span></summary>`+
+(w?`<div class="why">${w}</div>`:"")+"</details>";};
+const dupes=c=>Object.entries((c.tools||[]).reduce((m,t)=>(m[t]=(m[t]||0)+1,m),{})).filter(([,n])=>n>1);
+const pill=(t,c)=>`<span class="sc-mini ${c}">${t}</span>`;
+let CALLS=[],SEL=null;
+function metrics(c){const d=dupes(c);const once=d.length===0;
+let h='<div class="mgroup">Execution, read from the permanent log</div>';
+h+=mrow("Task completion","Deterministic",c.passed?"pass":"fail",c.passed?"ok":"no",true);
+h+=mrow("Records written","Log",(c.tools||[]).length?c.tools.join(", "):"none",(c.tools||[]).length?"ok":"no",true);
+if(c.missing&&c.missing.length)h+=mrow("Missing","Log",c.missing.join(", "),"no",true);
+h+=mrow("Wrote exactly once","Deterministic",once?"yes":d.map(([t,n])=>t+" ×"+n).join(", "),once?"ok":"no",true);
+if(c.end_reason)h+=mrow("Call ended by","Telephony",c.end_reason==="AGENT_ENDS"?"the agent":"the caller",c.end_reason==="AGENT_ENDS"?"ok":"na",true);
+h+=mrow("Duration","Telephony",Math.round(c.duration_s)+"s","na",true);return h;}
+function render(){const list=document.getElementById("evalList");
+list.innerHTML=CALLS.map(c=>'<button role="option" data-id="'+c.id+'">'+
+'<span class="cn">'+(NICE[c.family]||c.family)+
+'<small>'+Math.round(c.duration_s)+'s</small></span>'+
+pill(c.passed?"pass":"fail",c.passed?"ok":"no")+'</button>').join("");
+if(!CALLS.find(c=>c.id===SEL))SEL=CALLS[0]&&CALLS[0].id;
+[...list.children].forEach(b=>{if(b.dataset.id===SEL)b.classList.add("sel");
+b.addEventListener("click",()=>{SEL=b.dataset.id;render();});});
+const c=CALLS.find(x=>x.id===SEL);if(!c)return;
+const turns=(c.transcript||[]).map(t=>'<div class="turn '+t.speaker+'"><b>'+
+(t.speaker==="agent"?"Agent":"Them")+'</b><span>'+t.text+'</span></div>').join("");
+document.getElementById("evalDetail").innerHTML=
+'<h3>'+(NICE[c.family]||c.family)+'</h3>'+
+'<div class="who">Baseline agent · '+Math.round(c.duration_s)+' seconds</div>'+
+(c.audio?'<audio controls preload="none" src="'+c.audio+'"></audio>':"")+
+(turns?'<div class="turns">'+turns+'</div>':"")+metrics(c);}
+fetch("/evidence/audio/phone-v3/index.json").then(r=>r.ok?r.json():[]).catch(()=>[])
+.then(d=>{CALLS=d;render();});
+</script>
 </body>
 </html>

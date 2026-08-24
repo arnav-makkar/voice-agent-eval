@@ -26,15 +26,60 @@ if(m==="light"||m==="dark")document.documentElement.setAttribute("data-theme",m)
 <p class="lede">Voice agents are judged on what they say. Businesses run on what they do. This
 framework measures the difference, and closes it automatically.</p>
 
-<div class="hero-num" style="margin-top:38px">
+<h2>How it works</h2>
+<svg class="dg" viewBox="0 0 860 214" role="img"
+  aria-label="A three stage loop: evaluate, improve, govern, with the winner becoming the next baseline">
+  <defs>
+    <marker id="lp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="currentColor" opacity=".5"/>
+    </marker>
+  </defs>
+
+  <rect class="box-a" x="20" y="16" width="240" height="94" rx="14" stroke-width="1.6"/>
+  <text x="140" y="48" text-anchor="middle" font-size="16" font-weight="650">Evaluate</text>
+  <text x="140" y="72" text-anchor="middle" font-size="12.5" class="mut">Every action lands in a log</text>
+  <text x="140" y="90" text-anchor="middle" font-size="12.5" class="mut">the agent cannot edit</text>
+
+  <path class="ln" d="M264 63 L 294 63" stroke-width="1.6" marker-end="url(#lp)"/>
+
+  <rect class="box-a" x="300" y="16" width="240" height="94" rx="14" stroke-width="1.6"/>
+  <text x="420" y="48" text-anchor="middle" font-size="16" font-weight="650">Improve</text>
+  <text x="420" y="72" text-anchor="middle" font-size="12.5" class="mut">Failures become test cases,</text>
+  <text x="420" y="90" text-anchor="middle" font-size="12.5" class="mut">a search rewrites the agent</text>
+
+  <path class="ln" d="M544 63 L 574 63" stroke-width="1.6" marker-end="url(#lp)"/>
+
+  <rect class="box-g" x="580" y="16" width="240" height="94" rx="14" stroke-width="1.7"/>
+  <text x="700" y="48" text-anchor="middle" font-size="16" font-weight="650">Govern</text>
+  <text x="700" y="72" text-anchor="middle" font-size="12.5" class="mut">Ships only if it wins on</text>
+  <text x="700" y="90" text-anchor="middle" font-size="12.5" class="mut">cases it has never seen</text>
+
+  <path class="ln" d="M700 114 C 700 172, 620 178, 420 178 C 220 178, 140 172, 140 114"
+        stroke-width="1.5" stroke-dasharray="6 5" marker-end="url(#lp)"/>
+  <text x="420" y="200" text-anchor="middle" font-size="12.5" class="mut">the winner becomes the next baseline, and the loop runs again</text>
+</svg>
+
+<div class="callout">
+  <div class="bd">
+    <p style="margin:0"><strong>Domain-agnostic by construction.</strong> Nothing in the loop
+    knows about collections. A new agent needs only its tools, expected end states, and failure
+    types.</p>
+  </div>
+</div>
+
+<h2>Validated on a live agent</h2>
+<p>An EMI collections agent deployed on Sarvam Indus, in Hindi and Hinglish. 200 real
+conversations across phone calls, bot-to-bot voice, and text.</p>
+
+<div class="hero-num" style="margin-top:26px">
   <span class="from">111</span><span class="ar">&rarr;</span><span class="to">179</span>
   <span style="font-size:.32em;color:var(--ink-3);font-weight:400;letter-spacing:0">of 200</span>
 </div>
 <p style="font-size:17.5px;max-width:60ch;margin-top:2px">Conversations where the agent
-<strong>actually did what the situation required</strong>, before and after the framework ran.
-Not what it said. What the system recorded.</p>
+<strong>actually did what the situation required</strong>. Not what it said. What the system
+recorded.</p>
 
-<div class="grid3" style="margin-top:30px">
+<div class="grid3" style="margin-top:28px">
   <div class="card">
     <h3 style="color:var(--gain)">Nothing broke</h3>
     <p class="sub" style="margin-top:6px">68 conversations went from failing to correct. Not one
@@ -42,46 +87,15 @@ Not what it said. What the system recorded.</p>
   </div>
   <div class="card">
     <h3 style="color:var(--gain)">No one wrote the fix</h3>
-    <p class="sub" style="margin-top:6px">The framework diagnosed the failure, generated the
-    correction, and tested it against cases it had never seen.</p>
+    <p class="sub" style="margin-top:6px">The framework diagnosed it, generated the correction,
+    and tested it on cases it had never seen.</p>
   </div>
   <div class="card">
     <h3 style="color:var(--gain)">It survived a real phone line</h3>
-    <p class="sub" style="margin-top:6px">Every improvement was re-tested by dialling the agent
-    on a live handset, not only in text.</p>
+    <p class="sub" style="margin-top:6px">Re-tested by dialling the agent on a live handset, not
+    only in text.</p>
   </div>
 </div>
-
-<h2>How it works</h2>
-<div class="grid3">
-  <div class="card">
-    <h3>Evaluate</h3>
-    <p class="sub" style="margin-top:6px">Every action lands in a log the agent cannot edit. A
-    conversation passes only if that log ends in the required state.</p>
-  </div>
-  <div class="card">
-    <h3>Improve</h3>
-    <p class="sub" style="margin-top:6px">Failures become replayable cases. An automated search
-    rewrites the agent against them.</p>
-  </div>
-  <div class="card">
-    <h3>Govern</h3>
-    <p class="sub" style="margin-top:6px">A rewrite ships only if it wins on unseen cases,
-    regresses no safety case, and beats the measured noise floor.</p>
-  </div>
-</div>
-
-<div class="callout">
-  <div class="bd">
-    <p style="margin:0"><strong>Domain-agnostic by construction.</strong> The loop, log, grading
-    and gates know nothing about collections. A new agent needs only its tools, expected end
-    states, and failure types.</p>
-  </div>
-</div>
-
-<h2>Validated on a live agent</h2>
-<p>An EMI collections agent deployed on Sarvam Indus, in Hindi and Hinglish. 200 real
-conversations across phone calls, bot-to-bot voice, and text.</p>
 
 <div class="walk"><span></span><a class="next" href="agent.html"><span class="k">Next</span><span class="t">The agent</span></a></div>
 </div>

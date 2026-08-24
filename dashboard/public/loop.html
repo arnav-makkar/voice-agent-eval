@@ -7,12 +7,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="site.css?v=51">
+<link rel="stylesheet" href="site.css?v=52">
 <script>/* apply the saved theme before first paint so the page never flashes
    the wrong ground while nav.js is still loading */
 (function(){try{var m=localStorage.getItem("theme");
 if(m==="light"||m==="dark")document.documentElement.setAttribute("data-theme",m);}catch(e){}})();</script>
-<script src="nav.js?v=51" defer></script>
+<script src="nav.js?v=52" defer></script>
 </head>
 <body>
 <div class="navwrap">
@@ -89,57 +89,6 @@ and shipped the rewrite once it won on cases it had never seen.</p>
 <tr><td><strong>Ship</strong></td><td>The winner is deployed with its exact text fingerprinted,
   so rolling back is one step. It becomes the next baseline, and the cycle runs again.</td></tr>
 </table></div>
-
-<h2>What a candidate is</h2>
-<p>The search is scored by the benchmark grader itself, not by a proxy metric.</p>
-
-<div class="callout">
-  <div class="bd">
-    <p style="margin:0"><strong>What the search optimises, exactly.</strong> Accuracy only:
-    whether the right records reach the log. The experience metrics, conciseness and progression,
-    are measured on every conversation and reported next to each call, but deliberately kept out
-    of the objective. One target keeps the search honest; experience optimisation is a scoped
-    next step, not a silent side effect. Persuasion is out of scope for the same reason: the
-    agent accepts a first refusal because its instructions teach that, and collection rate was
-    never optimised or claimed.</p>
-  </div>
-</div>
-
-<div class="grid2">
-  <div class="card">
-    <h3>Instructions</h3>
-    <p class="sub" style="margin-top:6px">The rules: what to do when, which action to take, how to
-    close a call.</p>
-  </div>
-  <div class="card">
-    <h3>Worked examples</h3>
-    <p class="sub" style="margin-top:6px">Real conversations that went perfectly, mined from the
-    agent's own history and used to demonstrate the behaviour.</p>
-  </div>
-</div>
-<p>The two halves are optimised separately, so it is worth asking what each one is worth. Run
-the same sixty unseen situations against the old agent, against the rules alone, and against
-both:</p>
-
-<div class="bars">
-  <div class="bar-row">
-    <span class="nm">Original agent<span>no changes</span></span>
-    <span class="bar-pair"><span class="bar-track"><span class="bar-fill" data-w="55%"></span></span></span>
-    <span class="fig" style="color:var(--ink-3)">33/60</span>
-  </div>
-  <div class="bar-row">
-    <span class="nm">Rules only<span>instructions rewritten</span></span>
-    <span class="bar-pair"><span class="bar-track"><span class="bar-fill" data-w="81.7%" style="background:var(--hold);opacity:.75"></span></span></span>
-    <span class="fig" style="color:var(--hold)">49/60</span>
-  </div>
-  <div class="bar-row">
-    <span class="nm">Rules and examples<span>both pieces</span></span>
-    <span class="bar-pair"><span class="bar-track"><span class="bar-fill now" data-w="98.3%"></span></span></span>
-    <span class="fig">59/60</span>
-  </div>
-</div>
-<p class="sub">The rules alone get most of the way. The examples add the last ten, which is
-about a third of the total gain, so neither half is carrying the result on its own.</p>
 
 <h2>The search pipeline</h2>
 <p>The diagram below is the search stage in full, as it actually ran: two rounds, what each
@@ -221,6 +170,20 @@ after passing all of them is it deployed, fingerprinted, as the new baseline.</p
 <text x="795" y="524" font-size="11" text-anchor="middle" class="mut">next baseline</text>
 </svg>
 
+<p>The search is scored by the benchmark grader itself, not by a proxy metric.</p>
+
+<div class="callout">
+  <div class="bd">
+    <p style="margin:0"><strong>What the search optimises, exactly.</strong> Accuracy only:
+    whether the right records reach the log. The experience metrics, conciseness and progression,
+    are measured on every conversation and reported next to each call, but deliberately kept out
+    of the objective. One target keeps the search honest; experience optimisation is a scoped
+    next step, not a silent side effect. Persuasion is out of scope for the same reason: the
+    agent accepts a first refusal because its instructions teach that, and collection rate was
+    never optimised or claimed.</p>
+  </div>
+</div>
+
 <h2>What a rewrite has to prove</h2>
 
 <div class="tw"><table>
@@ -297,6 +260,44 @@ after passing all of them is it deployed, fingerprinted, as the new baseline.</p
     Two rounds show the loop repeats; compounding beyond that is not claimed.</p>
   </div>
 </div>
+
+<h2>What each half of the winner is worth</h2>
+<p>The shipped agent has two halves, and they were optimised separately:</p>
+
+<div class="grid2">
+  <div class="card">
+    <h3>Instructions</h3>
+    <p class="sub" style="margin-top:6px">The rules: what to do when, which action to take, how to
+    close a call.</p>
+  </div>
+  <div class="card">
+    <h3>Worked examples</h3>
+    <p class="sub" style="margin-top:6px">Real conversations that went perfectly, mined from the
+    agent's own history and used to demonstrate the behaviour.</p>
+  </div>
+</div>
+<p>Run the same sixty unseen situations three ways: against the old agent, against the rules
+alone, and against both halves together:</p>
+
+<div class="bars">
+  <div class="bar-row">
+    <span class="nm">Original agent<span>no changes</span></span>
+    <span class="bar-pair"><span class="bar-track"><span class="bar-fill" data-w="55%"></span></span></span>
+    <span class="fig" style="color:var(--ink-3)">33/60</span>
+  </div>
+  <div class="bar-row">
+    <span class="nm">Rules only<span>instructions rewritten</span></span>
+    <span class="bar-pair"><span class="bar-track"><span class="bar-fill" data-w="81.7%" style="background:var(--hold);opacity:.75"></span></span></span>
+    <span class="fig" style="color:var(--hold)">49/60</span>
+  </div>
+  <div class="bar-row">
+    <span class="nm">Rules and examples<span>both pieces</span></span>
+    <span class="bar-pair"><span class="bar-track"><span class="bar-fill now" data-w="98.3%"></span></span></span>
+    <span class="fig">59/60</span>
+  </div>
+</div>
+<p class="sub">The rules alone get most of the way. The examples add the last ten, which is
+about a third of the total gain, so neither half is carrying the result on its own.</p>
 
 <h2>Why this transfers</h2>
 <p>Nothing in the loop is specific to this agent, or to collections.</p>

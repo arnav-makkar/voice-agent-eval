@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="site.css?v=43">
+<link rel="stylesheet" href="site.css?v=44">
 <style>
 .vs{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:28px 0;
   border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden}
@@ -35,7 +35,7 @@
 </style>
 <script>(function(){try{var m=localStorage.getItem("theme");
 if(m==="light"||m==="dark")document.documentElement.setAttribute("data-theme",m);}catch(e){}})();</script>
-<script src="nav.js?v=43" defer></script>
+<script src="nav.js?v=44" defer></script>
 </head>
 <body>
 <div class="navwrap">
@@ -456,6 +456,11 @@ const NICE2={"pay-now":"Paid on the call",callback:"Booked a callback",refusal:"
 dispute:"Disputed the amount",distress:"Customer in distress"};
 const pct=v=>v==null?null:(Math.round(v*1000)/10)+"%";
 let CALLS=[],SEL=null,BOT=[],BSEL=null;
+function turnsHTML(c){let n=0;const bt=c.breaking_turn&&c.breaking_turn.agent_turn;
+return (c.transcript||[]).map(function(t){const isA=t.speaker==="agent";if(isA)n++;
+const brk=isA&&bt===n;
+return '<div class="turn '+t.speaker+(brk?' break':'')+'"><b>'+(isA?"Agent":"Them")+'</b>'+
+'<span>'+t.text+(brk?'<i class="bchip">first breaking turn</i>':'')+'</span></div>';}).join("");}
 const rpct=v=>v==null?null:Math.round(v*100)+"%";
 function jrow(n,v,r){return v==null?"":mrow(n,"LLM judge · 5 levels",
 rpct(v)+(r?' <span class="rt">('+r+'/5)</span>':""),v>=0.75?"ok":(v>=0.5?"na":"no"),false);}
@@ -487,8 +492,7 @@ if(!CALLS.find(c=>c.id===SEL))SEL=CALLS[0]&&CALLS[0].id;
 [...list.children].forEach(b=>{if(b.dataset.id===SEL)b.classList.add("sel");
 b.addEventListener("click",()=>{SEL=b.dataset.id;render();});});
 const c=CALLS.find(x=>x.id===SEL);if(!c)return;
-const turns=(c.transcript||[]).map(t=>'<div class="turn '+t.speaker+'"><b>'+
-(t.speaker==="agent"?"Agent":"Them")+'</b><span>'+t.text+'</span></div>').join("");
+const turns=turnsHTML(c);
 document.getElementById("evalDetail").innerHTML=
 '<h3>'+(NICE[c.family]||c.family)+'</h3>'+
 '<div class="who">Baseline agent · '+Math.round(c.duration_s)+' seconds</div>'+
@@ -522,8 +526,7 @@ if(!BOT.find(c=>c.id===BSEL))BSEL=BOT[0]&&BOT[0].id;
 [...list.children].forEach(b=>{if(b.dataset.id===BSEL)b.classList.add("sel");
 b.addEventListener("click",()=>{BSEL=b.dataset.id;renderBot();});});
 const c=BOT.find(x=>x.id===BSEL);if(!c)return;
-const turns=(c.transcript||[]).map(t=>'<div class="turn '+t.speaker+'"><b>'+
-(t.speaker==="agent"?"Agent":"Them")+'</b><span>'+t.text+'</span></div>').join("");
+const turns=turnsHTML(c);
 document.getElementById("botDetail").innerHTML=
 '<h3>'+(NICE2[c.id]||c.id)+'</h3>'+
 '<div class="who">Baseline agent · synthetic caller · '+Math.round(c.duration_s)+' seconds</div>'+

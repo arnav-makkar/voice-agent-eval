@@ -415,7 +415,8 @@ svg.chart .d1{fill:var(--gain);stroke:none}
 .verdict .s{font-size:12px;color:var(--ink-3);margin-top:5px}
 
 /* first-breaking-turn highlight in transcripts */
-.turn.break{border-left:3px solid var(--loss);padding-left:11px;border-radius:4px}
+.turn.break{border-left:3px solid var(--loss);padding-left:11px;border-radius:4px;
+  background:var(--loss-soft)}
 .turn.break .bchip{display:inline-block;margin-left:8px;font:600 10px var(--sans);
   letter-spacing:.05em;text-transform:uppercase;color:var(--loss);font-style:normal}
 .mrow .rt{color:var(--ink-3);font-weight:400}

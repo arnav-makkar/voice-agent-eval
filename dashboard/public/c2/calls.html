@@ -7,32 +7,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="site.css?v=12">
-<style>
-/* the player is filled from fetched data, so its box is reserved up front:
-   growing from empty would push everything below it down after load */
-.player{border:1px solid var(--line);border-radius:var(--r-lg);padding:22px 24px;
-  background:var(--surface);margin:16px 0;min-height:560px}
-.player h3{margin:0 0 2px;font-size:19px}
-.player .who{font-size:13.5px;color:var(--ink-3);margin-bottom:14px}
-.pick2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0}
-@media(max-width:640px){.pick2{grid-template-columns:1fr}}
-.pick2 button{text-align:left;border:1px solid var(--line);background:var(--bg);
-  border-radius:var(--r);padding:14px 16px;cursor:pointer;font:inherit;color:var(--ink)}
-.pick2 button:hover{border-color:var(--accent);background:var(--accent-soft)}
-.pick2 b{display:block;font-size:14.5px;margin-bottom:2px}
-.pick2 span{font-size:12.5px;color:var(--ink-3)}
-.secband{display:flex;align-items:baseline;gap:12px;margin:60px 0 4px}
-.secband h2{margin:0}
-.secband .cnt{font-size:13px;color:var(--ink-3)}
-select{width:100%}
-label.pl{font-size:13px;color:var(--ink-3);display:block;margin:14px 0 6px}
-</style>
-<script>/* apply the saved theme before first paint so the page never flashes
-   the wrong ground while nav.js is still loading */
-(function(){try{var m=localStorage.getItem("theme");
+<link rel="stylesheet" href="site.css?v=14">
+<script>(function(){try{var m=localStorage.getItem("theme");
 if(m==="light"||m==="dark")document.documentElement.setAttribute("data-theme",m);}catch(e){}})();</script>
-<script src="nav.js?v=12" defer></script>
+<script src="nav.js?v=14" defer></script>
 </head>
 <body>
 <div class="navwrap">
@@ -41,75 +19,60 @@ if(m==="light"||m==="dark")document.documentElement.setAttribute("data-theme",m)
 </div>
 <div class="shell">
 
-<p class="kicker">Listen</p>
+<p class="kicker">The validation study · call evidence</p>
 <h1>All forty calls, before and after</h1>
-<p class="lede">Two very different kinds of evidence, kept apart. Phone calls are a person on a
-real line. Bot-to-bot is a synthetic caller speaking to the live agent over audio, which is what
-makes voice testing repeatable. Every call ends with its full metric panel.</p>
+<p class="lede">Every conversation the study produced, in two separate panels: phone calls with a
+person on a real line, and the bot-to-bot voice lab with judged metrics. Switch between the old
+and new agent while a call is selected to compare the same situation directly.</p>
 
-<div class="callout">
-  <div class="bd">
-    <p style="margin:0"><strong>Start with a contrast.</strong> Pick a call, listen, then use the
-    button under the player to hear the other version of the same situation.</p>
+<div class="quick">
+  <button data-q="phone|v3|card-11">Fraud call, before</button>
+  <button data-q="phone|v4|card-11">Fraud call, after</button>
+  <button data-q="bot|v3|distress">Distress, before</button>
+  <button data-q="bot|v4|distress">Distress, after</button>
+  <button data-q="phone|v4|card-05">The one still broken</button>
+</div>
+
+<div class="panel" id="phonePanel">
+  <div class="panel-head">
+    <h2>Phone calls</h2>
+    <span class="chip">situations <b>15</b></span>
+    <span class="chip">pass <b>9 <span class="up">→ 14</span></b></span>
+    <span class="chip">fixed <b id="phFixChip">·</b></span>
+    <span class="sp"></span>
+    <div class="seg" role="tablist" aria-label="Phone agent version">
+      <button data-v="v3" class="on">Old agent</button>
+      <button data-v="v4">New agent</button>
+    </div>
   </div>
+  <div class="tscroll"><table class="calltable" id="phoneTable">
+    <thead><tr><th>#</th><th>Situation</th><th>Result</th><th>Records written</th>
+    <th>Ended by</th><th style="text-align:right">Dur</th></tr></thead>
+    <tbody></tbody>
+  </table></div>
+  <div class="detail" id="phoneDetail"></div>
 </div>
 
-<div class="secband"><h2>Phone calls</h2>
-  <span class="cnt">15 situations, each run on the old agent and the new one, real handset</span></div>
-
-<div class="pick2">
-  <button data-target="phone" data-jump="pv3:card-11">
-    <b>The fraud call, before</b>
-    <span>Records "refused to pay" three times and never escalates</span>
-  </button>
-  <button data-target="phone" data-jump="pv4:card-11">
-    <b>The fraud call, after</b>
-    <span>Escalates to a human once and records the outcome once</span>
-  </button>
+<div class="panel" id="botPanel">
+  <div class="panel-head">
+    <h2>Bot-to-bot voice lab</h2>
+    <span class="chip">scenarios <b>5</b></span>
+    <span class="chip">accuracy <b>0.93 <span class="up">→ 1.00</span></b></span>
+    <span class="chip">exactly once <b>2/5 <span class="up">→ 4/5</span></b></span>
+    <span class="sp"></span>
+    <div class="seg" role="tablist" aria-label="Voice lab agent version">
+      <button data-v="v3" class="on">Old agent</button>
+      <button data-v="v4">New agent</button>
+    </div>
+  </div>
+  <div class="tscroll"><table class="calltable" id="botTable">
+    <thead><tr><th>Scenario</th><th>Accuracy</th><th>Task</th><th>Concise</th>
+    <th>Progression</th><th>Exactly once</th><th style="text-align:right">Dur</th></tr></thead>
+    <tbody></tbody>
+  </table></div>
+  <div class="detail" id="botDetail"></div>
 </div>
 
-<label class="pl" for="phoneSel">Browse the thirty phone calls</label>
-<select id="phoneSel" aria-label="Choose a phone call"></select>
-<div class="player">
-  <div id="phoneView"></div>
-  <button class="act" id="phonePair" hidden style="margin-top:14px"></button>
-</div>
-
-<div class="secband"><h2>Bot-to-bot voice lab</h2>
-  <span class="cnt">5 situations, synthetic caller, live audio, judged metrics</span></div>
-
-<p>These conversations are scored on the full metric set: three accuracy checks, two experience
-checks, and the execution check read from the permanent log.</p>
-
-<div class="pick2">
-  <button data-target="bot" data-jump="bv3:distress">
-    <b>The distressed customer, before</b>
-    <span>Repeats itself and files five records for a two-record job</span>
-  </button>
-  <button data-target="bot" data-jump="bv4:distress">
-    <b>The distressed customer, after</b>
-    <span>Says it once, files exactly the two records required</span>
-  </button>
-</div>
-
-<label class="pl" for="botSel">Browse the ten voice-lab conversations</label>
-<select id="botSel" aria-label="Choose a voice-lab conversation"></select>
-<div class="player">
-  <div id="botView"></div>
-  <button class="act" id="botPair" hidden style="margin-top:14px"></button>
-</div>
-
-<h2>Reading the tags</h2>
-<div class="tw"><table>
-<tr><th style="width:34%">Tag</th><th>Meaning</th></tr>
-<tr><td><span class="tag gain">pass</span></td><td>Every record this situation required was written</td></tr>
-<tr><td><span class="tag loss">fail</span></td><td>Something required is missing from the log</td></tr>
-<tr><td><span class="tag hold">record_call_outcome</span></td><td>An action that reached the log, named as it appears there</td></tr>
-<tr><td><span class="tag acc">agent hung up</span></td><td>The agent ended the call itself rather than leaving the line open</td></tr>
-</table></div>
-
-<div class="walk"><a href="results.html"><span class="k">Back</span><span class="t">The validation study</span></a><a class="next" href="notes.html"><span class="k">Next</span><span class="t">Limits</span></a></div>
-</div>
 <script>
 const $ = s => document.querySelector(s);
 const NICE = {
@@ -124,221 +87,145 @@ const NICE = {
   "pay-now":"Paid on the call", callback:"Booked a callback", refusal:"Flatly refused",
   dispute:"Disputed the amount", distress:"Customer in distress",
 };
-const VERSION = { pv3:"Old agent", pv4:"New agent", bv3:"Old agent", bv4:"New agent" };
-const all = {};
-
 const WHY = {
-  "Task completion":
-    "<b>How it is decided:</b> the account's end state is compared against what this " +
-    "situation required, by hashing both and checking they match. No model reads the " +
-    "conversation to decide this. <b>Why it matters:</b> it is the only check that asks " +
-    "whether the work was actually done, rather than whether it sounded done.",
-  "Records written":
-    "<b>How it is decided:</b> read straight from the permanent log, which the agent can " +
-    "add to but never edit or read back. <b>Why it matters:</b> these are the business " +
-    "consequences of the call. Anything the agent said it would do that is not on this " +
-    "list did not happen.",
-  "Missing":
-    "<b>How it is decided:</b> the records this situation required, minus the records " +
-    "actually found in the log. <b>Why it matters:</b> each missing entry is a customer " +
-    "outcome that vanished, even when the conversation itself sounded correct.",
-  "Wrote exactly once":
-    "<b>How it is decided:</b> counted from the log. Every required record must appear, " +
-    "and none may appear more than once. <b>Why it matters:</b> a duplicate escalation " +
-    "queues two humans, and a duplicate outcome corrupts reporting. Doing the job " +
-    "properly means doing it once.",
-  "Call ended by":
-    "<b>How it is decided:</b> the telephony platform reports who hung up. " +
-    "<b>Why it matters:</b> when the agent does not end a finished call, the line stays " +
-    "open on billed minutes and the platform eventually speaks its own filler prompt.",
-  "Duration":
-    "<b>How it is decided:</b> wall-clock length of the recording. " +
-    "<b>Why it matters:</b> on its own it proves nothing, but a call that gets the same " +
-    "result in less time is a better call, and a long call with no records is the " +
-    "clearest sign of trouble.",
-  "Faithfulness":
-    "<b>How it is decided:</b> an LLM judge reads the whole conversation and checks the " +
-    "agent's claims against what it was given and what actually happened. Passes at 0.5 " +
-    "or above. <b>Why it matters:</b> it catches an agent that invents a balance, a date " +
-    "or a policy nobody told it.",
-  "Speech fidelity":
-    "<b>How it is decided:</b> an LLM judge checks that names, amounts and dates survive " +
-    "the agent's speech intact. The strictest threshold in the set at 0.95, because a " +
-    "mangled amount is a failed call. <b>Why it matters:</b> in a collections call the " +
-    "exact figure is the point.",
-  "Conciseness":
-    "<b>How it is decided:</b> an LLM judge reading the full conversation, not a word " +
-    "count. Passes at 0.5 or above. <b>Why it matters:</b> padding on a phone call costs " +
-    "money and patience. It is also how repetition shows up as a number.",
-  "Conversation progression":
-    "<b>How it is decided:</b> an LLM judge asks whether the conversation moved forward " +
-    "or circled. Passes at 0.5 or above. <b>Why it matters:</b> this is the check that " +
-    "caught the old agent repeating its distress response almost word for word.",
-  "Accuracy composite":
-    "<b>How it is decided:</b> the mean of task completion, faithfulness and speech " +
-    "fidelity. <b>Why it matters:</b> a single figure for whether the agent did the job " +
-    "correctly. It is reported alongside its parts, never instead of them.",
+  "Task completion":"<b>How it is decided:</b> the account's end state is compared against what this situation required, by hashing both and checking they match. No model reads the conversation to decide this. <b>Why it matters:</b> it is the only check that asks whether the work was actually done, rather than whether it sounded done.",
+  "Records written":"<b>How it is decided:</b> read straight from the permanent log, which the agent can add to but never edit or read back. <b>Why it matters:</b> these are the business consequences of the call. Anything the agent said it would do that is not on this list did not happen.",
+  "Missing":"<b>How it is decided:</b> the records this situation required, minus the records actually found in the log. <b>Why it matters:</b> each missing entry is a customer outcome that vanished, even when the conversation itself sounded correct.",
+  "Wrote exactly once":"<b>How it is decided:</b> counted from the log. Every required record must appear, and none may appear more than once. <b>Why it matters:</b> a duplicate escalation queues two humans, and a duplicate outcome corrupts reporting. Doing the job properly means doing it once.",
+  "Call ended by":"<b>How it is decided:</b> the telephony platform reports who hung up. <b>Why it matters:</b> when the agent does not end a finished call, the line stays open on billed minutes and the platform eventually speaks its own filler prompt.",
+  "Duration":"<b>How it is decided:</b> wall-clock length of the recording. <b>Why it matters:</b> on its own it proves nothing, but a call that gets the same result in less time is a better call, and a long call with no records is the clearest sign of trouble.",
+  "Faithfulness":"<b>How it is decided:</b> an LLM judge reads the whole conversation and checks the agent's claims against what it was given and what actually happened. Passes at 0.5 or above. <b>Why it matters:</b> it catches an agent that invents a balance, a date or a policy nobody told it.",
+  "Speech fidelity":"<b>How it is decided:</b> an LLM judge checks that names, amounts and dates survive the agent's speech intact. The strictest threshold in the set at 0.95, because a mangled amount is a failed call. <b>Why it matters:</b> in a collections call the exact figure is the point.",
+  "Conciseness":"<b>How it is decided:</b> an LLM judge reading the full conversation, not a word count. Passes at 0.5 or above. <b>Why it matters:</b> padding on a phone call costs money and patience. It is also how repetition shows up as a number.",
+  "Conversation progression":"<b>How it is decided:</b> an LLM judge asks whether the conversation moved forward or circled. Passes at 0.5 or above. <b>Why it matters:</b> this is the check that caught the old agent repeating its distress response almost word for word.",
+  "Accuracy composite":"<b>How it is decided:</b> the mean of task completion, faithfulness and speech fidelity. <b>Why it matters:</b> a single figure for whether the agent did the job correctly. It is reported alongside its parts, never instead of them.",
 };
-
-const mrow = (name, how, val, cls, detBadge) => {
+const mrow = (name, how, val, cls, det) => {
   const why = WHY[name] || "";
-  return '<details class="mrow"><summary>' +
-    '<span class="chev"></span>' +
-    `<span class="nm">${name}</span>` +
-    `<span class="how${detBadge ? " det" : ""}">${how}</span>` +
-    '<span class="fill"></span>' +
-    `<span class="sc ${cls}">${val}</span></summary>` +
-    (why ? `<div class="why">${why}</div>` : "") +
-    "</details>";
+  return '<details class="mrow"><summary><span class="chev"></span>' +
+    `<span class="nm">${name}</span><span class="how${det ? " det" : ""}">${how}</span>` +
+    `<span class="fill"></span><span class="sc ${cls}">${val}</span></summary>` +
+    (why ? `<div class="why">${why}</div>` : "") + "</details>";
 };
+const dupes = c => Object.entries((c.tools||[]).reduce((m,t)=>(m[t]=(m[t]||0)+1,m),{}))
+  .filter(([,n])=>n>1);
+const pill = (t,c)=>`<span class="sc-mini ${c}">${t}</span>`;
+const pct = v => v==null?null:(Math.round(v*1000)/10)+"%";
 
-function dupes(c) {
-  const counts = {};
-  (c.tools || []).forEach(t => counts[t] = (counts[t] || 0) + 1);
-  return Object.entries(counts).filter(([, n]) => n > 1);
+const DATA = { phone:{v3:[],v4:[]}, bot:{v3:[],v4:[]} };
+const STATE = { phone:{v:"v3",sel:null}, bot:{v:"v3",sel:null} };
+
+function phoneRow(c, ver){
+  const d=dupes(c);
+  const once = c.exactly_once!==undefined ? c.exactly_once : d.length===0;
+  const fixed = ver==="v4" && c.passed && c.v3_passed===false;
+  return `<tr data-id="${c.id}">
+    <td>${c.card}</td>
+    <td class="wrap"><strong style="font-weight:550">${NICE[c.family]||c.family}</strong></td>
+    <td>${pill(c.passed?"pass":"fail", c.passed?"ok":"no")}${fixed?" "+pill("fixed","ok"):""}</td>
+    <td>${(c.tools||[]).length ? c.tools.length + (once?"":" · dup") : "none"}</td>
+    <td>${c.end_reason==="AGENT_ENDS"?"agent":"caller"}</td>
+    <td style="text-align:right">${Math.round(c.duration_s)}s</td></tr>`;
 }
-
-function phoneMetrics(c) {
-  const d = dupes(c);
-  const once = c.exactly_once !== undefined ? c.exactly_once : d.length === 0;
-  let h = '<div class="mgroup">Execution, read from the permanent log</div>';
-  h += mrow("Task completion", "Deterministic",
-            c.passed ? "pass" : "fail", c.passed ? "ok" : "no", true);
-  h += mrow("Records written", "Log",
-            (c.tools || []).length ? c.tools.join(", ") : "none",
-            (c.tools || []).length ? "ok" : "no", true);
-  if (c.missing && c.missing.length)
-    h += mrow("Missing", "Log", c.missing.join(", "), "no", true);
-  h += mrow("Wrote exactly once", "Deterministic",
-            once ? "yes" : d.map(([t, n]) => `${t} \u00d7${n}`).join(", "),
-            once ? "ok" : "no", true);
-  h += '<div class="mgroup">Call facts</div>';
-  if (c.end_reason)
-    h += mrow("Call ended by", "Telephony",
-              c.end_reason === "AGENT_ENDS" ? "the agent" : "the caller",
-              c.end_reason === "AGENT_ENDS" ? "ok" : "na", true);
-  h += mrow("Duration", "Telephony", Math.round(c.duration_s) + "s", "na", true);
+function botRow(c){
+  return `<tr data-id="${c.id}">
+    <td class="wrap"><strong style="font-weight:550">${NICE[c.id]||c.id}</strong></td>
+    <td>${pill(c.eva_a, c.eva_a===1?"ok":"no")}</td>
+    <td>${pill(pct(c.task_completion), c.task_completion===1?"ok":"no")}</td>
+    <td>${pill(pct(c.conciseness), c.conciseness>=0.5?"ok":"no")}</td>
+    <td>${pill(pct(c.progression), c.progression>=0.5?"ok":"no")}</td>
+    <td>${c.exactly_once?pill("yes","ok"):pill("dup","no")}</td>
+    <td style="text-align:right">${Math.round(c.duration_s)}s</td></tr>`;
+}
+function phoneMetrics(c){
+  const d=dupes(c);
+  const once = c.exactly_once!==undefined ? c.exactly_once : d.length===0;
+  let h='<div class="mgroup">Execution, read from the permanent log</div>';
+  h+=mrow("Task completion","Deterministic",c.passed?"pass":"fail",c.passed?"ok":"no",true);
+  h+=mrow("Records written","Log",(c.tools||[]).length?c.tools.join(", "):"none",
+          (c.tools||[]).length?"ok":"no",true);
+  if(c.missing&&c.missing.length) h+=mrow("Missing","Log",c.missing.join(", "),"no",true);
+  h+=mrow("Wrote exactly once","Deterministic",
+          once?"yes":d.map(([t,n])=>`${t} ×${n}`).join(", "),once?"ok":"no",true);
+  h+='<div class="mgroup">Call facts</div>';
+  if(c.end_reason) h+=mrow("Call ended by","Telephony",
+      c.end_reason==="AGENT_ENDS"?"the agent":"the caller",
+      c.end_reason==="AGENT_ENDS"?"ok":"na",true);
+  h+=mrow("Duration","Telephony",Math.round(c.duration_s)+"s","na",true);
   return h;
 }
-
-function botMetrics(c) {
-  const pct = v => v == null ? null : (Math.round(v * 1000) / 10) + "%";
-  const j = (name, v, thr) => v == null ? "" :
-    mrow(name, "LLM judge", pct(v), v >= thr ? "ok" : "no", false);
-  let h = '<div class="mgroup">Accuracy</div>';
-  h += mrow("Task completion", "Deterministic", pct(c.task_completion),
-            c.task_completion === 1 ? "ok" : "no", true);
-  h += j("Faithfulness", c.faithfulness, 0.5);
-  h += j("Speech fidelity", c.agent_speech_fidelity, 0.95);
-  h += '<div class="mgroup">Experience</div>';
-  h += j("Conciseness", c.conciseness, 0.5);
-  h += j("Conversation progression", c.progression, 0.5);
-  h += '<div class="mgroup">Execution</div>';
-  h += mrow("Wrote exactly once", "Deterministic",
-            c.exactly_once ? "yes" :
-            Object.entries(c.duplicate_writes || {}).map(([t, n]) => `${t} \u00d7${n}`).join(", "),
-            c.exactly_once ? "ok" : "no", true);
-  h += mrow("Accuracy composite", "Mean of three", c.eva_a,
-            c.eva_a === 1 ? "ok" : "no", true);
-  h += '<div class="mnote">Turn taking is excluded: its audio inputs come back empty in ' +
-       'this setup, so it reports no data rather than a score.</div>';
+function botMetrics(c){
+  const j=(n,v,t)=>v==null?"":mrow(n,"LLM judge",pct(v),v>=t?"ok":"no",false);
+  let h='<div class="mgroup">Accuracy</div>';
+  h+=mrow("Task completion","Deterministic",pct(c.task_completion),
+          c.task_completion===1?"ok":"no",true);
+  h+=j("Faithfulness",c.faithfulness,0.5);
+  h+=j("Speech fidelity",c.agent_speech_fidelity,0.95);
+  h+='<div class="mgroup">Experience</div>';
+  h+=j("Conciseness",c.conciseness,0.5);
+  h+=j("Conversation progression",c.progression,0.5);
+  h+='<div class="mgroup">Execution</div>';
+  h+=mrow("Wrote exactly once","Deterministic",
+          c.exactly_once?"yes":Object.entries(c.duplicate_writes||{})
+            .map(([t,n])=>`${t} ×${n}`).join(", "),
+          c.exactly_once?"ok":"no",true);
+  h+=mrow("Accuracy composite","Mean of three",c.eva_a,c.eva_a===1?"ok":"no",true);
+  h+='<div class="mnote">Turn taking is excluded: its audio inputs come back empty in this setup, so it reports no data rather than a score.</div>';
   return h;
 }
-
-function render(viewId, key, pairBtnId, pairMap) {
-  const c = all[key];
-  if (!c) return;
-  const isBot = key.startsWith("b");
-  const tags = [];
-  if (c.passed === true) tags.push('<span class="tag gain">pass</span>');
-  if (c.passed === false) tags.push('<span class="tag loss">fail</span>');
-  (c.tools || []).forEach(t => tags.push(`<span class="tag hold">${t}</span>`));
-  if (!isBot && c.end_reason === "AGENT_ENDS")
-    tags.push('<span class="tag acc">agent hung up</span>');
-  if (key.startsWith("pv4") && c.passed && c.v3_passed === false)
-    tags.push('<span class="tag gain">fixed</span>');
-
-  const turns = (c.transcript || []).map(t =>
-    `<div class="turn ${t.speaker}"><b>${t.speaker === "agent" ? "Agent" : "Them"}</b>` +
-    `<span>${t.text}</span></div>`).join("");
-
-  $("#" + viewId).innerHTML =
-    `<h3>${NICE[c.family] || NICE[c.id] || c.id}</h3>` +
-    `<div class="who">${VERSION[key.split(":")[0]]}` +
-    (c.duration_s ? ` · ${Math.round(c.duration_s)} seconds` : "") + `</div>` +
-    (c.audio ? `<audio controls preload="none" src="${c.audio}"></audio>`
-             : '<p class="sub">No recording for this entry.</p>') +
-    `<div class="meta">${tags.join("")}</div>` +
-    (turns ? `<div class="turns">${turns}</div>` : "") +
-    (isBot ? botMetrics(c) : phoneMetrics(c));
-
-  const [tag, id] = key.split(":");
-  const pk = `${pairMap[tag]}:${id}`;
-  const btn = $("#" + pairBtnId);
-  btn.hidden = !all[pk];
-  if (all[pk]) {
-    btn.textContent = "Hear the " + (VERSION[pairMap[tag]].toLowerCase()) +
-                      " on this same situation";
-    btn.onclick = () => {
-      const sel = viewId === "phoneView" ? $("#phoneSel") : $("#botSel");
-      sel.value = pk;
-      render(viewId, pk, pairBtnId, pairMap);
-    };
-  }
+function detail(tier, c){
+  const isBot = tier==="bot";
+  const turns=(c.transcript||[]).map(t=>
+    `<div class="turn ${t.speaker}"><b>${t.speaker==="agent"?"Agent":"Them"}</b><span>${t.text}</span></div>`).join("");
+  return `<h3>${NICE[c.family]||NICE[c.id]||c.id}</h3>
+    <div class="who">${STATE[tier].v==="v3"?"Old agent":"New agent"} · ${Math.round(c.duration_s)} seconds
+    · switch versions above to compare this same situation</div>` +
+    (c.audio?`<audio controls preload="none" src="${c.audio}"></audio>`
+            :'<p class="sub">No recording for this entry.</p>') +
+    (isBot?botMetrics(c):phoneMetrics(c)) +
+    (turns?`<details class="tg"><summary>Transcript</summary><div class="bd"><div class="turns" style="max-height:none;border:0;background:none;box-shadow:none;padding:0">${turns}</div></div></details>`:"");
 }
-
-const PHONE_PAIR = { pv3:"pv4", pv4:"pv3" };
-const BOT_PAIR = { bv3:"bv4", bv4:"bv3" };
-
+function renderPanel(tier){
+  const st=STATE[tier], items=DATA[tier][st.v];
+  const tbody=$(`#${tier}Table tbody`);
+  tbody.innerHTML=items.map(c=>tier==="phone"?phoneRow(c,st.v):botRow(c)).join("");
+  if(!items.find(c=>c.id===st.sel)) st.sel=items[0]&&items[0].id;
+  [...tbody.rows].forEach(r=>{
+    if(r.dataset.id===st.sel) r.classList.add("sel");
+    r.addEventListener("click",()=>{st.sel=r.dataset.id;renderPanel(tier);});
+  });
+  const c=items.find(x=>x.id===st.sel);
+  $(`#${tier}Detail`).innerHTML=c?detail(tier,c):"";
+}
+document.querySelectorAll(".seg").forEach(seg=>{
+  const tier=seg.closest(".panel").id.replace("Panel","");
+  seg.querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>{
+    seg.querySelectorAll("button").forEach(x=>x.classList.toggle("on",x===b));
+    STATE[tier].v=b.dataset.v; renderPanel(tier);
+  }));
+});
+document.querySelectorAll(".quick button").forEach(b=>b.addEventListener("click",()=>{
+  const [tier,v,id]=b.dataset.q.split("|");
+  STATE[tier].v=v; STATE[tier].sel=id;
+  const seg=$(`#${tier}Panel .seg`);
+  seg.querySelectorAll("button").forEach(x=>x.classList.toggle("on",x.dataset.v===v));
+  renderPanel(tier);
+  $(`#${tier}Panel`).scrollIntoView({behavior:"smooth",block:"start"});
+}));
 Promise.all([
-  ["Old agent", "/evidence/audio/phone-v3/index.json", "pv3"],
-  ["New agent", "/evidence/audio/phone-v4/index.json", "pv4"],
-  ["Old agent", "/evidence/audio/bot-v3/index.json", "bv3"],
-  ["New agent", "/evidence/audio/bot-v4/index.json", "bv4"],
-].map(([, url]) => fetch(url).then(r => r.ok ? r.json() : []).catch(() => [])))
-.then(([pv3, pv4, bv3, bv4]) => {
-  const fill = (sel, groups) => {
-    groups.forEach(([label, items, tag]) => {
-      const og = document.createElement("optgroup");
-      og.label = `${label} (${items.length})`;
-      items.forEach(c => {
-        const key = `${tag}:${c.id}`;
-        all[key] = c;
-        const o = document.createElement("option");
-        o.value = key;
-        o.textContent = `${NICE[c.family] || NICE[c.id] || c.id}` +
-                        (c.duration_s ? ` · ${Math.round(c.duration_s)}s` : "");
-        og.appendChild(o);
-      });
-      if (items.length) sel.appendChild(og);
-    });
-  };
-  fill($("#phoneSel"), [["Old agent", pv3, "pv3"], ["New agent", pv4, "pv4"]]);
-  fill($("#botSel"),   [["Old agent", bv3, "bv3"], ["New agent", bv4, "bv4"]]);
-
-  $("#phoneSel").addEventListener("change", e =>
-    render("phoneView", e.target.value, "phonePair", PHONE_PAIR));
-  $("#botSel").addEventListener("change", e =>
-    render("botView", e.target.value, "botPair", BOT_PAIR));
-
-  document.querySelectorAll("[data-jump]").forEach(b =>
-    b.addEventListener("click", () => {
-      const k = b.dataset.jump;
-      if (!all[k]) return;
-      if (b.dataset.target === "phone") {
-        $("#phoneSel").value = k; render("phoneView", k, "phonePair", PHONE_PAIR);
-        $("#phoneView").scrollIntoView({ behavior: "smooth", block: "center" });
-      } else {
-        $("#botSel").value = k; render("botView", k, "botPair", BOT_PAIR);
-        $("#botView").scrollIntoView({ behavior: "smooth", block: "center" });
-      }
-    }));
-
-  if (pv3.length) { $("#phoneSel").value = "pv3:" + pv3[0].id;
-    render("phoneView", "pv3:" + pv3[0].id, "phonePair", PHONE_PAIR); }
-  if (bv3.length) { $("#botSel").value = "bv3:" + bv3[0].id;
-    render("botView", "bv3:" + bv3[0].id, "botPair", BOT_PAIR); }
+  "/evidence/audio/phone-v3/index.json","/evidence/audio/phone-v4/index.json",
+  "/evidence/audio/bot-v3/index.json","/evidence/audio/bot-v4/index.json",
+].map(u=>fetch(u).then(r=>r.ok?r.json():[]).catch(()=>[])))
+.then(([pv3,pv4,bv3,bv4])=>{
+  DATA.phone.v3=pv3; DATA.phone.v4=pv4; DATA.bot.v3=bv3; DATA.bot.v4=bv4;
+  const fixed=pv4.filter(c=>c.passed&&c.v3_passed===false).length;
+  const broken=pv4.filter(c=>!c.passed&&c.v3_passed===true).length;
+  $("#phFixChip").innerHTML=`<span class="up">${fixed}</span> · broken ${broken}`;
+  renderPanel("phone"); renderPanel("bot");
 });
 </script>
+
+<div class="walk"><a href="results.html"><span class="k">Back</span><span class="t">The validation study</span></a><a class="next" href="notes.html"><span class="k">Next</span><span class="t">Limits</span></a></div>
+</div>
 </body>
 </html>

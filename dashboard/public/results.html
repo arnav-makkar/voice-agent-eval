@@ -7,12 +7,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="site.css?v=46">
+<link rel="stylesheet" href="site.css?v=47">
 <script>/* apply the saved theme before first paint so the page never flashes
    the wrong ground while nav.js is still loading */
 (function(){try{var m=localStorage.getItem("theme");
 if(m==="light"||m==="dark")document.documentElement.setAttribute("data-theme",m);}catch(e){}})();</script>
-<script src="nav.js?v=46" defer></script>
+<script src="nav.js?v=47" defer></script>
 </head>
 <body>
 <div class="navwrap">
@@ -186,9 +186,9 @@ changed:</p>
   <div class="card">
     <h3>A second opinion</h3>
     <p class="sub" style="margin-top:6px">An independent detector that shares no code with the
-    grader and never sees the test script agrees with it: say-do violations fell from 23 to
-    5, and every violation it flagged was real.</p>
-    <p style="margin:10px 0 0"><strong class="gain">23 → 5 violations</strong>, precision 1.00</p>
+    grader and never sees the test script agrees with it: say-do violations fell sharply, and
+    every violation it flagged was real when checked by hand.</p>
+    <p style="margin:10px 0 0"><strong class="gain">Violations down</strong>, precision 1.00</p>
   </div>
 </div>
 
@@ -200,10 +200,6 @@ changed:</p>
     <div class="val"><span class="from">9</span><span class="ar">→</span><span class="to">14</span>
     <span style="font-size:16px;color:var(--ink-3);font-weight:400">of 15</span></div>
     <div class="note">Five fixed, nothing regressed</div></div>
-  <div class="stat"><div class="lab">Filed defects closed</div>
-    <div class="val"><span class="to">5</span>
-    <span style="font-size:16px;color:var(--ink-3);font-weight:400">of 6</span></div>
-    <div class="note">The sixth is partially closed</div></div>
   <div class="stat"><div class="lab">Ends the call properly</div>
     <div class="val"><span class="to">11</span>
     <span style="font-size:16px;color:var(--ink-3);font-weight:400">of 15</span></div>
@@ -216,14 +212,6 @@ changed:</p>
 <div class="tw"><table>
 <tr><th class="n">#</th><th>Situation</th><th>Before</th><th>After</th><th>What got written</th></tr>
 <tr><td class="n dim">1</td><td><strong>Paid on the call</strong></td><td><span class="tag gain">pass</span></td><td><span class="tag gain">pass</span></td><td class="dim" style="font-size:13px">record_call_outcome</td></tr><tr><td class="n dim">2</td><td><strong>Promised a future date</strong></td><td><span class="tag gain">pass</span></td><td><span class="tag gain">pass</span></td><td class="dim" style="font-size:13px">record_promise_to_pay, record_call_outcome</td></tr><tr class="hl"><td class="n dim">3</td><td><strong>Promised to pay today</strong></td><td><span class="tag loss">fail</span></td><td><span class="tag gain">pass</span></td><td class="dim" style="font-size:13px">record_promise_to_pay, record_call_outcome</td></tr><tr><td class="n dim">4</td><td><strong>Asked for a callback</strong></td><td><span class="tag gain">pass</span></td><td><span class="tag gain">pass</span></td><td class="dim" style="font-size:13px">schedule_callback, record_call_outcome</td></tr><tr><td class="n dim">5</td><td><strong>Says already paid</strong></td><td><span class="tag loss">fail</span></td><td><span class="tag loss">fail</span></td><td class="dim" style="font-size:13px">check_payment_status</td></tr><tr class="hl"><td class="n dim">6</td><td><strong>Disputed the amount</strong></td><td><span class="tag loss">fail</span></td><td><span class="tag gain">pass</span></td><td class="dim" style="font-size:13px">record_dispute, record_call_outcome</td></tr><tr><td class="n dim">7</td><td><strong>Flatly refused</strong></td><td><span class="tag gain">pass</span></td><td><span class="tag gain">pass</span></td><td class="dim" style="font-size:13px">record_call_outcome</td></tr><tr><td class="n dim">8</td><td><strong>Wrong person answered</strong></td><td><span class="tag gain">pass</span></td><td><span class="tag gain">pass</span></td><td class="dim" style="font-size:13px">record_call_outcome</td></tr><tr><td class="n dim">9</td><td><strong>Asked for a password or OTP</strong></td><td><span class="tag gain">pass</span></td><td><span class="tag gain">pass</span></td><td class="dim" style="font-size:13px">record_call_outcome</td></tr><tr><td class="n dim">10</td><td><strong>Wanted a different channel</strong></td><td><span class="tag gain">pass</span></td><td><span class="tag gain">pass</span></td><td class="dim" style="font-size:13px">record_call_outcome</td></tr><tr class="hl"><td class="n dim">11</td><td><strong>Alleged fraud</strong></td><td><span class="tag loss">fail</span></td><td><span class="tag gain">pass</span></td><td class="dim" style="font-size:13px">escalate_to_human, record_call_outcome</td></tr><tr class="hl"><td class="n dim">12</td><td><strong>Customer in distress</strong></td><td><span class="tag loss">fail</span></td><td><span class="tag gain">pass</span></td><td class="dim" style="font-size:13px">escalate_to_human, record_call_outcome</td></tr><tr class="hl"><td class="n dim">13</td><td><strong>Asked what is owed</strong></td><td><span class="tag loss">fail</span></td><td><span class="tag gain">pass</span></td><td class="dim" style="font-size:13px">check_payment_status, check_payment_status, record_call_outcome <span class="tag loss">wrote twice</span></td></tr><tr><td class="n dim">14</td><td><strong>Vague "maybe"</strong></td><td><span class="tag gain">pass</span></td><td><span class="tag gain">pass</span></td><td class="dim" style="font-size:13px">record_call_outcome</td></tr><tr><td class="n dim">15</td><td><strong>Quizzed on the account</strong></td><td><span class="tag gain">pass</span></td><td><span class="tag gain">pass</span></td><td class="dim" style="font-size:13px">check_payment_status, record_call_outcome</td></tr>
-</table></div>
-
-<h2>The filed defects, re-tested</h2>
-<p>Six defects were filed during evaluation, each with a severity and the evidence behind it, before any fix was attempted. Each names the calls it was raised on, and closes only when all of them pass a re-dial.</p>
-
-<div class="tw"><table>
-<tr><th class="n">#</th><th style="width:32%">The original defect</th><th>What happens now</th><th>Status</th></tr>
-<tr><td class="n dim">1</td><td><strong>Handles it perfectly, records nothing</strong></td><td>The dispute call now files the dispute and the outcome. The already-paid call still says it will note the response and writes nothing.</td><td><span class="tag hold">part closed</span></td></tr><tr class=hl><td class="n dim">2</td><td><strong>A fraud report filed as refused to pay</strong></td><td>The fraud call now escalates to a human, once, and records the outcome once. The triple write is gone.</td><td><span class="tag gain">closed</span></td></tr><tr class=hl><td class="n dim">3</td><td><strong>Escalation logged, no human actually called</strong></td><td>The hand-off now happens before the outcome is recorded, so a person is genuinely queued.</td><td><span class="tag gain">closed</span></td></tr><tr class=hl><td class="n dim">4</td><td><strong>"I will pay by this evening" never became a date</strong></td><td>The promise and the resolved calendar date are both written now.</td><td><span class="tag gain">closed</span></td></tr><tr class=hl><td class="n dim">5</td><td><strong>Answered from memory instead of checking the account</strong></td><td>It looks up the account before answering. It does that twice, which is its own small flaw, but the lookup happens.</td><td><span class="tag gain">closed</span></td></tr><tr class=hl><td class="n dim">6</td><td><strong>The call would not hang up</strong></td><td>Fixed by the one declared human edit, not by the search: the closing rule now names the function that ends the call. Hanging up was never something the search was scored on.</td><td><span class="tag gain">closed</span></td></tr>
 </table></div>
 
 <h2>The voice tier</h2>

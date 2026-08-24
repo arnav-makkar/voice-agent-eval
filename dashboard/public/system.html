@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="site.css?v=46">
+<link rel="stylesheet" href="site.css?v=47">
 <style>
 .vs{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:28px 0;
   border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden}
@@ -35,7 +35,7 @@
 </style>
 <script>(function(){try{var m=localStorage.getItem("theme");
 if(m==="light"||m==="dark")document.documentElement.setAttribute("data-theme",m);}catch(e){}})();</script>
-<script src="nav.js?v=46" defer></script>
+<script src="nav.js?v=47" defer></script>
 </head>
 <body>
 <div class="navwrap">
@@ -366,12 +366,8 @@ same log by the same rule. This is the tier that carries the statistics.</p>
   <div><div class="k">Safety situations</div><div class="v">40 <span style="font-size:15px;color:var(--ink-3);font-weight:400">of 73</span></div><div class="s">fraud, distress, privacy</div></div>
 </div>
 
-<p>An independent detector, reading only the log with no labels and no test script, flagged 23 of
-those conversations for recording a commitment with nothing behind it. Every one reads as a
-competent call.</p>
-
 <details class="tg">
-  <summary>How the count is produced without labelled data</summary>
+  <summary>The independent say-do detector</summary>
   <div class="bd">
     <p>A separate detector reads the journal alone. It never sees the transcript or the test
     script, and it needs no labels. It checks seven invariants that any correct call satisfies:
@@ -379,10 +375,10 @@ competent call.</p>
     queued a human, a dispute must have filed one, any business action must end in a recorded
     outcome, nothing may be written twice, and a promise date must be well formed and not in the
     past.</p>
-    <p>It shares no code with the grader, so agreement between the two is independent confirmation.
-    Its precision was measured at 1.00: every violation it flagged was real when checked by hand.
-    It caught 28% of all the failures the scripted benchmark found, which is the honest estimate
-    of how much it would see in production, where no script exists.</p>
+    <p>It shares no code with the grader, so agreement between the two is independent
+    confirmation. Its precision was measured at 1.00: every violation it flagged was real when
+    checked by hand. It caught 28% of all the failures the scripted benchmark found, which is the
+    honest estimate of how much it would see in production, where no script exists.</p>
   </div>
 </details>
 
@@ -390,14 +386,11 @@ competent call.</p>
 <div class="verdict">
   <div><div class="k">Conversations measured</div><div class="v">200</div><div class="s">across three channels</div></div>
   <div><div class="k">Baseline</div><div class="v">111 <span style="font-size:15px;color:var(--ink-3);font-weight:400">of 200</span></div><div class="s">correct end state</div></div>
-  <div><div class="k">Defects filed</div><div class="v">6</div><div class="s">re-tested on the Results page</div></div>
-  <div><div class="k">Replay cases</div><div class="v">23</div><div class="s">failures ready to re-run</div></div>
 </div>
 <div class="callout">
   <div class="bd">
-    <p style="margin:0"><strong>Hand-off.</strong> A frozen suite, a trusted instrument, a scored
-    baseline, and six defects filed with evidence before any fix. The next section
-    is the loop that writes them.</p>
+    <p style="margin:0"><strong>Hand-off.</strong> A frozen suite, a trusted instrument, and a
+    scored baseline. The next section is the loop that improves the agent against it.</p>
   </div>
 </div>
 

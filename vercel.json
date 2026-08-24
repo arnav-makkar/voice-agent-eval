@@ -6,26 +6,57 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/", "destination": "/c2/overview.html", "permanent": false }
+    {
+      "source": "/c2",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/c2/overview",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/c2/overview.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/c2/:path*",
+      "destination": "/:path*",
+      "permanent": true
+    }
   ],
   "headers": [
     {
       "source": "/evidence/audio/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     },
     {
-      "source": "/c2/(.*).html",
+      "source": "/(.*).html",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
       ]
     },
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
       ]
     }
   ]

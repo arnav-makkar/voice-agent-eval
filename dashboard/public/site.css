@@ -68,12 +68,12 @@ a{color:var(--accent);text-underline-offset:3px}
 .topnav a:hover{color:var(--ink)}
 .topnav a.on{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
 .topnav .sp{display:none}
-.themebtn{position:absolute;right:18px;top:50%;transform:translateY(-50%);
+.themebtn{position:absolute;right:54px;top:50%;transform:translateY(-50%);
   z-index:2;background:var(--bg);border:0;cursor:pointer;color:var(--ink-3);
   padding:8px;border-radius:7px;display:flex;align-items:center;line-height:0}
 .themebtn:hover{background:var(--surface-2);color:var(--ink)}
 .themebtn svg{width:17px;height:17px}
-.ghbtn{position:absolute;right:54px;top:50%;transform:translateY(-50%);
+.ghbtn{position:absolute;right:18px;top:50%;transform:translateY(-50%);
   z-index:2;background:var(--bg);color:var(--ink-3);text-decoration:none;
   padding:8px;border-radius:7px;display:flex;align-items:center;line-height:0}
 .ghbtn:hover{background:var(--surface-2);color:var(--ink)}

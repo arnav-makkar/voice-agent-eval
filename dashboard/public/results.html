@@ -7,12 +7,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="site.css?v=44">
+<link rel="stylesheet" href="site.css?v=45">
 <script>/* apply the saved theme before first paint so the page never flashes
    the wrong ground while nav.js is still loading */
 (function(){try{var m=localStorage.getItem("theme");
 if(m==="light"||m==="dark")document.documentElement.setAttribute("data-theme",m);}catch(e){}})();</script>
-<script src="nav.js?v=44" defer></script>
+<script src="nav.js?v=45" defer></script>
 </head>
 <body>
 <div class="navwrap">
@@ -24,15 +24,17 @@ if(m==="light"||m==="dark")document.documentElement.setAttribute("data-theme",m)
 
 <p class="kicker">The validation study</p>
 <h1>Results across all three tiers</h1>
-<p class="lede">The shipped agent measured again on the same evidence: 180 typed situations,
-15 phone cards re-dialled, and five voice conversations.</p>
+<p class="lede">The loop shipped a rewrite. This page measures it, on exactly the evidence the
+baseline was measured on: the same 180 typed situations, the same 15 phone cards re-dialled by
+hand, the same five bot-to-bot conversations.</p>
 
 <div class="hero-num" style="margin-top:36px">
   <span class="from">98</span><span class="ar">→</span><span class="to">160</span>
   <span style="font-size:.34em;color:var(--ink-3);font-weight:400;letter-spacing:0">of 180</span>
 </div>
 <p class="sub" style="max-width:56ch">Typed conversations ending with the correct record.
-62 situations fixed, none broken. McNemar’s exact test on the paired outcomes returns a p value indistinguishable from zero.</p>
+62 situations fixed, none broken. A paired statistical test puts the odds of that happening by
+luck at effectively zero (McNemar's exact test).</p>
 
 <div class="stats">
   <div class="stat"><div class="lab">Unseen situations</div>
@@ -52,8 +54,10 @@ if(m==="light"||m==="dark")document.documentElement.setAttribute("data-theme",m)
     <div class="note">Mean reply length, effectively unchanged</div></div>
 </div>
 
-<h2>Every situation type, before and after</h2>
-<p>Each line runs from the old agent’s score to the new one’s. Four categories went from near zero to near perfect.</p>
+<h2>The before-and-after chart</h2>
+<p>All fifteen situation types. Each line runs from the old agent's score to the new one's, out
+of the runs for that type; a dot with no line did not move. Four categories went from near zero
+to near perfect, and none moved backwards.</p>
 <svg class="dg chart" viewBox="0 0 860 485" role="img" aria-label="Before and after pass rate for each of the fifteen situation types">
 <line class="grid" x1="200" y1="30" x2="200" y2="443"/>
 <text class="ax" x="200" y="22" text-anchor="middle">0%</text>
@@ -146,17 +150,18 @@ if(m==="light"||m==="dark")document.documentElement.setAttribute("data-theme",m)
   <span><i class="dot d1"></i>New agent</span>
 </div>
 
-<h2>Which situations improved</h2>
-
+<h2>The eight that moved</h2>
+<p>The seven situation types already passing stayed where they were. These are the ones that
+changed:</p>
 
 <div class="tw"><table>
 <tr><th>Situation</th><th class="n">Before</th><th class="n">After</th><th class="n">of</th>
 <th>Now passing</th><th class="n">Δ</th></tr>
-<tr class="hl"><td><strong>Asked what is owed</strong></td><td class="n dim">0</td><td class="n"><strong>11</strong></td><td class="n">12</td><td style="width:34%"><span class="bar-track" style="height:9px"><span class="bar-fill now" data-w="92%"></span></span></td><td class="n gain">+11</td></tr><tr class="hl"><td><strong>Promised to pay today</strong></td><td class="n dim">0</td><td class="n"><strong>10</strong></td><td class="n">11</td><td style="width:34%"><span class="bar-track" style="height:9px"><span class="bar-fill now" data-w="91%"></span></span></td><td class="n gain">+10</td></tr><tr class="hl"><td><strong>Customer in distress</strong></td><td class="n dim">2</td><td class="n"><strong>12</strong></td><td class="n">12</td><td style="width:34%"><span class="bar-track" style="height:9px"><span class="bar-fill now" data-w="100%"></span></span></td><td class="n gain">+10</td></tr><tr class="hl"><td><strong>Says already paid</strong></td><td class="n dim">2</td><td class="n"><strong>11</strong></td><td class="n">12</td><td style="width:34%"><span class="bar-track" style="height:9px"><span class="bar-fill now" data-w="92%"></span></span></td><td class="n gain">+9</td></tr><tr class="hl"><td><strong>Alleged fraud</strong></td><td class="n dim">4</td><td class="n"><strong>13</strong></td><td class="n">13</td><td style="width:34%"><span class="bar-track" style="height:9px"><span class="bar-fill now" data-w="100%"></span></span></td><td class="n gain">+9</td></tr><tr><td><strong>Disputed the amount</strong></td><td class="n dim">3</td><td class="n"><strong>8</strong></td><td class="n">12</td><td style="width:34%"><span class="bar-track" style="height:9px"><span class="bar-fill now" data-w="67%"></span></span></td><td class="n gain">+5</td></tr><tr><td><strong>Flatly refused</strong></td><td class="n dim">8</td><td class="n"><strong>12</strong></td><td class="n">12</td><td style="width:34%"><span class="bar-track" style="height:9px"><span class="bar-fill now" data-w="100%"></span></span></td><td class="n gain">+4</td></tr><tr><td><strong>Vague "maybe"</strong></td><td class="n dim">0</td><td class="n"><strong>4</strong></td><td class="n">12</td><td style="width:34%"><span class="bar-track" style="height:9px"><span class="bar-fill now" data-w="33%"></span></span></td><td class="n gain">+4</td></tr><tr><td><strong>Paid on the call</strong></td><td class="n dim">11</td><td class="n"><strong>11</strong></td><td class="n">11</td><td style="width:34%"><span class="bar-track" style="height:9px"><span class="bar-fill now" data-w="100%"></span></span></td><td class="n dim">0</td></tr><tr><td><strong>Promised a future date</strong></td><td class="n dim">11</td><td class="n"><strong>11</strong></td><td class="n">13</td><td style="width:34%"><span class="bar-track" style="height:9px"><span class="bar-fill now" data-w="85%"></span></span></td><td class="n dim">0</td></tr><tr><td><strong>Asked for a callback</strong></td><td class="n dim">12</td><td class="n"><strong>12</strong></td><td class="n">12</td><td style="width:34%"><span class="bar-track" style="height:9px"><span class="bar-fill now" data-w="100%"></span></span></td><td class="n dim">0</td></tr><tr><td><strong>Wrong person answered</strong></td><td class="n dim">12</td><td class="n"><strong>12</strong></td><td class="n">12</td><td style="width:34%"><span class="bar-track" style="height:9px"><span class="bar-fill now" data-w="100%"></span></span></td><td class="n dim">0</td></tr><tr><td><strong>Asked for a password or OTP</strong></td><td class="n dim">11</td><td class="n"><strong>11</strong></td><td class="n">12</td><td style="width:34%"><span class="bar-track" style="height:9px"><span class="bar-fill now" data-w="92%"></span></span></td><td class="n dim">0</td></tr><tr><td><strong>Wanted a different channel</strong></td><td class="n dim">11</td><td class="n"><strong>11</strong></td><td class="n">12</td><td style="width:34%"><span class="bar-track" style="height:9px"><span class="bar-fill now" data-w="92%"></span></span></td><td class="n dim">0</td></tr><tr><td><strong>Quizzed on the account</strong></td><td class="n dim">11</td><td class="n"><strong>11</strong></td><td class="n">12</td><td style="width:34%"><span class="bar-track" style="height:9px"><span class="bar-fill now" data-w="92%"></span></span></td><td class="n dim">0</td></tr>
+<tr class="hl"><td><strong>Asked what is owed</strong></td><td class="n dim">0</td><td class="n"><strong>11</strong></td><td class="n">12</td><td style="width:34%"><span class="bar-track" style="height:9px"><span class="bar-fill now" data-w="92%"></span></span></td><td class="n gain">+11</td></tr><tr class="hl"><td><strong>Promised to pay today</strong></td><td class="n dim">0</td><td class="n"><strong>10</strong></td><td class="n">11</td><td style="width:34%"><span class="bar-track" style="height:9px"><span class="bar-fill now" data-w="91%"></span></span></td><td class="n gain">+10</td></tr><tr class="hl"><td><strong>Customer in distress</strong></td><td class="n dim">2</td><td class="n"><strong>12</strong></td><td class="n">12</td><td style="width:34%"><span class="bar-track" style="height:9px"><span class="bar-fill now" data-w="100%"></span></span></td><td class="n gain">+10</td></tr><tr class="hl"><td><strong>Says already paid</strong></td><td class="n dim">2</td><td class="n"><strong>11</strong></td><td class="n">12</td><td style="width:34%"><span class="bar-track" style="height:9px"><span class="bar-fill now" data-w="92%"></span></span></td><td class="n gain">+9</td></tr><tr class="hl"><td><strong>Alleged fraud</strong></td><td class="n dim">4</td><td class="n"><strong>13</strong></td><td class="n">13</td><td style="width:34%"><span class="bar-track" style="height:9px"><span class="bar-fill now" data-w="100%"></span></span></td><td class="n gain">+9</td></tr><tr><td><strong>Disputed the amount</strong></td><td class="n dim">3</td><td class="n"><strong>8</strong></td><td class="n">12</td><td style="width:34%"><span class="bar-track" style="height:9px"><span class="bar-fill now" data-w="67%"></span></span></td><td class="n gain">+5</td></tr><tr><td><strong>Flatly refused</strong></td><td class="n dim">8</td><td class="n"><strong>12</strong></td><td class="n">12</td><td style="width:34%"><span class="bar-track" style="height:9px"><span class="bar-fill now" data-w="100%"></span></span></td><td class="n gain">+4</td></tr><tr><td><strong>Vague "maybe"</strong></td><td class="n dim">0</td><td class="n"><strong>4</strong></td><td class="n">12</td><td style="width:34%"><span class="bar-track" style="height:9px"><span class="bar-fill now" data-w="33%"></span></span></td><td class="n gain">+4</td></tr>
 </table></div>
 
-<h2>Does it survive a harder test?</h2>
-<p>Four attempts to break the result.</p>
+<h2>Four checks against luck and overfitting</h2>
+<p>Each one attacks a different way the result could be false.</p>
 
 <div class="grid2">
   <div class="card">
@@ -174,19 +179,21 @@ if(m==="light"||m==="dark")document.documentElement.setAttribute("data-theme",m)
   <div class="card">
     <h3>Take a piece away</h3>
     <p class="sub" style="margin-top:6px">Remove the worked examples and keep only the rewritten
-    rules.</p>
-    <p style="margin:10px 0 0"><strong>33 → 49 → <span class="gain">59</span></strong>, so examples
-    carry 38%</p>
+    rules: the blind score falls from 59 to 49 of 60. The examples carry 38% of the gain, so the
+    result is not one lucky rewrite.</p>
+    <p style="margin:10px 0 0"><strong>33 → 49 → <span class="gain">59</span> of 60</strong></p>
   </div>
   <div class="card">
     <h3>A second opinion</h3>
     <p class="sub" style="margin-top:6px">An independent detector that shares no code with the
-    grader and never sees the script.</p>
+    grader and never sees the test script agrees with it: say-do violations fell from 23 to
+    5, and every violation it flagged was real.</p>
     <p style="margin:10px 0 0"><strong class="gain">23 → 5 violations</strong>, precision 1.00</p>
   </div>
 </div>
 
-<h2>The phone tier</h2>
+<h2>The phone tier, re-dialled</h2>
+<p>The same fifteen cards, dialled again by hand against the new agent.</p>
 
 <div class="stats">
   <div class="stat"><div class="lab">Calls passed</div>

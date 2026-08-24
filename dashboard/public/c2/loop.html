@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="site.css?v=14">
+<link rel="stylesheet" href="site.css?v=22">
 <style>
 .steps{counter-reset:s;display:flex;flex-direction:column;gap:2px;margin:26px 0}
 .step{display:grid;grid-template-columns:44px 1fr;gap:16px;padding:18px 0;
@@ -25,7 +25,7 @@
    the wrong ground while nav.js is still loading */
 (function(){try{var m=localStorage.getItem("theme");
 if(m==="light"||m==="dark")document.documentElement.setAttribute("data-theme",m);}catch(e){}})();</script>
-<script src="nav.js?v=14" defer></script>
+<script src="nav.js?v=22" defer></script>
 </head>
 <body>
 <div class="navwrap">
@@ -36,14 +36,15 @@ if(m==="light"||m==="dark")document.documentElement.setAttribute("data-theme",m)
 
 <p class="kicker">Step three · self-improvement</p>
 <h1>Nobody wrote the fix</h1>
-<p class="lede">Every word of the fix came out of an automated search, tested against the live
-agent, gated on cases the search never saw.</p>
+<p class="lede">Nobody wrote the fix. The framework found the failures, rewrote the agent's
+instructions against them, and shipped the rewrite only after it won on cases it had never
+seen.</p>
 
 <div class="callout">
   <div class="bd">
-    <p style="margin:0"><strong>Plainly:</strong> read the failures, propose a rewrite, test it
-    live, ship it only if it wins on unseen cases without breaking anything. Repeat with the
-    winner as the new baseline.</p>
+    <p style="margin:0"><strong>What is being changed.</strong> The agent's behaviour lives in one
+    long instruction document. Improving the agent means rewriting that document. The question is
+    who writes it, and how you know the rewrite is genuinely better.</p>
   </div>
 </div>
 
@@ -84,7 +85,44 @@ agent, gated on cases the search never saw.</p>
 </div>
 
 
-<h2>The technical path, baseline to champion</h2>
+<h2>What a candidate is</h2>
+<p>The search is scored by the benchmark grader itself. No proxy metric to game.</p>
+
+<div class="grid2">
+  <div class="card">
+    <h3>Instructions</h3>
+    <p class="sub" style="margin-top:6px">The rules: what to do when, which action to take, how to
+    close a call.</p>
+  </div>
+  <div class="card">
+    <h3>Worked examples</h3>
+    <p class="sub" style="margin-top:6px">Real conversations that went perfectly, mined from the
+    agent's own history and used to demonstrate the behaviour.</p>
+  </div>
+</div>
+<p>The two pieces evolve separately, and the split is worth measuring:</p>
+
+<div class="bars">
+  <div class="bar-row">
+    <span class="nm">Original agent<span>no changes</span></span>
+    <span class="bar-pair"><span class="bar-track"><span class="bar-fill" data-w="55%"></span></span></span>
+    <span class="fig" style="color:var(--ink-3)">33/60</span>
+  </div>
+  <div class="bar-row">
+    <span class="nm">Rules only<span>instructions rewritten</span></span>
+    <span class="bar-pair"><span class="bar-track"><span class="bar-fill" data-w="81.7%" style="background:var(--hold);opacity:.75"></span></span></span>
+    <span class="fig" style="color:var(--hold)">49/60</span>
+  </div>
+  <div class="bar-row">
+    <span class="nm">Rules and examples<span>both pieces</span></span>
+    <span class="bar-pair"><span class="bar-track"><span class="bar-fill now" data-w="98.3%"></span></span></span>
+    <span class="fig">59/60</span>
+  </div>
+</div>
+<p class="sub">The worked examples are responsible for 38% of the total gain. Without them the
+result stops well short.</p>
+
+<h2>The search, in full</h2>
 <p>The same loop with its real parts: two rounds, what each changed, and the gates before production.</p>
 <svg class="dg flow" viewBox="0 0 860 1010" role="img" aria-label="The technical path from the baseline prompt through two GEPA rounds and the gate ladder to the deployed champion">
 <defs><marker id="af" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
@@ -154,44 +192,7 @@ agent, gated on cases the search never saw.</p>
 <text x="795" y="524" font-size="11" text-anchor="middle" class="mut">next baseline</text>
 </svg>
 
-<h2>What the search is actually optimising</h2>
-<p>The search is scored by the benchmark grader itself. No proxy metric to game.</p>
-
-<div class="grid2">
-  <div class="card">
-    <h3>Instructions</h3>
-    <p class="sub" style="margin-top:6px">The rules: what to do when, which action to take, how to
-    close a call.</p>
-  </div>
-  <div class="card">
-    <h3>Worked examples</h3>
-    <p class="sub" style="margin-top:6px">Real conversations that went perfectly, mined from the
-    agent's own history and used to demonstrate the behaviour.</p>
-  </div>
-</div>
-<p>The two pieces evolve separately, and the split is worth measuring:</p>
-
-<div class="bars">
-  <div class="bar-row">
-    <span class="nm">Original agent<span>no changes</span></span>
-    <span class="bar-pair"><span class="bar-track"><span class="bar-fill" data-w="55%"></span></span></span>
-    <span class="fig" style="color:var(--ink-3)">33/60</span>
-  </div>
-  <div class="bar-row">
-    <span class="nm">Rules only<span>instructions rewritten</span></span>
-    <span class="bar-pair"><span class="bar-track"><span class="bar-fill" data-w="81.7%" style="background:var(--hold);opacity:.75"></span></span></span>
-    <span class="fig" style="color:var(--hold)">49/60</span>
-  </div>
-  <div class="bar-row">
-    <span class="nm">Rules and examples<span>both pieces</span></span>
-    <span class="bar-pair"><span class="bar-track"><span class="bar-fill now" data-w="98.3%"></span></span></span>
-    <span class="fig">59/60</span>
-  </div>
-</div>
-<p class="sub">The worked examples are responsible for 38% of the total gain. Without them the
-result stops well short.</p>
-
-<h2>What stops a bad change from shipping</h2>
+<h2>What stops a bad rewrite shipping</h2>
 
 <div class="tw"><table>
 <tr><th style="width:26%">The gate</th><th>What it demands</th><th class="n">Outcome</th></tr>
@@ -223,18 +224,18 @@ result stops well short.</p>
   </div>
 </details>
 
-<h2>Two rounds, not twenty</h2>
+<h2>It ran twice</h2>
 
 <div class="tw"><table>
 <tr><th>Round</th><th class="n">Overall</th><th class="n">Unseen</th><th class="n">Fixed</th>
   <th class="n">Broken</th><th class="n">Significant?</th></tr>
 <tr><td>First</td><td class="n">98 → 155</td><td class="n">33 → 57</td>
-  <td class="n gain">+59</td><td class="n">2</td><td class="n gain">yes</td></tr>
+  <td class="n gain">+59</td><td class="n">2</td><td class="n"><span class="tag gain">significant</span></td></tr>
 <tr><td>Second</td><td class="n">155 → 160</td><td class="n">57 → 59</td>
-  <td class="n gain">+7</td><td class="n">2</td><td class="n dim">no</td></tr>
+  <td class="n gain">+7</td><td class="n">2</td><td class="n"><span class="tag hold">not significant</span></td></tr>
 <tr class="hl"><td><strong>Combined</strong></td><td class="n"><strong>98 → 160</strong></td>
   <td class="n"><strong>33 → 59</strong></td><td class="n gain"><strong>+62</strong></td>
-  <td class="n"><strong>0</strong></td><td class="n gain"><strong>yes</strong></td></tr>
+  <td class="n"><strong>0</strong></td><td class="n"><span class="tag gain">significant</span></td></tr>
 </table></div>
 
 <div class="callout warm">
@@ -246,7 +247,7 @@ result stops well short.</p>
   </div>
 </div>
 
-<h2>Why this generalizes</h2>
+<h2>Why this works beyond one agent</h2>
 <p>The claim is not that one agent got better. It is that the loop transfers.</p>
 
 <div class="grid2">
@@ -286,7 +287,7 @@ result stops well short.</p>
   </div>
 </div>
 
-<h2>The one human edit, declared</h2>
+<h2>One human edit, declared</h2>
 <p>One line was added by hand after the campaign: the closing rule now names the function that
 hangs up the call. Hanging up was never scored, so no result on this site changes.</p>
 

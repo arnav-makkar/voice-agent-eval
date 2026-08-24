@@ -41,14 +41,14 @@
     });
   }
 
-  // Comparison bars start at zero width in CSS and are filled on the next frame
-  // so the transition plays. Nothing depends on a scroll event arriving.
+  // Comparison bars start at zero width in CSS and are filled once, shortly after
+  // load, so the transition plays. A timer rather than requestAnimationFrame:
+  // rAF callbacks do not fire while a tab is in the background, which left the
+  // bars permanently empty on any page opened in a hidden tab.
   const fills = document.querySelectorAll(".bar-fill[data-w]");
   if (fills.length) {
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        fills.forEach((f) => { f.style.width = f.dataset.w; });
-      });
-    });
+    setTimeout(() => {
+      fills.forEach((f) => { f.style.width = f.dataset.w; });
+    }, 40);
   }
 })();

@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="site.css?v=20">
+<link rel="stylesheet" href="site.css?v=22">
 <style>
 .vs{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:28px 0;
   border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden}
@@ -35,7 +35,7 @@
 </style>
 <script>(function(){try{var m=localStorage.getItem("theme");
 if(m==="light"||m==="dark")document.documentElement.setAttribute("data-theme",m);}catch(e){}})();</script>
-<script src="nav.js?v=20" defer></script>
+<script src="nav.js?v=22" defer></script>
 </head>
 <body>
 <div class="navwrap">
@@ -46,11 +46,52 @@ if(m==="light"||m==="dark")document.documentElement.setAttribute("data-theme",m)
 
 <p class="kicker">Step two · evaluate</p>
 <h1>Measured on what it does, not what it says</h1>
-<p class="lede">One rule: a conversation is graded on the records it leaves behind, never on
-how it sounded.</p>
+<p class="lede">One rule decides every number in this study: a conversation is graded on
+the records it leaves behind, never on how it sounded.</p>
 
-<h2>The setup in one picture</h2>
+<div class="rule">
+  <div class="side no">
+    <h4>Not graded on this</h4>
+    <p>What the agent said. Fluency, politeness, whether it sounded like it handled the call.
+    <span class="ex">"मैं आपका response note कर लेता हूँ"</span></p>
+  </div>
+  <div class="vs">vs</div>
+  <div class="side yes">
+    <h4>Graded on this</h4>
+    <p>What reached the log. The account's end state, compared against what the situation
+    required.<span class="ex">record_call_outcome(disposition: already_paid)</span></p>
+  </div>
+</div>
 
+<p>Everything below follows from that: the channels exist to produce conversations, the log
+records what each one actually did, and the grader compares end states. No model decides whether
+the task was completed.</p>
+
+<h2>Three channels, one agent</h2>
+<div class="tiers">
+  <div class="tier">
+    <div class="n">180</div>
+    <h4>Typed conversations</h4>
+    <p>Headless and cheap, so it can run at a scale that carries statistics. Fifteen failure
+    types, twelve variations each.</p>
+  </div>
+  <div class="tier">
+    <div class="n">15</div>
+    <h4>Real phone calls</h4>
+    <p>Dialled to a live handset with a person on the line. Real speech recognition,
+    interruptions, nothing retryable.</p>
+  </div>
+  <div class="tier">
+    <div class="n">5</div>
+    <h4>Bot-to-bot voice</h4>
+    <p>A synthetic caller speaks to the agent over live audio, which makes voice behaviour
+    repeatable in a way a human caller never is.</p>
+  </div>
+</div>
+<p>All three drive the <strong>same deployed agent</strong> and are graded by the same rule.
+That is what makes them independent evidence rather than three views of one test.</p>
+
+<h2>How the instrument works</h2>
 <svg class="dg" viewBox="0 0 860 430" role="img"
   aria-label="Three channels drive one live agent whose tool calls write to one permanent log, which the grader reads">
   <defs>
@@ -104,8 +145,10 @@ how it sounded.</p>
   <text x="34" y="316" font-size="11" class="mut">(speech quality only)</text>
 </svg>
 
-<h2>What the 180 situations cover</h2>
-<p>Fifteen failure types, twelve variations each, frozen before any improvement began.</p>
+<details class="tg">
+  <summary>The fifteen failure types</summary>
+  <div class="bd">
+
 
 <div class="grid3">
   <div class="card">
@@ -132,6 +175,9 @@ how it sounded.</p>
     situations count triple when the system is deciding whether a change is an improvement.</p>
   </div>
 </div>
+
+  </div>
+</details>
 
 <h2>How a conversation is scored</h2>
 
@@ -233,7 +279,7 @@ measured first, so no ordinary fluctuation could be mistaken for progress.</p>
 
 <div class="panel">
   <div class="panel-head">
-    <h2 style="font-size:17px;margin:0">Baseline phone calls</h2>
+    <h3 style="font-size:16px;margin:0">Phone calls</h3>
     <span class="chip">situations <b>15</b></span>
     <span class="chip">pass <b>9 of 15</b></span>
     <span class="sp"></span>
@@ -246,7 +292,7 @@ measured first, so no ordinary fluctuation could be mistaken for progress.</p>
 
 <div class="panel">
   <div class="panel-head">
-    <h2 style="font-size:17px;margin:0">Bot-to-bot voice lab</h2>
+    <h3 style="font-size:16px;margin:0">Bot-to-bot voice</h3>
     <span class="chip">scenarios <b>5</b></span>
     <span class="chip">accuracy <b>0.93</b></span>
     <span class="sp"></span>
@@ -259,7 +305,7 @@ measured first, so no ordinary fluctuation could be mistaken for progress.</p>
 
 <div class="panel">
   <div class="panel-head">
-    <h2 style="font-size:17px;margin:0">180 typed conversations</h2>
+    <h3 style="font-size:16px;margin:0">Typed conversations</h3>
     <span class="chip">situation types <b>15</b></span>
     <span class="chip">each <b>×12</b></span>
     <span class="chip">pass <b>98 of 180</b></span>
@@ -270,31 +316,22 @@ measured first, so no ordinary fluctuation could be mistaken for progress.</p>
 </div>
 
 <h2>What the baseline scored</h2>
-
-<div class="stats">
-  <div class="stat"><div class="lab">Typed conversations</div>
-    <div class="val">98 <span style="font-size:16px;color:var(--ink-3);font-weight:400">of 180</span></div>
-    <div class="note">54.4% ended with the correct record written</div></div>
-  <div class="stat"><div class="lab">Real phone calls</div>
-    <div class="val">9 <span style="font-size:16px;color:var(--ink-3);font-weight:400">of 15</span></div>
-    <div class="note">All six failures were missing records</div></div>
-  <div class="stat"><div class="lab">Voice lab accuracy</div>
-    <div class="val">0.93</div>
-    <div class="note">Mean composite across five conversations</div></div>
-  <div class="stat"><div class="lab">Safety situations</div>
-    <div class="val">40 <span style="font-size:16px;color:var(--ink-3);font-weight:400">of 73</span></div>
-    <div class="note">Fraud, distress, privacy, credentials</div></div>
+<div class="verdict">
+  <div><div class="k">Typed</div><div class="v bad">98 <span style="font-size:14px;color:var(--ink-3);font-weight:400">of 180</span></div><div class="s">82 failed</div></div>
+  <div><div class="k">Phone</div><div class="v bad">9 <span style="font-size:14px;color:var(--ink-3);font-weight:400">of 15</span></div><div class="s">6 failed</div></div>
+  <div><div class="k">Voice</div><div class="v bad">4 <span style="font-size:14px;color:var(--ink-3);font-weight:400">of 5</span></div><div class="s">1 failed</div></div>
+  <div><div class="k">Safety situations</div><div class="v bad">40 <span style="font-size:14px;color:var(--ink-3);font-weight:400">of 73</span></div><div class="s">fraud, distress, privacy</div></div>
 </div>
 <div class="callout warm">
   <div class="bd">
-    <p style="margin:0"><strong>A number this size is a diagnosis, not a verdict.</strong> The
-    interesting question is what exactly was failing, and why nothing in the audio gives it
-    away.</p>
+    <p style="margin:0"><strong>A number this size is a diagnosis, not a verdict.</strong> Nearly
+    half of every conversation failed, and almost none of it is audible. The interesting question
+    is what exactly was going wrong.</p>
   </div>
 </div>
 
 <h2 id="failing">What was actually failing</h2>
-<h2>One real call, two versions of the truth</h2>
+<p>One call carries most of it.</p>
 <p>The customer insists he already paid. The agent checks the account, quotes the right figure,
 and closes.</p>
 
@@ -394,26 +431,17 @@ every call it was raised on passes a re-dial.</p>
 </div>
 
 <h2>Evaluation complete</h2>
-
-<div class="stats">
-  <div class="stat"><div class="lab">Conversations measured</div>
-    <div class="val">200</div>
-    <div class="note">180 typed, 15 phone, 5 bot-to-bot voice</div></div>
-  <div class="stat"><div class="lab">Baseline verdict</div>
-    <div class="val">54.4%</div>
-    <div class="note">Typed conversations ending with the correct record</div></div>
-  <div class="stat"><div class="lab">Defects filed</div>
-    <div class="val">6</div>
-    <div class="note">Severity, evidence and cost, before any fix</div></div>
-  <div class="stat"><div class="lab">Replay cases ready</div>
-    <div class="val">23</div>
-    <div class="note">Log contradictions, each replayable on demand</div></div>
+<div class="verdict">
+  <div><div class="k">Conversations measured</div><div class="v">200</div><div class="s">across three channels</div></div>
+  <div><div class="k">Baseline</div><div class="v bad">111 <span style="font-size:14px;color:var(--ink-3);font-weight:400">of 200</span></div><div class="s">correct end state</div></div>
+  <div><div class="k">Defects filed</div><div class="v">6</div><div class="s">with severity and evidence</div></div>
+  <div><div class="k">Replay cases</div><div class="v">23</div><div class="s">failures ready to re-run</div></div>
 </div>
 <div class="callout">
   <div class="bd">
-    <p style="margin:0"><strong>Hand-off.</strong> A frozen 200-conversation suite, a trusted
-    instrument, a scored baseline, and a filed defect register. From here, no person writes
-    another fix: the next section is the loop that does.</p>
+    <p style="margin:0"><strong>Hand-off.</strong> A frozen suite, a trusted instrument, a scored
+    baseline, and a filed register. From here nobody writes another fix by hand. The next section
+    is the loop that writes them.</p>
   </div>
 </div>
 

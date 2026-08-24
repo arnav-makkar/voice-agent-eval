@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Limitations and next steps</title>
+<title>Limitations</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="site.css?v=32">
+<link rel="stylesheet" href="site.css?v=34">
 <script>/* apply the saved theme before first paint so the page never flashes
    the wrong ground while nav.js is still loading */
 (function(){try{var m=localStorage.getItem("theme");
 if(m==="light"||m==="dark")document.documentElement.setAttribute("data-theme",m);}catch(e){}})();</script>
-<script src="nav.js?v=32" defer></script>
+<script src="nav.js?v=34" defer></script>
 </head>
 <body>
 <div class="navwrap">
@@ -23,48 +23,40 @@ if(m==="light"||m==="dark")document.documentElement.setAttribute("data-theme",m)
 <div class="shell">
 
 <p class="kicker">Limits</p>
-<h1>Limitations, and what comes next</h1>
-<p class="lede">The boundaries of the claim, stated here rather than discovered later.</p>
+<h1>What this does not prove</h1>
+<p class="lede">Every boundary of the claim, stated here rather than left to be found. Each one
+names what it would take to remove it.</p>
 
-<div class="grid2" style="margin-top:32px">
-  <div class="card">
-    <h3>The voice tests are small</h3>
-    <p class="sub" style="margin-top:6px">Fifteen phone calls and five voice conversations carry
-    no statistics. They show the gains reach real speech. The statistics live in the 180 typed
-    conversations.</p>
-  </div>
-  <div class="card">
-    <h3>One fix has a second explanation</h3>
-    <p class="sub" style="margin-top:6px">The dispute call was conducted in English on the old
-    agent, because the caller switched language and the agent followed. The new run was in
-    Hinglish. That fix is real in the log but not isolated from the language change.</p>
-  </div>
-  <div class="card">
-    <h3>Duplicate records moved, not gone</h3>
-    <p class="sub" style="margin-top:6px">On the phone tier this is 14 of 15 both before and
-    after. A triple write disappeared from one call and a double write appeared on another.</p>
-  </div>
-  <div class="card">
-    <h3>Two rounds is not "forever"</h3>
-    <p class="sub" style="margin-top:6px">The second round improved things and broke nothing, but
-    it is small enough to be chance. The loop demonstrably runs more than once. It has not been
-    shown to keep paying off indefinitely.</p>
-  </div>
-  <div class="card">
-    <h3>Rewording costs a little</h3>
-    <p class="sub" style="margin-top:6px">With every customer line rewritten, about 82% of the
-    advantage survives. The remaining 18% is sensitive to how things are phrased.</p>
-  </div>
-  <div class="card">
-    <h3>Persuasion was never the goal</h3>
-    <p class="sub" style="margin-top:6px">The agent accepts a first refusal because its
-    instructions teach exactly that. Collection rate was not optimised and is not claimed. It is
-    the named next objective.</p>
-  </div>
-</div>
+<div class="tw"><table>
+<tr><th style="width:26%">The limit</th><th>What it means</th><th style="width:26%">What would settle it</th></tr>
+<tr><td><strong>The voice tiers are small</strong></td>
+  <td>Twenty voice conversations carry no statistics. They show the gains reach real speech.
+  The 180 typed conversations carry the statistics.</td>
+  <td class="sub">More calls, at a cost per call this project could not fund</td></tr>
+<tr><td><strong>One fix has a second explanation</strong></td>
+  <td>That call ran in English before and Hinglish after, because the caller switched and the
+  agent followed. Real in the log, but not isolated from the language change.</td>
+  <td class="sub">Re-run that card with the language held fixed</td></tr>
+<tr><td><strong>Duplicate writes moved, not gone</strong></td>
+  <td>14 of 15 on the phone tier, before and after. A triple write left one call; a double write
+  appeared on another.</td>
+  <td class="sub">Make exactly-once a gated objective, not a reported one</td></tr>
+<tr><td><strong>Two rounds is not forever</strong></td>
+  <td>Round two improved the score and broke nothing, but the gain sits inside normal variation.
+  The loop runs more than once; it is not shown to keep paying off.</td>
+  <td class="sub">More rounds, watching where the curve flattens</td></tr>
+<tr><td><strong>Rewording costs a little</strong></td>
+  <td>With every customer line rewritten, about 82% of the advantage survives. The rest is
+  sensitive to phrasing.</td>
+  <td class="sub">Paraphrase pressure inside the search, not only after it</td></tr>
+<tr><td><strong>Persuasion was never the goal</strong></td>
+  <td>The agent accepts a first refusal because its instructions teach that. Collection rate was
+  never optimised, and is not claimed.</td>
+  <td class="sub">The named next objective, below</td></tr>
+</table></div>
 
-<h2>Things found in the platform along the way</h2>
-<p>Findings about the platform itself, surfaced by the evaluation.</p>
+<h2>Found in the platform along the way</h2>
+<p>Things the evaluation surfaced about the platform itself, rather than the agent.</p>
 
 <details class="tg">
   <summary>The "are you still there" prompt is rude in Hindi</summary>
@@ -105,38 +97,34 @@ if(m==="light"||m==="dark")document.documentElement.setAttribute("data-theme",m)
   </div>
 </details>
 
-<h2>The path to production</h2>
+<h2>What comes next</h2>
 <div class="callout good">
   <div class="bd">
-    <p style="margin:0"><strong>The first step costs nothing.</strong> The monitor needs no labels
-    and no test scripts, so it can watch live traffic today as a standing say-versus-do alarm.
-    Every violation it finds becomes a replay case, which is exactly the input the rest of the
-    loop runs on. Adoption starts with observation, not with letting a search touch production.</p>
+    <p style="margin:0"><strong>The first step costs nothing.</strong> Every violation the monitor
+    finds becomes a replay case, which is the input the rest of the loop runs on. Adoption starts
+    with observation, not with letting a search touch production.</p>
   </div>
 </div>
 
-<div class="grid2">
-  <div class="card">
-    <h3>1. Objection handling</h3>
-    <p class="sub" style="margin-top:6px">Give the agent a real position to hold, and score how
-    many turns it takes before it gives up. The obvious next objective.</p>
-  </div>
-  <div class="card">
-    <h3>2. The last broken call</h3>
-    <p class="sub" style="margin-top:6px">Call 5 still says it will note the response and writes
-    nothing. The failure case is already captured and ready to replay.</p>
-  </div>
-  <div class="card">
-    <h3>3. Quality into the objective</h3>
-    <p class="sub" style="margin-top:6px">The conversation quality judges run today but only
-    report. Wiring them into what the search optimises is designed and calibrated, not yet live.</p>
-  </div>
-  <div class="card">
-    <h3>4. Watch live traffic</h3>
-    <p class="sub" style="margin-top:6px">The say-versus-do detector needs no labelled data, so it
-    can run on production calls as a permanent alarm rather than only on tests.</p>
-  </div>
-</div>
+<div class="tw"><table>
+<tr><th style="width:6%" class="n">#</th><th style="width:30%">Next</th><th>Why it is next</th>
+  <th style="width:16%">State</th></tr>
+<tr><td class="n dim">1</td><td><strong>Watch live traffic</strong></td>
+  <td>Needs no labels and no scripts, so it can run on production calls today as a standing
+  say-versus-do alarm.</td>
+  <td><span class="tag gain">ready</span></td></tr>
+<tr><td class="n dim">2</td><td><strong>Objection handling</strong></td>
+  <td>Give the agent a position to hold, and score how many turns before it gives up.</td>
+  <td><span class="tag">designed</span></td></tr>
+<tr><td class="n dim">3</td><td><strong>Quality into the objective</strong></td>
+  <td>The experience judges run today but only report. Wiring them into the objective is
+  designed and calibrated.</td>
+  <td><span class="tag">designed</span></td></tr>
+<tr><td class="n dim">4</td><td><strong>The last broken call</strong></td>
+  <td>Call 5 still says it will note the response and writes nothing. Already captured as a
+  replay case.</td>
+  <td><span class="tag hold">open</span></td></tr>
+</table></div>
 
 <h2>Built on</h2>
 <div class="tw"><table>

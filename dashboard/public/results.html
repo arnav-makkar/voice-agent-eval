@@ -7,33 +7,32 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="site.css?v=35">
+<link rel="stylesheet" href="site.css?v=39">
 <script>/* apply the saved theme before first paint so the page never flashes
    the wrong ground while nav.js is still loading */
 (function(){try{var m=localStorage.getItem("theme");
 if(m==="light"||m==="dark")document.documentElement.setAttribute("data-theme",m);}catch(e){}})();</script>
-<script src="nav.js?v=35" defer></script>
+<script src="nav.js?v=39" defer></script>
 </head>
 <body>
 <div class="navwrap">
-<nav class="topnav"><a href="./">Overview</a><a href="agent.html">The agent</a><a href="system.html">Evaluation</a><a href="loop.html">Self-improvement</a><a href="calls.html">Recordings</a><a href="results.html" class="on" aria-current="page">Results</a><a href="notes.html">Findings</a></nav>
+<nav class="topnav"><a href="./">Overview</a><a href="agent.html">The agent</a><a href="system.html">Evaluation</a><a href="loop.html">Self-improvement</a><a href="calls.html">Recordings</a><a href="results.html" class="on" aria-current="page">Results</a></nav>
 <button class="themebtn" id="themebtn" title="Theme: follows your system" aria-label="Theme: follows your system"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor" stroke="none"/></svg></button>
 <a class="ghbtn" href="https://github.com/arnav-makkar/voice-agent-eval" target="_blank" rel="noopener noreferrer" title="View the source on GitHub" aria-label="View the source on GitHub"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a>
 </div>
 <div class="shell">
 
 <p class="kicker">The validation study</p>
-<h1>What changed, and what did not</h1>
-<p class="lede">Everything measured again: the same 180 typed situations, the same 15 phone
-cards re-dialled, the same five voice conversations. A fix that only works in text has not fixed
-a voice agent.</p>
+<h1>Results across all three tiers</h1>
+<p class="lede">The shipped agent measured again on the same evidence: 180 typed situations,
+15 phone cards re-dialled, and five voice conversations.</p>
 
 <div class="hero-num" style="margin-top:36px">
   <span class="from">98</span><span class="ar">→</span><span class="to">160</span>
   <span style="font-size:.34em;color:var(--ink-3);font-weight:400;letter-spacing:0">of 180</span>
 </div>
 <p class="sub" style="max-width:56ch">Typed conversations ending with the correct record.
-62 situations fixed, none broken. The odds of that happening by chance are effectively zero.</p>
+62 situations fixed, none broken. McNemar’s exact test on the paired outcomes returns a p value indistinguishable from zero.</p>
 
 <div class="stats">
   <div class="stat"><div class="lab">Unseen situations</div>
@@ -43,14 +42,14 @@ a voice agent.</p>
   <div class="stat"><div class="lab">Written after the fact</div>
     <div class="val"><span class="from">18</span><span class="ar">→</span><span class="to">29</span>
     <span style="font-size:16px;color:var(--ink-3);font-weight:400">of 30</span></div>
-    <div class="note">Created once the work was already finished</div></div>
+    <div class="note">Written after the campaign closed</div></div>
   <div class="stat"><div class="lab">Safety cases</div>
     <div class="val"><span class="from">40</span><span class="ar">→</span><span class="to">63</span>
     <span style="font-size:16px;color:var(--ink-3);font-weight:400">of 73</span></div>
-    <div class="note">Zero regressions under a hard veto</div></div>
+    <div class="note">Fraud, distress, privacy and credentials</div></div>
   <div class="stat"><div class="lab">Words per reply</div>
     <div class="val">15.9 <span class="ar">→</span> 15.6</div>
-    <div class="note">The gain did not come from talking more</div></div>
+    <div class="note">Mean reply length, effectively unchanged</div></div>
 </div>
 
 <h2>Every situation type, before and after</h2>
@@ -197,7 +196,7 @@ a voice agent.</p>
   <div class="stat"><div class="lab">Filed defects closed</div>
     <div class="val"><span class="to">5</span>
     <span style="font-size:16px;color:var(--ink-3);font-weight:400">of 6</span></div>
-    <div class="note">The sixth is half closed</div></div>
+    <div class="note">The sixth is partially closed</div></div>
   <div class="stat"><div class="lab">Ends the call properly</div>
     <div class="val"><span class="to">11</span>
     <span style="font-size:16px;color:var(--ink-3);font-weight:400">of 15</span></div>
@@ -232,14 +231,14 @@ come from the permanent log.</p>
 <tr><td><strong>Top rating on all three judged metrics</strong></td><td class="n">3 of 5</td><td class="n"><strong class="gain">4 of 5</strong></td></tr>
 </table></div>
 
-<p class="sub">Counts, not percentages. Five conversations cannot carry an average, and each one
-would move a percentage by twenty points. The one conversation that lost its top rating is the
+<p class="sub">Reported as counts rather than percentages: with five conversations, each one
+moves a percentage by twenty points. The one conversation that lost its top rating is the
 new agent's dispute call: it passes on execution, but the faithfulness judge reads the caller's
 "I never bought this" as a fraud claim under the agent's own instructions and marks the routine
 dispute filing as mishandled. Its reasoning sits on that call's row on the
 <a href="calls.html">Recordings</a> page.</p>
 
-<div class="walk"><a href="calls.html"><span class="k">Back</span><span class="t">Recordings</span></a><a class="next" href="notes.html"><span class="k">Next</span><span class="t">Findings</span></a></div>
+<div class="walk"><a href="calls.html"><span class="k">Back</span><span class="t">Recordings</span></a></div>
 </div>
 </body>
 </html>

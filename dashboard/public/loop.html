@@ -7,16 +7,16 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="site.css?v=35">
+<link rel="stylesheet" href="site.css?v=39">
 <script>/* apply the saved theme before first paint so the page never flashes
    the wrong ground while nav.js is still loading */
 (function(){try{var m=localStorage.getItem("theme");
 if(m==="light"||m==="dark")document.documentElement.setAttribute("data-theme",m);}catch(e){}})();</script>
-<script src="nav.js?v=35" defer></script>
+<script src="nav.js?v=39" defer></script>
 </head>
 <body>
 <div class="navwrap">
-<nav class="topnav"><a href="./">Overview</a><a href="agent.html">The agent</a><a href="system.html">Evaluation</a><a href="loop.html" class="on" aria-current="page">Self-improvement</a><a href="calls.html">Recordings</a><a href="results.html">Results</a><a href="notes.html">Findings</a></nav>
+<nav class="topnav"><a href="./">Overview</a><a href="agent.html">The agent</a><a href="system.html">Evaluation</a><a href="loop.html" class="on" aria-current="page">Self-improvement</a><a href="calls.html">Recordings</a><a href="results.html">Results</a></nav>
 <button class="themebtn" id="themebtn" title="Theme: follows your system" aria-label="Theme: follows your system"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor" stroke="none"/></svg></button>
 <a class="ghbtn" href="https://github.com/arnav-makkar/voice-agent-eval" target="_blank" rel="noopener noreferrer" title="View the source on GitHub" aria-label="View the source on GitHub"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a>
 </div>
@@ -74,12 +74,12 @@ and shipped the rewrite once it won on cases it had never seen.</p>
   <text x="430" y="166" text-anchor="middle" font-size="11.5" class="mut">the winner becomes the next baseline</text>
 </svg>
 
-<p>Stage one is the part that travels furthest. The detector reads the log alone, with no
+<p>Stage one is the part that transfers to other agents unchanged. The detector reads the log alone, with no
 transcript, no script and no labels, so the same stage that opened this round can run on live
 production traffic and open the next one.</p>
 
 <h2>What a candidate is</h2>
-<p>The search is scored by the benchmark grader itself. No proxy metric to game.</p>
+<p>The search is scored by the benchmark grader itself, not by a proxy metric.</p>
 
 <div class="callout">
   <div class="bd">
@@ -155,8 +155,8 @@ result stops well short.</p>
 <text x="20" y="165" font-size="11" text-anchor="start" class="mut">severity-weighted:</text>
 <text x="20" y="180" font-size="11" text-anchor="start" class="mut">escalations ×3, guardrails ×2</text>
 <text x="20" y="225" font-size="11" text-anchor="start" class="mut">Evaluator: the benchmark</text>
-<text x="20" y="240" font-size="11" text-anchor="start" class="mut">grader itself. No proxy</text>
-<text x="20" y="255" font-size="11" text-anchor="start" class="mut">metric to game.</text>
+<text x="20" y="240" font-size="11" text-anchor="start" class="mut">grader itself, not a</text>
+<text x="20" y="255" font-size="11" text-anchor="start" class="mut">proxy metric.</text>
 <text x="20" y="300" font-size="11" text-anchor="start" class="mut">Selection: Pareto front,</text>
 <text x="20" y="315" font-size="11" text-anchor="start" class="mut">merge of the best branches</text>
 <path class="ln" d="M430 372 L430 398" stroke-width="1.5" marker-end="url(#af)"/>
@@ -208,13 +208,13 @@ result stops well short.</p>
 <tr><td><strong>Won more than it lost</strong></td>
   <td>A statistical test on which individual cases flipped, in both directions</td>
   <td class="n"><strong class="gain">+62</strong> fixed, <strong>0</strong> broken</td></tr>
-<tr><td><strong>Bigger than the wobble</strong></td>
+<tr><td><strong>Larger than run-to-run variance</strong></td>
   <td>Changes smaller than normal run-to-run variation are reported as noise, not progress</td>
   <td class="n">observed 26 vs 1.6 floor</td></tr>
 </table></div>
 
 <details class="tg">
-  <summary>The technical names, for the reader who wants them</summary>
+  <summary>Method references</summary>
   <div class="bd">
     <p>The search stage is <strong>GEPA</strong>, a reflective prompt optimiser, run against the
     deployed agent rather than a simulation. Candidates are selected on a Pareto front, so one
@@ -224,6 +224,29 @@ result stops well short.</p>
     demonstrations are optimised as separate but jointly selected components.</p>
     <p>The "won more than it lost" gate is McNemar's exact test on paired outcomes. The final
     result had a p value indistinguishable from zero.</p>
+  </div>
+</details>
+
+<details class="tg">
+  <summary>Built on</summary>
+  <div class="bd">
+    <div class="tw"><table>
+    <tr><th style="width:26%">What</th><th>Used for</th></tr>
+    <tr><td><strong>EVA</strong><br><span class="sub">ServiceNow Research</span></td>
+      <td>The voice-to-voice test harness, and the structure of the two conversation quality
+      composites. The task completion core was replaced with log grading.
+      <span class="sub">github.com/ServiceNow/eva, arXiv:2605.13841</span></td></tr>
+    <tr><td><strong>GEPA</strong></td>
+      <td>The search stage: reflective prompt evolution reading full evaluation traces.</td></tr>
+    <tr><td><strong>MIPROv2</strong><br><span class="sub">DSPy</span></td>
+      <td>The two-part candidate design, rules and worked examples optimised separately.</td></tr>
+    <tr><td><strong>tau-bench</strong></td>
+      <td>The pattern of grading by comparing the end state of the world rather than reading the
+      conversation.</td></tr>
+    <tr><td><strong>Sarvam Indus</strong></td>
+      <td>The platform the agent is deployed on: runtime, telephony, live audio channel, and the
+      analytics used to retrieve recordings.</td></tr>
+    </table></div>
   </div>
 </details>
 
@@ -251,7 +274,7 @@ result stops well short.</p>
 </div>
 
 <h2>Why this works beyond one agent</h2>
-<p>The claim is not that one agent got better. It is that the loop transfers.</p>
+<p>The claim under test is that the loop transfers to other agents, not that this one agent improved.</p>
 
 <div class="grid2">
   <div class="card">
@@ -265,7 +288,7 @@ result stops well short.</p>
     <h3>The grader needs only tools</h3>
     <p class="sub" style="margin-top:6px">Grading compares end states of the world. Any agent
     whose outcomes are tool calls with expected results can be graded this way. Nothing in the
-    instrument knows what an EMI is.</p>
+    instrument is specific to lending or collections.</p>
   </div>
   <div class="card">
     <h3>The adapter is thin</h3>
@@ -283,7 +306,7 @@ result stops well short.</p>
 
 <div class="callout warm">
   <div class="bd">
-    <p style="margin:0"><strong>The first production step costs nothing.</strong> Run the monitor
+    <p style="margin:0"><strong>The first production step requires no labelled data.</strong> Run the monitor
     on live traffic as a standing alarm, and its findings bootstrap the rest of the loop. The
     design is built for production and validated on one live agent; performance at production
     scale is argued from that design, not yet measured.</p>

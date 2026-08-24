@@ -348,10 +348,6 @@ svg.chart .d1{fill:var(--gain);stroke:none}
 .detailcol audio{margin:4px 0 12px}
 .detailcol .turns{max-height:250px;margin:0 0 6px}
 
-.quick{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 4px}
-.quick button{font:550 12.5px var(--sans);color:var(--ink-2);background:var(--surface);
-  border:1px solid var(--line);border-radius:99px;padding:7px 13px;cursor:pointer}
-.quick button:hover{border-color:var(--accent);color:var(--accent)}
 
 /* ---- tool table: one row per action the agent can take ---- */
 .tools{width:100%;border-collapse:collapse;font-size:14.5px}

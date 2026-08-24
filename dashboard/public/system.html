@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="site.css?v=35">
+<link rel="stylesheet" href="site.css?v=39">
 <style>
 .vs{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:28px 0;
   border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden}
@@ -35,11 +35,11 @@
 </style>
 <script>(function(){try{var m=localStorage.getItem("theme");
 if(m==="light"||m==="dark")document.documentElement.setAttribute("data-theme",m);}catch(e){}})();</script>
-<script src="nav.js?v=35" defer></script>
+<script src="nav.js?v=39" defer></script>
 </head>
 <body>
 <div class="navwrap">
-<nav class="topnav"><a href="./">Overview</a><a href="agent.html">The agent</a><a href="system.html" class="on" aria-current="page">Evaluation</a><a href="loop.html">Self-improvement</a><a href="calls.html">Recordings</a><a href="results.html">Results</a><a href="notes.html">Findings</a></nav>
+<nav class="topnav"><a href="./">Overview</a><a href="agent.html">The agent</a><a href="system.html" class="on" aria-current="page">Evaluation</a><a href="loop.html">Self-improvement</a><a href="calls.html">Recordings</a><a href="results.html">Results</a></nav>
 <button class="themebtn" id="themebtn" title="Theme: follows your system" aria-label="Theme: follows your system"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor" stroke="none"/></svg></button>
 <a class="ghbtn" href="https://github.com/arnav-makkar/voice-agent-eval" target="_blank" rel="noopener noreferrer" title="View the source on GitHub" aria-label="View the source on GitHub"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a>
 </div>
@@ -160,7 +160,7 @@ That is what makes them independent evidence rather than three views of one test
 </table></div>
 
 <details class="tg">
-  <summary>The exact thresholds, for anyone who wants them</summary>
+  <summary>Scoring thresholds and composite definitions</summary>
   <div class="bd">
     <p>Two composites. <strong>Accuracy</strong> combines task completion (must be a perfect
     1.0), faithfulness, and speech fidelity where the agent's own audio track exists.
@@ -169,13 +169,13 @@ That is what makes them independent evidence rather than three views of one test
     metrics are scored 0 to 100 on five-level rubrics with written anchors, fixed before
     scoring, and each call's expandable rows show the judge's reasoning.</p>
     <p>The composite structure is adapted from an open source voice evaluation harness, credited
-    on the <a href="notes.html">Findings</a> page. The task completion core was replaced with log
+    on the  page. The task completion core was replaced with log
     grading.</p>
   </div>
 </details>
 
 <details class="tg">
-  <summary>The instrument checks itself: four measurement faults, found and fixed</summary>
+  <summary>Four measurement faults found in the instrument, and their corrections</summary>
   <div class="bd">
 <p>Three faults were found in the measuring equipment rather than the agent. They are listed here
 because an evaluation that only reports the agent's failures has not really been audited.</p>
@@ -210,8 +210,8 @@ because an evaluation that only reports the agent's failures has not really been
 <div class="callout good">
   <div class="bd">
     <p style="margin:0"><strong>Fixing the microphone fault raised the old agent's scores too.</strong>
-    That is the point. A correction that only ever helps the new version is a correction worth
-    distrusting.</p>
+    An instrument correction should move both versions. One that only helps the new version is
+    measuring the wrong thing.</p>
   </div>
 </div>
 
@@ -219,7 +219,7 @@ because an evaluation that only reports the agent's failures has not really been
 </details>
 
 <details class="tg">
-  <summary>How much wobble is normal, measured before any claim</summary>
+  <summary>Run-to-run variance, measured before any claim</summary>
   <div class="bd">
 <p>Run the same agent on the same tests twice and results move a little on their own. That was
 measured first, so no ordinary fluctuation could be mistaken for progress.</p>
@@ -276,7 +276,7 @@ measured first, so no ordinary fluctuation could be mistaken for progress.</p>
   </div>
   <p class="sub" style="margin:4px 0 0">The scale tier: every situation type from routine payment
   to fraud, run headlessly against the same live agent and graded from the same log. This is
-  where the statistics live; the calls above are its proof in sound.</p>
+  where the statistical power sits; the phone and voice tiers test the same agent in real speech.</p>
 </div>
 
 <h2>Where the baseline stood</h2>
@@ -288,7 +288,7 @@ measured first, so no ordinary fluctuation could be mistaken for progress.</p>
 </div>
 <div class="callout warm">
   <div class="bd">
-    <p style="margin:0"><strong>This is a starting point, and its value is precision.</strong>
+    <p style="margin:0"><strong>This is the baseline the loop starts from.</strong>
     111 of 200 conversations reached the end state their situation required. The rest are now
     identified one by one, and almost none of them are audible, which is exactly why grading the
     log rather than the transcript was worth the trouble.</p>
@@ -309,7 +309,7 @@ and closes.</p>
       <div class="turn agent"><b>Agent</b><span>ठीक है, <strong>मैं आपका response note कर लेता हूँ।</strong> धन्यवाद Arnav जी।</span></div>
     </div>
     <p class="sub" style="margin-top:14px">"I will note your response." A polite, competent call.
-    Anyone reading this transcript would pass it.</p>
+    The transcript alone gives no indication that anything went wrong.</p>
   </div>
   <div class="did">
     <h3>What the system recorded</h3>
@@ -318,15 +318,16 @@ and closes.</p>
       <div class="no">Nothing else</div>
     </div>
     <p class="sub" style="margin-top:14px">The customer's position was never written down. Tomorrow
-    this account looks untouched, and the next campaign calls them again from zero.</p>
+    the account still reads as untouched, and the next campaign contacts the customer
+    again from zero.</p>
   </div>
 </div>
 
 <div class="callout bad">
   <div class="bd">
-    <p style="margin:0"><strong>Talk is free. Only the write costs anything.</strong> A model can
-    produce "मैं note कर लेता हूँ" at no cost, and it satisfies the customer, the reviewer, and any
-    grader that only reads text. The tool call is the part with a consequence.</p>
+    <p style="margin:0"><strong>Speech is not a business outcome.</strong> A model can produce
+    "मैं note कर लेता हूँ" at no cost, and it satisfies the customer, the reviewer, and any grader
+    that only reads text. Only the tool call changes the account.</p>
   </div>
 </div>
 
@@ -334,7 +335,7 @@ and closes.</p>
 <p>Twenty-three of the 180 typed conversations had this shape: a commitment in the recorded
 outcome with nothing behind it. Every one of them reads as a competent call.</p>
 <details class="tg">
-  <summary>How that count is produced without anyone labelling calls</summary>
+  <summary>How the count is produced without labelled data</summary>
   <div class="bd">
     <p>A separate detector reads the journal alone. It never sees the transcript or the test
     script, and it needs no labels. It checks seven invariants that any correct call satisfies:
@@ -342,7 +343,7 @@ outcome with nothing behind it. Every one of them reads as a competent call.</p>
     queued a human, a dispute must have filed one, any business action must end in a recorded
     outcome, nothing may be written twice, and a promise date must be well formed and not in the
     past.</p>
-    <p>Because it shares no code with the grader, the two instruments agreeing means something.
+    <p>It shares no code with the grader, so agreement between the two is independent confirmation.
     Its precision was measured at 1.00: every violation it flagged was real when checked by hand.
     It caught 28% of all the failures the scripted benchmark found, which is the honest estimate
     of how much it would see in production, where no script exists.</p>
@@ -361,7 +362,7 @@ every call it was raised on passes a re-dial.</p>
   already paid claim, then ended without writing an outcome. Another handled a dispute properly in
   conversation and triggered no action at all.</p>
   <p class="cost"><b>Cost:</b> both transcripts read as good calls. Only the log shows the
-  customer's position vanished. This is the failure the whole project exists to catch.</p>
+  customer's position was not recorded. This is the failure class the project targets.</p>
 </div>
 
 <div class="def">
@@ -372,7 +373,7 @@ every call it was raised on passes a re-dial.</p>
   for payment again, never gave the fraud helpline, never escalated, and logged "refused to pay"
   three times over.</p>
   <p class="cost"><b>Cost:</b> "refused to pay" routes downstream as call-again-later. A fraud
-  complaint and a deletion request quietly became an ordinary collections retry.</p>
+  complaint and a deletion request were recorded as an ordinary collections retry.</p>
 </div>
 
 
@@ -405,7 +406,7 @@ every call it was raised on passes a re-dial.</p>
 <div class="callout">
   <div class="bd">
     <p style="margin:0"><strong>Hand-off.</strong> A frozen suite, a trusted instrument, a scored
-    baseline, and a filed register. From here nobody writes another fix by hand. The next section
+    baseline, and a filed register. The next section
     is the loop that writes them.</p>
   </div>
 </div>

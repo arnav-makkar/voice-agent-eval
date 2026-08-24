@@ -347,13 +347,15 @@ svg.chart .d1{fill:var(--gain);stroke:none}
 .tools tr:hover td{background:var(--surface)}
 
 /* ---- premise strip: the loan being collected on ---- */
-.premise{display:grid;grid-template-columns:repeat(auto-fit,minmax(124px,1fr));
+/* every cell holds a short numeric fact, so equal columns keep them aligned */
+.premise{display:grid;grid-template-columns:repeat(auto-fit,minmax(112px,1fr));
   gap:1px;background:var(--line);border:1px solid var(--line);
   border-radius:var(--r-lg);overflow:hidden;margin:24px 0}
-.premise div{background:var(--bg);padding:15px 16px}
-.premise .k{font-size:11.5px;color:var(--ink-3);margin-bottom:6px}
-.premise .v{font:600 19px/1.15 var(--sans);letter-spacing:-.02em;
-  font-variant-numeric:tabular-nums;color:var(--ink)}
+/* direct children only: a bare div selector also padded the label and value inside */
+.premise > div{background:var(--bg);padding:15px 16px}
+.premise .k{font-size:11.5px;color:var(--ink-3);margin-bottom:6px;white-space:nowrap}
+.premise .v{font:600 20px/1.15 var(--sans);letter-spacing:-.022em;
+  font-variant-numeric:tabular-nums;color:var(--ink);white-space:nowrap}
 .premise .v.warn{color:var(--loss)}
 
 /* ---- language chips ---- */

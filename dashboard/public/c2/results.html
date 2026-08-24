@@ -16,17 +16,16 @@ if(m==="light"||m==="dark")document.documentElement.setAttribute("data-theme",m)
 </head>
 <body>
 <div class="navwrap">
-<nav class="topnav"><a href="overview.html">Overview</a><a href="agent.html">The agent</a><a href="system.html">Evaluation</a><a href="loop.html">Improvement</a><a href="results.html" class="on" aria-current="page">Results</a><a href="calls.html">Listen</a><a href="notes.html">Limits</a></nav>
+<nav class="topnav"><a href="overview.html">Overview</a><a href="agent.html">The agent</a><a href="system.html">Evaluation</a><a href="loop.html">Improvement</a><a href="calls.html">Recordings</a><a href="results.html" class="on" aria-current="page">Results</a><a href="notes.html">Limitations</a></nav>
 <button class="themebtn" id="themebtn" title="Theme: follows your system" aria-label="Theme: follows your system"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor" stroke="none"/></svg></button>
 </div>
 <div class="shell">
 
 <p class="kicker">The validation study</p>
 <h1>Every number, including the ones that did not move</h1>
-<p class="lede">The loop ran, the rewrite shipped, and everything was measured again: the same
-180 typed situations, the same 15 phone cards re-dialled by a person, and the same five voice-lab
-conversations, because a fix that only works in text has not fixed a voice agent. These numbers
-are what the framework produced, not what a person tuned.</p>
+<p class="lede">Everything measured again: the same 180 typed situations, the same 15 phone
+cards re-dialled, the same five voice conversations. A fix that only works in text has not fixed
+a voice agent.</p>
 
 <div class="hero-num" style="margin-top:36px">
   <span class="from">98</span><span class="ar">→</span><span class="to">160</span>
@@ -54,7 +53,7 @@ are what the framework produced, not what a person tuned.</p>
 </div>
 
 <h2>Every situation type, before and after</h2>
-<p>Fifteen kinds of thing that go wrong on a collections call. Each line runs from where the old agent scored to where the new one does. Four categories went from near-zero to near-perfect.</p>
+<p>Each line runs from the old agent’s score to the new one’s. Four categories went from near zero to near perfect.</p>
 <svg class="dg chart" viewBox="0 0 860 485" role="img" aria-label="Before and after pass rate for each of the fifteen situation types">
 <line class="grid" x1="200" y1="30" x2="200" y2="443"/>
 <text class="ax" x="200" y="22" text-anchor="middle">0%</text>
@@ -148,8 +147,7 @@ are what the framework produced, not what a person tuned.</p>
 </div>
 
 <h2>Which situations improved</h2>
-<p>Fifteen categories, twelve conversations each. The biggest gains are where the old agent was
-close to helpless.</p>
+
 
 <div class="tw"><table>
 <tr><th>Situation</th><th class="n">Before</th><th class="n">After</th><th class="n">of</th>
@@ -158,7 +156,7 @@ close to helpless.</p>
 </table></div>
 
 <h2>Does it survive a harder test?</h2>
-<p>Four separate attempts to break the result.</p>
+<p>Four attempts to break the result.</p>
 
 <div class="grid2">
   <div class="card">
@@ -316,7 +314,7 @@ live audio. Each cell is a pass or fail against a fixed threshold.</p>
 </div>
 
 
-<div class="walk"><a href="loop.html"><span class="k">Back</span><span class="t">Improvement</span></a><a class="next" href="calls.html"><span class="k">Next</span><span class="t">Listen</span></a></div>
+<div class="walk"><a href="calls.html"><span class="k">Back</span><span class="t">Recordings</span></a><a class="next" href="notes.html"><span class="k">Next</span><span class="t">Limitations</span></a></div>
 </div>
 </body>
 </html>

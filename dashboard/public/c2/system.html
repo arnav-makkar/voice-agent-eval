@@ -39,16 +39,15 @@ if(m==="light"||m==="dark")document.documentElement.setAttribute("data-theme",m)
 </head>
 <body>
 <div class="navwrap">
-<nav class="topnav"><a href="overview.html">Overview</a><a href="agent.html">The agent</a><a href="system.html" class="on" aria-current="page">Evaluation</a><a href="loop.html">Improvement</a><a href="results.html">Results</a><a href="calls.html">Listen</a><a href="notes.html">Limits</a></nav>
+<nav class="topnav"><a href="overview.html">Overview</a><a href="agent.html">The agent</a><a href="system.html" class="on" aria-current="page">Evaluation</a><a href="loop.html">Improvement</a><a href="calls.html">Recordings</a><a href="results.html">Results</a><a href="notes.html">Limitations</a></nav>
 <button class="themebtn" id="themebtn" title="Theme: follows your system" aria-label="Theme: follows your system"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor" stroke="none"/></svg></button>
 </div>
 <div class="shell">
 
 <p class="kicker">Step two · evaluate</p>
 <h1>Measured on what it does, not what it says</h1>
-<p class="lede">One rule defines the whole evaluation: a conversation is graded on the records it
-leaves behind, never on how it sounded. This page is the method, the fifteen phone calls scored
-under it, the baseline numbers, and exactly what was failing.</p>
+<p class="lede">One rule: a conversation is graded on the records it leaves behind, never on
+how it sounded.</p>
 
 <h2>The setup in one picture</h2>
 
@@ -106,8 +105,7 @@ under it, the baseline numbers, and exactly what was failing.</p>
 </svg>
 
 <h2>What the 180 situations cover</h2>
-<p>Fifteen kinds of thing that go wrong on a collections call, twelve variations each. Frozen
-before any improvement work started, so the target could not move.</p>
+<p>Fifteen failure types, twelve variations each, frozen before any improvement began.</p>
 
 <div class="grid3">
   <div class="card">
@@ -230,10 +228,8 @@ measured first, so no ordinary fluctuation could be mistaken for progress.</p>
   </div>
 </details>
 
-<h2 id="calls15">The fifteen phone calls, as evaluated</h2>
-<p>The scripted cards, played against the deployed baseline agent on a real line. Pick any call:
-audio, transcript, and the metric panel the framework produced for it. The improved agent's runs
-of these same cards are on the <a href="calls.html">Listen</a> page.</p>
+<h2 id="calls15">The evidence: 200 conversations</h2>
+<p>Three channels, one grading rule. Every call below is the deployed baseline agent.</p>
 
 <div class="panel">
   <div class="panel-head">
@@ -248,9 +244,33 @@ of these same cards are on the <a href="calls.html">Listen</a> page.</p>
   </div>
 </div>
 
+<div class="panel">
+  <div class="panel-head">
+    <h2 style="font-size:17px;margin:0">Bot-to-bot voice lab</h2>
+    <span class="chip">scenarios <b>5</b></span>
+    <span class="chip">accuracy <b>0.93</b></span>
+    <span class="sp"></span>
+  </div>
+  <div class="split">
+    <div class="clist" id="botList" role="listbox" aria-label="Baseline voice lab"></div>
+    <div class="detailcol" id="botDetail"></div>
+  </div>
+</div>
+
+<div class="panel">
+  <div class="panel-head">
+    <h2 style="font-size:17px;margin:0">180 typed conversations</h2>
+    <span class="chip">situation types <b>15</b></span>
+    <span class="chip">each <b>×12</b></span>
+    <span class="chip">pass <b>98 of 180</b></span>
+  </div>
+  <p class="sub" style="margin:4px 0 0">The scale tier: every situation type from routine payment
+  to fraud, run headlessly against the same live agent and graded from the same log. This is
+  where the statistics live; the calls above are its proof in sound.</p>
+</div>
+
 <h2>What the baseline scored</h2>
-<p>The instrument's first job was to measure the agent exactly as deployed. Three channels, one
-verdict per conversation.</p>
+
 <div class="stats">
   <div class="stat"><div class="lab">Typed conversations</div>
     <div class="val">98 <span style="font-size:16px;color:var(--ink-3);font-weight:400">of 180</span></div>
@@ -275,8 +295,8 @@ verdict per conversation.</p>
 
 <h2 id="failing">What was actually failing</h2>
 <h2>One real call, two versions of the truth</h2>
-<p>The customer insists the instalment is already paid. The agent handles it well. It checks the
-account, holds the correct figure, politely refuses the claim, and closes.</p>
+<p>The customer insists he already paid. The agent checks the account, quotes the right figure,
+and closes.</p>
 
 <div class="vs">
   <div class="said">
@@ -328,9 +348,8 @@ outcome with nothing behind it. Every one of them reads as a competent call.</p>
 </details>
 
 <h2 id="register">The defect register</h2>
-<p>From the fifteen phone calls, six defects, filed with severity, evidence and business cost
-before any fix was attempted. Afterwards the same cards are re-dialled, and a defect closes only
-when every call it was raised on passes.</p>
+<p>Six defects, filed with severity and evidence before any fix. A defect closes only when
+every call it was raised on passes a re-dial.</p>
 
 <div class="def">
   <header><span class="tag loss">Critical</span>
@@ -375,7 +394,7 @@ when every call it was raised on passes.</p>
 </div>
 
 <h2>Evaluation complete</h2>
-<p>At this point everything the improvement loop needs is in place.</p>
+
 <div class="stats">
   <div class="stat"><div class="lab">Conversations measured</div>
     <div class="val">200</div>
@@ -423,7 +442,16 @@ return '<details class="mrow"><summary><span class="chev"></span>'+
 (w?`<div class="why">${w}</div>`:"")+"</details>";};
 const dupes=c=>Object.entries((c.tools||[]).reduce((m,t)=>(m[t]=(m[t]||0)+1,m),{})).filter(([,n])=>n>1);
 const pill=(t,c)=>`<span class="sc-mini ${c}">${t}</span>`;
-let CALLS=[],SEL=null;
+Object.assign(WHY,{
+"Faithfulness":"<b>How it is decided:</b> an LLM judge checks the agent's claims against what it was given and what happened. Passes at 0.5 or above.",
+"Speech fidelity":"<b>How it is decided:</b> an LLM judge checks that names, amounts and dates survive the agent's speech intact. Threshold 0.95, the strictest, because a mangled amount is a failed call.",
+"Conciseness":"<b>How it is decided:</b> an LLM judge reading the full conversation, not a word count. Passes at 0.5 or above.",
+"Conversation progression":"<b>How it is decided:</b> an LLM judge asks whether the call moved forward or circled. Passes at 0.5 or above.",
+"Accuracy composite":"<b>How it is decided:</b> the mean of task completion, faithfulness and speech fidelity."});
+const NICE2={"pay-now":"Paid on the call",callback:"Booked a callback",refusal:"Flatly refused",
+dispute:"Disputed the amount",distress:"Customer in distress"};
+const pct=v=>v==null?null:(Math.round(v*1000)/10)+"%";
+let CALLS=[],SEL=null,BOT=[],BSEL=null;
 function metrics(c){const d=dupes(c);const once=d.length===0;
 let h='<div class="mgroup">Execution, read from the permanent log</div>';
 h+=mrow("Task completion","Deterministic",c.passed?"pass":"fail",c.passed?"ok":"no",true);
@@ -448,8 +476,40 @@ document.getElementById("evalDetail").innerHTML=
 '<div class="who">Baseline agent · '+Math.round(c.duration_s)+' seconds</div>'+
 (c.audio?'<audio controls preload="none" src="'+c.audio+'"></audio>':"")+
 (turns?'<div class="turns">'+turns+'</div>':"")+metrics(c);}
+function botMetrics(c){
+const j=(n,v,t)=>v==null?"":mrow(n,"LLM judge",pct(v),v>=t?"ok":"no",false);
+let h='<div class="mgroup">Accuracy</div>';
+h+=mrow("Task completion","Deterministic",pct(c.task_completion),c.task_completion===1?"ok":"no",true);
+h+=j("Faithfulness",c.faithfulness,0.5);
+h+=j("Speech fidelity",c.agent_speech_fidelity,0.95);
+h+='<div class="mgroup">Experience</div>';
+h+=j("Conciseness",c.conciseness,0.5);
+h+=j("Conversation progression",c.progression,0.5);
+h+='<div class="mgroup">Execution</div>';
+h+=mrow("Wrote exactly once","Deterministic",
+c.exactly_once?"yes":Object.entries(c.duplicate_writes||{}).map(([t,n])=>t+" ×"+n).join(", "),
+c.exactly_once?"ok":"no",true);
+h+=mrow("Accuracy composite","Mean of three",c.eva_a,c.eva_a===1?"ok":"no",true);
+return h;}
+function renderBot(){const list=document.getElementById("botList");
+list.innerHTML=BOT.map(c=>'<button role="option" data-id="'+c.id+'">'+
+'<span class="cn">'+(NICE2[c.id]||c.id)+'<small>'+Math.round(c.duration_s)+'s</small></span>'+
+pill(c.eva_a,c.eva_a===1?"ok":"no")+'</button>').join("");
+if(!BOT.find(c=>c.id===BSEL))BSEL=BOT[0]&&BOT[0].id;
+[...list.children].forEach(b=>{if(b.dataset.id===BSEL)b.classList.add("sel");
+b.addEventListener("click",()=>{BSEL=b.dataset.id;renderBot();});});
+const c=BOT.find(x=>x.id===BSEL);if(!c)return;
+const turns=(c.transcript||[]).map(t=>'<div class="turn '+t.speaker+'"><b>'+
+(t.speaker==="agent"?"Agent":"Them")+'</b><span>'+t.text+'</span></div>').join("");
+document.getElementById("botDetail").innerHTML=
+'<h3>'+(NICE2[c.id]||c.id)+'</h3>'+
+'<div class="who">Baseline agent · synthetic caller · '+Math.round(c.duration_s)+' seconds</div>'+
+(c.audio?'<audio controls preload="none" src="'+c.audio+'"></audio>':"")+
+(turns?'<div class="turns">'+turns+'</div>':"")+botMetrics(c);}
 fetch("/evidence/audio/phone-v3/index.json").then(r=>r.ok?r.json():[]).catch(()=>[])
 .then(d=>{CALLS=d;render();});
+fetch("/evidence/audio/bot-v3/index.json").then(r=>r.ok?r.json():[]).catch(()=>[])
+.then(d=>{BOT=d;renderBot();});
 </script>
 </body>
 </html>

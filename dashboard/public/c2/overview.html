@@ -16,19 +16,18 @@ if(m==="light"||m==="dark")document.documentElement.setAttribute("data-theme",m)
 </head>
 <body>
 <div class="navwrap">
-<nav class="topnav"><a href="overview.html" class="on" aria-current="page">Overview</a><a href="agent.html">The agent</a><a href="system.html">Evaluation</a><a href="loop.html">Improvement</a><a href="results.html">Results</a><a href="calls.html">Listen</a><a href="notes.html">Limits</a></nav>
+<nav class="topnav"><a href="overview.html" class="on" aria-current="page">Overview</a><a href="agent.html">The agent</a><a href="system.html">Evaluation</a><a href="loop.html">Improvement</a><a href="calls.html">Recordings</a><a href="results.html">Results</a><a href="notes.html">Limitations</a></nav>
 <button class="themebtn" id="themebtn" title="Theme: follows your system" aria-label="Theme: follows your system"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor" stroke="none"/></svg></button>
 </div>
 <div class="shell">
 
 <p class="kicker">A framework for self-improving voice agents · validated on a live Sarvam Indus agent</p>
 <h1>A framework that makes deployed voice agents improve themselves</h1>
-<p class="lede">It used to promise customers things it never actually recorded. An automated
-loop found that habit, rewrote the agent to remove it, and proved the fix on 200 conversations
-including 20 real phone calls.</p>
+<p class="lede">It measures what an agent actually does, not what it says, and uses that
+signal to improve the agent automatically. Proven end to end on one live agent.</p>
 
 <h2 style="margin-top:40px">The story, in four steps</h2>
-<p>The site follows the same order the work did. Each step answers one question.</p>
+<p>The site follows the order the work happened.</p>
 <div class="tw"><table>
 <tr><th style="width:16%">Step</th><th style="width:26%">Section</th><th>The question</th></tr>
 <tr><td><strong>1 · Build</strong></td><td><a href="agent.html">The agent</a></td>
@@ -37,8 +36,8 @@ including 20 real phone calls.</p>
   <td>How is it measured, what did the baseline score, and what exactly was failing?</td></tr>
 <tr><td><strong>3 · Improve</strong></td><td><a href="loop.html">Improvement</a></td>
   <td>How does the fix get written with no human writing it, and why does it generalize?</td></tr>
-<tr><td><strong>4 · Prove</strong></td><td><a href="results.html">Results</a> · <a href="calls.html">Listen</a></td>
-  <td>Did it hold on unseen cases, real phone calls and live voice?</td></tr>
+<tr><td><strong>4 · Prove</strong></td><td><a href="calls.html">Recordings</a> · <a href="results.html">Results</a></td>
+  <td>Hear the same calls after the fix, then every number.</td></tr>
 </table></div>
 
 <h2 style="margin-top:40px">The framework, in one view</h2>
@@ -65,18 +64,14 @@ including 20 real phone calls.</p>
 
 <div class="callout">
   <div class="bd">
-    <p style="margin:0"><strong>What is framework and what is adapter.</strong> The loop, the log,
-    the grading, the gates and the monitor are agent-agnostic. Onboarding a new agent means
-    writing a thin adapter: its tool list, the end state each situation should produce, and the
-    failure types that matter in its domain. The pilot's adapter was an EMI collections agent in
-    Hindi and Hinglish; the loop never knew that.</p>
+    <p style="margin:0"><strong>Framework versus adapter.</strong> The loop, log, grading, gates
+    and monitor know nothing about the domain. A new agent needs only a thin adapter: its tools,
+    expected end states, and failure types.</p>
   </div>
 </div>
 
 <h2>The validation study</h2>
-<p>One live production-grade agent on Sarvam Indus, run through the full loop end to end: baseline
-measured, failures diagnosed and filed, the rewrite generated and gated, then everything
-re-measured on three independent channels, including 20 real phone calls.</p>
+<p>One live agent, full loop, everything re-measured on three independent channels.</p>
 
 <div class="hero-num" style="margin-top:40px">
   <span class="from">54%</span><span class="ar">→</span><span class="to">89%</span>
@@ -113,8 +108,7 @@ agent runs into. No person wrote any part of the fix.</p>
 </div>
 
 <h2>Three separate proofs</h2>
-<p>A result that only shows up in one kind of test is a result you should not trust. This one was
-measured three independent ways, and all three moved together.</p>
+<p>Three independent tiers. All three moved together.</p>
 
 <div class="bars">
   <div class="bar-row">

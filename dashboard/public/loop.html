@@ -7,12 +7,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="site.css?v=52">
+<link rel="stylesheet" href="site.css?v=53">
 <script>/* apply the saved theme before first paint so the page never flashes
    the wrong ground while nav.js is still loading */
 (function(){try{var m=localStorage.getItem("theme");
 if(m==="light"||m==="dark")document.documentElement.setAttribute("data-theme",m);}catch(e){}})();</script>
-<script src="nav.js?v=52" defer></script>
+<script src="nav.js?v=53" defer></script>
 </head>
 <body>
 <div class="navwrap">
@@ -184,24 +184,6 @@ after passing all of them is it deployed, fingerprinted, as the new baseline.</p
   </div>
 </div>
 
-<h2>What a rewrite has to prove</h2>
-
-<div class="tw"><table>
-<tr><th style="width:26%">The gate</th><th>What it demands</th><th class="n">Outcome</th></tr>
-<tr><td><strong>Unseen cases</strong></td>
-  <td>60 situations the search is never shown, checked once per round</td>
-  <td class="n">33 → 57 → <strong class="gain">59</strong></td></tr>
-<tr><td><strong>Safety veto</strong></td>
-  <td>Any regression on fraud, distress, privacy or credentials kills the candidate outright</td>
-  <td class="n">40 → 62 → <strong class="gain">63</strong></td></tr>
-<tr><td><strong>Won more than it lost</strong></td>
-  <td>A statistical test on which individual cases flipped, in both directions</td>
-  <td class="n"><strong class="gain">+62</strong> fixed, <strong>0</strong> broken</td></tr>
-<tr><td><strong>Larger than run-to-run variance</strong></td>
-  <td>Changes smaller than normal run-to-run variation are reported as noise, not progress</td>
-  <td class="n">observed 26 vs 1.6 floor</td></tr>
-</table></div>
-
 <details class="tg">
   <summary>Method references</summary>
   <div class="bd">
@@ -262,22 +244,8 @@ after passing all of them is it deployed, fingerprinted, as the new baseline.</p
 </div>
 
 <h2>What each half of the winner is worth</h2>
-<p>The shipped agent has two halves, and they were optimised separately:</p>
-
-<div class="grid2">
-  <div class="card">
-    <h3>Instructions</h3>
-    <p class="sub" style="margin-top:6px">The rules: what to do when, which action to take, how to
-    close a call.</p>
-  </div>
-  <div class="card">
-    <h3>Worked examples</h3>
-    <p class="sub" style="margin-top:6px">Real conversations that went perfectly, mined from the
-    agent's own history and used to demonstrate the behaviour.</p>
-  </div>
-</div>
-<p>Run the same sixty unseen situations three ways: against the old agent, against the rules
-alone, and against both halves together:</p>
+<p>The winner is rules plus worked examples. Run the same sixty unseen situations three ways,
+against the old agent, the rules alone, and both together:</p>
 
 <div class="bars">
   <div class="bar-row">

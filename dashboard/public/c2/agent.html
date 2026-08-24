@@ -19,55 +19,83 @@ if(m==="light"||m==="dark")document.documentElement.setAttribute("data-theme",m)
 </div>
 <div class="shell">
 
-<p class="kicker">Step one · build</p>
-<h1>First, an agent worth testing</h1>
-<p class="lede">A real, deployed agent on Sarvam Indus: it calls customers in Hindi and
-Hinglish about an overdue instalment.</p>
+<p class="kicker">Step one &middot; build</p>
+<h1>The agent under test</h1>
+<p class="lede">A framework proves nothing against a toy. The subject is a real agent deployed on
+Sarvam Indus, doing a job where almost every outcome is a record it must write.</p>
 
-<div class="grid3" style="margin-top:32px">
-  <div class="card">
-    <h3>The loan</h3>
-    <p class="sub" style="margin-top:6px">A Samsung Smart TV bought on EMI. Rs 4,416 overdue,
-    instalment 7 of 12, 17 days late.</p>
-  </div>
-  <div class="card">
-    <h3>The tools</h3>
-    <p class="sub" style="margin-top:6px">Six actions it can take: check the balance, log a
-    promise, file a dispute, book a callback, escalate to a human, record the outcome.</p>
-  </div>
-  <div class="card">
-    <h3>The stakes</h3>
-    <p class="sub" style="margin-top:6px">Almost every outcome of a call is a record it must
-    write. That makes it a hard, honest test for execution truth.</p>
-  </div>
+<h2>The premise</h2>
+<p>A customer bought a Samsung Smart TV on EMI and has fallen behind. The agent phones to resolve
+it: take the payment, agree a date, or find out why not.</p>
+
+<div class="premise">
+  <div><div class="k">Outstanding</div><div class="v">&#8377;4,416</div></div>
+  <div><div class="k">Instalment</div><div class="v">7 of 12</div></div>
+  <div><div class="k">Overdue by</div><div class="v warn">17 days</div></div>
+  <div><div class="k">Languages</div><div class="v">Hindi + English</div></div>
 </div>
 
-<div class="tw"><table>
-<tr><th style="width:34%">Property</th><th>Value</th></tr>
-<tr><td>Platform</td><td>Sarvam Indus, deployed and live; every test in this study ran against
-the real deployed agent, never a copy</td></tr>
-<tr><td>Conversation model</td><td>Sarvam Pro</td></tr>
-<tr><td>Tool-calling model</td><td>Llama 3.1 70B, a separate smaller model that decides which
-action to take</td></tr>
-<tr><td>Languages</td><td>Hindi and Hinglish, mirroring the caller on a language switch</td></tr>
+<p>Every conversation ends one of a few ways, and each one is a different record: money taken, a
+promise with a date, a callback booked, a dispute filed, a human brought in. That is what makes
+this a hard test. The agent can sound perfect and still leave the account untouched.</p>
+
+<h2>What it can actually do</h2>
+<p>Six actions. Everything else the agent produces is speech, which changes nothing.</p>
+
+<div class="tw"><table class="tools">
+<tr><th style="width:26%">Action</th><th style="width:30%">When it must fire</th><th>What it records</th></tr>
+<tr>
+  <td><code>check_payment_status</code></td>
+  <td>The customer questions the amount, or claims they already paid</td>
+  <td>Reads the live account rather than answering from memory</td></tr>
+<tr>
+  <td><code>record_promise_to_pay</code></td>
+  <td>Any commitment to pay, now or later</td>
+  <td>The amount and a resolved calendar date <span class="req">(not "tomorrow")</span></td></tr>
+<tr>
+  <td><code>schedule_callback</code></td>
+  <td>The customer asks to be called another time</td>
+  <td>The agreed window, so a later campaign honours it</td></tr>
+<tr>
+  <td><code>record_dispute</code></td>
+  <td>The customer disputes the amount or the debt itself</td>
+  <td>The stated reason, which pauses collection</td></tr>
+<tr>
+  <td><code>escalate_to_human</code></td>
+  <td>Distress, alleged fraud, or anything needing a person</td>
+  <td>Queues a human. Without it, nobody is called</td></tr>
+<tr>
+  <td><code>record_call_outcome</code></td>
+  <td>Every call, exactly once, at the end</td>
+  <td>How the call ended, which routes what happens next</td></tr>
 </table></div>
 
-<h2>Hear it before any numbers</h2>
-<p>Judge it the way a customer would first: by listening.</p>
-
-<div class="quick" style="margin-top:14px">
-  <a href="calls.html?tier=phone&v=v3&id=card-01" style="text-decoration:none"><button>A routine payment call</button></a>
-  <a href="calls.html?tier=phone&v=v3&id=card-11" style="text-decoration:none"><button>The fraud call</button></a>
-  <a href="calls.html?tier=bot&v=v3&id=distress" style="text-decoration:none"><button>A customer in distress</button></a>
-</div>
-
-<div class="callout" style="margin-top:26px">
+<div class="callout warm">
   <div class="bd">
-    <p style="margin:0"><strong>What you will hear:</strong> polite, fluent, competent-sounding.
-    Whether it is correct is the next section.</p>
+    <p style="margin:0"><strong>The rule that matters.</strong> Saying "I have noted your payment
+    date" is not the same as calling <code>record_promise_to_pay</code>. One is audio. The other
+    is the only thing the business can act on.</p>
   </div>
 </div>
 
+<h2>How it is built</h2>
+<div class="tw"><table>
+<tr><th style="width:32%">Component</th><th>Choice</th></tr>
+<tr><td>Platform</td><td>Sarvam Indus, deployed and live. Every test in this study ran against the
+real agent, never a copy</td></tr>
+<tr><td>Conversation model</td><td>Sarvam Pro, handling the dialogue</td></tr>
+<tr><td>Tool-calling model</td><td>Llama 3.1 70B, a separate and smaller model that decides which
+of the six actions to take</td></tr>
+<tr><td>Channels</td><td>Outbound telephony, and a text channel for scale testing</td></tr>
+</table></div>
+
+<div class="callout">
+  <div class="bd">
+    <p style="margin:0"><strong>Worth noting for later.</strong> The model that talks and the
+    model that acts are different. Every failure in the next section is a failure of the second
+    one, which is exactly the split the framework is built to expose.</p>
+  </div>
+</div>
 
 <div class="walk"><a href="overview.html"><span class="k">Back</span><span class="t">Overview</span></a><a class="next" href="system.html"><span class="k">Next</span><span class="t">Evaluation</span></a></div>
 </div>

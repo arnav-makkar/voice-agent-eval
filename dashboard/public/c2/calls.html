@@ -7,10 +7,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="site.css?v=14">
+<link rel="stylesheet" href="site.css?v=15">
 <script>(function(){try{var m=localStorage.getItem("theme");
 if(m==="light"||m==="dark")document.documentElement.setAttribute("data-theme",m);}catch(e){}})();</script>
-<script src="nav.js?v=14" defer></script>
+<script src="nav.js?v=15" defer></script>
 </head>
 <body>
 <div class="navwrap">
@@ -45,12 +45,10 @@ and new agent while a call is selected to compare the same situation directly.</
       <button data-v="v4">New agent</button>
     </div>
   </div>
-  <div class="tscroll"><table class="calltable" id="phoneTable">
-    <thead><tr><th>#</th><th>Situation</th><th>Result</th><th>Records written</th>
-    <th>Ended by</th><th style="text-align:right">Dur</th></tr></thead>
-    <tbody></tbody>
-  </table></div>
-  <div class="detail" id="phoneDetail"></div>
+  <div class="split">
+    <div class="clist" id="phoneList" role="listbox" aria-label="Phone calls"></div>
+    <div class="detailcol" id="phoneDetail"></div>
+  </div>
 </div>
 
 <div class="panel" id="botPanel">
@@ -65,12 +63,10 @@ and new agent while a call is selected to compare the same situation directly.</
       <button data-v="v4">New agent</button>
     </div>
   </div>
-  <div class="tscroll"><table class="calltable" id="botTable">
-    <thead><tr><th>Scenario</th><th>Accuracy</th><th>Task</th><th>Concise</th>
-    <th>Progression</th><th>Exactly once</th><th style="text-align:right">Dur</th></tr></thead>
-    <tbody></tbody>
-  </table></div>
-  <div class="detail" id="botDetail"></div>
+  <div class="split">
+    <div class="clist" id="botList" role="listbox" aria-label="Voice lab conversations"></div>
+    <div class="detailcol" id="botDetail"></div>
+  </div>
 </div>
 
 <script>
@@ -115,27 +111,18 @@ const pct = v => v==null?null:(Math.round(v*1000)/10)+"%";
 const DATA = { phone:{v3:[],v4:[]}, bot:{v3:[],v4:[]} };
 const STATE = { phone:{v:"v3",sel:null}, bot:{v:"v3",sel:null} };
 
-function phoneRow(c, ver){
-  const d=dupes(c);
-  const once = c.exactly_once!==undefined ? c.exactly_once : d.length===0;
-  const fixed = ver==="v4" && c.passed && c.v3_passed===false;
-  return `<tr data-id="${c.id}">
-    <td>${c.card}</td>
-    <td class="wrap"><strong style="font-weight:550">${NICE[c.family]||c.family}</strong></td>
-    <td>${pill(c.passed?"pass":"fail", c.passed?"ok":"no")}${fixed?" "+pill("fixed","ok"):""}</td>
-    <td>${(c.tools||[]).length ? c.tools.length + (once?"":" · dup") : "none"}</td>
-    <td>${c.end_reason==="AGENT_ENDS"?"agent":"caller"}</td>
-    <td style="text-align:right">${Math.round(c.duration_s)}s</td></tr>`;
-}
-function botRow(c){
-  return `<tr data-id="${c.id}">
-    <td class="wrap"><strong style="font-weight:550">${NICE[c.id]||c.id}</strong></td>
-    <td>${pill(c.eva_a, c.eva_a===1?"ok":"no")}</td>
-    <td>${pill(pct(c.task_completion), c.task_completion===1?"ok":"no")}</td>
-    <td>${pill(pct(c.conciseness), c.conciseness>=0.5?"ok":"no")}</td>
-    <td>${pill(pct(c.progression), c.progression>=0.5?"ok":"no")}</td>
-    <td>${c.exactly_once?pill("yes","ok"):pill("dup","no")}</td>
-    <td style="text-align:right">${Math.round(c.duration_s)}s</td></tr>`;
+function listRow(tier, c, ver){
+  if(tier==="phone"){
+    const fixed = ver==="v4" && c.passed && c.v3_passed===false;
+    return `<button role="option" data-id="${c.id}">
+      <span class="cn">${NICE[c.family]||c.family}
+        <small>${Math.round(c.duration_s)}s · ended by ${c.end_reason==="AGENT_ENDS"?"agent":"caller"}</small></span>
+      ${fixed?pill("fixed","ok"):""}${pill(c.passed?"pass":"fail", c.passed?"ok":"no")}</button>`;
+  }
+  return `<button role="option" data-id="${c.id}">
+    <span class="cn">${NICE[c.id]||c.id}
+      <small>${Math.round(c.duration_s)}s · task ${pct(c.task_completion)}</small></span>
+    ${pill(c.eva_a, c.eva_a===1?"ok":"no")}</button>`;
 }
 function phoneMetrics(c){
   const d=dupes(c);
@@ -182,17 +169,17 @@ function detail(tier, c){
     · switch versions above to compare this same situation</div>` +
     (c.audio?`<audio controls preload="none" src="${c.audio}"></audio>`
             :'<p class="sub">No recording for this entry.</p>') +
-    (isBot?botMetrics(c):phoneMetrics(c)) +
-    (turns?`<details class="tg"><summary>Transcript</summary><div class="bd"><div class="turns" style="max-height:none;border:0;background:none;box-shadow:none;padding:0">${turns}</div></div></details>`:"");
+    (turns?`<div class="turns">${turns}</div>`:"") +
+    (isBot?botMetrics(c):phoneMetrics(c));
 }
 function renderPanel(tier){
   const st=STATE[tier], items=DATA[tier][st.v];
-  const tbody=$(`#${tier}Table tbody`);
-  tbody.innerHTML=items.map(c=>tier==="phone"?phoneRow(c,st.v):botRow(c)).join("");
+  const list=$(`#${tier}List`);
+  list.innerHTML=items.map(c=>listRow(tier,c,st.v)).join("");
   if(!items.find(c=>c.id===st.sel)) st.sel=items[0]&&items[0].id;
-  [...tbody.rows].forEach(r=>{
-    if(r.dataset.id===st.sel) r.classList.add("sel");
-    r.addEventListener("click",()=>{st.sel=r.dataset.id;renderPanel(tier);});
+  [...list.children].forEach(b=>{
+    if(b.dataset.id===st.sel) b.classList.add("sel");
+    b.addEventListener("click",()=>{st.sel=b.dataset.id;renderPanel(tier);});
   });
   const c=items.find(x=>x.id===st.sel);
   $(`#${tier}Detail`).innerHTML=c?detail(tier,c):"";

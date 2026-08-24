@@ -286,7 +286,7 @@ svg.chart .d1{fill:var(--gain);stroke:none}
 /* ---- evaluation dashboard components (Listen) ---- */
 .panel{border:1px solid var(--line);border-radius:var(--r-lg);background:var(--surface);
   padding:20px 22px;margin:26px 0}
-.panel-head{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:14px}
+.panel-head{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:16px}
 .panel-head h2{margin:0;font-size:19px}
 .panel-head .sp{flex:1}
 .chip{display:inline-flex;align-items:baseline;gap:7px;background:var(--bg);
@@ -299,28 +299,31 @@ svg.chart .d1{fill:var(--gain);stroke:none}
 .seg button{font:550 13px var(--sans);color:var(--ink-3);background:none;border:0;
   border-radius:7px;padding:7px 14px;cursor:pointer}
 .seg button.on{background:var(--accent-soft);color:var(--accent)}
-.calltable{width:100%;border-collapse:collapse;font-size:13.5px;
-  font-variant-numeric:tabular-nums}
-.calltable th{font-size:11.5px;font-weight:600;color:var(--ink-3);text-align:left;
-  padding:8px 12px;border-bottom:1px solid var(--line);white-space:nowrap;
-  position:sticky;top:0;background:var(--surface)}
-.calltable td{padding:9px 12px;border-bottom:1px solid var(--line);color:var(--ink-2);
-  white-space:nowrap}
-.calltable td.wrap{white-space:normal}
-.calltable tbody tr{cursor:pointer}
-.calltable tbody tr:hover td{background:var(--accent-soft)}
-.calltable tbody tr.sel td{background:var(--accent-soft);
-  border-bottom-color:var(--accent)}
-.calltable tbody tr:last-child td{border-bottom:0}
-.tscroll{max-height:335px;overflow:auto;border:1px solid var(--line);
-  border-radius:var(--r);background:var(--bg);margin:0 0 16px}
-.detail{border-top:1px solid var(--line);padding-top:16px}
-.detail h3{margin:0 0 2px;font-size:17.5px}
-.detail .who{font-size:13px;color:var(--ink-3);margin-bottom:12px}
-.sc-mini{font:600 12.5px var(--mono);padding:2px 9px;border-radius:99px;white-space:nowrap}
+
+/* master-detail: call list left, everything about the call right */
+.split{display:grid;grid-template-columns:minmax(200px,30%) 1fr;gap:20px;align-items:start}
+@media(max-width:760px){.split{grid-template-columns:1fr}}
+.clist{border:1px solid var(--line);border-radius:var(--r);background:var(--bg);
+  max-height:640px;overflow-y:auto}
+.clist button{display:flex;align-items:center;gap:9px;width:100%;text-align:left;
+  font:inherit;color:var(--ink);background:none;border:0;cursor:pointer;
+  padding:11px 13px;border-bottom:1px solid var(--line)}
+.clist button:last-child{border-bottom:0}
+.clist button:hover{background:var(--accent-soft)}
+.clist button.sel{background:var(--accent-soft);
+  box-shadow:inset 3px 0 0 var(--accent)}
+.clist .cn{flex:1;min-width:0;font-size:13.5px;font-weight:550;line-height:1.35}
+.clist .cn small{display:block;font-weight:400;font-size:11.5px;color:var(--ink-3)}
+.sc-mini{font:600 12px var(--mono);padding:2px 8px;border-radius:99px;white-space:nowrap}
 .sc-mini.ok{background:var(--gain-soft);color:var(--gain)}
 .sc-mini.no{background:var(--loss-soft);color:var(--loss)}
 .sc-mini.na{background:var(--surface-2);color:var(--ink-3)}
+
+.detailcol h3{margin:0 0 2px;font-size:17.5px}
+.detailcol .who{font-size:13px;color:var(--ink-3);margin-bottom:10px}
+.detailcol audio{margin:4px 0 12px}
+.detailcol .turns{max-height:250px;margin:0 0 6px}
+
 .quick{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 4px}
 .quick button{font:550 12.5px var(--sans);color:var(--ink-2);background:var(--surface);
   border:1px solid var(--line);border-radius:99px;padding:7px 13px;cursor:pointer}

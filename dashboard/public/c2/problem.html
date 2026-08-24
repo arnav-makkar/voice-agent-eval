@@ -146,17 +146,22 @@ permanent log. The agent can add to that log. It cannot read it back, and it can
     <span class="fig">5</span>
   </div>
 </div>
-<p class="sub">Conversations, out of 180, where the agent promised something aloud and no matching
-record exists. A drop of 78%.</p>
+<p class="sub">Conversations, out of 180, whose log contradicts itself: an outcome claiming a
+promise, an escalation or a dispute that has no matching record behind it. A drop of 78%.</p>
 
 <details class="tg">
   <summary>How that count is produced without anyone labelling calls</summary>
   <div class="bd">
-    <p>A separate detector reads each conversation, pulls out every commitment the agent made
-    aloud, and checks each one against the log. It shares no code with the main grader and never
-    sees the test script, so when the two instruments agree the number means something.</p>
-    <p>Its precision was measured at 1.00: every violation it flagged was real when checked by
-    hand.</p>
+    <p>A separate detector reads the journal alone. It never sees the transcript or the test
+    script, and it needs no labels. It checks seven invariants that any correct call satisfies:
+    an outcome recorded as a promise must have a promise row behind it, an escalation must have
+    queued a human, a dispute must have filed one, any business action must end in a recorded
+    outcome, nothing may be written twice, and a promise date must be well formed and not in the
+    past.</p>
+    <p>Because it shares no code with the grader, the two instruments agreeing means something.
+    Its precision was measured at 1.00: every violation it flagged was real when checked by hand.
+    It caught 28% of all the failures the scripted benchmark found, which is the honest estimate
+    of how much it would see in production, where no script exists.</p>
   </div>
 </details>
 

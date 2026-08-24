@@ -54,9 +54,10 @@ agent, and gated on cases the search was never allowed to see.</p>
 <div class="steps">
   <div class="step"><span class="n"></span><div>
     <h3>Notice</h3>
-    <p>A detector reads every conversation and flags each promise the agent made aloud with no
-    matching record.</p>
-    <p class="who">Finds the gap between talk and action</p>
+    <p>A detector reads the log alone and flags conversations that contradict themselves: an
+    outcome recorded as a promise with no promise row, an escalation with nobody queued, a
+    business action with no outcome at all, or the same record written twice.</p>
+    <p class="who">Needs no transcript, no script and no labels</p>
   </div></div>
   <div class="step"><span class="n"></span><div>
     <h3>Group</h3>
@@ -256,9 +257,10 @@ rests on what each part needs in order to run.</p>
 <div class="grid2">
   <div class="card">
     <h3>The monitor needs no labels</h3>
-    <p class="sub" style="margin-top:6px">It reads any conversation, extracts the commitments the
-    agent spoke, and checks each against the log. No scripts, no ground truth, no domain
-    knowledge. It runs on production traffic exactly as it ran on the benchmark.</p>
+    <p class="sub" style="margin-top:6px">It runs over the journal alone, checking seven
+    invariants that any correct call must satisfy. No transcript, no script, no ground truth, no
+    model call. It runs on production traffic exactly as it ran on the benchmark, and on the
+    baseline it recovered 28% of all graded failures at precision 1.00.</p>
   </div>
   <div class="card">
     <h3>The grader needs only tools</h3>

@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="site.css?v=5">
+<link rel="stylesheet" href="site.css?v=8">
 <style>
 .player{border:1px solid var(--line);border-radius:var(--r-lg);padding:22px 24px;
   background:var(--surface);margin:16px 0}
@@ -26,6 +26,11 @@
 select{width:100%}
 label.pl{font-size:13px;color:var(--ink-3);display:block;margin:14px 0 6px}
 </style>
+<script>/* apply the saved theme before first paint so the page never flashes
+   the wrong ground while nav.js is still loading */
+(function(){try{var m=localStorage.getItem("theme");
+if(m==="light"||m==="dark")document.documentElement.setAttribute("data-theme",m);}catch(e){}})();</script>
+<script src="nav.js?v=8" defer></script>
 </head>
 <body>
 <div class="shell">
@@ -98,7 +103,6 @@ checks, and the execution check read from the permanent log.</p>
 </table></div>
 
 </div>
-<script src="nav.js?v=5"></script>
 <script>
 const $ = s => document.querySelector(s);
 const NICE = {

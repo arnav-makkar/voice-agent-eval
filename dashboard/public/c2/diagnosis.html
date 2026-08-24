@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="site.css?v=5">
+<link rel="stylesheet" href="site.css?v=8">
 <style>
 .def{border:1px solid var(--line);border-radius:var(--r-lg);padding:20px 22px;margin:16px 0;
   background:var(--surface)}
@@ -18,6 +18,11 @@
   border-top:1px solid var(--line)}
 .def .cost b{color:var(--loss)}
 </style>
+<script>/* apply the saved theme before first paint so the page never flashes
+   the wrong ground while nav.js is still loading */
+(function(){try{var m=localStorage.getItem("theme");
+if(m==="light"||m==="dark")document.documentElement.setAttribute("data-theme",m);}catch(e){}})();</script>
+<script src="nav.js?v=8" defer></script>
 </head>
 <body>
 <div class="shell">
@@ -128,6 +133,5 @@ before the improvement work began.</p>
 </div>
 
 </div>
-<script src="nav.js?v=5"></script>
 </body>
 </html>

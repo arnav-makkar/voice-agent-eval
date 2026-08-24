@@ -32,17 +32,20 @@
   apply(mode);
 
   const here = location.pathname.split("/").pop() || "overview.html";
-  const nav = document.createElement("nav");
-  nav.className = "topnav";
-  nav.innerHTML =
+  const wrap = document.createElement("div");
+  wrap.className = "navwrap";
+  wrap.style.position = "sticky";
+  wrap.innerHTML =
+    '<nav class="topnav">' +
     PAGES.map(([href, label]) =>
       `<a href="${href}"${href === here ? ' class="on" aria-current="page"' : ""}>${label}</a>`
     ).join("") +
-    '<span class="sp"></span>' +
+    "</nav>" +
     `<button class="themebtn" id="themebtn" title="${LABEL[mode]}" aria-label="${LABEL[mode]}">${ICON[mode]}</button>`;
-  document.body.prepend(nav);
+  document.body.prepend(wrap);
+  const nav = wrap.querySelector(".topnav");
 
-  const btn = nav.querySelector("#themebtn");
+  const btn = wrap.querySelector("#themebtn");
   btn.addEventListener("click", () => {
     mode = ORDER[(ORDER.indexOf(mode) + 1) % ORDER.length];
     apply(mode);
@@ -52,11 +55,13 @@
     btn.setAttribute("aria-label", LABEL[mode]);
   });
 
-  // Keep the active tab visible when the bar has to scroll on a narrow screen.
-  const active = nav.querySelector("a.on");
-  if (active) active.scrollIntoView({ block: "nearest", inline: "center" });
+  const onReady = (fn) =>
+    document.readyState === "loading"
+      ? document.addEventListener("DOMContentLoaded", fn)
+      : fn();
 
   const i = PAGES.findIndex(([href]) => href === here);
+  onReady(() => {
   const walk = document.createElement("div");
   walk.className = "walk";
   walk.innerHTML =
@@ -80,4 +85,5 @@
       });
     });
   }
+  });
 })();

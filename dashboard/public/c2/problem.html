@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="site.css?v=5">
+<link rel="stylesheet" href="site.css?v=8">
 <style>
 .vs{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:28px 0;
   border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden}
@@ -23,6 +23,11 @@
 .ledger .no{color:var(--loss)}
 .ledger .no::before{content:" ";}
 </style>
+<script>/* apply the saved theme before first paint so the page never flashes
+   the wrong ground while nav.js is still loading */
+(function(){try{var m=localStorage.getItem("theme");
+if(m==="light"||m==="dark")document.documentElement.setAttribute("data-theme",m);}catch(e){}})();</script>
+<script src="nav.js?v=8" defer></script>
 </head>
 <body>
 <div class="shell">
@@ -159,6 +164,5 @@ record exists. A drop of 78%.</p>
 </div>
 
 </div>
-<script src="nav.js?v=5"></script>
 </body>
 </html>

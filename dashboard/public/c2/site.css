@@ -47,30 +47,30 @@
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);
+body{margin:0;overflow-x:hidden;background:var(--bg);color:var(--ink);
   font:400 16.5px/1.7 var(--sans);-webkit-font-smoothing:antialiased}
-.shell{max-width:860px;margin:0 auto;padding:26px 26px 120px}
+.shell{max-width:860px;margin:0 auto;padding:0 26px 120px}
 .wide{max-width:1060px}
 a{color:var(--accent);text-underline-offset:3px}
 
 /* ---- top bar: plain text links, one active, theme control at the end ---- */
-.topnav{position:sticky;top:0;z-index:40;background:var(--bg);
-  border-bottom:1px solid var(--line);margin:-26px -26px 40px;
-  padding:0 52px 0 26px;display:flex;align-items:center;
-  gap:2px;overflow-x:auto;scrollbar-width:none}
-.topnav::-webkit-scrollbar{display:none}
-/* centers when there is room, degrades to a scrollable row when there is not:
-   justify-content would clip the leftmost links past the scroll origin */
-.topnav a:first-of-type{margin-left:auto}
-.topnav a:last-of-type{margin-right:auto}
+/* a direct child of body, so it spans the viewport with no negative margins:
+   the earlier -26px side pull made the page itself scroll sideways */
+.navwrap{position:sticky;top:0;z-index:40;background:var(--bg);
+  border-bottom:1px solid var(--line);margin:0 0 40px;padding:0 26px}
+/* wraps to a second row on a narrow screen rather than scrolling sideways:
+   a horizontally scrolling bar hides links and shifts as it settles */
+.topnav{display:flex;align-items:center;justify-content:center;gap:2px;
+  flex-wrap:wrap;padding-right:44px}
+
 .topnav a{font-size:14px;color:var(--ink-3);text-decoration:none;
-  padding:14px 11px;white-space:nowrap;border-bottom:2px solid transparent;
+  padding:13px 11px;white-space:nowrap;border-bottom:2px solid transparent;
   transition:color .12s}
 .topnav a:hover{color:var(--ink)}
 .topnav a.on{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
 .topnav .sp{display:none}
-.themebtn{position:absolute;right:12px;top:50%;transform:translateY(-50%);
-  background:none;border:0;cursor:pointer;color:var(--ink-3);
+.themebtn{position:absolute;right:18px;top:50%;transform:translateY(-50%);
+  z-index:2;background:var(--bg);border:0;cursor:pointer;color:var(--ink-3);
   padding:8px;border-radius:7px;display:flex;align-items:center;line-height:0}
 .themebtn:hover{background:var(--surface-2);color:var(--ink)}
 .themebtn svg{width:17px;height:17px}
@@ -215,7 +215,12 @@ svg.dg .box-g{fill:var(--gain-soft);stroke:var(--gain)}
 .turn.caller span{color:var(--ink-2)}
 .meta{display:flex;gap:7px;flex-wrap:wrap;margin:12px 0}
 
-audio{width:100%;margin:12px 0 2px}
+audio{width:100%;margin:12px 0 2px;border-radius:99px;
+  background:var(--surface-2)}
+/* the native player renders its own light chrome; ask for the right scheme so
+   the control bar matches the page instead of staying white on a dark ground */
+:root[data-theme="dark"] audio{color-scheme:dark}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) audio{color-scheme:dark}}
 select{font:400 15px var(--sans);color:var(--ink);background:var(--bg);
   border:1px solid var(--line-2);border-radius:var(--r);padding:11px 13px;
   min-width:290px;cursor:pointer}

@@ -161,9 +161,6 @@ details.tg .bd > :first-child{margin-top:0}
   font-variant-numeric:tabular-nums;color:var(--gain)}
 .bar-row .fig .d{color:var(--ink-3);font-size:12.5px;font-weight:400;
   display:block;font-family:var(--sans)}
-.legend{display:flex;gap:22px;font-size:13px;color:var(--ink-3);margin:16px 0 0}
-.legend i{width:20px;height:8px;border-radius:99px;display:inline-block;
-  margin-right:8px;vertical-align:0}
 
 /* ---- tables ---- */
 .tw{overflow-x:auto;margin:22px 0;border:1px solid var(--line);
@@ -290,18 +287,6 @@ details.mrow .why{padding:0 14px 14px 14px;font-size:13.5px;line-height:1.6;
 details.mrow .why b{color:var(--ink)}
 .mnote{font-size:12.5px;color:var(--ink-3);margin:10px 0 0}
 
-/* ---- dumbbell chart: one line per category, old dot to new dot ---- */
-svg.chart .grid{stroke:var(--line);stroke-width:1}
-svg.chart .ax{font-size:11px;fill:var(--ink-3);font-family:var(--mono)}
-svg.chart .lab{font-size:13px;fill:var(--ink-2)}
-svg.chart .val{font-size:12px;fill:var(--ink-3);font-family:var(--mono)}
-svg.chart .conn{stroke:var(--gain);stroke-width:2.5;opacity:.42;stroke-linecap:round}
-svg.chart .d0{fill:var(--bg);stroke:var(--ink-3);stroke-width:2}
-svg.chart .d1{fill:var(--gain);stroke:none}
-.legend i.dot{width:11px;height:11px;border-radius:99px;border:2px solid var(--ink-3);
-  background:var(--bg);box-sizing:border-box}
-.legend i.dot.d1{background:var(--gain);border-color:var(--gain)}
-@media(max-width:700px){svg.chart .lab{font-size:11px}}
 
 /* ---- evaluation dashboard components (Listen) ---- */
 /* the dashboard boxes break out of the 860px text column to a fifth wider,

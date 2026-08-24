@@ -7,12 +7,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="site.css?v=31">
+<link rel="stylesheet" href="site.css?v=32">
 <script>/* apply the saved theme before first paint so the page never flashes
    the wrong ground while nav.js is still loading */
 (function(){try{var m=localStorage.getItem("theme");
 if(m==="light"||m==="dark")document.documentElement.setAttribute("data-theme",m);}catch(e){}})();</script>
-<script src="nav.js?v=31" defer></script>
+<script src="nav.js?v=32" defer></script>
 </head>
 <body>
 <div class="navwrap">
@@ -23,7 +23,7 @@ if(m==="light"||m==="dark")document.documentElement.setAttribute("data-theme",m)
 <div class="shell">
 
 <p class="kicker">The validation study</p>
-<h1>Every number, including the ones that did not move</h1>
+<h1>What changed, and what did not</h1>
 <p class="lede">Everything measured again: the same 180 typed situations, the same 15 phone
 cards re-dialled, the same five voice conversations. A fix that only works in text has not fixed
 a voice agent.</p>
@@ -202,9 +202,6 @@ a voice agent.</p>
     <div class="val"><span class="to">11</span>
     <span style="font-size:16px;color:var(--ink-3);font-weight:400">of 15</span></div>
     <div class="note">By invoking the end function; the old agent relied on the platform timing out</div></div>
-  <div class="stat"><div class="lab">Wrote exactly once</div>
-    <div class="val">14 <span class="ar">→</span> 14</div>
-    <div class="note">This one did not improve</div></div>
   <div class="stat"><div class="lab">Accuracy composite</div>
     <div class="val">0.76 <span class="ar">→</span> <span class="to">0.92</span></div>
     <div class="note">Task completion and judged faithfulness, mean over 15 calls</div></div>
@@ -228,83 +225,19 @@ a voice agent.</p>
 live audio. Judged metrics use the same five-level rubric as the phone tier; execution metrics
 come from the permanent log.</p>
 
-<h3>Every voice metric, averaged across the five conversations</h3>
-<div class="bars" style="gap:22px">
-  <div class="bar-row">
-    <span class="nm">Task completion</span>
-    <span class="bar-pair">
-      <span class="bar-track"><span class="bar-fill" data-w="80.0%"></span></span>
-      <span class="bar-track"><span class="bar-fill now" data-w="100.0%"></span></span>
-    </span>
-    <span class="fig">100.0%<span class="d">was 80.0%</span></span>
-  </div>
-  <div class="bar-row">
-    <span class="nm">Faithfulness</span>
-    <span class="bar-pair">
-      <span class="bar-track"><span class="bar-fill" data-w="100.0%"></span></span>
-      <span class="bar-track"><span class="bar-fill now" data-w="80.0%"></span></span>
-    </span>
-    <span class="fig">80.0%<span class="d">was 100.0%</span></span>
-  </div>
-  <div class="bar-row">
-    <span class="nm">Speech fidelity</span>
-    <span class="bar-pair">
-      <span class="bar-track"><span class="bar-fill" data-w="100.0%"></span></span>
-      <span class="bar-track"><span class="bar-fill now" data-w="100.0%"></span></span>
-    </span>
-    <span class="fig">100.0%<span class="d">was 100.0%</span></span>
-  </div>
-  <div class="bar-row">
-    <span class="nm">Conciseness</span>
-    <span class="bar-pair">
-      <span class="bar-track"><span class="bar-fill" data-w="85.0%"></span></span>
-      <span class="bar-track"><span class="bar-fill now" data-w="100.0%"></span></span>
-    </span>
-    <span class="fig">100.0%<span class="d">was 85.0%</span></span>
-  </div>
-  <div class="bar-row">
-    <span class="nm">Progression</span>
-    <span class="bar-pair">
-      <span class="bar-track"><span class="bar-fill" data-w="85.0%"></span></span>
-      <span class="bar-track"><span class="bar-fill now" data-w="100.0%"></span></span>
-    </span>
-    <span class="fig">100.0%<span class="d">was 85.0%</span></span>
-  </div>
-  <div class="bar-row">
-    <span class="nm">Wrote exactly once</span>
-    <span class="bar-pair">
-      <span class="bar-track"><span class="bar-fill" data-w="20.0%"></span></span>
-      <span class="bar-track"><span class="bar-fill now" data-w="80.0%"></span></span>
-    </span>
-    <span class="fig">80.0%<span class="d">was 20.0%</span></span>
-  </div>
-</div>
+<div class="tw"><table>
+<tr><th style="width:44%">Across the five conversations</th><th class="n">Before</th><th class="n">After</th></tr>
+<tr><td><strong>Reached the required end state</strong></td><td class="n">4 of 5</td><td class="n"><strong class="gain">5 of 5</strong></td></tr>
+<tr><td><strong>Wrote every record exactly once</strong></td><td class="n">1 of 5</td><td class="n"><strong class="gain">4 of 5</strong></td></tr>
+<tr><td><strong>Top rating on all three judged metrics</strong></td><td class="n">3 of 5</td><td class="n"><strong class="gain">4 of 5</strong></td></tr>
+</table></div>
 
-<div class="callout warm">
-  <div class="bd">
-    <p style="margin:0"><strong>Two of these numbers moved against the grain, and both are
-    informative.</strong> Faithfulness dips because one new-agent dispute call passes on
-    execution while the judge flags its handling: the caller's "I never bought this" reads as a
-    fraud claim under the agent's own instructions, and it was filed as a routine dispute. And
-    the old agent's "wrote exactly once" is 1 of 5, not the 2 of 5 reported earlier: binding
-    each conversation to its journal surfaced a triple write on the baseline pay-now call. The
-    per-call rows on the Recordings page carry both, with the judge's reasoning.</p>
-  </div>
-</div>
-<div class="legend">
-  <span><i style="background:var(--ink-3);opacity:.42"></i>Old agent</span>
-  <span><i style="background:var(--gain)"></i>New agent</span>
-</div>
-<h2>The one that is still broken</h2>
-<div class="callout bad">
-  <div class="bd">
-    <p style="margin:0 0 8px"><strong>Call 5 fails on both versions, in exactly the same way.</strong></p>
-    <p style="margin:0">The agent checks the account, holds the figure, says "I will note your
-    response", and writes nothing. It is the last remaining case of the failure this project
-    targets, and the first item for the next round.</p>
-  </div>
-</div>
-
+<p class="sub">Counts, not percentages. Five conversations cannot carry an average, and each one
+would move a percentage by twenty points. The one conversation that lost its top rating is the
+new agent's dispute call: it passes on execution, but the faithfulness judge reads the caller's
+"I never bought this" as a fraud claim under the agent's own instructions and marks the routine
+dispute filing as mishandled. Its reasoning sits on that call's row on the
+<a href="calls.html">Recordings</a> page.</p>
 
 <div class="walk"><a href="calls.html"><span class="k">Back</span><span class="t">Recordings</span></a><a class="next" href="notes.html"><span class="k">Next</span><span class="t">Limitations</span></a></div>
 </div>

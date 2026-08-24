@@ -284,8 +284,12 @@ svg.chart .d1{fill:var(--gain);stroke:none}
 @media(max-width:700px){svg.chart .lab{font-size:11px}}
 
 /* ---- evaluation dashboard components (Listen) ---- */
+/* the dashboard boxes break out of the 860px text column to a fifth wider,
+   centered on the viewport, so the list and detail sit comfortably side by side */
 .panel{border:1px solid var(--line);border-radius:var(--r-lg);background:var(--surface);
-  padding:20px 22px;margin:26px 0}
+  padding:20px 24px;margin:26px 0;
+  width:min(1032px, calc(100vw - 36px));
+  position:relative;left:50%;transform:translateX(-50%)}
 .panel-head{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:16px}
 .panel-head h2{margin:0;font-size:19px}
 .panel-head .sp{flex:1}

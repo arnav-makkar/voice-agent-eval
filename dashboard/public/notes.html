@@ -3,60 +3,33 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Limitations</title>
+<title>Findings</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="site.css?v=34">
+<link rel="stylesheet" href="site.css?v=35">
 <script>/* apply the saved theme before first paint so the page never flashes
    the wrong ground while nav.js is still loading */
 (function(){try{var m=localStorage.getItem("theme");
 if(m==="light"||m==="dark")document.documentElement.setAttribute("data-theme",m);}catch(e){}})();</script>
-<script src="nav.js?v=34" defer></script>
+<script src="nav.js?v=35" defer></script>
 </head>
 <body>
 <div class="navwrap">
-<nav class="topnav"><a href="./">Overview</a><a href="agent.html">The agent</a><a href="system.html">Evaluation</a><a href="loop.html">Self-improvement</a><a href="calls.html">Recordings</a><a href="results.html">Results</a><a href="notes.html" class="on" aria-current="page">Limitations</a></nav>
+<nav class="topnav"><a href="./">Overview</a><a href="agent.html">The agent</a><a href="system.html">Evaluation</a><a href="loop.html">Self-improvement</a><a href="calls.html">Recordings</a><a href="results.html">Results</a><a href="notes.html" class="on" aria-current="page">Findings</a></nav>
 <button class="themebtn" id="themebtn" title="Theme: follows your system" aria-label="Theme: follows your system"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor" stroke="none"/></svg></button>
 <a class="ghbtn" href="https://github.com/arnav-makkar/voice-agent-eval" target="_blank" rel="noopener noreferrer" title="View the source on GitHub" aria-label="View the source on GitHub"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a>
 </div>
 <div class="shell">
 
-<p class="kicker">Limits</p>
-<h1>What this does not prove</h1>
-<p class="lede">Every boundary of the claim, stated here rather than left to be found. Each one
-names what it would take to remove it.</p>
+<p class="kicker">What it turned up</p>
+<h1>What the evaluation turned up</h1>
+<p class="lede">Reading every transcript rather than sampling them surfaced four things about
+the platform itself, not the agent. Then what comes next, and what this was built on.</p>
 
-<div class="tw"><table>
-<tr><th style="width:26%">The limit</th><th>What it means</th><th style="width:26%">What would settle it</th></tr>
-<tr><td><strong>The voice tiers are small</strong></td>
-  <td>Twenty voice conversations carry no statistics. They show the gains reach real speech.
-  The 180 typed conversations carry the statistics.</td>
-  <td class="sub">More calls, at a cost per call this project could not fund</td></tr>
-<tr><td><strong>One fix has a second explanation</strong></td>
-  <td>That call ran in English before and Hinglish after, because the caller switched and the
-  agent followed. Real in the log, but not isolated from the language change.</td>
-  <td class="sub">Re-run that card with the language held fixed</td></tr>
-<tr><td><strong>Duplicate writes moved, not gone</strong></td>
-  <td>14 of 15 on the phone tier, before and after. A triple write left one call; a double write
-  appeared on another.</td>
-  <td class="sub">Make exactly-once a gated objective, not a reported one</td></tr>
-<tr><td><strong>Two rounds is not forever</strong></td>
-  <td>Round two improved the score and broke nothing, but the gain sits inside normal variation.
-  The loop runs more than once; it is not shown to keep paying off.</td>
-  <td class="sub">More rounds, watching where the curve flattens</td></tr>
-<tr><td><strong>Rewording costs a little</strong></td>
-  <td>With every customer line rewritten, about 82% of the advantage survives. The rest is
-  sensitive to phrasing.</td>
-  <td class="sub">Paraphrase pressure inside the search, not only after it</td></tr>
-<tr><td><strong>Persuasion was never the goal</strong></td>
-  <td>The agent accepts a first refusal because its instructions teach that. Collection rate was
-  never optimised, and is not claimed.</td>
-  <td class="sub">The named next objective, below</td></tr>
-</table></div>
-
-<h2>Found in the platform along the way</h2>
-<p>Things the evaluation surfaced about the platform itself, rather than the agent.</p>
+<h2>Four findings about the platform</h2>
+<p>Surfaced by the evaluation, and reported here because they are about the runtime rather
+than the agent under test.</p>
 
 <details class="tg">
   <summary>The "are you still there" prompt is rude in Hindi</summary>

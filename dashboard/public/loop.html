@@ -7,12 +7,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="site.css?v=50">
+<link rel="stylesheet" href="site.css?v=51">
 <script>/* apply the saved theme before first paint so the page never flashes
    the wrong ground while nav.js is still loading */
 (function(){try{var m=localStorage.getItem("theme");
 if(m==="light"||m==="dark")document.documentElement.setAttribute("data-theme",m);}catch(e){}})();</script>
-<script src="nav.js?v=50" defer></script>
+<script src="nav.js?v=51" defer></script>
 </head>
 <body>
 <div class="navwrap">
@@ -117,7 +117,9 @@ and shipped the rewrite once it won on cases it had never seen.</p>
     agent's own history and used to demonstrate the behaviour.</p>
   </div>
 </div>
-<p>The two pieces evolve separately, and the split is worth measuring:</p>
+<p>The two halves are optimised separately, so it is worth asking what each one is worth. Run
+the same sixty unseen situations against the old agent, against the rules alone, and against
+both:</p>
 
 <div class="bars">
   <div class="bar-row">
@@ -136,8 +138,8 @@ and shipped the rewrite once it won on cases it had never seen.</p>
     <span class="fig">59/60</span>
   </div>
 </div>
-<p class="sub">The worked examples are responsible for 38% of the total gain. Without them the
-result stops well short.</p>
+<p class="sub">The rules alone get most of the way. The examples add the last ten, which is
+about a third of the total gain, so neither half is carrying the result on its own.</p>
 
 <h2>The search pipeline</h2>
 <p>The diagram below is the search stage in full, as it actually ran: two rounds, what each

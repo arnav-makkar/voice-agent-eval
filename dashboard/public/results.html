@@ -7,12 +7,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="site.css?v=50">
+<link rel="stylesheet" href="site.css?v=51">
 <script>/* apply the saved theme before first paint so the page never flashes
    the wrong ground while nav.js is still loading */
 (function(){try{var m=localStorage.getItem("theme");
 if(m==="light"||m==="dark")document.documentElement.setAttribute("data-theme",m);}catch(e){}})();</script>
-<script src="nav.js?v=50" defer></script>
+<script src="nav.js?v=51" defer></script>
 </head>
 <body>
 <div class="navwrap">
@@ -71,11 +71,12 @@ luck at effectively zero (McNemar's exact test).</p>
     <p style="margin:10px 0 0"><strong>About 82% of the advantage survives</strong></p>
   </div>
   <div class="card">
-    <h3>Take a piece away</h3>
-    <p class="sub" style="margin-top:6px">Remove the worked examples and keep only the rewritten
-    rules: the blind score falls from 59 to 49 of 60. The examples carry 38% of the gain, so the
-    result is not one lucky rewrite.</p>
-    <p style="margin:10px 0 0"><strong>33 → 49 → <span class="gain">59</span> of 60</strong></p>
+    <h3>Remove one half</h3>
+    <p class="sub" style="margin-top:6px">The new agent has two halves: rewritten rules, and
+    worked examples from its own best calls. With the rules alone it scores 49. With both, 59.
+    Both halves are doing real work, so this is not one lucky rewrite.</p>
+    <p style="margin:10px 0 0"><strong>Rules only <span class="gain">49</span> &nbsp;·&nbsp;
+    Both <span class="gain">59</span></strong> of 60
   </div>
   <div class="card">
     <h3>A second opinion</h3>

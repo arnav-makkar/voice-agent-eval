@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="site.css?v=4">
+<link rel="stylesheet" href="site.css?v=5">
 </head>
 <body>
 <div class="shell wide">
@@ -57,26 +57,26 @@ close to helpless.</p>
 
 <div class="grid2">
   <div class="card">
-    <h3>🆕 Situations invented afterwards</h3>
+    <h3>Situations invented afterwards</h3>
     <p class="sub" style="margin-top:6px">Thirty brand new cases written after the campaign ended,
     so no search could have seen them even by accident.</p>
     <p style="margin:10px 0 0"><strong class="gain">18 → 29 of 30</strong></p>
   </div>
   <div class="card">
-    <h3>🔀 Everything reworded</h3>
+    <h3>Everything reworded</h3>
     <p class="sub" style="margin-top:6px">Every customer line rewritten in different words, same
     underlying situations.</p>
     <p style="margin:10px 0 0"><strong>About 82% of the advantage survives</strong></p>
   </div>
   <div class="card">
-    <h3>🧩 Take a piece away</h3>
+    <h3>Take a piece away</h3>
     <p class="sub" style="margin-top:6px">Remove the worked examples and keep only the rewritten
     rules.</p>
     <p style="margin:10px 0 0"><strong>33 → 49 → <span class="gain">59</span></strong>, so examples
     carry 38%</p>
   </div>
   <div class="card">
-    <h3>🔍 A second opinion</h3>
+    <h3>A second opinion</h3>
     <p class="sub" style="margin-top:6px">An independent detector that shares no code with the
     grader and never sees the script.</p>
     <p style="margin:10px 0 0"><strong class="gain">23 → 5 violations</strong>, precision 1.00</p>
@@ -120,12 +120,68 @@ close to helpless.</p>
 <p>Five situations, run once on each version, with a synthetic caller speaking to the agent over
 live audio. Each cell is a pass or fail against a fixed threshold.</p>
 
+<h3>Every voice metric, averaged across the five conversations</h3>
+<div class="bars" style="gap:22px">
+  <div class="bar-row">
+    <span class="nm">Task completion</span>
+    <span class="bar-pair">
+      <span class="bar-track"><span class="bar-fill" data-w="80.0%"></span></span>
+      <span class="bar-track"><span class="bar-fill now" data-w="100.0%"></span></span>
+    </span>
+    <span class="fig">100.0%<span class="d">was 80.0%</span></span>
+  </div>
+  <div class="bar-row">
+    <span class="nm">Faithfulness</span>
+    <span class="bar-pair">
+      <span class="bar-track"><span class="bar-fill" data-w="100.0%"></span></span>
+      <span class="bar-track"><span class="bar-fill now" data-w="100.0%"></span></span>
+    </span>
+    <span class="fig">100.0%<span class="d">was 100.0%</span></span>
+  </div>
+  <div class="bar-row">
+    <span class="nm">Speech fidelity</span>
+    <span class="bar-pair">
+      <span class="bar-track"><span class="bar-fill" data-w="100.0%"></span></span>
+      <span class="bar-track"><span class="bar-fill now" data-w="100.0%"></span></span>
+    </span>
+    <span class="fig">100.0%<span class="d">was 100.0%</span></span>
+  </div>
+  <div class="bar-row">
+    <span class="nm">Conciseness</span>
+    <span class="bar-pair">
+      <span class="bar-track"><span class="bar-fill" data-w="93.3%"></span></span>
+      <span class="bar-track"><span class="bar-fill now" data-w="100.0%"></span></span>
+    </span>
+    <span class="fig">100.0%<span class="d">was 93.3%</span></span>
+  </div>
+  <div class="bar-row">
+    <span class="nm">Progression</span>
+    <span class="bar-pair">
+      <span class="bar-track"><span class="bar-fill" data-w="90.0%"></span></span>
+      <span class="bar-track"><span class="bar-fill now" data-w="100.0%"></span></span>
+    </span>
+    <span class="fig">100.0%<span class="d">was 90.0%</span></span>
+  </div>
+  <div class="bar-row">
+    <span class="nm">Wrote exactly once</span>
+    <span class="bar-pair">
+      <span class="bar-track"><span class="bar-fill" data-w="40.0%"></span></span>
+      <span class="bar-track"><span class="bar-fill now" data-w="80.0%"></span></span>
+    </span>
+    <span class="fig">80.0%<span class="d">was 40.0%</span></span>
+  </div>
+</div>
+<div class="legend">
+  <span><i style="background:var(--ink-3);opacity:.42"></i>Old agent</span>
+  <span><i style="background:var(--gain)"></i>New agent</span>
+</div>
+
+
 <div class="tw"><table>
-<tr><th>Situation</th><th class="n">Did the job</th><th class="n">Was honest</th><th class="n">Got details right</th><th class="n">Moved forward</th><th class="n">Stayed concise</th><th class="n">Wrote exactly once</th></tr><tr><td><strong>Paid on the call</strong></td><td class="n"><span class="tag gain">✗ → ✓</span></td><td class="n dim">✓</td><td class="n dim">✓</td><td class="n dim">✓</td><td class="n dim">✓</td><td class="n dim">✓</td></tr><tr><td><strong>Booked a callback</strong></td><td class="n dim">✓</td><td class="n dim">✓</td><td class="n dim">✓</td><td class="n dim">✓</td><td class="n dim">✓</td><td class="n dim">✓</td></tr><tr><td><strong>Flatly refused</strong></td><td class="n dim">✓</td><td class="n dim">✓</td><td class="n dim">✓</td><td class="n dim">✓</td><td class="n dim">✓</td><td class="n"><span class="tag gain">✗ → ✓</span></td></tr><tr><td><strong>Disputed the amount</strong></td><td class="n dim">✓</td><td class="n dim">✓</td><td class="n dim">✓</td><td class="n dim">✓</td><td class="n dim">✓</td><td class="n dim">✗</td></tr><tr><td><strong>In distress</strong></td><td class="n dim">✓</td><td class="n dim">✓</td><td class="n dim">✓</td><td class="n dim">✓</td><td class="n dim">✓</td><td class="n"><span class="tag gain">✗ → ✓</span></td></tr><tr class="hl"><td><strong>Passing, of 5</strong></td><td class="n gain">4 → 5</td><td class="n dim">5 → 5</td><td class="n dim">5 → 5</td><td class="n dim">5 → 5</td><td class="n dim">5 → 5</td><td class="n gain">2 → 4</td></tr>
+<tr><th>Situation</th><th class="n">Did the job</th><th class="n">Was honest</th><th class="n">Got details right</th><th class="n">Moved forward</th><th class="n">Stayed concise</th><th class="n">Wrote exactly once</th></tr><tr><td><strong>Paid on the call</strong></td><td class="n"><span class="tag gain"> → </span></td><td class="n dim"></td><td class="n dim"></td><td class="n dim"></td><td class="n dim"></td><td class="n dim"></td></tr><tr><td><strong>Booked a callback</strong></td><td class="n dim"></td><td class="n dim"></td><td class="n dim"></td><td class="n dim"></td><td class="n dim"></td><td class="n dim"></td></tr><tr><td><strong>Flatly refused</strong></td><td class="n dim"></td><td class="n dim"></td><td class="n dim"></td><td class="n dim"></td><td class="n dim"></td><td class="n"><span class="tag gain"> → </span></td></tr><tr><td><strong>Disputed the amount</strong></td><td class="n dim"></td><td class="n dim"></td><td class="n dim"></td><td class="n dim"></td><td class="n dim"></td><td class="n dim"></td></tr><tr><td><strong>In distress</strong></td><td class="n dim"></td><td class="n dim"></td><td class="n dim"></td><td class="n dim"></td><td class="n dim"></td><td class="n"><span class="tag gain"> → </span></td></tr><tr class="hl"><td><strong>Passing, of 5</strong></td><td class="n gain">4 → 5</td><td class="n dim">5 → 5</td><td class="n dim">5 → 5</td><td class="n dim">5 → 5</td><td class="n dim">5 → 5</td><td class="n gain">2 → 4</td></tr>
 </table></div>
 
 <div class="callout">
-  <span class="ic">🔎</span>
   <div class="bd">
     <p style="margin:0"><strong>Two things moved, seven held, nothing regressed.</strong> The
     thresholds here are forgiving, so a call can improve noticeably inside a cell that still reads
@@ -146,7 +202,6 @@ live audio. Each cell is a pass or fail against a fixed threshold.</p>
 
 <h2>The one that is still broken</h2>
 <div class="callout bad">
-  <span class="ic">🩹</span>
   <div class="bd">
     <p style="margin:0 0 8px"><strong>Call 5 fails on both versions, in exactly the same way.</strong></p>
     <p style="margin:0">The agent checks the account, holds the figure, says "I will note your
@@ -158,6 +213,6 @@ live audio. Each cell is a pass or fail against a fixed threshold.</p>
 </div>
 
 </div>
-<script src="nav.js?v=4"></script>
+<script src="nav.js?v=5"></script>
 </body>
 </html>

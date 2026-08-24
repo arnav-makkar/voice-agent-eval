@@ -3,16 +3,16 @@
    Three theme states: no stamp (follow OS), [data-theme=light], [data-theme=dark]. */
 
 :root{
-  --bg:#FFFFFF;
-  --surface:#FBFAF9;
-  --surface-2:#F4F2EF;
+  --bg:#FAF6EC;
+  --surface:#F4EFE2;
+  --surface-2:#ECE6D6;
   --ink:#2E2C28;
   --ink-2:#5C574F;
   --ink-3:#8C857A;
-  --line:rgba(46,44,40,.10);
-  --line-2:rgba(46,44,40,.18);
-  --accent:#3D6A8F;
-  --accent-soft:rgba(61,106,143,.10);
+  --line:rgba(62,56,42,.12);
+  --line-2:rgba(62,56,42,.22);
+  --accent:#5B5FBF;
+  --accent-soft:rgba(91,95,191,.10);
   --gain:#2E7D5B;
   --gain-soft:rgba(46,125,91,.11);
   --loss:#A64444;
@@ -28,7 +28,7 @@
   --bg:#191817; --surface:#201F1D; --surface-2:#2A2825;
   --ink:#E9E6E1; --ink-2:#B4AEA4; --ink-3:#8A8378;
   --line:rgba(233,230,225,.11); --line-2:rgba(233,230,225,.20);
-  --accent:#7FA8CB; --accent-soft:rgba(127,168,203,.14);
+  --accent:#AFB2F5; --accent-soft:rgba(175,178,245,.15);
   --gain:#6FBF95; --gain-soft:rgba(111,191,149,.14);
   --loss:#DE8888; --loss-soft:rgba(222,136,136,.13);
   --hold:#D2AC59; --hold-soft:rgba(210,172,89,.14);
@@ -38,7 +38,7 @@
   --bg:#191817; --surface:#201F1D; --surface-2:#2A2825;
   --ink:#E9E6E1; --ink-2:#B4AEA4; --ink-3:#8A8378;
   --line:rgba(233,230,225,.11); --line-2:rgba(233,230,225,.20);
-  --accent:#7FA8CB; --accent-soft:rgba(127,168,203,.14);
+  --accent:#AFB2F5; --accent-soft:rgba(175,178,245,.15);
   --gain:#6FBF95; --gain-soft:rgba(111,191,149,.14);
   --loss:#DE8888; --loss-soft:rgba(222,136,136,.13);
   --hold:#D2AC59; --hold-soft:rgba(210,172,89,.14);
@@ -56,16 +56,21 @@ a{color:var(--accent);text-underline-offset:3px}
 /* ---- top bar: plain text links, one active, theme control at the end ---- */
 .topnav{position:sticky;top:0;z-index:40;background:var(--bg);
   border-bottom:1px solid var(--line);margin:-26px -26px 40px;
-  padding:0 26px;display:flex;align-items:center;gap:2px;overflow-x:auto;
-  scrollbar-width:none}
+  padding:0 52px 0 26px;display:flex;align-items:center;
+  gap:2px;overflow-x:auto;scrollbar-width:none}
 .topnav::-webkit-scrollbar{display:none}
+/* centers when there is room, degrades to a scrollable row when there is not:
+   justify-content would clip the leftmost links past the scroll origin */
+.topnav a:first-of-type{margin-left:auto}
+.topnav a:last-of-type{margin-right:auto}
 .topnav a{font-size:14px;color:var(--ink-3);text-decoration:none;
   padding:14px 11px;white-space:nowrap;border-bottom:2px solid transparent;
   transition:color .12s}
 .topnav a:hover{color:var(--ink)}
-.topnav a.on{color:var(--ink);border-bottom-color:var(--ink);font-weight:500}
-.topnav .sp{flex:1;min-width:8px}
-.themebtn{background:none;border:0;cursor:pointer;color:var(--ink-3);
+.topnav a.on{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
+.topnav .sp{display:none}
+.themebtn{position:absolute;right:12px;top:50%;transform:translateY(-50%);
+  background:none;border:0;cursor:pointer;color:var(--ink-3);
   padding:8px;border-radius:7px;display:flex;align-items:center;line-height:0}
 .themebtn:hover{background:var(--surface-2);color:var(--ink)}
 .themebtn svg{width:17px;height:17px}
@@ -90,14 +95,15 @@ li::marker{color:var(--ink-3)}
 
 /* ---- callout ---- */
 .callout{display:flex;gap:14px;background:var(--surface);
-  border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;margin:22px 0}
-.callout .ic{font-size:19px;line-height:1.5;flex-shrink:0}
+  border:1px solid var(--line);border-left:3px solid var(--accent);
+  border-radius:var(--r);padding:16px 18px;margin:22px 0}
+.callout .ic{display:none}
 .callout .bd{flex:1}
 .callout .bd > :first-child{margin-top:0}
 .callout .bd > :last-child{margin-bottom:0}
-.callout.warm{background:var(--hold-soft);border-color:transparent}
-.callout.good{background:var(--gain-soft);border-color:transparent}
-.callout.bad{background:var(--loss-soft);border-color:transparent}
+.callout.warm{background:var(--hold-soft);border-color:transparent;border-left:3px solid var(--hold)}
+.callout.good{background:var(--gain-soft);border-color:transparent;border-left:3px solid var(--gain)}
+.callout.bad{background:var(--loss-soft);border-color:transparent;border-left:3px solid var(--loss)}
 
 /* ---- toggle: detail for the reader who wants it, folded for the one who doesn't ---- */
 details.tg{border-bottom:1px solid var(--line);padding:2px 0}
@@ -231,3 +237,18 @@ button.act:hover{filter:brightness(.97)}
 @media(max-width:620px){.walk a.next{grid-column:1;text-align:left}}
 
 @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+
+/* ---- per-call metric rows: name, method badge, score pill on the right ---- */
+.mgroup{margin:20px 0 6px;font-size:13px;font-weight:650;color:var(--ink);
+  letter-spacing:.01em}
+.mrow{display:flex;align-items:center;gap:10px;background:var(--bg);
+  border:1px solid var(--line);border-radius:var(--r);padding:11px 14px;margin:6px 0}
+.mrow .nm{font-size:14px;font-weight:550;color:var(--ink)}
+.mrow .how{font-size:11px;font-weight:550;color:var(--accent);
+  background:var(--accent-soft);border-radius:5px;padding:2px 7px}
+.mrow .fill{flex:1}
+.mrow .sc{font:600 13px var(--mono);padding:3px 10px;border-radius:99px}
+.mrow .sc.ok{background:var(--gain-soft);color:var(--gain)}
+.mrow .sc.no{background:var(--loss-soft);color:var(--loss)}
+.mrow .sc.na{background:var(--surface-2);color:var(--ink-3)}
+.mnote{font-size:12.5px;color:var(--ink-3);margin:8px 0 0}

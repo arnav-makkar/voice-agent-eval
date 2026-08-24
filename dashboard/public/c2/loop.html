@@ -7,38 +7,25 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="site.css?v=22">
-<style>
-.steps{counter-reset:s;display:flex;flex-direction:column;gap:2px;margin:26px 0}
-.step{display:grid;grid-template-columns:44px 1fr;gap:16px;padding:18px 0;
-  border-bottom:1px solid var(--line)}
-.step:last-child{border-bottom:0}
-.step .n{counter-increment:s;width:32px;height:32px;border-radius:8px;
-  background:var(--accent-soft);color:var(--accent);display:flex;align-items:center;
-  justify-content:center;font:600 14px var(--mono)}
-.step .n::before{content:counter(s)}
-.step h3{margin:0 0 4px;font-size:16.5px}
-.step p{margin:0;font-size:14.5px}
-.step .who{font-size:12.5px;color:var(--ink-3);margin-top:6px}
-</style>
+<link rel="stylesheet" href="site.css?v=30">
 <script>/* apply the saved theme before first paint so the page never flashes
    the wrong ground while nav.js is still loading */
 (function(){try{var m=localStorage.getItem("theme");
 if(m==="light"||m==="dark")document.documentElement.setAttribute("data-theme",m);}catch(e){}})();</script>
-<script src="nav.js?v=22" defer></script>
+<script src="nav.js?v=30" defer></script>
 </head>
 <body>
 <div class="navwrap">
 <nav class="topnav"><a href="overview.html">Overview</a><a href="agent.html">The agent</a><a href="system.html">Evaluation</a><a href="loop.html" class="on" aria-current="page">Self-improvement</a><a href="calls.html">Recordings</a><a href="results.html">Results</a><a href="notes.html">Limitations</a></nav>
+<a class="ghbtn" href="https://github.com/arnav-makkar/voice-agent-eval" target="_blank" rel="noopener noreferrer" title="View the source on GitHub" aria-label="View the source on GitHub"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a>
 <button class="themebtn" id="themebtn" title="Theme: follows your system" aria-label="Theme: follows your system"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor" stroke="none"/></svg></button>
 </div>
 <div class="shell">
 
 <p class="kicker">Step three · self-improvement</p>
-<h1>Nobody wrote the fix</h1>
-<p class="lede">Nobody wrote the fix. The framework found the failures, rewrote the agent's
-instructions against them, and shipped the rewrite only after it won on cases it had never
-seen.</p>
+<h1>The fix wrote itself</h1>
+<p class="lede">The framework found the failures, rewrote the agent's instructions against them,
+and shipped the rewrite once it won on cases it had never seen.</p>
 
 <div class="callout">
   <div class="bd">
@@ -48,45 +35,61 @@ seen.</p>
   </div>
 </div>
 
-<h2>The five stages</h2>
+<h2>How one round runs</h2>
 
-<div class="steps">
-  <div class="step"><span class="n"></span><div>
-    <h3>Notice</h3>
-    <p>A detector reads the log alone and flags conversations that contradict themselves: an
-    outcome recorded as a promise with no promise row, an escalation with nobody queued, a
-    business action with no outcome at all, or the same record written twice.</p>
-    <p class="who">Needs no transcript, no script and no labels</p>
-  </div></div>
-  <div class="step"><span class="n"></span><div>
-    <h3>Group</h3>
-    <p>Those violations cluster into recurring patterns, and each pattern becomes a test case that
-    can be replayed on demand.</p>
-    <p class="who">Turns a symptom into something testable</p>
-  </div></div>
-  <div class="step"><span class="n"></span><div>
-    <h3>Search</h3>
-    <p>An optimiser proposes a rewritten instruction manual, runs it on live conversations, reads
-    the full record of what went wrong, and reasons about why before its next attempt.</p>
-    <p class="who">This is the part that writes the fix</p>
-  </div></div>
-  <div class="step"><span class="n"></span><div>
-    <h3>Gate</h3>
-    <p>A candidate must beat the old version on situations held back from the search, must not
-    regress a single safety case, and must clear the measured noise floor.</p>
-    <p class="who">Most candidates die here</p>
-  </div></div>
-  <div class="step"><span class="n"></span><div>
-    <h3>Ship</h3>
-    <p>The winner is deployed to the live agent with its exact fingerprint recorded. Rolling back
-    means restoring the previous fingerprint.</p>
-    <p class="who">Then the winner becomes the new baseline and it all runs again</p>
-  </div></div>
-</div>
+<svg class="dg" viewBox="0 0 860 176" role="img"
+  aria-label="Five stages in sequence: notice, group, search, gate, ship, with the winner returning as the next baseline">
+  <defs>
+    <marker id="st" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="currentColor" opacity=".45"/>
+    </marker>
+  </defs>
 
+  <rect class="box" x="1" y="26" width="146" height="68" rx="11" stroke-width="1.2"/>
+  <text x="74" y="55" text-anchor="middle" font-size="14" font-weight="600">Notice</text>
+  <text x="74" y="75" text-anchor="middle" font-size="10.5" class="mut">log contradicts itself</text>
+  <path class="ln" d="M149 60 L 177 60" stroke-width="1.3" marker-end="url(#st)"/>
+
+  <rect class="box" x="179" y="26" width="146" height="68" rx="11" stroke-width="1.2"/>
+  <text x="252" y="55" text-anchor="middle" font-size="14" font-weight="600">Group</text>
+  <text x="252" y="75" text-anchor="middle" font-size="10.5" class="mut">patterns become cases</text>
+  <path class="ln" d="M327 60 L 355 60" stroke-width="1.3" marker-end="url(#st)"/>
+
+  <rect class="box-a" x="357" y="26" width="146" height="68" rx="11" stroke-width="1.7"/>
+  <text x="430" y="55" text-anchor="middle" font-size="14" font-weight="600">Search</text>
+  <text x="430" y="75" text-anchor="middle" font-size="10.5" class="mut">an optimiser rewrites</text>
+  <path class="ln" d="M505 60 L 533 60" stroke-width="1.3" marker-end="url(#st)"/>
+
+  <rect class="box-w" x="535" y="26" width="146" height="68" rx="11" stroke-width="1.6"/>
+  <text x="608" y="55" text-anchor="middle" font-size="14" font-weight="600">Gate</text>
+  <text x="608" y="75" text-anchor="middle" font-size="10.5" class="mut">four checks, all pass</text>
+  <path class="ln" d="M683 60 L 711 60" stroke-width="1.3" marker-end="url(#st)"/>
+
+  <rect class="box-g" x="713" y="26" width="146" height="68" rx="11" stroke-width="1.6"/>
+  <text x="786" y="55" text-anchor="middle" font-size="14" font-weight="600">Ship</text>
+  <text x="786" y="75" text-anchor="middle" font-size="10.5" class="mut">fingerprint pinned</text>
+
+  <path class="ln" d="M786 94 C 786 138, 700 144, 430 144 C 160 144, 74 138, 74 94"
+    stroke-width="1.3" stroke-dasharray="6 5" marker-end="url(#st)"/>
+  <text x="430" y="166" text-anchor="middle" font-size="11.5" class="mut">the winner becomes the next baseline</text>
+</svg>
+
+<p>Stage one is the part that travels furthest. The detector reads the log alone, with no
+transcript, no script and no labels, so the same stage that opened this round can run on live
+production traffic and open the next one.</p>
 
 <h2>What a candidate is</h2>
 <p>The search is scored by the benchmark grader itself. No proxy metric to game.</p>
+
+<div class="callout">
+  <div class="bd">
+    <p style="margin:0"><strong>What the search optimises, exactly.</strong> Accuracy only:
+    whether the right records reach the log. The experience metrics, conciseness and progression,
+    are measured on every conversation and reported next to each call, but deliberately kept out
+    of the objective. One target keeps the search honest; experience optimisation is a scoped
+    next step, not a silent side effect.</p>
+  </div>
+</div>
 
 <div class="grid2">
   <div class="card">
@@ -180,7 +183,7 @@ result stops well short.</p>
 <text x="445" y="812" font-size="11.5" text-anchor="middle">Safety veto · zero regressions on fraud, distress, privacy, credentials</text>
 <text x="445" y="834" font-size="11.5" text-anchor="middle">Paired flips, McNemar exact · +62 fixed, 0 broken, p ≈ 0</text>
 <text x="445" y="856" font-size="11.5" text-anchor="middle">Noise floor · observed delta 26 against a threshold of 1.6</text>
-<text x="445" y="878" font-size="10.5" text-anchor="middle" class="mut">a failed gate kills the candidate; the search continues</text>
+<text x="445" y="878" font-size="10.5" text-anchor="middle" class="mut">all four must pass; the search runs until one does</text>
 <path class="ln" d="M430 890 L430 916" stroke-width="1.5" marker-end="url(#af)"/>
 <rect class="box-g" x="250" y="918" width="390" height="64" rx="11" stroke-width="1.6"/>
 <text x="445" y="940" font-size="13.5" text-anchor="middle" font-weight="600">Deploy through the authoring API</text>
@@ -192,7 +195,7 @@ result stops well short.</p>
 <text x="795" y="524" font-size="11" text-anchor="middle" class="mut">next baseline</text>
 </svg>
 
-<h2>What stops a bad rewrite shipping</h2>
+<h2>What a rewrite has to prove</h2>
 
 <div class="tw"><table>
 <tr><th style="width:26%">The gate</th><th>What it demands</th><th class="n">Outcome</th></tr>
@@ -224,7 +227,7 @@ result stops well short.</p>
   </div>
 </details>
 
-<h2>It ran twice</h2>
+<h2>Two rounds, both measured</h2>
 
 <div class="tw"><table>
 <tr><th>Round</th><th class="n">Overall</th><th class="n">Unseen</th><th class="n">Fixed</th>
@@ -240,10 +243,10 @@ result stops well short.</p>
 
 <div class="callout warm">
   <div class="bd">
-    <p style="margin:0"><strong>The second round is honest about itself.</strong> It improved
-    things and broke nothing, but the gain is small enough that it could be chance. Two rounds
-    show the loop can run repeatedly. They do not prove improvement compounds forever, and this
-    site does not claim it.</p>
+    <p style="margin:0"><strong>Round two improved the score and broke nothing.</strong> The gain
+    is small enough to sit inside normal run-to-run variation, so it is reported as a hold rather
+    than a win. What the two rounds establish is that the loop runs repeatedly under the same
+    gates. Whether gains keep compounding past that is untested, and not claimed here.</p>
   </div>
 </div>
 
@@ -280,17 +283,12 @@ result stops well short.</p>
 
 <div class="callout warm">
   <div class="bd">
-    <p style="margin:0"><strong>Claims discipline.</strong> Designed for production, validated on
-    one live agent. Production performance is an argued property of the design, not yet a
-    measured result, and the first production step costs nothing: run the monitor on live traffic
-    as a standing alarm. Its findings bootstrap the rest of the loop.</p>
+    <p style="margin:0"><strong>The first production step costs nothing.</strong> Run the monitor
+    on live traffic as a standing alarm, and its findings bootstrap the rest of the loop. The
+    design is built for production and validated on one live agent; performance at production
+    scale is argued from that design, not yet measured.</p>
   </div>
 </div>
-
-<h2>One human edit, declared</h2>
-<p>One line was added by hand after the campaign: the closing rule now names the function that
-hangs up the call. Hanging up was never scored, so no result on this site changes.</p>
-
 
 <div class="walk"><a href="system.html"><span class="k">Back</span><span class="t">Evaluation</span></a><a class="next" href="calls.html"><span class="k">Next</span><span class="t">Recordings</span></a></div>
 </div>

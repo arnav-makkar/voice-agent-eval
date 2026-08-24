@@ -17,3 +17,33 @@ voice-agent-improvement/research/upstream/
 # Dashboard build output
 dashboard/dist/
 dashboard/.wrangler/
+
+# Agent / editor working directories
+.claude/
+.chatgpt/
+.cursor/
+.aider*
+.vscode/
+.idea/
+
+# OS + editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# Scratch and local planning notes, not part of the record
+scratch/
+scratchpad/
+*.local.md
+NOTES.local.*
+
+# Raw run audio under artifacts. The presentable recordings the site serves
+# live in dashboard/public/evidence/ and stay tracked; these are the unedited
+# source captures, including abandoned pilot attempts.
+voice-agent-improvement/artifacts/**/*.wav
+voice-agent-improvement/artifacts/**/audio_*.wav
+voice-agent-improvement/artifacts/**/*.wav.orig
+
+# GEPA optimiser intermediate state, regenerable from the run
+voice-agent-improvement/artifacts/**/checkpoints/generated_best_outputs_valset/

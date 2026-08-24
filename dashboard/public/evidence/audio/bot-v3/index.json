@@ -12,10 +12,14 @@
   "conciseness": 1.0,
   "progression": 1.0,
   "tools": [
+   "record_call_outcome",
+   "record_call_outcome",
    "record_call_outcome"
   ],
-  "duplicate_writes": null,
-  "exactly_once": true,
+  "duplicate_writes": {
+   "record_call_outcome": 3
+  },
+  "exactly_once": false,
   "transcript": [
    {
     "speaker": "agent",
@@ -43,7 +47,44 @@
    }
   ],
   "audio": "/evidence/audio/bot-v3/pay-now.mp3",
-  "agent_speech_fidelity": 1.0
+  "agent_speech_fidelity": 1.0,
+  "faithfulness_rating": 5,
+  "conciseness_rating": 5,
+  "progression_rating": 5,
+  "judge_notes": {
+   "faithfulness": "The agent accurately states the merchant name, product, and outstanding amount based on the provided account facts. The agent makes no unsupported claims and does not make any spoken commitments that require logging, resulting in a perfect faithfulness score.",
+   "conciseness": "The agent's turns are highly concise and contain no filler words or repetition. Each turn directly addresses the necessary points, such as confirming identity, stating the purpose of the call, and providing instructions, matching turn length to content perfectly.",
+   "progression": "The conversation progresses monotonically from start to finish. Each agent turn effectively advances the call by verifying identity, explaining the situation, and securing a commitment to pay, with no stalls or loops."
+  },
+  "writes": [
+   {
+    "name": "record_call_outcome",
+    "args": {
+     "disposition": "payment_ready"
+    }
+   },
+   {
+    "name": "record_call_outcome",
+    "args": {
+     "disposition": "payment_ready"
+    }
+   },
+   {
+    "name": "record_call_outcome",
+    "args": {
+     "disposition": "payment_ready"
+    }
+   }
+  ],
+  "missing": [],
+  "disposition": "payment_ready",
+  "passed": false,
+  "eva_x": 1.0,
+  "breaking_turn": {
+   "agent_turn": 3,
+   "reason": "Agent failed to properly close the call, causing the caller to hang up and tool looping.",
+   "kind": "judged"
+  }
  },
  {
   "id": "callback",
@@ -56,7 +97,7 @@
   "task_completion": 1.0,
   "faithfulness": 1.0,
   "conciseness": 1.0,
-  "progression": 1.0,
+  "progression": 0.75,
   "tools": [
    "schedule_callback",
    "record_call_outcome"
@@ -90,7 +131,35 @@
    }
   ],
   "audio": "/evidence/audio/bot-v3/callback.mp3",
-  "agent_speech_fidelity": 1.0
+  "agent_speech_fidelity": 1.0,
+  "faithfulness_rating": 5,
+  "conciseness_rating": 5,
+  "progression_rating": 4,
+  "judge_notes": {
+   "faithfulness": "The agent makes no ungrounded factual claims during the short conversation. The only commitment made by the agent is to call the customer back tomorrow morning at 10 AM, which is accurately recorded in the log with the 'schedule_callback' tool.",
+   "conciseness": "The agent's turns are brief, direct, and contain no filler or unnecessary repetition. Each turn is perfectly matched to the content needed at that moment, including the necessary clarification of the caller's identity.",
+   "progression": "The agent stalled the conversation once by asking the caller to confirm his identity again, despite the caller having just stated his name in the previous turn. The conversation recovered immediately in the next turn and reached a clean resolution."
+  },
+  "writes": [
+   {
+    "name": "schedule_callback",
+    "args": {
+     "date": "24-08-2026",
+     "time_window": "10 AM to 11 AM"
+    }
+   },
+   {
+    "name": "record_call_outcome",
+    "args": {
+     "disposition": "callback"
+    }
+   }
+  ],
+  "missing": [],
+  "disposition": "callback",
+  "passed": true,
+  "eva_x": 0.875,
+  "breaking_turn": null
  },
  {
   "id": "refusal",
@@ -147,7 +216,34 @@
    }
   ],
   "audio": "/evidence/audio/bot-v3/refusal.mp3",
-  "agent_speech_fidelity": 1.0
+  "agent_speech_fidelity": 1.0,
+  "faithfulness_rating": 5,
+  "conciseness_rating": 5,
+  "progression_rating": 5,
+  "judge_notes": {
+   "faithfulness": "The agent's statements are entirely grounded in the provided account facts and instructions. No unlogged commitments were made, and all factual claims regarding the merchant, product, and amount were accurate.",
+   "conciseness": "The agent's turns are highly concise with no repetition or filler words. Each turn is brief, direct, and perfectly matched to the content needed at that moment in the conversation.",
+   "progression": "The agent makes monotonic progress throughout the short call. Each turn efficiently advances the conversation through identity verification, stating the situation, attempting to negotiate a payment date, and finally closing the call when the caller firmly refuses."
+  },
+  "writes": [
+   {
+    "name": "record_call_outcome",
+    "args": {
+     "disposition": "rtp"
+    }
+   },
+   {
+    "name": "record_call_outcome",
+    "args": {
+     "disposition": "rtp"
+    }
+   }
+  ],
+  "missing": [],
+  "disposition": "rtp",
+  "passed": true,
+  "eva_x": 1.0,
+  "breaking_turn": null
  },
  {
   "id": "dispute",
@@ -197,7 +293,40 @@
    }
   ],
   "audio": "/evidence/audio/bot-v3/dispute.mp3",
-  "agent_speech_fidelity": 1.0
+  "agent_speech_fidelity": 1.0,
+  "faithfulness_rating": 5,
+  "conciseness_rating": 5,
+  "progression_rating": 5,
+  "judge_notes": {
+   "faithfulness": "The agent's factual claims regarding the account, amount, and product are entirely accurate and grounded in the provided facts. Furthermore, the spoken commitment to record the dispute is successfully matched by the corresponding tool call in the log.",
+   "conciseness": "The agent's turns are highly concise, with no filler words or repetition. Each turn directly addresses the necessary points and matches the content perfectly.",
+   "progression": "The agent makes monotonic progress throughout the call. Each turn advances the identity verification, situation explanation, and final resolution without any stalls or loops."
+  },
+  "writes": [
+   {
+    "name": "record_dispute",
+    "args": {
+     "reason": "Customer claims they never purchased the TV and the loan is not in their name."
+    }
+   },
+   {
+    "name": "record_dispute",
+    "args": {
+     "reason": "Customer claims he never purchased the TV and the loan is not in his name."
+    }
+   },
+   {
+    "name": "record_call_outcome",
+    "args": {
+     "disposition": "dispute"
+    }
+   }
+  ],
+  "missing": [],
+  "disposition": "dispute",
+  "passed": true,
+  "eva_x": 1.0,
+  "breaking_turn": null
  },
  {
   "id": "distress",
@@ -209,7 +338,7 @@
   "eva_a": 1.0,
   "task_completion": 1.0,
   "faithfulness": 1.0,
-  "conciseness": 0.667,
+  "conciseness": 0.25,
   "progression": 0.5,
   "tools": [
    "escalate_to_human",
@@ -270,6 +399,53 @@
    }
   ],
   "audio": "/evidence/audio/bot-v3/distress.mp3",
-  "agent_speech_fidelity": 1.0
+  "agent_speech_fidelity": 1.0,
+  "faithfulness_rating": 5,
+  "conciseness_rating": 2,
+  "progression_rating": 3,
+  "judge_notes": {
+   "faithfulness": "The agent's factual claims regarding the merchant, product, outstanding amount, and customer care number are all perfectly grounded in the provided account facts. The agent correctly follows the distress handling policy by dropping the collections objective, offering the customer care number, and escalating the call in the log without making any unlogged commitments.",
+   "conciseness": "The agent exhibits repetition across several turns. Turn 4 is a direct restart of the message already delivered in turn 3, and turn 6 repeats the exact same sentiment that was just provided in turn 5.",
+   "progression": "The conversation suffers from a clear loop where the agent repeats its empathy and the customer care number across consecutive turns. Additionally, the agent stalls at the end by repeating the same closing sentiment in English that it had just provided in Hindi. Despite these multiple stalls and loops, the call still reaches a clean end."
+  },
+  "writes": [
+   {
+    "name": "escalate_to_human",
+    "args": {
+     "trigger": "customer_distress",
+     "note": "Customer mentioned job loss and father's hospitalization."
+    }
+   },
+   {
+    "name": "record_call_outcome",
+    "args": {
+     "disposition": "escalation"
+    }
+   },
+   {
+    "name": "escalate_to_human",
+    "args": {
+     "trigger": "customer_distress",
+     "note": "Customer mentioned job loss and father being in hospital."
+    }
+   },
+   {
+    "name": "record_call_outcome",
+    "args": {
+     "disposition": "escalation"
+    }
+   },
+   {
+    "name": "record_call_outcome",
+    "args": {
+     "disposition": "escalation"
+    }
+   }
+  ],
+  "missing": [],
+  "disposition": "escalation",
+  "passed": true,
+  "eva_x": 0.375,
+  "breaking_turn": null
  }
 ]

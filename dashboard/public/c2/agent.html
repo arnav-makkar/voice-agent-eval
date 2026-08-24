@@ -7,14 +7,15 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="site.css?v=22">
+<link rel="stylesheet" href="site.css?v=30">
 <script>(function(){try{var m=localStorage.getItem("theme");
 if(m==="light"||m==="dark")document.documentElement.setAttribute("data-theme",m);}catch(e){}})();</script>
-<script src="nav.js?v=22" defer></script>
+<script src="nav.js?v=30" defer></script>
 </head>
 <body>
 <div class="navwrap">
 <nav class="topnav"><a href="overview.html">Overview</a><a href="agent.html" class="on" aria-current="page">The agent</a><a href="system.html">Evaluation</a><a href="loop.html">Self-improvement</a><a href="calls.html">Recordings</a><a href="results.html">Results</a><a href="notes.html">Limitations</a></nav>
+<a class="ghbtn" href="https://github.com/arnav-makkar/voice-agent-eval" target="_blank" rel="noopener noreferrer" title="View the source on GitHub" aria-label="View the source on GitHub"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a>
 <button class="themebtn" id="themebtn" title="Theme: follows your system" aria-label="Theme: follows your system"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor" stroke="none"/></svg></button>
 </div>
 <div class="shell">
@@ -70,33 +71,6 @@ this a hard test. The agent can sound perfect and still leave the account untouc
   <td>Every call, exactly once, at the end</td>
   <td>How the call ended, which routes what happens next</td></tr>
 </table></div>
-
-<div class="callout warm">
-  <div class="bd">
-    <p style="margin:0"><strong>The rule that matters.</strong> Saying "I have noted your payment
-    date" is not the same as calling <code>record_promise_to_pay</code>. One is audio. The other
-    is the only thing the business can act on.</p>
-  </div>
-</div>
-
-<h2>How it is built</h2>
-<div class="tw"><table>
-<tr><th style="width:32%">Component</th><th>Choice</th></tr>
-<tr><td>Platform</td><td>Sarvam Indus, deployed and live. Every test in this study ran against the
-real agent, never a copy</td></tr>
-<tr><td>Conversation model</td><td>Sarvam Pro, handling the dialogue</td></tr>
-<tr><td>Tool-calling model</td><td>Llama 3.1 70B, a separate and smaller model that decides which
-of the six actions to take</td></tr>
-<tr><td>Channels</td><td>Outbound telephony, and a text channel for scale testing</td></tr>
-</table></div>
-
-<div class="callout">
-  <div class="bd">
-    <p style="margin:0"><strong>Worth noting for later.</strong> The model that talks and the
-    model that acts are different. Every failure in the next section is a failure of the second
-    one, which is exactly the split the framework is built to expose.</p>
-  </div>
-</div>
 
 <div class="walk"><a href="overview.html"><span class="k">Back</span><span class="t">Overview</span></a><a class="next" href="system.html"><span class="k">Next</span><span class="t">Evaluation</span></a></div>
 </div>

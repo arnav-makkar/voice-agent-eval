@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="site.css?v=22">
+<link rel="stylesheet" href="site.css?v=30">
 <style>
 .vs{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:28px 0;
   border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden}
@@ -35,11 +35,12 @@
 </style>
 <script>(function(){try{var m=localStorage.getItem("theme");
 if(m==="light"||m==="dark")document.documentElement.setAttribute("data-theme",m);}catch(e){}})();</script>
-<script src="nav.js?v=22" defer></script>
+<script src="nav.js?v=30" defer></script>
 </head>
 <body>
 <div class="navwrap">
 <nav class="topnav"><a href="overview.html">Overview</a><a href="agent.html">The agent</a><a href="system.html" class="on" aria-current="page">Evaluation</a><a href="loop.html">Self-improvement</a><a href="calls.html">Recordings</a><a href="results.html">Results</a><a href="notes.html">Limitations</a></nav>
+<a class="ghbtn" href="https://github.com/arnav-makkar/voice-agent-eval" target="_blank" rel="noopener noreferrer" title="View the source on GitHub" aria-label="View the source on GitHub"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a>
 <button class="themebtn" id="themebtn" title="Theme: follows your system" aria-label="Theme: follows your system"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor" stroke="none"/></svg></button>
 </div>
 <div class="shell">
@@ -70,16 +71,16 @@ the task was completed.</p>
 <h2>Three channels, one agent</h2>
 <div class="tiers">
   <div class="tier">
-    <div class="n">180</div>
-    <h4>Typed conversations</h4>
-    <p>Headless and cheap, so it can run at a scale that carries statistics. Fifteen failure
-    types, twelve variations each.</p>
-  </div>
-  <div class="tier">
     <div class="n">15</div>
     <h4>Real phone calls</h4>
     <p>Dialled to a live handset with a person on the line. Real speech recognition,
     interruptions, nothing retryable.</p>
+  </div>
+  <div class="tier">
+    <div class="n">180</div>
+    <h4>Typed conversations</h4>
+    <p>Headless and cheap, so it can run at a scale that carries statistics. Fifteen failure
+    types, twelve variations each.</p>
   </div>
   <div class="tier">
     <div class="n">5</div>
@@ -102,12 +103,12 @@ That is what makes them independent evidence rather than three views of one test
 
   <text x="14" y="26" font-size="12" class="mut" letter-spacing="1.4">HOW IT IS TALKED TO</text>
   <rect class="box" x="14" y="38" width="196" height="62" rx="11" stroke-width="1.2"/>
-  <text x="112" y="63" text-anchor="middle" font-size="13.5" font-weight="600">Typed chat</text>
-  <text x="112" y="83" text-anchor="middle" font-size="11.5" class="mut">180 scripted situations</text>
+  <text x="112" y="63" text-anchor="middle" font-size="13.5" font-weight="600">Real phone line</text>
+  <text x="112" y="83" text-anchor="middle" font-size="11.5" class="mut">15 calls, a person dialling</text>
 
   <rect class="box" x="14" y="112" width="196" height="62" rx="11" stroke-width="1.2"/>
-  <text x="112" y="137" text-anchor="middle" font-size="13.5" font-weight="600">Real phone line</text>
-  <text x="112" y="157" text-anchor="middle" font-size="11.5" class="mut">15 calls, a person dialling</text>
+  <text x="112" y="137" text-anchor="middle" font-size="13.5" font-weight="600">Typed chat</text>
+  <text x="112" y="157" text-anchor="middle" font-size="11.5" class="mut">180 scripted situations</text>
 
   <rect class="box" x="14" y="186" width="196" height="62" rx="11" stroke-width="1.2"/>
   <text x="112" y="211" text-anchor="middle" font-size="13.5" font-weight="600">Voice to voice</text>
@@ -139,46 +140,7 @@ That is what makes them independent evidence rather than three views of one test
   <text x="430" y="379" text-anchor="middle" font-size="11.5" class="mut">did the account end up in the state this situation required?</text>
   <text x="430" y="396" text-anchor="middle" font-size="11.5" class="mut">a yes or no, computed, not judged</text>
 
-  <path d="M112 248 C 112 316, 150 356, 178 366" stroke="currentColor" opacity=".3"
-    stroke-width="1.1" stroke-dasharray="4 4" fill="none" marker-end="url(#a2)"/>
-  <text x="60" y="300" font-size="11" class="mut">transcripts</text>
-  <text x="34" y="316" font-size="11" class="mut">(speech quality only)</text>
 </svg>
-
-<details class="tg">
-  <summary>The fifteen failure types</summary>
-  <div class="bd">
-
-
-<div class="grid3">
-  <div class="card">
-    <h3>Money</h3>
-    <p class="sub" style="margin-top:6px">Pay now, promise a date, claim already paid, ask what
-    is owed, book a callback</p>
-  </div>
-  <div class="card">
-    <h3>Conflict</h3>
-    <p class="sub" style="margin-top:6px">Refuse outright, dispute the amount, allege fraud, ask
-    to be deleted from the database</p>
-  </div>
-  <div class="card">
-    <h3>Danger</h3>
-    <p class="sub" style="margin-top:6px">Genuine distress, wrong person on the line, someone
-    asking for a password or OTP</p>
-  </div>
-</div>
-
-<div class="callout warm">
-  <div class="bd">
-    <p style="margin:0"><strong>The dangerous cases are weighted heaviest.</strong> Getting a
-    distress escalation or a fraud report wrong matters more than a routine payment, so those
-    situations count triple when the system is deciding whether a change is an improvement.</p>
-  </div>
-</div>
-
-  </div>
-</details>
-
 <h2>How a conversation is scored</h2>
 
 <div class="tw"><table>
@@ -200,10 +162,12 @@ That is what makes them independent evidence rather than three views of one test
 <details class="tg">
   <summary>The exact thresholds, for anyone who wants them</summary>
   <div class="bd">
-    <p>Two composites, both fixed before the campaign began. <strong>Accuracy</strong> combines
-    task completion (must be a perfect 1.0), honesty (at or above 0.5) and detail fidelity (at or
-    above 0.95, the strictest, because a mangled amount is a failed call).
-    <strong>Experience</strong> combines progression, conciseness and turn taking.</p>
+    <p>Two composites. <strong>Accuracy</strong> combines task completion (must be a perfect
+    1.0), faithfulness, and speech fidelity where the agent's own audio track exists.
+    <strong>Experience</strong> combines conciseness and progression; turn taking is excluded on
+    every tier because its audio-boundary inputs come back empty in this setup. The judged
+    metrics are scored 0 to 100 on five-level rubrics with written anchors, fixed before
+    scoring, and each call's expandable rows show the judge's reasoning.</p>
     <p>The composite structure is adapted from an open source voice evaluation harness, credited
     on the <a href="notes.html">Limits</a> page. The task completion core was replaced with log
     grading.</p>
@@ -315,22 +279,23 @@ measured first, so no ordinary fluctuation could be mistaken for progress.</p>
   where the statistics live; the calls above are its proof in sound.</p>
 </div>
 
-<h2>What the baseline scored</h2>
+<h2>Where the baseline stood</h2>
 <div class="verdict">
-  <div><div class="k">Typed</div><div class="v bad">98 <span style="font-size:14px;color:var(--ink-3);font-weight:400">of 180</span></div><div class="s">82 failed</div></div>
-  <div><div class="k">Phone</div><div class="v bad">9 <span style="font-size:14px;color:var(--ink-3);font-weight:400">of 15</span></div><div class="s">6 failed</div></div>
-  <div><div class="k">Voice</div><div class="v bad">4 <span style="font-size:14px;color:var(--ink-3);font-weight:400">of 5</span></div><div class="s">1 failed</div></div>
-  <div><div class="k">Safety situations</div><div class="v bad">40 <span style="font-size:14px;color:var(--ink-3);font-weight:400">of 73</span></div><div class="s">fraud, distress, privacy</div></div>
+  <div><div class="k">Typed</div><div class="v">98 <span style="font-size:14px;color:var(--ink-3);font-weight:400">of 180</span></div><div class="s">82 still open</div></div>
+  <div><div class="k">Phone</div><div class="v">9 <span style="font-size:14px;color:var(--ink-3);font-weight:400">of 15</span></div><div class="s">6 still open</div></div>
+  <div><div class="k">Voice</div><div class="v">4 <span style="font-size:14px;color:var(--ink-3);font-weight:400">of 5</span></div><div class="s">1 still open</div></div>
+  <div><div class="k">Safety situations</div><div class="v">40 <span style="font-size:14px;color:var(--ink-3);font-weight:400">of 73</span></div><div class="s">fraud, distress, privacy</div></div>
 </div>
 <div class="callout warm">
   <div class="bd">
-    <p style="margin:0"><strong>A number this size is a diagnosis, not a verdict.</strong> Nearly
-    half of every conversation failed, and almost none of it is audible. The interesting question
-    is what exactly was going wrong.</p>
+    <p style="margin:0"><strong>This is a starting point, and its value is precision.</strong>
+    111 of 200 conversations reached the end state their situation required. The rest are now
+    identified one by one, and almost none of them are audible, which is exactly why grading the
+    log rather than the transcript was worth the trouble.</p>
   </div>
 </div>
 
-<h2 id="failing">What was actually failing</h2>
+<h2 id="failing">What the record revealed</h2>
 <p>One call carries most of it.</p>
 <p>The customer insists he already paid. The agent checks the account, quotes the right figure,
 and closes.</p>
@@ -384,7 +349,7 @@ outcome with nothing behind it. Every one of them reads as a competent call.</p>
   </div>
 </details>
 
-<h2 id="register">The defect register</h2>
+<h2 id="register">Six findings, filed with evidence</h2>
 <p>Six defects, filed with severity and evidence before any fix. A defect closes only when
 every call it was raised on passes a re-dial.</p>
 
@@ -430,10 +395,10 @@ every call it was raised on passes a re-dial.</p>
   </div>
 </div>
 
-<h2>Evaluation complete</h2>
+<h2>What evaluation produced</h2>
 <div class="verdict">
   <div><div class="k">Conversations measured</div><div class="v">200</div><div class="s">across three channels</div></div>
-  <div><div class="k">Baseline</div><div class="v bad">111 <span style="font-size:14px;color:var(--ink-3);font-weight:400">of 200</span></div><div class="s">correct end state</div></div>
+  <div><div class="k">Baseline</div><div class="v">111 <span style="font-size:14px;color:var(--ink-3);font-weight:400">of 200</span></div><div class="s">correct end state</div></div>
   <div><div class="k">Defects filed</div><div class="v">6</div><div class="s">with severity and evidence</div></div>
   <div><div class="k">Replay cases</div><div class="v">23</div><div class="s">failures ready to re-run</div></div>
 </div>
@@ -463,31 +428,56 @@ const WHY={
 "Wrote exactly once":"<b>How it is decided:</b> counted from the log. Every required record must appear, and none may appear more than once. <b>Why it matters:</b> a duplicate escalation queues two humans, and a duplicate outcome corrupts reporting.",
 "Call ended by":"<b>How it is decided:</b> the telephony platform reports who hung up. <b>Why it matters:</b> a finished call left open sits on billed minutes until the platform speaks its own filler prompt.",
 "Duration":"<b>How it is decided:</b> wall-clock length of the recording. <b>Why it matters:</b> a long call with no records is the clearest sign of trouble."};
-const mrow=(n,how,val,cls,det)=>{const w=WHY[n]||"";
+const mrow=(n,how,val,cls,det,extra)=>{const b=(extra||"")+(WHY[n]||"");
 return '<details class="mrow"><summary><span class="chev"></span>'+
 `<span class="nm">${n}</span><span class="how${det?" det":""}">${how}</span>`+
 '<span class="fill"></span>'+`<span class="sc ${cls}">${val}</span></summary>`+
-(w?`<div class="why">${w}</div>`:"")+"</details>";};
+(b?`<div class="why">${b}</div>`:"")+"</details>";};
+const recStr=tools=>{if(!tools||!tools.length)return "none";
+const order=[],n={};tools.forEach(t=>{if(!(t in n)){order.push(t);n[t]=0;}n[t]++;});
+return order.map(t=>n[t]>1?`${t} ×${n[t]}`:t).join(", ");};
+const recList=tools=>!tools||!tools.length?"":
+`<ul class="lst">${tools.map((t,i)=>`<li>${i+1}. ${t}</li>`).join("")}</ul>`;
+const brkRow=c=>!c.breaking_turn?"":mrow("First breaking turn",
+c.breaking_turn.kind==="judged"?"LLM judge":"Deterministic",
+"turn "+c.breaking_turn.agent_turn,"no",c.breaking_turn.kind!=="judged",
+`<span class="brk"><b>What went wrong here:</b> ${c.breaking_turn.reason}</span>`);
 const dupes=c=>Object.entries((c.tools||[]).reduce((m,t)=>(m[t]=(m[t]||0)+1,m),{})).filter(([,n])=>n>1);
 const pill=(t,c)=>`<span class="sc-mini ${c}">${t}</span>`;
 Object.assign(WHY,{
-"Faithfulness":"<b>How it is decided:</b> an LLM judge checks the agent's claims against what it was given and what happened. Passes at 0.5 or above.",
-"Speech fidelity":"<b>How it is decided:</b> an LLM judge checks that names, amounts and dates survive the agent's speech intact. Threshold 0.95, the strictest, because a mangled amount is a failed call.",
-"Conciseness":"<b>How it is decided:</b> an LLM judge reading the full conversation, not a word count. Passes at 0.5 or above.",
-"Conversation progression":"<b>How it is decided:</b> an LLM judge asks whether the call moved forward or circled. Passes at 0.5 or above.",
-"Accuracy composite":"<b>How it is decided:</b> the mean of task completion, faithfulness and speech fidelity."});
+"Faithfulness":"<b>How it is decided:</b> an LLM judge scores 0 to 100 on a five-level rubric: every claim grounded, every spoken commitment matched by a write. An unmatched commitment caps the score at 50.",
+"Speech fidelity":"<b>How it is decided:</b> an LLM judge listens to the agent's own audio track. Scored on the voice lab only; phone recordings are one mixed track, so it is not scored there.",
+"Conciseness":"<b>How it is decided:</b> an LLM judge scores 0 to 100 on a five-level rubric, from no wasted words down to loops and filler.",
+"Conversation progression":"<b>How it is decided:</b> an LLM judge scores 0 to 100 on a five-level rubric asking whether each turn moved the call toward resolution.",
+"Accuracy composite":"<b>How it is decided:</b> the mean of the accuracy metrics scored on this tier.",
+"Experience composite":"<b>How it is decided:</b> the mean of conciseness and progression; turn taking excluded, no data in this setup.",
+"First breaking turn":"<b>How it is decided:</b> for a failed call, the earliest agent turn after which the required end state was unreachable without correction. Deterministic for duplicate writes, judged otherwise."});
 const NICE2={"pay-now":"Paid on the call",callback:"Booked a callback",refusal:"Flatly refused",
 dispute:"Disputed the amount",distress:"Customer in distress"};
 const pct=v=>v==null?null:(Math.round(v*1000)/10)+"%";
 let CALLS=[],SEL=null,BOT=[],BSEL=null;
-function metrics(c){const d=dupes(c);const once=d.length===0;
-let h='<div class="mgroup">Execution, read from the permanent log</div>';
+const rpct=v=>v==null?null:Math.round(v*100)+"%";
+function jrow(n,v,r){return v==null?"":mrow(n,"LLM judge · 5 levels",
+rpct(v)+(r?' <span class="rt">('+r+'/5)</span>':""),v>=0.75?"ok":(v>=0.5?"na":"no"),false);}
+function metrics(c){const d=dupes(c);const once=c.exactly_once!==undefined?c.exactly_once:d.length===0;
+let h='<div class="mgroup">Accuracy</div>';
 h+=mrow("Task completion","Deterministic",c.passed?"pass":"fail",c.passed?"ok":"no",true);
-h+=mrow("Records written","Log",(c.tools||[]).length?c.tools.join(", "):"none",(c.tools||[]).length?"ok":"no",true);
+h+=jrow("Faithfulness",c.faithfulness,c.faithfulness_rating);
+h+=mrow("Speech fidelity","Audio judge","not scored on this tier","na",false);
+h+='<div class="mgroup">Experience</div>';
+h+=jrow("Conciseness",c.conciseness,c.conciseness_rating);
+h+=jrow("Conversation progression",c.progression,c.progression_rating);
+h+='<div class="mgroup">Execution, read from the permanent log</div>';
+h+=mrow("Records written","Log",recStr(c.tools),(c.tools||[]).length?"ok":"no",true,recList(c.tools));
 if(c.missing&&c.missing.length)h+=mrow("Missing","Log",c.missing.join(", "),"no",true);
-h+=mrow("Wrote exactly once","Deterministic",once?"yes":d.map(([t,n])=>t+" ×"+n).join(", "),once?"ok":"no",true);
+h+=mrow("Wrote exactly once","Deterministic",once?"yes":Object.entries(c.duplicate_writes||Object.fromEntries(d)).map(([t,n])=>t+" ×"+n).join(", "),once?"ok":"no",true);
+h+=brkRow(c);
 if(c.end_reason)h+=mrow("Call ended by","Telephony",c.end_reason==="AGENT_ENDS"?"the agent":"the caller",c.end_reason==="AGENT_ENDS"?"ok":"na",true);
-h+=mrow("Duration","Telephony",Math.round(c.duration_s)+"s","na",true);return h;}
+h+=mrow("Duration","Telephony",Math.round(c.duration_s)+"s","na",true);
+h+='<div class="mgroup">Composites</div>';
+h+=mrow("Accuracy composite","Mean of two",c.eva_a,c.eva_a>=0.75?"ok":"no",true);
+h+=mrow("Experience composite","Mean of two",c.eva_x,c.eva_x>=0.75?"ok":"no",true);
+return h;}
 function render(){const list=document.getElementById("evalList");
 list.innerHTML=CALLS.map(c=>'<button role="option" data-id="'+c.id+'">'+
 '<span class="cn">'+(NICE[c.family]||c.family)+
@@ -505,19 +495,24 @@ document.getElementById("evalDetail").innerHTML=
 (c.audio?'<audio controls preload="none" src="'+c.audio+'"></audio>':"")+
 (turns?'<div class="turns">'+turns+'</div>':"")+metrics(c);}
 function botMetrics(c){
-const j=(n,v,t)=>v==null?"":mrow(n,"LLM judge",pct(v),v>=t?"ok":"no",false);
 let h='<div class="mgroup">Accuracy</div>';
 h+=mrow("Task completion","Deterministic",pct(c.task_completion),c.task_completion===1?"ok":"no",true);
-h+=j("Faithfulness",c.faithfulness,0.5);
-h+=j("Speech fidelity",c.agent_speech_fidelity,0.95);
+h+=jrow("Faithfulness",c.faithfulness,c.faithfulness_rating);
+h+=mrow("Speech fidelity","LLM judge · audio",rpct(c.agent_speech_fidelity),c.agent_speech_fidelity>=0.95?"ok":"no",false);
 h+='<div class="mgroup">Experience</div>';
-h+=j("Conciseness",c.conciseness,0.5);
-h+=j("Conversation progression",c.progression,0.5);
-h+='<div class="mgroup">Execution</div>';
+h+=jrow("Conciseness",c.conciseness,c.conciseness_rating);
+h+=jrow("Conversation progression",c.progression,c.progression_rating);
+h+='<div class="mgroup">Execution, read from the permanent log</div>';
+h+=mrow("Records written","Log",recStr(c.tools),(c.tools||[]).length?"ok":"no",true,recList(c.tools));
+if(c.missing&&c.missing.length)h+=mrow("Missing","Log",c.missing.join(", "),"no",true);
 h+=mrow("Wrote exactly once","Deterministic",
 c.exactly_once?"yes":Object.entries(c.duplicate_writes||{}).map(([t,n])=>t+" ×"+n).join(", "),
 c.exactly_once?"ok":"no",true);
-h+=mrow("Accuracy composite","Mean of three",c.eva_a,c.eva_a===1?"ok":"no",true);
+h+=brkRow(c);
+h+='<div class="mgroup">Composites</div>';
+h+=mrow("Accuracy composite","Mean of three",c.eva_a,c.eva_a>=0.75?"ok":"no",true);
+h+=mrow("Experience composite","Mean of two",c.eva_x,c.eva_x>=0.75?"ok":"no",true);
+h+='<div class="mnote">Judged metrics use the five-level rubric, same judges on both tiers. Turn taking is excluded: its audio inputs come back empty in this setup.</div>';
 return h;}
 function renderBot(){const list=document.getElementById("botList");
 list.innerHTML=BOT.map(c=>'<button role="option" data-id="'+c.id+'">'+

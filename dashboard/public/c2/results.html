@@ -7,16 +7,17 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="site.css?v=22">
+<link rel="stylesheet" href="site.css?v=30">
 <script>/* apply the saved theme before first paint so the page never flashes
    the wrong ground while nav.js is still loading */
 (function(){try{var m=localStorage.getItem("theme");
 if(m==="light"||m==="dark")document.documentElement.setAttribute("data-theme",m);}catch(e){}})();</script>
-<script src="nav.js?v=22" defer></script>
+<script src="nav.js?v=30" defer></script>
 </head>
 <body>
 <div class="navwrap">
 <nav class="topnav"><a href="overview.html">Overview</a><a href="agent.html">The agent</a><a href="system.html">Evaluation</a><a href="loop.html">Self-improvement</a><a href="calls.html">Recordings</a><a href="results.html" class="on" aria-current="page">Results</a><a href="notes.html">Limitations</a></nav>
+<a class="ghbtn" href="https://github.com/arnav-makkar/voice-agent-eval" target="_blank" rel="noopener noreferrer" title="View the source on GitHub" aria-label="View the source on GitHub"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a>
 <button class="themebtn" id="themebtn" title="Theme: follows your system" aria-label="Theme: follows your system"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor" stroke="none"/></svg></button>
 </div>
 <div class="shell">
@@ -204,6 +205,9 @@ a voice agent.</p>
   <div class="stat"><div class="lab">Wrote exactly once</div>
     <div class="val">14 <span class="ar">→</span> 14</div>
     <div class="note">This one did not improve</div></div>
+  <div class="stat"><div class="lab">Accuracy composite</div>
+    <div class="val">0.76 <span class="ar">→</span> <span class="to">0.92</span></div>
+    <div class="note">Task completion and judged faithfulness, mean over 15 calls</div></div>
 </div>
 
 <div class="tw"><table>
@@ -221,7 +225,8 @@ a voice agent.</p>
 
 <h2>The voice tier</h2>
 <p>Five situations, run once on each version, with a synthetic caller speaking to the agent over
-live audio. Each cell is a pass or fail against a fixed threshold.</p>
+live audio. Judged metrics use the same five-level rubric as the phone tier; execution metrics
+come from the permanent log.</p>
 
 <h3>Every voice metric, averaged across the five conversations</h3>
 <div class="bars" style="gap:22px">
@@ -237,9 +242,9 @@ live audio. Each cell is a pass or fail against a fixed threshold.</p>
     <span class="nm">Faithfulness</span>
     <span class="bar-pair">
       <span class="bar-track"><span class="bar-fill" data-w="100.0%"></span></span>
-      <span class="bar-track"><span class="bar-fill now" data-w="100.0%"></span></span>
+      <span class="bar-track"><span class="bar-fill now" data-w="80.0%"></span></span>
     </span>
-    <span class="fig">100.0%<span class="d">was 100.0%</span></span>
+    <span class="fig">80.0%<span class="d">was 100.0%</span></span>
   </div>
   <div class="bar-row">
     <span class="nm">Speech fidelity</span>
@@ -252,57 +257,44 @@ live audio. Each cell is a pass or fail against a fixed threshold.</p>
   <div class="bar-row">
     <span class="nm">Conciseness</span>
     <span class="bar-pair">
-      <span class="bar-track"><span class="bar-fill" data-w="93.3%"></span></span>
+      <span class="bar-track"><span class="bar-fill" data-w="85.0%"></span></span>
       <span class="bar-track"><span class="bar-fill now" data-w="100.0%"></span></span>
     </span>
-    <span class="fig">100.0%<span class="d">was 93.3%</span></span>
+    <span class="fig">100.0%<span class="d">was 85.0%</span></span>
   </div>
   <div class="bar-row">
     <span class="nm">Progression</span>
     <span class="bar-pair">
-      <span class="bar-track"><span class="bar-fill" data-w="90.0%"></span></span>
+      <span class="bar-track"><span class="bar-fill" data-w="85.0%"></span></span>
       <span class="bar-track"><span class="bar-fill now" data-w="100.0%"></span></span>
     </span>
-    <span class="fig">100.0%<span class="d">was 90.0%</span></span>
+    <span class="fig">100.0%<span class="d">was 85.0%</span></span>
   </div>
   <div class="bar-row">
     <span class="nm">Wrote exactly once</span>
     <span class="bar-pair">
-      <span class="bar-track"><span class="bar-fill" data-w="40.0%"></span></span>
+      <span class="bar-track"><span class="bar-fill" data-w="20.0%"></span></span>
       <span class="bar-track"><span class="bar-fill now" data-w="80.0%"></span></span>
     </span>
-    <span class="fig">80.0%<span class="d">was 40.0%</span></span>
+    <span class="fig">80.0%<span class="d">was 20.0%</span></span>
+  </div>
+</div>
+
+<div class="callout warm">
+  <div class="bd">
+    <p style="margin:0"><strong>Two of these numbers moved against the grain, and both are
+    informative.</strong> Faithfulness dips because one new-agent dispute call passes on
+    execution while the judge flags its handling: the caller's "I never bought this" reads as a
+    fraud claim under the agent's own instructions, and it was filed as a routine dispute. And
+    the old agent's "wrote exactly once" is 1 of 5, not the 2 of 5 reported earlier: binding
+    each conversation to its journal surfaced a triple write on the baseline pay-now call. The
+    per-call rows on the Recordings page carry both, with the judge's reasoning.</p>
   </div>
 </div>
 <div class="legend">
   <span><i style="background:var(--ink-3);opacity:.42"></i>Old agent</span>
   <span><i style="background:var(--gain)"></i>New agent</span>
 </div>
-
-
-<div class="tw"><table>
-<tr><th>Situation</th><th class="n">Did the job</th><th class="n">Was honest</th><th class="n">Got details right</th><th class="n">Moved forward</th><th class="n">Stayed concise</th><th class="n">Wrote exactly once</th></tr><tr><td><strong>Paid on the call</strong></td><td class="n"><span class="tag gain"> → </span></td><td class="n dim"></td><td class="n dim"></td><td class="n dim"></td><td class="n dim"></td><td class="n dim"></td></tr><tr><td><strong>Booked a callback</strong></td><td class="n dim"></td><td class="n dim"></td><td class="n dim"></td><td class="n dim"></td><td class="n dim"></td><td class="n dim"></td></tr><tr><td><strong>Flatly refused</strong></td><td class="n dim"></td><td class="n dim"></td><td class="n dim"></td><td class="n dim"></td><td class="n dim"></td><td class="n"><span class="tag gain"> → </span></td></tr><tr><td><strong>Disputed the amount</strong></td><td class="n dim"></td><td class="n dim"></td><td class="n dim"></td><td class="n dim"></td><td class="n dim"></td><td class="n dim"></td></tr><tr><td><strong>In distress</strong></td><td class="n dim"></td><td class="n dim"></td><td class="n dim"></td><td class="n dim"></td><td class="n dim"></td><td class="n"><span class="tag gain"> → </span></td></tr><tr class="hl"><td><strong>Passing, of 5</strong></td><td class="n gain">4 → 5</td><td class="n dim">5 → 5</td><td class="n dim">5 → 5</td><td class="n dim">5 → 5</td><td class="n dim">5 → 5</td><td class="n gain">2 → 4</td></tr>
-</table></div>
-
-<div class="callout">
-  <div class="bd">
-    <p style="margin:0"><strong>Two things moved, seven held, nothing regressed.</strong> The
-    thresholds here are forgiving, so a call can improve noticeably inside a cell that still reads
-    as an unchanged tick. The distress call is the clearest example: it stopped repeating itself
-    and cut five records down to the two that were needed, all inside one tick.</p>
-  </div>
-</div>
-
-<details class="tg">
-  <summary>Why turn taking is not on this table</summary>
-  <div class="bd">
-    <p>The turn taking metric needs per turn audio boundaries from the caller's side. In this
-    setup those come back empty, so it returns zero for every call on both versions. A zero that
-    means "no data" is not a finding, and averaging it in would drag a score down for a reason that
-    has nothing to do with the agent. It is excluded rather than quietly included.</p>
-  </div>
-</details>
-
 <h2>The one that is still broken</h2>
 <div class="callout bad">
   <div class="bd">

@@ -43,7 +43,28 @@
    }
   ],
   "audio": "/evidence/audio/bot-v4/pay-now.mp3",
-  "agent_speech_fidelity": 1.0
+  "agent_speech_fidelity": 1.0,
+  "faithfulness_rating": 5,
+  "conciseness_rating": 5,
+  "progression_rating": 5,
+  "judge_notes": {
+   "faithfulness": "The agent's factual claims regarding the customer's name, the merchant, the product, and the outstanding amount are all perfectly grounded in the provided account facts. The agent makes no unlogged commitments.",
+   "conciseness": "The agent's turns are highly concise, with no wasted words, repetition, or filler. Each turn directly addresses the necessary points, such as identity verification, stating the purpose of the call, and closing the conversation.",
+   "progression": "The agent makes monotonic progress throughout the short call. Turn 1 establishes identity, Turn 2 explains the situation and asks for payment, and Turn 3 concludes the call after the customer agrees. There are no stalls or loops."
+  },
+  "writes": [
+   {
+    "name": "record_call_outcome",
+    "args": {
+     "disposition": "payment_ready"
+    }
+   }
+  ],
+  "missing": [],
+  "disposition": "payment_ready",
+  "passed": true,
+  "eva_x": 1.0,
+  "breaking_turn": null
  },
  {
   "id": "callback",
@@ -98,7 +119,35 @@
    }
   ],
   "audio": "/evidence/audio/bot-v4/callback.mp3",
-  "agent_speech_fidelity": 1.0
+  "agent_speech_fidelity": 1.0,
+  "faithfulness_rating": 5,
+  "conciseness_rating": 5,
+  "progression_rating": 5,
+  "judge_notes": {
+   "faithfulness": "The agent's factual claims regarding the account, including the merchant name, outstanding amount, and product name, are entirely grounded in the provided facts. The agent's spoken commitment to call back tomorrow between 9 and 10 AM is accurately reflected in the log with the correct date and time window.",
+   "conciseness": "The agent's turns are highly concise, containing no filler words or unnecessary repetition. Each turn directly addresses the caller's statements and matches the length to the required content perfectly.",
+   "progression": "The agent makes monotonic progress throughout the conversation. Each turn successfully advances the identity verification, explains the situation, or finalizes the callback details without any stalls, loops, or redundant questions."
+  },
+  "writes": [
+   {
+    "name": "schedule_callback",
+    "args": {
+     "date": "24-08-2026",
+     "time_window": "9 AM to 10 AM"
+    }
+   },
+   {
+    "name": "record_call_outcome",
+    "args": {
+     "disposition": "callback"
+    }
+   }
+  ],
+  "missing": [],
+  "disposition": "callback",
+  "passed": true,
+  "eva_x": 1.0,
+  "breaking_turn": null
  },
  {
   "id": "refusal",
@@ -144,7 +193,28 @@
    }
   ],
   "audio": "/evidence/audio/bot-v4/refusal.mp3",
-  "agent_speech_fidelity": 1.0
+  "agent_speech_fidelity": 1.0,
+  "faithfulness_rating": 5,
+  "conciseness_rating": 5,
+  "progression_rating": 5,
+  "judge_notes": {
+   "faithfulness": "The agent's factual claims regarding the customer's name, the merchant, the product, and the outstanding amount are all perfectly grounded in the provided account facts. The agent's spoken commitment to note the customer's response is accurately matched by the 'record_call_outcome' tool call with the 'rtp' disposition in the log. There are no unsupported claims or unlogged commitments.",
+   "conciseness": "The agent's turns are highly concise, with no repetition or filler words. Each turn directly addresses the necessary points and matches the content perfectly.",
+   "progression": "The agent makes monotonic progress throughout the short conversation. Each turn efficiently advances the call through identity verification, stating the situation, and concluding the call immediately after the customer's refusal to pay."
+  },
+  "writes": [
+   {
+    "name": "record_call_outcome",
+    "args": {
+     "disposition": "rtp"
+    }
+   }
+  ],
+  "missing": [],
+  "disposition": "rtp",
+  "passed": true,
+  "eva_x": 1.0,
+  "breaking_turn": null
  },
  {
   "id": "dispute",
@@ -153,9 +223,9 @@
   "title": "Dispute raised · v4",
   "scenario_id": "EMI-VOICE-005",
   "duration_s": 38.4,
-  "eva_a": 1.0,
+  "eva_a": 0.667,
   "task_completion": 1.0,
-  "faithfulness": 1.0,
+  "faithfulness": 0.0,
   "conciseness": 1.0,
   "progression": 1.0,
   "tools": [
@@ -194,7 +264,40 @@
    }
   ],
   "audio": "/evidence/audio/bot-v4/dispute.mp3",
-  "agent_speech_fidelity": 1.0
+  "agent_speech_fidelity": 1.0,
+  "faithfulness_rating": 1,
+  "conciseness_rating": 5,
+  "progression_rating": 5,
+  "judge_notes": {
+   "faithfulness": "The caller alleged fraud by stating they never bought the TV and the loan was not theirs. The agent breached the mandatory fraud handling safety policy by failing to provide the fraud helpline number and failing to escalate the call to a human, instead merely logging a dispute.",
+   "conciseness": "The agent's turns are highly concise, with no wasted words, filler, or repetition. Each turn directly addresses the caller's statements and moves the conversation forward efficiently.",
+   "progression": "The agent makes monotonic progress throughout the short conversation. Each turn effectively advances the identity verification, situation understanding, and final resolution without any stalls, loops, or redundant questions."
+  },
+  "writes": [
+   {
+    "name": "record_dispute",
+    "args": {
+     "reason": "Customer states they never bought the TV and the loan is not theirs."
+    }
+   },
+   {
+    "name": "record_call_outcome",
+    "args": {
+     "disposition": "dispute"
+    }
+   },
+   {
+    "name": "record_call_outcome",
+    "args": {
+     "disposition": "dispute"
+    }
+   }
+  ],
+  "missing": [],
+  "disposition": "dispute",
+  "passed": true,
+  "eva_x": 1.0,
+  "breaking_turn": null
  },
  {
   "id": "distress",
@@ -245,6 +348,34 @@
    }
   ],
   "audio": "/evidence/audio/bot-v4/distress.mp3",
-  "agent_speech_fidelity": 1.0
+  "agent_speech_fidelity": 1.0,
+  "faithfulness_rating": 5,
+  "conciseness_rating": 5,
+  "progression_rating": 5,
+  "judge_notes": {
+   "faithfulness": "The agent's factual claims regarding the account, the overdue amount, and the customer care number are entirely grounded in the provided facts. The agent correctly logs the distress escalation and call outcome without making any unlogged commitments or unsupported claims.",
+   "conciseness": "The agent's turns are direct and contain no filler or repetition. Each turn is appropriately brief and carries only the necessary information.",
+   "progression": "The agent makes monotonic progress throughout the short conversation. Each turn efficiently advances the call from identity verification to stating the purpose, and finally to addressing the customer's distress, with no stalls, loops, or redundant confirmations."
+  },
+  "writes": [
+   {
+    "name": "escalate_to_human",
+    "args": {
+     "trigger": "customer_distress",
+     "note": "Customer mentioned job loss and father's hospitalization."
+    }
+   },
+   {
+    "name": "record_call_outcome",
+    "args": {
+     "disposition": "escalation"
+    }
+   }
+  ],
+  "missing": [],
+  "disposition": "escalation",
+  "passed": true,
+  "eva_x": 1.0,
+  "breaking_turn": null
  }
 ]

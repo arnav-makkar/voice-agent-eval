@@ -7,14 +7,15 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="site.css?v=22">
+<link rel="stylesheet" href="site.css?v=30">
 <script>(function(){try{var m=localStorage.getItem("theme");
 if(m==="light"||m==="dark")document.documentElement.setAttribute("data-theme",m);}catch(e){}})();</script>
-<script src="nav.js?v=22" defer></script>
+<script src="nav.js?v=30" defer></script>
 </head>
 <body>
 <div class="navwrap">
 <nav class="topnav"><a href="overview.html">Overview</a><a href="agent.html">The agent</a><a href="system.html">Evaluation</a><a href="loop.html">Self-improvement</a><a href="calls.html" class="on" aria-current="page">Recordings</a><a href="results.html">Results</a><a href="notes.html">Limitations</a></nav>
+<a class="ghbtn" href="https://github.com/arnav-makkar/voice-agent-eval" target="_blank" rel="noopener noreferrer" title="View the source on GitHub" aria-label="View the source on GitHub"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a>
 <button class="themebtn" id="themebtn" title="Theme: follows your system" aria-label="Theme: follows your system"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor" stroke="none"/></svg></button>
 </div>
 <div class="shell">
@@ -38,6 +39,8 @@ same situation directly.</p>
     <span class="chip">situations <b>15</b></span>
     <span class="chip">pass <b>9 <span class="up">→ 14</span></b></span>
     <span class="chip">fixed <b id="phFixChip">·</b></span>
+    <span class="chip">accuracy <b id="phAccChip">·</b></span>
+    <span class="chip">experience <b id="phExpChip">·</b></span>
     <span class="sp"></span>
     <div class="seg" role="tablist" aria-label="Phone agent version">
       <button data-v="v3" class="on">Old agent</button>
@@ -54,14 +57,62 @@ same situation directly.</p>
   <div class="panel-head">
     <h2>Bot-to-bot voice lab</h2>
     <span class="chip">scenarios <b>5</b></span>
-    <span class="chip">accuracy <b>0.93 <span class="up">→ 1.00</span></b></span>
-    <span class="chip">exactly once <b>2/5 <span class="up">→ 4/5</span></b></span>
+    <span class="chip">accuracy <b id="btAccChip">·</b></span>
+    <span class="chip">experience <b id="btExpChip">·</b></span>
+    <span class="chip">exactly once <b id="btOnceChip">·</b></span>
     <span class="sp"></span>
     <div class="seg" role="tablist" aria-label="Voice lab agent version">
       <button data-v="v3" class="on">Old agent</button>
       <button data-v="v4">New agent</button>
     </div>
   </div>
+
+<div class="wirebox">
+<p class="cap">How a bot-to-bot call runs</p>
+<svg class="dg wire" viewBox="0 0 860 120" role="img"
+  aria-label="A synthetic caller agent connects over a websocket to an audio bridge, which feeds the live deployed agent, whose tool calls land in the permanent log">
+  <defs>
+    <marker id="bb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="currentColor" opacity=".45"/>
+    </marker>
+  </defs>
+
+  <text x="203" y="26" text-anchor="middle" font-size="10.5" class="mut">websocket</text>
+  <text x="203" y="39" text-anchor="middle" font-size="10.5" class="mut">&#956;-law 8 kHz, 20 ms</text>
+  <text x="439" y="26" text-anchor="middle" font-size="10.5" class="mut">Samvaad SDK</text>
+  <text x="439" y="39" text-anchor="middle" font-size="10.5" class="mut">PCM 16 kHz</text>
+  <text x="675" y="39" text-anchor="middle" font-size="10.5" class="mut">tool calls</text>
+
+  <rect class="box" x="1" y="48" width="168" height="62" rx="11" stroke-width="1.2"/>
+  <text x="85" y="74" text-anchor="middle" font-size="13.5" font-weight="600">ElevenLabs agent</text>
+  <text x="85" y="93" text-anchor="middle" font-size="11" class="mut">plays the customer</text>
+
+  <path class="ln" d="M171 79 L 235 79" stroke-width="1.2"
+    marker-start="url(#bb)" marker-end="url(#bb)"/>
+
+  <rect class="box" x="237" y="48" width="168" height="62" rx="11" stroke-width="1.2"/>
+  <text x="321" y="74" text-anchor="middle" font-size="13.5" font-weight="600">Audio bridge</text>
+  <text x="321" y="93" text-anchor="middle" font-size="11" class="mut">converts and paces</text>
+
+  <path class="ln" d="M407 79 L 471 79" stroke-width="1.2"
+    marker-start="url(#bb)" marker-end="url(#bb)"/>
+
+  <rect class="box-a" x="473" y="48" width="168" height="62" rx="11" stroke-width="1.6"/>
+  <text x="557" y="74" text-anchor="middle" font-size="13.5" font-weight="600">The live agent</text>
+  <text x="557" y="93" text-anchor="middle" font-size="11" class="mut">the real deployed one</text>
+
+  <path class="ln" d="M643 79 L 707 79" stroke-width="1.4" marker-end="url(#bb)"/>
+
+  <rect class="box-g" x="709" y="48" width="150" height="62" rx="11" stroke-width="1.6"/>
+  <text x="784" y="74" text-anchor="middle" font-size="13.5" font-weight="600">Permanent log</text>
+  <text x="784" y="93" text-anchor="middle" font-size="11" class="mut">graded from this</text>
+</svg>
+
+<p class="note">The caller only emits audio while it is speaking, so the bridge fills the gaps
+with silence to keep an unbroken 20 ms stream. The agent ends a turn by hearing silence, and
+without it no turn ever closes.</p>
+</div>
+
   <div class="split">
     <div class="clist" id="botList" role="listbox" aria-label="Voice lab conversations"></div>
     <div class="detailcol" id="botDetail"></div>
@@ -89,21 +140,32 @@ const WHY = {
   "Wrote exactly once":"<b>How it is decided:</b> counted from the log. Every required record must appear, and none may appear more than once. <b>Why it matters:</b> a duplicate escalation queues two humans, and a duplicate outcome corrupts reporting. Doing the job properly means doing it once.",
   "Call ended by":"<b>How it is decided:</b> the telephony platform reports who hung up. <b>Why it matters:</b> when the agent does not end a finished call, the line stays open on billed minutes and the platform eventually speaks its own filler prompt.",
   "Duration":"<b>How it is decided:</b> wall-clock length of the recording. <b>Why it matters:</b> on its own it proves nothing, but a call that gets the same result in less time is a better call, and a long call with no records is the clearest sign of trouble.",
-  "Faithfulness":"<b>How it is decided:</b> an LLM judge reads the whole conversation and checks the agent's claims against what it was given and what actually happened. Passes at 0.5 or above. <b>Why it matters:</b> it catches an agent that invents a balance, a date or a policy nobody told it.",
-  "Speech fidelity":"<b>How it is decided:</b> an LLM judge checks that names, amounts and dates survive the agent's speech intact. The strictest threshold in the set at 0.95, because a mangled amount is a failed call. <b>Why it matters:</b> in a collections call the exact figure is the point.",
-  "Conciseness":"<b>How it is decided:</b> an LLM judge reading the full conversation, not a word count. Passes at 0.5 or above. <b>Why it matters:</b> padding on a phone call costs money and patience. It is also how repetition shows up as a number.",
-  "Conversation progression":"<b>How it is decided:</b> an LLM judge asks whether the conversation moved forward or circled. Passes at 0.5 or above. <b>Why it matters:</b> this is the check that caught the old agent repeating its distress response almost word for word.",
-  "Accuracy composite":"<b>How it is decided:</b> the mean of task completion, faithfulness and speech fidelity. <b>Why it matters:</b> a single figure for whether the agent did the job correctly. It is reported alongside its parts, never instead of them.",
+  "Faithfulness":"<b>How it is decided:</b> an LLM judge scores the call 0 to 100 on a five-level rubric: every claim must be grounded in the account facts or the log, and every spoken commitment must have a matching write. A commitment with no write caps the score at 50. <b>Why it matters:</b> it catches an agent that invents a balance, a date, a policy, or says it recorded something it did not.",
+  "Speech fidelity":"<b>How it is decided:</b> an LLM judge listens to the agent's own audio track and checks that names, amounts and dates survive speech intact. Scored on the voice lab, where the agent's audio is captured as its own track. Phone recordings are a single mixed track, so this metric is not scored on the phone tier rather than scored differently. <b>Why it matters:</b> in a collections call the exact figure is the point.",
+  "Conciseness":"<b>How it is decided:</b> an LLM judge scores the call 0 to 100 on a five-level rubric, from no wasted words down to loops and filler dominating the call. <b>Why it matters:</b> padding on a phone call costs money and patience, and repetition shows up here as a number.",
+  "Conversation progression":"<b>How it is decided:</b> an LLM judge scores the call 0 to 100 on a five-level rubric asking whether every agent turn moved the call toward a resolved end state. <b>Why it matters:</b> this is the check that caught the old agent repeating its distress response almost word for word.",
+  "Accuracy composite":"<b>How it is decided:</b> the mean of the accuracy metrics scored on this tier: task completion, faithfulness, and speech fidelity where the voice lab's separate agent track exists. <b>Why it matters:</b> a single figure for whether the agent did the job correctly. It is reported alongside its parts, never instead of them.",
+  "Experience composite":"<b>How it is decided:</b> the mean of conciseness and conversation progression. Turn taking is excluded on both tiers: its audio-boundary inputs come back empty in this setup, so it reports no data rather than a score. <b>Why it matters:</b> one figure for how the call felt, kept separate from whether the job got done. The self-improvement loop optimises accuracy only; experience is measured, not optimised.",
+  "First breaking turn":"<b>How it is decided:</b> for a failed call, the earliest agent turn after which the required end state could no longer be reached without correction. Duplicate-write failures are located deterministically from the log; the rest by an LLM judge given the transcript, the requirements and the log. <b>Why it matters:</b> it points a reviewer at the exact moment a call went wrong, and it is highlighted in the transcript above.",
 };
-const mrow = (name, how, val, cls, det) => {
+const mrow = (name, how, val, cls, det, extra) => {
   const why = WHY[name] || "";
+  const body = (extra || "") + (why || "");
   return '<details class="mrow"><summary><span class="chev"></span>' +
     `<span class="nm">${name}</span><span class="how${det ? " det" : ""}">${how}</span>` +
     `<span class="fill"></span><span class="sc ${cls}">${val}</span></summary>` +
-    (why ? `<div class="why">${why}</div>` : "") + "</details>";
+    (body ? `<div class="why">${body}</div>` : "") + "</details>";
 };
 const dupes = c => Object.entries((c.tools||[]).reduce((m,t)=>(m[t]=(m[t]||0)+1,m),{}))
   .filter(([,n])=>n>1);
+const recStr = tools => {
+  if(!tools || !tools.length) return "none";
+  const order=[], n={};
+  tools.forEach(t=>{ if(!(t in n)){order.push(t); n[t]=0;} n[t]++; });
+  return order.map(t=>n[t]>1?`${t} ×${n[t]}`:t).join(", ");
+};
+const recList = tools => !tools||!tools.length ? "" :
+  `<ul class="lst">${tools.map((t,i)=>`<li>${i+1}. ${t}</li>`).join("")}</ul>`;
 const pill = (t,c)=>`<span class="sc-mini ${c}">${t}</span>`;
 const pct = v => v==null?null:(Math.round(v*1000)/10)+"%";
 
@@ -120,56 +182,71 @@ function listRow(tier, c, ver){
   }
   return `<button role="option" data-id="${c.id}">
     <span class="cn">${NICE[c.id]||c.id}
-      <small>${Math.round(c.duration_s)}s · task ${pct(c.task_completion)}</small></span>
-    ${pill(c.eva_a, c.eva_a===1?"ok":"no")}</button>`;
+      <small>${Math.round(c.duration_s)}s · accuracy ${c.eva_a}</small></span>
+    ${pill(c.passed?"pass":"fail", c.passed?"ok":"no")}</button>`;
 }
-function phoneMetrics(c){
+const rpct = v => v==null?null:Math.round(v*100)+"%";
+function metricsBlock(tier, c){
   const d=dupes(c);
   const once = c.exactly_once!==undefined ? c.exactly_once : d.length===0;
-  let h='<div class="mgroup">Execution, read from the permanent log</div>';
-  h+=mrow("Task completion","Deterministic",c.passed?"pass":"fail",c.passed?"ok":"no",true);
-  h+=mrow("Records written","Log",(c.tools||[]).length?c.tools.join(", "):"none",
-          (c.tools||[]).length?"ok":"no",true);
+  const jr=(name,val,rating)=>val==null?"":mrow(name,"LLM judge · 5 levels",
+      rpct(val)+(rating?` <span class="rt">(${rating}/5)</span>`:""),
+      val>=0.75?"ok":(val>=0.5?"na":"no"),false);
+  let h='<div class="mgroup">Accuracy</div>';
+  h+=mrow("Task completion","Deterministic",
+      c.passed?"pass":"fail", c.passed?"ok":"no", true);
+  h+=jr("Faithfulness",c.faithfulness,c.faithfulness_rating);
+  if(tier==="bot") h+=mrow("Speech fidelity","LLM judge · audio",rpct(c.agent_speech_fidelity),
+      c.agent_speech_fidelity>=0.95?"ok":"no",false);
+  else h+=mrow("Speech fidelity","Audio judge","not scored on this tier","na",false);
+  h+='<div class="mgroup">Experience</div>';
+  h+=jr("Conciseness",c.conciseness,c.conciseness_rating);
+  h+=jr("Conversation progression",c.progression,c.progression_rating);
+  h+='<div class="mgroup">Execution, read from the permanent log</div>';
+  h+=mrow("Records written","Log",recStr(c.tools),
+          (c.tools||[]).length?"ok":"no",true,recList(c.tools));
   if(c.missing&&c.missing.length) h+=mrow("Missing","Log",c.missing.join(", "),"no",true);
   h+=mrow("Wrote exactly once","Deterministic",
-          once?"yes":d.map(([t,n])=>`${t} ×${n}`).join(", "),once?"ok":"no",true);
+          once?"yes":Object.entries(c.duplicate_writes||Object.fromEntries(d))
+            .map(([t,n])=>`${t} ×${n}`).join(", "),once?"ok":"no",true);
+  if(c.breaking_turn) h+=mrow("First breaking turn",
+      c.breaking_turn.kind==="judged"?"LLM judge":"Deterministic",
+      `turn ${c.breaking_turn.agent_turn}`,"no",
+      c.breaking_turn.kind!=="judged",
+      `<span class="brk"><b>What went wrong here:</b> ${c.breaking_turn.reason}</span>`);
   h+='<div class="mgroup">Call facts</div>';
   if(c.end_reason) h+=mrow("Call ended by","Telephony",
       c.end_reason==="AGENT_ENDS"?"the agent":"the caller",
       c.end_reason==="AGENT_ENDS"?"ok":"na",true);
-  h+=mrow("Duration","Telephony",Math.round(c.duration_s)+"s","na",true);
-  return h;
-}
-function botMetrics(c){
-  const j=(n,v,t)=>v==null?"":mrow(n,"LLM judge",pct(v),v>=t?"ok":"no",false);
-  let h='<div class="mgroup">Accuracy</div>';
-  h+=mrow("Task completion","Deterministic",pct(c.task_completion),
-          c.task_completion===1?"ok":"no",true);
-  h+=j("Faithfulness",c.faithfulness,0.5);
-  h+=j("Speech fidelity",c.agent_speech_fidelity,0.95);
-  h+='<div class="mgroup">Experience</div>';
-  h+=j("Conciseness",c.conciseness,0.5);
-  h+=j("Conversation progression",c.progression,0.5);
-  h+='<div class="mgroup">Execution</div>';
-  h+=mrow("Wrote exactly once","Deterministic",
-          c.exactly_once?"yes":Object.entries(c.duplicate_writes||{})
-            .map(([t,n])=>`${t} ×${n}`).join(", "),
-          c.exactly_once?"ok":"no",true);
-  h+=mrow("Accuracy composite","Mean of three",c.eva_a,c.eva_a===1?"ok":"no",true);
-  h+='<div class="mnote">Turn taking is excluded: its audio inputs come back empty in this setup, so it reports no data rather than a score.</div>';
+  h+=mrow("Duration","Recording",Math.round(c.duration_s)+"s","na",true);
+  if(c.eva_a!=null||c.eva_x!=null) h+='<div class="mgroup">Composites</div>';
+  if(c.eva_a!=null) h+=mrow("Accuracy composite",tier==="bot"?"Mean of three":"Mean of two",
+      c.eva_a,c.eva_a>=0.75?"ok":"no",true);
+  if(c.eva_x!=null) h+=mrow("Experience composite","Mean of two",
+      c.eva_x,c.eva_x>=0.75?"ok":"no",true);
+  h+='<div class="mnote">Judged metrics use the five-level rubric, same judges on both tiers. '+
+     'Turn taking is excluded: its audio inputs come back empty in this setup. '+
+     (tier==="phone"?'Speech fidelity needs the agent\u2019s own audio track, which the mixed phone recording does not carry.':'')+
+     '</div>';
   return h;
 }
 function detail(tier, c){
   const isBot = tier==="bot";
-  const turns=(c.transcript||[]).map(t=>
-    `<div class="turn ${t.speaker}"><b>${t.speaker==="agent"?"Agent":"Them"}</b><span>${t.text}</span></div>`).join("");
+  let agentN=0;
+  const bt=c.breaking_turn&&c.breaking_turn.agent_turn;
+  const turns=(c.transcript||[]).map(t=>{
+    const isA=t.speaker==="agent"; if(isA) agentN++;
+    const brk=isA&&bt===agentN;
+    return `<div class="turn ${t.speaker}${brk?" break":""}"><b>${isA?"Agent":"Them"}</b>`+
+      `<span>${t.text}${brk?`<i class="bchip">first breaking turn</i>`:""}</span></div>`;
+  }).join("");
   return `<h3>${NICE[c.family]||NICE[c.id]||c.id}</h3>
     <div class="who">${STATE[tier].v==="v3"?"Old agent":"New agent"} · ${Math.round(c.duration_s)} seconds
     · switch versions above to compare this same situation</div>` +
     (c.audio?`<audio controls preload="none" src="${c.audio}"></audio>`
             :'<p class="sub">No recording for this entry.</p>') +
     (turns?`<div class="turns">${turns}</div>`:"") +
-    (isBot?botMetrics(c):phoneMetrics(c));
+    metricsBlock(tier,c);
 }
 function renderPanel(tier){
   const st=STATE[tier], items=DATA[tier][st.v];
@@ -207,6 +284,16 @@ Promise.all([
   const fixed=pv4.filter(c=>c.passed&&c.v3_passed===false).length;
   const broken=pv4.filter(c=>!c.passed&&c.v3_passed===true).length;
   $("#phFixChip").innerHTML=`<span class="up">${fixed}</span> · broken ${broken}`;
+  const mean=(a,f)=>{const v=a.map(f).filter(x=>x!=null&&!isNaN(x));
+    return v.length?v.reduce((t,c)=>t+c,0)/v.length:null;};
+  const fmt2=v=>v==null?"·":(Math.round(v*100)/100).toFixed(2);
+  const compChip=(el,va,vb)=>{$(el).innerHTML=`${fmt2(va)} <span class="up">→ ${fmt2(vb)}</span>`;};
+  compChip("#phAccChip",mean(pv3,c=>c.eva_a),mean(pv4,c=>c.eva_a));
+  compChip("#phExpChip",mean(pv3,c=>c.eva_x),mean(pv4,c=>c.eva_x));
+  compChip("#btAccChip",mean(bv3,c=>c.eva_a),mean(bv4,c=>c.eva_a));
+  compChip("#btExpChip",mean(bv3,c=>c.eva_x),mean(bv4,c=>c.eva_x));
+  const onceN=a=>a.filter(c=>c.exactly_once).length;
+  $("#btOnceChip").innerHTML=`${onceN(bv3)}/5 <span class="up">→ ${onceN(bv4)}/5</span>`;
   renderPanel("phone"); renderPanel("bot");
   // Deep links: ?tier=phone|bot & v=v3|v4 & id=card-11, so any page can land
   // a viewer on one specific call with the right version selected.

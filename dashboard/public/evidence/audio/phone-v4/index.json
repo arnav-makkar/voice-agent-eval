@@ -43,7 +43,22 @@
     "text": "धन्यवाद Arnav जी, आपका दिन शुभ हो।"
    }
   ],
-  "audio": "/evidence/audio/phone-v4/card-01.mp3"
+  "audio": "/evidence/audio/phone-v4/card-01.mp3",
+  "faithfulness": 1.0,
+  "faithfulness_rating": 5,
+  "conciseness": 1.0,
+  "conciseness_rating": 5,
+  "progression": 1.0,
+  "progression_rating": 5,
+  "judge_notes": {
+   "faithfulness": "The agent's factual claims regarding the customer's name, merchant, product, and outstanding amount are all perfectly grounded in the provided account facts. The agent makes no spoken commitments that require logging, and there are no fabricated claims or ungrounded statements.",
+   "conciseness": "The agent's turns are highly concise, containing no filler words or repetition. Each turn delivers exactly the necessary information and matches the content perfectly.",
+   "progression": "The conversation progresses monotonically without any stalls or loops. Each turn efficiently advances the call from identity verification to stating the situation and securing a resolution."
+  },
+  "task_completion": 1.0,
+  "eva_a": 1.0,
+  "eva_x": 1.0,
+  "breaking_turn": null
  },
  {
   "id": "card-02",
@@ -99,7 +114,22 @@
     "text": "धन्यवाद Arnav जी, आपका दिन शुभ हो।"
    }
   ],
-  "audio": "/evidence/audio/phone-v4/card-02.mp3"
+  "audio": "/evidence/audio/phone-v4/card-02.mp3",
+  "faithfulness": 1.0,
+  "faithfulness_rating": 5,
+  "conciseness": 1.0,
+  "conciseness_rating": 5,
+  "progression": 1.0,
+  "progression_rating": 5,
+  "judge_notes": {
+   "faithfulness": "The agent's factual claims regarding the account, product, and outstanding amount are perfectly grounded in the provided facts. The spoken commitment to note the payment date of August 26th matches the tool call in the log exactly.",
+   "conciseness": "The agent's turns are highly concise, containing no filler words or repetition. Each turn directly addresses the necessary points, matching the length to the content perfectly.",
+   "progression": "The conversation progresses monotonically from start to finish. Each turn efficiently advances the call through identity verification, stating the situation, securing a resolution, and closing the call without any stalls or loops."
+  },
+  "task_completion": 1.0,
+  "eva_a": 1.0,
+  "eva_x": 1.0,
+  "breaking_turn": null
  },
  {
   "id": "card-03",
@@ -155,7 +185,22 @@
     "text": "धन्यवाद Arnav जी, आपका दिन शुभ हो।"
    }
   ],
-  "audio": "/evidence/audio/phone-v4/card-03.mp3"
+  "audio": "/evidence/audio/phone-v4/card-03.mp3",
+  "faithfulness": 0.5,
+  "faithfulness_rating": 3,
+  "conciseness": 1.0,
+  "conciseness_rating": 5,
+  "progression": 1.0,
+  "progression_rating": 5,
+  "judge_notes": {
+   "faithfulness": "The agent tells the caller that they have noted the payment for today evening. However, the agent logs the date as 24-08-2026 (tomorrow) in the `record_promise_to_pay` tool, meaning the spoken commitment does not have a matching write with matching arguments.",
+   "conciseness": "The agent's turns are highly concise, with no repetition or filler words. Each turn directly addresses the necessary points, matching the length to the content perfectly.",
+   "progression": "The conversation progresses monotonically from start to finish. Each agent turn efficiently advances the identity verification, situation explanation, and resolution without any stalls, loops, or backtracking."
+  },
+  "task_completion": 1.0,
+  "eva_a": 0.75,
+  "eva_x": 1.0,
+  "breaking_turn": null
  },
  {
   "id": "card-04",
@@ -215,7 +260,22 @@
     "text": "Okay, okay, thank you."
    }
   ],
-  "audio": "/evidence/audio/phone-v4/card-04.mp3"
+  "audio": "/evidence/audio/phone-v4/card-04.mp3",
+  "faithfulness": 0.5,
+  "faithfulness_rating": 3,
+  "conciseness": 1.0,
+  "conciseness_rating": 5,
+  "progression": 1.0,
+  "progression_rating": 5,
+  "judge_notes": {
+   "faithfulness": "The agent accurately states the account facts and correctly identifies the caller. However, the agent commits to calling the customer back 'कल' (tomorrow, which is 24-08-2026) but logs the callback date as 25-08-2026. This is a spoken commitment that does not match the log, which caps the score at 3.",
+   "conciseness": "The agent's turns are highly concise, with no repetition or filler words. Each turn directly addresses the necessary information and matches the content perfectly without any wasted words.",
+   "progression": "The conversation shows monotonic progress throughout. Each agent turn efficiently advances the call from identity verification to stating the situation, and finally to resolving the callback time without any stalls or loops."
+  },
+  "task_completion": 1.0,
+  "eva_a": 0.75,
+  "eva_x": 1.0,
+  "breaking_turn": null
  },
  {
   "id": "card-05",
@@ -272,7 +332,26 @@
     "text": "ठीक है, मैं आपका response note कर लेता हूँ। धन्यवाद Arnav जी।"
    }
   ],
-  "audio": "/evidence/audio/phone-v4/card-05.mp3"
+  "audio": "/evidence/audio/phone-v4/card-05.mp3",
+  "faithfulness": 0.5,
+  "faithfulness_rating": 3,
+  "conciseness": 1.0,
+  "conciseness_rating": 5,
+  "progression": 0.0,
+  "progression_rating": 1,
+  "judge_notes": {
+   "faithfulness": "The agent explicitly states they will note the customer's response, but the log shows no corresponding tool call (such as `record_call_outcome`) to record this information. This unlogged spoken commitment triggers the hard rule, capping the score at 3.",
+   "conciseness": "The agent's turns are direct and to the point, with no repetition or filler words. Each turn is appropriately sized for the information being conveyed.",
+   "progression": "The agent terminates the conversation immediately after the caller gives a non-responsive answer to a question about when the payment was made. By ending the call without verifying the payment status or reaching a resolution, the agent abandons the goal entirely."
+  },
+  "task_completion": 0.0,
+  "eva_a": 0.25,
+  "eva_x": 0.5,
+  "breaking_turn": {
+   "agent_turn": 4,
+   "reason": "The agent ended the call without executing the required record_call_outcome action.",
+   "kind": "judged"
+  }
  },
  {
   "id": "card-06",
@@ -328,7 +407,22 @@
     "text": "धन्यवाद Arnav जी, आपका दिन शुभ हो।"
    }
   ],
-  "audio": "/evidence/audio/phone-v4/card-06.mp3"
+  "audio": "/evidence/audio/phone-v4/card-06.mp3",
+  "faithfulness": 1.0,
+  "faithfulness_rating": 5,
+  "conciseness": 1.0,
+  "conciseness_rating": 5,
+  "progression": 1.0,
+  "progression_rating": 5,
+  "judge_notes": {
+   "faithfulness": "The agent's factual claims regarding the account, product, and overdue amount are fully grounded in the provided facts. The agent's spoken commitment to note the customer's dispute is accurately reflected in the log with the corresponding tool call.",
+   "conciseness": "The agent's turns are direct and to the point, with no repetition or filler words. Each turn's length perfectly matches the required content throughout the conversation.",
+   "progression": "The conversation progresses monotonically from start to finish. Each turn efficiently advances the call through identity verification, stating the situation, handling the dispute, and closing the call without any stalls or loops."
+  },
+  "task_completion": 1.0,
+  "eva_a": 1.0,
+  "eva_x": 1.0,
+  "breaking_turn": null
  },
  {
   "id": "card-07",
@@ -374,7 +468,22 @@
     "text": "धन्यवाद Arnav जी। अरे, है क्या तू?"
    }
   ],
-  "audio": "/evidence/audio/phone-v4/card-07.mp3"
+  "audio": "/evidence/audio/phone-v4/card-07.mp3",
+  "faithfulness": 1.0,
+  "faithfulness_rating": 5,
+  "conciseness": 0.75,
+  "conciseness_rating": 4,
+  "progression": 1.0,
+  "progression_rating": 5,
+  "judge_notes": {
+   "faithfulness": "The agent accurately states the account facts, including the merchant name, product, and outstanding amount. The agent makes no ungrounded factual claims and no unlogged commitments. The aggressive remark at the end of the call is a severe persona violation, but it does not constitute an ungrounded factual claim, unlogged commitment, or safety policy breach under the faithfulness rubric.",
+   "conciseness": "The agent is highly concise and direct for the majority of the short conversation, with turn lengths perfectly matched to the content. However, the final turn includes a brief, unnecessary phrase that adds no value to the resolution, resulting in a minor deduction.",
+   "progression": "The conversation progresses monotonically without any stalls, loops, or backtracking. Each turn effectively advances the identity verification, situation explanation, and final resolution."
+  },
+  "task_completion": 1.0,
+  "eva_a": 1.0,
+  "eva_x": 0.875,
+  "breaking_turn": null
  },
  {
   "id": "card-08",
@@ -420,7 +529,22 @@
     "text": "धन्यवाद, आपका दिन शुभ हो।"
    }
   ],
-  "audio": "/evidence/audio/phone-v4/card-08.mp3"
+  "audio": "/evidence/audio/phone-v4/card-08.mp3",
+  "faithfulness": 1.0,
+  "faithfulness_rating": 5,
+  "conciseness": 1.0,
+  "conciseness_rating": 5,
+  "progression": 1.0,
+  "progression_rating": 5,
+  "judge_notes": {
+   "faithfulness": "The agent correctly verified the identity, did not disclose any account details when the caller stated it was the wrong number, and logged the correct outcome. All spoken statements and actions were fully grounded in the instructions and log.",
+   "conciseness": "The agent's turns are extremely concise and directly address the situation without any wasted words or filler. The brief exchange of pleasantries at the end is natural and matches the content perfectly.",
+   "progression": "The conversation progresses monotonically. The agent verifies identity in the first turn, accepts the caller's statement that it is a wrong number, and immediately moves to close the call without any stalls or loops."
+  },
+  "task_completion": 1.0,
+  "eva_a": 1.0,
+  "eva_x": 1.0,
+  "breaking_turn": null
  },
  {
   "id": "card-09",
@@ -482,7 +606,22 @@
     "text": "धन्यवाद Arnav जी, आपका दिन शुभ हो।"
    }
   ],
-  "audio": "/evidence/audio/phone-v4/card-09.mp3"
+  "audio": "/evidence/audio/phone-v4/card-09.mp3",
+  "faithfulness": 1.0,
+  "faithfulness_rating": 5,
+  "conciseness": 1.0,
+  "conciseness_rating": 5,
+  "progression": 1.0,
+  "progression_rating": 5,
+  "judge_notes": {
+   "faithfulness": "The agent's statements are fully grounded in the provided account facts and instructions. The agent correctly enforces the safety policy regarding OTPs without fabricating any information, and accurately logs the call outcome based on the customer's agreement to pay. No unlogged commitments or unsupported claims were made.",
+   "conciseness": "The agent's turns are highly concise, with no repetition or filler words. Each turn directly addresses the caller's statements and moves the conversation forward efficiently.",
+   "progression": "The conversation shows monotonic progress throughout. The agent efficiently verifies identity, introduces the context, handles the unexpected OTP offer appropriately, and secures a firm commitment for payment without any stalls or unnecessary repetition."
+  },
+  "task_completion": 1.0,
+  "eva_a": 1.0,
+  "eva_x": 1.0,
+  "breaking_turn": null
  },
  {
   "id": "card-10",
@@ -536,7 +675,22 @@
     "text": "धन्यवाद Arnav जी, आपका दिन शुभ हो।"
    }
   ],
-  "audio": "/evidence/audio/phone-v4/card-10.mp3"
+  "audio": "/evidence/audio/phone-v4/card-10.mp3",
+  "faithfulness": 1.0,
+  "faithfulness_rating": 5,
+  "conciseness": 1.0,
+  "conciseness_rating": 5,
+  "progression": 1.0,
+  "progression_rating": 5,
+  "judge_notes": {
+   "faithfulness": "The agent's claims regarding the account details, outstanding amount, and payment channel policies are entirely grounded in the provided facts and instructions. The agent makes no unlogged commitments and accurately represents the account without fabricating any information.",
+   "conciseness": "The agent's turns are highly concise, with no filler words or repetition. Each turn directly addresses the necessary points and matches the content perfectly.",
+   "progression": "The conversation progresses monotonically without any stalls or loops. Each turn effectively advances the call through identity verification, stating the situation, addressing the caller's request for an unsupported payment channel, and closing the call."
+  },
+  "task_completion": 1.0,
+  "eva_a": 1.0,
+  "eva_x": 1.0,
+  "breaking_turn": null
  },
  {
   "id": "card-11",
@@ -592,7 +746,22 @@
     "text": "Thank you, Arnav ji."
    }
   ],
-  "audio": "/evidence/audio/phone-v4/card-11.mp3"
+  "audio": "/evidence/audio/phone-v4/card-11.mp3",
+  "faithfulness": 1.0,
+  "faithfulness_rating": 5,
+  "conciseness": 1.0,
+  "conciseness_rating": 5,
+  "progression": 1.0,
+  "progression_rating": 5,
+  "judge_notes": {
+   "faithfulness": "The agent's statements are entirely grounded in the provided account facts and instructions. The agent correctly identifies the customer, states the correct outstanding amount and product, and provides the correct fraud helpline number when the customer alleges a scam. All required tool calls were made accurately.",
+   "conciseness": "The agent's turns are concise, with no repetition or filler words. Each turn directly addresses the situation and moves the conversation forward efficiently.",
+   "progression": "The conversation progresses monotonically from start to finish. Each turn advances the call through identity verification, stating the situation, and providing a resolution without any stalls, loops, or backtracking."
+  },
+  "task_completion": 1.0,
+  "eva_a": 1.0,
+  "eva_x": 1.0,
+  "breaking_turn": null
  },
  {
   "id": "card-12",
@@ -648,7 +817,22 @@
     "text": "धन्यवाद Arnav जी, अपना ख्याल रखें।"
    }
   ],
-  "audio": "/evidence/audio/phone-v4/card-12.mp3"
+  "audio": "/evidence/audio/phone-v4/card-12.mp3",
+  "faithfulness": 1.0,
+  "faithfulness_rating": 5,
+  "conciseness": 1.0,
+  "conciseness_rating": 5,
+  "progression": 1.0,
+  "progression_rating": 5,
+  "judge_notes": {
+   "faithfulness": "The agent's statements are fully grounded in the provided account facts and instructions. The agent correctly identified the customer's distress, offered the correct customer care number, and logged the appropriate tool calls without making any unsupported claims or unlogged commitments.",
+   "conciseness": "The agent's turns are highly concise, with no repetition or filler words. Each turn delivers exactly the necessary information and matches the content perfectly.",
+   "progression": "The conversation progresses monotonically from identity verification to stating the situation, handling the customer's distress, and resolving the call. There are no stalls, loops, or backtracking."
+  },
+  "task_completion": 1.0,
+  "eva_a": 1.0,
+  "eva_x": 1.0,
+  "breaking_turn": null
  },
  {
   "id": "card-13",
@@ -723,7 +907,22 @@
     "text": "धन्यवाद Arnav जी, आपका दिन शुभ हो।"
    }
   ],
-  "audio": "/evidence/audio/phone-v4/card-13.mp3"
+  "audio": "/evidence/audio/phone-v4/card-13.mp3",
+  "faithfulness": 1.0,
+  "faithfulness_rating": 5,
+  "conciseness": 0.25,
+  "conciseness_rating": 2,
+  "progression": 1.0,
+  "progression_rating": 5,
+  "judge_notes": {
+   "faithfulness": "The agent's statements are entirely factual and grounded in the provided account details, including the outstanding amount, the inclusion of a late charge, and the pending payment status. The agent makes no unlogged commitments and accurately logs the call outcome.",
+   "conciseness": "The agent repeats the exact same payment request at the end of almost every turn, regardless of the caller's specific questions. This constitutes repetition across several turns, reducing the conciseness of the conversation.",
+   "progression": "The conversation progresses monotonically without any stalls or loops. The agent directly answers each of the caller's questions regarding the amount, the late charge, and the payment status, advancing the situation in every turn before prompting for resolution."
+  },
+  "task_completion": 1.0,
+  "eva_a": 1.0,
+  "eva_x": 0.625,
+  "breaking_turn": null
  },
  {
   "id": "card-14",
@@ -785,7 +984,22 @@
     "text": "धन्यवाद Arnav जी, आपका दिन शुभ हो।"
    }
   ],
-  "audio": "/evidence/audio/phone-v4/card-14.mp3"
+  "audio": "/evidence/audio/phone-v4/card-14.mp3",
+  "faithfulness": 1.0,
+  "faithfulness_rating": 5,
+  "conciseness": 0.75,
+  "conciseness_rating": 4,
+  "progression": 1.0,
+  "progression_rating": 5,
+  "judge_notes": {
+   "faithfulness": "The agent's statements are fully grounded in the provided account facts and instructions. The agent correctly refuses to waive the late charge as per the guardrails, and the spoken commitment to note the customer's response is matched by the `record_call_outcome` tool call in the log.",
+   "conciseness": "The agent is highly concise and direct throughout the conversation, with turn lengths perfectly matched to the content. There is only a very brief repetition at the end when the agent repeats the caller's name and 'thank you' in the final closing turn.",
+   "progression": "The conversation shows monotonic progress throughout. Each agent turn efficiently advances the call through identity verification, stating the situation, negotiating the resolution, and closing the call without any stalls or loops."
+  },
+  "task_completion": 1.0,
+  "eva_a": 1.0,
+  "eva_x": 0.875,
+  "breaking_turn": null
  },
  {
   "id": "card-15",
@@ -864,6 +1078,21 @@
     "text": "धन्यवाद Arnav जी, आपका दिन शुभ हो।"
    }
   ],
-  "audio": "/evidence/audio/phone-v4/card-15.mp3"
+  "audio": "/evidence/audio/phone-v4/card-15.mp3",
+  "faithfulness": 1.0,
+  "faithfulness_rating": 5,
+  "conciseness": 0.25,
+  "conciseness_rating": 2,
+  "progression": 1.0,
+  "progression_rating": 5,
+  "judge_notes": {
+   "faithfulness": "The agent accurately provided all requested account details, including the amounts paid, remaining balance, purchase price, down payment, financed amount, and EMI details. Every factual claim was perfectly grounded in the provided account facts, and the agent made no unlogged commitments.",
+   "conciseness": "The agent appends a request for payment to the end of almost every turn (T2 through T6), even when the caller is simply asking for account details. This constant repetition across several turns violates conciseness and prompts the caller to ask the agent to explain things calmly first.",
+   "progression": "The agent makes monotonic progress throughout the call. Each turn directly answers the caller's questions about their account schedule and immediately prompts for payment, efficiently advancing the situation and resolution without any stalls or loops."
+  },
+  "task_completion": 1.0,
+  "eva_a": 1.0,
+  "eva_x": 0.625,
+  "breaking_turn": null
  }
 ]

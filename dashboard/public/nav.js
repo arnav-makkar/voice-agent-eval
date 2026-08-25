@@ -39,6 +39,36 @@
     });
   }
 
+  // Click-to-play video: swap the poster for the real player only on click, so
+  // the page never loads a third-party iframe for a visitor who does not watch.
+  document.querySelectorAll(".vidplay").forEach((btn) => {
+    // A private or still-processing video serves a 120x90 placeholder rather
+    // than a 404, so detect it by size and drop to the box's own background.
+    const thumb = btn.querySelector(".vidthumb");
+    if (thumb) {
+      const check = () => {
+        if (thumb.naturalWidth && thumb.naturalWidth <= 120) {
+          btn.closest(".vidbox").classList.add("nothumb");
+        }
+      };
+      thumb.complete ? check() : (thumb.onload = check, thumb.onerror = () =>
+        btn.closest(".vidbox").classList.add("nothumb"));
+    }
+    btn.addEventListener("click", () => {
+      const id = btn.dataset.yt;
+      if (!id) return;
+      const f = document.createElement("iframe");
+      f.src = "https://www.youtube-nocookie.com/embed/" + id +
+              "?autoplay=1&rel=0&modestbranding=1";
+      f.title = "Walkthrough video";
+      f.allow = "accelerometer; autoplay; encrypted-media; picture-in-picture; web-share";
+      f.referrerPolicy = "strict-origin-when-cross-origin";
+      f.allowFullscreen = true;
+      btn.replaceWith(f);
+      f.focus();
+    });
+  });
+
   // Comparison bars start at zero width in CSS and are filled once, shortly after
   // load, so the transition plays. A timer rather than requestAnimationFrame:
   // rAF callbacks do not fire while a tab is in the background, which left the

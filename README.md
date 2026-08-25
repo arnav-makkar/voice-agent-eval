@@ -1,105 +1,96 @@
-# Execution-Truth Evaluation & Self-Improvement for a Deployed Voice Agent
+# Evaluation and self-improvement for voice agents
 
-A deployed Hindi/Hinglish collections voice agent (Sarvam Indus) is evaluated,
-diagnosed, and then improved by an autonomous search — with every claim graded
-from an **append-only tool journal**, never from what the agent said.
+A framework that grades a voice agent on the records it leaves behind, turns its
+failures into replayable tests, and lets a search rewrite the agent against them.
+Validated end to end on a live Hindi/Hinglish EMI collections agent deployed on
+Sarvam Indus, across 200 real conversations.
 
-| Tier | n | Baseline | Champion | Method |
-| --- | ---: | ---: | ---: | --- |
-| Text (headless channel) | 180 | 98 · 54.4% | **160 · 88.9%** | scripted callers, hidden goals, journal-hash grading |
-| Phone (real handset) | 15 | 9 | **14** | human caller, 15 scripted cards, per-card ledger keys |
-| Bot-to-bot (duplex audio) | 5 | 0.933 | **1.000** | synthetic caller over websocket, judged + deterministic metrics |
+**[See the full walkthrough, with every recording and every number →](https://sarvam-voice-agent-eval.vercel.app)**
 
-62 scenarios fixed, none broken (McNemar p ≈ 0). Five of six pre-registered
-phone defects closed, zero regressions. Details, all recordings, and every
-number: the site under [`dashboard/`](dashboard/) — `npm run dev`, then
-http://localhost:3000.
+## The idea
 
-## Why "execution truth"
-
-A collections call's business outcome is a tool write — a promise logged, a
-dispute filed, an escalation queued — not a sentence. The baseline agent's
+A collections call's business outcome is a tool write: a promise logged, a
+dispute filed, an escalation queued. Not a sentence. The baseline agent's
 defining failure was saying *"मैं आपका response note कर लेता हूँ"* and writing
-nothing. Every tool is therefore served by a controlled service that appends
-each invocation to a journal the agent cannot read back or edit, and **a claim
-about a tool is decided by the journal alone**. Transcripts remain evidence of
-what was said; they feed the speech-quality judges, never the task verdict.
+nothing — a call that reads perfectly in the transcript and changed nothing.
 
-## Repository layout
+So every tool is served by a backend that appends each call to a journal the
+agent can add to but never read back or edit, and **task success is decided by
+that journal alone**. Transcripts feed the conversation-quality judges; they
+never decide whether the job got done.
+
+## Results
+
+| Tier | n | Baseline | After | Graded by |
+| --- | ---: | ---: | ---: | --- |
+| Text | 180 | 98 | **160** | journal end-state hash |
+| Phone, dialled by hand | 15 | 9 | **14** | same, on a real handset |
+| Bot-to-bot voice | 5 | 4 | **5** | same, synthetic caller over live audio |
+
+62 situations fixed, none broken, McNemar p ≈ 0. Held out from the search
+entirely: 33 → 59 of 60. Thirty situations written *after* the campaign closed:
+18 → 29.
+
+Judged metrics (faithfulness, conciseness, progression) are scored 0–100 on
+five-level rubrics by one judge across both voice tiers — spec in
+[`RUBRIC.md`](voice-agent-improvement/artifacts/campaign2/rescore/RUBRIC.md),
+every prompt and response in `rescore/judge_scores.json`.
+
+## The loop
+
+**Notice** a call whose journal contradicts itself → **group** repeats into a
+replayable test → **search** rewrites the agent's instructions (GEPA, scored by
+the benchmark grader itself) → **gate** on four checks: unseen split, safety
+veto, McNemar, measured noise floor → **ship** fingerprinted, and the winner
+becomes the next baseline.
+
+The search optimises accuracy only. Conversation quality is measured on every
+call and deliberately left out of the objective.
+
+## Layout
 
 ```
-dashboard/                  The presentation site (Next.js shell + static pages)
-  public/c2/                Seven-section walkthrough: overview → problem → instrument
-                            → diagnosis → loop → results → calls → notes
-  public/evidence/audio/    All 40 recorded calls (15+15 phone, 5+5 bot) with
-                            per-call index.json: transcript, journal, verdicts
+dashboard/public/            The site: six pages, plus all 40 recordings
 voice-agent-improvement/
-  framework/                The evaluation framework
-    tool_service.py         The gated tool backend + append-only journal
-    evaluation/             Runners, verifier, adapters (text-chat, authoring,
-                            telephony, duplex voice), graders
-  scripts/                  Operational entry points (see below)
-  dataset/                  Scenario generation (15 failure families)
-  improvement/              Optimiser scaffolding used by the search stage
-  artifacts/                Frozen benchmark, campaign results, run evidence,
-                            the journal database
-  research/eva-patches/     Tracked patches for the vendored voice harness
-  tests/                    104 tests, including instrument regression guards
+  framework/                 Tool service with the append-only journal, graders,
+                             channel adapters (text, telephony, duplex voice)
+  scripts/                   Entry points: run a tier, rescore, rebuild the site
+  artifacts/                 Frozen benchmark, campaign evidence, run records
+  research/eva-patches/      Patches for the vendored voice harness
+  tests/                     104 tests, including instrument regression guards
 ```
 
-## The improvement loop
-
-Sense (say-vs-do monitor over the journal) → distill (violations become replay
-scenarios) → search (GEPA reflective prompt evolution against the live agent;
-two-component candidates `{instructions, exemplars}` after MIPROv2) → gate
-(held-out blind split, guardrail veto, McNemar paired flips, measured noise
-floor) → deploy (authoring API, sha-pinned, parent sha = rollback). No human
-wrote candidate text; the one post-campaign operational patch (the closing rule
-names `end_interaction`) is declared wherever results are shown.
-
-## Running things
+## Running it
 
 ```bash
-# the site
-cd dashboard && npm install && npm run dev
+cd dashboard && npm install && npm run dev     # the site, localhost:3000
+```
 
-# the tool service (journal backend)
+```bash
 cd voice-agent-improvement
-python scripts/run_tool_service.py           # needs AGENT_TOOL_SECRET
-
-# phone tier, per card
-bash scripts/preflight_phone.sh              # five checks; dial only on ALL GREEN
-python scripts/place_phone_call.py --card 3
-bash scripts/phone_call.sh 3                 # scores the journal after hang-up
-
-# bot-to-bot (needs the vendored harness — research/eva-patches/README.md)
-bash scripts/run_bot_call.sh EMI-VOICE-003
-
-# tests
+python scripts/run_tool_service.py             # journal backend, needs AGENT_TOOL_SECRET
+bash scripts/preflight_phone.sh                # dial only on ALL GREEN
 python -m pytest tests/
 ```
 
-Secrets live in `.env` / `.env.local` (both gitignored): Sarvam voice-agents
-key, org/workspace/app ids, `AGENT_TOOL_SECRET` (the tool-gate key; the legacy
-`LOOPLINE_TOOL_SECRET` name is still accepted because the deployed platform's
-tool definitions send the original header), and a short-lived dashboard JWT for
-transcript retrieval.
+Secrets live in `.env` (gitignored): Sarvam voice-agent key, org/workspace/app
+ids, `AGENT_TOOL_SECRET`, and `GEMINI_API_KEY` for the judges.
 
-## Honesty notes
+## Limits
 
-- Historical run artifacts under `artifacts/` are byte-preserved evidence and
-  contain the project's former internal codename; authored code and docs do not.
-- The voice tiers are existence proofs (n = 15, n = 5); statistics live in the
-  180-scenario text tier.
-- Full limits — including the one card whose fix is confounded by language and
-  the duplicate-write defect that moved rather than resolved — are on the site's
-  final page.
+The voice tiers are existence proofs, not statistics — n = 15 and n = 5. The
+statistics live in the 180-conversation text tier. Two rounds show the loop
+repeats; they do not show that gains compound, and that is not claimed. One
+phone card's fix is confounded by a language switch. Collection rate was never
+an objective.
 
-## References
+Run artifacts under `artifacts/` are byte-preserved evidence and still carry the
+project's former internal codename; authored code and docs do not.
 
-- **EVA** (ServiceNow Research) — the bot-to-bot harness and the
-  Accuracy/Experience composite structure. github.com/ServiceNow/eva
-- **GEPA** — reflective prompt evolution (optimize-anything API).
-- **MIPROv2** (DSPy) — two-component candidate design.
-- **τ-bench** — hashed end-state task grading.
-- **Sarvam Indus / Samvaad** — the deployed agent platform.
+## Built on
+
+[EVA](https://github.com/ServiceNow/eva) (ServiceNow Research) for the
+bot-to-bot harness and the two-composite structure, with its task-completion
+core replaced by journal grading · **GEPA** for reflective prompt evolution ·
+**MIPROv2** (DSPy) for the two-part candidate design · **τ-bench** for
+end-state grading · **Sarvam Indus / Samvaad** as the deployed platform.
